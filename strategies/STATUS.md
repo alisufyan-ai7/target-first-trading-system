@@ -4,37 +4,39 @@ _Last updated: 2026-09-22_
 
 | Strategy label | Concept | Status |
 |---|---|---|
-| Engine A | Liquidity sweep -> MSS -> displacement/FVG -> retracement | RETAIN AS RESEARCH LEAD; insufficient alone |
+| Engine A | Liquidity sweep -> MSS -> displacement/FVG -> retracement | RETAIN USDJPY ARM AS RESEARCH LEAD; expansion paused |
 | Engine B | Momentum breakout -> retest -> continuation | FIRST FORMULATION REJECTED |
 | Engine C | Trend regime -> pullback -> continuation | FIRST FORMULATION REJECTED |
 | Engine D | Session/opening-range momentum | CURRENT FORMULATIONS NOT PROMOTED |
 | Engine E | Volatility compression -> expansion | CURRENT FORMULATIONS NOT PROMOTED |
+| Engine F | Statistical extension -> re-entry -> mean reversion | XAUUSD ARM NOT PROMOTED; PORTABLE SCREEN IN PROGRESS |
 
 ## Research implication
 
-Do not keep loosening XAUUSD rules simply to increase trade count.
+Do not keep loosening XAUUSD rules simply to increase trade count, and do not keep expanding Engine A after EXP-008.
 
-The next strategy work should focus on cross-market transfer and independent opportunity streams.
+The active strategy work is now the prospectively frozen Engine F v0.1 portable screen.
 
-Before Engine A is transferred, its next portable version must be frozen mechanically and paired with a risk-consistent USD 50 target rule. EXP-006 showed that the first volatility-burden sizing translation was economically too aggressive for the reference small account.
+## EXP-007 / EXP-008 Engine A result
 
-These are project-local strategy labels. A strategy must be separately frozen and documented before promotion.
-
-
-## EXP-007 portable Engine A result
-
-Engine A v0.2-portable was tested unchanged on XAUUSD, EURUSD, GBPUSD, and USDJPY.
+Engine A v0.2-portable was tested unchanged on XAUUSD, EURUSD, GBPUSD, USDJPY, and then XAGUSD.
 
 - XAUUSD: negative in both splits under the 2.5R economic rule.
 - EURUSD: negative development, positive holdout; not robust enough.
 - GBPUSD: positive development, negative holdout; not robust enough.
 - USDJPY: positive in both splits, but daily-output and leverage/notional requirements remain unacceptable.
+- XAGUSD: negative in both splits.
 
-**Status implication:** keep Engine A as a research lead only. Preserve USDJPY as the strongest cross-market lead, but do not promote any EXP-007 arm to execution.
+**Status implication:** preserve USDJPY / Engine A only as a research lead. Do not promote any arm to execution.
 
+## EXP-009 Engine F result so far
 
-### EXP-008 second-wave result
+Engine F v0.1 was frozen before outcome inspection.
 
-XAGUSD was negative in both development and holdout under the unchanged Engine A v0.2 rules.
+XAUUSD:
 
-**Decision:** Pause further Engine A cross-market expansion and do not loosen the rules. USDJPY remains the only current Engine A cross-market research lead.
+- development mean R: -0.192R on 13 trades;
+- holdout mean R: +0.021R on 24 trades;
+- <= USD 50 days: 100% in both splits.
+
+**Status implication:** XAUUSD Engine F is not promoted and will not be retuned. Continue unchanged to USDJPY as the next checkpoint.
