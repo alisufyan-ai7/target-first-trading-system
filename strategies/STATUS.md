@@ -9,7 +9,7 @@ _Last updated: 2026-09-22_
 | Engine C | Trend regime -> pullback -> continuation | FIRST FORMULATION REJECTED |
 | Engine D | Session/opening-range momentum | CURRENT FORMULATIONS NOT PROMOTED |
 | Engine E | Volatility compression -> expansion | CURRENT FORMULATIONS NOT PROMOTED |
-| Engine F | Statistical extension -> re-entry -> mean reversion | XAUUSD AND USDJPY ARMS NOT PROMOTED; PORTABLE SCREEN IN PROGRESS |
+| Engine F | Statistical extension -> re-entry -> mean reversion | XAUUSD, USDJPY, AND EURUSD ARMS NOT PROMOTED; FINAL GBPUSD ARM PENDING |
 
 ## Research implication
 
@@ -25,5 +25,6 @@ Across EXP-007/008, only USDJPY was positive in both development and holdout, bu
 
 - XAUUSD: development -0.192R/trade; holdout +0.021R/trade; 100% <= USD 50 days in both splits.
 - USDJPY: development +0.016R/trade; holdout -0.222R/trade; 98.31% holdout <= USD 50 days; median holdout notional/equity about 258x.
+- EURUSD: development -0.125R/trade; holdout +0.242R/trade; 98.31% holdout <= USD 50 days; median holdout notional/equity about 204x.
 
-**Status implication:** neither arm is promoted. Continue unchanged to EURUSD, then GBPUSD, before closing or retaining the family.
+**Status implication:** no Engine F arm is promoted so far. Run the final GBPUSD arm unchanged, then close or retain the family based on the full screen.
