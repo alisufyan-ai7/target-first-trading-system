@@ -31,3 +31,9 @@ However, holdout target-first hit rate is only 28.57%, <= USD 50 days are 100%, 
 Neither lead is deployable.
 
 Do not retune or expand these engines now. The next experiment should combine the two frozen leads under the daily risk state machine and test whether their independence materially improves the project-level daily distribution.
+
+## EXP-010 portfolio implication
+
+USDJPY / Engine A and GBPUSD / Engine F are low-correlated, but their frozen combination still produced 86.44% <= USD 50 holdout days and no >= USD 150 holdout days.
+
+**Decision:** neither lead nor their combination is promoted. Do not retune them. Active work moves to an objective-feasibility analysis before another engine is introduced.
