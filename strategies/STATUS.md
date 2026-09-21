@@ -31,3 +31,10 @@ Engine A v0.2-portable was tested unchanged on XAUUSD, EURUSD, GBPUSD, and USDJP
 - USDJPY: positive in both splits, but daily-output and leverage/notional requirements remain unacceptable.
 
 **Status implication:** keep Engine A as a research lead only. Preserve USDJPY as the strongest cross-market lead, but do not promote any EXP-007 arm to execution.
+
+
+### EXP-008 second-wave result
+
+XAGUSD was negative in both development and holdout under the unchanged Engine A v0.2 rules.
+
+**Decision:** Pause further Engine A cross-market expansion and do not loosen the rules. USDJPY remains the only current Engine A cross-market research lead.
