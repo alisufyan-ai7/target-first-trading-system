@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-22  
-**Phase:** Strategy research / opportunity-engine discovery
+**Phase:** Strategy research / multi-asset expansion
 
 ## Source of truth
 
@@ -23,46 +23,87 @@ The videos also support:
 - partial profit taking;
 - session/news awareness.
 
-### Engine A screen
+### Engine A
 
-A mechanical Badar-inspired setup was tested on XAUUSD one-minute data from 2026-03-01 through 2026-08-20.
+Badar-inspired liquidity/MSS/FVG setup.
 
-High-level result:
+Result:
 
 - simplified expectancy remained positive in the later holdout;
-- USD 5 favorable target-first hit rate was only about 27% in holdout;
+- USD 5 target-first hit rate was only about 27% in holdout;
 - typical favorable excursion was closer to USD 3;
 - daily USD 0–50 outcomes remained far too frequent.
 
-Conclusion: **Engine A is a candidate generator, not a complete daily-income solution.**
+Status: **retain as a research lead / candidate generator only.**
 
-### Engine B / C first formulations
+### Engine B / C
 
 - Engine B: momentum breakout -> retest -> continuation.
 - Engine C: trend pullback -> continuation.
 
-Strict definitions produced too few trades; looser definitions did not justify promotion on holdout.
+Status: **first formulations rejected**.
 
-Conclusion: **reject these first formulations rather than overfit them.**
+Strict rules were too sparse; loosening them did not justify promotion on holdout.
 
-## Current next tests
+### Engine D
 
-1. session/opening-range momentum;
-2. volatility compression -> expansion;
-3. compare each strategy on the same development/holdout framework;
-4. record results immediately in GitHub;
-5. if one survives, combine it with Engine A and test portfolio daily distribution;
-6. later expand to additional markets rather than forcing more XAU trades.
+Session/opening-range momentum.
 
-## Data work
+Result:
 
-Dukascopy remains the current baseline.
+- balanced version weakly positive but sparse and far below the daily-output target;
+- loose version turned negative on holdout;
+- strict version showed an attractive tiny holdout sample but essentially flat development;
+- NY-only result did not generalize.
 
-Independent finalist validation should use at least one of:
+Status: **current formulations not promoted**.
 
-- broker/MT5 history;
-- OANDA where suitable;
-- Twelve Data where suitable.
+See EXP-004.
+
+### Engine E
+
+Volatility compression -> expansion.
+
+Result:
+
+- strict formulations were too sparse;
+- balanced formulation turned approximately flat/negative in holdout;
+- loose high-frequency version eliminated zero-signal days but produced about 59% losing days and about 88% <= USD 50 days on holdout.
+
+Status: **current formulations not promoted**.
+
+See EXP-005.
+
+## Current conclusion
+
+More XAUUSD signals do not automatically improve the objective.
+
+The evidence so far suggests that the next useful direction is **multi-asset opportunity expansion**, not progressively looser XAU-only rules.
+
+## Next action
+
+1. identify reliable intraday data for additional liquid markets;
+2. prioritize markets where a USD 50 profit unit can be normalized cleanly;
+3. freeze one or more existing strategy families before applying them cross-market;
+4. test each market on development/holdout splits;
+5. combine only positive-expectancy, sufficiently independent streams;
+6. evaluate portfolio daily distribution under the USD 40 / USD 60 loss framework and USD 150–200 profit stop;
+7. cross-validate finalists on an independent data feed.
+
+## Candidate market universe
+
+Initial candidates from this chat:
+
+- XAUUSD;
+- XAGUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- GBPJPY;
+- NAS100 / USTEC;
+- US30;
+- US500 / SPX500;
+- BTCUSD / BTCUSDT where appropriate.
 
 ## Key unresolved question
 
