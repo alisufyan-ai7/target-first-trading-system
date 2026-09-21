@@ -93,3 +93,11 @@
 **Evidence:** Development was negative at -0.125R/trade on 24 trades while holdout flipped to +0.242R/trade on 31 trades. Holdout <= USD 50 days were 98.31%, and median notional/equity was about 204x.
 
 **Next:** Run the final predeclared GBPUSD arm unchanged, then judge Engine F on the complete four-market screen.
+
+## 2026-09-22 — Complete EXP-009; retain only GBPUSD Engine F as a lead
+
+**Decision:** Close Engine F v0.1 cross-market screening without retuning. Preserve GBPUSD as a statistical research lead only; do not promote any Engine F arm to execution.
+
+**Evidence:** GBPUSD was the only Engine F arm positive in both splits (+0.138R development, +0.080R holdout), but holdout target-first hit rate was only 28.57%, every holdout day remained <= USD 50, median stop was about 2.98 pips, and median notional/equity was about 181x. The other three markets showed sign instability or negative holdout.
+
+**Next:** Test the frozen GBPUSD Engine F lead together with the frozen USDJPY Engine A lead under the project daily risk state machine before inventing or tuning more strategies.
