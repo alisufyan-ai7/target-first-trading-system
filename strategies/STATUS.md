@@ -9,34 +9,21 @@ _Last updated: 2026-09-22_
 | Engine C | Trend regime -> pullback -> continuation | FIRST FORMULATION REJECTED |
 | Engine D | Session/opening-range momentum | CURRENT FORMULATIONS NOT PROMOTED |
 | Engine E | Volatility compression -> expansion | CURRENT FORMULATIONS NOT PROMOTED |
-| Engine F | Statistical extension -> re-entry -> mean reversion | XAUUSD ARM NOT PROMOTED; PORTABLE SCREEN IN PROGRESS |
+| Engine F | Statistical extension -> re-entry -> mean reversion | XAUUSD AND USDJPY ARMS NOT PROMOTED; PORTABLE SCREEN IN PROGRESS |
 
 ## Research implication
 
-Do not keep loosening XAUUSD rules simply to increase trade count, and do not keep expanding Engine A after EXP-008.
+Do not loosen failed rules to manufacture frequency.
 
-The active strategy work is now the prospectively frozen Engine F v0.1 portable screen.
+Engine A expansion is paused. Engine F v0.1 remains frozen while its predeclared market screen is completed.
 
-## EXP-007 / EXP-008 Engine A result
+## Engine A
 
-Engine A v0.2-portable was tested unchanged on XAUUSD, EURUSD, GBPUSD, USDJPY, and then XAGUSD.
+Across EXP-007/008, only USDJPY was positive in both development and holdout, but its daily-output and leverage/notional requirements remain unacceptable. Preserve it only as a research lead.
 
-- XAUUSD: negative in both splits under the 2.5R economic rule.
-- EURUSD: negative development, positive holdout; not robust enough.
-- GBPUSD: positive development, negative holdout; not robust enough.
-- USDJPY: positive in both splits, but daily-output and leverage/notional requirements remain unacceptable.
-- XAGUSD: negative in both splits.
+## Engine F / EXP-009 so far
 
-**Status implication:** preserve USDJPY / Engine A only as a research lead. Do not promote any arm to execution.
+- XAUUSD: development -0.192R/trade; holdout +0.021R/trade; 100% <= USD 50 days in both splits.
+- USDJPY: development +0.016R/trade; holdout -0.222R/trade; 98.31% holdout <= USD 50 days; median holdout notional/equity about 258x.
 
-## EXP-009 Engine F result so far
-
-Engine F v0.1 was frozen before outcome inspection.
-
-XAUUSD:
-
-- development mean R: -0.192R on 13 trades;
-- holdout mean R: +0.021R on 24 trades;
-- <= USD 50 days: 100% in both splits.
-
-**Status implication:** XAUUSD Engine F is not promoted and will not be retuned. Continue unchanged to USDJPY as the next checkpoint.
+**Status implication:** neither arm is promoted. Continue unchanged to EURUSD, then GBPUSD, before closing or retaining the family.
