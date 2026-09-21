@@ -235,3 +235,72 @@ However, it is **not promoted** because:
 - Do not promote EURUSD Engine A v0.2.
 - Do not tune the rules to preserve the positive holdout result.
 - Continue unchanged to GBPUSD and USDJPY to complete the transferability test.
+
+
+## Market checkpoint 3 — GBPUSD
+
+**Status:** NOT PROMOTED
+
+### Full-window signal funnel
+
+- eligible 5m sweep events examined: 2,139;
+- sweep events reaching valid MSS + displacement: 599;
+- events reaching a qualifying FVG: 459;
+- raw retracement fills before one-open filtering: 280;
+- accepted trades after one-open filtering: 224.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 109;
+- trades/day including zero-signal weekdays: 1.91;
+- 2.5R target-first win rate: 30.28%;
+- mean R/trade: +0.139R;
+- median R/trade: -1.00R;
+- timeout rate: 3.67%;
+- median structural stop distance: 0.0005750 = 5.75 pips;
+- median base-unit position size at USD 20 structural risk: 34,783 GBP;
+- median notional/equity ratio: 94.8x;
+- mean daily P&L under fixed USD 20 risk: +USD 5.30;
+- losing days: 42.11%;
+- <= USD 50 days: 91.23%;
+- >= USD 100 days: 1.75%;
+- >= USD 150 days: 0%;
+- maximum drawdown: approximately USD 136.79;
+- maximum consecutive losing days: 4;
+- maximum consecutive <= USD 50 days: 17;
+- total simulated P&L: approximately +USD 302.20.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 115;
+- trades/day including zero-signal weekdays: 1.95;
+- 2.5R target-first win rate: 24.35%;
+- mean R/trade: -0.111R;
+- median R/trade: -1.00R;
+- timeout rate: 2.61%;
+- median structural stop distance: 0.0004500 = 4.50 pips;
+- median base-unit position size at USD 20 structural risk: 44,444 GBP;
+- median notional/equity ratio: 118.1x;
+- mean daily P&L under fixed USD 20 risk: -USD 4.34;
+- losing days: 50.85%;
+- <= USD 50 days: 94.92%;
+- >= USD 100 days: 3.39%;
+- >= USD 150 days: 0%;
+- maximum drawdown: approximately USD 585.50;
+- maximum consecutive losing days: 4;
+- maximum consecutive <= USD 50 days: 41;
+- total simulated P&L: approximately -USD 256.22.
+
+### Interpretation
+
+GBPUSD does not generalize across the split. Development was positive, but holdout target-first rate fell below the simple no-cost 28.57% break-even level and mean R turned negative.
+
+The daily-distribution objective also remains far away, and the fixed-risk sizing implies very large notional exposure relative to the USD 500 reference equity.
+
+### Disposition
+
+- Do not promote GBPUSD Engine A v0.2.
+- Do not retune after the holdout deterioration.
+- Continue unchanged to USDJPY to complete EXP-007.
