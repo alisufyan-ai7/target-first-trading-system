@@ -35,3 +35,6 @@
 - Completed EXP-009 Engine F screen. GBPUSD was the only arm positive in both splits (+0.138R development, +0.080R holdout), but holdout hit rate was only 28.57%, <= USD 50 days were 100%, and median notional/equity was about 181x; retained as research lead only.
 - Closed Engine F v0.1 without retuning. The project now has two frozen research leads: USDJPY / Engine A v0.2 and GBPUSD / Engine F v0.1.
 - Set the next step to a prospective two-lead portfolio daily-distribution screen under the USD 40 / USD 60 loss framework and +USD 150 profit stop.
+- Completed EXP-010 two-lead portfolio screen. Holdout lead correlation was about +0.03, but 86.44% of days remained <= USD 50, 0% reached >= USD 150, losing days were 44.07%, and max drawdown was about USD 200.53.
+- The loss state machine limited the worst holdout day to -USD 40, but peak simultaneous notional/equity exceeded 1,200x.
+- No portfolio promotion. Shifted next step to a mathematical feasibility frontier for the current daily-distribution objective before searching for another engine or changing targets.
