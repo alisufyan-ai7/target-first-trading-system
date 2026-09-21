@@ -57,3 +57,12 @@
 **Evidence:** XAUUSD was negative in both splits; EURUSD and GBPUSD changed sign across development/holdout; USDJPY was positive in both splits but still produced 86.4% <= USD 50 holdout days and required median notional exposure around 178x reference equity under the USD 20 risk / USD 50 target rule.
 
 **Next:** Preserve USDJPY as a research lead without post-hoc tuning. Expand Engine A to a small second wave of markets under the already frozen rules; if that does not add robust positive streams, move to a genuinely independent strategy family.
+
+
+## 2026-09-22 — Pause Engine A expansion after EXP-008
+
+**Decision:** Stop adding markets or loosening Engine A v0.2 for now.
+
+**Evidence:** XAGUSD, the second-wave unchanged transfer test, was negative in both development (-0.179R/trade) and holdout (-0.161R/trade), with 93.2% <= USD 50 holdout days. Across EXP-007/008, USDJPY was the only market positive in both splits, and it still failed the project's daily-distribution and economic-feasibility objectives.
+
+**Next:** Preserve USDJPY as a research lead for later independent validation and move active strategy research to a genuinely independent setup family.
