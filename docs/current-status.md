@@ -50,17 +50,28 @@ Status: **not promoted**.
 
 Status: **not promoted**.
 
+### EURUSD
+
+- development: 24 trades, -0.125R/trade;
+- holdout: 31 trades, +0.242R/trade;
+- holdout hit rate: 35.48%;
+- holdout <= USD 50 days: 98.31%;
+- holdout median stop: about 2.31 pips;
+- holdout median notional/equity: about 203.6x.
+
+Status: **not promoted because development/holdout changed sign**.
+
 ## Current conclusion
 
-Engine F has not shown robust evidence in its first two markets. XAUUSD had negative development and marginally positive holdout; USDJPY was nearly flat in development and negative in holdout. Neither materially improves the daily-output objective, and USDJPY is economically impractical under the fixed-risk sizing rule.
+Engine F has not shown robust evidence in its first three markets. XAUUSD had negative development and marginally positive holdout; USDJPY was nearly flat in development and negative in holdout. Neither materially improves the daily-output objective, and USDJPY is economically impractical under the fixed-risk sizing rule.
 
 The rules remain frozen; no tuning is permitted.
 
 ## Next action
 
-1. run Engine F v0.1 unchanged on EURUSD;
-2. checkpoint EURUSD before testing GBPUSD;
-3. after the four predeclared arms, decide whether Engine F should be closed or retained;
+1. run Engine F v0.1 unchanged on the final predeclared GBPUSD arm;
+2. checkpoint GBPUSD;
+3. then decide whether Engine F should be closed or retained;
 4. do not combine any Engine F arm with Engine A unless it first demonstrates robust positive evidence;
 5. cross-validate only surviving research leads on independent data and realistic costs.
 
