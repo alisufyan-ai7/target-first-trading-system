@@ -19,3 +19,5 @@
 
 - Froze Engine A v0.2-portable before cross-market outcome inspection and opened EXP-007.
 - Checkpointed EXP-007 XAUUSD arm: holdout 133 trades, 18.8% 2.5R target-first wins, -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days; XAU arm rejected without retuning.
+
+- Checkpointed EXP-007 EURUSD arm: holdout improved to 31.25% 2.5R wins and +0.167R/trade, but development was negative, <= USD 50 days remained 88.1%, and median notional/equity was about 139x; not promoted.
