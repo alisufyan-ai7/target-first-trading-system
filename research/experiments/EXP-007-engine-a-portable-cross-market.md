@@ -161,3 +161,77 @@ The large fixed-risk drawdown relative to the USD 500 reference equity also inde
 - Do not promote Engine A v0.2 on XAUUSD.
 - Do not alter the frozen rules to rescue the XAU result.
 - Continue the same unchanged rules on EURUSD, GBPUSD, and USDJPY solely to test cross-market transferability.
+
+
+## Market checkpoint 2 — EURUSD
+
+**Status:** NOT PROMOTED
+
+### Full-window signal funnel
+
+- eligible 5m sweep events examined: 2,057;
+- sweep events reaching valid MSS + displacement: 609;
+- events reaching a qualifying FVG: 483;
+- raw retracement fills before one-open filtering: 285;
+- accepted trades after one-open filtering: 227.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 115;
+- trades/day including zero-signal weekdays: 2.02;
+- 2.5R target-first win rate: 23.48%;
+- mean R/trade: -0.109R;
+- median R/trade: -1.00R;
+- timeout rate: 3.48%;
+- median structural stop distance: 0.0004500 = 4.50 pips;
+- median base-unit position size at USD 20 structural risk: 44,444 EUR;
+- median notional/equity ratio: 105.2x;
+- mean daily P&L under fixed USD 20 risk: -USD 4.38;
+- losing days: 52.63%;
+- <= USD 50 days: 96.49%;
+- >= USD 100 days: 1.75%;
+- >= USD 150 days: 0%;
+- maximum drawdown: approximately USD 339.30;
+- maximum consecutive losing days: 6;
+- maximum consecutive <= USD 50 days: 34;
+- total simulated P&L: approximately -USD 249.76.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 112;
+- trades/day including zero-signal weekdays: 1.90;
+- 2.5R target-first win rate: 31.25%;
+- mean R/trade: +0.167R;
+- median R/trade: -1.00R;
+- timeout rate: 5.36%;
+- median structural stop distance: 0.0003350 = 3.35 pips;
+- median base-unit position size at USD 20 structural risk: 59,701 EUR;
+- median notional/equity ratio: 139.0x;
+- mean daily P&L under fixed USD 20 risk: +USD 6.35;
+- losing days: 40.68%;
+- <= USD 50 days: 88.14%;
+- >= USD 100 days: 6.78%;
+- >= USD 150 days: 0%;
+- maximum drawdown: USD 240.00;
+- maximum consecutive losing days: 4;
+- maximum consecutive <= USD 50 days: 17;
+- total simulated P&L: approximately +USD 374.36.
+
+### Interpretation
+
+EURUSD is the first non-Gold market to show positive holdout mean R under the frozen rules, and its 31.25% holdout target-first rate is above the simple no-cost 28.57% break-even rate for a -1R/+2.5R payoff.
+
+However, it is **not promoted** because:
+
+1. development expectancy was negative at -0.109R/trade, so robustness across the split is not established;
+2. 88.14% of holdout weekdays still finished at <= USD 50, far from the project objective;
+3. the median USD-20-risk position implies roughly 139x notional/equity on the USD 500 reference account before broker margin/cost constraints;
+4. costs have not yet been included, and 3–5 pip structural stops are especially sensitive to spread/slippage.
+
+### Disposition
+
+- Do not promote EURUSD Engine A v0.2.
+- Do not tune the rules to preserve the positive holdout result.
+- Continue unchanged to GBPUSD and USDJPY to complete the transferability test.
