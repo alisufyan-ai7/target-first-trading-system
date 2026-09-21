@@ -82,11 +82,15 @@ The evidence so far supports **multi-asset opportunity expansion**, not progress
 
 EXP-006 completed the first cross-market data/economics checkpoint using an independent public 1m sample feed for XAUUSD, EURUSD, GBPUSD, and USDJPY. The data are usable for a provisional common-window screen, but matching Gold's USD 5 target as the same fraction of median hourly volatility implied only about 3–4 pip FX targets and roughly 1.2–2.1 standard lots to gross about USD 50. That sizing is too aggressive for the reference USD 500 account and will not be used as the portfolio-economic rule.
 
+## EXP-007 partial result
+
+Engine A v0.2-portable has been frozen prospectively. Its first XAUUSD checkpoint failed under the USD 20 structural-risk / USD 50 target rule. Holdout produced 133 trades, a 2.5R target-first rate of 18.8%, mean expectancy of about -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days. The rules will not be changed to rescue this result.
+
 ## Next action
 
-1. freeze a fully mechanical, portable Engine A variant prospectively;
-2. freeze a risk-consistent USD 50 target/position-size rule using structural stops rather than the rejected EXP-006 volatility-burden sizing rule;
-3. test XAUUSD, EURUSD, GBPUSD, and USDJPY on the common March 12–August 20 window with development/holdout separation;
+1. continue the frozen Engine A v0.2 rules unchanged on EURUSD, GBPUSD, and USDJPY;
+2. checkpoint each market before testing the next;
+3. test each market on the common March 12–August 20 window with development/holdout separation;
 4. report notional/equity and margin-feasibility diagnostics alongside target-first statistics;
 5. combine only positive-expectancy, sufficiently independent streams;
 6. evaluate portfolio daily distribution under the USD 40 / USD 60 loss framework and USD 150–200 profit stop;
