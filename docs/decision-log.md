@@ -77,3 +77,11 @@
 **Evidence:** Development produced 13 trades at -0.192R/trade; holdout produced 24 trades at only +0.021R/trade; every eligible day in both splits remained <= USD 50.
 
 **Next:** Continue unchanged to the predeclared USDJPY checkpoint before judging the portable Engine F family more broadly.
+
+## 2026-09-22 — EXP-009 USDJPY checkpoint not promoted
+
+**Decision:** Do not promote or retune the USDJPY Engine F v0.1 arm.
+
+**Evidence:** Development was approximately flat at +0.016R/trade on 31 trades, while holdout fell to -0.222R/trade on 18 trades. Holdout <= USD 50 days were 98.31%, and the median 2.50-pip stop implied about 258x notional/equity under the USD 20 risk rule.
+
+**Next:** Continue unchanged to the predeclared EURUSD checkpoint before testing GBPUSD.
