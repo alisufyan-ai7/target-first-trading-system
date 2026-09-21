@@ -1,6 +1,6 @@
 # EXP-009 — Engine F Statistical Mean-Reversion Screen
 
-**Status:** IN PROGRESS — XAUUSD, USDJPY, AND EURUSD CHECKPOINTS COMPLETE; RULES REMAIN FROZEN  
+**Status:** COMPLETE — GBPUSD RETAINED AS RESEARCH LEAD; NO ARM PROMOTED TO EXECUTION  
 **Date:** 2026-09-22
 
 ## Purpose
@@ -267,6 +267,103 @@ The holdout target-first rate and expectancy are interesting in isolation, but t
 - Do not tune after seeing the sign flip.
 - Continue unchanged to the final predeclared GBPUSD arm.
 
+## Market checkpoint 4 — GBPUSD
+
+**Status:** RETAIN AS RESEARCH LEAD ONLY; NOT PROMOTED
+
+### Data processed
+
+- one-minute rows in the EXP-009 window: 166,864;
+- resampled 5m bars: 33,379;
+- full-window extension events after sequencing/cooldown logic: 1,058;
+- qualifying re-entry confirmations: 1,029;
+- accepted trades after the 2.5R-to-mean feasibility gate and one-open/cooldown rules: 75.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 40;
+- trades/day including zero-signal weekdays: 0.70;
+- 2.5R target-first hit rate: 32.50%;
+- mean R/trade: +0.138R;
+- median R/trade: -1.00R;
+- timeout rate: 0%;
+- median stop distance: 4.18 pips;
+- median position size at USD 20 risk: 47,874 GBP;
+- median notional/equity ratio: 129.83x;
+- mean daily P&L: about +USD 1.93;
+- losing days: 35.09%;
+- <= USD 50 days: 100%;
+- >= USD 100 days: 0%;
+- >= USD 150 days: 0%;
+- maximum drawdown: about USD 150;
+- maximum consecutive losing days: 2;
+- maximum consecutive <= USD 50 days: 57;
+- total simulated P&L: about +USD 110.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 35;
+- trades/day including zero-signal weekdays: 0.59;
+- 2.5R target-first hit rate: 28.57%;
+- mean R/trade: +0.080R;
+- median R/trade: -1.00R;
+- timeout rate: 2.86%;
+- median stop distance: 2.98 pips;
+- median position size at USD 20 risk: 67,187 GBP;
+- median notional/equity ratio: 180.57x;
+- mean daily P&L: about +USD 0.95;
+- losing days: 27.12%;
+- <= USD 50 days: 100%;
+- >= USD 100 days: 0%;
+- >= USD 150 days: 0%;
+- maximum drawdown: about USD 144.22;
+- maximum consecutive losing days: 2;
+- maximum consecutive <= USD 50 days: 59;
+- total simulated P&L: about +USD 55.78.
+
+### Interpretation
+
+GBPUSD is the only Engine F arm with positive mean R in both development and holdout.
+
+That is enough to preserve it as a statistical research lead, but not enough to promote it:
+
+1. holdout target-first hit rate is exactly 28.57%, the simple no-cost binary break-even rate for a -1R/+2.5R payoff;
+2. the small positive holdout mean comes partly from the single timeout/mark-to-market outcome rather than a comfortably above-break-even target hit rate;
+3. realistic spread/slippage could erase the edge because the median holdout stop is only about 2.98 pips;
+4. median holdout notional/equity is about 180.6x;
+5. every eligible day in both splits remained <= USD 50.
+
+### Disposition
+
+- Retain GBPUSD / Engine F v0.1 as a **research lead only**.
+- Do not promote it to execution.
+- Do not retune Engine F v0.1 after seeing the four-market results.
+- Do not expand Engine F to more markets until the existing lead passes stronger economic/cost and independent-feed validation.
+
+## Cross-market conclusion
+
+EXP-009 is **COMPLETE**.
+
+| Market | Dev mean R | Holdout mean R | Holdout 2.5R hit | Holdout <= USD 50 days | Holdout median notional/equity | Disposition |
+|---|---:|---:|---:|---:|---:|---|
+| XAUUSD | -0.192 | +0.021 | 29.17% | 100.00% | 42.7x | Not promoted |
+| USDJPY | +0.016 | -0.222 | 22.22% | 98.31% | 258.3x | Not promoted |
+| EURUSD | -0.125 | +0.242 | 35.48% | 98.31% | 203.6x | Not promoted |
+| GBPUSD | +0.138 | +0.080 | 28.57% | 100.00% | 180.6x | Research lead only |
+
+Engine F did not validate as a broadly portable cross-market family. Three of four markets show sign instability or negative holdout. GBPUSD is the only cross-split positive arm, and its edge is fragile before costs and economically aggressive for the reference account.
+
+The project now has two distinct statistical research leads:
+
+- USDJPY / Engine A v0.2;
+- GBPUSD / Engine F v0.1.
+
+Neither is deployable.
+
 ## Next action
 
-Run GBPUSD under the already frozen Engine F v0.1 rules, checkpoint it, then close or retain Engine F based on the full four-market evidence.
+Before inventing or tuning more strategies, test whether these two already-frozen, structurally independent leads improve the **portfolio daily distribution** when combined under the project's daily risk state machine.
+
+That portfolio experiment must be checkpointed prospectively and must preserve both engines unchanged.
