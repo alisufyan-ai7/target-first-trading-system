@@ -1,6 +1,6 @@
 # EXP-009 — Engine F Statistical Mean-Reversion Screen
 
-**Status:** IN PROGRESS — XAUUSD AND USDJPY CHECKPOINTS COMPLETE; RULES REMAIN FROZEN  
+**Status:** IN PROGRESS — XAUUSD, USDJPY, AND EURUSD CHECKPOINTS COMPLETE; RULES REMAIN FROZEN  
 **Date:** 2026-09-22
 
 ## Purpose
@@ -199,6 +199,74 @@ Economic feasibility is also poor: the median holdout stop is only about 2.5 pip
 - Do not tune after the holdout deterioration.
 - Continue unchanged to EURUSD as the third predeclared checkpoint, then write back before GBPUSD.
 
+## Market checkpoint 3 — EURUSD
+
+**Status:** NOT PROMOTED
+
+### Data processed
+
+- one-minute rows in the EXP-009 window: 166,890;
+- resampled 5m bars: 33,379;
+- full-window extension events after sequencing/cooldown logic: 1,056;
+- qualifying re-entry confirmations: 1,031;
+- accepted trades after the 2.5R-to-mean feasibility gate and one-open/cooldown rules: 55.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 24;
+- trades/day including zero-signal weekdays: 0.42;
+- 2.5R target-first hit rate: 25.00%;
+- mean R/trade: -0.125R;
+- median R/trade: -1.00R;
+- timeout rate: 0%;
+- median stop distance: 3.38 pips;
+- median position size at USD 20 risk: 59,138 EUR;
+- median notional/equity ratio: 139.19x;
+- mean daily P&L: about -USD 1.05;
+- losing days: 26.32%;
+- <= USD 50 days: 98.25%;
+- >= USD 100 days: 1.75%;
+- >= USD 150 days: 0%;
+- maximum drawdown: about USD 160;
+- maximum consecutive losing days: 4;
+- maximum consecutive <= USD 50 days: 34;
+- total simulated P&L: about -USD 60.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 31;
+- trades/day including zero-signal weekdays: 0.53;
+- 2.5R target-first hit rate: 35.48%;
+- mean R/trade: +0.242R;
+- median R/trade: -1.00R;
+- timeout rate: 0%;
+- median stop distance: 2.31 pips;
+- median position size at USD 20 risk: 86,687 EUR;
+- median notional/equity ratio: 203.63x;
+- mean daily P&L: about +USD 2.54;
+- losing days: 22.03%;
+- <= USD 50 days: 98.31%;
+- >= USD 100 days: 0%;
+- >= USD 150 days: 0%;
+- maximum drawdown: about USD 140;
+- maximum consecutive losing days: 2;
+- maximum consecutive <= USD 50 days: 31;
+- total simulated P&L: about +USD 150.
+
+### Interpretation
+
+EURUSD shows the same robustness problem seen elsewhere: development is negative while holdout is positive.
+
+The holdout target-first rate and expectancy are interesting in isolation, but they cannot justify promotion because the earlier split is negative and the sample remains small. Daily-output coverage remains far from the project objective, and the median holdout notional/equity burden is above 200x.
+
+### Disposition
+
+- Do not promote EURUSD / Engine F v0.1.
+- Do not tune after seeing the sign flip.
+- Continue unchanged to the final predeclared GBPUSD arm.
+
 ## Next action
 
-Run EURUSD under the already frozen Engine F v0.1 rules and checkpoint the result before the final GBPUSD arm.
+Run GBPUSD under the already frozen Engine F v0.1 rules, checkpoint it, then close or retain Engine F based on the full four-market evidence.
