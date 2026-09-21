@@ -9,4 +9,6 @@
 - Recorded data-source policy.
 - Recorded Badar-inspired Engine A findings.
 - Recorded rejection of first Engine B/C formulations.
-- Set Engine D/E as next experiments.
+- Completed Engine D session/opening-range momentum screen; current formulations not promoted.
+- Completed Engine E volatility-compression/expansion screen; current formulations not promoted.
+- Changed next research phase from more XAU-only tuning to multi-asset opportunity expansion.
