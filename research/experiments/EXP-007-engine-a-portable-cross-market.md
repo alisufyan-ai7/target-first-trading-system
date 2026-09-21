@@ -71,3 +71,93 @@ Any positive result remains provisional until costs and an independent feed are 
 ## Next action
 
 Run the frozen rules market by market in small checkpoints. Record each market result before any portfolio combination.
+
+
+## Implementation notes
+
+The first implementation checkpoint uses the frozen v0.2 rules exactly as specified.
+
+Additional deterministic execution details:
+
+- the active setup/entry window is enforced so a sweep must complete before 18:00 UTC and a retracement fill must occur before 18:00 UTC;
+- the 2-left/2-right pivot is not eligible until its two right-side bars have completed;
+- if several eligible pivots exist, the most recent confirmed pivot within the frozen age window is used;
+- the first qualifying same-direction FVG is used;
+- retracement entry begins only after the FVG-confirming candle has completed;
+- the one-open-trade rule is applied chronologically: a new candidate whose sweep or fill occurs while an existing Engine A trade is open is ignored;
+- all UTC weekdays in each split are included in daily-distribution statistics, including zero-signal days;
+- raw funnel counts below are for the full common test window unless otherwise stated.
+
+## Market checkpoint 1 — XAUUSD
+
+**Status:** PORTABLE v0.2 XAU ARM REJECTED UNDER THE 2.5R ECONOMIC RULE
+
+### Full-window signal funnel
+
+- eligible 5m sweep events examined: 2,394;
+- sweep events reaching valid MSS + displacement: 678;
+- events reaching a qualifying FVG: 496;
+- raw retracement fills before one-open filtering: 296;
+- accepted trades after one-open filtering: 231.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 98;
+- trades/day including zero-signal weekdays: 1.72;
+- 2.5R target-first win rate: 23.47%;
+- mean R/trade: -0.163R;
+- median R/trade: -1.00R;
+- timeout rate: 1.02%;
+- median structural stop distance: USD 6.95/oz;
+- median position size at USD 20 structural risk: 2.88 oz;
+- median notional/equity ratio: 27.0x;
+- legacy fixed-USD-5 favorable-move-before-stop diagnostic: 53.06%;
+- mean daily P&L under fixed USD 20 risk: -USD 5.60;
+- losing days: 50.88%;
+- <= USD 50 days: 91.23%;
+- >= USD 100 days: 5.26%;
+- >= USD 150 days: 1.75%;
+- maximum drawdown: approximately USD 789.42;
+- maximum consecutive losing days: 8;
+- maximum consecutive <= USD 50 days: 32;
+- total simulated P&L: approximately -USD 319.42.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 133;
+- trades/day including zero-signal weekdays: 2.25;
+- 2.5R target-first win rate: 18.80%;
+- mean R/trade: -0.305R;
+- median R/trade: -1.00R;
+- timeout rate: 2.26%;
+- median structural stop distance: USD 5.19/oz;
+- median position size at USD 20 structural risk: 3.85 oz;
+- median notional/equity ratio: 32.6x;
+- legacy fixed-USD-5 favorable-move-before-stop diagnostic: 35.34%;
+- mean daily P&L under fixed USD 20 risk: -USD 13.77;
+- losing days: 66.10%;
+- <= USD 50 days: 96.61%;
+- >= USD 100 days: 0%;
+- >= USD 150 days: 0%;
+- maximum drawdown: approximately USD 852.27;
+- maximum consecutive losing days: 7;
+- maximum consecutive <= USD 50 days: 24;
+- total simulated P&L: approximately -USD 812.27.
+
+### Interpretation
+
+The frozen portable version fails on XAUUSD under the USD 20 risk / USD 50 target rule.
+
+For a simple -1R / +2.5R binary payoff, the no-cost break-even win rate is about 28.57%. The observed 18.80% holdout target-first rate is materially below that threshold, and measured mean R is negative.
+
+The legacy USD 5 diagnostic is **not directly comparable** with EXP-002 because this experiment uses a different public feed, a newly frozen fully mechanical implementation, and a shorter common window.
+
+The large fixed-risk drawdown relative to the USD 500 reference equity also independently fails the project's risk objective.
+
+### Disposition
+
+- Do not promote Engine A v0.2 on XAUUSD.
+- Do not alter the frozen rules to rescue the XAU result.
+- Continue the same unchanged rules on EURUSD, GBPUSD, and USDJPY solely to test cross-market transferability.
