@@ -1,6 +1,6 @@
 # EXP-007 — Engine A v0.2 Portable Cross-Market Screen
 
-**Status:** IN PROGRESS — RULES FROZEN BEFORE OUTCOME INSPECTION  
+**Status:** COMPLETE — USDJPY RETAINED AS RESEARCH LEAD; NO ARM PROMOTED  
 **Date:** 2026-09-22
 
 ## Question
@@ -304,3 +304,105 @@ The daily-distribution objective also remains far away, and the fixed-risk sizin
 - Do not promote GBPUSD Engine A v0.2.
 - Do not retune after the holdout deterioration.
 - Continue unchanged to USDJPY to complete EXP-007.
+
+
+## Market checkpoint 4 — USDJPY
+
+**Status:** STATISTICAL RESEARCH LEAD ONLY; NOT PROMOTED
+
+### Full-window signal funnel
+
+- eligible 5m sweep events examined: 2,037;
+- sweep events reaching valid MSS + displacement: 557;
+- events reaching a qualifying FVG: 416;
+- raw retracement fills before one-open filtering: 262;
+- accepted trades after one-open filtering: 209.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 112;
+- trades/day including zero-signal weekdays: 1.96;
+- 2.5R target-first win rate: 30.36%;
+- mean R/trade: +0.075R;
+- median R/trade: -1.00R;
+- timeout rate: 0.89%;
+- median structural stop distance: 0.04825 JPY = 4.83 pips;
+- median USD-base position size at USD 20 structural risk: 65,947 USD;
+- median notional/equity ratio: 131.9x;
+- mean daily P&L under fixed USD 20 risk: +USD 2.93;
+- losing days: 49.12%;
+- <= USD 50 days: 87.72%;
+- >= USD 100 days: 5.26%;
+- >= USD 150 days: 1.75%;
+- maximum drawdown: USD 150.00;
+- maximum consecutive losing days: 3;
+- maximum consecutive <= USD 50 days: 13;
+- total simulated P&L: approximately +USD 167.03.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 97;
+- trades/day including zero-signal weekdays: 1.64;
+- 2.5R target-first win rate: 31.96%;
+- mean R/trade: +0.263R;
+- median R/trade: -1.00R;
+- timeout rate: 7.22%;
+- median structural stop distance: 0.03650 JPY = 3.65 pips;
+- median USD-base position size at USD 20 structural risk: 88,895 USD;
+- median notional/equity ratio: 177.8x;
+- mean daily P&L under fixed USD 20 risk: +USD 8.65;
+- losing days: 40.68%;
+- <= USD 50 days: 86.44%;
+- >= USD 100 days: 3.39%;
+- >= USD 150 days: 0%;
+- maximum drawdown: approximately USD 180.53;
+- maximum consecutive losing days: 6;
+- maximum consecutive <= USD 50 days: 14;
+- total simulated P&L: approximately +USD 510.48.
+
+### Interpretation
+
+USDJPY is the only EXP-007 market with positive mean R in both development and holdout under the unchanged portable rules.
+
+That is evidence worth preserving as a **research lead**, but it does not satisfy the project objective:
+
+1. holdout <= USD 50 days remain 86.44%, far above the ~20% preference;
+2. there were no >= USD 150 holdout days;
+3. median fixed-risk sizing implies about 177.8x notional/equity before broker margin constraints;
+4. the median stop is only about 3.65 pips, making results especially sensitive to spread, slippage, and execution latency;
+5. broker-specific costs remain excluded.
+
+### Disposition
+
+- Retain USDJPY / Engine A v0.2 only as a statistical research lead.
+- Do not promote it to a deployable strategy.
+- Do not tune EXP-007 parameters after seeing these results.
+- Any further USDJPY work must be a separately specified experiment with an economic-feasibility gate and fresh validation data.
+
+## Cross-market conclusion
+
+EXP-007 is **COMPLETE**.
+
+| Market | Dev mean R | Holdout mean R | Holdout 2.5R hit | Holdout <= USD 50 days | Holdout median notional/equity | Disposition |
+|---|---:|---:|---:|---:|---:|---|
+| XAUUSD | -0.163 | -0.305 | 18.80% | 96.61% | 32.6x | Reject v0.2 arm |
+| EURUSD | -0.109 | +0.167 | 31.25% | 88.14% | 139.0x | Not promoted |
+| GBPUSD | +0.139 | -0.111 | 24.35% | 94.92% | 118.1x | Not promoted |
+| USDJPY | +0.075 | +0.263 | 31.96% | 86.44% | 177.8x | Research lead only |
+
+The experiment does **not** support combining these four arms into a portfolio. Only USDJPY showed positive mean R on both splits, and even that arm fails the daily-distribution and economic-feasibility objectives.
+
+The cross-market result strengthens two project conclusions:
+
+1. simply increasing the number of markets does not solve the consistency objective unless the added streams are robustly positive;
+2. a USD 50 profit unit from a USD 500 reference account creates severe leverage/notional pressure when structural intraday stops are only a few pips wide.
+
+## Next action
+
+Do not retune EXP-007.
+
+The next experiment should expand the opportunity universe using the same frozen Engine A v0.2 rules on a small second wave of markets with clean data/economics, while separately preserving USDJPY for later independent-feed and execution-cost validation.
+
+If the second wave does not produce additional robust positive streams, shift strategy research toward a genuinely independent engine family rather than loosening Engine A.
