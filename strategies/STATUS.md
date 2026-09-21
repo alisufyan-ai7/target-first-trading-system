@@ -16,4 +16,6 @@ Do not keep loosening XAUUSD rules simply to increase trade count.
 
 The next strategy work should focus on cross-market transfer and independent opportunity streams.
 
+Before Engine A is transferred, its next portable version must be frozen mechanically and paired with a risk-consistent USD 50 target rule. EXP-006 showed that the first volatility-burden sizing translation was economically too aggressive for the reference small account.
+
 These are project-local strategy labels. A strategy must be separately frozen and documented before promotion.
