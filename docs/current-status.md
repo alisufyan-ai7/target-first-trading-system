@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-22  
-**Phase:** Strategy research / multi-asset expansion
+**Phase:** Strategy research / independent-engine screening
 
 ## Source of truth
 
@@ -29,32 +29,25 @@ Badar-inspired liquidity/MSS/FVG setup.
 
 Result:
 
-- simplified expectancy remained positive in the later holdout;
+- simplified expectancy remained positive in the later EXP-002 holdout;
 - USD 5 target-first hit rate was only about 27% in holdout;
 - typical favorable excursion was closer to USD 3;
 - daily USD 0–50 outcomes remained far too frequent.
 
-Status: **retain as a research lead / candidate generator only.**
+Cross-market portable testing in EXP-007/008 then showed that only USDJPY was positive in both splits, while XAGUSD failed both splits and the other FX/Gold arms were unstable or negative.
+
+Status: **retain USDJPY / Engine A v0.2 as a research lead only; pause further Engine A expansion.**
 
 ### Engine B / C
 
 - Engine B: momentum breakout -> retest -> continuation.
-- Engine C: trend pullback -> continuation.
+- Engine C: trend regime -> pullback -> continuation.
 
 Status: **first formulations rejected**.
-
-Strict rules were too sparse; loosening them did not justify promotion on holdout.
 
 ### Engine D
 
 Session/opening-range momentum.
-
-Result:
-
-- balanced version weakly positive but sparse and far below the daily-output target;
-- loose version turned negative on holdout;
-- strict version showed an attractive tiny holdout sample but essentially flat development;
-- NY-only result did not generalize.
 
 Status: **current formulations not promoted**.
 
@@ -64,57 +57,53 @@ See EXP-004.
 
 Volatility compression -> expansion.
 
-Result:
-
-- strict formulations were too sparse;
-- balanced formulation turned approximately flat/negative in holdout;
-- loose high-frequency version eliminated zero-signal days but produced about 59% losing days and about 88% <= USD 50 days on holdout.
-
 Status: **current formulations not promoted**.
 
 See EXP-005.
 
+### EXP-006
+
+Multi-asset data/economics checkpoint completed. Public independent 1m samples are usable for provisional screening, but the first volatility-burden sizing translation was economically unsuitable for a ~USD 500 reference account.
+
+### EXP-007 / EXP-008
+
+Engine A v0.2-portable was tested prospectively across XAUUSD, EURUSD, GBPUSD, USDJPY, then XAGUSD.
+
+- XAUUSD: negative in both splits under the 2.5R rule.
+- EURUSD: negative development, positive holdout.
+- GBPUSD: positive development, negative holdout.
+- USDJPY: positive in both splits (+0.075R development, +0.263R holdout), but 86.4% of holdout days were <= USD 50 and median notional/equity was about 178x.
+- XAGUSD: negative in both splits.
+
+Conclusion: stop further Engine A market expansion/loosening for now.
+
+### EXP-009 / Engine F
+
+A genuinely independent price-only statistical mean-reversion engine was frozen prospectively before outcome inspection.
+
+XAUUSD first checkpoint:
+
+- development: 13 trades, 23.08% 2.5R hit rate, -0.192R/trade;
+- holdout: 24 trades, 29.17% hit rate, +0.021R/trade;
+- <= USD 50 days: 100% in both splits;
+- holdout median notional/equity: about 42.7x.
+
+Status: **XAUUSD Engine F arm not promoted; rules remain frozen.**
+
 ## Current conclusion
 
-More XAUUSD signals do not automatically improve the objective.
+Neither more XAUUSD signals nor simply adding markets has solved the daily-distribution objective.
 
-The evidence so far supports **multi-asset opportunity expansion**, not progressively looser XAU-only rules.
-
-EXP-006 completed the first cross-market data/economics checkpoint using an independent public 1m sample feed for XAUUSD, EURUSD, GBPUSD, and USDJPY. The data are usable for a provisional common-window screen, but matching Gold's USD 5 target as the same fraction of median hourly volatility implied only about 3–4 pip FX targets and roughly 1.2–2.1 standard lots to gross about USD 50. That sizing is too aggressive for the reference USD 500 account and will not be used as the portfolio-economic rule.
-
-## EXP-007 partial result
-
-Engine A v0.2-portable has been frozen prospectively. Its XAUUSD checkpoint failed under the USD 20 structural-risk / USD 50 target rule: holdout produced 133 trades, an 18.8% 2.5R target-first rate, about -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days. EURUSD showed +0.167R/trade and a 31.25% holdout hit rate, but development expectancy was negative, 88.1% of holdout days remained <= USD 50, and median notional/equity was about 139x. Neither arm is promoted and the frozen rules will not be retuned. GBPUSD then showed the reverse instability: +0.139R/trade in development but -0.111R/trade in holdout, with 94.9% <= USD 50 days and median notional/equity about 118x. GBPUSD is also not promoted. USDJPY was the only arm positive in both splits (+0.075R development, +0.263R holdout), but 86.4% of holdout days were still <= USD 50 and median notional/equity was about 178x. USDJPY is retained only as a statistical research lead.
+The active research question is now whether a genuinely independent engine can produce a robust second stream without post-hoc tuning.
 
 ## Next action
 
-1. stop further Engine A market expansion for now: EXP-008 XAGUSD was negative in both development and holdout;
-2. preserve USDJPY / Engine A v0.2 as a research lead for later independent-feed and execution-cost validation, without tuning EXP-007;
-3. define and freeze a genuinely independent strategy family before inspecting its outcomes;
-4. test that new family market by market with the same development/holdout and daily-distribution discipline;
-4. report notional/equity and margin-feasibility diagnostics alongside target-first statistics;
-5. combine only positive-expectancy, sufficiently independent streams;
-6. evaluate portfolio daily distribution under the USD 40 / USD 60 loss framework and USD 150–200 profit stop;
-7. cross-validate finalists on an independent data feed.
-
-## Candidate market universe
-
-Initial candidates from this chat:
-
-- XAUUSD;
-- XAGUSD;
-- EURUSD;
-- GBPUSD;
-- USDJPY;
-- GBPJPY;
-- NAS100 / USTEC;
-- US30;
-- US500 / SPX500;
-- BTCUSD / BTCUSDT where appropriate.
-
-## EXP-008 result
-
-XAGUSD did not add a second robust Engine A stream. Holdout produced 136 trades, a 23.53% 2.5R target-first rate, -0.161R/trade, 55.9% losing days, and 93.2% <= USD 50 days. Engine A expansion is paused rather than retuned.
+1. run the already-frozen Engine F v0.1 unchanged on USDJPY;
+2. checkpoint the USDJPY result before touching EURUSD or GBPUSD;
+3. do not retune Engine F after the XAUUSD failure;
+4. continue to report notional/equity and margin-feasibility diagnostics;
+5. combine streams only after positive development/holdout evidence exists;
+6. later cross-validate any surviving lead on an independent feed and with execution costs.
 
 ## Key unresolved question
 
