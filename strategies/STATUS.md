@@ -4,27 +4,30 @@ _Last updated: 2026-09-22_
 
 | Strategy label | Concept | Status |
 |---|---|---|
-| Engine A | Liquidity sweep -> MSS -> displacement/FVG -> retracement | RETAIN USDJPY ARM AS RESEARCH LEAD; expansion paused |
+| Engine A | Liquidity sweep -> MSS -> displacement/FVG -> retracement | USDJPY v0.2 RETAINED AS RESEARCH LEAD; expansion paused |
 | Engine B | Momentum breakout -> retest -> continuation | FIRST FORMULATION REJECTED |
 | Engine C | Trend regime -> pullback -> continuation | FIRST FORMULATION REJECTED |
 | Engine D | Session/opening-range momentum | CURRENT FORMULATIONS NOT PROMOTED |
 | Engine E | Volatility compression -> expansion | CURRENT FORMULATIONS NOT PROMOTED |
-| Engine F | Statistical extension -> re-entry -> mean reversion | XAUUSD, USDJPY, AND EURUSD ARMS NOT PROMOTED; FINAL GBPUSD ARM PENDING |
+| Engine F | Statistical extension -> re-entry -> mean reversion | GBPUSD v0.1 RETAINED AS RESEARCH LEAD; other arms not promoted |
+
+## Current research leads
+
+### USDJPY / Engine A v0.2
+
+Positive mean R in both EXP-007 splits, but daily-output and leverage/notional requirements remain unacceptable.
+
+### GBPUSD / Engine F v0.1
+
+Positive mean R in both EXP-009 splits:
+
+- development +0.138R/trade;
+- holdout +0.080R/trade.
+
+However, holdout target-first hit rate is only 28.57%, <= USD 50 days are 100%, median stop is about 2.98 pips, and median notional/equity is about 181x.
 
 ## Research implication
 
-Do not loosen failed rules to manufacture frequency.
+Neither lead is deployable.
 
-Engine A expansion is paused. Engine F v0.1 remains frozen while its predeclared market screen is completed.
-
-## Engine A
-
-Across EXP-007/008, only USDJPY was positive in both development and holdout, but its daily-output and leverage/notional requirements remain unacceptable. Preserve it only as a research lead.
-
-## Engine F / EXP-009 so far
-
-- XAUUSD: development -0.192R/trade; holdout +0.021R/trade; 100% <= USD 50 days in both splits.
-- USDJPY: development +0.016R/trade; holdout -0.222R/trade; 98.31% holdout <= USD 50 days; median holdout notional/equity about 258x.
-- EURUSD: development -0.125R/trade; holdout +0.242R/trade; 98.31% holdout <= USD 50 days; median holdout notional/equity about 204x.
-
-**Status implication:** no Engine F arm is promoted so far. Run the final GBPUSD arm unchanged, then close or retain the family based on the full screen.
+Do not retune or expand these engines now. The next experiment should combine the two frozen leads under the daily risk state machine and test whether their independence materially improves the project-level daily distribution.
