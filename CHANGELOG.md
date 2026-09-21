@@ -23,3 +23,7 @@
 - Checkpointed EXP-007 EURUSD arm: holdout improved to 31.25% 2.5R wins and +0.167R/trade, but development was negative, <= USD 50 days remained 88.1%, and median notional/equity was about 139x; not promoted.
 
 - Checkpointed EXP-007 GBPUSD arm: development +0.139R/trade deteriorated to -0.111R/trade in holdout; 94.9% of holdout days were <= USD 50 and median notional/equity was about 118x; not promoted.
+
+- Completed EXP-007 portable Engine A cross-market screen.
+- USDJPY was the only arm with positive mean R in both development (+0.075R) and holdout (+0.263R), but 86.4% of holdout days remained <= USD 50 and median notional/equity was about 178x; retained only as a statistical research lead.
+- No EXP-007 arm promoted or combined into a portfolio.
