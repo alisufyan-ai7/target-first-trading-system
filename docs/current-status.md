@@ -78,14 +78,16 @@ See EXP-005.
 
 More XAUUSD signals do not automatically improve the objective.
 
-The evidence so far suggests that the next useful direction is **multi-asset opportunity expansion**, not progressively looser XAU-only rules.
+The evidence so far supports **multi-asset opportunity expansion**, not progressively looser XAU-only rules.
+
+EXP-006 completed the first cross-market data/economics checkpoint using an independent public 1m sample feed for XAUUSD, EURUSD, GBPUSD, and USDJPY. The data are usable for a provisional common-window screen, but matching Gold's USD 5 target as the same fraction of median hourly volatility implied only about 3–4 pip FX targets and roughly 1.2–2.1 standard lots to gross about USD 50. That sizing is too aggressive for the reference USD 500 account and will not be used as the portfolio-economic rule.
 
 ## Next action
 
-1. identify reliable intraday data for additional liquid markets;
-2. prioritize markets where a USD 50 profit unit can be normalized cleanly;
-3. freeze one or more existing strategy families before applying them cross-market;
-4. test each market on development/holdout splits;
+1. freeze a fully mechanical, portable Engine A variant prospectively;
+2. freeze a risk-consistent USD 50 target/position-size rule using structural stops rather than the rejected EXP-006 volatility-burden sizing rule;
+3. test XAUUSD, EURUSD, GBPUSD, and USDJPY on the common March 12–August 20 window with development/holdout separation;
+4. report notional/equity and margin-feasibility diagnostics alongside target-first statistics;
 5. combine only positive-expectancy, sufficiently independent streams;
 6. evaluate portfolio daily distribution under the USD 40 / USD 60 loss framework and USD 150–200 profit stop;
 7. cross-validate finalists on an independent data feed.
