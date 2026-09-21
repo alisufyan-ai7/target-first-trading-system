@@ -12,3 +12,7 @@
 - Completed Engine D session/opening-range momentum screen; current formulations not promoted.
 - Completed Engine E volatility-compression/expansion screen; current formulations not promoted.
 - Changed next research phase from more XAU-only tuning to multi-asset opportunity expansion.
+
+- Completed EXP-006 multi-asset data/target-normalization checkpoint using a public independent 1m sample feed for XAUUSD, EURUSD, GBPUSD, and USDJPY.
+- Found that equalizing the Gold USD 5 target by median-hourly-volatility burden implies roughly 3–4 pip FX targets but about 1.2–2.1 standard lots for a USD 50 gross target; rejected that sizing rule for portfolio economics.
+- Set the next step to freeze a fully mechanical portable Engine A variant and a structural-stop/fixed-risk target framework before cross-market performance testing.
