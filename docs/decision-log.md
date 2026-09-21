@@ -34,7 +34,6 @@
 
 **Next:** Test structurally different strategy families.
 
-
 ## 2026-09-22 — Reject volatility-burden sizing as portfolio rule
 
 **Decision:** Do not use the EXP-006 rule that maps Gold's USD 5 target to the same fraction of median hourly volatility and then sizes each FX market to make that move worth USD 50.
@@ -49,7 +48,6 @@
 
 **Constraint:** This does not replace Dukascopy/broker validation. Any finalist must be cross-validated on another independent feed and with broker-specific execution economics.
 
-
 ## 2026-09-22 — EXP-007 portable Engine A cross-market result
 
 **Decision:** Do not combine or promote the EXP-007 XAUUSD, EURUSD, GBPUSD, and USDJPY arms as a portfolio.
@@ -58,7 +56,6 @@
 
 **Next:** Preserve USDJPY as a research lead without post-hoc tuning. Expand Engine A to a small second wave of markets under the already frozen rules; if that does not add robust positive streams, move to a genuinely independent strategy family.
 
-
 ## 2026-09-22 — Pause Engine A expansion after EXP-008
 
 **Decision:** Stop adding markets or loosening Engine A v0.2 for now.
@@ -66,3 +63,17 @@
 **Evidence:** XAGUSD, the second-wave unchanged transfer test, was negative in both development (-0.179R/trade) and holdout (-0.161R/trade), with 93.2% <= USD 50 holdout days. Across EXP-007/008, USDJPY was the only market positive in both splits, and it still failed the project's daily-distribution and economic-feasibility objectives.
 
 **Next:** Preserve USDJPY as a research lead for later independent validation and move active strategy research to a genuinely independent setup family.
+
+## 2026-09-22 — Freeze Engine F before outcome inspection
+
+**Decision:** Freeze Engine F v0.1 as a price-only statistical extension -> re-entry -> mean-reversion family before testing any market outcome.
+
+**Reason:** The project needs a genuinely independent stream rather than further Engine A variants or post-hoc filters.
+
+## 2026-09-22 — EXP-009 XAUUSD checkpoint not promoted
+
+**Decision:** Do not promote or retune the XAUUSD Engine F v0.1 arm.
+
+**Evidence:** Development produced 13 trades at -0.192R/trade; holdout produced 24 trades at only +0.021R/trade; every eligible day in both splits remained <= USD 50.
+
+**Next:** Continue unchanged to the predeclared USDJPY checkpoint before judging the portable Engine F family more broadly.
