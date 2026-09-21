@@ -30,3 +30,4 @@
 
 - Froze Engine F v0.1 statistical extension/re-entry/mean-reversion rules prospectively and opened EXP-009.
 - Checkpointed EXP-009 XAUUSD arm: development 13 trades at -0.192R/trade; holdout 24 trades at +0.021R/trade; <= USD 50 days were 100% in both splits. XAUUSD arm not promoted and rules not retuned.
+- Checkpointed EXP-009 USDJPY arm: development +0.016R/trade on 31 trades, holdout -0.222R/trade on 18 trades, 98.31% holdout <= USD 50 days, and about 258x median notional/equity; not promoted and not retuned.
