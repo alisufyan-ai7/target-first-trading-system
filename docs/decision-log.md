@@ -101,3 +101,11 @@
 **Evidence:** GBPUSD was the only Engine F arm positive in both splits (+0.138R development, +0.080R holdout), but holdout target-first hit rate was only 28.57%, every holdout day remained <= USD 50, median stop was about 2.98 pips, and median notional/equity was about 181x. The other three markets showed sign instability or negative holdout.
 
 **Next:** Test the frozen GBPUSD Engine F lead together with the frozen USDJPY Engine A lead under the project daily risk state machine before inventing or tuning more strategies.
+
+## 2026-09-22 — EXP-010 two-lead portfolio fails the distribution objective
+
+**Decision:** Do not promote or tune the combined USDJPY Engine A / GBPUSD Engine F portfolio.
+
+**Evidence:** Holdout daily P&L correlation between the leads was only about +0.03, confirming useful independence, but 86.44% of holdout days still finished <= USD 50, no holdout day reached USD 150, losing days were 44.07%, and maximum drawdown was about USD 200.53. Maximum simultaneous notional/equity exceeded 1,200x under fixed USD 20 structural risk.
+
+**Next:** Quantify the mathematical feasibility frontier of the user's daily-distribution objective under the current +USD 50 / -USD 20 payoff and 1–4 trade/day constraints before searching for another engine or changing any objective.
