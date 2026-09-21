@@ -84,13 +84,13 @@ EXP-006 completed the first cross-market data/economics checkpoint using an inde
 
 ## EXP-007 partial result
 
-Engine A v0.2-portable has been frozen prospectively. Its XAUUSD checkpoint failed under the USD 20 structural-risk / USD 50 target rule: holdout produced 133 trades, an 18.8% 2.5R target-first rate, about -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days. EURUSD showed +0.167R/trade and a 31.25% holdout hit rate, but development expectancy was negative, 88.1% of holdout days remained <= USD 50, and median notional/equity was about 139x. Neither arm is promoted and the frozen rules will not be retuned. GBPUSD then showed the reverse instability: +0.139R/trade in development but -0.111R/trade in holdout, with 94.9% <= USD 50 days and median notional/equity about 118x. GBPUSD is also not promoted.
+Engine A v0.2-portable has been frozen prospectively. Its XAUUSD checkpoint failed under the USD 20 structural-risk / USD 50 target rule: holdout produced 133 trades, an 18.8% 2.5R target-first rate, about -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days. EURUSD showed +0.167R/trade and a 31.25% holdout hit rate, but development expectancy was negative, 88.1% of holdout days remained <= USD 50, and median notional/equity was about 139x. Neither arm is promoted and the frozen rules will not be retuned. GBPUSD then showed the reverse instability: +0.139R/trade in development but -0.111R/trade in holdout, with 94.9% <= USD 50 days and median notional/equity about 118x. GBPUSD is also not promoted. USDJPY was the only arm positive in both splits (+0.075R development, +0.263R holdout), but 86.4% of holdout days were still <= USD 50 and median notional/equity was about 178x. USDJPY is retained only as a statistical research lead.
 
 ## Next action
 
-1. continue the frozen Engine A v0.2 rules unchanged on EURUSD, GBPUSD, and USDJPY;
-2. checkpoint each market before testing the next;
-3. test each market on the common March 12–August 20 window with development/holdout separation;
+1. run a small second-wave cross-market test with the same frozen Engine A v0.2 rules on additional liquid markets with clean data/economics;
+2. preserve USDJPY as a research lead for later independent-feed and execution-cost validation, without tuning EXP-007;
+3. if the second wave does not add robust positive streams, move to a genuinely independent strategy family rather than loosening Engine A;
 4. report notional/equity and margin-feasibility diagnostics alongside target-first statistics;
 5. combine only positive-expectancy, sufficiently independent streams;
 6. evaluate portfolio daily distribution under the USD 40 / USD 60 loss framework and USD 150–200 profit stop;
