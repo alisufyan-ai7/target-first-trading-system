@@ -88,9 +88,10 @@ Engine A v0.2-portable has been frozen prospectively. Its XAUUSD checkpoint fail
 
 ## Next action
 
-1. run a small second-wave cross-market test with the same frozen Engine A v0.2 rules on additional liquid markets with clean data/economics;
-2. preserve USDJPY as a research lead for later independent-feed and execution-cost validation, without tuning EXP-007;
-3. if the second wave does not add robust positive streams, move to a genuinely independent strategy family rather than loosening Engine A;
+1. stop further Engine A market expansion for now: EXP-008 XAGUSD was negative in both development and holdout;
+2. preserve USDJPY / Engine A v0.2 as a research lead for later independent-feed and execution-cost validation, without tuning EXP-007;
+3. define and freeze a genuinely independent strategy family before inspecting its outcomes;
+4. test that new family market by market with the same development/holdout and daily-distribution discipline;
 4. report notional/equity and margin-feasibility diagnostics alongside target-first statistics;
 5. combine only positive-expectancy, sufficiently independent streams;
 6. evaluate portfolio daily distribution under the USD 40 / USD 60 loss framework and USD 150–200 profit stop;
@@ -110,6 +111,10 @@ Initial candidates from this chat:
 - US30;
 - US500 / SPX500;
 - BTCUSD / BTCUSDT where appropriate.
+
+## EXP-008 result
+
+XAGUSD did not add a second robust Engine A stream. Holdout produced 136 trades, a 23.53% 2.5R target-first rate, -0.161R/trade, 55.9% losing days, and 93.2% <= USD 50 days. Engine A expansion is paused rather than retuned.
 
 ## Key unresolved question
 
