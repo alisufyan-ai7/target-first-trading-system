@@ -1,6 +1,6 @@
 # EXP-006 — Multi-Asset Data and Target-Normalization Checkpoint
 
-**Status:** IN PROGRESS  
+**Status:** COMPLETE — DATA FEASIBLE; INITIAL VOLATILITY-BURDEN SIZING NOT SUITABLE FOR PORTFOLIO ECONOMICS  
 **Date:** 2026-09-22
 
 ## Purpose
@@ -13,7 +13,7 @@ This experiment is a prerequisite to the first cross-market strategy screen.
 
 Can we define a small set of liquid non-Gold markets with:
 
-1. reliable one-minute intraday data over the same baseline window used in prior XAUUSD experiments;
+1. reliable one-minute intraday data over a useful overlap with the prior XAUUSD window;
 2. clean instrument economics for translating a favorable price move into an approximately USD 50 profit unit;
 3. target distances calibrated from development data only, so later holdout testing remains untouched?
 
@@ -29,69 +29,152 @@ Reference comparator:
 
 - XAUUSD.
 
-XAGUSD, equity-index CFDs, and crypto remain candidates for later waves, but are excluded from this first checkpoint until their contract/tick conventions and data-source mapping are documented cleanly enough for comparable sizing.
+XAGUSD, equity-index CFDs, and crypto remain candidates for later waves.
 
-## Data window and split
+## Data source
 
-Target baseline window, matching prior experiments where available:
+The original preference was Dukascopy, consistent with prior experiments. The current chat environment could not directly retrieve the Dukascopy binary archive, so this checkpoint did **not** fabricate Dukascopy results.
 
-- full range: 2026-03-01 through 2026-08-20;
-- development/calibration: 2026-03-01 through 2026-05-31;
-- untouched holdout: 2026-06-01 through 2026-08-20.
+For this feasibility/calibration checkpoint, public one-minute sample files published by GetData were used as an external research feed:
 
-Preferred baseline source for this checkpoint: Dukascopy one-minute data where available.
+- XAUUSD: `getdata-finance/xauusd-1m-ohlcv-metals-historical-data`;
+- EURUSD: `getdata-finance/eurusd-1m-ohlcv-forex-historical-data`;
+- GBPUSD: `getdata-finance/gbpusd-1m-ohlcv-forex-historical-data`;
+- USDJPY: `getdata-finance/usdjpy-1m-ohlcv-forex-historical-data`.
 
-No strategy-result inspection on the holdout is permitted during target calibration.
+The samples are UTC one-minute OHLCV files and cover approximately 2026-03-12 through 2026-09-11. This is an **independent external research source**, not durable project context and not a replacement for later Dukascopy/broker validation.
 
-## Normalization method to freeze before strategy testing
+The vendor describes its FX datasets as broker-CFD/mid-quote data. Therefore any finalist must still be cross-validated on another feed.
 
-The Gold reference remains a USD 5 favorable XAUUSD move.
+## Window and split used here
 
-For each non-Gold instrument:
+Because the public samples begin on 2026-03-12, the usable window differs slightly from the prior XAU baseline:
 
-1. use development data only to estimate intraday volatility in native price/pip units;
-2. measure the Gold USD 5 target as a volatility burden on the XAUUSD development sample;
-3. map that same burden to each candidate market to obtain a frozen favorable target distance;
-4. translate that target distance into a position size that would produce approximately USD 50 gross P&L using the instrument's contract/tick economics;
-5. reject or cap any setup whose structurally valid stop would breach the project trade/day risk framework at the required size.
+- calibration/development: 2026-03-12 through 2026-05-31;
+- untouched strategy holdout reserved for later: 2026-06-01 through 2026-08-20.
 
-For USDJPY, USD P&L conversion must use the relevant JPY/USD conversion rather than assuming a fixed USD pip value.
+No cross-market strategy-result inspection was performed in EXP-006.
 
-## Strategy to be used after this checkpoint
+## Data audit
 
-Engine A is the first cross-market transfer candidate because it is the only existing engine retained as a research lead.
+Rows from 2026-03-12 through 2026-08-20:
 
-The transferable rules will remain frozen from the existing specification:
+| Instrument | Rows | Development rows | Duplicate timestamps | Invalid OHLC rows |
+|---|---:|---:|---:|---:|
+| XAUUSD | 157,826 | 76,855 | 0 | 0 |
+| EURUSD | 166,890 | 81,930 | 0 | 0 |
+| GBPUSD | 166,864 | 81,912 | 0 | 0 |
+| USDJPY | 166,889 | 81,929 | 0 | 0 |
 
-- recent 5m swing liquidity;
-- wick/sweep beyond the level and close back inside;
-- 1m internal MSS close;
-- displacement threshold approximately 1.6x recent average 1m candle body;
-- three-candle FVG;
-- entry near FVG midpoint;
-- structural/FVG invalidation stop;
-- active window approximately 06:00–18:00 UTC.
+A simple >10-minute non-weekend gap check found no such gaps for the three FX samples. XAUUSD produced 98 flags, which are consistent with the metals feed's scheduled daily closures/holiday gaps and should not automatically be treated as missing-data errors. A session-aware gap audit should be used before any finalist validation.
 
-Only instrument-native target distance and position-size translation may differ.
+## Frozen development-only volatility metric
 
-## Deliverables
+To avoid looking at strategy outcomes, target calibration used only market volatility.
 
-Before proceeding to the cross-market holdout screen, record:
+Metric:
 
-- exact data source and retrieval method for each instrument;
-- bar count and missing-data checks;
-- development-period volatility metrics;
-- frozen target distance per instrument;
-- assumed contract/tick economics;
-- position size corresponding to approximately USD 50 gross target;
-- limitations and any markets rejected before testing.
+- resample the 1m feed into hourly bars;
+- keep hourly bars in the Engine A research window, 06:00 <= UTC < 18:00;
+- require at least 45 one-minute observations in an hourly bar;
+- calculate hourly true range;
+- use the development-period median hourly true range.
 
-## Promotion rule
+Observed medians:
 
-EXP-006 does not promote a strategy.
+| Instrument | Median hourly true range |
+|---|---:|
+| XAUUSD | 22.675 USD/oz |
+| EURUSD | 0.001410 = 14.10 pips |
+| GBPUSD | 0.001950 = 19.50 pips |
+| USDJPY | 0.1680 = 16.80 pips |
 
-It only authorizes a market for the next experiment if the data and normalization are sufficiently clean to support an unchanged cross-market Engine A test.
+The XAUUSD USD 5 reference target therefore equals:
+
+`5 / 22.675 = 0.2205`
+
+or about 22.05% of the development-period median hourly true range.
+
+## Initial volatility-burden target mapping
+
+Applying the same 0.2205 hourly-TR burden gives:
+
+| Instrument | Frozen favorable move | Approx pips |
+|---|---:|---:|
+| XAUUSD | 5.0000 | n/a |
+| EURUSD | 0.0003109 | 3.11 |
+| GBPUSD | 0.0004300 | 4.30 |
+| USDJPY | 0.03705 | 3.70 |
+
+These values were computed **before** inspecting any cross-market Engine A strategy outcomes.
+
+## USD 50 gross-profit translation
+
+Using unit-based FX P&L math:
+
+- for EURUSD/GBPUSD, USD P&L is approximately base units x price move because USD is the quote currency;
+- for USDJPY, JPY P&L must be converted back to USD, so the required base-unit quantity depends on USDJPY price.
+
+Using development-period median prices only for an indicative size translation:
+
+| Instrument | Approx units for USD 50 target | Approx standard lots* | Approx USD notional |
+|---|---:|---:|---:|
+| EURUSD | 160,816 EUR | 1.608 | 189,021 |
+| GBPUSD | 116,282 GBP | 1.163 | 156,798 |
+| USDJPY | 214,584 USD | 2.146 | 214,584 |
+
+`* standard-lot equivalents assume the common 100,000-base-unit convention; broker specifications must be verified before execution modeling.`
+
+Illustrative margin requirement at 1:500 leverage would still be roughly:
+
+- EURUSD: USD 378;
+- GBPUSD: USD 314;
+- USDJPY: USD 429.
+
+At 1:100 leverage the corresponding illustrative margin is about USD 1,890, USD 1,568, and USD 2,146 respectively.
+
+## Economic tension discovered
+
+This normalization is mathematically clean but economically unattractive for a USD 500 reference account.
+
+If size were instead limited to 0.10 standard lot (10,000 base units), an approximately USD 50 gross target would require roughly:
+
+| Instrument | Favorable move for ~USD 50 at 0.10 lot | Burden vs median hourly TR |
+|---|---:|---:|
+| EURUSD | 50.0 pips | 3.55x |
+| GBPUSD | 50.0 pips | 2.56x |
+| USDJPY | ~79.5 pips | 4.73x |
+
+So there is a direct trade-off:
+
+- small, volatility-comparable targets require very large position size;
+- small position size requires much larger favorable moves.
+
+This is a material constraint for the project's small-account consistency objective.
+
+## Conclusion
+
+**Data feasibility: PASS for a provisional cross-market research screen.**
+
+**Initial volatility-burden position-sizing rule: DO NOT USE as the portfolio-economic rule.**
+
+The public samples are sufficient to support a prospective cross-market experiment over the common 2026-03-12 to 2026-08-20 window, but:
+
+1. they are an independent external feed rather than the prior Dukascopy baseline;
+2. the common window begins on March 12, not March 1;
+3. the volatility-burden mapping produces position sizes that are too aggressive relative to the reference USD 500 account;
+4. broker-specific margin, contract, spread, commission, and slippage remain unmodeled.
 
 ## Next action
 
-Collect and audit the first-wave datasets and freeze the target/position-size mapping. Then checkpoint the result before starting the cross-market strategy performance test.
+Before running cross-market strategy outcomes, freeze a **portable, fully mechanical Engine A specification** and a risk-consistent USD 50 target framework.
+
+The next experiment should use:
+
+- prospective rules only;
+- no tuning to EURUSD/GBPUSD/USDJPY holdout outcomes;
+- structural stop first;
+- a fixed trade-risk cap consistent with the USD 40 normal daily loss stop;
+- USD 50 target translated from the same position size;
+- explicit notional/equity and margin-feasibility diagnostics;
+- the original XAUUSD USD 5 target retained as a separate Gold diagnostic.
