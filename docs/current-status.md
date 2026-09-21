@@ -84,7 +84,7 @@ EXP-006 completed the first cross-market data/economics checkpoint using an inde
 
 ## EXP-007 partial result
 
-Engine A v0.2-portable has been frozen prospectively. Its first XAUUSD checkpoint failed under the USD 20 structural-risk / USD 50 target rule. Holdout produced 133 trades, a 2.5R target-first rate of 18.8%, mean expectancy of about -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days. The rules will not be changed to rescue this result.
+Engine A v0.2-portable has been frozen prospectively. Its XAUUSD checkpoint failed under the USD 20 structural-risk / USD 50 target rule: holdout produced 133 trades, an 18.8% 2.5R target-first rate, about -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days. EURUSD showed +0.167R/trade and a 31.25% holdout hit rate, but development expectancy was negative, 88.1% of holdout days remained <= USD 50, and median notional/equity was about 139x. Neither arm is promoted and the frozen rules will not be retuned.
 
 ## Next action
 
