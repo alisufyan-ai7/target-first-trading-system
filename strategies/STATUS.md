@@ -19,3 +19,15 @@ The next strategy work should focus on cross-market transfer and independent opp
 Before Engine A is transferred, its next portable version must be frozen mechanically and paired with a risk-consistent USD 50 target rule. EXP-006 showed that the first volatility-burden sizing translation was economically too aggressive for the reference small account.
 
 These are project-local strategy labels. A strategy must be separately frozen and documented before promotion.
+
+
+## EXP-007 portable Engine A result
+
+Engine A v0.2-portable was tested unchanged on XAUUSD, EURUSD, GBPUSD, and USDJPY.
+
+- XAUUSD: negative in both splits under the 2.5R economic rule.
+- EURUSD: negative development, positive holdout; not robust enough.
+- GBPUSD: positive development, negative holdout; not robust enough.
+- USDJPY: positive in both splits, but daily-output and leverage/notional requirements remain unacceptable.
+
+**Status implication:** keep Engine A as a research lead only. Preserve USDJPY as the strongest cross-market lead, but do not promote any EXP-007 arm to execution.
