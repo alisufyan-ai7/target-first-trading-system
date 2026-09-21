@@ -33,3 +33,18 @@
 **Decision:** Do not continue hand-tuning the initial breakout/retest and trend-pullback formulations merely to make them fit historical data.
 
 **Next:** Test structurally different strategy families.
+
+
+## 2026-09-22 — Reject volatility-burden sizing as portfolio rule
+
+**Decision:** Do not use the EXP-006 rule that maps Gold's USD 5 target to the same fraction of median hourly volatility and then sizes each FX market to make that move worth USD 50.
+
+**Reason:** On the development-only calibration sample it produced roughly 3–4 pip FX targets but required about 1.2–2.1 standard lots, creating excessive notional/margin demands for the reference USD 500 account.
+
+**Next:** Freeze a structural-stop / fixed-risk normalization before cross-market Engine A performance testing. Keep the EXP-006 mapping only as a diagnostic record.
+
+## 2026-09-22 — Provisional independent feed for multi-asset screening
+
+**Decision:** Public GetData 1m samples may be used as an external research feed for the first cross-market screen over the common 2026-03-12 to 2026-08-20 window.
+
+**Constraint:** This does not replace Dukascopy/broker validation. Any finalist must be cross-validated on another independent feed and with broker-specific execution economics.
