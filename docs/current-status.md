@@ -1,80 +1,85 @@
 # Current Status
 
 **Date:** 2026-09-22  
-**Phase:** Strategy research / portfolio lead-combination screening
+**Phase:** Strategy research / objective-feasibility analysis
 
 ## Source of truth
 
 Only this repository and the originating chat are authorized project context.
 
-## Strategy state
+## Retained research leads
 
-- **Engine A:** USDJPY v0.2 remains a research lead only; further Engine A expansion is paused.
-- **Engine B:** first breakout/retest formulation rejected.
-- **Engine C:** first trend-pullback formulation rejected.
-- **Engine D:** opening-range momentum formulations not promoted.
-- **Engine E:** compression/expansion formulations not promoted.
-- **Engine F:** four-market portable screen complete; only GBPUSD v0.1 retained as a research lead.
+### USDJPY / Engine A v0.2
 
-## Engine A lead — USDJPY
-
-From EXP-007:
-
-- development mean R: +0.075R/trade;
-- holdout mean R: +0.263R/trade;
+- development mean R: about +0.075R/trade;
+- holdout mean R: about +0.263R/trade;
 - holdout <= USD 50 days: 86.44%;
-- holdout median notional/equity: about 177.8x;
-- median holdout stop: about 3.65 pips.
+- holdout median notional/equity: about 177.8x.
 
 Status: **research lead only; not deployable**.
 
-## Engine F lead — GBPUSD
+### GBPUSD / Engine F v0.1
 
-From EXP-009:
-
-- development: 40 trades, +0.138R/trade;
-- holdout: 35 trades, +0.080R/trade;
-- holdout target-first hit rate: 28.57%;
+- development mean R: +0.138R/trade;
+- holdout mean R: +0.080R/trade;
 - holdout <= USD 50 days: 100%;
-- holdout median stop: about 2.98 pips;
 - holdout median notional/equity: about 180.6x.
 
 Status: **research lead only; not deployable**.
 
-The other Engine F arms were not promoted:
+## EXP-010 portfolio result
 
-- XAUUSD: negative development / marginally positive holdout;
-- USDJPY: approximately flat development / negative holdout;
-- EURUSD: negative development / positive holdout.
+The two frozen leads were combined under:
+
+- USD 20 risk/trade;
+- max 4 entries/day;
+- max 2 open positions;
+- no new entries after realized daily P&L <= -USD 40;
+- no new entries after realized daily P&L >= +USD 150.
+
+### Holdout
+
+- standalone daily P&L correlation: about +0.03;
+- both leads traded on 35.6% of weekdays;
+- accepted trades: 114;
+- trades/day: 1.93;
+- zero-trade days: 3.39%;
+- mean daily P&L: +USD 10.51;
+- median daily P&L: +USD 10;
+- losing days: 44.07%;
+- <= USD 50 days: 86.44%;
+- >= USD 100 days: 6.78%;
+- >= USD 150 days: 0%;
+- worst day: -USD 40;
+- maximum drawdown: about USD 200.53;
+- maximum consecutive <= USD 50 days: 14;
+- maximum simultaneous notional/equity: about 1,285x.
+
+Conclusion: **independence exists, but the portfolio still fails the daily-distribution and economic-feasibility objectives.**
 
 ## Current conclusion
 
-The project now has two structurally independent leads that were prospectively frozen before their outcome inspection:
+The research problem is no longer simply "find more signals."
 
-1. USDJPY / Engine A v0.2;
-2. GBPUSD / Engine F v0.1.
+Under the present economic framing, qualified opportunities are too sparse and target-first hit rates are too low to make high-output days common. The small account also creates severe notional/margin pressure when structural stops are only a few pips.
 
-Both are gross-positive in development and holdout, but both have severe small-account economic constraints and neither comes close to the desired daily-output distribution alone.
-
-No further parameter tuning is justified at this point.
+No existing engine or portfolio is promoted.
 
 ## Next action
 
-Prospectively define and run a two-lead portfolio distribution screen using the unchanged Engine A USDJPY and Engine F GBPUSD trade streams.
+Run an objective-feasibility experiment before inventing another strategy family.
 
-The portfolio screen should enforce:
+Quantify, for 1–4 trades/day with approximately -USD 20 losses and +USD 50 wins:
 
-- USD 20 risk per accepted trade;
-- no more than 4 entries/day;
-- no more than 2 simultaneously open trades / about USD 40 open stop-risk;
-- stop new entries after realized daily P&L <= -USD 40;
-- stop new entries after realized daily P&L >= +USD 150;
-- allow pre-existing open risk to create a rare absolute floor near -USD 60;
-- count every eligible weekday including zero-signal days;
-- report lead correlation/overlap, <= USD 50 days, >= USD 100/150 days, losing days, drawdown, and streaks.
+- the win probability required for P(daily P&L <= USD 50) <= 20%;
+- the win probability required for >= USD 100 days near 75–80%;
+- how zero-signal / low-trade days worsen those requirements;
+- how the USD 40 daily loss stop changes the distribution.
 
-If this two-lead combination still leaves the distribution far from the objective, active research should return to a new independent engine family rather than trying to tune these leads.
+This should establish whether the current distribution objective is statistically compatible with the current payoff/trade-count framework.
+
+Do not change project targets until that feasibility evidence is recorded and explicitly reviewed.
 
 ## Key unresolved question
 
-Can two independently generated positive-expectancy leads materially improve daily output **without** unacceptable leverage, drawdown, or forced trading?
+Is the desired <=20% low-output-day profile mathematically plausible with only 3–4 qualified trades/day and a roughly +USD 50 / -USD 20 trade payoff, even before real-world execution costs?
