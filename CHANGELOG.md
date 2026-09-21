@@ -19,14 +19,14 @@
 
 - Froze Engine A v0.2-portable before cross-market outcome inspection and opened EXP-007.
 - Checkpointed EXP-007 XAUUSD arm: holdout 133 trades, 18.8% 2.5R target-first wins, -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days; XAU arm rejected without retuning.
-
 - Checkpointed EXP-007 EURUSD arm: holdout improved to 31.25% 2.5R wins and +0.167R/trade, but development was negative, <= USD 50 days remained 88.1%, and median notional/equity was about 139x; not promoted.
-
 - Checkpointed EXP-007 GBPUSD arm: development +0.139R/trade deteriorated to -0.111R/trade in holdout; 94.9% of holdout days were <= USD 50 and median notional/equity was about 118x; not promoted.
-
 - Completed EXP-007 portable Engine A cross-market screen.
 - USDJPY was the only arm with positive mean R in both development (+0.075R) and holdout (+0.263R), but 86.4% of holdout days remained <= USD 50 and median notional/equity was about 178x; retained only as a statistical research lead.
 - No EXP-007 arm promoted or combined into a portfolio.
 
 - Completed EXP-008 XAGUSD second-wave Engine A test: holdout 23.53% 2.5R wins, -0.161R/trade, 55.9% losing days, and 93.2% <= USD 50 days; rejected.
 - Paused further Engine A market expansion/loosening and moved next research step to a genuinely independent strategy family.
+
+- Froze Engine F v0.1 statistical extension/re-entry/mean-reversion rules prospectively and opened EXP-009.
+- Checkpointed EXP-009 XAUUSD arm: development 13 trades at -0.192R/trade; holdout 24 trades at +0.021R/trade; <= USD 50 days were 100% in both splits. XAUUSD arm not promoted and rules not retuned.
