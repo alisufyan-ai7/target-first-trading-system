@@ -1,6 +1,6 @@
 # EXP-009 — Engine F Statistical Mean-Reversion Screen
 
-**Status:** IN PROGRESS — XAUUSD CHECKPOINT COMPLETE; RULES REMAIN FROZEN  
+**Status:** IN PROGRESS — XAUUSD AND USDJPY CHECKPOINTS COMPLETE; RULES REMAIN FROZEN  
 **Date:** 2026-09-22
 
 ## Purpose
@@ -73,8 +73,6 @@ Do not tune failed arms after seeing holdout.
 - qualifying re-entry confirmations: 971;
 - accepted trades after the 2.5R-to-mean feasibility gate and one-open/cooldown rules: 37.
 
-The large drop from re-entry confirmations to accepted trades is expected because Engine F only accepts a setup when the current 60-minute mean is at least 2.5R away from the actual entry.
-
 ### Development — 2026-03-12 through 2026-05-31
 
 - eligible weekdays: 57;
@@ -84,7 +82,7 @@ The large drop from re-entry confirmations to accepted trades is expected becaus
 - mean R/trade: -0.192R;
 - median R/trade: -1.00R;
 - timeout rate: 0%;
-- median structural/statistical stop distance: USD 3.054/oz;
+- median stop distance: USD 3.054/oz;
 - median position size at USD 20 risk: 6.55 oz;
 - median notional/equity ratio: 65.36x;
 - mean daily P&L: about -USD 0.88;
@@ -106,7 +104,7 @@ The large drop from re-entry confirmations to accepted trades is expected becaus
 - mean R/trade: +0.021R;
 - median R/trade: -1.00R;
 - timeout rate: 0%;
-- median structural/statistical stop distance: USD 3.980/oz;
+- median stop distance: USD 3.980/oz;
 - median position size at USD 20 risk: 5.03 oz;
 - median notional/equity ratio: 42.74x;
 - mean daily P&L: about +USD 0.17;
@@ -123,18 +121,84 @@ The large drop from re-entry confirmations to accepted trades is expected becaus
 
 The XAUUSD Engine F arm is not robust enough to retain as a lead.
 
-Development expectancy is negative, while holdout is only marginally positive on 24 trades. The 29.17% holdout hit rate is only slightly above the simple no-cost 28.57% break-even rate for a -1R/+2.5R payoff, and the sample is small.
-
-Most importantly for the project objective, every eligible development and holdout weekday remained <= USD 50. The arm therefore adds neither robust expectancy nor useful daily-output coverage.
-
-The notional/equity burden also remains aggressive even though it is lower than the EXP-007 FX arms.
+Development expectancy is negative, while holdout is only marginally positive on 24 trades. Every eligible development and holdout weekday remained <= USD 50.
 
 ### Disposition
 
 - Do not promote XAUUSD / Engine F v0.1.
 - Do not tune the frozen Engine F parameters after this result.
-- Continue unchanged to USDJPY as the second predeclared market checkpoint so the engine family is not judged from one instrument only.
+- Continue unchanged to USDJPY.
+
+## Market checkpoint 2 — USDJPY
+
+**Status:** NOT PROMOTED
+
+### Data processed
+
+- one-minute rows in the EXP-009 window: 166,889;
+- resampled 5m bars: 33,379;
+- full-window extension events after sequencing/cooldown logic: 1,008;
+- qualifying re-entry confirmations: 984;
+- accepted trades after the 2.5R-to-mean feasibility gate and one-open/cooldown rules: 49.
+
+### Development — 2026-03-12 through 2026-05-31
+
+- eligible weekdays: 57;
+- trades: 31;
+- trades/day including zero-signal weekdays: 0.54;
+- 2.5R target-first hit rate: 29.03%;
+- mean R/trade: +0.016R;
+- median R/trade: -1.00R;
+- timeout rate: 0%;
+- median stop distance: 0.02859 JPY = 2.86 pips;
+- median USD-base position size at USD 20 risk: 111,025 USD;
+- median notional/equity ratio: 222.05x;
+- mean daily P&L: about +USD 0.18;
+- losing days: 29.82%;
+- <= USD 50 days: 98.25%;
+- >= USD 100 days: 1.75%;
+- >= USD 150 days: 0%;
+- maximum drawdown: about USD 120;
+- maximum consecutive losing days: 2;
+- maximum consecutive <= USD 50 days: 39;
+- total simulated P&L: about +USD 10.
+
+### Holdout — 2026-06-01 through 2026-08-20
+
+- eligible weekdays: 59;
+- trades: 18;
+- trades/day including zero-signal weekdays: 0.31;
+- 2.5R target-first hit rate: 22.22%;
+- mean R/trade: -0.222R;
+- median R/trade: -1.00R;
+- timeout rate: 0%;
+- median stop distance: 0.02498 JPY = 2.50 pips;
+- median USD-base position size at USD 20 risk: 129,149 USD;
+- median notional/equity ratio: 258.30x;
+- mean daily P&L: about -USD 1.36;
+- losing days: 16.95%;
+- <= USD 50 days: 98.31%;
+- >= USD 100 days: 0%;
+- >= USD 150 days: 0%;
+- maximum drawdown: about USD 220;
+- maximum consecutive losing days: 1;
+- maximum consecutive <= USD 50 days: 30;
+- total simulated P&L: about -USD 80.
+
+### Interpretation
+
+USDJPY does not rescue Engine F.
+
+Development is essentially flat and holdout turns negative. The holdout hit rate is below the simple no-cost 28.57% break-even rate for the -1R/+2.5R payoff.
+
+Economic feasibility is also poor: the median holdout stop is only about 2.5 pips, implying median notional exposure around 258x the USD 500 reference equity before broker margin and execution costs.
+
+### Disposition
+
+- Do not promote USDJPY / Engine F v0.1.
+- Do not tune after the holdout deterioration.
+- Continue unchanged to EURUSD as the third predeclared checkpoint, then write back before GBPUSD.
 
 ## Next action
 
-Run USDJPY under the already frozen Engine F v0.1 rules and write the result back before testing any third market.
+Run EURUSD under the already frozen Engine F v0.1 rules and checkpoint the result before the final GBPUSD arm.
