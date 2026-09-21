@@ -85,3 +85,11 @@
 **Evidence:** Development was approximately flat at +0.016R/trade on 31 trades, while holdout fell to -0.222R/trade on 18 trades. Holdout <= USD 50 days were 98.31%, and the median 2.50-pip stop implied about 258x notional/equity under the USD 20 risk rule.
 
 **Next:** Continue unchanged to the predeclared EURUSD checkpoint before testing GBPUSD.
+
+## 2026-09-22 — EXP-009 EURUSD checkpoint not promoted
+
+**Decision:** Do not promote or retune the EURUSD Engine F v0.1 arm.
+
+**Evidence:** Development was negative at -0.125R/trade on 24 trades while holdout flipped to +0.242R/trade on 31 trades. Holdout <= USD 50 days were 98.31%, and median notional/equity was about 204x.
+
+**Next:** Run the final predeclared GBPUSD arm unchanged, then judge Engine F on the complete four-market screen.
