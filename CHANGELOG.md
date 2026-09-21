@@ -32,3 +32,6 @@
 - Checkpointed EXP-009 XAUUSD arm: development 13 trades at -0.192R/trade; holdout 24 trades at +0.021R/trade; <= USD 50 days were 100% in both splits. XAUUSD arm not promoted and rules not retuned.
 - Checkpointed EXP-009 USDJPY arm: development +0.016R/trade on 31 trades, holdout -0.222R/trade on 18 trades, 98.31% holdout <= USD 50 days, and about 258x median notional/equity; not promoted and not retuned.
 - Checkpointed EXP-009 EURUSD arm: development -0.125R/trade on 24 trades, holdout +0.242R/trade on 31 trades, 98.31% holdout <= USD 50 days, and about 204x median notional/equity; not promoted because the splits changed sign.
+- Completed EXP-009 Engine F screen. GBPUSD was the only arm positive in both splits (+0.138R development, +0.080R holdout), but holdout hit rate was only 28.57%, <= USD 50 days were 100%, and median notional/equity was about 181x; retained as research lead only.
+- Closed Engine F v0.1 without retuning. The project now has two frozen research leads: USDJPY / Engine A v0.2 and GBPUSD / Engine F v0.1.
+- Set the next step to a prospective two-lead portfolio daily-distribution screen under the USD 40 / USD 60 loss framework and +USD 150 profit stop.
