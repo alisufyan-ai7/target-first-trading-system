@@ -21,3 +21,5 @@
 - Checkpointed EXP-007 XAUUSD arm: holdout 133 trades, 18.8% 2.5R target-first wins, -0.305R/trade, 66.1% losing days, and 96.6% <= USD 50 days; XAU arm rejected without retuning.
 
 - Checkpointed EXP-007 EURUSD arm: holdout improved to 31.25% 2.5R wins and +0.167R/trade, but development was negative, <= USD 50 days remained 88.1%, and median notional/equity was about 139x; not promoted.
+
+- Checkpointed EXP-007 GBPUSD arm: development +0.139R/trade deteriorated to -0.111R/trade in holdout; 94.9% of holdout days were <= USD 50 and median notional/equity was about 118x; not promoted.
