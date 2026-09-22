@@ -38,3 +38,8 @@
 - Completed EXP-010 two-lead portfolio screen. Holdout lead correlation was about +0.03, but 86.44% of days remained <= USD 50, 0% reached >= USD 150, losing days were 44.07%, and max drawdown was about USD 200.53.
 - The loss state machine limited the worst holdout day to -USD 40, but peak simultaneous notional/equity exceeded 1,200x.
 - No portfolio promotion. Shifted next step to a mathematical feasibility frontier for the current daily-distribution objective before searching for another engine or changing targets.
+- Clarified that the project end objective is to build a working multi-market trading system; research remains the validation layer.
+- Replaced the forward fixed USD 20 risk / USD 50 target assumption with a fixed-size target-ladder framework anchored at 0.10 lot XAUUSD and initially 0.10 standard lot for major FX pending broker verification.
+- Expanded successful-trade capture targets to approximately USD 30 / 40 / 50 / 70 / 100+ and removed the hard 3–4 trades/day assumption in favor of opportunity-driven trade count subject to risk, margin, correlation, and quality gates.
+- Superseded EXP-011 before results because its fixed-payoff/max-4-trades assumptions no longer matched the user’s operating objective.
+- Opened EXP-012 to rebuild scanner economics and re-evaluate retained USDJPY Engine A / GBPUSD Engine F leads under fixed-size target ladders.
