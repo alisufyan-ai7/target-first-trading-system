@@ -841,3 +841,89 @@ Frozen specification:
 - pre-outcome A9-spec commit: `8d0ae8789b00a2bd42efd00f83239b0f5eadaa4a`.
 
 No A9 outcome was calculated before this freeze.
+
+
+## Part A checkpoint — A9 forensic result
+
+**Status:** FAIL — OPTIMISTIC FILL-BAR ORDERING IMPROVES RESULTS BUT DOES NOT REPRODUCE EXP-002
+
+A9 returned to the A6 baseline and changed only fill-bar outcome handling: midpoint entry was allowed from the fill bar, but stop/target evaluation began on the next 1m bar.
+
+This is explicitly optimistic/non-deployable.
+
+### A9 results
+
+- raw A6-style midpoint fills: 358;
+- sweep-while-open suppressions: 7;
+- fill-while-open suppressions: 19;
+- accepted trades: **332**.
+
+| Metric | EXP-002 benchmark | A9 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **332** | 335–409 | No — short by 3 |
+| Development trades | ~185 | **164** | 163–207 | Yes |
+| Holdout trades | ~187 | **168** | 165–209 | Yes |
+| Overall T5 | 29.6% | **17.77%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **17.86%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **32.14%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **27.38%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **21.43%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **1.051** | 0.867–1.173 | Yes |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **+0.133** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **+0.012** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **+0.251** | +0.468 to +0.972 | No |
+
+Additional A9 diagnostics:
+
+- T5 wins / stops / timeouts: 59 / 273 / 0;
+- overall average MFE: about 1.514 Gold;
+- holdout average MFE: about 1.524 Gold.
+
+### Interpretation
+
+Ignoring fill-bar stops materially improves the A6 results:
+
+- overall T5 rises from about 15.02% to 17.77%;
+- holdout T5 rises from about 13.61% to 17.86%;
+- holdout expectancy rises from about +0.010 to +0.251 Gold/trade.
+
+However, the complete EXP-002 vector remains far away. Even this deliberately optimistic/non-deployable assumption does not recover the recorded target ladder or expectancy.
+
+Therefore fill-bar OHLC ordering bias may explain **part** of the historical discrepancy, but it is not sufficient to explain EXP-002.
+
+## EXP-014 Part A final disposition
+
+**PART A COMPLETE — ORIGINAL EXP-002 IMPLEMENTATION IS NOT HONESTLY RECOVERABLE FROM THE SURVIVING EVIDENCE.**
+
+This conclusion is based on the predeclared reproduction protocol and the systematically checkpointed A1–A9 sequence.
+
+Key evidence:
+
+1. no surviving EXP-002 detector/backtest implementation exists in repository history;
+2. the audited 2026-03-01 through 2026-08-20 one-minute series contains exactly **230,813 rows**, matching EXP-002's recorded data count;
+3. A6 came close to the original trade-frequency/split-balance and average-risk dimensions but produced approximately half the target-first rates and essentially flat expectancy;
+4. stronger 5m and 1m pivot definitions did not recover the edge;
+5. displacement/FVG timing variants did not recover the edge;
+6. liquidity-level reuse recovered frequency but not target-first quality;
+7. A8's deliberate 5m intrabar timing leakage did not recover the edge;
+8. A9's optimistic fill-bar ordering improved the edge but still remained materially below the frozen benchmark;
+9. no causal variant passed the multi-dimensional acceptance protocol.
+
+### What this means
+
+- EXP-002 remains a **historical exploratory positive result**, not fabricated or erased.
+- Its recorded metrics remain useful as historical evidence of what the earlier screen reported.
+- It must **not** be treated as a reproducible validated strategy engine.
+- Engine A v0.2-portable still does not substitute for EXP-002.
+- A6 is the closest mechanical reconstruction diagnostically, but it is **not profitable/validated enough for promotion** and must not be relabeled as the original.
+- A8/A9 are forensic only and cannot be deployed.
+- Further parameter hunting solely to make the old benchmark fit would violate the anti-overfitting/recovery discipline.
+
+### Gate consequence
+
+The EXP-014 Part A gate is resolved by the repository-authorized alternative condition: **honestly declare the original implementation unrecoverable when faithful reproduction cannot be achieved without post-hoc manipulation.**
+
+Proceed to EXP-014 Part B to freeze the non-Gold P&L-equivalent sizing methodology.
+
+EXP-015 remains paused until Part B is frozen and a reproducible/validated strategy-engine candidate source exists for ranker work.
