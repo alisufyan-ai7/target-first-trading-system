@@ -1,11 +1,28 @@
 # EXP-011 — Daily-Distribution Feasibility Frontier
 
-**Status:** IN PROGRESS — ANALYTICAL MODEL FROZEN BEFORE RESULTS  
+**Status:** SUPERSEDED BEFORE RESULTS — USER REVISED ECONOMIC/TRADE-COUNT ASSUMPTIONS  
 **Date:** 2026-09-22
 
-## Purpose
+## Supersession note
 
-Determine whether the project's desired daily P&L distribution is mathematically compatible with the current trade payoff and opportunity-count framework, before inventing another strategy or changing any project objective.
+Before this frozen analytical model was calculated, the user explicitly clarified the operational objective:
+
+- the end goal is to build an earning system, with research as validation;
+- XAUUSD should use a 0.10-lot reference size rather than dynamically sizing every trade to USD 20 risk;
+- successful trades may reasonably capture approximately USD 30–40 as well as USD 50;
+- stronger moves may be held toward USD 70–100+;
+- trade count may exceed 3–4/day when multiple qualified smaller-target opportunities exist;
+- the system should scan the full supported market universe and rank the best available opportunities.
+
+These changes invalidate the fixed +USD 50 / -USD 20 / maximum-4-trades assumptions as the primary forward model.
+
+This file is preserved as a historical checkpoint. No EXP-011 results were computed or used for decisions.
+
+**Replacement:** EXP-012 — Fixed-Size Target-Ladder / Multi-Market Scanner Economics.
+
+## Original purpose
+
+Determine whether the project's desired daily P&L distribution is mathematically compatible with the then-current trade payoff and opportunity-count framework, before inventing another strategy or changing any project objective.
 
 ## Question
 
@@ -108,13 +125,10 @@ The experiment should answer:
 4. how the -USD 40 loss stop changes the frontier;
 5. what opportunity-frequency floor is required regardless of p.
 
-## Next action
+## Historical next action
 
-Compute the exact distributions and thresholds, checkpoint the result, and then use that evidence to decide whether the next research phase should:
+The original plan was to compute exact fixed-payoff distributions.
 
-- seek another independent engine;
-- alter the payoff/risk unit;
-- alter the daily-distribution objective;
-- or alter the reference-account economic assumptions.
+That action is **not being executed** because the user explicitly changed the economic and trade-count assumptions before results were generated.
 
-Do not silently change any target.
+Proceed instead to EXP-012.
