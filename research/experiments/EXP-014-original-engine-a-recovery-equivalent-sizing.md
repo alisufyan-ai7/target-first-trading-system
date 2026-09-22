@@ -99,6 +99,16 @@ Because simplified expectancy is particularly sensitive to small differences in 
 
 A future variant may change only a mechanically identifiable ambiguity that was frozen in the prior variant. It may not change several unrelated parameters simultaneously to chase the benchmark.
 
+## A1 freeze checkpoint
+
+The first mechanical recovery attempt is frozen at:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A1.md`;
+- acceptance-protocol commit: `24505683baeb326b53b0ff1dc76a71593a0a72c5`;
+- A1-spec commit: `72dc26d813c4fd1ef9455f97547908346b501930`.
+
+No A1 outcome was calculated before these freezes.
+
 ## Reproduction procedure
 
 1. define all missing mechanical details before comparing a variant to the benchmark;
