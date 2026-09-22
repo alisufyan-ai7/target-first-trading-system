@@ -258,3 +258,24 @@ The update changed no frozen strategy rule. It:
 The exact-arithmetic unit checks passed again after this amendment.
 
 **Engine G outcomes calculated at this point: NO.**
+
+### Development attempt 1 — implementation stop, no outcome
+
+The first development execution attempt stopped with a runtime implementation error before a development result was produced or checkpointed.
+
+Cause:
+
+- the current market-active M1 bar was referenced by its active ordinal inside displacement/FVG/target-freshness logic before it had been appended to the active-M1 runtime array.
+
+Correction:
+
+- append the current market-active M1 bar before evaluating existing setup/trade state;
+- retain pivot confirmation after the bar's setup/trade processing and before any coincident 5m-close setup creation.
+
+This preserves the frozen causal rules and changes no strategy parameter.
+
+Corrected implementation commit:
+
+- `58067412c9c5a99d79fe224988d5c53877918e72`
+
+**Development outcome from attempt 1: NONE.**
