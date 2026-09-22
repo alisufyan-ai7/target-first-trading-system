@@ -482,7 +482,6 @@
     }
 
     function confirmM1Pivot(m){
-      activeM1.push(m);
       const n=activeM1.length-1;
       if(n<4)return;
       const t=n-2,a=activeM1;
@@ -588,6 +587,7 @@
       if(bOpen)on5Open(bOpen);
 
       if(m.active){
+        activeM1.push(m);
         if(openTrade)processTradeBar(openTrade,m);
         for(const t of shadows)processShadowBar(t,m);
         shadows=shadows.filter(t=>!t.shadowDone);
