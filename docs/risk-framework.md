@@ -2,122 +2,92 @@
 
 _Last updated: 2026-09-22_
 
-This framework governs system construction and validation. It may change only through an explicit project decision.
-
 ## Daily limits
 
 - normal daily loss stop: approximately **-USD 40**;
 - rare absolute hard stop: **-USD 60**;
-- desired daily profit zone / stop-additional-risk zone: approximately **+USD 150 to +USD 200**.
+- desired daily profit zone: approximately **+USD 150 to +USD 200**.
 
-The USD 60 level is an emergency ceiling, not a routine loss allowance.
+## Position sizing principle
 
-## Fixed-size execution principle
+### XAUUSD
 
-The project no longer assumes that every trade will be dynamically sized to exactly USD 20 risk / USD 50 profit.
+Reference size: **0.10 lot**, subject to broker contract verification.
 
-### XAUUSD reference
+### Other markets
 
-Reference execution size: **0.10 lot**.
+Use **P&L-equivalent sizing**, not identical lot size.
 
-Under the common illustrative convention of 1 lot = 100 oz:
+For a frozen native target distance, choose the lot size that would make that target approximately USD 50 gross:
 
-- 0.10 lot = 10 oz;
-- USD 1 Gold move ≈ USD 10 gross P&L.
+`lot_size ~= 50 / (target_distance × USD value per distance unit at 1 lot)`.
 
-Therefore:
+This is the base economic conversion only.
 
-- USD 3 favorable move ≈ +USD 30;
-- USD 4 ≈ +USD 40;
-- USD 5 ≈ +USD 50;
-- USD 7 ≈ +USD 70;
-- USD 10 ≈ +USD 100.
+The proposed size must then pass:
 
-The same fixed 0.10-lot position loses approximately USD 10 for each USD 1 adverse Gold move. Actual broker contract specifications must be verified.
+- structural-stop dollar-risk gate;
+- margin gate;
+- notional/leverage gate;
+- remaining daily-loss-budget gate;
+- correlated-exposure gate.
 
-### FX and other instruments
+The project may accept a smaller safe size / USD 30–40 target when the USD-50-equivalent size is not feasible.
 
-Use a fixed execution-size tier derived from actual contract/tick specifications.
+Do not enlarge size after losses.
 
-For major FX, 0.10 standard lot is the initial research anchor unless the eventual broker specification requires another fixed equivalent.
+## Important prior evidence
 
-Do **not** enlarge the lot size merely because a market's normal move is small.
+EXP-006 already demonstrated that volatility-normalized USD-50-equivalent FX sizing can require much larger lots than Gold's 0.10-lot reference.
 
-## Structural stop still comes first
+That finding is not discarded. It is a warning that equivalent sizing must be paired with explicit execution-feasibility checks rather than replaced by an arbitrary same-lot rule.
 
-Every trade must have a structural/statistical invalidation level.
+## Structural stop
 
-Because size is fixed, stop distance determines the actual dollar risk.
+A valid structural/statistical invalidation remains mandatory.
 
-The scanner must calculate before entry:
+Never compress a stop solely to fit a dollar amount.
 
-- dollar loss at structural stop;
-- remaining daily loss budget;
-- total open stop-risk;
+For every proposed trade calculate:
+
+- dollar loss if structural stop is hit;
+- target dollar reward;
+- reward/risk under the actual proposed size;
 - margin required;
-- correlated exposure.
+- aggregate open-stop exposure.
 
-Reject the trade if its fixed-size structural risk cannot fit inside the remaining daily framework.
+Reject any trade whose proposed equivalent size creates unacceptable risk.
 
-Do not compress a structural stop merely to fit an arbitrary dollar loss.
+## Profit management
 
-## Aggregate risk gate
+Normal trade objective: about **USD 50**.
 
-Working portfolio rules:
+Allowed:
 
-1. no new entry if realized daily P&L is already <= approximately -USD 40;
-2. aggregate realized loss plus credible open-stop exposure must be monitored against the -USD 60 emergency ceiling;
-3. no new correlated exposure if simultaneous stop-risk would make the hard ceiling easy to breach;
-4. once the daily profit state reaches approximately +USD 150, normally stop adding new positions; existing runners may be managed only under a predeclared rule;
-5. reaching +USD 200 is the upper daily objective zone, not a reason to increase risk further.
+- approximately USD 30–40 when the validated near target is materially more reliable;
+- USD 70–100+ when validated continuation/runner logic supports it.
 
-Exact simultaneous-open-risk rules will be validated in later portfolio experiments.
+Any partial/runner rule must be predeclared before holdout use.
 
-## Flexible profit capture
+## Aggregate portfolio gate
 
-The system may use multiple target rungs rather than one universal take-profit:
-
-- approximately USD 30;
-- USD 40;
-- USD 50;
-- USD 70;
-- USD 100+.
-
-A trade may be closed at a lower rung when evidence favors only a modest move. A runner or larger target is allowed only when the predeclared continuation logic supports it.
-
-Backtests must measure both:
-
-- whether each target rung is hit before invalidation;
-- how much favorable excursion was available after entry.
-
-## Prohibited behavior
-
-- martingale;
-- doubling after losses;
-- increasing size to recover the day;
-- revenge trading;
-- moving stops farther solely to avoid a loss;
-- forcing a trade because the daily target has not been reached;
-- increasing lot size merely to manufacture a USD 30/40/50 target on a low-volatility instrument;
-- presenting probabilistic signals as certain.
+1. stop adding risk around -USD 40 realized daily P&L;
+2. protect against breaching the -USD 60 emergency ceiling after including credible open-stop exposure;
+3. control correlated simultaneous positions;
+4. near +USD 150, normally stop adding new exposure unless a predeclared rule says otherwise;
+5. never increase size to recover or accelerate the daily target.
 
 ## Small-account implication
 
-At a USD 500 reference balance:
+At USD 500 reference equity, the stated daily limits are aggressive.
 
-- USD 40 daily loss is 8% of starting equity;
-- USD 60 hard loss is 12%.
+Before live deployment the system must verify:
 
-This remains aggressive.
+- actual broker leverage and margin;
+- liquidation/margin-call thresholds;
+- spreads and commissions;
+- slippage/gaps;
+- drawdown and risk of ruin;
+- simultaneous exposure.
 
-Any candidate system must explicitly track:
-
-- drawdown;
-- risk of ruin;
-- margin usage;
-- stop-gap / slippage risk;
-- consecutive bad days;
-- simultaneous correlated exposure;
-- broker liquidation / margin-call thresholds.
-
-No live deployment is justified until those risks are validated with actual broker specifications and forward evidence.
+No live promotion without independent-feed and forward/paper validation.
