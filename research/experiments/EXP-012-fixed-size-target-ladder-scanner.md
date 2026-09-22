@@ -551,3 +551,72 @@ The next diagnostic will therefore evaluate the unchanged Engine A candidate str
 
 The purpose is to determine whether the naturally narrower-stop Gold setups retain useful T30/T40/T50/T70/T100 behavior.
 
+## Checkpoint 4 — XAUUSD Engine A with predeclared USD 40 fixed-size stop-risk gate
+
+**Status:** FIRST ECONOMICALLY RELEVANT FIXED-SIZE CONFIGURATION; EXPECTANCY STILL TO BE TESTED
+
+For this diagnostic:
+
+- XAUUSD size remains fixed at 0.10 lot;
+- structural stop is unchanged;
+- trade is admissible only if full stop loss at 0.10 lot is <= USD 40;
+- no stop compression;
+- no lot reduction;
+- no signal-parameter changes;
+- rejected trades do not reactivate suppressed alternatives.
+
+### Development
+
+From 99 reconstructed accepted trades:
+
+- risk-gated trades: **17** (17.17%);
+- trade days: **15 of 57**;
+- median stop risk: **USD 34.65**;
+- mean stop risk: **USD 32.40**;
+- median maximum favorable excursion: **USD 39.80**;
+- mean maximum favorable excursion: **USD 51.41**.
+
+| Target | Hit rate |
+|---|---:|
+| T30 | 64.71% |
+| T40 | 41.18% |
+| T50 | 29.41% |
+| T70 | 29.41% |
+| T100 | 5.88% |
+
+### Holdout
+
+From 133 reconstructed accepted trades:
+
+- risk-gated trades: **50** (37.59%);
+- trade days: **35 of 59**;
+- median stop risk: **USD 29.82**;
+- mean stop risk: **USD 28.23**;
+- median maximum favorable excursion: **USD 27.50**;
+- mean maximum favorable excursion: **USD 99.77**.
+
+| Target | Hit rate |
+|---|---:|
+| T30 | 48.00% |
+| T40 | 34.00% |
+| T50 | 30.00% |
+| T70 | 28.00% |
+| T100 | 20.00% |
+
+### Interpretation
+
+This is the first tested configuration structurally aligned with the intended execution economics: fixed 0.10-lot Gold, no artificial size increase, structural risk inside the normal daily loss framework, and naturally attainable USD 30–100 target rungs.
+
+Target-hit rate alone does not establish profitability.
+
+### Next diagnostic
+
+Calculate actual fixed-size expectancy for every predeclared target rung using:
+
+- +USD target if reached first;
+- actual variable structural-stop dollar loss if stop is reached first;
+- session-close mark-to-market if neither target nor stop is reached;
+- conservative stop-first handling for same-bar ambiguity.
+
+No target rung will be selected until both development and holdout sensitivity are recorded.
+
