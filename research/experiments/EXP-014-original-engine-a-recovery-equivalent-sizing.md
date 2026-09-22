@@ -1,6 +1,6 @@
 # EXP-014 — Original Engine A Recovery + P&L-Equivalent Sizing
 
-**Status:** READY TO EXECUTE — REQUIRED GATE BEFORE RANKER RESUMES  
+**Status:** COMPLETE — PART A UNRECOVERABLE; PART B SIZING METHODOLOGY FROZEN  
 **Date:** 2026-09-22
 
 ## Why this experiment exists
@@ -927,3 +927,52 @@ The EXP-014 Part A gate is resolved by the repository-authorized alternative con
 Proceed to EXP-014 Part B to freeze the non-Gold P&L-equivalent sizing methodology.
 
 EXP-015 remains paused until Part B is frozen and a reproducible/validated strategy-engine candidate source exists for ranker work.
+
+
+## EXP-014 Part B checkpoint — P&L-equivalent sizing frozen
+
+**Status:** COMPLETE
+
+Forward sizing specification:
+
+- `docs/PNL-EQUIVALENT-SIZING.md`;
+- freeze commit: `600a90cb3ec9cb5220f61d9b08fac11f90724ffb`.
+
+### Method decision
+
+The forward non-Gold target-distance method is **engine-conditioned native target logic / engine-conditioned favorable-excursion calibration**.
+
+The EXP-006 volatility-burden mapping is retained as a diagnostic only and is not the governing target-distance/sizing method.
+
+For each validated engine/market:
+
+1. freeze the engine's native structural target function, or calibrate/freeze a native normal target distance on development/validation only;
+2. calculate the USD-50-equivalent lot from that native distance and actual symbol P&L economics;
+3. round to a legal broker lot step without increasing risk;
+4. calculate unchanged structural-stop USD loss, required margin, notional/leverage, daily-budget impact, and correlation/common-factor exposure;
+5. execute only if all gates pass;
+6. if USD 50 sizing is unsafe, test predeclared/validated USD 40 then USD 30 economics;
+7. otherwise reject.
+
+The USD 60 emergency daily ceiling is **not** a normal sizing budget.
+
+Actual non-Gold lot values are not frozen globally because no single lot number is valid across markets; they are calculated only after a specific validated engine/market native target and broker contract specification are frozen.
+
+## EXP-014 final disposition
+
+**EXP-014 is COMPLETE.**
+
+- Part A: original EXP-002 Engine A implementation was systematically investigated and **honestly declared unrecoverable** under the frozen multi-dimensional protocol.
+- Part B: P&L-equivalent non-Gold sizing methodology is **frozen**.
+- EXP-002 remains preserved as a historical exploratory positive result, not a validated/reproducible engine.
+- A6 is the closest causal reconstruction diagnostically but is not promoted.
+- A8/A9 are forensic/non-deployable.
+- Engine A v0.2-portable remains a separate historical rewrite and is not a substitute.
+
+### EXP-015 status after EXP-014
+
+EXP-015 remains **PAUSED**.
+
+The sizing prerequisite is now satisfied, and the Part-A recovery prerequisite is resolved by the documented unrecoverable condition. However, the ranker still needs at least one **reproducible, validated strategy engine** emitting the common candidate contract.
+
+The next strategy-development work must therefore create/validate a causal engine prospectively rather than continue post-hoc fitting to the lost EXP-002 implementation.
