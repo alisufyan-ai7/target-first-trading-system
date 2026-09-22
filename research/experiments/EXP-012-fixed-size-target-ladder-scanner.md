@@ -256,3 +256,93 @@ Reconstruct the two retained lead trade streams and recalculate them under the f
 2. GBPUSD / Engine F v0.1 at 0.10 standard lot.
 
 Checkpoint each result separately before any new engine is introduced.
+
+## Checkpoint 1 — USDJPY / Engine A v0.2 at fixed 0.10 standard lot
+
+**Status:** FIXED-SIZE ECONOMICS NOT SUFFICIENT FOR USD 30–100 TARGET LADDER
+
+### Reconstruction note
+
+The frozen Engine A v0.2 logic was reconstructed from the repository specification and the same public USDJPY 1m research sample used in EXP-007/010.
+
+This reconstruction produced:
+
+- raw retracement fills: 263;
+- accepted trades after sweep-time/one-open filtering: 209;
+- development trades: 111;
+- holdout trades: 98.
+
+EXP-010's prior reconstruction recorded 208 accepted trades / 111 development / 97 holdout, while EXP-007 originally recorded 209 / 112 / 97.
+
+The current run therefore differs by one holdout trade from the prior reconstruction. This discrepancy is preserved transparently. No parameters were changed to force the counts to match.
+
+The old 2.5R diagnostic remains close enough to confirm the reconstruction is broadly consistent:
+
+- development mean old-model R: about +0.084R;
+- holdout mean old-model R: about +0.250R;
+- EXP-010 reference holdout mean: about +0.263R.
+
+### Fixed-size economics
+
+Execution size:
+
+- 0.10 standard lot = 10,000 USD base units.
+
+Structural-stop dollar loss is calculated from the actual stop distance and JPY/USD conversion implied by USDJPY.
+
+#### Development — 111 reconstructed trades
+
+- median fixed-size structural-stop risk: **USD 3.00**;
+- mean structural-stop risk: **USD 3.41**;
+- 90th-percentile structural-stop risk: **USD 5.77**;
+- median maximum favorable excursion before stop/session end: **USD 3.82**;
+- mean maximum favorable excursion: **USD 8.40**.
+
+Target-first hit rates before structural invalidation:
+
+| Target rung | Hit rate |
+|---|---:|
+| T30 | 3.60% |
+| T40 | 3.60% |
+| T50 | 2.70% |
+| T70 | 2.70% |
+| T100 | 0.90% |
+
+#### Holdout — 98 reconstructed trades
+
+- median fixed-size structural-stop risk: **USD 2.24**;
+- mean structural-stop risk: **USD 3.15**;
+- 90th-percentile structural-stop risk: **USD 6.83**;
+- median maximum favorable excursion before stop/session end: **USD 2.94**;
+- mean maximum favorable excursion: **USD 12.48**.
+
+Target-first hit rates before structural invalidation:
+
+| Target rung | Hit rate |
+|---|---:|
+| T30 | 7.14% |
+| T40 | 6.12% |
+| T50 | 4.08% |
+| T70 | 4.08% |
+| T100 | 3.06% |
+
+### Interpretation
+
+The fixed 0.10-lot model solves the earlier excessive-notional problem but creates the opposite economic problem:
+
+- ordinary structural risk is only a few dollars;
+- the typical favorable excursion is also only a few dollars;
+- USD 30–50 outcomes are rare;
+- USD 70–100 outcomes are rarer still.
+
+So USDJPY / Engine A v0.2 is **not suitable as a primary USD 30–100 fixed-size income stream at 0.10 lot** under the current setup definition.
+
+This does not prove USDJPY is useless to the future scanner. It means this specific Engine A entry family at this fixed size does not generate the dollar-move distribution required by the revised system objective.
+
+### Disposition
+
+- Preserve the historical Engine A lead record.
+- Do not enlarge position size merely to manufacture USD 30–50.
+- Do not retune Engine A after this result.
+- Continue EXP-012 to GBPUSD / Engine F v0.1 at fixed 0.10 standard lot.
+
