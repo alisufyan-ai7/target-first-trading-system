@@ -313,6 +313,19 @@ Frozen specification:
 
 All other A1 mechanics and the frozen acceptance protocol remain unchanged. No A2 outcome was calculated before this freeze.
 
+## A3 freeze checkpoint
+
+A3 inherits A2 candidate generation unchanged and changes exactly one stop-placement ambiguity:
+
+- replace the fixed USD 0.10 FVG-edge buffer with a buffer equal to **25% of the selected FVG width**.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A3.md`;
+- pre-outcome A3-spec commit: `75d6885ccb29bc68255a2ef2f80eb85aeea52e94`.
+
+No A3 target/expectancy outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
