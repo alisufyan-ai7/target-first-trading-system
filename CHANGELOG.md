@@ -43,3 +43,9 @@
 - Expanded successful-trade capture targets to approximately USD 30 / 40 / 50 / 70 / 100+ and removed the hard 3–4 trades/day assumption in favor of opportunity-driven trade count subject to risk, margin, correlation, and quality gates.
 - Superseded EXP-011 before results because its fixed-payoff/max-4-trades assumptions no longer matched the user’s operating objective.
 - Opened EXP-012 to rebuild scanner economics and re-evaluate retained USDJPY Engine A / GBPUSD Engine F leads under fixed-size target ladders.
+- Re-evaluated USDJPY / Engine A v0.2 at fixed 0.10 lot: holdout T30 about 7.1%, T50 about 4.1%; no longer a priority fixed-size income lead.
+- Re-evaluated GBPUSD / Engine F v0.1 at fixed 0.10 lot: holdout T30 about 11.1%, T50+ 0%; no longer a priority fixed-size income lead.
+- Re-evaluated XAUUSD / Engine A v0.2 at fixed 0.10 lot: Gold naturally supports USD 30–100 movement, but median holdout structural-stop risk was about USD 51.90.
+- Applied the predeclared <= USD 40 fixed-size structural-risk gate to Gold; 50 holdout trades survived, with T30/T40/T50/T70/T100 hit rates of roughly 48%/34%/30%/28%/20%.
+- Tested fixed-target expectancy on the risk-gated Gold subset: T30 fell from about +USD 7.13/trade in development to about +USD 0.02/trade in holdout before costs; higher target rungs were negative.
+- No existing engine promoted. Next phase is a fixed-size market-universe economic feasibility map followed by a cross-market target-first opportunity ranker.
