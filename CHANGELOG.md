@@ -2,6 +2,13 @@
 
 ## 2026-09-23
 
+- Froze Engine G — Contextual Liquidity Reversal v0.1 prospectively before any Engine G outcome calculation.
+- Added the complete mechanical specification at `strategies/engine-g-contextual-liquidity-reversal/SPEC-v0.1.md`, including integer-tick price normalization, dynamic liquidity-instance/cluster lifecycle, always-on liquidity consumption, explicit FVG/target logic, gross USD 40 structural-risk admission, independent counterfactual target labels, provenance manifest, bootstrap evidence, and delayed sensitivity rules.
+- Opened `EXP-016-engine-g-contextual-liquidity-reversal-v0.1` with checkpoint 0 marked frozen/not-yet-run.
+- Froze the same-feed primary split: development Jan 2024–Feb 2025, validation Mar–Aug 2025, fresh holdout Sep 2025–Feb 2026; quarantined Mar–Aug 20 2026 from the primary decision.
+- Froze the external Dukascopy-derived source snapshot to `kevingtlin/Market-Data-Lab` commit `922f83a60cc574e7395fb27397077288055a1ef6` plus the per-file BID blob manifest.
+- Kept EXP-015 paused pending a reproducible validated strategy engine.
+
 - Froze a numerical multi-dimensional EXP-014 reproduction-acceptance protocol before new recovery outcomes.
 - Audited the March 1–August 20, 2026 Dukascopy-derived XAUUSD BID M1 research series: 230,813 rows, matching EXP-002's recorded row count; zero duplicate timestamps and zero invalid OHLC rows.
 - Systematically checkpointed original Engine A recovery variants A1–A9, changing identifiable ambiguities rather than tuning multiple parameters together.
