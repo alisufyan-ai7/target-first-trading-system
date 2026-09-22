@@ -1,16 +1,20 @@
 # EXP-015 — Target-First Opportunity Ranker v0.1
 
-**Status:** PAUSED — DESIGN MUST BE REBASED AFTER EXP-014  
-**Date:** 2026-09-22
+**Status:** PAUSED — WAITING FOR VALIDATED REPRODUCIBLE ENGINE CANDIDATES  
+**Date:** 2026-09-23
 
 ## Why this file exists
 
 This experiment was originally created under the duplicate ID EXP-014.
 
-It has been renumbered to preserve unique experiment IDs and to restore the correct project sequence:
+It has been renumbered to preserve unique experiment IDs and to restore the correct project sequence.
 
-1. EXP-014 — recover/reproduce original Engine A and freeze equivalent sizing;
-2. EXP-015 — target-first ranker, only after EXP-014 passes.
+EXP-014 is now complete:
+
+- Part A systematically investigated original Engine A recovery and honestly closed it as unrecoverable from the surviving evidence;
+- Part B froze the forward P&L-equivalent sizing methodology.
+
+EXP-015 does **not** resume automatically. It still requires at least one validated reproducible engine candidate stream.
 
 ## Design correction
 
@@ -103,16 +107,29 @@ Interpretation:
 
 ## Re-entry conditions
 
-Do not resume EXP-015 until all are true:
+Current status of the prerequisites:
 
-1. EXP-014 original Engine A recovery is complete or honestly declared unrecoverable;
-2. the recovered/retained engines emit the common candidate contract in docs/STRATEGY-ENGINE-CONTRACT.md;
-3. equivalent sizing for non-Gold markets is frozen prospectively;
-4. the ranker feature set is rebuilt around engine-generated candidates;
-5. training/calibration/holdout dates are re-declared before further outcome inspection.
+1. **SATISFIED** — EXP-014 Part A is complete via the explicitly allowed honest-unrecoverable conclusion.
+2. **NOT SATISFIED** — there is currently no promoted reproducible validated engine emitting the common candidate contract.
+3. **SATISFIED** — equivalent-sizing methodology is frozen in `docs/PNL-EQUIVALENT-SIZING.md`.
+4. **NOT YET EXECUTED** — ranker features must be rebuilt around the eventual engine-generated candidate stream.
+5. **NOT YET EXECUTED** — training/calibration/holdout dates must be re-declared prospectively before ranker outcome inspection.
+
+Therefore EXP-015 remains **PAUSED**.
+
+Do not use A6, A8/A9, v0.2-portable, Engine F v0.1, or the broad raw-pivot candidate set merely to satisfy condition 2. A strategy engine must independently earn validated status first.
 
 ## Future ranker purpose
 
 Once resumed, EXP-015 should estimate target-first probabilities / expected value for **validated-engine candidates**, compare them across markets, and reject candidates that fail probability, structural-risk, margin, exposure, or daily-state gates.
 
 It is a selection layer, not the default entry-strategy generator.
+
+
+## Post-EXP-014 note
+
+The next project experiment is **not** an EXP-015 model run.
+
+The immediate missing system component is a prospectively specified causal strategy engine with deterministic candidate generation, structural invalidation, native target logic, data provenance, and development/validation/holdout evidence.
+
+Once such an engine passes, EXP-015 should be redesigned around that engine's standardized candidates and the frozen equivalent-sizing methodology.
