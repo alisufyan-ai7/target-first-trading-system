@@ -227,3 +227,42 @@ USD 30–40 is an acceptable fallback when the full USD-50-equivalent size/targe
 **Reason:** Those calculations were produced under a misunderstanding of the user's intended equivalent-lot concept.
 
 **Next:** Revisit EXP-006-style P&L-equivalent sizing with explicit feasibility gates.
+
+
+## 2026-09-22 — Reassert system-first identity
+
+**Decision:** This repository represents a trading-system build. Research/backtesting is the validation layer, not the end product.
+
+**Reason:** The original conversation defined an operating multi-market scanner/execution system, and later repository work had become too research-centric.
+
+## 2026-09-22 — Preserve full original conversation architecture
+
+**Decision:** Add authoritative system/context documents covering the full system blueprint, original economic objective, Badar video evidence, timeframe/context model, superseded assumptions, strategy-engine candidate contract, and staged deployment roadmap.
+
+**Reason:** Quantitative experiment files alone did not preserve enough of the original design reasoning for reliable context recovery.
+
+## 2026-09-22 — Restore engine-first ranker architecture
+
+**Decision:** The target-first probability/ranking layer should normally score candidates emitted by validated/versioned strategy engines.
+
+A broad generic pivot/statistical candidate generator may be researched, but it must itself be explicitly defined and validated as an engine before bypassing this contract.
+
+**Reason:** The earlier broad-pivot ranker draft represented architecture drift from the system originally agreed in the chat.
+
+## 2026-09-22 — Resolve duplicate EXP-014 IDs
+
+**Decision:** Keep EXP-014 as Original Engine A Recovery + P&L-Equivalent Sizing. Renumber the previous broad target-first ranker to EXP-015.
+
+**Status:** EXP-015 is PAUSED until EXP-014 passes.
+
+## 2026-09-22 — Original Engine A recovery is the immediate technical gate
+
+**Decision:** Do not resume broad ranker optimization or new scanner-universe outcome testing until the original EXP-002 Gold Engine A is recovered/reproduced within reasonable tolerance or honestly declared unrecoverable.
+
+**Reason:** Later Engine A v0.2 was a different prospective rewrite and cannot substitute for the original positive EXP-002 lead.
+
+## 2026-09-22 — Historical same-lot FX work is diagnostic only
+
+**Decision:** Reclassify EXP-013's same-0.10-lot FX universe ranking as a historical diagnostic, not a current scanner-selection rule.
+
+**Reason:** The user's intended cross-market economics require P&L-equivalent lot sizing, not identical lot numbers.
