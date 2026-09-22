@@ -740,3 +740,86 @@ EXP-015 is the renumbered target-first ranker experiment.
 It is **PAUSED** until EXP-014 passes.
 
 Its earlier broad-pivot XAU candidate statistics are retained as diagnostics only and do not supersede the engine-first architecture.
+
+
+## Part A checkpoint — A8 forensic result
+
+**Status:** FAIL — INTRABAR 5m-SWEEP TIMING LEAKAGE DOES NOT EXPLAIN EXP-002
+
+A8 was deliberately forensic/non-causal. It branched from A6 and changed only the MSS timing/anchor so the 1m sequence could begin after the first intrabar liquidity breach but before the containing 5m bar was known to close back inside.
+
+Final pre-outcome A8 clarification commit:
+
+- `5f3e820cd7fd2157e4c9ef549a9d16b34ca9ede3`.
+
+The resumed runner was first validated against the durable A6 outcome checkpoint and reproduced A6's material results exactly: 333 accepted trades, 164/169 development/holdout split, 15.02% overall T5, 13.61% holdout T5, average risk about 1.053 Gold, and holdout expectancy about +0.010 Gold/trade.
+
+### A8 funnel
+
+- qualifying reusable-level sweep bars: 2,764 in the execution runner;
+- first intrabar breach identified: 2,764;
+- eligible pre-breach internal pivot: 2,761;
+- MSS: 1,021;
+- displacement: 698;
+- FVG: 581;
+- raw midpoint fills: 320;
+- setup-while-open suppressions: 3;
+- fill-while-open suppressions: 20;
+- accepted trades: **297**.
+
+The small raw sweep-funnel count convention differs from some earlier narrative funnel counts, but the validated A6 accepted-trade/outcome layer is identical to the durable checkpoint; therefore A8 comparison uses the accepted/outcome vector as the governing reproduction evidence.
+
+### Benchmark comparison
+
+| Metric | EXP-002 benchmark | A8 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **297** | 335–409 | No |
+| Development trades | ~185 | **146** | 163–207 | No |
+| Holdout trades | ~187 | **151** | 165–209 | No |
+| Overall T5 | 29.6% | **14.48%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **13.91%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **25.17%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **21.85%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **18.54%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **1.175** | 0.867–1.173 | No — marginally high |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.104** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **-0.151** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.059** | +0.468 to +0.972 | No |
+
+Additional A8 diagnostics:
+
+- fill-bar stops: **135 / 297**;
+- T5 wins / total stops / timeouts: 43 / 254 / 0;
+- overall average MFE: about 1.290 Gold;
+- holdout average MFE: about 1.294 Gold.
+
+### Forensic timing evidence
+
+Among the 320 raw A8 fills:
+
+- MSS completed before the containing 5m sweep bar closed: **76**;
+- displacement completed before 5m close: **71**;
+- FVG completed before 5m close: **49**;
+- midpoint fill occurred before 5m close: **17**.
+
+Among accepted trades:
+
+- midpoint fill before containing 5m close: **14**;
+- MSS before containing 5m close: **64**.
+
+### Interpretation
+
+A8 does not recover EXP-002 and does not indicate that intrabar use of an eventually-confirmed 5m sweep is the source of the historical edge.
+
+The forensic branch remains non-deployable regardless of result and should not be carried forward.
+
+Return to A6 as the strongest causal recovery baseline: it is closest on frequency/split balance and average risk, but still misses the target-first ladder and expectancy by a large margin.
+
+### Next forensic ambiguity
+
+One major implementation ambiguity remains capable of explaining the persistent zero median MFE and approximately half-sized target-first rates: **fill-bar stop handling**.
+
+A6 has 163 fill-bar stops out of 333 accepted trades. The current recovery runner conservatively counts an entry and stop touched in the same 1m fill bar as a stop. A simple historical bar-based implementation could instead have begun stop/target evaluation on the next bar after a midpoint fill.
+
+If tested, this must be a separately frozen **forensic/non-deployable** variant. The project's production research discipline remains conservative; the purpose is only to determine whether optimistic historical fill-bar ordering could explain EXP-002.
