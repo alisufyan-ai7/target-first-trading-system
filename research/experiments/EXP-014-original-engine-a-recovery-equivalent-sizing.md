@@ -313,6 +313,76 @@ Frozen specification:
 
 All other A1 mechanics and the frozen acceptance protocol remain unchanged. No A2 outcome was calculated before this freeze.
 
+## Part A checkpoint — A3 result
+
+**Status:** FAIL — STRUCTURAL-RISK BAND RECOVERED, BUT TARGET-FIRST EDGE NOT RECOVERED
+
+A3 changed only the A2 FVG-stop buffer.
+
+### A3 signal funnel
+
+Candidate-generation funnel is unchanged from A2 through midpoint fill:
+
+- sweeps: 2,332;
+- internal-pivot eligible: 2,326;
+- MSS: 1,198;
+- displacement: 639;
+- FVG: 497;
+- raw midpoint fills: 302.
+
+Longer A3 trade life from the wider stop caused:
+
+- sweep-while-open suppressions: 6;
+- fill-while-open suppressions: 2;
+- accepted trades: **294**.
+
+### Benchmark comparison
+
+| Metric | EXP-002 benchmark | A3 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **294** | 335–409 | No |
+| Development trades | ~185 | **145** | 163–207 | No |
+| Holdout trades | ~187 | **149** | 165–209 | No |
+| Overall T5 | 29.6% | **14.97%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **13.42%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **23.49%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **21.48%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **16.78%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **1.040** | 0.867–1.173 | **Yes** |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.013** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **-0.017** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.009** | +0.468 to +0.972 | No |
+
+Additional A3 diagnostics:
+
+- development T5: 16.55%;
+- development average risk: 1.165 Gold;
+- holdout average risk: 0.919 Gold;
+- overall median risk: 0.761 Gold;
+- fill-bar stops: **148 / 294**;
+- T5 wins / total stops / timeouts: 44 / 250 / 0;
+- overall average MFE: 1.235 Gold;
+- holdout average MFE: 1.178 Gold.
+
+### A3 interpretation
+
+The A3 proportional FVG stop recovers the aggregate **average-risk** dimension almost exactly, but the target ladder, MFE, expectancy, and trade count remain materially wrong.
+
+This demonstrates that matching the stop-risk benchmark alone is insufficient and prevents falsely declaring recovery based on one successful statistic.
+
+### Next ambiguity to test
+
+A4 should change only the **5m liquidity-swing confirmation rule**, from A3's local 1-left/1-right pivot to a more selective 2-left/2-right confirmed 5m swing.
+
+Reason:
+
+- liquidity quality remains a documented recovery unknown;
+- the current candidate stream appears too weak even after risk geometry is aligned;
+- stronger 5m liquidity is a mechanically distinct hypothesis that can improve setup quality without changing MSS, displacement, FVG, entry, stop, session, or outcome rules.
+
+Trade count may fall; that is acceptable for the diagnostic. Do not compensate by changing fill expiry or level reuse in the same variant.
+
 ## A3 freeze checkpoint
 
 A3 inherits A2 candidate generation unchanged and changes exactly one stop-placement ambiguity:
