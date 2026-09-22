@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine G v0.1 development gate failed; validation/holdout preserved
+**Phase:** Phase 2 — Engine G failed development; Engine H v0.1 insufficient evidence; validation/holdout preserved
 
 ## Authorized context
 
@@ -112,6 +112,7 @@ Same-0.10-lot FX work from EXP-012/013 also remains diagnostic only.
 There is currently **no strategy engine promoted as a validated execution lead**.
 
 - Engine G v0.1: **prospectively frozen, then failed the EXP-016 development gate: 71 accepted trades (<100 minimum), -USD 9.27/trade at primary cost, bootstrap expectancy CI entirely below zero. Validation/holdout remain untouched; not promoted.**
+- Engine H v0.1: **prospectively frozen from the two video motifs, then produced only 2 accepted development trades from 180 in-window raids versus the >=100 minimum. Formally insufficient evidence; validation/holdout untouched; not promoted.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -158,12 +159,10 @@ EXP-015 remains paused until at least one reproducible engine validates.
 
 ## Exact next action
 
-Do not retune Engine G v0.1, inspect its validation/holdout, or run its sensitivity neighbors.
+Do not inspect validation/holdout for Engine G v0.1 or Engine H v0.1, and do not retune either frozen version.
 
-The next strategy hypothesis must be prospectively specified as Engine G v0.2 or a different engine identity before any new outcome calculation. Preserve the existing untouched 2025-03 through 2026-02 validation/holdout data unless a future experiment prospectively assigns it under a new version.
+The Engine-H development funnel provides the clearest next research signal: the location event itself was not vanishingly rare (341 qualifying raids; 180 in-window), but the combined lower-timeframe MSS + displacement + same-candle entry-FVG confirmation reduced accepted trades to only 2.
 
-Continue to use the frozen system architecture and P&L-equivalent sizing rules; do not resume EXP-015 until a reproducible engine validates.
+The next prospective experiment should therefore test a **simpler confirmation architecture** without using H v0.1 validation/holdout. A new version must be frozen before outcomes; H v0.1 itself remains closed.
 
-## Key unresolved question
-
-Can one or more new reproducible engines, combined with the frozen equivalent-sizing method and cross-market ranking architecture, generate enough safe USD 30–100 opportunities to materially reduce low-output days without unacceptable leverage, drawdown, or loss frequency?
+EXP-015 remains paused until at least one reproducible engine validates.
