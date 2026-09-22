@@ -53,3 +53,14 @@ The user clarified the intended execution model:
 2. GBPUSD / Engine F v0.1.
 
 The old dynamic USD 20 risk sizing results remain valid historical evidence but are no longer the forward execution model.
+
+## EXP-012 fixed-size implication
+
+Under the user's intended fixed-size model:
+
+- USDJPY / Engine A v0.2 is no longer a priority lead: at 0.10 lot its holdout T30/T50 hit rates were only about 7.1% / 4.1%.
+- GBPUSD / Engine F v0.1 is no longer a priority lead: at 0.10 lot its holdout T30 was about 11.1% and T50+ was 0%.
+- XAUUSD / Engine A v0.2 has suitable movement scale at 0.10 lot, but raw structural stops are frequently too wide.
+- after a predeclared <= USD 40 structural-stop risk gate, XAU T30 holdout expectancy was approximately flat before costs and higher target rungs were negative.
+
+**Strategy implication:** no existing engine is promoted. Gold remains the primary economic anchor, but the next work is not another post-hoc Engine A filter. The system now needs an economically suitable multi-market universe plus a prospectively frozen target-first ranking layer / naturally tighter-stop setup family.
