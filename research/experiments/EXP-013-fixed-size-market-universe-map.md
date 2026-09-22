@@ -313,4 +313,135 @@ Search for clean development-period 1m data for the predeclared priority additio
 
 Add only markets with documented data provenance. Do not substitute a different feed mid-ranking solely because a preferred pair is unavailable.
 
+## Checkpoint 2 — Priority FX expansion
+
+Matching public GetData 1m samples were located for:
+
+- EURJPY — `getdata-finance/eurjpy-1m-ohlcv-forex-historical-data`;
+- AUDUSD — `getdata-finance/audusd-1m-ohlcv-forex-historical-data`;
+- USDCAD — `getdata-finance/usdcad-1m-ohlcv-forex-historical-data`;
+- USDCHF — `getdata-finance/usdchf-1m-ohlcv-forex-historical-data`.
+
+A matching GBPJPY sample was not found. GBPJPY remains deferred rather than introducing another feed mid-checkpoint.
+
+All metrics below use development data only.
+
+### EURJPY — 0.10 standard lot
+
+JPY-quote P&L is converted using the development median USDJPY rate already frozen in Checkpoint 1 (about 159.014 JPY/USD).
+
+- median hourly TR: **16.80 pips**;
+- median active-session range: **61.50 pips**;
+- 75th / 90th session range: 90.0 / 117.76 pips;
+- approximate median active-session gross movement capacity: **USD 38.68**.
+
+| Target | Approx required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 47.7 pips | 2.840x | 0.776x |
+| USD 40 | 63.6 pips | 3.786x | 1.034x |
+| USD 50 | 79.5 pips | 4.733x | 1.293x |
+| USD 70 | 111.3 pips | 6.626x | 1.810x |
+| USD 100 | 159.0 pips | 9.465x | 2.586x |
+
+### AUDUSD — 0.10 standard lot
+
+At approximately USD 1/pip:
+
+- median hourly TR: **12.60 pips**;
+- median active-session range: **51.40 pips**;
+- 75th / 90th session range: 62.7 / 73.42 pips;
+- median active-session gross movement capacity: **USD 51.40**.
+
+| Target | Required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 30 pips | 2.381x | 0.584x |
+| USD 40 | 40 pips | 3.175x | 0.778x |
+| USD 50 | 50 pips | 3.968x | 0.973x |
+| USD 70 | 70 pips | 5.556x | 1.362x |
+| USD 100 | 100 pips | 7.937x | 1.946x |
+
+### USDCAD — 0.10 standard lot
+
+Development median active price: about **1.37031 CAD/USD**.
+
+At 0.10 lot, one pip is approximately 1 CAD, converted to USD at the contemporaneous USDCAD rate.
+
+- median hourly TR: **11.80 pips**;
+- median active-session range: **42.50 pips**;
+- 75th / 90th session range: 57.2 / 68.8 pips;
+- approximate median active-session gross movement capacity: **USD 31.01**.
+
+| Target | Approx required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 41.1 pips | 3.484x | 0.967x |
+| USD 40 | 54.8 pips | 4.645x | 1.290x |
+| USD 50 | 68.5 pips | 5.806x | 1.612x |
+| USD 70 | 95.9 pips | 8.129x | 2.257x |
+| USD 100 | 137.0 pips | 11.613x | 3.224x |
+
+### USDCHF — 0.10 standard lot
+
+Development median active price: about **0.77843 CHF/USD**.
+
+At 0.10 lot, one pip is approximately 1 CHF, converted to USD at the contemporaneous USDCHF rate.
+
+- median hourly TR: **11.20 pips**;
+- median active-session range: **42.90 pips**;
+- 75th / 90th session range: 52.2 / 64.72 pips;
+- approximate median active-session gross movement capacity: **USD 55.11**.
+
+| Target | Approx required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 23.4 pips | 2.085x | 0.544x |
+| USD 40 | 31.1 pips | 2.780x | 0.726x |
+| USD 50 | 38.9 pips | 3.475x | 0.907x |
+| USD 70 | 54.5 pips | 4.865x | 1.270x |
+| USD 100 | 77.8 pips | 6.950x | 1.815x |
+
+## Updated development-only movement-economics ordering
+
+This ranking describes **natural fixed-size movement capacity**, not strategy profitability.
+
+Using T30/T50 burden, session capacity, and common data quality:
+
+1. **XAUUSD** — dominant economic fit for USD 30–100 at the reference size.
+2. **GBPUSD** — strongest ranked FX market.
+3. **USDCHF** — favorable USD pip conversion makes USD 30–50 more natural than its raw pip range alone suggests.
+4. **EURUSD** — reasonable USD 30 target; USD 50 consumes almost the full median session range.
+5. **AUDUSD** — similar to EURUSD but slightly higher target burden.
+6. **EURJPY** — better than USDJPY but USD 50 still exceeds the median session range.
+7. **USDJPY** — weak fixed-size fit above USD 30.
+8. **USDCAD** — weakest of the ranked 0.10-lot FX markets for the desired ladder.
+
+**XAGUSD remains unranked** pending a frozen quantity/contract convention.
+
+**GBPJPY remains deferred** because the matching source was unavailable.
+
+## Scanner-universe implication
+
+For the first target-first ranking model, the economically strongest currently documented universe is:
+
+- XAUUSD as the core market;
+- GBPUSD;
+- USDCHF;
+- EURUSD;
+- AUDUSD.
+
+EURJPY / USDJPY / USDCAD may remain visible to the scanner later, but they are lower priority for USD 30–50 at 0.10 lot.
+
+This is a development-only economic selection. No new strategy outcomes have been inspected for USDCHF/AUDUSD in making this selection.
+
+## Next action
+
+Freeze a first scanner universe and define the target-first opportunity-ranking experiment before inspecting its holdout outcomes.
+
+The first ranking experiment should prioritize:
+
+1. XAUUSD;
+2. GBPUSD;
+3. USDCHF;
+4. EURUSD;
+5. AUDUSD.
+
+The model must estimate target-rung probabilities and enforce fixed-size structural-risk gates rather than taking every generated signal.
 
