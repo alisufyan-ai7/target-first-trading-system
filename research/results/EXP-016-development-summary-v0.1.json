@@ -204,5 +204,12 @@
       "lo": -3.5990221311475423,
       "hi": -0.566406557377051
     }
+  },
+  "execution_metadata": {
+    "engine_implementation": "research/code/engine-g-v0.1.js",
+    "data_source_repo": "kevingtlin/Market-Data-Lab",
+    "data_source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "split": "development",
+    "validation_or_holdout_loaded": false
   }
 }
