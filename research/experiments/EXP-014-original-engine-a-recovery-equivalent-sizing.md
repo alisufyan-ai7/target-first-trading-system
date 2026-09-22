@@ -456,6 +456,63 @@ Frozen specification:
 
 No A4 outcome was calculated before this freeze.
 
+## Part A checkpoint — A5 result
+
+**Status:** FAIL — STRONGER INTERNAL MSS PIVOT REDUCED FREQUENCY WITHOUT RECOVERING TARGET-FIRST QUALITY
+
+A5 branched from A3 and changed only the 1m internal pivot confirmation from 1-left/1-right to 2-left/2-right.
+
+### A5 funnel and results
+
+- sweeps: 2,332;
+- eligible stronger internal pivot: 2,155;
+- MSS: 831;
+- displacement: 486;
+- FVG: 391;
+- raw midpoint fills: 221;
+- accepted trades: **217**.
+
+| Metric | EXP-002 benchmark | A5 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **217** | 335–409 | No |
+| Development trades | ~185 | **98** | 163–207 | No |
+| Holdout trades | ~187 | **119** | 165–209 | No |
+| Overall T5 | 29.6% | **15.67%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **13.45%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **24.37%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **22.69%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **17.65%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **1.188** | 0.867–1.173 | No |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.026** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **-0.020** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.031** | +0.468 to +0.972 | No |
+
+Additional diagnostics:
+
+- fill-bar stops: 101 / 217;
+- T5 wins / stops / timeouts: 34 / 183 / 0;
+- holdout average risk: 1.064 Gold.
+
+### A5 interpretation
+
+A stronger internal pivot does not explain EXP-002. It materially reduces the sample while leaving target-first quality far below the benchmark.
+
+Do not carry the A5 internal-pivot change forward.
+
+### Next ambiguity
+
+Return to A3 and test only **liquidity-level reuse**.
+
+A3 retired a recent 5m swing level after its first qualifying sweep even if no trade ultimately formed. A plausible simpler original implementation may instead have kept using the most recent eligible swing until a newer swing replaced it or it aged out.
+
+A6 should therefore:
+
+- preserve A3's 1-left/1-right 5m pivot;
+- preserve A3's 1-left/1-right internal pivot;
+- preserve A3 MSS/displacement/FVG/entry/stop/outcome mechanics;
+- remove only the one-sweep permanent-consumption rule.
+
 ## A5 freeze checkpoint
 
 A5 returns to the A3 baseline after A4 failed and changes exactly one different ambiguity:
