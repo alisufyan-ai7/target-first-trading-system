@@ -396,6 +396,52 @@ Frozen specification:
 
 No A3 target/expectancy outcome was calculated before this freeze.
 
+## Part A checkpoint — A4 result
+
+**Status:** FAIL — STRONGER 5m LIQUIDITY PIVOT REDUCED FREQUENCY AND WORSENED HOLDOUT
+
+A4 changed only the 5m swing confirmation rule from A3's 1-left/1-right pivot to 2-left/2-right.
+
+### A4 funnel and results
+
+- sweeps: 1,719;
+- internal-pivot eligible: 1,702;
+- MSS: 885;
+- displacement: 436;
+- FVG: 338;
+- raw midpoint fills: 212;
+- accepted trades: **209**.
+
+| Metric | EXP-002 benchmark | A4 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **209** | 335–409 | No |
+| Development trades | ~185 | **103** | 163–207 | No |
+| Holdout trades | ~187 | **106** | 165–209 | No |
+| Overall T5 | 29.6% | **13.40%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **8.49%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **20.75%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **16.04%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **10.38%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **0.966** | 0.867–1.173 | Yes |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.041** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **+0.145** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.221** | +0.468 to +0.972 | No |
+
+Additional diagnostics:
+
+- holdout average risk: 0.875 Gold;
+- fill-bar stops: 103 / 209 overall;
+- T5 wins / total stops / timeouts: 28 / 181 / 0.
+
+### A4 interpretation
+
+The stronger 2-left/2-right 5m liquidity definition reduces both frequency and holdout quality. It does not explain the original EXP-002 edge.
+
+Therefore do **not** carry the A4 5m-pivot change forward as the default recovery branch.
+
+The next variant should return to the A3 baseline and test a different single ambiguity rather than stacking another rule on top of the failed A4 branch.
+
 ## A4 freeze checkpoint
 
 A4 inherits A3 unchanged except for one liquidity-quality ambiguity:
