@@ -8,6 +8,9 @@
 - Froze the same-feed primary split: development Jan 2024–Feb 2025, validation Mar–Aug 2025, fresh holdout Sep 2025–Feb 2026; quarantined Mar–Aug 20 2026 from the primary decision.
 - Froze the external Dukascopy-derived source snapshot to `kevingtlin/Market-Data-Lab` commit `922f83a60cc574e7395fb27397077288055a1ef6` plus the per-file BID blob manifest.
 - Kept EXP-015 paused pending a reproducible validated strategy engine.
+- Ran the frozen EXP-016 Engine G v0.1 development split only after the spec/provenance/implementation checkpoints were committed.
+- Engine G v0.1 development produced 71 accepted trades, about 16.9% S1 hits, -USD 9.27/trade at the primary 0.50-XAU cost stress, profit factor about 0.496, and a 95% block-bootstrap expectancy interval entirely below zero (-USD 15.14 to -USD 2.52).
+- Stopped EXP-016 v0.1 before validation because the >=100 development minimum was not reached and the mandatory positive development-expectancy criterion failed. Preserved validation and fresh holdout untouched; no sensitivity diagnostics were run.
 
 - Froze a numerical multi-dimensional EXP-014 reproduction-acceptance protocol before new recovery outcomes.
 - Audited the March 1–August 20, 2026 Dukascopy-derived XAUUSD BID M1 research series: 230,813 rows, matching EXP-002's recorded row count; zero duplicate timestamps and zero invalid OHLC rows.
