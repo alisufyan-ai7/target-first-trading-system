@@ -528,6 +528,21 @@ Frozen specification:
 
 No A5 outcome was calculated before this freeze.
 
+## A6 freeze checkpoint
+
+A6 returns to the A3 baseline after A4/A5 pivot-strength branches failed and changes exactly one implementation ambiguity:
+
+- the latest eligible 5m liquidity pivot is **not permanently consumed by its first qualifying sweep**;
+- it remains reusable for later qualifying sweep bars until replaced by a newer same-side confirmed pivot or until the unchanged 24-bar age limit expires;
+- the A3 5m/1m pivot definitions, MSS -> displacement sequencing, FVG, midpoint entry, proportional FVG stop, session, one-open policy, horizon, same-bar handling, and target labels remain unchanged.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A6.md`;
+- pre-outcome A6-spec commit: `71c87644456d858aa807b6bcfcc7434bece2725d`.
+
+No A6 outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
