@@ -1,6 +1,6 @@
 # Working Risk Framework
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 ## Daily limits
 
@@ -8,7 +8,7 @@ _Last updated: 2026-09-22_
 - rare absolute hard-loss ceiling: approximately **-USD 60**;
 - desired daily profit-state zone: approximately **+USD 150 to +USD 200**.
 
-The USD 60 level is an emergency ceiling, not a routine daily allowance.
+The USD 60 level is an emergency ceiling, not a routine daily allowance and **not a per-trade sizing budget**.
 
 ## Position sizing
 
@@ -20,7 +20,9 @@ Reference size: **0.10 lot**, subject to broker verification.
 
 Use **P&L-equivalent sizing**, not identical lot size.
 
-For a frozen native target distance, calculate the size that would make the normal target approximately USD 50 gross.
+Use the frozen methodology in `docs/PNL-EQUIVALENT-SIZING.md`.
+
+For an engine-conditioned frozen native target distance/target function, calculate the size that would make the normal target approximately USD 50 gross.
 
 The proposed size must pass:
 
