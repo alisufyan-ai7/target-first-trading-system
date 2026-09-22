@@ -1,6 +1,9 @@
 # EXP-013 — Fixed-Size Market-Universe Economic Feasibility Map
 
 **Status:** IN PROGRESS — RULES FROZEN BEFORE NEW MARKET RANKING RESULTS  
+
+> **2026-09-22 sizing correction:** This experiment's FX ranking used 0.10 standard lot on each FX symbol. That was based on a misunderstanding of the user's intended "equivalent to 0.10 Gold" concept. The volatility statistics remain useful, but the FX dollar-capacity ranking and scanner-universe implication are **diagnostic only and not the forward selection rule**. Forward sizing must use symbol-specific P&L-equivalent lots for a normal ~USD 50 target, with explicit risk/margin gates.
+
 **Date:** 2026-09-22
 
 ## Purpose
