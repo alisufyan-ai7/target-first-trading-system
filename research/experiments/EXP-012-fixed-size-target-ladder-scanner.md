@@ -346,3 +346,106 @@ This does not prove USDJPY is useless to the future scanner. It means this speci
 - Do not retune Engine A after this result.
 - Continue EXP-012 to GBPUSD / Engine F v0.1 at fixed 0.10 standard lot.
 
+## Checkpoint 2 — GBPUSD / Engine F v0.1 at fixed 0.10 standard lot
+
+**Status:** FIXED-SIZE ECONOMICS NOT SUFFICIENT FOR USD 30–100 TARGET LADDER
+
+### Reconstruction note
+
+The frozen Engine F v0.1 rules were reconstructed from the repository specification and the same public GBPUSD 1m research sample used in EXP-009.
+
+The current reconstruction produced the exact same full-window accepted-trade total as EXP-009:
+
+- accepted trades: 75.
+
+Split assignment differs by one trade:
+
+- current reconstruction: 39 development / 36 holdout;
+- EXP-009 record: 40 development / 35 holdout.
+
+The old-model mean-R diagnostics remain close but not identical:
+
+- current development: about +0.167R vs repository +0.138R;
+- current holdout: about +0.050R vs repository +0.080R.
+
+The one-trade split discrepancy is preserved transparently; no parameters were changed to force-fit the old summary.
+
+### Fixed-size economics
+
+Execution size:
+
+- 0.10 standard lot = 10,000 GBP;
+- for GBPUSD, approximately USD 1 per pip under the common standard-lot convention.
+
+#### Development — 39 reconstructed trades
+
+- median fixed-size structural-stop risk: **USD 4.19**;
+- mean structural-stop risk: **USD 4.15**;
+- 90th-percentile structural-stop risk: **USD 5.32**;
+- median maximum favorable excursion before stop/session end: **USD 4.50**;
+- mean maximum favorable excursion: **USD 13.63**.
+
+Target-first hit rates before structural invalidation:
+
+| Target rung | Hit rate |
+|---|---:|
+| T30 | 15.38% |
+| T40 | 7.69% |
+| T50 | 7.69% |
+| T70 | 7.69% |
+| T100 | 0.00% |
+
+#### Holdout — 36 reconstructed trades
+
+- median fixed-size structural-stop risk: **USD 2.94**;
+- mean structural-stop risk: **USD 3.80**;
+- 90th-percentile structural-stop risk: **USD 5.28**;
+- median maximum favorable excursion before stop/session end: **USD 3.70**;
+- mean maximum favorable excursion: **USD 9.22**.
+
+Target-first hit rates before structural invalidation:
+
+| Target rung | Hit rate |
+|---|---:|
+| T30 | 11.11% |
+| T40 | 2.78% |
+| T50 | 0.00% |
+| T70 | 0.00% |
+| T100 | 0.00% |
+
+### Interpretation
+
+GBPUSD / Engine F v0.1 does not convert into a useful fixed-size USD 30–100 income stream at 0.10 lot.
+
+The setup's typical structural stop and favorable excursion are only a few pips/dollars at this size. A USD 30–50 target requires approximately 30–50 pips, which occurs too rarely from these entries before invalidation.
+
+### Disposition
+
+- Preserve Engine F v0.1 as historical research evidence only.
+- Do not increase lot size merely to force USD 30–50.
+- Do not retune Engine F after this result.
+- The two previously retained leads are no longer priority execution candidates under the clarified fixed-size objective.
+
+## Interim EXP-012 conclusion
+
+The revised economic framing changes the interpretation of prior work:
+
+- dynamic USD 20 risk sizing made the old leads look capable of USD 50 targets only by creating extreme notional exposure;
+- fixed 0.10-lot sizing removes that leverage problem;
+- but the same leads then produce typical favorable excursions of only a few dollars.
+
+Therefore the scanner needs setups and/or markets whose **native fixed-size movement** is large enough to support USD 30–100 captures without artificial leverage.
+
+### Immediate next action
+
+Return to XAUUSD first, because the user's fixed-size economics are naturally aligned there:
+
+- 0.10 lot;
+- USD 3 move -> about USD 30;
+- USD 4 -> about USD 40;
+- USD 5 -> about USD 50;
+- USD 7 -> about USD 70;
+- USD 10 -> about USD 100.
+
+Re-evaluate existing XAUUSD candidate streams under this target ladder before defining a new Gold-specific engine.
+
