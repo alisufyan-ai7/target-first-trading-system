@@ -449,3 +449,105 @@ Return to XAUUSD first, because the user's fixed-size economics are naturally al
 
 Re-evaluate existing XAUUSD candidate streams under this target ladder before defining a new Gold-specific engine.
 
+## Checkpoint 3 — XAUUSD / Engine A v0.2 at fixed 0.10 lot
+
+**Status:** PROFIT-LADDER FEASIBILITY IS MATERIAL; STRUCTURAL STOP RISK IS TOO LARGE WITHOUT A RISK GATE
+
+### Reconstruction note
+
+The frozen Engine A v0.2 rules were reconstructed on the same public XAUUSD 1m research sample used in EXP-007.
+
+Current reconstruction:
+
+- raw retracement fills: 298;
+- accepted trades: 232;
+- development: 99;
+- holdout: 133.
+
+Repository reference:
+
+- raw retracement fills: 296;
+- accepted trades: 231;
+- development: 98;
+- holdout: 133.
+
+The holdout old-model mean R reproduces the repository result at approximately **-0.305R/trade**. Development is also close (-0.171R reconstructed vs -0.163R recorded).
+
+The fixed USD 5 favorable-move diagnostic is also close:
+
+- development T50 reconstruction: 53.54% vs repository 53.06%;
+- holdout T50 reconstruction: 36.84% vs repository 35.34%.
+
+The small reconstruction discrepancy is preserved; rules were not altered to force-fit counts.
+
+### Fixed-size economics
+
+Execution size:
+
+- XAUUSD = 0.10 lot;
+- research convention = 10 oz;
+- USD 1 Gold move ≈ USD 10 gross P&L.
+
+#### Development — 99 reconstructed trades
+
+- median structural-stop risk at 0.10 lot: **USD 69.90**;
+- mean structural-stop risk: **USD 76.08**;
+- 90th-percentile structural-stop risk: **USD 124.85**;
+- median maximum favorable excursion: **USD 55.90**;
+- mean maximum favorable excursion: **USD 141.83**.
+
+Target-first hit rates before structural invalidation:
+
+| Target rung | Hit rate |
+|---|---:|
+| T30 | 69.70% |
+| T40 | 59.60% |
+| T50 | 53.54% |
+| T70 | 40.40% |
+| T100 | 30.30% |
+
+#### Holdout — 133 reconstructed trades
+
+- median structural-stop risk at 0.10 lot: **USD 51.90**;
+- mean structural-stop risk: **USD 57.94**;
+- 90th-percentile structural-stop risk: **USD 114.70**;
+- median maximum favorable excursion: **USD 33.75**;
+- mean maximum favorable excursion: **USD 102.48**.
+
+Target-first hit rates before structural invalidation:
+
+| Target rung | Hit rate |
+|---|---:|
+| T30 | 57.14% |
+| T40 | 41.35% |
+| T50 | 36.84% |
+| T70 | 29.32% |
+| T100 | 22.56% |
+
+### Interpretation
+
+This is materially different from the fixed-size FX results.
+
+At 0.10 lot, XAUUSD naturally produces the USD 30–100 favorable-move ladder often enough to justify continued work.
+
+However, the structural stop inherited from Engine A is often too wide for the small-account risk framework:
+
+- holdout median stop risk ≈ USD 51.90;
+- this already exceeds the approximately -USD 40 normal daily loss limit;
+- the 90th-percentile stop risk exceeds the -USD 60 emergency ceiling by a wide margin.
+
+Therefore **profit potential is not the limiting factor on Gold; stop geometry is.**
+
+### Next risk-gated diagnostic
+
+EXP-012 already froze the rule that a fixed-size setup must be rejected if its structural stop cannot fit the remaining daily/open-risk budget.
+
+The next diagnostic will therefore evaluate the unchanged Engine A candidate stream with the predeclared fixed-size risk gate:
+
+- initial per-trade admissibility: structural-stop loss <= USD 40 at 0.10 lot;
+- no stop compression;
+- no lot reduction for this diagnostic;
+- no post-hoc signal filter.
+
+The purpose is to determine whether the naturally narrower-stop Gold setups retain useful T30/T40/T50/T70/T100 behavior.
+
