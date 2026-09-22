@@ -1,6 +1,6 @@
 # System Objectives
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 ## Primary objective
 
@@ -26,7 +26,9 @@ Under the common illustrative 100-oz/lot convention:
 
 Do not copy the 0.10-lot number.
 
-Freeze a native target distance first and calculate a symbol-specific P&L-equivalent lot size for approximately USD 50 gross.
+Freeze an engine-conditioned native target distance/target function first and calculate a symbol-specific P&L-equivalent lot size for approximately USD 50 gross.
+
+See `docs/PNL-EQUIVALENT-SIZING.md` for the frozen methodology.
 
 The proposed size must then pass:
 
@@ -106,11 +108,19 @@ even if long-run averages are similar.
 
 ## Engine A preservation rule
 
-Original EXP-002 XAUUSD Engine A remains an active positive-simplified-expectancy lead.
+Original EXP-002 XAUUSD Engine A remains preserved as a **historical exploratory positive result**.
 
-Engine A v0.2-portable is a separate rewrite and cannot substitute for it.
+EXP-014 systematically attempted reproduction under a frozen acceptance protocol and concluded that the original implementation is not honestly recoverable from the surviving evidence.
 
-Recover and reproduce EXP-002 before broad ranker optimization.
+Therefore:
+
+- EXP-002 is not a current validated execution engine;
+- Engine A v0.2-portable remains a separate rewrite and cannot substitute for it;
+- A6 is the closest causal recovery diagnostic but is not promoted;
+- A8/A9 are forensic/non-deployable;
+- future strategy work must be prospective rather than fitted to reproduce the lost implementation.
+
+EXP-015 remains paused until at least one new reproducible validated engine emits the standard candidate contract.
 
 ## Non-goals
 
