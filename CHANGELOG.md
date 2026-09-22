@@ -58,3 +58,14 @@
 - Reclassified EXP-012/013 same-0.10-lot FX conclusions as diagnostic only; preserved their volatility/Gold findings.
 - Restored the original EXP-002 XAUUSD Engine A as an active positive-expectancy research lead distinct from the later v0.2-portable rewrite.
 - Opened EXP-014 as a plan-only checkpoint to recover/reproduce original Engine A and freeze the equivalent-lot rule before any further outcome testing.
+
+- Reframed repository identity from research project to **Target-First Trading System**; research remains the validation layer.
+- Added authoritative system blueprint, original project context, detailed Badar video evidence, timeframe/context model, superseded-assumptions registry, strategy-engine candidate contract, and staged build/deployment roadmap.
+- Restored the architecture rule that validated strategy engines generate candidates and the target-first model ranks/selects them.
+- Corrected strategy status so original EXP-002 XAUUSD Engine A is the active recovery lead; v0.2-portable is a separate historical rewrite.
+- Activated EXP-014 as the required original Engine A recovery + equivalent-sizing gate.
+- Renumbered the duplicate target-first ranker experiment from EXP-014 to EXP-015 and paused it pending EXP-014.
+- Preserved EXP-015 Stage-1 broad XAU candidate statistics as diagnostics only.
+- Reclassified EXP-013 same-0.10-lot FX market ranking as a historical diagnostic, not the forward scanner-universe rule.
+- Strengthened daily-distribution metrics to include median daily P&L and 5-day rolling consistency.
+- Added explicit common-factor/correlation exposure controls to the system risk framework.
