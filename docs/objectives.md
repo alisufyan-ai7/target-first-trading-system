@@ -6,9 +6,9 @@ _Last updated: 2026-09-22_
 
 Build and validate a multi-market trading system that continuously scans supported liquid markets, ranks the best target-first opportunities, and works toward a relatively consistent **USD 150–200 daily net P&L zone** without forcing trades, martingale, or loss-recovery sizing.
 
-Historical research, holdout testing, independent-feed validation, and forward/paper evidence are required because the purpose is eventually to build a system that can operate, not merely to publish research results.
+Research is the validation layer; the end objective is an operating system.
 
-## Fixed-size economic anchor
+## Economic anchor and normal trade objective
 
 ### XAUUSD
 
@@ -16,104 +16,113 @@ Reference execution size: **0.10 lot**.
 
 Under the common illustrative convention of 1 XAUUSD lot = 100 oz:
 
-- 0.10 lot = 10 oz;
-- USD 1 Gold move ≈ USD 10 gross P&L;
-- USD 3 move ≈ USD 30;
-- USD 4 move ≈ USD 40;
-- USD 5 move ≈ USD 50;
-- USD 7 move ≈ USD 70;
-- USD 10 move ≈ USD 100.
-
-Broker-specific contract size must be verified before execution.
+- USD 3 Gold move ≈ USD 30 gross;
+- USD 4 ≈ USD 40;
+- USD 5 ≈ USD 50;
+- USD 7 ≈ USD 70;
+- USD 10 ≈ USD 100.
 
 ### Other markets
 
-Do not dynamically enlarge position size merely to make every target equal USD 50.
+Do **not** assume the same 0.10-lot size.
 
-Instead:
+For every symbol, freeze a native target distance first, then calculate the lot size required for that move to produce approximately USD 50 gross:
 
-1. define a fixed execution-size tier per instrument from actual contract/tick specifications;
-2. compute the native price/pip move needed for approximately USD 30, 40, 50, 70, and 100 gross P&L;
-3. test whether those moves occur before structural invalidation;
-4. reject economically unreasonable sizes or margin burdens.
+`lot_size ~= 50 / (target_distance × USD value per distance unit at 1 lot)`.
 
-For major FX, 0.10 standard lot is the initial research reference unless broker specifications justify a different fixed equivalent.
+For USD-quote FX, for example:
 
-## Target ladder
+- 10-pip target -> about 0.50 lot for USD 50;
+- 20-pip target -> about 0.25 lot;
+- 50-pip target -> about 0.10 lot.
 
-The scanner should estimate and rank the probability that a setup reaches each profit rung **before structural invalidation**:
+The exact value depends on contract/pip value and quote conversion.
 
-- approximately USD 30;
-- USD 40;
-- USD 50;
-- USD 70;
-- USD 100+.
+The target-distance rule itself must be frozen on development data before holdout testing.
 
-A trade does not fail merely because it cannot reasonably reach USD 50. A validated USD 30–40 opportunity may be useful if its probability, expectancy, costs, and portfolio contribution justify taking it.
+## Profit flexibility
 
-Likewise, if continuation evidence supports more than USD 50, the system should be able to hold part or all of the position toward USD 70–100+ rather than using a universal fixed take-profit.
+The system should normally seek about **USD 50** per successful trade.
+
+Permitted deviations:
+
+- accept approximately USD 30–40 when the nearer target has materially stronger target-first probability;
+- hold toward USD 70–100+ when continuation evidence is predeclared and validated.
+
+The system must not increase size after a loss or change size to recover the day.
+
+## Risk feasibility
+
+P&L-equivalent sizing is not automatically executable.
+
+Before entry calculate:
+
+- structural-stop dollar risk at the proposed equivalent lot;
+- required margin;
+- notional exposure;
+- remaining daily loss budget;
+- correlated open exposure.
+
+If the USD-50-equivalent size is unsafe or infeasible:
+
+1. reduce the trade objective to a justified USD 30–40 level with a smaller safe size; or
+2. reject the trade.
+
+Do not compress the stop merely to make the economics fit.
+
+## Engine A preservation rule
+
+EXP-002 original XAUUSD Engine A remains a retained positive-expectancy research lead.
+
+Its later portable v0.2 implementation is a different prospective specification and must not be treated as proof that the EXP-002 implementation failed.
+
+Before new scanner optimization, recover/reconstruct the EXP-002 implementation and test whether the recovered code reproduces the recorded Gold metrics.
 
 ## Opportunity-driven trade count
 
-There is no longer a hard research assumption that the system should normally stop at 3–4 trades/day.
+There is no forced daily trade count.
 
-The system may take more qualified trades when:
+More trades may be taken when multiple independent qualified opportunities exist and aggregate risk/margin remains acceptable.
 
-- several independent opportunities exist;
-- individual opportunities target smaller USD 30–40 captures;
-- aggregate open risk remains within the daily framework;
-- margin/notional exposure is feasible;
-- correlated positions are controlled;
-- the signal-quality threshold is unchanged.
-
-There is still **no minimum trade quota** and no forced trading.
+The system must never lower quality thresholds merely because the USD 150–200 daily zone has not yet been reached.
 
 ## Daily objective
 
-Working operating target:
-
-- desired net daily zone: approximately USD 150–200 when sufficient opportunity exists;
-- stop adding new exposure once the daily profit-state rule is satisfied, subject to explicit runner/open-position rules;
+- desired net daily zone: approximately USD 150–200 when sufficient qualified opportunity exists;
 - normal daily loss stop: approximately -USD 40;
 - rare hard ceiling: approximately -USD 60.
 
-No historical experiment can guarantee a USD 150–200 result every day. The system must quantify how often that zone is actually reached.
+No historical result guarantees these values every day. The system must report the actual distribution achieved.
 
 ## Acceptance dimensions
 
-The system must evaluate all of the following:
+Evaluate:
 
-- target-first probability for each profit rung;
+- T30/T40/T50/T70/T100 target-first probability;
 - expectancy after realistic costs;
-- calibration of predicted probabilities;
-- mean and median daily P&L;
-- percentage of days <= USD 50;
-- percentage of days >= USD 100;
-- percentage of days >= USD 150;
-- percentage of days >= USD 200;
+- probability calibration;
+- structural-stop dollar risk at equivalent size;
+- margin and notional feasibility;
+- mean/median daily P&L;
+- <= USD 50 day percentage;
+- >= USD 100 / 150 / 200 day percentages;
 - losing-day percentage;
-- maximum daily loss;
-- maximum drawdown;
-- consecutive low-output days;
-- consecutive losing days;
+- drawdown;
+- consecutive bad/low-output days;
 - trades/day including zero-signal days;
-- opportunity concentration by market/session;
-- cross-market signal correlation;
-- simultaneous open risk;
-- margin usage;
-- fixed-size notional/equity;
-- spread/slippage sensitivity;
-- realized profit captured versus maximum favorable excursion.
+- opportunity concentration;
+- simultaneous-signal correlation;
+- realized capture versus maximum favorable excursion.
 
 ## Non-goals
 
-The system must not be optimized to:
+Do not optimize to:
 
-- show an artificially high win rate;
-- force a fixed number of trades;
-- force every trade to make exactly USD 50;
+- force a trade count;
+- force exactly USD 50 when the setup only supports USD 30–40;
+- manufacture USD 50 with unsafe leverage;
+- hide zero/loss days;
+- martingale;
 - increase size after losses;
-- hide losing or zero days;
-- use martingale or recovery sizing;
-- assume a high reward/risk ratio implies a high win probability;
-- claim certainty when only a probability estimate is available.
+- assume reward/risk implies probability;
+- present probabilistic signals as certain.
