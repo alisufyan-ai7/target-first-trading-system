@@ -396,6 +396,20 @@ Frozen specification:
 
 No A3 target/expectancy outcome was calculated before this freeze.
 
+## A4 freeze checkpoint
+
+A4 inherits A3 unchanged except for one liquidity-quality ambiguity:
+
+- 5m swing confirmation changes from 1-left/1-right to a **2-left/2-right** confirmed pivot;
+- the same 24-bar age limit and liquidity-level retirement rules remain unchanged.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A4.md`;
+- pre-outcome A4-spec commit: `cbe731f019767e07720a75441ff6e4ddb56f2650`.
+
+No A4 outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
