@@ -150,3 +150,36 @@
 Measure actual fixed-size stop risk plus T30/T40/T50/T70/T100 hit rates.
 
 **Reason:** A lead that looked impractical under dynamic USD 20 risk sizing may have different economics under the user's intended fixed-size execution model, and that should be tested before discarding it.
+
+## 2026-09-22 — EXP-012 fixed-size reinterpretation of prior leads
+
+**Decision:** The prior USDJPY / Engine A and GBPUSD / Engine F leads are not priority execution candidates under the user's fixed-size objective.
+
+**Evidence:**
+
+- USDJPY at 0.10 standard lot produced only about 7.14% T30 and 4.08% T50 holdout hits from the reconstructed Engine A stream; median favorable excursion was only about USD 2.94.
+- GBPUSD at 0.10 standard lot produced about 11.11% T30, 2.78% T40, and 0% T50+ holdout hits from Engine F; median favorable excursion was about USD 3.70.
+
+**Reason:** Their prior apparent USD 50 feasibility depended on dynamic risk sizing that created excessive notional exposure. Fixed 0.10-lot economics reveal that the same entries usually move only a few dollars.
+
+## 2026-09-22 — Gold remains the primary economic anchor
+
+**Decision:** Continue system-building around XAUUSD as a core market because 0.10-lot Gold naturally maps a USD 3–10 price move to approximately USD 30–100 gross P&L.
+
+**Evidence:** XAUUSD / Engine A v0.2 holdout reconstruction at fixed 0.10 lot produced approximate target-first hit rates of 57.14% (T30), 41.35% (T40), 36.84% (T50), 29.32% (T70), and 22.56% (T100).
+
+**Constraint:** Raw structural stops were too wide: median holdout stop risk was about USD 51.90 and the 90th percentile about USD 114.70.
+
+## 2026-09-22 — Apply fixed-size Gold structural-risk gate
+
+**Decision:** For the fixed-size Gold diagnostic, reject any setup whose unchanged structural stop would lose more than USD 40 at 0.10 lot. Do not compress the stop and do not reduce the lot for this diagnostic.
+
+**Evidence:** The gate preserved 50 holdout trades. Target-first hit rates remained meaningful, but fixed-target expectancy showed only T30 near break-even.
+
+## 2026-09-22 — Do not adopt T30 from Engine A
+
+**Decision:** Do not promote a universal USD 30 Gold take-profit from the current Engine A subset.
+
+**Evidence:** Development T30 expectancy was about +USD 7.13/trade, but holdout fell to approximately +USD 0.02/trade before costs. Higher target rungs were negative in holdout.
+
+**Next:** Separate market-economic feasibility from entry-quality prediction. First map which markets naturally support USD 30–100 fixed-size moves; then build a prospectively frozen target-first opportunity-ranking layer across that economically suitable universe.
