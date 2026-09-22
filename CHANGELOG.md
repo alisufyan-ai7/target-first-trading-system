@@ -2,6 +2,11 @@
 
 ## 2026-09-23
 
+- Froze Engine H — Range Raid into Pre-existing FVG Reversal v0.1 prospectively from the two user-provided video motifs before any outcomes.
+- Ran EXP-017 development only: 341 qualifying raids, 180 in-window raids, but only 2 accepted filled trades versus the frozen >=100 minimum.
+- Classified Engine H v0.1 as INSUFFICIENT EVIDENCE despite a positive two-trade point expectancy; the 95% bootstrap expectancy interval spanned about -USD 34.66 to +USD 53.36.
+- Stopped EXP-017 before validation and preserved validation/fresh holdout untouched. No H v0.1 retuning performed.
+
 - Froze Engine G — Contextual Liquidity Reversal v0.1 prospectively before any Engine G outcome calculation.
 - Added the complete mechanical specification at `strategies/engine-g-contextual-liquidity-reversal/SPEC-v0.1.md`, including integer-tick price normalization, dynamic liquidity-instance/cluster lifecycle, always-on liquidity consumption, explicit FVG/target logic, gross USD 40 structural-risk admission, independent counterfactual target labels, provenance manifest, bootstrap evidence, and delayed sensitivity rules.
 - Opened `EXP-016-engine-g-contextual-liquidity-reversal-v0.1` with checkpoint 0 marked frozen/not-yet-run.
