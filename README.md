@@ -44,6 +44,8 @@ Before broad ranker/scanner development resumes:
 
 ## Start here
 
+- **docs/NEW-CHAT-HANDOFF.md** — read this first when starting a new chat
+
 - PROJECT.md
 - docs/SYSTEM-BLUEPRINT.md
 - docs/ORIGINAL-PROJECT-CONTEXT.md
