@@ -1,6 +1,9 @@
 # EXP-012 — Fixed-Size Target-Ladder and Multi-Market Scanner Economics
 
 **Status:** IN PROGRESS — ECONOMIC RULES FROZEN BEFORE NEW OUTCOME TESTING  
+
+> **2026-09-22 sizing correction:** The XAUUSD 0.10-lot calculations remain directly relevant. The FX checkpoints that assumed 0.10 standard lot are preserved as diagnostics only; they do **not** represent the user's intended equivalent-lot rule. Forward cross-market sizing must calculate a symbol-specific lot size so the frozen native target is normally worth about USD 50, subject to risk/margin feasibility. Engine A v0.2 results also remain specific to v0.2 and must not be substituted for the original positive EXP-002 Gold Engine A.
+
 **Date:** 2026-09-22
 
 ## Purpose
