@@ -186,12 +186,13 @@ Conservative handling:
 
 ## Maximum trade horizon
 
-A trade path is observed until the earliest of:
+A trade is considered open, for the one-open-trade rule, until the earliest of:
 
-1. structural stop;
-2. the close of the **120th 1m bar counting the fill bar as bar 1**;
-3. 20:00 UTC on the entry date;
-4. last available bar of the entry date if data end earlier.
+1. the USD 5 primary target (T5);
+2. structural stop;
+3. the close of the **120th 1m bar counting the fill bar as bar 1**;
+4. 20:00 UTC on the entry date;
+5. last available bar of the entry date if data end earlier.
 
 No overnight carry.
 
@@ -211,10 +212,10 @@ If target and stop occur in the same bar, stop wins.
 
 ## MFE
 
-Maximum favorable excursion is measured from entry until the earliest of structural stop or the frozen trade horizon, without truncating MFE at T5. Because fill-bar ordering is unknowable, A1 records fill-bar MFE as zero and begins MFE accumulation with the next completed 1m bar.
+Maximum favorable excursion is measured over the **actual A1 trade life**: from entry until T5, structural stop, or the frozen time horizon, whichever occurs first. Because fill-bar ordering is unknowable, A1 records fill-bar MFE as zero and begins MFE accumulation with the next completed 1m bar. For a T5 winner, realized MFE is capped at USD 5 because the trade exits at T5.
 
-Long MFE = max(high - entry).  
-Short MFE = max(entry - low).
+Long MFE = max(high - entry) over the active path, capped at 5 on a T5 exit.  
+Short MFE = max(entry - low) over the active path, capped at 5 on a T5 exit.
 
 ## Simplified expectancy
 
