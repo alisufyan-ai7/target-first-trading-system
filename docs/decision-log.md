@@ -343,3 +343,15 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Reason:** The frozen promotion protocol requires positive development expectancy and the frozen evidence protocol requires at least 100 accepted development trades. v0.1 satisfies neither. Later validation/holdout performance therefore cannot make v0.1 eligible for promotion. Preserving those periods untouched provides more value than contaminating them with a version that has already failed its development gate.
 
 **Treatment:** Engine G v0.1 is not promoted. Do not retune it and do not run its delayed sensitivity variants. Any revised contextual-liquidity hypothesis must be a prospectively frozen Engine G v0.2 or a new engine.
+
+## 2026-09-23 — Freeze and stop Engine H v0.1 at development
+
+**Decision:** Freeze Engine H v0.1 prospectively from the two uploaded video motifs, run development only, then stop before validation because the frozen minimum evidence gate was not met.
+
+**Development funnel:** 341 qualifying range/FVG raids, 180 inside the setup window, but only 2 accepted filled trades after causal MSS, displacement-created entry FVG and economic gates.
+
+**Evidence:** 2 accepted trades versus >=100 required. Primary-cost point expectancy was +USD 9.35/trade, but the 95% moving-block-bootstrap expectancy interval was approximately -USD 34.66 to +USD 53.36 with 1,264 zero-trade resamples.
+
+**Interpretation:** Do not interpret two positive/ mixed trades as edge. H v0.1 is insufficient evidence, not validated.
+
+**Next:** preserve validation/holdout untouched. Any simplified confirmation architecture must be a prospectively frozen H v0.2/new experiment rather than a post-hoc rewrite of v0.1.
