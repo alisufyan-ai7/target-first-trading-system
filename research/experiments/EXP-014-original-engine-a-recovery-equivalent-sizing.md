@@ -64,6 +64,41 @@ Holdout June–Aug 20:
 - USD 5 27.3%;
 - expectancy ~+USD 0.72.
 
+## Frozen reproduction-acceptance protocol
+
+**Frozen before any new EXP-014 reconstruction outcome is calculated.**
+
+A reconstruction is compared to the complete EXP-002 benchmark vector. No single attractive metric can compensate for broad failure elsewhere.
+
+### Hard benchmark bands
+
+- overall trade count: **335–409** (approximately ±10% around 372);
+- development trade count: **163–207** (approximately ±12% around 185);
+- holdout trade count: **165–209** (approximately ±12% around 187);
+- overall USD 5 target-first rate: **26.6%–32.6%** (29.6% ±3 percentage points);
+- holdout USD 5 target-first rate: **24.3%–30.3%** (27.3% ±3 percentage points);
+- holdout USD 2 target-first rate: **44.7%–52.7%** (48.7% ±4 percentage points);
+- holdout USD 3 target-first rate: **37.7%–45.7%** (41.7% ±4 percentage points);
+- holdout USD 4 target-first rate: **27.6%–35.6%** (31.6% ±4 percentage points);
+- average structural risk distance: **USD 0.867–1.173 Gold** (USD 1.02 ±15%);
+- median favorable excursion: **USD 2.805–3.795 Gold** (USD 3.30 ±15%).
+
+### Simplified-expectancy bands
+
+Because simplified expectancy is particularly sensitive to small differences in timeout and stop mechanics, use a wider but still numerical tolerance while requiring the sign to remain positive in every split:
+
+- overall: **+USD 0.514 to +USD 1.067 Gold/trade** (0.79 ±35%);
+- development: **+USD 0.553 to +USD 1.148 Gold/trade** (0.85 ±35%);
+- holdout: **+USD 0.468 to +USD 0.972 Gold/trade** (0.72 ±35%).
+
+### Acceptance classification
+
+- **PASS / recovered reproduction:** all hard benchmark bands and all three expectancy bands pass simultaneously.
+- **NEAR MATCH / not yet recovered:** most dimensions are close, but at least one frozen band fails. This is diagnostic only and may motivate one ambiguity-specific next variant; it is not allowed to be called the recovered original.
+- **FAIL:** material multi-dimensional mismatch, wrong expectancy sign in either split, or a miss larger than twice the stated tolerance on any core dimension.
+
+A future variant may change only a mechanically identifiable ambiguity that was frozen in the prior variant. It may not change several unrelated parameters simultaneously to chase the benchmark.
+
 ## Reproduction procedure
 
 1. define all missing mechanical details before comparing a variant to the benchmark;
