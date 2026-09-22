@@ -261,6 +261,43 @@ However, target-first rates, MFE, and expectancy remain far from EXP-002. The pr
 
 A2 is therefore a clear **FAIL**, although the MSS -> displacement sequencing change is more consistent with the preserved causal wording and should be retained as a plausible recovery mechanic unless later evidence argues otherwise.
 
+### A2 stop-geometry diagnostic (no rule change)
+
+Before freezing A3, A2 was diagnosed without changing or rescoring any alternative strategy outcome.
+
+Observed A2 exit timing:
+
+- fill-bar stops: **170 / 298** accepted trades;
+- stop on first full bar after fill: 43;
+- stop on bars 2–3: 23;
+- stop on bars 4–10: 22;
+- stop after bar 10: 6;
+- T5 exits: 34;
+- timeouts: 0.
+
+A2 FVG-width distribution:
+
+- mean: 1.382 Gold;
+- median: 1.010;
+- 75th percentile: 1.818;
+- 90th percentile: 2.693.
+
+Structural-risk geometry measured **without calculating alternative target outcomes**:
+
+| Candidate stop geometry | Mean risk | Median risk | Interpretation |
+|---|---:|---:|---|
+| A2 FVG far edge + fixed 0.10 | 0.791 | 0.605 | Too tight vs EXP-002 mean-risk benchmark |
+| FVG far edge only | 0.691 | 0.505 | Even tighter |
+| FVG far edge + 25% of FVG width | **1.037** | 0.758 | Mechanically plausible and close to ~1.02 benchmark |
+| FVG far edge + 50% of FVG width | 1.382 | 1.010 | Mean risk materially high |
+| Displacement-candle open + 0.10 | 1.862* | 1.513* | Too wide; invalid-side cases excluded |
+| Displacement wick extreme + 0.10 | 2.152* | 1.715* | Too wide |
+| 5m sweep extreme + 0.10 | 5.633* | 4.582* | Incompatible with EXP-002 tight-risk profile |
+
+`* only geometrically valid cases included.`
+
+This diagnostic supports testing a proportional FVG invalidation before any wider structural stop. It does **not** establish that the 25% buffer is the unpublished original rule.
+
 ### Next diagnostic before A3
 
 Before changing another rule, measure where A2 stops occur (fill bar vs later bars) and the risk/FVG-width distribution. This is diagnostic only and does not modify A2. Then freeze one stop-placement ambiguity for A3; do not change candidate-generation rules simultaneously.
