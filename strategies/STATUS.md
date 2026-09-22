@@ -13,7 +13,7 @@ _Last updated: 2026-09-23_
 | Engine D | Session/opening-range momentum | Current formulations not promoted |
 | Engine E | Volatility compression -> expansion | Current formulations not promoted |
 | Engine F v0.1 | Statistical extension -> re-entry -> mean reversion | Historical research evidence only; not a current execution lead |
-| Engine G v0.1 | Contextual liquidity reversal: HTF location -> liquidity sweep -> MSS -> displacement/FVG -> S1 | **Prospectively frozen; EXP-016 open; zero outcomes at freeze; not yet validated or promoted** |
+| Engine G v0.1 | Contextual liquidity reversal: HTF location -> liquidity sweep -> MSS -> displacement/FVG -> S1 | **Development gate failed: 71 accepted trades (<100 minimum), -$9.27/trade at primary cost, bootstrap CI entirely negative; validation/holdout preserved untouched; not promoted** |
 
 ## Current promotion state
 
@@ -60,13 +60,10 @@ Do not let a generic broad-pivot candidate universe silently replace validated e
 
 ## Next strategy action
 
-Engine G v0.1 is now the active prospective validation candidate.
+Engine G v0.1 completed its frozen development gate and is not promoted.
 
-1. implement the frozen specification exactly;
-2. verify the immutable data manifest and causality mechanics;
-3. run EXP-016 development only and checkpoint it;
-4. inspect validation only after the development checkpoint;
-5. inspect fresh holdout only after validation is checkpointed;
-6. do not run predeclared sensitivity diagnostics until the complete center-rule primary experiment is finished.
+Development produced 71 accepted trades versus the frozen >=100 minimum, primary-cost expectancy of about -USD 9.27/trade, profit factor about 0.496, and a 95% block-bootstrap expectancy interval entirely below zero. Validation and fresh holdout remain untouched by Engine G v0.1 outcomes.
+
+Do not retune v0.1 or run its delayed sensitivity diagnostics. Any revision must be prospectively versioned as Engine G v0.2 or a different engine.
 
 EXP-015 remains paused until at least one reproducible engine validates.
