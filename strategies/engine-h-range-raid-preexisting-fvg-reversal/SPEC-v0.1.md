@@ -212,13 +212,14 @@ Bearish setup requires the same completed active 5m bar to:
 2. enter the selected pre-existing bearish FVG:
    `high >= FVG.lower`;
 3. close back strictly inside the range:
-   `close < RANGE_HIGH`.
+   `RANGE_LOW < close < RANGE_HIGH`.
 
 Bullish setup requires:
 
 1. `low < RANGE_LOW`;
 2. `low <= FVG.upper`;
-3. `close > RANGE_LOW`.
+3. close back strictly inside the range:
+   `RANGE_LOW < close < RANGE_HIGH`.
 
 Equality with the range boundary alone is not a raid.
 
