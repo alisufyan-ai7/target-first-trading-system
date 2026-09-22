@@ -681,7 +681,8 @@ This is explicitly **forensic and non-causal**:
 Frozen specification:
 
 - `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A8-forensic.md`;
-- pre-outcome A8-spec commit: `5d25985f005edfbf114181a3a627cc6c078d052f`.
+- initial pre-outcome A8-spec commit: `5d25985f005edfbf114181a3a627cc6c078d052f`;
+- final pre-outcome A8 event-time clarification commit: `5f3e820cd7fd2157e4c9ef549a9d16b34ca9ede3`.
 
 No A8 outcome was calculated before this freeze.
 
