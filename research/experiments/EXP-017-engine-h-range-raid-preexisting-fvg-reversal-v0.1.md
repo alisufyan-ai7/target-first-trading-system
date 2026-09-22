@@ -64,3 +64,36 @@ If development is not eligible for eventual promotion, stop EXP-017 v0.1 before 
 - outcome definitions frozen: YES;
 - Engine-H outcomes calculated: NO;
 - development run started: NO.
+
+## Checkpoint 1 — pre-outcome implementation verification
+
+**Engine-H outcomes calculated:** ZERO.
+
+Implementation:
+
+- `research/code/engine-h-v0.1.js`
+- implementation commit after mechanical correction: `a944c86c1ba6ca13d33844ef9812e5dfb4eb3aaf`
+
+Exact-arithmetic unit checks passed for:
+
+- integer source-tick parsing;
+- off-grid price rejection;
+- directional midpoint rounding;
+- exact 1.50x displacement inequality;
+- exact 2.0 reward/risk inequality.
+
+### Pre-outcome mechanical correction
+
+Before any Engine-H outcome calculation, the raid close-back formula was made fully consistent with the already stated prose requirement “close back strictly inside the range.”
+
+For both bullish and bearish raids the completed sweep close must satisfy:
+
+`RANGE_LOW < close < RANGE_HIGH`.
+
+This was corrected in the specification and implementation before development. No Engine-H outcome had been calculated.
+
+### One-open implementation clarification
+
+If multiple Engine-H setup pipelines were created while flat and one later fills first, any other still-pending Engine-H pipeline is terminated with the existing `suppressed_one_open` code while that trade is open. This implements the frozen maximum-one-open rule without queuing.
+
+**Next permitted outcome:** development only, Jan-2024 through Feb-2025.
