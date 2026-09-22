@@ -333,3 +333,13 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Reason:** The project needs a genuinely reproducible strategy-engine candidate before EXP-015 can resume. Freezing the complete mechanics, provenance, split, uncertainty rules, and promotion criteria before outcomes prevents outcome-driven reconstruction or parameter selection.
 
 **Next:** verify implementation/data integrity, then run development only and checkpoint it before inspecting validation.
+
+## 2026-09-23 — Stop Engine G v0.1 before validation
+
+**Decision:** Do not run Engine G v0.1 on its frozen validation or fresh-holdout periods.
+
+**Development evidence:** 71 accepted trades versus the frozen >=100 minimum; S1 hit rate about 16.9%; primary 0.50-XAU-cost expectancy about -USD 9.27/trade; profit factor about 0.496; 95% moving-block-bootstrap expectancy interval about -USD 15.14 to -USD 2.52; maximum drawdown about USD 826.29 on the USD 500 reference-equity curve.
+
+**Reason:** The frozen promotion protocol requires positive development expectancy and the frozen evidence protocol requires at least 100 accepted development trades. v0.1 satisfies neither. Later validation/holdout performance therefore cannot make v0.1 eligible for promotion. Preserving those periods untouched provides more value than contaminating them with a version that has already failed its development gate.
+
+**Treatment:** Engine G v0.1 is not promoted. Do not retune it and do not run its delayed sensitivity variants. Any revised contextual-liquidity hypothesis must be a prospectively frozen Engine G v0.2 or a new engine.
