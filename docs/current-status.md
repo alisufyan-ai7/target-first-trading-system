@@ -1,85 +1,133 @@
 # Current Status
 
 **Date:** 2026-09-22  
-**Phase:** Strategy research / objective-feasibility analysis
+**Phase:** System build / fixed-size target-ladder scanner validation
 
 ## Source of truth
 
 Only this repository and the originating chat are authorized project context.
 
+## End objective
+
+Build a multi-strategy, multi-asset scanner/execution system that:
+
+- scans all supported liquid markets;
+- ranks the best long/short opportunities;
+- uses fixed execution-size tiers rather than enlarging size to force a USD 50 target;
+- targets approximately USD 30–50 on ordinary successful trades;
+- can hold toward USD 70–100+ when validated continuation evidence supports it;
+- may take more than 3–4 trades/day when multiple independent qualified opportunities exist;
+- never forces trades;
+- works toward a USD 150–200 daily net P&L zone when sufficient opportunity exists;
+- respects the approximately -USD 40 normal / -USD 60 hard daily-loss framework.
+
+This is an operating objective, not a guaranteed daily outcome.
+
+## Fixed-size anchor
+
+### XAUUSD
+
+Reference size: **0.10 lot**.
+
+Under the common 100-oz-per-lot convention:
+
+- USD 3 favorable move ≈ +USD 30;
+- USD 4 ≈ +USD 40;
+- USD 5 ≈ +USD 50;
+- USD 7 ≈ +USD 70;
+- USD 10 ≈ +USD 100.
+
+Broker specifications must be verified before execution.
+
+### Major FX
+
+Initial research anchor: **0.10 standard lot** unless actual broker specifications justify another fixed equivalent.
+
+For USD-quote majors this is approximately USD 1/pip, so roughly 30/40/50/70/100 pips correspond to the same target ladder.
+
+JPY-quote pip values require contemporaneous JPY/USD conversion.
+
 ## Retained research leads
 
 ### USDJPY / Engine A v0.2
 
+Historical fixed-risk screen:
+
 - development mean R: about +0.075R/trade;
 - holdout mean R: about +0.263R/trade;
-- holdout <= USD 50 days: 86.44%;
-- holdout median notional/equity: about 177.8x.
+- holdout <= USD 50 days: 86.44%.
 
-Status: **research lead only; not deployable**.
+Status: **research lead only; must now be re-evaluated at fixed 0.10-lot economics.**
 
 ### GBPUSD / Engine F v0.1
 
+Historical fixed-risk screen:
+
 - development mean R: +0.138R/trade;
 - holdout mean R: +0.080R/trade;
-- holdout <= USD 50 days: 100%;
-- holdout median notional/equity: about 180.6x.
+- holdout <= USD 50 days: 100%.
 
-Status: **research lead only; not deployable**.
+Status: **research lead only; must now be re-evaluated at fixed 0.10-lot economics.**
 
-## EXP-010 portfolio result
+## EXP-010 result under superseded economic framing
 
-The two frozen leads were combined under:
+The two leads were low-correlated but the fixed USD 20 risk / USD 50 target portfolio still produced:
 
-- USD 20 risk/trade;
-- max 4 entries/day;
-- max 2 open positions;
-- no new entries after realized daily P&L <= -USD 40;
-- no new entries after realized daily P&L >= +USD 150.
+- 86.44% <= USD 50 holdout days;
+- 44.07% losing holdout days;
+- no >= USD 150 holdout day;
+- extreme notional/margin requirements from dynamic risk sizing.
 
-### Holdout
+This is evidence against dynamic sizing to force USD 50, not a final rejection of the leads under the newly clarified fixed-size objective.
 
-- standalone daily P&L correlation: about +0.03;
-- both leads traded on 35.6% of weekdays;
-- accepted trades: 114;
-- trades/day: 1.93;
-- zero-trade days: 3.39%;
-- mean daily P&L: +USD 10.51;
-- median daily P&L: +USD 10;
-- losing days: 44.07%;
-- <= USD 50 days: 86.44%;
-- >= USD 100 days: 6.78%;
-- >= USD 150 days: 0%;
-- worst day: -USD 40;
-- maximum drawdown: about USD 200.53;
-- maximum consecutive <= USD 50 days: 14;
-- maximum simultaneous notional/equity: about 1,285x.
+## EXP-011
 
-Conclusion: **independence exists, but the portfolio still fails the daily-distribution and economic-feasibility objectives.**
+EXP-011 was checkpointed as a fixed +USD 50 / -USD 20, maximum-4-trades analytical feasibility model.
 
-## Current conclusion
+It was **superseded before results** because the user changed the operational assumptions to:
 
-The research problem is no longer simply "find more signals."
+- fixed lot/exposure tiers;
+- flexible USD 30–100+ target ladder;
+- opportunity-driven trade count.
 
-Under the present economic framing, qualified opportunities are too sparse and target-first hit rates are too low to make high-output days common. The small account also creates severe notional/margin pressure when structural stops are only a few pips.
+No EXP-011 result was used.
 
-No existing engine or portfolio is promoted.
+## Active experiment — EXP-012
 
-## Next action
+**Fixed-Size Target-Ladder and Multi-Market Scanner Economics.**
 
-Run an objective-feasibility experiment before inventing another strategy family.
+First tasks:
 
-Quantify, for 1–4 trades/day with approximately -USD 20 losses and +USD 50 wins:
+1. map fixed-size P&L economics for the existing five-market universe;
+2. reconstruct USDJPY / Engine A v0.2 at 0.10 standard lot;
+3. measure T30/T40/T50/T70/T100 before structural invalidation;
+4. measure actual fixed-size stop-dollar risk;
+5. checkpoint;
+6. repeat for GBPUSD / Engine F v0.1;
+7. then decide whether to expand markets or introduce another engine.
 
-- the win probability required for P(daily P&L <= USD 50) <= 20%;
-- the win probability required for >= USD 100 days near 75–80%;
-- how zero-signal / low-trade days worsen those requirements;
-- how the USD 40 daily loss stop changes the distribution.
+## Current market universe
 
-This should establish whether the current distribution objective is statistically compatible with the current payoff/trade-count framework.
+Existing data/records:
 
-Do not change project targets until that feasibility evidence is recorded and explicitly reviewed.
+- XAUUSD;
+- XAGUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY.
+
+Priority additions as clean data and contract economics become available:
+
+- GBPJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF;
+- NAS100 / USTEC;
+- US30;
+- US500 / SPX500;
+- BTCUSD / BTCUSDT where venue economics are explicitly defined.
 
 ## Key unresolved question
 
-Is the desired <=20% low-output-day profile mathematically plausible with only 3–4 qualified trades/day and a roughly +USD 50 / -USD 20 trade payoff, even before real-world execution costs?
+Can a broad scanner using fixed-size positions and flexible target capture produce enough **qualified** USD 30–100 opportunities across markets to approach the USD 150–200 daily objective without unacceptable stop risk, margin usage, drawdown, or forced trading?
