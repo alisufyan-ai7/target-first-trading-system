@@ -528,6 +528,64 @@ Frozen specification:
 
 No A5 outcome was calculated before this freeze.
 
+## Part A checkpoint — A6 result
+
+**Status:** FAIL — FREQUENCY/BALANCE AND AVERAGE RISK NEAR RECOVERY, TARGET-FIRST EDGE STILL NOT RECOVERED
+
+A6 branched from A3 and changed only liquidity-level reuse.
+
+### A6 funnel
+
+- qualifying reusable-level sweeps: 2,757;
+- eligible internal pivot: 2,747;
+- MSS: 1,474;
+- displacement: 787;
+- FVG: 607;
+- raw midpoint fills: 358;
+- sweep-while-open suppressions: 6;
+- fill-while-open suppressions: 19;
+- accepted trades: **333**.
+
+### Benchmark comparison
+
+| Metric | EXP-002 benchmark | A6 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **333** | 335–409 | No — short by 2 |
+| Development trades | ~185 | **164** | 163–207 | **Yes** |
+| Holdout trades | ~187 | **169** | 165–209 | **Yes** |
+| Overall T5 | 29.6% | **15.02%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **13.61%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **23.08%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **21.30%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **16.57%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **1.053** | 0.867–1.173 | **Yes** |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.023** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **-0.057** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **+0.010** | +0.468 to +0.972 | No |
+
+Additional A6 diagnostics:
+
+- overall median structural risk: 0.7725 Gold;
+- fill-bar stops: **163 / 333**;
+- T5 wins / total stops / timeouts: 50 / 283 / 0;
+- overall average MFE: 1.236 Gold;
+- holdout average MFE: 1.155 Gold.
+
+### A6 interpretation
+
+A6 is the closest recovery variant so far on **signal frequency, development/holdout balance, and average structural risk**:
+
+- development and holdout trade-count bands both pass;
+- overall count misses the frozen lower bound by only two trades;
+- average structural risk passes.
+
+However, the complete benchmark vector still fails decisively because target-first rates and MFE remain roughly half the EXP-002 levels and expectancy is nowhere near the recorded positive values.
+
+This is important evidence: the missing original mechanics are no longer primarily a frequency problem. A6 suggests that liquidity-level reuse plausibly belongs in the recovered implementation, but candidate **quality / entry-path / invalidation geometry** remains materially wrong.
+
+A6 must not be called the recovered original.
+
 ## A6 freeze checkpoint
 
 A6 returns to the A3 baseline after A4/A5 pivot-strength branches failed and changes exactly one implementation ambiguity:
