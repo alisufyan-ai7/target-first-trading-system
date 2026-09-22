@@ -4,15 +4,17 @@ _Last updated: 2026-09-22_
 
 ## Goal
 
-Build and validate a **multi-strategy, multi-asset target-first trading system** whose operational purpose is to identify and execute the best qualified opportunities across supported markets and work toward a relatively consistent **USD 150–200 daily net P&L zone**.
+Build and validate a **multi-strategy, multi-asset target-first trading system** whose operational purpose is to identify, rank, size, manage, and eventually execute the best qualified opportunities across supported markets.
 
-Research/backtesting is the validation layer for building that system, not the end objective.
+The desired daily operating zone is approximately **USD 150–200 net when sufficient validated opportunity exists**.
 
-Badar Tanveer's public trading examples supplied in this project were the source for the first Engine A hypothesis. Those original Gold findings remain part of the active knowledge base and must not be overwritten by later portable rewrites.
+Research/backtesting is the validation layer for building the system, not the end objective.
 
-## User's working economic objective
+See docs/SYSTEM-BLUEPRINT.md for the authoritative architecture.
 
-Reference starting balance: **about USD 500**.
+## Economic objective
+
+Reference starting balance: about USD 500.
 
 ### Gold anchor
 
@@ -20,119 +22,116 @@ XAUUSD reference execution size: **0.10 lot**.
 
 Under the common 100-oz-per-lot convention:
 
-- 0.10 lot ≈ 10 oz;
-- USD 3 favorable Gold move ≈ USD 30 gross;
-- USD 4 ≈ USD 40;
-- USD 5 ≈ USD 50;
-- USD 7 ≈ USD 70;
-- USD 10 ≈ USD 100.
+- 0.10 lot ~= 10 oz;
+- USD 3 favorable Gold move ~= USD 30 gross;
+- USD 4 ~= USD 40;
+- USD 5 ~= USD 50;
+- USD 7 ~= USD 70;
+- USD 10 ~= USD 100.
 
 Broker contract specifications must be verified before execution.
 
-### Other markets — equivalent sizing, not identical lot size
+### Other markets
 
-The project must **not** assume 0.10 lot for every market.
+Do **not** assume 0.10 lot for every market.
 
-For each non-Gold symbol, calculate an **economically equivalent lot size** from:
+For each non-Gold symbol:
 
-1. the frozen/native target distance for that symbol;
-2. its contract size, pip/tick value, and quote-currency conversion;
-3. the objective that the normal successful trade should gross approximately **USD 50**.
+1. freeze a native target distance from the validated engine/market behavior;
+2. calculate the lot size that makes the normal successful target approximately USD 50 gross;
+3. verify structural stop risk, margin, leverage/notional, correlation, and remaining daily budget;
+4. use a smaller justified USD 30–40 opportunity or reject the trade if the full equivalent size is unsafe.
 
-Generic sizing rule:
+Generic economic conversion:
 
-`lot_size ~= 50 / (target_move_in_native_units × USD_value_per_native_unit_per_1_lot)`.
+lot size ~= 50 / (native target distance x USD value per native unit at 1 lot).
 
-The normal target is approximately USD 50, with two explicit flexibilities:
+## Profit flexibility
 
-- if the most reliable attainable move supports only about USD 30–40, the trade may still qualify;
-- if continuation evidence supports more, part or all of the trade may be held toward USD 70–100+.
+Normal successful-trade objective: about USD 50.
 
-Equivalent sizing is always subject to structural-stop risk, margin, leverage, and daily-risk feasibility. If the size required to make USD 50 is unsafe or infeasible, the system must reduce the dollar objective for that trade or reject it; it must not hide the risk.
+Allowed when validated:
 
-## Engine A / Gold clarification
+- USD 30–40 for a nearer target with materially stronger target-first probability;
+- USD 70–100+ for predeclared continuation/runner logic.
 
-The original Badar-inspired Gold Engine A screen in EXP-002 showed **positive simplified expectancy in both development and holdout**.
-
-Later Engine A v0.2-portable was a prospective mechanical rewrite created because the exact original implementation had not been fully preserved. The repository explicitly states that v0.2 is **not claimed to reproduce the exact EXP-002 implementation**.
-
-Therefore:
-
-- poor XAUUSD results from v0.2 do **not** invalidate the original EXP-002 Gold lead;
-- the original Gold Engine A must be treated as a separate retained research lead;
-- before further scanner development, the project should recover/reconstruct the original Engine A mechanics as faithfully as possible and verify that the recovered implementation reproduces EXP-002 behavior within reasonable tolerance.
+Reward/risk is normally an output of entry + structural stop + available target path, not a fixed number imposed first.
 
 ## Operating behavior
 
-- scan all supported liquid markets for the best current long/short opportunities;
-- normal successful-trade objective: about USD 50;
-- USD 30–40 is acceptable when confidence is materially better at the nearer target;
-- USD 70–100+ is allowed when validated continuation evidence supports it;
-- trade count is opportunity-driven rather than a fixed quota;
-- never force trades merely to reach the daily target;
-- desired daily net zone: about USD 150–200 when sufficient validated opportunity exists;
+- scan all supported liquid markets;
+- take only qualified opportunities;
+- trade count is opportunity-driven, with roughly 3–4/day a desirable normal range rather than a quota;
+- never lower quality merely because the daily target has not been reached;
 - normal daily loss stop: about USD 40;
-- rare absolute hard stop: about USD 60;
+- rare absolute hard loss: about USD 60;
 - no martingale;
-- no increasing size after losses;
+- no size increase after losses;
 - no revenge/recovery trading.
-
-These are system objectives, not guaranteed outcomes.
 
 ## Core decision problem
 
-For every candidate setup the system should ask:
+For every validated-engine candidate ask:
 
-> From this exact entry and structural invalidation, what favorable move is likely to occur first, what lot size makes that move economically useful, and is this opportunity better than the alternatives currently available across the market universe?
+> From this exact entry and structural invalidation, what favorable move is likely to happen first, what economically useful target/size is feasible, and is this opportunity better than the alternatives currently available?
 
-The scanner should estimate a target ladder:
+The eventual target ladder is approximately:
 
-- approximately USD 30;
-- USD 40;
-- USD 50;
-- USD 70;
-- USD 100+;
+- T30;
+- T40;
+- T50;
+- T70;
+- T100+;
 
-all evaluated **before structural invalidation**.
+all evaluated before structural invalidation.
 
-No market move is certain. "Sure" in the operating design means the setup has passed a validated probability/expected-value threshold, not guaranteed price movement.
+“Sure” means passing validated probability/EV and risk gates. It never means certainty.
 
-## Intended architecture
+## Candidate-generation architecture
 
-```text
-multi-market data feeds
-    ->
-multiple independent setup engines
-    ->
-candidate native target distances + structural invalidation
-    ->
-target-first probability model
-    ->
-equivalent lot-size conversion for ~USD 50 normal target
-    ->
-risk / margin / correlation feasibility gate
-    ->
-cross-market opportunity ranking
-    ->
-entry + target management / partials / runners
-    ->
-daily P&L state machine
-    ->
-paper/forward validation
-    ->
-optional automated execution only after evidence
-```
+The default architecture is:
 
-## Current priority
+~~~text
+validated strategy engine
+        ->
+meaningful candidate
+        ->
+target-first probability / EV layer
+        ->
+cross-market ranking
+~~~
 
-1. preserve the original EXP-002 Gold Engine A as a positive-expectancy research lead;
-2. recover/reconstruct its mechanics before treating later v0.2 results as representative;
-3. revisit EXP-006 P&L-equivalent cross-market sizing rather than assuming 0.10 lot on FX;
-4. freeze the sizing/equivalence rule before any new holdout inspection;
-5. only then resume broad scanner/ranker development.
+The ranker is a **selector**, not an unrestricted trade inventor.
 
-## Important principle
+A broad statistical candidate generator may be researched separately, but it must itself be versioned and validated as an engine before it bypasses this contract.
 
-Increase the **opportunity universe**, not the willingness to accept poor trades.
+See docs/STRATEGY-ENGINE-CONTRACT.md.
 
-The system may take more qualified trades when several independent opportunities exist, but it must not lower quality thresholds just to reach USD 150–200.
+## Original Engine A preservation rule
+
+Badar Tanveer's supplied/public trading examples were the source for the first Engine A hypothesis.
+
+The original EXP-002 Gold Engine A showed positive simplified expectancy in both development and holdout.
+
+Later Engine A v0.2-portable was a separate prospective rewrite and must not be used to invalidate EXP-002.
+
+Before further broad scanner optimization:
+
+1. recover/reconstruct original Engine A as faithfully as possible;
+2. reproduce EXP-002 metrics within reasonable tolerance;
+3. freeze equivalent sizing;
+4. only then restart the target-first ranker.
+
+## Consistency objective
+
+The project optimizes the distribution of daily outcomes, not only total return.
+
+Key metrics include median daily P&L, low-output-day frequency, 5-day rolling consistency, losing days, drawdown, consecutive low-output days, and target-rung capture.
+
+A few huge days do not compensate for a system dominated by zero/low-output days if that distribution fails the user's objective.
+
+## System-development path
+
+Historical/reproducible engines -> out-of-sample validation -> independent-feed validation -> portfolio simulation -> paper/demo live scanner -> signal-only -> human approval/semi-auto -> fully automatic execution only after evidence.
+
+See docs/BUILD-AND-DEPLOYMENT-ROADMAP.md.
