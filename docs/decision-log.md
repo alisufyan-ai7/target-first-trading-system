@@ -266,3 +266,56 @@ A broad generic pivot/statistical candidate generator may be researched, but it 
 **Decision:** Reclassify EXP-013's same-0.10-lot FX universe ranking as a historical diagnostic, not a current scanner-selection rule.
 
 **Reason:** The user's intended cross-market economics require P&L-equivalent lot sizing, not identical lot numbers.
+
+## 2026-09-23 — Freeze EXP-014 reproduction acceptance before recovery outcomes
+
+**Decision:** Judge original EXP-002 recovery against a multi-dimensional frozen protocol rather than tuning to one headline metric.
+
+**Frozen dimensions:** trade count and split balance, T2/T3/T4/T5 target-first rates, average structural risk, median MFE, and simplified expectancy in development and holdout.
+
+**Reason:** A recovered strategy must resemble the recorded EXP-002 behavior as a whole. One matching hit rate cannot compensate for materially wrong frequency, risk, excursion, or expectancy.
+
+## 2026-09-23 — Close EXP-014 Part A as unrecoverable
+
+**Decision:** The original EXP-002 Engine A implementation is **not honestly recoverable from the surviving evidence**.
+
+**Evidence:**
+
+- the audited March 1–August 20, 2026 XAUUSD one-minute research series contained 230,813 rows, exactly matching the recorded EXP-002 row count;
+- no original EXP-002 detector/backtest code survives in repository history;
+- recovery variants A1–A9 were frozen/checkpointed one ambiguity at a time;
+- A6 came closest to the original frequency/split balance and average-risk dimensions but produced only about 15.0% overall T5, about 13.6% holdout T5, and about +0.01 Gold/trade holdout expectancy;
+- A8 forensic intrabar-sweep timing did not recover the edge;
+- A9 optimistic fill-bar handling improved holdout T5 to about 17.9% and expectancy to about +0.25 Gold/trade but still materially missed EXP-002.
+
+**Treatment:** Preserve EXP-002 as a historical exploratory positive result. Do not treat it, A6, v0.2-portable, A8, or A9 as a validated reproduction.
+
+**Reason:** Continuing to vary mechanics solely until the old summary fits would become post-hoc overfitting rather than honest recovery.
+
+## 2026-09-23 — Freeze engine-conditioned P&L-equivalent sizing
+
+**Decision:** Use **engine-conditioned native target logic / engine-conditioned favorable-excursion calibration** as the forward non-Gold target-distance method.
+
+**Rejected as governing method:** generic volatility-burden equivalence from EXP-006. Retain it only as a diagnostic.
+
+**Forward order:**
+
+1. freeze/use the validated engine/market native target or target function;
+2. calculate the lot that makes that normal target approximately USD 50 gross;
+3. round to legal broker size without increasing risk;
+4. apply structural-stop risk, margin, notional/leverage, remaining daily budget, aggregate open-stop risk, and correlation gates;
+5. if unsafe, use only a separately validated USD 40/30 fallback or reject.
+
+**Constraint:** the approximately USD 60 emergency hard ceiling is not a normal per-trade sizing allowance.
+
+**Specification:** `docs/PNL-EQUIVALENT-SIZING.md`.
+
+## 2026-09-23 — EXP-015 remains paused after EXP-014
+
+**Decision:** Completing EXP-014 does not automatically resume the target-first ranker.
+
+**Reason:** The system currently has no strategy engine promoted as a reproducible validated candidate source. The ranker is a selector after validated engines, not a substitute for them.
+
+**Next:** prospectively define and validate a new causal strategy engine, map its output to the common candidate contract, and only then redesign/resume EXP-015.
+
+A future Badar-derived engine may use evidence-supported concepts, but it must be a new version/identity rather than a claim to have recovered EXP-002.
