@@ -25,6 +25,20 @@ Limitations:
 - Phase-1 test excluded broker-specific spread, commission, slippage, latency, and contract specification;
 - price construction may differ from an MT5 broker's XAUUSD CFD.
 
+### EXP-014 recovery transport / mirror
+
+During EXP-014, the execution environment used a public GitHub mirror of Dukascopy-derived XAUUSD BID M1 CSV data as **external research-data transport** because direct binary-archive retrieval was not practical in the tool session.
+
+For the frozen March 1 through August 20, 2026 window:
+
+- rows: 230,813, exactly matching EXP-002's recorded row count;
+- duplicate timestamps: 0;
+- invalid OHLC rows: 0.
+
+The exact monthly blob SHAs are recorded in EXP-014.
+
+Important limitation: exact row-count agreement does not prove byte-for-byte identity with the original unpublished EXP-002 local download. The mirror is therefore documented as Dukascopy-derived research data, not treated as a substitute for later independent-feed/broker validation.
+
 ## Independent validation candidates
 
 ### MetaTrader 5
