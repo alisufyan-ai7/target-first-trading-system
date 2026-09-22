@@ -1,0 +1,5 @@
+EXP-016 development trigger
+Frozen spec: strategies/engine-g-contextual-liquidity-reversal/SPEC-v0.1.md
+Implementation: research/code/engine-g-v0.1.js
+Scope: warm-up Dec 2023 + development Jan 2024-Feb 2025 only
+Validation/holdout: prohibited in this run
