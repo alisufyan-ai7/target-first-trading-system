@@ -199,3 +199,31 @@ Measure actual fixed-size stop risk plus T30/T40/T50/T70/T100 hit rates.
 **Deferred/lower priority:** EURJPY, USDJPY, USDCAD; GBPJPY unavailable on the matching sample source; XAGUSD unranked pending fixed contract/quantity convention.
 
 **Next:** Build a prospectively frozen target-first ranking layer across the five markets rather than selecting a universal take-profit or hand-tuning Engine A filters.
+
+## 2026-09-22 — Correct cross-market lot-size interpretation
+
+**Decision:** XAUUSD uses 0.10 lot as the anchor, but other markets do not automatically use 0.10 lot.
+
+For a frozen native target distance, calculate the lot size that makes the normal successful target approximately USD 50, then apply structural-stop risk, margin, leverage/notional, and daily-risk gates.
+
+USD 30–40 is an acceptable fallback when the full USD-50-equivalent size/target is not safely feasible. USD 70–100+ is allowed under validated continuation logic.
+
+**Reason:** The user clarified that "equivalent to 0.10 Gold" means equivalent earning economics, not identical lot number.
+
+## 2026-09-22 — Restore original EXP-002 Gold Engine A as an active lead
+
+**Decision:** Do not treat later Engine A v0.2-portable results as invalidating the original Badar-inspired Gold screen.
+
+**Evidence:** EXP-002 recorded positive simplified expectancy in both development (~+0.85 Gold/trade) and holdout (~+0.72 Gold/trade), with holdout target-first rates of 41.7% at USD 3, 31.6% at USD 4, and 27.3% at USD 5.
+
+**Reason:** SPEC-v0.2-portable explicitly states that v0.2 was a prospective reconstruction and was not claimed to reproduce the exact EXP-002 implementation.
+
+**Next:** Recover/reconstruct the original Engine A mechanics and require reproduction of the EXP-002 Gold behavior before cross-market transfer.
+
+## 2026-09-22 — Reclassify same-0.10-lot FX work as diagnostic only
+
+**Decision:** Preserve EXP-012/013 calculations but do not use their fixed-0.10-lot FX ranking as the forward sizing rule.
+
+**Reason:** Those calculations were produced under a misunderstanding of the user's intended equivalent-lot concept.
+
+**Next:** Revisit EXP-006-style P&L-equivalent sizing with explicit feasibility gates.
