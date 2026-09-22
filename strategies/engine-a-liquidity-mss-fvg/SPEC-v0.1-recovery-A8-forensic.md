@@ -130,6 +130,23 @@ Important forensic limitation:
 
 No other A6 rule changes in A8.
 
+## A8 forensic event-time clarification — frozen before outcome inspection
+
+Because A8 intentionally allows the lower-timeframe sequence to begin before the containing 5m sweep bar has closed, chronological one-open handling needs an explicit setup timestamp.
+
+For A8 only:
+
+- the setup becomes active at the **completion of the first constituent 1m bar that breaches the active 5m liquidity level**;
+- one-open-trade suppression is evaluated at that breach-bar completion time;
+- if an A8 trade is already open then, the setup is suppressed;
+- otherwise the MSS/displacement/FVG sequence may continue under the frozen A8 rules;
+- midpoint fill still cannot be credited before its actual 1m fill bar;
+- the containing 5m bar must still later satisfy the frozen sweep/rejection close condition, which is why A8 remains explicitly forensic/non-causal.
+
+For session consistency with the prior recovery runner, the containing 5m sweep bar must **start at or after 06:00 UTC and complete strictly before 18:00 UTC**.
+
+No target, stop, entry, displacement, FVG, or liquidity-reuse rule changes here.
+
 ## Displacement — A2 single-ambiguity change
 
 A2 keeps the **first MSS** rule unchanged, but displacement is allowed to occur on:
