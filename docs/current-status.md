@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — reproducible strategy-engine development after EXP-014
+**Phase:** Phase 2 — Engine G v0.1 frozen; EXP-016 prospective validation
 
 ## Authorized context
 
@@ -111,6 +111,7 @@ Same-0.10-lot FX work from EXP-012/013 also remains diagnostic only.
 
 There is currently **no strategy engine promoted as a validated execution lead**.
 
+- Engine G v0.1: **prospectively frozen on 2026-09-23; EXP-016 opened; zero outcomes at freeze; not yet validated or promoted.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -135,22 +136,42 @@ The remaining blocker is substantive: EXP-015 needs at least one **prospectively
 
 Its historical broad-pivot Stage-1 XAU statistics remain diagnostics only.
 
+## Engine G / EXP-016 status
+
+**Engine G v0.1 is now frozen prospectively before outcomes.**
+
+Frozen files:
+
+- `strategies/engine-g-contextual-liquidity-reversal/SPEC-v0.1.md`;
+- `research/experiments/EXP-016-engine-g-contextual-liquidity-reversal-v0.1.md`.
+
+Checkpoint-0 state:
+
+- rules frozen: YES;
+- source snapshot and per-file manifest frozen: YES;
+- development / validation / fresh-holdout split frozen: YES;
+- delayed sensitivity sequence frozen: YES;
+- Engine G outcomes calculated at freeze: NO.
+
+Primary split:
+
+- development: 2024-01-01 through 2025-02-28;
+- validation: 2025-03-01 through 2025-08-31;
+- fresh holdout: 2025-09-01 through 2026-02-28;
+- March 1–August 20, 2026 remains quarantined from the primary decision.
+
+EXP-015 remains paused until at least one reproducible engine validates.
+
 ## Exact next action
 
-Do **not** resume broad-pivot ranker/ML work and do not continue tuning recovery variants to reproduce EXP-002.
+1. verify the immutable EXP-016 data manifest;
+2. implement Engine G v0.1 exactly, including integer-tick price logic and causal liquidity lifecycle;
+3. run implementation/unit/causality checks without changing the frozen rules;
+4. run **development only**;
+5. checkpoint the development result to GitHub before inspecting validation;
+6. proceed to validation and holdout only in the frozen sequence.
 
-The next work should:
-
-1. define a new causal strategy-engine hypothesis prospectively;
-2. version its exact candidate, entry, stop, target, session/context, and outcome rules;
-3. map its output to `docs/STRATEGY-ENGINE-CONTRACT.md`;
-4. freeze development / validation / holdout dates and realistic execution assumptions;
-5. only then run the first outcome test;
-6. promote it only if the full evidence—not one attractive metric—supports it.
-
-A new Badar-derived causal engine is allowed, but it must be treated as a **new prospectively defined engine**, not as the recovered EXP-002 implementation.
-
-No new long strategy computation should start until its specification is frozen and the user confirms the next experiment direction.
+Do **not** run sensitivity variants before the complete 48-bar / 1.60 center-rule development, validation, holdout, and primary conclusion have been checkpointed.
 
 ## Key unresolved question
 
