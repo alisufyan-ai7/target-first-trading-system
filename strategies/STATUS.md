@@ -37,3 +37,19 @@ Do not retune or expand these engines now. The next experiment should combine th
 USDJPY / Engine A and GBPUSD / Engine F are low-correlated, but their frozen combination still produced 86.44% <= USD 50 holdout days and no >= USD 150 holdout days.
 
 **Decision:** neither lead nor their combination is promoted. Do not retune them. Active work moves to an objective-feasibility analysis before another engine is introduced.
+
+## Fixed-size re-evaluation phase — EXP-012
+
+The user clarified the intended execution model:
+
+- XAUUSD reference size: 0.10 lot;
+- major FX initial research size: 0.10 standard lot pending broker verification;
+- useful profit captures may be USD 30–50, with USD 70–100+ runners when justified;
+- trade count is opportunity-driven rather than capped at 3–4/day.
+
+**Immediate action:** re-evaluate the two retained leads under fixed-size target ladders before adding another strategy family:
+
+1. USDJPY / Engine A v0.2;
+2. GBPUSD / Engine F v0.1.
+
+The old dynamic USD 20 risk sizing results remain valid historical evidence but are no longer the forward execution model.
