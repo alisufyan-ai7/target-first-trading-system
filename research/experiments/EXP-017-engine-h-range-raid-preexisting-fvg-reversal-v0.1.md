@@ -113,3 +113,84 @@ Development-only GitHub Actions workflow:
 The workflow downloads only December-2023 warm-up plus January-2024 through February-2025 development files from the pinned external commit, verifies each Git blob SHA/byte count inside the runner, and does not download validation or holdout files.
 
 **Engine-H outcomes at this checkpoint: ZERO.**
+
+## Checkpoint 2 — development result
+
+**Development result commit:** `994b7f98c4474f7775f9b6fff88508a690cd1d64`  
+**Split:** 2024-01-01 through 2025-02-28  
+**Validation outcomes inspected:** NO  
+**Fresh-holdout outcomes inspected:** NO
+
+Durable results:
+
+- `research/results/EXP-017-development-summary-v0.1.json`
+- `research/results/EXP-017-development-setups-v0.1.jsonl`
+- `research/results/EXP-017-development-trades-v0.1.jsonl`
+
+### Development funnel
+
+- market-active 5m bars: **82,724**
+- prior-range boundary breach bars: **25,120**
+- bars touching an eligible external pre-existing FVG: **1,234**
+- qualifying close-back raids: **341**
+- qualifying raids inside the setup window: **180**
+- accepted filled trades: **2**
+
+Primary post-raid bottlenecks:
+
+- MSS timeout: **112**
+- no internal MSS pivot: **21**
+- displacement timeout: **13**
+- displacement without qualifying entry FVG by MSS+2: **20**
+
+Other economic/execution rejections included:
+
+- insufficient 3-XAU target room: 4
+- structural risk above USD40 gross: 2
+- reward/risk below 2: 1
+- pre-entry target reached: 1
+- entry timeout: 1
+
+### Filled-trade evidence
+
+- accepted filled trades: **2**
+- actual target exits: **0**
+- stops: **1**
+- timeouts: **1**
+- T30 counterfactual hits: **2/2**
+- primary 0.50-XAU-cost expectancy: **+USD 9.35/trade**
+- primary-cost profit factor: **1.540**
+- total primary-cost net P&L: **+USD 18.70**
+- maximum drawdown: **USD 34.66**
+
+Frozen moving-block bootstrap:
+
+- expectancy point: +USD 9.35/trade
+- 95% expectancy interval: **[-USD 34.66, +USD 53.36]**
+- zero-trade resamples: **1,264 / 10,000**
+
+### Frozen-gate disposition
+
+The minimum development evidence requirement is:
+
+- **>=100 accepted filled trades**
+
+Observed:
+
+- **2 accepted filled trades**
+
+Therefore EXP-017 v0.1 development is formally:
+
+**INSUFFICIENT_EVIDENCE**
+
+The apparent positive two-trade expectancy is not interpretable as validated edge, and the bootstrap interval spans materially negative and positive values.
+
+### Decision
+
+**STOP Engine H v0.1 before validation.**
+
+Do not expose the untouched validation or fresh-holdout periods to H v0.1.
+
+Do not retune H v0.1 after seeing this funnel. Any change to the strict combination of external pre-existing FVG + range raid + MSS + 1.50x displacement + same-candle entry FVG + 3-XAU room + 2R must be prospectively versioned as Engine H v0.2 or another engine.
+
+The development funnel itself may be used to formulate the next prospective hypothesis, but not to claim H v0.1 profitability.
