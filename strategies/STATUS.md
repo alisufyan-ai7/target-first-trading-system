@@ -14,6 +14,7 @@ _Last updated: 2026-09-23_
 | Engine E | Volatility compression -> expansion | Current formulations not promoted |
 | Engine F v0.1 | Statistical extension -> re-entry -> mean reversion | Historical research evidence only; not a current execution lead |
 | Engine G v0.1 | Contextual liquidity reversal: HTF location -> liquidity sweep -> MSS -> displacement/FVG -> S1 | **Development gate failed: 71 accepted trades (<100 minimum), -$9.27/trade at primary cost, bootstrap CI entirely negative; validation/holdout preserved untouched; not promoted** |
+| Engine H v0.1 | Recent range raid into pre-existing external 5m FVG -> 1m MSS/displacement/FVG -> opposite range target | **Development insufficient evidence: only 2 accepted trades vs >=100 minimum; validation/holdout preserved untouched; not promoted** |
 
 ## Current promotion state
 
@@ -60,10 +61,10 @@ Do not let a generic broad-pivot candidate universe silently replace validated e
 
 ## Next strategy action
 
-Engine G v0.1 completed its frozen development gate and is not promoted.
+Engine G v0.1 failed its development gate and is not promoted.
 
-Development produced 71 accepted trades versus the frozen >=100 minimum, primary-cost expectancy of about -USD 9.27/trade, profit factor about 0.496, and a 95% block-bootstrap expectancy interval entirely below zero. Validation and fresh holdout remain untouched by Engine G v0.1 outcomes.
+Engine H v0.1 was then frozen prospectively from the two user-provided video motifs. It generated 180 in-window qualifying raids but only 2 accepted filled development trades after the frozen lower-timeframe confirmation/economic gates, versus the >=100 minimum. Its positive two-trade expectancy is statistically uninterpretable; the bootstrap expectancy interval spans negative and positive outcomes.
 
-Do not retune v0.1 or run its delayed sensitivity diagnostics. Any revision must be prospectively versioned as Engine G v0.2 or a different engine.
+Do not retune either frozen v0.1 after seeing results. Validation and fresh holdout remain untouched for both.
 
 EXP-015 remains paused until at least one reproducible engine validates.
