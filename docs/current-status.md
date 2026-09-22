@@ -159,3 +159,46 @@ Priority additions as clean data and contract economics become available:
 ## Key unresolved question
 
 Which markets, at fixed economically sensible size, naturally provide enough intraday movement for USD 30–100 targets, and can a validated target-first ranker select those opportunities frequently enough to approach the USD 150–200 daily objective without unacceptable risk, margin use, or forced trading?
+
+## EXP-013 market-economics update
+
+Development-only fixed-size movement ranking has now been expanded.
+
+First scanner universe frozen from economic suitability:
+
+1. XAUUSD;
+2. GBPUSD;
+3. USDCHF;
+4. EURUSD;
+5. AUDUSD.
+
+Supporting development-only observations:
+
+- XAUUSD: T50 move is only about 0.233x median hourly TR at 0.10 lot.
+- GBPUSD: T50 = 50 pips ≈ 2.703x median hourly TR / 0.708x median active-session range.
+- USDCHF: T50 ≈ 38.9 pips ≈ 3.475x median hourly TR / 0.907x median session range.
+- EURUSD: T50 = 50 pips ≈ 3.663x median hourly TR / 0.943x median session range.
+- AUDUSD: T50 = 50 pips ≈ 3.968x median hourly TR / 0.973x median session range.
+
+Lower-priority 0.10-lot markets:
+
+- EURJPY;
+- USDJPY;
+- USDCAD.
+
+XAGUSD remains unranked until a fixed contract/quantity convention is frozen. GBPJPY remains deferred because a matching clean sample was unavailable.
+
+## Next experiment
+
+Freeze and test the first target-first opportunity-ranking layer on the five-market scanner universe.
+
+The ranker must:
+
+- consume unchanged mechanical candidate setups;
+- calculate fixed-size stop-dollar risk before entry;
+- reject candidates above the USD 40 structural-risk gate;
+- estimate T30/T40/T50/T70/T100 probability before stop;
+- rank candidates across markets;
+- use development data for model fitting/calibration;
+- preserve a fresh later-period holdout for the new ranker;
+- never represent probability as certainty.
