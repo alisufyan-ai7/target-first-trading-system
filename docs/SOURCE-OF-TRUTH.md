@@ -7,7 +7,7 @@ _Last updated: 2026-09-22_
 This project has exactly two authorized context sources:
 
 1. the originating ChatGPT conversation for this project;
-2. this GitHub repository: `alisufyan-ai7/owner-target-first-trading-research`.
+2. this GitHub repository: `alisufyan-ai7/target-first-trading-system`.
 
 ## Isolation rule
 
