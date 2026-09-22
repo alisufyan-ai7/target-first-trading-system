@@ -1,204 +1,124 @@
 # Current Status
 
 **Date:** 2026-09-22  
-**Phase:** System build / fixed-size multi-market scanner
+**Phase:** Knowledge recovery / economic-sizing correction before further development
 
 ## Source of truth
 
-Only this repository and the originating chat are authorized project context.
+Authorized project context now includes:
 
-## End objective
+1. this current chat;
+2. the explicitly reintroduced prior chat in this same project to the extent its findings are durably recorded/recoverable here;
+3. this repository.
 
-Build a multi-strategy, multi-asset scanner/execution system that:
+No unrelated chats, projects, memories, or repositories may be used.
 
-- scans all supported liquid markets;
-- ranks the best current long/short opportunities;
-- uses fixed execution-size tiers rather than enlarging size to manufacture a USD 50 target;
-- treats approximately USD 30–50 as useful ordinary captures;
-- can hold toward USD 70–100+ when validated continuation evidence supports it;
-- may take more than 3–4 trades/day when several independent qualified opportunities exist;
-- never forces trades;
-- works toward a USD 150–200 daily net P&L zone when sufficient validated opportunity exists;
-- respects approximately -USD 40 normal / -USD 60 hard daily-loss controls.
+## User objective — corrected
 
-These are operating objectives, not guaranteed outcomes.
+Build a multi-market scanner/execution system that works toward approximately USD 150–200 net on days with sufficient qualified opportunity.
 
-## Fixed-size anchor
+Normal successful-trade objective: about USD 50.
+
+Allowed flexibility:
+
+- approximately USD 30–40 when the nearer target has materially stronger target-first probability;
+- USD 70–100+ when validated continuation evidence supports it.
+
+No forced trade quota.
+
+## Correct sizing interpretation
 
 ### XAUUSD
 
-Reference size: **0.10 lot**.
+Reference size = **0.10 lot**.
 
-Research convention pending broker verification:
+### Other markets
 
-- 0.10 lot = 10 oz;
-- USD 1 Gold move ≈ USD 10 gross P&L;
-- USD 3 / 4 / 5 / 7 / 10 move ≈ USD 30 / 40 / 50 / 70 / 100.
+Do **not** use 0.10 lot automatically.
 
-### Major FX
+Calculate an economically equivalent lot size so that the market's frozen native target distance is worth approximately USD 50.
 
-Initial research anchor: **0.10 standard lot**, pending broker-specific verification.
+Equivalent sizing must then pass structural-stop risk, margin, leverage/notional, correlation, and daily-loss-budget gates.
 
-USD-quote majors are approximately USD 1/pip at 0.10 lot. JPY-quote pairs require contemporaneous JPY/USD conversion.
+If the full USD-50-equivalent size is unsafe, use a justified smaller USD 30–40 objective or reject the trade.
 
-## Superseded framework
+## Original Engine A / Gold — retained positive lead
 
-The prior dynamic USD 20 risk / USD 50 target model is no longer the forward execution model.
+EXP-002 is the original Badar-inspired Gold screen derived from the prior project's video/chart work.
 
-EXP-011 was superseded before results because the user changed the operating assumptions to fixed-size execution, flexible USD 30–100+ target capture, and opportunity-driven trade count.
+Recorded results:
 
-## EXP-012 fixed-size results
+- 372 signals overall;
+- overall USD 5 target-first hit rate: 29.6%;
+- average structural risk distance: about USD 1.02 Gold;
+- median favorable excursion: about USD 3.30 Gold;
+- average simplified expectancy: about **+USD 0.79 Gold/trade before costs**.
 
-### USDJPY / Engine A v0.2
+Development:
 
-At fixed 0.10 standard lot, holdout reconstruction showed:
-
-- median structural-stop risk: about USD 2.24;
-- median maximum favorable excursion: about USD 2.94;
-- T30 hit: 7.14%;
-- T50 hit: 4.08%;
-- T100 hit: 3.06%.
-
-Conclusion: the old USDJPY lead is not useful as a primary USD 30–100 fixed-size income stream.
-
-### GBPUSD / Engine F v0.1
-
-At fixed 0.10 standard lot, holdout reconstruction showed:
-
-- median structural-stop risk: about USD 2.94;
-- median maximum favorable excursion: about USD 3.70;
-- T30 hit: 11.11%;
-- T40 hit: 2.78%;
-- T50/T70/T100: 0%.
-
-Conclusion: the old GBPUSD lead is not useful as a primary USD 30–100 fixed-size income stream.
-
-### XAUUSD / Engine A v0.2 — raw fixed-size economics
-
-At fixed 0.10 lot, holdout reconstruction showed:
-
-- median structural-stop risk: about USD 51.90;
-- T30 hit: 57.14%;
-- T40 hit: 41.35%;
-- T50 hit: 36.84%;
-- T70 hit: 29.32%;
-- T100 hit: 22.56%.
-
-Conclusion: Gold has the correct movement scale for the user's fixed-size objective, but the inherited Engine A structural stop is often too wide.
-
-### XAUUSD / Engine A v0.2 — predeclared USD 40 stop-risk gate
-
-Only setups whose unchanged structural stop costs <= USD 40 at 0.10 lot were admissible.
+- ~185 trades;
+- USD 5 hit: 31.9%;
+- simplified expectancy: about **+USD 0.85 Gold/trade**.
 
 Holdout:
 
-- 50 of 133 trades passed;
-- 35 of 59 weekdays had at least one surviving trade;
-- median stop risk: USD 29.82;
-- T30 hit: 48%;
-- T40 hit: 34%;
-- T50 hit: 30%;
-- T70 hit: 28%;
-- T100 hit: 20%.
+- ~187 trades;
+- USD 5 hit: 27.3%;
+- simplified expectancy: about **+USD 0.72 Gold/trade**;
+- target-first sensitivity:
+  - USD 2: 48.7%;
+  - USD 3: 41.7%;
+  - USD 4: 31.6%;
+  - USD 5: 27.3%.
 
-Fixed-target expectancy in holdout:
+At the illustrative 0.10-lot/10-oz convention, +0.72 Gold/trade is roughly +USD 7.20/trade gross simplified expectancy before costs.
 
-- T30: about **+USD 0.02/trade before costs**;
-- T40: -USD 4.93/trade;
-- T50: -USD 4.85/trade;
-- T70: -USD 0.85/trade;
-- T100: -USD 2.70/trade.
+**Status:** retain the original EXP-002 Gold Engine A as an active research lead.
 
-Conclusion: the risk-gated Gold subset is economically aligned with the desired lot/target structure, but the current Engine A entry logic does **not** provide a robust positive fixed-target edge. T30 is essentially break-even before costs.
+## Critical Engine A distinction
 
-## Current system conclusion
+Engine A v0.2-portable, used later in EXP-007/012, is **not the same implementation** as EXP-002.
 
-The project now separates two questions:
+Its own specification states that it was a prospective reconstruction because exact mechanics from EXP-002 were not fully preserved.
 
-1. **Does the market naturally have enough fixed-size movement to produce USD 30–100?**
-2. **Can the scanner identify entries where those moves are likely before structural invalidation?**
+Therefore:
 
-For the tested markets:
+- v0.2's poor Gold results do not invalidate EXP-002;
+- v0.2 remains useful as a separate failed/limited implementation record;
+- original Engine A recovery must precede further conclusions about the Badar-inspired Gold lead.
 
-- USDJPY/GBPUSD fixed 0.10-lot movement from the retained entries is too small;
-- XAUUSD has enough movement;
-- the current Gold entry engine is not selective enough.
+## Sizing evidence already available
 
-No existing engine is promoted to execution.
+EXP-006 performed a first P&L-equivalent calculation using a volatility-normalized target burden.
 
-## Active next phase
+Illustrative USD-50 sizes from that method were approximately:
 
-Open a small checkpointed **market-universe economic feasibility map** before building the next target-first ranker.
+- EURUSD: 1.608 standard lots;
+- GBPUSD: 1.163 standard lots;
+- USDJPY: 2.146 standard lots.
 
-The purpose is to identify which liquid markets naturally support the USD 30–100 target ladder at the fixed execution-size tier, using development-only volatility/economic data rather than strategy outcomes.
+Those values were rejected previously because of margin/notional pressure, not because the conversion math was invalid.
 
-After that map is frozen, build the cross-market target-first opportunity-ranking layer on the economically suitable universe.
+Under the corrected objective, EXP-006 becomes useful again as a sizing diagnostic. The next sizing method must preserve the USD-50 equivalence idea while enforcing explicit feasibility gates.
 
-## Current market universe
+## Misframed later branch
 
-Existing data/records:
+EXP-012 and EXP-013 contain useful Gold and volatility diagnostics, but their FX conclusions based on using **0.10 lot on FX** do not represent the user's intended cross-market sizing rule.
 
-- XAUUSD;
-- XAGUSD;
-- EURUSD;
-- GBPUSD;
-- USDJPY.
+Those same-lot FX results are preserved as diagnostics only and must not drive the next scanner universe.
 
-Priority additions as clean data and contract economics become available:
+## Immediate plan
 
-- GBPJPY;
-- EURJPY;
-- AUDUSD;
-- USDCAD;
-- USDCHF;
-- NAS100 / USTEC;
-- US30;
-- US500 / SPX500;
-- BTCUSD / BTCUSDT where venue economics are explicitly defined.
+No new strategy optimization should begin yet.
+
+First:
+
+1. recover/reconstruct the original EXP-002 Engine A mechanics from the durable video-derived sequence and recorded parameters;
+2. require the recovered implementation to reproduce EXP-002 Gold behavior within reasonable tolerance before using it elsewhere;
+3. define a prospective P&L-equivalent lot-sizing rule for non-Gold symbols with ~USD 50 normal target and USD 30–40 fallback;
+4. apply hard structural-risk/margin/notional gates;
+5. only then resume cross-market scanning/ranking.
 
 ## Key unresolved question
 
-Which markets, at fixed economically sensible size, naturally provide enough intraday movement for USD 30–100 targets, and can a validated target-first ranker select those opportunities frequently enough to approach the USD 150–200 daily objective without unacceptable risk, margin use, or forced trading?
-
-## EXP-013 market-economics update
-
-Development-only fixed-size movement ranking has now been expanded.
-
-First scanner universe frozen from economic suitability:
-
-1. XAUUSD;
-2. GBPUSD;
-3. USDCHF;
-4. EURUSD;
-5. AUDUSD.
-
-Supporting development-only observations:
-
-- XAUUSD: T50 move is only about 0.233x median hourly TR at 0.10 lot.
-- GBPUSD: T50 = 50 pips ≈ 2.703x median hourly TR / 0.708x median active-session range.
-- USDCHF: T50 ≈ 38.9 pips ≈ 3.475x median hourly TR / 0.907x median session range.
-- EURUSD: T50 = 50 pips ≈ 3.663x median hourly TR / 0.943x median session range.
-- AUDUSD: T50 = 50 pips ≈ 3.968x median hourly TR / 0.973x median session range.
-
-Lower-priority 0.10-lot markets:
-
-- EURJPY;
-- USDJPY;
-- USDCAD.
-
-XAGUSD remains unranked until a fixed contract/quantity convention is frozen. GBPJPY remains deferred because a matching clean sample was unavailable.
-
-## Next experiment
-
-Freeze and test the first target-first opportunity-ranking layer on the five-market scanner universe.
-
-The ranker must:
-
-- consume unchanged mechanical candidate setups;
-- calculate fixed-size stop-dollar risk before entry;
-- reject candidates above the USD 40 structural-risk gate;
-- estimate T30/T40/T50/T70/T100 probability before stop;
-- rank candidates across markets;
-- use development data for model fitting/calibration;
-- preserve a fresh later-period holdout for the new ranker;
-- never represent probability as certainty.
+Can the original positive Gold Engine A be faithfully reproduced and then combined with P&L-equivalent cross-market sizing to create enough qualified USD 30–100 opportunities to approach the USD 150–200 daily objective without unacceptable risk?
