@@ -208,6 +208,17 @@ A1 required the **first MSS candle itself** to satisfy the 1.6x displacement thr
 
 A2 should therefore keep every other A1 rule unchanged while allowing the first MSS to be followed by a qualifying displacement candle in a short, prospectively frozen window. No stop, liquidity, FVG-entry, session, horizon, or target rule should change in A2.
 
+## A2 freeze checkpoint
+
+A2 changes exactly one A1 ambiguity: displacement may occur on the MSS candle or either of the next two completed 1m candles while the same internal structure break remains valid.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A2.md`;
+- pre-outcome A2-spec commit: `ef409b51461b212f39048133b6dd1d86b5230ec5`.
+
+All other A1 mechanics and the frozen acceptance protocol remain unchanged. No A2 outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
