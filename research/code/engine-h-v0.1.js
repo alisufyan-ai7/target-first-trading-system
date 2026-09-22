@@ -249,8 +249,9 @@ function runEngineH(months,splitStart,splitEnd){
     const touchBear=!!snapBear&&b.h>=snapBear.lower&&b.l<=snapBear.upper;
     const touchBull=!!snapBull&&b.h>=snapBull.lower&&b.l<=snapBull.upper;
     if((touchBear||touchBull)&&inSplit(b.closeTs))counts.external_fvg_touch_bars++;
-    const qBear=bh&&touchBear&&b.c<snapRange.hi;
-    const qBull=bl&&touchBull&&b.c>snapRange.lo;
+    const inside=b.c>snapRange.lo&&b.c<snapRange.hi;
+    const qBear=bh&&touchBear&&inside;
+    const qBull=bl&&touchBull&&inside;
     if(qBear||qBull){
       if(inSplit(b.closeTs))counts.qualifying_raids++;
       if(qBear&&qBull){
