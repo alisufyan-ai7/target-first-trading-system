@@ -848,3 +848,42 @@ First decompose the A1 structural-stop outcomes into:
 - distribution of FVG half-width versus the fixed USD 0.10 buffer.
 
 Then choose one mechanically identifiable ambiguity for A2. The conservative same-bar ambiguity rule itself remains a research-discipline constraint and will not be loosened merely to improve the benchmark.
+
+
+### A1 stop-lifecycle decomposition
+
+Performed after A1 was durably checkpointed and before freezing A2.
+
+Accepted A1 trades: **256**.
+
+Exit decomposition:
+
+- stop on midpoint fill bar: **143 (55.86%)**;
+- stop on a later bar: **83 (32.42%)**;
+- T5 winner: **30 (11.72%)**;
+- timeout: **0**.
+
+A1 stop-risk distribution in Gold-price units:
+
+- p10: 0.210;
+- p25: 0.395;
+- median: 0.638;
+- p75: 1.026;
+- p90: 1.455;
+- mean: 0.825.
+
+A1 FVG-gap distribution:
+
+- p10: 0.220;
+- p25: 0.590;
+- median: 1.075;
+- p75: 1.852;
+- p90: 2.710.
+
+Median FVG half-width was 0.538 Gold. Median stop risk among fill-bar stops was only 0.485 Gold.
+
+**Diagnostic conclusion:** the FVG-edge + USD 0.10 stop is structurally too close to the midpoint entry under the project's required conservative same-bar treatment. More than half of accepted entries become immediate fill-bar stop outcomes. This is a specific mechanical failure of the A1 stop hypothesis; it is not a reason to weaken same-bar ambiguity handling.
+
+**A2 ambiguity selected:** stop placement only.
+
+A2 keeps every A1 rule unchanged except that structural invalidation moves from the FVG outer edge to the **MSS/displacement candle extreme**, retaining the same USD 0.10 buffer. This tests a wider but still local, fully known-at-entry structural invalidation without changing candidate frequency or entry logic.
