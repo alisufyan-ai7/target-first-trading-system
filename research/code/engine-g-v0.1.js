@@ -202,6 +202,7 @@
     let setups=[];
     const availabilityCounts={};
     const eventCounts={breach_events:0, qualifying_one_sided_sweeps:0, in_window_sweeps:0};
+    const inSplitTs=ts=>ts>=splitStart&&ts<splitEndExclusive;
 
     let lastProcessed5CloseTs=null;
     let current5Clusters=new Map();
@@ -226,21 +227,23 @@
       return fiveStart>=x.eligibleTs;
     }
     function buildClusters(fiveStart){
+      const kept=[];
       const m=new Map();
       for(const x of instances){
         if(!activeInstance(x,fiveStart)) continue;
+        kept.push(x);
         const k=x.side+":"+x.price;
         let c=m.get(k);
         if(!c){c={key:k,side:x.side,price:x.price,instances:[],classes:new Set()};m.set(k,c);}
         c.instances.push(x);c.classes.add(x.cls);
       }
+      instances=kept;
       return m;
     }
 
     function calcContext(fiveStart){
-      const elig=active15.filter(b=>b.closeTs<=fiveStart);
-      if(elig.length<48) return null;
-      const w=elig.slice(-48);
+      if(active15.length<48) return null;
+      const w=active15.slice(-48);
       let hi=-Infinity,lo=Infinity;
       for(const b of w){hi=Math.max(hi,b.h);lo=Math.min(lo,b.l);}
       return {hi,lo,midNum:hi+lo};
@@ -253,12 +256,12 @@
         if(p.ok){
           newLevel("HIGH","PDH",p.stats.high,fiveStart,fiveStart+24*60*MINUTE,{sourceDate:p.stats.date});
           newLevel("LOW","PDL",p.stats.low,fiveStart,fiveStart+24*60*MINUTE,{sourceDate:p.stats.date});
-        } else inc(availabilityCounts,p.reason);
+        } else if(inSplitTs(fiveStart)) inc(availabilityCounts,p.reason);
       }
       if(mins===360){
         const a=asianStats.get(d);
-        if(!a||!a.complete) inc(availabilityCounts,"asian_unavailable_incomplete_interval");
-        else if(a.activeM1===0||a.range<=0) inc(availabilityCounts,"asian_unavailable_inactive_or_zero_range");
+        if(!a||!a.complete) { if(inSplitTs(fiveStart)) inc(availabilityCounts,"asian_unavailable_incomplete_interval"); }
+        else if(a.activeM1===0||a.range<=0) { if(inSplitTs(fiveStart)) inc(availabilityCounts,"asian_unavailable_inactive_or_zero_range"); }
         else {
           const exp=dayStart(fiveStart)+24*60*MINUTE;
           newLevel("HIGH","ASIA_HIGH",a.high,fiveStart,exp,{sourceDate:d});
@@ -279,9 +282,8 @@
     }
 
     function targetSnapshot(direction, entry, fvgCloseTs, m1Current){
-      const clusters=buildClusters(lastProcessed5CloseTs===null?fvgCloseTs:lastProcessed5CloseTs);
       const candidates=[];
-      for(const c of clusters.values()){
+      for(const c of current5Clusters.values()){
         if(direction==="LONG"&&c.side!=="HIGH") continue;
         if(direction==="SHORT"&&c.side!=="LOW") continue;
         if(direction==="LONG"&&c.price<=entry) continue;
@@ -529,13 +531,18 @@
     }
 
     function on5Close(b,currentM1){
-      if(!b.active){lastProcessed5CloseTs=b.closeTs;return;}
+      if(!b.active){
+        const b15=bar15ByEnd.get(b.closeTs);
+        if(b15&&b15.active)confirm15Pivot(b15);
+        lastProcessed5CloseTs=b.closeTs;
+        return;
+      }
       const highBreached=[],lowBreached=[];
       for(const c of current5Clusters.values()){
         if(c.side==="HIGH"&&b.h>c.price)highBreached.push(c);
         if(c.side==="LOW"&&b.l<c.price)lowBreached.push(c);
       }
-      if(highBreached.length||lowBreached.length)eventCounts.breach_events++;
+      if((highBreached.length||lowBreached.length)&&inSplitTs(b.closeTs))eventCounts.breach_events++;
       const qHigh=highBreached.filter(c=>b.c<c.price);
       const qLow=lowBreached.filter(c=>b.c>c.price);
       for(const c of highBreached.concat(lowBreached))for(const x of c.instances){x.consumed=true;x.consumedTs=b.closeTs;}
@@ -543,12 +550,12 @@
         if(qHigh.length&&qLow.length){
           const s={id:"S"+(++setupSeq),state:"done",terminal:"dual_sided_sweep_ambiguous",terminalTs:b.closeTs,sweepTs:b.closeTs};setups.push(s);
         } else {
-          eventCounts.qualifying_one_sided_sweeps++;
+          if(inSplitTs(b.closeTs))eventCounts.qualifying_one_sided_sweeps++;
           const completionMins=hhmmMinutes(b.closeTs);
           if(!(completionMins>=360&&completionMins<1080)){
             const s={id:"S"+(++setupSeq),state:"done",terminal:"outside_setup_window",terminalTs:b.closeTs,sweepTs:b.closeTs};setups.push(s);
           } else {
-            eventCounts.in_window_sweeps++;
+            if(inSplitTs(b.closeTs))eventCounts.in_window_sweeps++;
             const direction=qHigh.length?"SHORT":"LONG";
             const qs=qHigh.length?qHigh:qLow;
             qs.sort((a,b)=>direction==="SHORT"?b.price-a.price:a.price-b.price);
@@ -583,6 +590,7 @@
       if(m.active){
         if(openTrade)processTradeBar(openTrade,m);
         for(const t of shadows)processShadowBar(t,m);
+        shadows=shadows.filter(t=>!t.shadowDone);
         processPendingM1(m);
         confirmM1Pivot(m);
       }
@@ -605,7 +613,6 @@
     }
 
     // keep only split-created sweeps/trades/results
-    const inSplitTs=ts=>ts>=splitStart&&ts<splitEndExclusive;
     const splitSetups=setups.filter(s=>inSplitTs(s.sweepTs||s.terminalTs||0));
     const splitTrades=trades.filter(t=>inSplitTs(t.sweepTs));
 
