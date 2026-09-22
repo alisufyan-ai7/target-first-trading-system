@@ -97,3 +97,19 @@ This was corrected in the specification and implementation before development. N
 If multiple Engine-H setup pipelines were created while flat and one later fills first, any other still-pending Engine-H pipeline is terminated with the existing `suppressed_one_open` code while that trade is open. This implements the frozen maximum-one-open rule without queuing.
 
 **Next permitted outcome:** development only, Jan-2024 through Feb-2025.
+
+### Development execution harness frozen before outcomes
+
+Development-only runner:
+
+- `research/code/run-engine-h-development.js`
+- commit: `0d6357bd5d70e0243aa0ec24f09572c28976bb9e`
+
+Development-only GitHub Actions workflow:
+
+- `.github/workflows/exp017-engine-h-development.yml`
+- commit: `32a7ab21420b18156ad7955890eb5a4c414da9ce`
+
+The workflow downloads only December-2023 warm-up plus January-2024 through February-2025 development files from the pinned external commit, verifies each Git blob SHA/byte count inside the runner, and does not download validation or holdout files.
+
+**Engine-H outcomes at this checkpoint: ZERO.**
