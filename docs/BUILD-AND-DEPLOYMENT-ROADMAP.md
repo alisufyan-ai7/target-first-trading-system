@@ -1,6 +1,6 @@
 # Build and Deployment Roadmap
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 Do not jump from an attractive backtest directly to a fully autonomous live account.
 
@@ -8,11 +8,13 @@ Do not jump from an attractive backtest directly to a fully autonomous live acco
 
 - preserve original conversation/system context;
 - preserve video evidence;
-- recover original Engine A mechanics;
+- investigate original Engine A recovery under a frozen reproduction protocol;
 - resolve experiment numbering and superseded assumptions;
 - freeze equivalent-sizing rules.
 
-**Current phase.**
+**Status: COMPLETE.**
+
+EXP-014 concluded that the original EXP-002 implementation is not honestly recoverable from the surviving evidence. This is a closed recovery finding, not permission for further post-hoc benchmark fitting. Equivalent-sizing methodology is frozen in `docs/PNL-EQUIVALENT-SIZING.md`.
 
 ## Phase 2 — Reproducible strategy engines
 
@@ -25,15 +27,19 @@ For each engine:
 - tests against future-looking logic;
 - development / validation / holdout separation.
 
-Engine A recovery must reproduce EXP-002 within reasonable tolerance before promotion.
+No recovery variant is promoted as the original Engine A. The current Phase-2 requirement is to create at least one **new prospectively frozen, causal, reproducible engine** and validate it without using EXP-002 as a parameter-fitting target.
+
+**Current phase: Phase 2 — Reproducible strategy engines.**
 
 ## Phase 3 — Multi-market economic normalization
 
 - document broker/venue contract specifications;
-- freeze native target-distance methodology;
+- use the frozen engine-conditioned native target-distance methodology;
 - calculate equivalent lot size;
 - enforce structural-risk/margin/notional gates;
 - define target ladder.
+
+**Methodology status:** frozen by EXP-014 Part B. Broker/symbol-specific contract economics remain to be documented when validated engine/market pairs reach this phase.
 
 ## Phase 4 — Target-first ranker
 
