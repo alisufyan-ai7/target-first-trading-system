@@ -309,3 +309,121 @@ Run Stage 1 only:
 - calculate T30/T40/T50/T70/T100 prevalence;
 - use training + May calibration only;
 - do not inspect June–September EXP-014 outcomes yet.
+
+## Stage 1 checkpoint — XAUUSD candidate enumeration and label prevalence
+
+**Status:** COMPLETE — TRAINING + MAY CALIBRATION ONLY; JUNE–SEPTEMBER EXP-014 OUTCOMES NOT INSPECTED
+
+### Implementation correction before checkpoint
+
+An initial scratch pass applied the 15-minute per-direction cooldown only after the USD 40 risk gate.
+
+That was inconsistent with the frozen specification, which defines the cooldown at **candidate enumeration**.
+
+The result below is from the corrected implementation:
+
+1. structural candidate is identified;
+2. 15-minute per-direction cooldown is applied immediately;
+3. fixed-size stop-dollar risk is calculated;
+4. candidate is retained only if 0 < stop risk <= USD 40.
+
+No result from the incorrect scratch pass is used.
+
+### Data
+
+- XAUUSD external public 1m research sample;
+- source: `getdata-finance/xauusd-1m-ohlcv-metals-historical-data`;
+- used only 2026-03-12 through 2026-05-31 for Stage 1;
+- one-minute rows: 76,855;
+- resampled 5m bars: 15,378.
+
+### Structural/cooldown funnel
+
+Across training + May calibration:
+
+- structurally eligible long observations before cooldown: 7,779;
+- structurally eligible short observations before cooldown: 7,804;
+- long observations suppressed by 15-minute cooldown: 5,120;
+- short observations suppressed by 15-minute cooldown: 5,148;
+- candidates rejected by fixed 0.10-lot stop risk > USD 40: 2,300;
+- candidates rejected because pivot stop was not on the invalidation side of entry: 831;
+- final admissible labeled candidates: **2,184**.
+
+This candidate set is intentionally broad. It is a training universe for probability ranking, not a trade list.
+
+### Training — 2026-03-12 through 2026-04-30
+
+- candidates: **1,225**;
+- long: 617;
+- short: 608;
+- candidate days: 35;
+- candidates per candidate day: 35.00;
+- median stop risk: **USD 21.70**;
+- mean stop risk: USD 21.40;
+- 75th percentile stop risk: USD 30.70;
+- 90th percentile stop risk: USD 36.30.
+
+Target-first base rates:
+
+| Target | Hits | Hit rate | Median time to hit |
+|---|---:|---:|---:|
+| T30 | 466 | **38.04%** | 2 min |
+| T40 | 396 | **32.33%** | 3 min |
+| T50 | 343 | **28.00%** | 5 min |
+| T70 | 253 | **20.65%** | 8 min |
+| T100 | 187 | **15.27%** | 12 min |
+
+### May calibration — 2026-05-01 through 2026-05-31
+
+- candidates: **959**;
+- long: 473;
+- short: 486;
+- candidate days: 21;
+- candidates per candidate day: 45.67;
+- median stop risk: **USD 21.10**;
+- mean stop risk: USD 20.95;
+- 75th percentile stop risk: USD 30.40;
+- 90th percentile stop risk: USD 36.02.
+
+Target-first base rates:
+
+| Target | Hits | Hit rate | Median time to hit |
+|---|---:|---:|---:|
+| T30 | 373 | **38.89%** | 3 min |
+| T40 | 324 | **33.79%** | 5 min |
+| T50 | 284 | **29.61%** | 6 min |
+| T70 | 232 | **24.19%** | 12 min |
+| T100 | 175 | **18.25%** | 22 min |
+
+### Training-to-calibration stability observation
+
+The broad XAU structural candidate base rates did **not** collapse from training into May calibration:
+
+- T30: 38.04% -> 38.89%;
+- T40: 32.33% -> 33.79%;
+- T50: 28.00% -> 29.61%;
+- T70: 20.65% -> 24.19%;
+- T100: 15.27% -> 18.25%.
+
+This is not evidence that the frozen feature model will discriminate profitable opportunities. It only establishes that:
+
+1. there is ample candidate volume for model fitting;
+2. direction is balanced;
+3. stop-risk distribution is similar across training/calibration;
+4. target-label prevalence is reasonably stable over the pre-holdout development period.
+
+### Important interpretation
+
+The candidate frequency is intentionally much higher than the desired trade frequency.
+
+EXP-014 does **not** intend to trade every structural candidate. The ranker must reject most candidates unless their predicted target-first probability creates positive conservative EV after the fixed-size structural risk is considered.
+
+### Next stage
+
+Proceed to Stage 2 only:
+
+- enumerate GBPUSD, USDCHF, EURUSD, and AUDUSD candidates;
+- use the same frozen structural/cooldown/risk/label rules;
+- inspect training + May calibration only;
+- checkpoint the four FX streams before model fitting.
+
