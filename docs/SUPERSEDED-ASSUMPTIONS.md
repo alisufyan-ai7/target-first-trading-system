@@ -1,6 +1,6 @@
 # Superseded Assumptions
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 This file prevents historical experiments from being mistaken for current system requirements.
 
@@ -59,7 +59,7 @@ Reward/risk does not imply probability.
 
 Engine A v0.2 is a later prospective rewrite.
 
-Original EXP-002 Gold Engine A remains a separate active research lead until faithfully recovered/reproduced.
+Original EXP-002 Gold Engine A remains a separate **historical exploratory result**, but EXP-014 has now closed exact recovery as unrecoverable from the surviving evidence. It is not a validated/reproducible execution lead.
 
 ## Broad generic pivot candidates automatically replace strategy engines
 
@@ -82,3 +82,27 @@ A generic statistical candidate generator may bypass this only after being expli
 The end product is a working trading system.
 
 Research is its validation layer.
+
+
+## Original EXP-002 remains an active executable lead
+
+**SUPERSEDED**
+
+EXP-014 froze a multi-dimensional recovery protocol and tested A1–A9.
+
+No causal reconstruction reproduced the complete EXP-002 benchmark, and no original detector/backtest code survives.
+
+Current treatment:
+
+- preserve EXP-002's recorded historical metrics;
+- do not relabel A6, v0.2-portable, or any forensic variant as the original;
+- do not continue post-hoc benchmark fitting;
+- build the next causal engine prospectively.
+
+## Volatility-burden equivalence defines the forward non-Gold target
+
+**REJECTED AS THE GOVERNING SIZING METHOD**
+
+EXP-006's volatility-burden mapping remains a diagnostic.
+
+Current forward method is engine-conditioned native target logic / engine-conditioned favorable-excursion calibration frozen in `docs/PNL-EQUIVALENT-SIZING.md`.
