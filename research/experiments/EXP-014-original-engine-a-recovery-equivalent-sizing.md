@@ -823,3 +823,21 @@ One major implementation ambiguity remains capable of explaining the persistent 
 A6 has 163 fill-bar stops out of 333 accepted trades. The current recovery runner conservatively counts an entry and stop touched in the same 1m fill bar as a stop. A simple historical bar-based implementation could instead have begun stop/target evaluation on the next bar after a midpoint fill.
 
 If tested, this must be a separately frozen **forensic/non-deployable** variant. The project's production research discipline remains conservative; the purpose is only to determine whether optimistic historical fill-bar ordering could explain EXP-002.
+
+
+## A9 forensic freeze checkpoint
+
+A9 returns to the A6 causal baseline and changes exactly one historical-backtest ambiguity:
+
+- a midpoint fill is declared from the fill bar;
+- stop and target evaluation begin only on the **next** completed 1m bar;
+- the fill bar itself cannot stop or profit the trade.
+
+This is deliberately optimistic/non-deployable and exists only to test whether fill-bar OHLC ordering bias can explain EXP-002.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A9-forensic.md`;
+- pre-outcome A9-spec commit: `8d0ae8789b00a2bd42efd00f83239b0f5eadaa4a`.
+
+No A9 outcome was calculated before this freeze.
