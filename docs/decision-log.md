@@ -319,3 +319,17 @@ A broad generic pivot/statistical candidate generator may be researched, but it 
 **Next:** prospectively define and validate a new causal strategy engine, map its output to the common candidate contract, and only then redesign/resume EXP-015.
 
 A future Badar-derived engine may use evidence-supported concepts, but it must be a new version/identity rather than a claim to have recovered EXP-002.
+
+## 2026-09-23 — Freeze Engine G v0.1 and EXP-016 before outcomes
+
+**Decision:** Freeze Engine G — Contextual Liquidity Reversal v0.1 as a new prospective causal engine and open EXP-016 before calculating any Engine G development, validation, or holdout outcome.
+
+**Frozen mechanics include:** integer 0.001-XAU tick price logic; dynamic side-aware liquidity clusters over individual PDH/PDL, Asian, 15m-swing and prominent-5m-swing instances; 24-hour market-active 5m liquidity consumption; 06:00–18:00 UTC setup generation; 48-active-15m context; causal 1m MSS; 1.60x displacement; explicit FVG rules; midpoint entry; sweep-extreme structural stop; gross <=USD 40 structural-risk admission; nearest opposing-liquidity S1; independent counterfactual T30/T40/T50/T70/T100 labels; conservative same-bar handling; and delayed sensitivity diagnostics.
+
+**Frozen primary split:** development 2024-01-01–2025-02-28; validation 2025-03-01–2025-08-31; fresh holdout 2025-09-01–2026-02-28. March 1–August 20, 2026 is quarantined from the primary decision because it was heavily inspected by earlier project research.
+
+**Frozen source snapshot:** public Dukascopy-derived XAUUSD M1 transport `kevingtlin/Market-Data-Lab` at commit `922f83a60cc574e7395fb27397077288055a1ef6`, with the monthly BID blob manifest recorded in the strategy spec.
+
+**Reason:** The project needs a genuinely reproducible strategy-engine candidate before EXP-015 can resume. Freezing the complete mechanics, provenance, split, uncertainty rules, and promotion criteria before outcomes prevents outcome-driven reconstruction or parameter selection.
+
+**Next:** verify implementation/data integrity, then run development only and checkpoint it before inspecting validation.
