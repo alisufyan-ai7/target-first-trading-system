@@ -1,6 +1,6 @@
 # System Blueprint
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 ## Identity
 
@@ -168,10 +168,12 @@ A pattern such as 0 / 0 / +600 / 0 / +55 is not equivalent to a smoother pattern
 
 ## Current gate
 
-Before broad scanner/ranker development resumes:
+EXP-014 is complete:
 
-1. recover the original EXP-002 Gold Engine A as faithfully as possible;
-2. reproduce its recorded behavior within reasonable tolerance;
-3. freeze correct P&L-equivalent sizing for non-Gold markets;
-4. define the common strategy-engine candidate contract;
-5. only then restart target-first ranker work.
+1. original EXP-002 recovery was systematically attempted and honestly closed as **unrecoverable from the surviving evidence**;
+2. the forward P&L-equivalent sizing methodology is frozen in `docs/PNL-EQUIVALENT-SIZING.md`;
+3. the common strategy-engine candidate contract is already defined in `docs/STRATEGY-ENGINE-CONTRACT.md`.
+
+The current missing prerequisite is a **prospectively specified, causal, reproducible, validated strategy engine**.
+
+EXP-015 remains paused until at least one such engine emits standardized candidates. The next engine may use Badar-derived concepts or another independently justified setup family, but it must be validated prospectively rather than fitted to reproduce EXP-002.
