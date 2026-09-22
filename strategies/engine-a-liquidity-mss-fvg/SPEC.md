@@ -1,13 +1,15 @@
 # Engine A — Original Gold Recovery Specification
 
-**Status:** ACTIVE RECOVERY LEAD  
+**Status:** CLOSED HISTORICAL RECOVERY TARGET — EXP-014 PART A UNRECOVERABLE  
 **Version:** 0.1-recovery-target
 
 ## Purpose
 
-Recover the original Badar-inspired XAUUSD implementation that produced EXP-002 closely enough to create a reproducible, versioned strategy engine.
+This file preserves the target/evidence specification that governed the attempt to recover the original Badar-inspired XAUUSD implementation reported in EXP-002.
 
-Do not confuse this with SPEC-v0.2-portable.md.
+EXP-014 Part A is now complete. Recovery variants A1–A9 did not reproduce the frozen multi-dimensional benchmark, and no original detector/backtest implementation survives. Therefore this document is historical recovery context, **not an active executable strategy specification**.
+
+Do not confuse this with SPEC-v0.2-portable.md, and do not relabel any recovery variant as the original.
 
 ## Evidence-derived bearish sequence
 
@@ -80,7 +82,7 @@ Holdout June–Aug 20:
 - USD 4 31.6%;
 - USD 5 27.3%.
 
-Reasonable tolerance should be defined before trying variants. If no reconstruction reproduces the benchmark without post-hoc manipulation, preserve the discrepancy rather than claiming success.
+The numerical tolerance was subsequently frozen in EXP-014 before new recovery outcomes. No causal reconstruction passed it. Per this file's original rule, the discrepancy is preserved rather than claiming success.
 
 ## Timeframe/context note
 
@@ -93,8 +95,16 @@ See:
 - docs/BADAR-VIDEO-EVIDENCE.md;
 - docs/TIMEFRAME-AND-MARKET-CONTEXT.md.
 
-## Status
+## Final status
 
 Do not deploy live.
 
-The immediate task is reproducibility.
+EXP-014 Part A final disposition:
+
+- original EXP-002 implementation: **unrecoverable from the surviving evidence**;
+- EXP-002 metrics: preserved as historical exploratory results;
+- A6: closest causal diagnostic reconstruction; not promoted;
+- A8/A9: forensic/non-deployable;
+- further post-hoc recovery fitting: closed.
+
+Any future Badar-derived engine must be prospectively specified as a **new engine/version**, not as the recovered original.
