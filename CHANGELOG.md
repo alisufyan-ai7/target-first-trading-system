@@ -54,3 +54,7 @@
 - EURJPY, USDJPY, and USDCAD ranked lower for USD 30–50 at 0.10 lot; GBPJPY matching sample unavailable; XAGUSD left unranked pending fixed contract economics.
 - Froze first scanner universe: XAUUSD, GBPUSD, USDCHF, EURUSD, AUDUSD.
 - Next phase: prospectively frozen target-first opportunity ranker across the five-market universe.
+- Corrected the user's cross-market sizing intent: XAUUSD remains 0.10 lot, while other symbols require P&L-equivalent lot sizes aimed at an approximately USD 50 normal target rather than identical 0.10-lot sizing.
+- Reclassified EXP-012/013 same-0.10-lot FX conclusions as diagnostic only; preserved their volatility/Gold findings.
+- Restored the original EXP-002 XAUUSD Engine A as an active positive-expectancy research lead distinct from the later v0.2-portable rewrite.
+- Opened EXP-014 as a plan-only checkpoint to recover/reproduce original Engine A and freeze the equivalent-lot rule before any further outcome testing.
