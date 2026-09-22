@@ -2,7 +2,7 @@
 
 ## 2026-09-22 — Context isolation
 
-**Decision:** Only the originating chat and `alisufyan-ai7/owner-target-first-trading-research` may be used as durable project context.
+**Decision:** Only the originating chat and `alisufyan-ai7/target-first-trading-system` may be used as durable project context.
 
 **Reason:** Other GitHub repositories and other chats belong to separate projects and must not contaminate this research.
 
