@@ -3,55 +3,90 @@
 **Status:** COMPLETE ENOUGH TO DEFINE FIRST MECHANICAL HYPOTHESIS  
 **Date:** 2026-09-22
 
-## Question
+## Purpose
 
-What recurring entry mechanics can be directly extracted from the Badar Tanveer Facebook/YouTube examples supplied and discussed in the originating chat?
+Extract recurring mechanics from the Badar Tanveer Facebook/YouTube examples supplied/analyzed in this project without pretending that promotional screenshots prove a complete proprietary strategy.
 
-## Directly observed / strongly supported
+Full evidence dossier:
 
-The uploaded Facebook examples and public material supported the following recurring sequence:
+- docs/BADAR-VIDEO-EVIDENCE.md
 
-1. liquidity pool / important level;
-2. liquidity sweep;
-3. lower-timeframe internal MSS;
-4. displacement;
-5. FVG / imbalance;
-6. retracement into entry area;
-7. structural stop;
-8. expansion toward opposing liquidity / variable target.
+## Strongest direct observation
 
-Other recurring observations:
+One supplied Facebook clip explicitly showed:
 
-- XAUUSD is a primary instrument;
-- 1m/3m/5m execution/refinement is used;
-- larger-timeframe context is used as a map, not as a single-candle signal;
-- reward/risk is variable;
-- partial profits occur;
-- session and news conditions matter.
+~~~text
+liquidity sweep
+      ->
+internal MSS
+      ->
+bearish displacement / FVG
+      ->
+retracement / short
+~~~
 
-## Important correction
+The MSS was an internal local swing level, not necessarily the major swing of the entire preceding trend.
 
-A 1:9 risk/reward ratio does **not** imply a 90% probability of profit.
+## Uploaded trade evidence
 
-## Hypothesis derived for testing
+A supplied Gold buy example showed approximately:
 
-A bearish setup can be represented mechanically as:
+- entry 4279.800;
+- SL 4276;
+- TP1 4286;
+- later booking around 4291.
 
-buy-side liquidity -> sweep/rejection -> internal swing low -> candle close below internal structure -> bearish displacement -> bearish FVG -> retracement -> sell.
+This supports partial profit taking and variable realized R.
 
-Bullish setup is the mirror image.
+A separate short example showed approximately:
+
+- sell 4292.741;
+- SL 4295.825;
+- target 4264.815;
+- approximately 9.06R.
+
+This proves that some examples can be very asymmetric, not that every trade is 1:9.
+
+## Repeated concepts
+
+- XAUUSD focus;
+- larger-timeframe location/context;
+- 5m / 3m / 1m refinement;
+- liquidity;
+- sweep;
+- internal MSS;
+- displacement;
+- FVG / imbalance;
+- order-block/POI concepts;
+- structural stop;
+- variable targets and partials;
+- London/New York and news awareness.
+
+## Working hypothesis
+
+Bearish:
+
+buy-side liquidity/location -> sweep/rejection -> internal swing low -> MSS close -> bearish displacement -> bearish FVG -> retracement -> short -> structural stop -> opposing liquidity/continuation.
+
+Bullish is mirrored.
 
 ## Not established
 
-The videos did not prove a single exact proprietary formula for:
-
-- liquidity-quality ranking;
-- sweep depth;
-- exact MSS pivot selection;
-- displacement threshold;
-- exact FVG entry percentage;
+- exact liquidity-quality ranking;
+- sweep depth/tolerance;
+- exact internal pivot algorithm;
+- exact displacement threshold;
+- exact FVG selection/entry percentage;
 - exact stop formula;
-- exact target-selection formula;
-- whether volume/VSA is mandatory.
+- exact target formula;
+- mandatory role of VSA/volume/open interest;
+- news/session skip rules;
+- IFVG/secondary-entry branch.
 
-These remain research variables.
+## Probability correction
+
+A 1:9 reward/risk ratio does not imply a 90% win probability.
+
+## Disposition
+
+Use this evidence to recover/test Engine A, while marking unproven details as hypotheses rather than facts.
