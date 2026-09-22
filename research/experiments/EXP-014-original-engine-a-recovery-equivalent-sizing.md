@@ -208,6 +208,63 @@ A1 required the **first MSS candle itself** to satisfy the 1.6x displacement thr
 
 A2 should therefore keep every other A1 rule unchanged while allowing the first MSS to be followed by a qualifying displacement candle in a short, prospectively frozen window. No stop, liquidity, FVG-entry, session, horizon, or target rule should change in A2.
 
+## Part A checkpoint — A2 result
+
+**Status:** FAIL — FREQUENCY IMPROVED, OUTCOME GEOMETRY STILL FAR FROM EXP-002
+
+A2 changed only the frozen MSS/displacement coupling. All other A1 rules remained unchanged.
+
+### A2 signal funnel
+
+- qualifying 5m sweeps: 2,332;
+- sweeps with eligible internal pivot: 2,326;
+- first MSS found: 1,198;
+- displacement found on MSS / next-two-candle window: 639;
+- qualifying FVG: 497;
+- midpoint fills before one-open suppression: 302;
+- sweep-while-open suppressions: 3;
+- fill-while-open suppressions: 1;
+- accepted trades: **298**.
+
+### Benchmark comparison
+
+| Metric | EXP-002 benchmark | A2 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **298** | 335–409 | No |
+| Development trades | ~185 | **146** | 163–207 | No |
+| Holdout trades | ~187 | **152** | 165–209 | No |
+| Overall T5 | 29.6% | **11.41%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **10.53%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **21.71%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **18.42%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **13.16%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **0.791** | 0.867–1.173 | No |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.089** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **-0.076** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.102** | +0.468 to +0.972 | No |
+
+Additional diagnostics:
+
+- development T5: 12.33%;
+- development average risk: 0.872 Gold;
+- holdout average risk: 0.713 Gold;
+- T5 wins / stops / timeouts: 34 / 264 / 0;
+- overall average MFE: 1.021 Gold;
+- holdout average MFE: 1.037 Gold.
+
+### A2 interpretation
+
+The A2 single change increased accepted trades by 43, from 255 to 298, confirming that forcing MSS and displacement onto the same candle was too restrictive for recovery purposes.
+
+However, target-first rates, MFE, and expectancy remain far from EXP-002. The preserved FVG-edge + USD 0.10 stop is still substantially tighter than the EXP-002 average-risk benchmark and appears to create rapid invalidation behavior.
+
+A2 is therefore a clear **FAIL**, although the MSS -> displacement sequencing change is more consistent with the preserved causal wording and should be retained as a plausible recovery mechanic unless later evidence argues otherwise.
+
+### Next diagnostic before A3
+
+Before changing another rule, measure where A2 stops occur (fill bar vs later bars) and the risk/FVG-width distribution. This is diagnostic only and does not modify A2. Then freeze one stop-placement ambiguity for A3; do not change candidate-generation rules simultaneously.
+
 ## A2 freeze checkpoint
 
 A2 changes exactly one A1 ambiguity: displacement may occur on the MSS candle or either of the next two completed 1m candles while the same internal structure break remains valid.
