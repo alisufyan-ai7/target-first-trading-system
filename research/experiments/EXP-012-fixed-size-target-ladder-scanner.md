@@ -620,3 +620,70 @@ Calculate actual fixed-size expectancy for every predeclared target rung using:
 
 No target rung will be selected until both development and holdout sensitivity are recorded.
 
+## Checkpoint 5 — Fixed-size XAU target-rung expectancy after USD 40 risk gate
+
+**Status:** NO FIXED TARGET RUNG IS ROBUSTLY POSITIVE ACROSS DEVELOPMENT AND HOLDOUT BEFORE COSTS
+
+Using the unchanged risk-gated Engine A stream from Checkpoint 4, each predeclared target rung was simulated as a complete fixed-size outcome:
+
+- target first -> +target dollars;
+- structural stop first -> actual variable stop-dollar loss at 0.10 lot;
+- neither by session end -> session-close mark-to-market;
+- same-bar target/stop -> stop first;
+- no rejected-trade reactivation.
+
+### Development — 17 risk-gated trades
+
+| Target | Mean P&L / trade | Total P&L | Target hit |
+|---|---:|---:|---:|
+| T30 | **+USD 7.13** | +USD 121.20 | 64.71% |
+| T40 | -USD 2.72 | -USD 46.20 | 41.18% |
+| T50 | -USD 8.67 | -USD 147.45 | 29.41% |
+| T70 | -USD 2.79 | -USD 47.45 | 29.41% |
+| T100 | -USD 24.29 | -USD 412.90 | 5.88% |
+
+Development daily output under T30 was still sparse:
+
+- mean daily P&L across 57 eligible weekdays: about +USD 2.13;
+- <= USD 50 days: 98.25%;
+- no >= USD 100 or >= USD 150 day.
+
+### Holdout — 50 risk-gated trades
+
+| Target | Mean P&L / trade | Total P&L | Target hit |
+|---|---:|---:|---:|
+| T30 | **+USD 0.02** | +USD 0.80 | 48.00% |
+| T40 | -USD 4.93 | -USD 246.35 | 34.00% |
+| T50 | -USD 4.85 | -USD 242.50 | 30.00% |
+| T70 | -USD 0.85 | -USD 42.60 | 28.00% |
+| T100 | -USD 2.70 | -USD 135.05 | 20.00% |
+
+Holdout daily diagnostics for T30:
+
+- mean daily P&L across 59 eligible weekdays: about **+USD 0.01**;
+- losing days: **28.81%**;
+- <= USD 50 days: **98.31%**;
+- >= USD 100 days: **0%**;
+- >= USD 150 days: **0%**.
+
+### Interpretation
+
+The XAUUSD market itself has the required movement scale for fixed 0.10-lot trading, but the frozen Engine A entry family does not convert that movement into a robust fixed-target edge.
+
+T30 is the only rung positive in development, and it collapses to approximately break-even in holdout **before spread, slippage, commission, or latency**. Realistic execution costs would therefore be expected to make the current T30 implementation negative.
+
+Higher target rungs are negative in holdout despite meaningful target-first hit rates because variable structural-stop losses are large enough to dominate expectancy.
+
+### EXP-012 conclusion so far
+
+1. Fixed-size FX leads fail mainly because 0.10-lot dollar movement is too small.
+2. XAUUSD at 0.10 lot has the right dollar-movement scale.
+3. Existing Engine A Gold entries have too-wide stops on many setups.
+4. A USD 40 stop-risk gate creates a structurally admissible subset.
+5. That subset still lacks robust positive expectancy with a universal fixed T30/T40/T50/T70/T100 exit.
+
+Therefore the next system-building step should **not** be to choose T30 post hoc.
+
+The next step should be a prospectively frozen **target-first opportunity-ranking layer** and/or a new Gold setup family whose stop geometry naturally fits the fixed 0.10-lot risk budget, while preserving holdout discipline.
+
+
