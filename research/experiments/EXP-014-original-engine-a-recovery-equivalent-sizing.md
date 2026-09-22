@@ -601,6 +601,53 @@ Frozen specification:
 
 No A6 outcome was calculated before this freeze.
 
+## Part A checkpoint — A7 result
+
+**Status:** FAIL — DISPLACEMENT-CANDLE-ONLY FVG IS TOO STRICT AND COLLAPSES HOLDOUT QUALITY
+
+A7 inherited A6 and changed only FVG timing.
+
+### A7 funnel
+
+- reusable-level sweeps: 2,757;
+- eligible internal pivot: 2,747;
+- MSS: 1,474;
+- displacement: 787;
+- displacement-candle FVG: 241;
+- raw midpoint fills: 113;
+- accepted trades: **107**.
+
+### Benchmark comparison
+
+| Metric | EXP-002 benchmark | A7 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **107** | 335–409 | No |
+| Development trades | ~185 | **52** | 163–207 | No |
+| Holdout trades | ~187 | **55** | 165–209 | No |
+| Overall T5 | 29.6% | **11.21%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **3.64%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **12.73%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **12.73%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **10.91%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **0.782** | 0.867–1.173 | No |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.043** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **+0.334** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.400** | +0.468 to +0.972 | No |
+
+Additional diagnostics:
+
+- fill-bar stops: 65 / 107;
+- T5 wins / total stops / timeouts: 12 / 95 / 0.
+
+### A7 interpretation
+
+Requiring the FVG to be formed by the displacement candle itself is inconsistent with the EXP-002 benchmark under the otherwise preserved A6 mechanics.
+
+Do not carry A7 forward.
+
+Return to A6 as the current best recovery baseline because it is closest on trade frequency/split balance and average structural risk.
+
 ## A7 freeze checkpoint
 
 A7 inherits A6 and changes exactly one FVG-selection ambiguity:
