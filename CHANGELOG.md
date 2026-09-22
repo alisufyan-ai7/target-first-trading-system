@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-23
+
+- Froze a numerical multi-dimensional EXP-014 reproduction-acceptance protocol before new recovery outcomes.
+- Audited the March 1–August 20, 2026 Dukascopy-derived XAUUSD BID M1 research series: 230,813 rows, matching EXP-002's recorded row count; zero duplicate timestamps and zero invalid OHLC rows.
+- Systematically checkpointed original Engine A recovery variants A1–A9, changing identifiable ambiguities rather than tuning multiple parameters together.
+- Identified A6 as the closest causal recovery diagnostic: 333 trades, 164/169 development/holdout split, average structural risk about 1.053 Gold, but only about 15.0% overall T5 and near-flat holdout expectancy.
+- Tested A8 forensic intrabar 5m-sweep timing leakage; it did not reproduce EXP-002 and remains non-deployable.
+- Tested A9 forensic optimistic fill-bar ordering; it improved target-first results but still remained materially below the EXP-002 ladder/expectancy and remains non-deployable.
+- Closed EXP-014 Part A: the original EXP-002 implementation is honestly **unrecoverable from the surviving evidence**. Preserved EXP-002 as historical exploratory evidence rather than relabeling a failed reconstruction as the original.
+- Froze EXP-014 Part B in `docs/PNL-EQUIVALENT-SIZING.md`: engine-conditioned native target logic is the forward target-distance method; volatility-burden equivalence is diagnostic only.
+- Clarified that the USD 60 emergency hard-loss ceiling is not a normal sizing budget.
+- Completed EXP-014 overall.
+- Kept EXP-015 paused because no reproducible validated strategy engine currently exists to emit production candidate streams.
+- Advanced the project to Phase 2: prospectively define and validate a new causal reproducible strategy engine before ranker work resumes.
+- Updated README, project/system blueprint, roadmap, handoff, current status, objectives, risk framework, strategy status, superseded assumptions, Engine A recovery spec, and EXP-015 to reflect the post-EXP-014 state.
+
 ## 2026-09-22
 
 - Initialized isolated project repository.
