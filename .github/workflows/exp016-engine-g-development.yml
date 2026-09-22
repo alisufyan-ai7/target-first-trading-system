@@ -1,0 +1,54 @@
+name: EXP-016 Engine G Development
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-016-development-v0.1.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Download frozen warm-up and development data only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/engine-g
+          BASE="https://raw.githubusercontent.com/kevingtlin/Market-Data-Lab/922f83a60cc574e7395fb27397077288055a1ef6/xauusd/bid/m1"
+          for F in \
+            xauusd_bid_m1_2023_12.csv \
+            xauusd_bid_m1_2024_01.csv xauusd_bid_m1_2024_02.csv xauusd_bid_m1_2024_03.csv \
+            xauusd_bid_m1_2024_04.csv xauusd_bid_m1_2024_05.csv xauusd_bid_m1_2024_06.csv \
+            xauusd_bid_m1_2024_07.csv xauusd_bid_m1_2024_08.csv xauusd_bid_m1_2024_09.csv \
+            xauusd_bid_m1_2024_10.csv xauusd_bid_m1_2024_11.csv xauusd_bid_m1_2024_12.csv \
+            xauusd_bid_m1_2025_01.csv xauusd_bid_m1_2025_02.csv
+          do
+            curl --fail --location --silent --show-error "$BASE/$F" -o "data/engine-g/$F"
+          done
+
+      - name: Run frozen development center rule
+        run: node research/code/run-engine-g-development.js
+
+      - name: Commit development checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-016-development-summary-v0.1.json \
+                  research/results/EXP-016-development-setups-v0.1.jsonl \
+                  research/results/EXP-016-development-trades-v0.1.jsonl
+          git commit -m "Checkpoint EXP-016 Engine G development result"
+          git push origin HEAD:main
