@@ -171,3 +171,146 @@ Checkpoint:
 3. add the priority FX crosses/majors only where clean 1m data are available;
 4. checkpoint again;
 5. freeze the first scanner universe before building the target-first ranker.
+
+## Checkpoint 1 — Existing five-market development-only economic map
+
+**Status:** COMPLETE FOR XAUUSD / EURUSD / GBPUSD / USDJPY; XAGUSD VOLATILITY MEASURED BUT FIXED-SIZE ECONOMICS UNRANKED
+
+Window:
+
+- development only: 2026-03-12 through 2026-05-31;
+- active-session volatility window: 06:00 <= UTC < 18:00;
+- no strategy outcomes used for this ranking.
+
+### XAUUSD — 0.10 lot / 10 oz research convention
+
+Development data:
+
+- 76,855 one-minute rows;
+- 672 qualifying active-session hourly bars;
+- 56 sufficiently covered active-session weekdays.
+
+Hourly true range:
+
+- median: **USD 21.445/oz**;
+- 75th percentile: USD 31.720;
+- 90th percentile: USD 46.119.
+
+Active-session high-low range:
+
+- median: **USD 86.145/oz**;
+- 75th percentile: USD 100.512;
+- 90th percentile: USD 143.440.
+
+At 0.10 lot, median active-session gross movement capacity is approximately **USD 861** from session low to high. This is movement capacity, not achievable strategy P&L.
+
+Target burden:
+
+| Target | Required XAU move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | USD 3 | 0.140x | 0.035x |
+| USD 40 | USD 4 | 0.187x | 0.046x |
+| USD 50 | USD 5 | 0.233x | 0.058x |
+| USD 70 | USD 7 | 0.326x | 0.081x |
+| USD 100 | USD 10 | 0.466x | 0.116x |
+
+**Economic interpretation:** Gold is naturally compatible with the USD 30–100 fixed-size target ladder. The challenge is entry/stop quality, not insufficient raw movement.
+
+### EURUSD — 0.10 standard lot
+
+Development:
+
+- 81,930 one-minute rows;
+- median hourly TR: **13.65 pips**;
+- median active-session range: **53.0 pips**;
+- 75th / 90th session range: 62.7 / 77.18 pips.
+
+At approximately USD 1/pip, median active-session gross movement capacity is about **USD 53** from low to high.
+
+| Target | Required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 30 pips | 2.198x | 0.566x |
+| USD 40 | 40 pips | 2.930x | 0.755x |
+| USD 50 | 50 pips | 3.663x | 0.943x |
+| USD 70 | 70 pips | 5.128x | 1.321x |
+| USD 100 | 100 pips | 7.326x | 1.887x |
+
+### GBPUSD — 0.10 standard lot
+
+Development:
+
+- 81,912 one-minute rows;
+- median hourly TR: **18.50 pips**;
+- median active-session range: **70.60 pips**;
+- 75th / 90th session range: 87.0 / 114.26 pips.
+
+At approximately USD 1/pip, median active-session gross movement capacity is about **USD 70.60** from low to high.
+
+| Target | Required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 30 pips | 1.622x | 0.425x |
+| USD 40 | 40 pips | 2.162x | 0.567x |
+| USD 50 | 50 pips | 2.703x | 0.708x |
+| USD 70 | 70 pips | 3.784x | 0.992x |
+| USD 100 | 100 pips | 5.405x | 1.416x |
+
+### USDJPY — 0.10 standard lot
+
+Development median active price: approximately **159.014**.
+
+At 0.10 lot, pip value is approximately 100 JPY/pip converted to USD at the contemporaneous USDJPY rate.
+
+Development:
+
+- 81,929 one-minute rows;
+- median hourly TR: **16.30 pips**;
+- median active-session range: **57.70 pips**;
+- 75th / 90th session range: 79.0 / 106.62 pips;
+- median active-session gross movement capacity: approximately **USD 36.29**.
+
+| Target | Approx required move | / median hourly TR | / median session range |
+|---|---:|---:|---:|
+| USD 30 | 47.7 pips | 2.927x | 0.827x |
+| USD 40 | 63.6 pips | 3.902x | 1.102x |
+| USD 50 | 79.5 pips | 4.878x | 1.378x |
+| USD 70 | 111.3 pips | 6.829x | 1.929x |
+| USD 100 | 159.0 pips | 9.755x | 2.756x |
+
+### XAGUSD — raw volatility only
+
+Development:
+
+- 76,910 one-minute rows;
+- median hourly true range: **USD 0.7585/oz**;
+- 75th / 90th hourly TR: USD 1.1155 / 1.5329;
+- median active-session range: **USD 2.9675/oz**;
+- 75th / 90th session range: USD 3.6232 / 4.6315.
+
+**Ranking status:** UNRANKED.
+
+Reason: no broker-specific or prospectively frozen fixed quantity/contract convention has yet been documented for Silver. EXP-013 forbids inventing a 0.10-lot equivalence after seeing volatility.
+
+## Provisional economic ordering among ranked markets
+
+This is a **movement-economics ranking only**, not a strategy ranking:
+
+1. **XAUUSD** — by far the most natural USD 30–100 target ladder at the fixed reference size.
+2. **GBPUSD** — strongest of the tested 0.10-lot FX majors.
+3. **EURUSD** — USD 30–50 is possible on active days but requires a large fraction of the session move.
+4. **USDJPY** — relatively poor fixed-size fit for USD 30–100 at 0.10 lot.
+
+This ordering uses development-period economics only.
+
+## Next checkpoint
+
+Search for clean development-period 1m data for the predeclared priority additions:
+
+- GBPJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF.
+
+Add only markets with documented data provenance. Do not substitute a different feed mid-ranking solely because a preferred pair is unavailable.
+
+
