@@ -240,3 +240,21 @@ The next permitted computation is **development only**:
 `2024-01-01 through 2025-02-28`
 
 Validation and fresh holdout remain uninspected for Engine G outcomes.
+
+### Pre-outcome implementation amendment
+
+Before any Engine G outcome calculation, the executable runner was updated at commit:
+
+- `dc4ed472025ba0f109a0008f6ed78704991bc66c`
+
+The update changed no frozen strategy rule. It:
+
+- replaced an unnecessarily quadratic context lookup with the equivalent causal latest-48 completed-active-15m lookup;
+- pruned inactive liquidity instances from the runtime active set without changing historical instance IDs already attached to events;
+- ensured a market-active 15m bar is processed at its close even when its final constituent 5m bar is entirely carry-forward;
+- scoped development event/availability counters to the requested split;
+- pruned completed counterfactual shadow paths from the active runtime list.
+
+The exact-arithmetic unit checks passed again after this amendment.
+
+**Engine G outcomes calculated at this point: NO.**
