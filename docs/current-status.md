@@ -1,7 +1,7 @@
 # Current Status
 
-**Date:** 2026-09-22  
-**Phase:** System-context consolidation and original Engine A recovery
+**Date:** 2026-09-23  
+**Phase:** Phase 2 — reproducible strategy-engine development after EXP-014
 
 ## Authorized context
 
@@ -18,11 +18,21 @@ We are building a **multi-strategy, multi-market trading system**.
 
 Research/backtesting is the evidence layer, not the end objective.
 
-See:
+The governing architecture remains:
 
-- docs/SYSTEM-BLUEPRINT.md;
-- docs/ORIGINAL-PROJECT-CONTEXT.md;
-- docs/BUILD-AND-DEPLOYMENT-ROADMAP.md.
+~~~text
+validated strategy engine
+    -> standardized meaningful candidate
+    -> target-first probability / EV layer
+    -> P&L-equivalent sizing
+    -> risk / margin / leverage / daily-budget / correlation gates
+    -> cross-market ranking
+    -> execution / management
+    -> daily P&L state machine
+    -> journal / performance database
+~~~
+
+The ranker is primarily a selector of validated-engine candidates, not a default trade inventor from every bar/pivot.
 
 ## User objective
 
@@ -30,88 +40,118 @@ Reference starting balance: about USD 500.
 
 - Gold anchor: 0.10 lot;
 - normal successful-trade objective: about USD 50;
-- USD 30–40 acceptable when the nearer target is materially more reliable;
-- USD 70–100+ allowed when continuation evidence supports it;
-- desired strong-day net zone: about USD 150–200;
-- normal daily loss stop: about USD 40;
-- emergency hard ceiling: about USD 60;
+- USD 30–40 acceptable when independently validated;
+- USD 70–100+ allowed under validated continuation/runner logic;
+- desired strong-day net zone: about USD 150–200 when sufficient qualified opportunity exists;
+- normal daily loss stop / stop-adding-risk zone: about USD 40;
+- emergency hard ceiling: about USD 60, not a normal sizing allowance;
 - roughly 3–4 qualified trades/day is a desirable normal range, not a quota;
 - low-output day = <= USD 50;
-- aspirational low-output-day frequency: around 20% or less if evidence/risk permit.
+- aspirational low-output-day frequency: around 20% or less if evidence/risk permit;
+- no forced trades, martingale, recovery sizing, or revenge trading.
 
-## Correct sizing interpretation
+## EXP-014 status
 
-### XAUUSD
+**EXP-014 is COMPLETE.**
 
-Reference size = 0.10 lot.
+### Part A — original EXP-002 Engine A recovery
 
-### Other markets
+A numerical reproduction-acceptance protocol was frozen before new recovery outcomes.
 
-Use symbol-specific P&L-equivalent sizing for a frozen native target distance.
+Recovery variants A1–A9 were then checkpointed one ambiguity at a time.
 
-Then apply structural-risk, margin, leverage/notional, daily-budget, and correlation gates.
+Final conclusion:
 
-Same-0.10-lot FX work from EXP-012/013 remains diagnostic only.
+**The original EXP-002 implementation is not honestly recoverable from the surviving evidence.**
 
-## Original Engine A / Gold
+Important evidence:
 
-EXP-002 remains the active original Badar-inspired Gold lead.
+- the audited March 1–August 20, 2026 one-minute XAUUSD research series contained exactly 230,813 rows, matching EXP-002's recorded row count;
+- no original EXP-002 detector/backtest source code survives in repository history;
+- A6 was the closest causal reconstruction on frequency/split balance and average structural risk:
+  - 333 accepted trades;
+  - 164 development / 169 holdout;
+  - average risk about 1.053 Gold;
+  - but overall T5 only about 15.0%;
+  - holdout T5 about 13.6%;
+  - holdout expectancy about +0.01 Gold/trade;
+- A8 tested possible intrabar 5m-sweep timing leakage and failed;
+- A9 tested optimistic fill-bar ordering and improved results, but holdout T5 reached only about 17.9% and holdout expectancy about +0.25 Gold/trade, still materially below EXP-002.
 
-Recorded simplified results:
+Therefore:
 
-- about 372 signals overall;
-- USD 5 target-first ~29.6%;
-- average structural risk distance ~USD 1.02 Gold;
-- median favorable excursion ~USD 3.30;
-- simplified expectancy ~+USD 0.79 Gold/trade before costs.
+- EXP-002 remains preserved as a **historical exploratory positive result**;
+- it is **not** a validated/reproducible execution engine;
+- A6 is a diagnostic reconstruction only and is not promoted;
+- A8/A9 are forensic/non-deployable;
+- Engine A v0.2-portable remains a separate historical rewrite and is not a substitute;
+- further post-hoc parameter hunting to force the old benchmark is closed.
 
-Holdout:
+See `research/experiments/EXP-014-original-engine-a-recovery-equivalent-sizing.md`.
 
-- ~187 trades;
-- USD 2 target-first 48.7%;
-- USD 3 41.7%;
-- USD 4 31.6%;
-- USD 5 27.3%;
-- simplified expectancy ~+USD 0.72 Gold/trade before costs.
+### Part B — P&L-equivalent sizing
 
-## Engine A distinction
+The forward methodology is frozen in:
 
-Engine A v0.2-portable is a different later rewrite.
+- `docs/PNL-EQUIVALENT-SIZING.md`.
 
-Its poor Gold results do not invalidate EXP-002.
+Current rule:
 
-The next technical gate is to reconstruct the original Engine A and reproduce EXP-002 within reasonable tolerance.
+1. freeze/use the validated engine/market's native target or target function;
+2. calculate the lot size that makes the normal target approximately USD 50 gross;
+3. round to legal broker sizing without increasing risk;
+4. apply unchanged structural-stop risk, margin, notional/leverage, remaining daily budget, aggregate open-stop risk, and correlation/common-factor gates;
+5. if USD 50 economics are unsafe, use only a separately validated USD 40/30 fallback or reject.
 
-## Other engine status
+Volatility-burden equivalence remains diagnostic only; it is not the governing target-distance method.
 
-- Engine B first formulation: rejected;
-- Engine C first formulation: rejected;
-- Engine D opening-range formulations: not promoted;
-- Engine E volatility-expansion formulations: not promoted;
-- Engine F v0.1: historically interesting GBPUSD arm but not a current execution lead after economic reinterpretation.
+Same-0.10-lot FX work from EXP-012/013 also remains diagnostic only.
 
-## Target-first ranker status
+## Current strategy status
 
-The previous broad-pivot ranker experiment has been renumbered to **EXP-015** and **paused**.
+There is currently **no strategy engine promoted as a validated execution lead**.
 
-Reason:
+- Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
+- A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
+- Engine A v0.2-portable: historical rewrite; not promoted.
+- Engine B first formulation: rejected.
+- Engine C first formulation: rejected.
+- Engine D formulations: not promoted.
+- Engine E formulations: not promoted.
+- Engine F v0.1: historical research evidence only; not a current execution lead.
 
-1. it began before original Engine A recovery;
-2. it used broad generic structural candidates rather than validated-engine candidates;
-3. its initial FX fixed-size assumptions predated the corrected equivalent-sizing rule.
+This means the system has a validated architecture and sizing method, but still lacks the first reproducible strategy engine required to feed the production ranker.
 
-Its Stage-1 XAU candidate statistics are retained as diagnostics, not as the governing system architecture.
+## EXP-015 status
 
-## Immediate plan
+**EXP-015 remains PAUSED.**
 
-1. preserve/review detailed Badar/video evidence;
-2. execute EXP-014 original Engine A recovery;
-3. verify reproduction against EXP-002;
-4. freeze equivalent-sizing method for non-Gold markets;
-5. persist a standard strategy-engine candidate contract;
-6. then redesign/resume EXP-015 so the ranker consumes validated-engine candidates;
-7. only after that perform multi-market portfolio daily-distribution testing.
+Two former prerequisites are resolved:
+
+- EXP-014 Part A is complete via the explicitly allowed unrecoverable conclusion;
+- equivalent sizing is frozen.
+
+The remaining blocker is substantive: EXP-015 needs at least one **prospectively specified, reproducible, validated strategy engine** emitting the common candidate contract.
+
+Its historical broad-pivot Stage-1 XAU statistics remain diagnostics only.
+
+## Exact next action
+
+Do **not** resume broad-pivot ranker/ML work and do not continue tuning recovery variants to reproduce EXP-002.
+
+The next work should:
+
+1. define a new causal strategy-engine hypothesis prospectively;
+2. version its exact candidate, entry, stop, target, session/context, and outcome rules;
+3. map its output to `docs/STRATEGY-ENGINE-CONTRACT.md`;
+4. freeze development / validation / holdout dates and realistic execution assumptions;
+5. only then run the first outcome test;
+6. promote it only if the full evidence—not one attractive metric—supports it.
+
+A new Badar-derived causal engine is allowed, but it must be treated as a **new prospectively defined engine**, not as the recovered EXP-002 implementation.
+
+No new long strategy computation should start until its specification is frozen and the user confirms the next experiment direction.
 
 ## Key unresolved question
 
-Can the recovered positive Gold Engine A plus additional independently validated engines and economically feasible cross-market sizing generate enough high-quality USD 30–100 opportunities to materially reduce low-output days without unacceptable leverage, drawdown, or loss frequency?
+Can one or more new reproducible engines, combined with the frozen equivalent-sizing method and cross-market ranking architecture, generate enough safe USD 30–100 opportunities to materially reduce low-output days without unacceptable leverage, drawdown, or loss frequency?
