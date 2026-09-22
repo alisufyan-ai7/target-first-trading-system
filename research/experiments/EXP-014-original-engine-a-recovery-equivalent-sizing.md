@@ -601,6 +601,22 @@ Frozen specification:
 
 No A6 outcome was calculated before this freeze.
 
+## A7 freeze checkpoint
+
+A7 inherits A6 and changes exactly one FVG-selection ambiguity:
+
+- the same-direction FVG must be formed **by the displacement candle itself**;
+- A7 no longer accepts an FVG first appearing one or two candles after displacement;
+- no minimum gap-size filter is introduced;
+- liquidity reuse, pivots, MSS/displacement, midpoint entry, proportional FVG stop, session, one-open policy, horizon, and conservative outcome handling remain unchanged.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A7.md`;
+- pre-outcome A7-spec commit: `75c290d7d0189e50d4cb4f4728c073e77f00b2e7`.
+
+No A7 outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
