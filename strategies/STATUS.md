@@ -64,3 +64,28 @@ Under the user's intended fixed-size model:
 - after a predeclared <= USD 40 structural-stop risk gate, XAU T30 holdout expectancy was approximately flat before costs and higher target rungs were negative.
 
 **Strategy implication:** no existing engine is promoted. Gold remains the primary economic anchor, but the next work is not another post-hoc Engine A filter. The system now needs an economically suitable multi-market universe plus a prospectively frozen target-first ranking layer / naturally tighter-stop setup family.
+
+## 2026-09-22 correction — original Engine A / Gold
+
+The original EXP-002 XAUUSD Engine A must be tracked separately from Engine A v0.2-portable.
+
+### Original Engine A / XAUUSD (EXP-002)
+
+**Status: RETAIN AS ACTIVE RESEARCH LEAD — POSITIVE SIMPLIFIED EXPECTANCY; NEEDS IMPLEMENTATION RECOVERY AND COST VALIDATION.**
+
+Recorded holdout:
+
+- ~187 trades;
+- USD 5 target-first: 27.3%;
+- median favorable excursion: ~USD 2.98 Gold;
+- simplified expectancy: ~+USD 0.72 Gold/trade before costs.
+
+### Engine A v0.2-portable
+
+**Status: SEPARATE PROSPECTIVE REWRITE; DO NOT USE AS A SUBSTITUTE FOR EXP-002.**
+
+Its later weak/negative Gold results remain valid for v0.2 itself but do not disprove the original Gold lead.
+
+### Next strategy action
+
+Before introducing another engine or optimizing a target-first ranker, reconstruct the original EXP-002 Engine A rules and verify reproduction on the original Gold baseline.
