@@ -109,3 +109,44 @@
 **Evidence:** Holdout daily P&L correlation between the leads was only about +0.03, confirming useful independence, but 86.44% of holdout days still finished <= USD 50, no holdout day reached USD 150, losing days were 44.07%, and maximum drawdown was about USD 200.53. Maximum simultaneous notional/equity exceeded 1,200x under fixed USD 20 structural risk.
 
 **Next:** Quantify the mathematical feasibility frontier of the user's daily-distribution objective under the current +USD 50 / -USD 20 payoff and 1–4 trade/day constraints before searching for another engine or changing any objective.
+
+## 2026-09-22 — Revise operating objective to fixed-size target-ladder scanner
+
+**Decision:** The project end objective is explicitly system construction, not research as an end in itself. Research remains the evidence/validation layer.
+
+**Execution anchor:**
+
+- XAUUSD reference size = 0.10 lot;
+- major FX initial research anchor = 0.10 standard lot, pending broker-specific verification;
+- do not dynamically enlarge size merely to force every winning trade to equal USD 50.
+
+**Profit objective:**
+
+- ordinary successful trades may capture approximately USD 30–50;
+- stronger validated moves may be held toward USD 70–100+;
+- the scanner should estimate and rank multiple target rungs rather than one universal +2.5R target.
+
+**Trade count:** No hard 3–4 trades/day assumption. Trade count is opportunity-driven and may be higher when several independent qualified smaller-target opportunities exist. There is still no forced minimum trade count.
+
+**Daily objective:** Work toward approximately USD 150–200 net on days with sufficient opportunity while preserving the approximately -USD 40 normal / -USD 60 hard daily-loss framework.
+
+**Reason:** Prior fixed-risk tests distorted cross-market economics by using very large notional exposure to manufacture USD 50 targets from narrow structural stops. The user's intended system is fixed-size and should seek the best attainable dollar move across markets.
+
+## 2026-09-22 — Supersede EXP-011 before results
+
+**Decision:** Do not calculate EXP-011 under its old fixed +USD 50 / -USD 20 / maximum-4-trades model.
+
+**Reason:** The user revised the economic and trade-count assumptions before EXP-011 results were produced.
+
+**Next:** EXP-012 will evaluate fixed-size target ladders and rebuild the opportunity-ranking framework around T30/T40/T50/T70/T100 before structural invalidation.
+
+## 2026-09-22 — Re-evaluate retained leads before inventing another engine
+
+**Decision:** Before adding Engine G or further market-specific strategy variants, reconstruct:
+
+1. USDJPY / Engine A v0.2 at fixed 0.10 standard lot;
+2. GBPUSD / Engine F v0.1 at fixed 0.10 standard lot.
+
+Measure actual fixed-size stop risk plus T30/T40/T50/T70/T100 hit rates.
+
+**Reason:** A lead that looked impractical under dynamic USD 20 risk sizing may have different economics under the user's intended fixed-size execution model, and that should be tested before discarding it.
