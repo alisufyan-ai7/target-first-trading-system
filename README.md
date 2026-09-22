@@ -1,51 +1,58 @@
-# Target-First Trading Research
+# Target-First Trading System
 
-This repository is the durable source of truth for the trading-system research originating in the current ChatGPT conversation.
+This repository is the durable source of truth for the **trading system being built in the originating ChatGPT project conversation**.
 
-## Project isolation rule
+Research and backtesting are validation layers. The end objective is an operating multi-strategy, multi-market system.
+
+## Strict context isolation
 
 Only two context sources are authorized:
 
-1. the originating ChatGPT conversation for this project; and
+1. the originating/current project chat; and
 2. this repository.
 
-Do **not** import assumptions, results, code, decisions, memory, or strategy definitions from any other ChatGPT chat, project, GitHub repository, or account-level context unless the user explicitly introduces that material into this project.
+Do not import assumptions, code, decisions, strategy definitions, or project memory from any other ChatGPT chat/project, GitHub repository, or account-level context unless the user explicitly introduces that material here.
 
-## Research objective
+See docs/SOURCE-OF-TRUTH.md.
 
-Investigate whether a multi-strategy, multi-asset trading system can produce a relatively consistent daily profit distribution from a small starting account without forcing trades or using martingale-style recovery.
+## System objective
 
-Current working targets:
+Build a scanner/execution system that:
 
-- reference starting equity: about USD 500;
-- desired daily profit stop: about USD 150–200;
-- desired successful-trade profit unit: about USD 50;
-- intended normal maximum: about 3–4 qualified trades/day;
-- low-output day: net daily P&L <= USD 50;
-- research preference: low-output days ideally no more than about 20% of trading days;
-- normal daily loss stop: about USD 40;
-- rare absolute hard stop: about USD 60;
-- no martingale;
-- no increasing size after losses;
-- no forced recovery trades.
+- scans multiple liquid markets continuously;
+- consumes candidates from validated strategy engines;
+- estimates target-first probability and expected value;
+- uses XAUUSD 0.10 lot as the economic anchor;
+- calculates symbol-specific equivalent sizing for non-Gold markets;
+- controls structural risk, margin, leverage, correlation, and daily loss;
+- normally seeks about USD 50 per successful trade, with validated USD 30–40 nearer targets and USD 70–100+ continuations;
+- works toward roughly USD 150–200 net on days with sufficient qualified opportunity;
+- never forces trades, martingales, or increases size to recover losses.
 
-These are research objectives, not promised performance.
+These are design objectives, not guaranteed returns.
 
-## Research principle
+## Current gate
 
-A setup is evaluated using a **target-first** question:
+The original Badar-inspired Gold Engine A in EXP-002 showed positive simplified expectancy, but its exact implementation was not fully preserved before later portable rewrites.
 
-> Does price reach the required favorable target before structural invalidation?
+Before broad ranker/scanner development resumes:
 
-For XAUUSD, the initial reference target is a USD 5 favorable price move. For other instruments, target size should be normalized to the desired dollar-profit unit using instrument-specific contract/tick value.
+1. recover/reconstruct original Engine A;
+2. reproduce EXP-002 behavior within reasonable tolerance;
+3. freeze P&L-equivalent non-Gold sizing with feasibility gates;
+4. route validated strategy-engine candidates through the target-first ranker.
 
-## Current status
+## Start here
 
-The first Badar-inspired XAUUSD strategy screen has been completed on a broker-neutral one-minute dataset. It showed positive simplified expectancy but failed the desired daily-income consistency profile. Initial breakout/retest and trend-pullback alternatives were not strong enough in their first formulations.
-
-See:
-
-- `PROJECT.md`
-- `docs/SOURCE-OF-TRUTH.md`
-- `docs/current-status.md`
-- `research/experiments/`
+- PROJECT.md
+- docs/SYSTEM-BLUEPRINT.md
+- docs/ORIGINAL-PROJECT-CONTEXT.md
+- docs/BADAR-VIDEO-EVIDENCE.md
+- docs/TIMEFRAME-AND-MARKET-CONTEXT.md
+- docs/SUPERSEDED-ASSUMPTIONS.md
+- docs/BUILD-AND-DEPLOYMENT-ROADMAP.md
+- docs/current-status.md
+- docs/objectives.md
+- docs/risk-framework.md
+- strategies/STATUS.md
+- research/experiments/
