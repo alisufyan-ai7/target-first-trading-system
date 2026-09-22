@@ -664,6 +664,27 @@ Frozen specification:
 
 No A7 outcome was calculated before this freeze.
 
+## A8 forensic freeze checkpoint
+
+Repository-history audit found no surviving EXP-002 strategy implementation: the original EXP-002 commit `ef131e4c2b13f58dedfeb9782200e62761253017` added only the experiment-summary Markdown, and its parent added EXP-001 narrative evidence. No original detector/backtest code is available in that file history.
+
+A8 therefore tests one particularly consequential unresolved implementation ambiguity from the A6 baseline: **MSS timing relative to the completed 5m sweep bar**.
+
+A8 deliberately allows the 1m MSS/displacement/FVG sequence to begin after the actual intrabar liquidity breach but before the containing 5m bar has completed, while still using that bar's eventual close to classify it as a valid sweep/rejection.
+
+This is explicitly **forensic and non-causal**:
+
+- it may reveal timing leakage capable of explaining EXP-002;
+- it is not deployable and cannot become the production recovered Engine A even if it reproduces the historical benchmark;
+- all non-timing A6 rules remain unchanged.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A8-forensic.md`;
+- pre-outcome A8-spec commit: `5d25985f005edfbf114181a3a627cc6c078d052f`.
+
+No A8 outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
