@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine G v0.1 frozen; EXP-016 prospective validation
+**Phase:** Phase 2 — Engine G v0.1 development gate failed; validation/holdout preserved
 
 ## Authorized context
 
@@ -111,7 +111,7 @@ Same-0.10-lot FX work from EXP-012/013 also remains diagnostic only.
 
 There is currently **no strategy engine promoted as a validated execution lead**.
 
-- Engine G v0.1: **prospectively frozen on 2026-09-23; EXP-016 opened; zero outcomes at freeze; not yet validated or promoted.**
+- Engine G v0.1: **prospectively frozen, then failed the EXP-016 development gate: 71 accepted trades (<100 minimum), -USD 9.27/trade at primary cost, bootstrap expectancy CI entirely below zero. Validation/holdout remain untouched; not promoted.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -138,40 +138,31 @@ Its historical broad-pivot Stage-1 XAU statistics remain diagnostics only.
 
 ## Engine G / EXP-016 status
 
-**Engine G v0.1 is now frozen prospectively before outcomes.**
+**Engine G v0.1 is frozen and its development gate is complete.**
 
-Frozen files:
+Development result:
 
-- `strategies/engine-g-contextual-liquidity-reversal/SPEC-v0.1.md`;
-- `research/experiments/EXP-016-engine-g-contextual-liquidity-reversal-v0.1.md`.
+- accepted trades: 71 versus frozen >=100 minimum;
+- S1 hit rate: about 16.9%;
+- primary-cost net expectancy: about -USD 9.27/trade;
+- primary-cost profit factor: about 0.496;
+- 95% moving-block-bootstrap expectancy interval: about -USD 15.14 to -USD 2.52;
+- max drawdown: about USD 826.29 on the USD 500 reference-equity curve;
+- validation outcomes inspected: NO;
+- fresh-holdout outcomes inspected: NO;
+- sensitivity diagnostics run: NO.
 
-Checkpoint-0 state:
-
-- rules frozen: YES;
-- source snapshot and per-file manifest frozen: YES;
-- development / validation / fresh-holdout split frozen: YES;
-- delayed sensitivity sequence frozen: YES;
-- Engine G outcomes calculated at freeze: NO.
-
-Primary split:
-
-- development: 2024-01-01 through 2025-02-28;
-- validation: 2025-03-01 through 2025-08-31;
-- fresh holdout: 2025-09-01 through 2026-02-28;
-- March 1–August 20, 2026 remains quarantined from the primary decision.
+Because the mandatory development expectancy criterion already failed and the minimum development trade count was not reached, EXP-016 v0.1 is stopped before validation. The untouched validation and holdout periods remain available for a genuinely prospective future engine/version.
 
 EXP-015 remains paused until at least one reproducible engine validates.
 
 ## Exact next action
 
-1. verify the immutable EXP-016 data manifest;
-2. implement Engine G v0.1 exactly, including integer-tick price logic and causal liquidity lifecycle;
-3. run implementation/unit/causality checks without changing the frozen rules;
-4. run **development only**;
-5. checkpoint the development result to GitHub before inspecting validation;
-6. proceed to validation and holdout only in the frozen sequence.
+Do not retune Engine G v0.1, inspect its validation/holdout, or run its sensitivity neighbors.
 
-Do **not** run sensitivity variants before the complete 48-bar / 1.60 center-rule development, validation, holdout, and primary conclusion have been checkpointed.
+The next strategy hypothesis must be prospectively specified as Engine G v0.2 or a different engine identity before any new outcome calculation. Preserve the existing untouched 2025-03 through 2026-02 validation/holdout data unless a future experiment prospectively assigns it under a new version.
+
+Continue to use the frozen system architecture and P&L-equivalent sizing rules; do not resume EXP-015 until a reproducible engine validates.
 
 ## Key unresolved question
 
