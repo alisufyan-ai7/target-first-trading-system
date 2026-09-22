@@ -188,3 +188,55 @@ At this checkpoint:
 - sensitivity sequence frozen: YES;
 - Engine G outcomes calculated: NO;
 - development backtest started: NO.
+
+## Checkpoint 1 — implementation and provenance verification before outcomes
+
+**Outcome status at this checkpoint:** ZERO ENGINE-G OUTCOMES CALCULATED.
+
+### Frozen implementation
+
+Executable reference implementation added at:
+
+- `research/code/engine-g-v0.1.js`
+
+Implementation commit:
+
+- `d6a74a4bbfd46416a414ce7e4ad7c85a87bd61cc`
+
+Initial exact-arithmetic unit checks passed for:
+
+- integer source-tick parsing;
+- rejection of off-grid prices;
+- directional midpoint rounding;
+- exact prominence inequality;
+- exact 1.60x displacement inequality.
+
+### Immutable source-manifest verification
+
+Pinned external commit checked:
+
+- `922f83a60cc574e7395fb27397077288055a1ef6`
+
+All **27** frozen BID files from warm-up `2023_12` through holdout `2026_02` matched the frozen path/blob-SHA/byte-size manifest.
+
+The frozen BID audit blob `2463651d7bdfc4bc9778b6a63a52e5ddc3ac65f3` was then checked for the same 27 files.
+
+Result:
+
+- exact monthly line count: PASS;
+- calendar-expected line count: PASS;
+- audit status `ok`: PASS;
+- recorded gap count = 0: PASS;
+- first/last UTC coverage matches each full calendar month: PASS.
+
+The first audit-parser attempt mapped the CSV gap column incorrectly; this was corrected before any strategy outcome calculation. The corrected audit passed all 27 files.
+
+### Permission to begin next stage
+
+Checkpoint-1 prerequisites are satisfied.
+
+The next permitted computation is **development only**:
+
+`2024-01-01 through 2025-02-28`
+
+Validation and fresh holdout remain uninspected for Engine G outcomes.
