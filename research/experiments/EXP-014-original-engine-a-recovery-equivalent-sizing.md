@@ -105,7 +105,8 @@ The first mechanical recovery attempt is frozen at:
 
 - `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A1.md`;
 - acceptance-protocol commit: `24505683baeb326b53b0ff1dc76a71593a0a72c5`;
-- A1-spec commit: `72dc26d813c4fd1ef9455f97547908346b501930`.
+- initial A1-spec commit: `72dc26d813c4fd1ef9455f97547908346b501930`;
+- final pre-outcome A1-spec commit (including deterministic same-bar/fill-priority clarifications): `78339e9cb168c9ce0425f19749b4fdaac2f9a819`.
 
 No A1 outcome was calculated before these freezes.
 
