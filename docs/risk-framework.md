@@ -4,90 +4,106 @@ _Last updated: 2026-09-22_
 
 ## Daily limits
 
-- normal daily loss stop: approximately **-USD 40**;
-- rare absolute hard stop: **-USD 60**;
-- desired daily profit zone: approximately **+USD 150 to +USD 200**.
+- normal stop adding risk: approximately **-USD 40**;
+- rare absolute hard-loss ceiling: approximately **-USD 60**;
+- desired daily profit-state zone: approximately **+USD 150 to +USD 200**.
 
-## Position sizing principle
+The USD 60 level is an emergency ceiling, not a routine daily allowance.
+
+## Position sizing
 
 ### XAUUSD
 
-Reference size: **0.10 lot**, subject to broker contract verification.
+Reference size: **0.10 lot**, subject to broker verification.
 
 ### Other markets
 
 Use **P&L-equivalent sizing**, not identical lot size.
 
-For a frozen native target distance, choose the lot size that would make that target approximately USD 50 gross:
+For a frozen native target distance, calculate the size that would make the normal target approximately USD 50 gross.
 
-`lot_size ~= 50 / (target_distance × USD value per distance unit at 1 lot)`.
+The proposed size must pass:
 
-This is the base economic conversion only.
+- structural-stop dollar risk;
+- margin;
+- notional/leverage;
+- remaining daily-loss budget;
+- aggregate open-stop risk;
+- correlated/common-factor exposure.
 
-The proposed size must then pass:
+If unsafe:
 
-- structural-stop dollar-risk gate;
-- margin gate;
-- notional/leverage gate;
-- remaining daily-loss-budget gate;
-- correlated-exposure gate.
+1. use a smaller safe size / justified USD 30–40 objective; or
+2. reject the trade.
 
-The project may accept a smaller safe size / USD 30–40 target when the USD-50-equivalent size is not feasible.
+Never enlarge size after a loss.
 
-Do not enlarge size after losses.
-
-## Important prior evidence
-
-EXP-006 already demonstrated that volatility-normalized USD-50-equivalent FX sizing can require much larger lots than Gold's 0.10-lot reference.
-
-That finding is not discarded. It is a warning that equivalent sizing must be paired with explicit execution-feasibility checks rather than replaced by an arbitrary same-lot rule.
-
-## Structural stop
+## Structural stop first
 
 A valid structural/statistical invalidation remains mandatory.
 
-Never compress a stop solely to fit a dollar amount.
+Never compress the stop solely to fit a dollar amount.
 
-For every proposed trade calculate:
+For each candidate calculate:
 
-- dollar loss if structural stop is hit;
+- dollar loss at structural stop;
 - target dollar reward;
-- reward/risk under the actual proposed size;
-- margin required;
+- actual reward/risk;
+- required margin;
+- notional exposure;
 - aggregate open-stop exposure.
 
-Reject any trade whose proposed equivalent size creates unacceptable risk.
+## Daily state machine
+
+The daily target is not a quota.
+
+Illustrative operating behavior:
+
+- around +USD 50: continue only for qualified opportunities;
+- around +USD 100: continue only for qualified opportunities;
+- around +USD 150–200: normally stop adding new exposure;
+- around -USD 30: materially tighten selection;
+- around -USD 40: normally stop adding risk;
+- -USD 60: emergency hard ceiling.
+
+No recovery trade is permitted because the day is below target.
 
 ## Profit management
 
-Normal trade objective: about **USD 50**.
+Normal objective: about USD 50.
 
-Allowed:
+Allowed only under predeclared/validated rules:
 
-- approximately USD 30–40 when the validated near target is materially more reliable;
-- USD 70–100+ when validated continuation/runner logic supports it.
+- USD 30–40 nearer target;
+- partial profit;
+- USD 70–100+ runner/continuation.
 
-Any partial/runner rule must be predeclared before holdout use.
+## Correlation/common-factor risk
 
-## Aggregate portfolio gate
+Per-trade risk is insufficient.
 
-1. stop adding risk around -USD 40 realized daily P&L;
-2. protect against breaching the -USD 60 emergency ceiling after including credible open-stop exposure;
-3. control correlated simultaneous positions;
-4. near +USD 150, normally stop adding new exposure unless a predeclared rule says otherwise;
-5. never increase size to recover or accelerate the daily target.
+Examples such as long EURUSD + long GBPUSD + short USDJPY + long Gold may all load on USD weakness.
+
+The portfolio gate must eventually measure:
+
+- same-currency factor exposure;
+- same-index/macro exposure;
+- simultaneous stop loss;
+- concentration by strategy and market;
+- correlation of candidate outcomes where evidence permits.
 
 ## Small-account implication
 
 At USD 500 reference equity, the stated daily limits are aggressive.
 
-Before live deployment the system must verify:
+Before live deployment verify:
 
-- actual broker leverage and margin;
+- actual broker leverage/margin;
 - liquidation/margin-call thresholds;
-- spreads and commissions;
+- spread/commission;
 - slippage/gaps;
-- drawdown and risk of ruin;
-- simultaneous exposure.
+- risk of ruin;
+- simultaneous exposure;
+- drawdown under realistic costs.
 
-No live promotion without independent-feed and forward/paper validation.
+No live promotion without independent-feed and forward/demo validation.
