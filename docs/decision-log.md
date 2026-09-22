@@ -183,3 +183,19 @@ Measure actual fixed-size stop risk plus T30/T40/T50/T70/T100 hit rates.
 **Evidence:** Development T30 expectancy was about +USD 7.13/trade, but holdout fell to approximately +USD 0.02/trade before costs. Higher target rungs were negative in holdout.
 
 **Next:** Separate market-economic feasibility from entry-quality prediction. First map which markets naturally support USD 30–100 fixed-size moves; then build a prospectively frozen target-first opportunity-ranking layer across that economically suitable universe.
+
+## 2026-09-22 — Freeze first scanner universe from EXP-013
+
+**Decision:** Use the following first-wave market universe for the target-first opportunity ranker:
+
+1. XAUUSD;
+2. GBPUSD;
+3. USDCHF;
+4. EURUSD;
+5. AUDUSD.
+
+**Basis:** development-only fixed-size movement economics, not holdout strategy outcomes.
+
+**Deferred/lower priority:** EURJPY, USDJPY, USDCAD; GBPJPY unavailable on the matching sample source; XAGUSD unranked pending fixed contract/quantity convention.
+
+**Next:** Build a prospectively frozen target-first ranking layer across the five markets rather than selecting a universal take-profit or hand-tuning Engine A filters.
