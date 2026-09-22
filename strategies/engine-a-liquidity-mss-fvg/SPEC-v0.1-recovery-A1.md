@@ -174,20 +174,22 @@ The USD 0.10 buffer is fixed prospectively and is not volatility-scaled.
 - a setup whose sweep occurs while an A1 trade is open is ignored and its swept level is still treated as consumed;
 - rejected/suppressed setups do not reactivate later;
 - no pyramiding.
+- if multiple eligible midpoint fills occur on the same 1m timestamp while flat, priority is: earlier sweep time, then earlier FVG-confirmation time, then bearish before bullish as the final deterministic tie-break.
 
 ## Same-bar ambiguity
 
 Conservative handling:
 
 - if entry and stop are both touched in the fill bar, count the stop first;
-- after entry, if a target and stop are both touched in the same 1m bar, count the stop first.
+- a target touched on the fill bar is **not** credited because intrabar ordering relative to the midpoint fill is unknowable; target evaluation begins on the next completed 1m bar;
+- after the fill bar, if a target and stop are both touched in the same 1m bar, count the stop first.
 
 ## Maximum trade horizon
 
 A trade path is observed until the earliest of:
 
 1. structural stop;
-2. **120 completed 1m bars after entry**;
+2. the close of the **120th 1m bar counting the fill bar as bar 1**;
 3. 20:00 UTC on the entry date;
 4. last available bar of the entry date if data end earlier.
 
@@ -209,7 +211,7 @@ If target and stop occur in the same bar, stop wins.
 
 ## MFE
 
-Maximum favorable excursion is measured from entry until the earliest of structural stop or the frozen trade horizon, without truncating MFE at T5.
+Maximum favorable excursion is measured from entry until the earliest of structural stop or the frozen trade horizon, without truncating MFE at T5. Because fill-bar ordering is unknowable, A1 records fill-bar MFE as zero and begins MFE accumulation with the next completed 1m bar.
 
 Long MFE = max(high - entry).  
 Short MFE = max(entry - low).
