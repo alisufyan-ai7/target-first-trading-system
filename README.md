@@ -56,5 +56,6 @@ The next build gate is therefore to define and validate a new **causal, reproduc
 - docs/current-status.md
 - docs/objectives.md
 - docs/risk-framework.md
+- docs/PNL-EQUIVALENT-SIZING.md
 - strategies/STATUS.md
 - research/experiments/
