@@ -33,14 +33,14 @@ These are design objectives, not guaranteed returns.
 
 ## Current gate
 
-The original Badar-inspired Gold Engine A in EXP-002 showed positive simplified expectancy, but its exact implementation was not fully preserved before later portable rewrites.
+**EXP-014 is complete.**
 
-Before broad ranker/scanner development resumes:
+- Part A systematically tested recovery variants A1–A9 under a frozen multi-dimensional acceptance protocol.
+- The original EXP-002 implementation could not be honestly reproduced from the surviving evidence and is now classified as a **historical exploratory positive result, not a validated/reproducible engine**.
+- Part B froze the forward non-Gold P&L-equivalent sizing method in `docs/PNL-EQUIVALENT-SIZING.md`.
+- EXP-015 remains **PAUSED** because the ranker still needs at least one prospectively specified, reproducible, validated strategy engine that emits the common candidate contract.
 
-1. recover/reconstruct original Engine A;
-2. reproduce EXP-002 behavior within reasonable tolerance;
-3. freeze P&L-equivalent non-Gold sizing with feasibility gates;
-4. route validated strategy-engine candidates through the target-first ranker.
+The next build gate is therefore to define and validate a new **causal, reproducible strategy engine** prospectively. Do not continue post-hoc fitting to the lost EXP-002 implementation and do not resume the broad-pivot ranker.
 
 ## Start here
 
