@@ -49,3 +49,8 @@
 - Applied the predeclared <= USD 40 fixed-size structural-risk gate to Gold; 50 holdout trades survived, with T30/T40/T50/T70/T100 hit rates of roughly 48%/34%/30%/28%/20%.
 - Tested fixed-target expectancy on the risk-gated Gold subset: T30 fell from about +USD 7.13/trade in development to about +USD 0.02/trade in holdout before costs; higher target rungs were negative.
 - No existing engine promoted. Next phase is a fixed-size market-universe economic feasibility map followed by a cross-market target-first opportunity ranker.
+- Opened EXP-013 fixed-size market-universe economic feasibility map.
+- Development-only map confirmed XAUUSD as the dominant fixed-size economic fit and ranked GBPUSD, USDCHF, EURUSD, and AUDUSD as the strongest documented FX complements.
+- EURJPY, USDJPY, and USDCAD ranked lower for USD 30–50 at 0.10 lot; GBPJPY matching sample unavailable; XAGUSD left unranked pending fixed contract economics.
+- Froze first scanner universe: XAUUSD, GBPUSD, USDCHF, EURUSD, AUDUSD.
+- Next phase: prospectively frozen target-first opportunity ranker across the five-market universe.
