@@ -1,124 +1,117 @@
 # Current Status
 
 **Date:** 2026-09-22  
-**Phase:** Knowledge recovery / economic-sizing correction before further development
+**Phase:** System-context consolidation and original Engine A recovery
 
-## Source of truth
+## Authorized context
 
-Authorized project context now includes:
+Only:
 
-1. this current chat;
-2. the explicitly reintroduced prior chat in this same project to the extent its findings are durably recorded/recoverable here;
-3. this repository.
+1. the originating/current project chat; and
+2. this repository.
 
-No unrelated chats, projects, memories, or repositories may be used.
+No other chats, projects, account memories, or GitHub repositories are authorized project context.
 
-## User objective — corrected
+## System identity
 
-Build a multi-market scanner/execution system that works toward approximately USD 150–200 net on days with sufficient qualified opportunity.
+We are building a **multi-strategy, multi-market trading system**.
 
-Normal successful-trade objective: about USD 50.
+Research/backtesting is the evidence layer, not the end objective.
 
-Allowed flexibility:
+See:
 
-- approximately USD 30–40 when the nearer target has materially stronger target-first probability;
-- USD 70–100+ when validated continuation evidence supports it.
+- docs/SYSTEM-BLUEPRINT.md;
+- docs/ORIGINAL-PROJECT-CONTEXT.md;
+- docs/BUILD-AND-DEPLOYMENT-ROADMAP.md.
 
-No forced trade quota.
+## User objective
+
+Reference starting balance: about USD 500.
+
+- Gold anchor: 0.10 lot;
+- normal successful-trade objective: about USD 50;
+- USD 30–40 acceptable when the nearer target is materially more reliable;
+- USD 70–100+ allowed when continuation evidence supports it;
+- desired strong-day net zone: about USD 150–200;
+- normal daily loss stop: about USD 40;
+- emergency hard ceiling: about USD 60;
+- roughly 3–4 qualified trades/day is a desirable normal range, not a quota;
+- low-output day = <= USD 50;
+- aspirational low-output-day frequency: around 20% or less if evidence/risk permit.
 
 ## Correct sizing interpretation
 
 ### XAUUSD
 
-Reference size = **0.10 lot**.
+Reference size = 0.10 lot.
 
 ### Other markets
 
-Do **not** use 0.10 lot automatically.
+Use symbol-specific P&L-equivalent sizing for a frozen native target distance.
 
-Calculate an economically equivalent lot size so that the market's frozen native target distance is worth approximately USD 50.
+Then apply structural-risk, margin, leverage/notional, daily-budget, and correlation gates.
 
-Equivalent sizing must then pass structural-stop risk, margin, leverage/notional, correlation, and daily-loss-budget gates.
+Same-0.10-lot FX work from EXP-012/013 remains diagnostic only.
 
-If the full USD-50-equivalent size is unsafe, use a justified smaller USD 30–40 objective or reject the trade.
+## Original Engine A / Gold
 
-## Original Engine A / Gold — retained positive lead
+EXP-002 remains the active original Badar-inspired Gold lead.
 
-EXP-002 is the original Badar-inspired Gold screen derived from the prior project's video/chart work.
+Recorded simplified results:
 
-Recorded results:
-
-- 372 signals overall;
-- overall USD 5 target-first hit rate: 29.6%;
-- average structural risk distance: about USD 1.02 Gold;
-- median favorable excursion: about USD 3.30 Gold;
-- average simplified expectancy: about **+USD 0.79 Gold/trade before costs**.
-
-Development:
-
-- ~185 trades;
-- USD 5 hit: 31.9%;
-- simplified expectancy: about **+USD 0.85 Gold/trade**.
+- about 372 signals overall;
+- USD 5 target-first ~29.6%;
+- average structural risk distance ~USD 1.02 Gold;
+- median favorable excursion ~USD 3.30;
+- simplified expectancy ~+USD 0.79 Gold/trade before costs.
 
 Holdout:
 
 - ~187 trades;
-- USD 5 hit: 27.3%;
-- simplified expectancy: about **+USD 0.72 Gold/trade**;
-- target-first sensitivity:
-  - USD 2: 48.7%;
-  - USD 3: 41.7%;
-  - USD 4: 31.6%;
-  - USD 5: 27.3%.
+- USD 2 target-first 48.7%;
+- USD 3 41.7%;
+- USD 4 31.6%;
+- USD 5 27.3%;
+- simplified expectancy ~+USD 0.72 Gold/trade before costs.
 
-At the illustrative 0.10-lot/10-oz convention, +0.72 Gold/trade is roughly +USD 7.20/trade gross simplified expectancy before costs.
+## Engine A distinction
 
-**Status:** retain the original EXP-002 Gold Engine A as an active research lead.
+Engine A v0.2-portable is a different later rewrite.
 
-## Critical Engine A distinction
+Its poor Gold results do not invalidate EXP-002.
 
-Engine A v0.2-portable, used later in EXP-007/012, is **not the same implementation** as EXP-002.
+The next technical gate is to reconstruct the original Engine A and reproduce EXP-002 within reasonable tolerance.
 
-Its own specification states that it was a prospective reconstruction because exact mechanics from EXP-002 were not fully preserved.
+## Other engine status
 
-Therefore:
+- Engine B first formulation: rejected;
+- Engine C first formulation: rejected;
+- Engine D opening-range formulations: not promoted;
+- Engine E volatility-expansion formulations: not promoted;
+- Engine F v0.1: historically interesting GBPUSD arm but not a current execution lead after economic reinterpretation.
 
-- v0.2's poor Gold results do not invalidate EXP-002;
-- v0.2 remains useful as a separate failed/limited implementation record;
-- original Engine A recovery must precede further conclusions about the Badar-inspired Gold lead.
+## Target-first ranker status
 
-## Sizing evidence already available
+The previous broad-pivot ranker experiment has been renumbered to **EXP-015** and **paused**.
 
-EXP-006 performed a first P&L-equivalent calculation using a volatility-normalized target burden.
+Reason:
 
-Illustrative USD-50 sizes from that method were approximately:
+1. it began before original Engine A recovery;
+2. it used broad generic structural candidates rather than validated-engine candidates;
+3. its initial FX fixed-size assumptions predated the corrected equivalent-sizing rule.
 
-- EURUSD: 1.608 standard lots;
-- GBPUSD: 1.163 standard lots;
-- USDJPY: 2.146 standard lots.
-
-Those values were rejected previously because of margin/notional pressure, not because the conversion math was invalid.
-
-Under the corrected objective, EXP-006 becomes useful again as a sizing diagnostic. The next sizing method must preserve the USD-50 equivalence idea while enforcing explicit feasibility gates.
-
-## Misframed later branch
-
-EXP-012 and EXP-013 contain useful Gold and volatility diagnostics, but their FX conclusions based on using **0.10 lot on FX** do not represent the user's intended cross-market sizing rule.
-
-Those same-lot FX results are preserved as diagnostics only and must not drive the next scanner universe.
+Its Stage-1 XAU candidate statistics are retained as diagnostics, not as the governing system architecture.
 
 ## Immediate plan
 
-No new strategy optimization should begin yet.
-
-First:
-
-1. recover/reconstruct the original EXP-002 Engine A mechanics from the durable video-derived sequence and recorded parameters;
-2. require the recovered implementation to reproduce EXP-002 Gold behavior within reasonable tolerance before using it elsewhere;
-3. define a prospective P&L-equivalent lot-sizing rule for non-Gold symbols with ~USD 50 normal target and USD 30–40 fallback;
-4. apply hard structural-risk/margin/notional gates;
-5. only then resume cross-market scanning/ranking.
+1. preserve/review detailed Badar/video evidence;
+2. execute EXP-014 original Engine A recovery;
+3. verify reproduction against EXP-002;
+4. freeze equivalent-sizing method for non-Gold markets;
+5. persist a standard strategy-engine candidate contract;
+6. then redesign/resume EXP-015 so the ranker consumes validated-engine candidates;
+7. only after that perform multi-market portfolio daily-distribution testing.
 
 ## Key unresolved question
 
-Can the original positive Gold Engine A be faithfully reproduced and then combined with P&L-equivalent cross-market sizing to create enough qualified USD 30–100 opportunities to approach the USD 150–200 daily objective without unacceptable risk?
+Can the recovered positive Gold Engine A plus additional independently validated engines and economically feasible cross-market sizing generate enough high-quality USD 30–100 opportunities to materially reduce low-output days without unacceptable leverage, drawdown, or loss frequency?
