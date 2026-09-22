@@ -120,6 +120,94 @@ No A1 outcome was calculated before these freezes.
 5. do not tune directly to one metric while degrading the others;
 6. if no honest reconstruction matches reasonably, record that the original code is unrecoverable rather than inventing certainty.
 
+## Part A checkpoint — A1 result
+
+**Status:** FAIL — MATERIAL MULTI-DIMENSIONAL MISMATCH; DO NOT RELABEL AS ORIGINAL ENGINE A
+
+### Data provenance and audit
+
+The execution environment could not retrieve Dukascopy's binary endpoint directly. For A1, the same Dukascopy XAUUSD M1 bid history was accessed through a public external research mirror generated from Dukascopy data. This external repository is used **only as research-data transport**, not as project context.
+
+Files/blobs used:
+
+- 2026-03: `68e025d16d184b12a78505a30efc05564f6b5d2b`;
+- 2026-04: `ffe75abc4fda834b9368c7b25687e4e0f2e1baec`;
+- 2026-05: `7adc7eb29dff4fef02784d16c670a7ca5ddfb52f`;
+- 2026-06: `3ffcf63c7fe50aa0eb20830f70316231d71b8c8a`;
+- 2026-07: `0c992d59888d6ba032793570b7ccb2ded0d0407d`;
+- 2026-08: `eac2cab31176755f93109dff6127c5aa92090319`.
+
+Audit over 2026-03-01 through 2026-08-20 inclusive:
+
+- one-minute rows: **230,813**;
+- first timestamp: 2026-03-01 00:00 UTC;
+- last timestamp: 2026-08-20 23:58 UTC;
+- duplicate timestamps: 0;
+- invalid OHLC rows: 0;
+- non-minute timestamp steps: 0;
+- valid complete UTC-aligned 5m bars: 46,157.
+
+The **230,813 row count exactly matches the row count recorded in EXP-002**, materially reducing the likelihood that A1's large discrepancy is explained by simple date-window/data-coverage drift. Direct Dukascopy retrieval should still be preferred for later execution-grade verification.
+
+### A1 signal funnel
+
+- qualifying 5m sweeps: 2,332;
+- sweeps with eligible internal pivot: 2,326;
+- first MSS found: 1,198;
+- MSS candle also passing 1.6x displacement: 523;
+- qualifying FVG: 417;
+- midpoint fills before one-open suppression: 257;
+- sweep-while-open suppressions: 2;
+- fill-while-open suppressions: 0;
+- accepted trades: **255**.
+
+### Benchmark comparison
+
+| Metric | EXP-002 benchmark | A1 | Frozen band | Pass? |
+|---|---:|---:|---:|---|
+| Overall trades | ~372 | **255** | 335–409 | No |
+| Development trades | ~185 | **128** | 163–207 | No |
+| Holdout trades | ~187 | **127** | 165–209 | No |
+| Overall T5 | 29.6% | **11.76%** | 26.6–32.6% | No |
+| Holdout T5 | 27.3% | **11.02%** | 24.3–30.3% | No |
+| Holdout T2 | 48.7% | **22.83%** | 44.7–52.7% | No |
+| Holdout T3 | 41.7% | **18.90%** | 37.7–45.7% | No |
+| Holdout T4 | 31.6% | **14.17%** | 27.6–35.6% | No |
+| Avg structural risk | ~1.02 | **0.827** | 0.867–1.173 | No |
+| Median MFE | ~3.30 | **0.00** | 2.805–3.795 | No |
+| Overall expectancy | +0.79 | **-0.102** | +0.514 to +1.067 | No |
+| Development expectancy | +0.85 | **-0.092** | +0.553 to +1.148 | No |
+| Holdout expectancy | +0.72 | **-0.111** | +0.468 to +0.972 | No |
+
+Additional A1 diagnostics:
+
+- development T5: 12.50%;
+- development average risk: 0.917 Gold;
+- holdout average risk: 0.735 Gold;
+- overall median risk: 0.640 Gold;
+- T5 wins / stops / timeouts: 30 / 225 / 0;
+- overall average MFE: 1.036 Gold;
+- holdout average MFE: 1.091 Gold.
+
+### Interpretation
+
+A1 is a clear **FAIL**, not a near match.
+
+Two mismatches stand out:
+
+1. the candidate count is materially too low before outcome evaluation (257 raw fills versus the ~372 final EXP-002 signals);
+2. the frozen tight FVG-edge stop produces far too many rapid invalidations, with target-first rates and expectancy far below EXP-002.
+
+The exact row-count match means it is more useful to investigate the frozen implementation ambiguities than to blame the result on a broad data-window mismatch.
+
+### Next ambiguity to test
+
+For A2, change **one mechanics ambiguity only**: the coupling between MSS and displacement.
+
+A1 required the **first MSS candle itself** to satisfy the 1.6x displacement threshold and expired the setup otherwise. The preserved EXP-002 wording and Badar evidence describe the causal sequence as **MSS -> displacement -> FVG**, which does not prove that MSS and displacement must be the same candle.
+
+A2 should therefore keep every other A1 rule unchanged while allowing the first MSS to be followed by a qualifying displacement candle in a short, prospectively frozen window. No stop, liquidity, FVG-entry, session, horizon, or target rule should change in A2.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
