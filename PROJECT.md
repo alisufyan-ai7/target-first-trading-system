@@ -1,6 +1,6 @@
 # Project Brief
 
-_Last updated: 2026-09-22_
+_Last updated: 2026-09-23_
 
 ## Goal
 
@@ -111,16 +111,19 @@ See docs/STRATEGY-ENGINE-CONTRACT.md.
 
 Badar Tanveer's supplied/public trading examples were the source for the first Engine A hypothesis.
 
-The original EXP-002 Gold Engine A showed positive simplified expectancy in both development and holdout.
+EXP-002 recorded positive simplified expectancy in both development and holdout. That historical result remains preserved.
 
-Later Engine A v0.2-portable was a separate prospective rewrite and must not be used to invalidate EXP-002.
+EXP-014 then froze a numerical reproduction protocol and systematically tested recovery variants A1–A9. No causal variant reproduced the complete EXP-002 benchmark; the original implementation/code was not preserved. Therefore:
 
-Before further broad scanner optimization:
+- EXP-002 is a **historical exploratory positive result**, not a reproducible validated engine;
+- Engine A v0.2-portable remains a separate later rewrite and does not invalidate or reproduce EXP-002;
+- A6 is the closest causal recovery diagnostic but is not promoted;
+- A8/A9 are forensic/non-deployable;
+- further benchmark-fitting to recover the lost implementation is closed.
 
-1. recover/reconstruct original Engine A as faithfully as possible;
-2. reproduce EXP-002 metrics within reasonable tolerance;
-3. freeze equivalent sizing;
-4. only then restart the target-first ranker.
+Equivalent sizing is now frozen in `docs/PNL-EQUIVALENT-SIZING.md`.
+
+Before EXP-015 resumes, the project must prospectively define and validate at least one causal, reproducible strategy engine that emits the common candidate contract.
 
 ## Consistency objective
 
