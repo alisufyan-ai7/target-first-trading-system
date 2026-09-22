@@ -456,6 +456,21 @@ Frozen specification:
 
 No A4 outcome was calculated before this freeze.
 
+## A5 freeze checkpoint
+
+A5 returns to the A3 baseline after A4 failed and changes exactly one different ambiguity:
+
+- 1m internal MSS pivot confirmation changes from 1-left/1-right to **2-left/2-right**;
+- the 12-minute internal-pivot lookback remains unchanged;
+- 5m liquidity, displacement, FVG, entry, A3 stop, session, horizon, and outcome rules remain unchanged.
+
+Frozen specification:
+
+- `strategies/engine-a-liquidity-mss-fvg/SPEC-v0.1-recovery-A5.md`;
+- pre-outcome A5-spec commit: `f4720ed0dc73439b64c4280a07429d7225073f89`.
+
+No A5 outcome was calculated before this freeze.
+
 ## Part B — correct equivalent-lot rule
 
 ### Gold
