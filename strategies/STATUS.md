@@ -13,6 +13,7 @@ _Last updated: 2026-09-23_
 | Engine D | Session/opening-range momentum | Current formulations not promoted |
 | Engine E | Volatility compression -> expansion | Current formulations not promoted |
 | Engine F v0.1 | Statistical extension -> re-entry -> mean reversion | Historical research evidence only; not a current execution lead |
+| Engine G v0.1 | Contextual liquidity reversal: HTF location -> liquidity sweep -> MSS -> displacement/FVG -> S1 | **Prospectively frozen; EXP-016 open; zero outcomes at freeze; not yet validated or promoted** |
 
 ## Current promotion state
 
@@ -59,9 +60,13 @@ Do not let a generic broad-pivot candidate universe silently replace validated e
 
 ## Next strategy action
 
-1. define a **new prospective causal engine** rather than continuing EXP-002 recovery;
-2. freeze its exact versioned rules and candidate schema before outcome inspection;
-3. validate development / validation / holdout behavior and realistic economics;
-4. only after at least one reproducible engine passes should EXP-015 be redesigned/resumed.
+Engine G v0.1 is now the active prospective validation candidate.
 
-A future Badar-derived engine may reuse evidence-supported concepts, but it must have a new identity/version and must not be called the recovered original Engine A.
+1. implement the frozen specification exactly;
+2. verify the immutable data manifest and causality mechanics;
+3. run EXP-016 development only and checkpoint it;
+4. inspect validation only after the development checkpoint;
+5. inspect fresh holdout only after validation is checkpointed;
+6. do not run predeclared sensitivity diagnostics until the complete center-rule primary experiment is finished.
+
+EXP-015 remains paused until at least one reproducible engine validates.
