@@ -279,3 +279,135 @@ Corrected implementation commit:
 - `58067412c9c5a99d79fe224988d5c53877918e72`
 
 **Development outcome from attempt 1: NONE.**
+
+## Checkpoint 2 — frozen center-rule development result
+
+**Result commit:** `1e9117eb88b2d6e1605e9e8488d37c7c4e85cd83`  
+**Split:** 2024-01-01 through 2025-02-28  
+**Configuration:** frozen v0.1 center rule only (48 active 15m context / 1.60 displacement)  
+**Primary cost stress:** 0.50 XAU round trip / USD 5 per filled trade  
+**Validation outcomes inspected:** NO  
+**Fresh-holdout outcomes inspected:** NO  
+**Sensitivity outcomes inspected:** NO
+
+Durable result files:
+
+- `research/results/EXP-016-development-summary-v0.1.json`
+- `research/results/EXP-016-development-setups-v0.1.jsonl`
+- `research/results/EXP-016-development-trades-v0.1.jsonl`
+
+### Development funnel
+
+- source rows loaded including December-2023 warm-up: **656,640**
+- market-active M1 rows: **440,969**
+- liquidity breach events in development: **14,624**
+- one-sided qualifying sweeps: **8,029**
+- in-window one-sided sweeps: **4,255**
+- accepted filled trades: **71**
+
+Major terminal reasons included:
+
+- breach without rejection close: 6,563
+- outside setup window: 3,774
+- MSS timeout: 1,971
+- anchor wrong context half: 1,415
+- displacement timeout: 235
+- no internal MSS pivot: 178
+- insufficient structural room: 176
+- FVG timeout: 67
+- entry timeout: 42
+- structural risk above USD 40 gross: 34
+- dual-sided ambiguous sweep: 32
+- one-open suppression: 21
+- pre-entry S1 reached: 21
+
+### Filled-trade outcomes
+
+- S1 exits: **12 / 71 = 16.90%**
+- stop exits including fill-bar stops: **51 / 71 = 71.83%**
+- timeout exits: **8 / 71 = 11.27%**
+
+Independent counterfactual target-first rates:
+
+- T30: **28 / 71 = 39.44%**
+- T40: **20 / 71 = 28.17%**
+- T50: **14 / 71 = 19.72%**
+- T70: **9 / 71 = 12.68%**
+- T100: **6 / 71 = 8.45%**
+
+### Economics
+
+- gross expectancy/trade: **-USD 4.27**
+- net expectancy/trade at 0.25-XAU stress: **-USD 6.77**
+- net expectancy/trade at primary 0.50-XAU stress: **-USD 9.27**
+- primary-cost profit factor: **0.496**
+- total primary-cost net P&L: **-USD 658.30**
+
+Eligible-weekday distribution:
+
+- weekdays: **305**
+- mean daily P&L: **-USD 2.16**
+- median daily P&L: **USD 0**
+- losing weekdays: **15.74%**
+- <= USD 50 weekdays: **98.69%**
+- >= USD 100 weekdays: **0%**
+- >= USD 150 weekdays: **0%**
+- >= USD 200 weekdays: **0%**
+
+### Risk / excursion evidence
+
+- maximum drawdown at primary cost: **USD 826.29**, approximately **165.26%** of the USD 500 reference equity
+- maximum consecutive losing trades: **9**
+- cumulative P&L over the worst losing-trade run: **-USD 207.81**
+- median structural stop: **1,935 ticks / 1.935 XAU / USD 19.35 gross**
+- mean structural stop: **2,030 ticks / 2.030 XAU / USD 20.30 gross**
+- maximum admitted structural stop observed: **3,956 ticks / 3.956 XAU / USD 39.56 gross**
+- median actual MFE: **1.880 XAU**
+- median counterfactual potential MFE: **1.880 XAU**
+
+### Bootstrap uncertainty
+
+Frozen 10,000-rep, 5-weekday moving-block bootstrap:
+
+- primary-cost expectancy point: **-USD 9.27/trade**
+- 95% expectancy interval: **[-USD 15.14, -USD 2.52]**
+- mean daily point: **-USD 2.16**
+- 95% mean-daily interval: **[-USD 3.60, -USD 0.57]**
+- zero-trade bootstrap resamples: **0**
+
+### Frozen-gate disposition
+
+The development minimum was:
+
+- **>=100 accepted trades**
+
+Observed:
+
+- **71 accepted trades**
+
+Therefore the development sample is formally **INSUFFICIENT_EVIDENCE** under the frozen minimum-count rule.
+
+Independently, the frozen historical-edge criteria require:
+
+- development primary-cost expectancy/trade > 0.
+
+Observed:
+
+- **-USD 9.27/trade**, with the entire 95% bootstrap interval below zero.
+
+Therefore Engine G v0.1 **cannot satisfy the frozen promotion criteria regardless of later validation/holdout performance**.
+
+### Decision
+
+**STOP EXP-016 v0.1 before validation. Do not expose validation or fresh holdout to Engine G v0.1 outcomes.**
+
+This is not a post-hoc rule change. It preserves untouched validation/holdout data because:
+
+1. the minimum development evidence count was not reached; and
+2. the mandatory development expectancy criterion already failed decisively.
+
+Engine G v0.1 is **not promoted**.
+
+No sensitivity diagnostic may be run, because the frozen specification requires the complete center-rule development/validation/holdout sequence before sensitivity; that primary sequence is being stopped at the failed development gate rather than exposing additional data that cannot restore eligibility.
+
+Any revised contextual-liquidity hypothesis must be a prospectively specified Engine G v0.2 or another new engine/experiment.
