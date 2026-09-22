@@ -1,6 +1,6 @@
 # EXP-013 — Fixed-Size Market-Universe Economic Feasibility Map
 
-**Status:** IN PROGRESS — RULES FROZEN BEFORE NEW MARKET RANKING RESULTS  
+**Status:** COMPLETE AS HISTORICAL DIAGNOSTIC — SAME-0.10-LOT FX RANKING IS SUPERSEDED  
 
 > **2026-09-22 sizing correction:** This experiment's FX ranking used 0.10 standard lot on each FX symbol. That was based on a misunderstanding of the user's intended "equivalent to 0.10 Gold" concept. The volatility statistics remain useful, but the FX dollar-capacity ranking and scanner-universe implication are **diagnostic only and not the forward selection rule**. Forward sizing must use symbol-specific P&L-equivalent lots for a normal ~USD 50 target, with explicit risk/margin gates.
 
@@ -16,7 +16,7 @@ Identify which liquid markets naturally provide enough intraday movement at a fi
 - USD 70;
 - USD 100+.
 
-This experiment is **not** a strategy backtest. It is an economic/volatility screen used to decide which markets deserve inclusion in the first cross-market opportunity scanner.
+This experiment is **not** a strategy backtest. Its volatility statistics remain useful, but its same-0.10-lot FX ranking and frozen scanner-universe implication are historical diagnostics only. They must not govern the current equivalent-sizing scanner design.
 
 ## Why this experiment is necessary
 
