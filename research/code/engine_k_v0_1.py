@@ -245,8 +245,9 @@ def _latest_confirmed_pivot(
 
 def next_active_entry(df1: pd.DataFrame, decision_start: pd.Timestamp) -> Optional[tuple[pd.Timestamp, float]]:
     end = decision_start + pd.Timedelta(minutes=5)
-    ts = df1["datetime"].to_numpy()
-    k = int(np.searchsorted(ts, np.datetime64(end.to_datetime64()), side="left"))
+    # Keep pandas' timezone-aware Timestamp semantics; numpy datetime64 would
+    # strip timezone metadata and can create tz-aware/tz-naive comparison errors.
+    k = int(df1["datetime"].searchsorted(end, side="left"))
     if k >= len(df1):
         return None
     row = df1.iloc[k]
@@ -254,8 +255,8 @@ def next_active_entry(df1: pd.DataFrame, decision_start: pd.Timestamp) -> Option
 
 
 def latest_completed_hour_context(h1: pd.DataFrame, decision_end: pd.Timestamp) -> Optional[dict]:
-    avail = h1["available_ts"].to_numpy()
-    k = int(np.searchsorted(avail, np.datetime64(decision_end.to_datetime64()), side="right")) - 1
+    # Search directly on the timezone-aware pandas Series to avoid stripping UTC.
+    k = int(h1["available_ts"].searchsorted(decision_end, side="right")) - 1
     if k < 0:
         return None
     row = h1.iloc[k]
