@@ -170,7 +170,8 @@ Completed before target labels/model outcomes:
 - 100x notional/equity cap;
 - USD100 research-margin cap at 1:500;
 - qualification probability = max(0.60, break-even + 0.05);
-- September final holdout explicitly not sufficient alone for live promotion.
+- September final holdout explicitly not sufficient alone for live promotion;
+- final raw-file integrity may cover the full pinned file, but state/feature preflight is restricted to training+calibration through June 30.
 
 Implementation commits:
 
@@ -184,6 +185,6 @@ Implementation commits:
 
 ## Immediate next action
 
-Run the final zero-outcome cleanup preflight against all 12 pinned datasets.
+Run the final zero-outcome cleanup preflight against all 12 pinned datasets. Full files may be checked for raw integrity, but structural-state/feature diagnostics must stop at June 30.
 
 Only after that passes may the primary model be fit on the eight execution-research markets using the frozen training period.
