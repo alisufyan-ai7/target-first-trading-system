@@ -412,3 +412,18 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Clarification before outcomes:** reporting counters were completed for valid Asian weekdays and aligned long/short context events, and the 20-bar unarmed timeout uses `pullback_timeout_20`. No frozen threshold or causal rule changed.
 
 **Next:** the only permitted outcome run is combined development Jan-2023 through Feb-2025. Validation/holdout remain sealed. The development workflow is implemented but untriggered at this checkpoint.
+
+
+## 2026-09-23 — Stop Engine I v0.1 after decisive development failure
+
+**Decision:** Stop Engine I v0.1 before validation. Do not tune the same session-expansion/controlled-pullback continuation center rule on the inspected development pool.
+
+**Evidence:** 197 accepted trades; T40 hit rate 24.37%; gross expectancy about -USD0.15/trade; primary-cost expectancy about -USD5.15/trade; PF 0.631; total net -USD1,015.49; max drawdown USD1,060.90. DEV-A expectancy about -USD6.20/trade and DEV-B about -USD4.09/trade. The 95% moving-block bootstrap expectancy interval was approximately -USD8.38 to -USD1.94.
+
+**Gate:** only the >=100 trade-count requirement passed. Combined expectancy, both subperiod expectancy tests, PF, drawdown and recovery factor all failed.
+
+**Interpretation:** Engine I fixed the prior H-family sparsity problem but did not establish a cost-adjusted continuation edge. Because gross expectancy itself was approximately flat-to-negative and the primary-cost bootstrap interval was entirely negative, the failure is decisive rather than a case for threshold tuning.
+
+**Protection:** Mar-Aug 2025 validation and Sep-2025 through Feb-2026 fresh holdout were not loaded or inspected.
+
+**Next:** move to a genuinely different prospectively specified engine family. Do not create a rescue parameter grid, switch the actual target after seeing diagnostics, or reopen G/H tuning. EXP-015 remains paused.
