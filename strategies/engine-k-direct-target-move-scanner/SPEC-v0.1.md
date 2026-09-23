@@ -334,38 +334,44 @@ The diagnostic baseline cannot replace the primary model after seeing final hold
 
 ## 13. Probability calibration
 
+Exact pinned data provenance:
+
+- `research/provenance/EXP-022-wave1-data-manifest.md`.
+
 Training model fit:
 
-- 2026-03-12 through 2026-04-30.
+- 2026-03-23 through 2026-05-31.
 
 Probability calibration:
 
-- 2026-05-01 through 2026-05-31;
+- 2026-06-01 through 2026-06-30;
 - sigmoid/Platt calibration only.
 
 No threshold tuning on later periods.
 
 ## 14. Evaluation periods
 
-Because earlier project work already inspected parts of 2026, distinguish secondary from fresher evidence.
+The currently pinned rolling public samples share coverage beginning 2026-03-23 and extending through 2026-09-23.
+
+2026-09-23 is excluded because it is a potentially incomplete current UTC day.
 
 ### Training
 
-- 2026-03-12 through 2026-04-30.
+- 2026-03-23 through 2026-05-31.
 
 ### Calibration
 
-- 2026-05-01 through 2026-05-31.
+- 2026-06-01 through 2026-06-30.
 
 ### Historical secondary test
 
-- 2026-06-01 through 2026-08-20.
+- 2026-07-01 through 2026-08-31.
 
-This is not treated as pristine because prior project work touched this period.
+This is not treated as pristine because prior project work touched related 2026 periods.
 
 ### Fresh final common-sample holdout
 
-- 2026-08-21 through 2026-09-11 where the common external sample is available.
+- 2026-09-01 through 2026-09-22.
 
 Do not change model features, model hyperparameters, target fractions, structural stop, or qualification logic after final-holdout inspection.
 
