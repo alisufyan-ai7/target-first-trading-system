@@ -95,6 +95,7 @@ for(const x of forbidden){
 }
 
 const engineText=fs.readFileSync("research/code/engine-i-v0.1.js","utf8");
+const engineSha256=crypto.createHash("sha256").update(engineText,"utf8").digest("hex");
 assert(engineText.includes("lastCloseBefore(active15,startTs)"),"missing_strict_context_path");
 assert(engineText.includes("stop_before_target"),"missing_conservative_same_bar");
 assert(engineText.includes("side_already_consumed_today"),"missing_first_side_consumption");
@@ -107,6 +108,8 @@ const out={
   engine_outcomes_calculated:false,
   development_backtest_run:false,
   validation_or_holdout_loaded:false,
+  tested_repository_sha:process.env.GITHUB_SHA||null,
+  engine_file_sha256:engineSha256,
   source_repo:"kevingtlin/Market-Data-Lab",
   source_commit:"922f83a60cc574e7395fb27397077288055a1ef6",
   self_test:tests,
