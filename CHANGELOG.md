@@ -2,6 +2,11 @@
 
 ## 2026-09-23
 
+- Froze Engine H v0.3 / EXP-019 prospectively with post-raid confirmed 1m structural stops, fixed actual T40 target, and T30/T50 target-ladder diagnostics.
+- Expanded v0.3 development backward into complete previously unused 2023 data instead of lowering the >=100 evidence threshold; froze DEV-A (2023) and DEV-B (Jan-2024-Feb-2025) stability checks.
+- EXP-019 development produced 58 accepted trades, primary-cost expectancy about -USD4.52/trade, PF about 0.703, and 95% bootstrap expectancy interval about -USD11.60 to +USD2.69.
+- Both development subperiods were negative (DEV-A about -USD7.18/trade; DEV-B about -USD1.24/trade). Stopped H v0.3 before validation and paused further immediate iteration of the H thesis family.
+
 - Froze Engine H v0.2 / EXP-018 prospectively with simplified confirmation: MSS within 20 active M1 bars followed by next-active-M1-open entry; removed v0.1 displacement/new-FVG/retracement requirements.
 - Ran EXP-018 development only. Of 180 in-window raids, 69 reached next-open economic admission, but only 6 passed all frozen geometry/risk gates versus the >=100 minimum.
 - H v0.2 primary-cost expectancy was approximately +USD0.08/trade with PF about 1.004 and 95% bootstrap expectancy interval about -USD32.65 to +USD40.00; classified INSUFFICIENT EVIDENCE.
