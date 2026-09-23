@@ -330,3 +330,73 @@ with Dec-2022 warm-up, DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025.
 Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain uninspected and must not be downloaded or run.
 
 **Development backtest started at this checkpoint: NO.**
+
+
+## Checkpoint 2 — development failed; validation forbidden
+
+**Development run:** GitHub Actions run `35844194955`  
+**Result commit:** `a891dc1aa956151df1b87f6c9e03daae2dabf29b`  
+**Result file:** `research/results/EXP-020-development-summary-v0.1.json`  
+**Validation/holdout loaded:** NO
+
+### Combined development result
+
+Jan-2023 through Feb-2025:
+
+- accepted filled trades: **197**;
+- frozen minimum count: >=100 — **PASS**;
+- T40 hit rate: **24.37%**;
+- primary-cost expectancy: **-USD5.15/trade** — **FAIL**;
+- primary-cost PF: **0.631** — **FAIL**;
+- total primary-cost P&L: **-USD1,015.49**;
+- max drawdown: **USD1,060.90** — **FAIL** versus <=USD200;
+- recovery factor: **-0.957** — **FAIL**;
+- bootstrap 95% primary-cost expectancy interval: **[-USD8.38, -USD1.94]**;
+- bootstrap 95% mean eligible-weekday P&L interval: **[-USD2.98, -USD0.66]**.
+
+Gross expectancy before transaction cost was already approximately **-USD0.15/trade**, so the development failure is not merely a transaction-cost artifact.
+
+### DEV-A — calendar 2023
+
+- accepted trades: **99**;
+- T40 hit rate: **20.20%**;
+- primary-cost expectancy: **-USD6.20/trade** — **FAIL**;
+- primary-cost PF: **0.550**;
+- total net: **-USD614.24**;
+- max drawdown: **USD674.77**.
+
+### DEV-B — Jan-2024 through Feb-2025
+
+- accepted trades: **98**;
+- T40 hit rate: **28.57%**;
+- primary-cost expectancy: **-USD4.09/trade** — **FAIL**;
+- primary-cost PF: **0.711**;
+- total net: **-USD401.25**;
+- max drawdown: **USD458.80**.
+
+DEV-B improved in gross terms to approximately +USD0.91/trade before cost, but still failed decisively at the frozen primary cost and did not provide enough economic headroom for deployment.
+
+### Frozen gate disposition
+
+- accepted >=100: PASS;
+- combined expectancy >0: FAIL;
+- DEV-A expectancy >0: FAIL;
+- DEV-B expectancy >0: FAIL;
+- combined PF >=1.10: FAIL;
+- max drawdown <=USD200: FAIL;
+- recovery factor >=1.0: FAIL;
+- causal/provenance defect observed: NO.
+
+**Final EXP-020 development disposition: FAIL.**
+
+Engine I v0.1 is stopped before validation.
+
+Do not:
+
+- run Mar-Aug 2025 validation;
+- run Sep-2025 through Feb-2026 fresh holdout;
+- switch the actual target from T40 based on the diagnostic ladder;
+- create a parameter grid around the same rule;
+- loosen the pullback/expansion/context thresholds post hoc to rescue v0.1.
+
+The correct next action is to preserve validation/holdout and move to a genuinely different causal engine family.
