@@ -1,0 +1,675 @@
+{
+  "source_rows": 1182240,
+  "market_active_m1": 795011,
+  "split": {
+    "start": "2023-01-01T00:00:00.000Z",
+    "end_exclusive": "2025-03-01T00:00:00.000Z"
+  },
+  "event_counts": {
+    "active_5m": 153365,
+    "boundary_close_events": 64902,
+    "long_context_aligned": 13518,
+    "short_context_aligned": 10855,
+    "qualifying_expansions": 650,
+    "pullback_armed": 436,
+    "continuation_confirmed": 204
+  },
+  "setup_count": 37614,
+  "terminal_reasons": {
+    "weak_close_location": 2633,
+    "side_already_consumed_today": 2341,
+    "body_below_60pct": 6768,
+    "range_below_prior_median": 11981,
+    "direction_context_mismatch": 13241,
+    "boundary_hold_failed": 104,
+    "pullback_deeper_than_60": 255,
+    "pullback_timeout_20": 75,
+    "confirmation_timeout_20": 12,
+    "structural_risk_above_40": 7
+  },
+  "accepted_filled_trades": 197,
+  "exits": {
+    "exit_t40": 48,
+    "exit_stop": 140,
+    "exit_stop_entry_bar": 4,
+    "exit_timeout_120": 5
+  },
+  "target_hit_rate": 0.2436548223350254,
+  "stop_rate": 0.7309644670050761,
+  "timeout_rate": 0.025380710659898477,
+  "label_rates": {
+    "3000": {
+      "target": 61,
+      "stop": 135,
+      "horizon": 1,
+      "n": 197
+    },
+    "4000": {
+      "target": 48,
+      "stop": 144,
+      "horizon": 5,
+      "n": 197
+    },
+    "5000": {
+      "target": 33,
+      "stop": 151,
+      "horizon": 13,
+      "n": 197
+    },
+    "7000": {
+      "target": 20,
+      "stop": 154,
+      "horizon": 23,
+      "n": 197
+    },
+    "10000": {
+      "target": 11,
+      "stop": 155,
+      "horizon": 31,
+      "n": 197
+    }
+  },
+  "expectancy": {
+    "gross_usd": -0.1547715736040615,
+    "net_usd_0": -0.1547715736040615,
+    "net_usd_025": -2.6547715736040622,
+    "net_usd_050": -5.154771573604061
+  },
+  "profit_factor": {
+    "gross": 0.9849811833783232,
+    "net_0": 0.9849811833783232,
+    "net_025": 0.7814153522080399,
+    "net_050": 0.6314171433549174
+  },
+  "total_net_usd_050": -1015.49,
+  "weekdays": 565,
+  "valid_asia_weekdays": 558,
+  "daily": {
+    "mean": -1.7973274336283183,
+    "median": 0,
+    "losing_pct": 0.2407079646017699,
+    "le50_pct": 1,
+    "ge100_pct": 0,
+    "ge150_pct": 0,
+    "ge200_pct": 0
+  },
+  "max_drawdown_usd": 1060.9,
+  "recovery_factor": -0.9571967197662361,
+  "worst_losing_trade_run": {
+    "count": 18,
+    "netLoss": -277.33
+  },
+  "max_consecutive_losing_weekdays": 4,
+  "max_consecutive_le50_weekdays": 565,
+  "actual_mfe_ticks": {
+    "n": 197,
+    "mean": 1850.6649746192893,
+    "median": 1280,
+    "p10": 84.00000000000006,
+    "p90": 4000,
+    "min": 0,
+    "max": 4000
+  },
+  "actual_mae_ticks": {
+    "n": 197,
+    "mean": 1209.1065989847716,
+    "median": 991,
+    "p10": 315.4,
+    "p90": 2319.2,
+    "min": 0,
+    "max": 3811
+  },
+  "potential_mfe_ticks": {
+    "n": 197,
+    "mean": 2690.284263959391,
+    "median": 1280,
+    "p10": 84.00000000000006,
+    "p90": 7042.400000000001,
+    "min": 0,
+    "max": 13727
+  },
+  "potential_mae_ticks": {
+    "n": 197,
+    "mean": 1310.233502538071,
+    "median": 1071,
+    "p10": 471,
+    "p90": 2504.6000000000004,
+    "min": 0,
+    "max": 3891
+  },
+  "stop_distance_ticks": {
+    "n": 197,
+    "mean": 1497.8274111675128,
+    "median": 1311,
+    "p10": 653,
+    "p90": 2615.6,
+    "min": 361,
+    "max": 3891
+  },
+  "gross_stop_usd": {
+    "n": 197,
+    "mean": 14.97827411167513,
+    "median": 13.11,
+    "p10": 6.53,
+    "p90": 26.156000000000002,
+    "min": 3.61,
+    "max": 38.910000000000004
+  },
+  "expansion_range_ticks": {
+    "n": 197,
+    "mean": 2757.279187817259,
+    "median": 2390,
+    "p10": 1248.8,
+    "p90": 4768,
+    "min": 520,
+    "max": 11210
+  },
+  "expansion_body_ticks": {
+    "n": 197,
+    "mean": 2210.807106598985,
+    "median": 1800,
+    "p10": 940.2,
+    "p90": 3764.0000000000005,
+    "min": 380,
+    "max": 10630
+  },
+  "pullback_depth_ticks": {
+    "n": 197,
+    "mean": 1078.9137055837564,
+    "median": 920,
+    "p10": 418.8,
+    "p90": 1873.6000000000001,
+    "min": 191,
+    "max": 4621
+  },
+  "pullback_depth_fraction": {
+    "n": 197,
+    "mean": 0.39452717241784463,
+    "median": 0.3734567901234568,
+    "p10": 0.27129087779690186,
+    "p90": 0.5428367590140443,
+    "min": 0.25,
+    "max": 0.6
+  },
+  "expansion_to_pullback_ms": {
+    "n": 197,
+    "mean": 175431.47208121826,
+    "median": 60000,
+    "p10": 60000,
+    "p90": 360000,
+    "min": 60000,
+    "max": 1080000
+  },
+  "pullback_to_confirmation_ms": {
+    "n": 197,
+    "mean": 242741.11675126903,
+    "median": 180000,
+    "p10": 60000,
+    "p90": 480000,
+    "min": 60000,
+    "max": 1140000
+  },
+  "direction": {
+    "LONG": {
+      "n": 118,
+      "netUSD500": -776.2199999999999
+    },
+    "SHORT": {
+      "n": 79,
+      "netUSD500": -239.27000000000004
+    }
+  },
+  "bootstrap": {
+    "reps": 10000,
+    "seed": 20020,
+    "block_weekdays": 5,
+    "zero_trade_resamples": 0,
+    "expectancy_net_usd_050": {
+      "point": -5.154771573604061,
+      "lo": -8.383073076923077,
+      "hi": -1.9435701024327803
+    },
+    "mean_daily_net_usd_050": {
+      "point": -1.7973274336283183,
+      "lo": -2.978115044247786,
+      "hi": -0.6612207964601772
+    }
+  },
+  "development_subperiods": {
+    "DEV_A_2023": {
+      "split": {
+        "start": "2023-01-01T00:00:00.000Z",
+        "end_exclusive": "2024-01-01T00:00:00.000Z"
+      },
+      "setup_count": 17541,
+      "terminal_reasons": {
+        "weak_close_location": 1246,
+        "side_already_consumed_today": 1067,
+        "body_below_60pct": 3047,
+        "range_below_prior_median": 5627,
+        "direction_context_mismatch": 6243,
+        "boundary_hold_failed": 53,
+        "pullback_deeper_than_60": 121,
+        "pullback_timeout_20": 33,
+        "confirmation_timeout_20": 4,
+        "structural_risk_above_40": 1
+      },
+      "accepted_filled_trades": 99,
+      "exits": {
+        "exit_t40": 20,
+        "exit_stop": 74,
+        "exit_stop_entry_bar": 2,
+        "exit_timeout_120": 3
+      },
+      "target_hit_rate": 0.20202020202020202,
+      "stop_rate": 0.7676767676767676,
+      "timeout_rate": 0.030303030303030304,
+      "label_rates": {
+        "3000": {
+          "target": 25,
+          "stop": 73,
+          "horizon": 1,
+          "n": 99
+        },
+        "4000": {
+          "target": 20,
+          "stop": 76,
+          "horizon": 3,
+          "n": 99
+        },
+        "5000": {
+          "target": 11,
+          "stop": 80,
+          "horizon": 8,
+          "n": 99
+        },
+        "7000": {
+          "target": 4,
+          "stop": 81,
+          "horizon": 14,
+          "n": 99
+        },
+        "10000": {
+          "target": 2,
+          "stop": 82,
+          "horizon": 15,
+          "n": 99
+        }
+      },
+      "expectancy": {
+        "gross_usd": -1.2044444444444449,
+        "net_usd_0": -1.2044444444444449,
+        "net_usd_025": -3.7044444444444444,
+        "net_usd_050": -6.204444444444447
+      },
+      "profit_factor": {
+        "gross": 0.8790264490143765,
+        "net_0": 0.8790264490143765,
+        "net_025": 0.6880587239616563,
+        "net_050": 0.5502280931703856
+      },
+      "total_net_usd_050": -614.2400000000002,
+      "weekdays": 260,
+      "daily": {
+        "mean": -2.362461538461539,
+        "median": 0,
+        "losing_pct": 0.2653846153846154,
+        "le50_pct": 1,
+        "ge100_pct": 0,
+        "ge150_pct": 0,
+        "ge200_pct": 0
+      },
+      "max_drawdown_usd": 674.7700000000002,
+      "recovery_factor": -0.9102953599004106,
+      "worst_losing_trade_run": {
+        "count": 18,
+        "netLoss": -277.33
+      },
+      "actual_mfe_ticks": {
+        "n": 99,
+        "mean": 1620.050505050505,
+        "median": 1037,
+        "p10": 10,
+        "p90": 4000,
+        "min": 0,
+        "max": 4000
+      },
+      "actual_mae_ticks": {
+        "n": 99,
+        "mean": 1135.010101010101,
+        "median": 921,
+        "p10": 354.8,
+        "p90": 2492.8,
+        "min": 0,
+        "max": 3641
+      },
+      "potential_mfe_ticks": {
+        "n": 99,
+        "mean": 2082.7272727272725,
+        "median": 1037,
+        "p10": 10,
+        "p90": 5166.800000000001,
+        "min": 0,
+        "max": 12070
+      },
+      "potential_mae_ticks": {
+        "n": 99,
+        "mean": 1210.8989898989898,
+        "median": 971,
+        "p10": 459.00000000000006,
+        "p90": 2560.2000000000003,
+        "min": 150,
+        "max": 3721
+      },
+      "stop_distance_ticks": {
+        "n": 99,
+        "mean": 1343.4040404040404,
+        "median": 1041,
+        "p10": 590.4,
+        "p90": 2560.2000000000003,
+        "min": 361,
+        "max": 3721
+      },
+      "gross_stop_usd": {
+        "n": 99,
+        "mean": 13.434040404040394,
+        "median": 10.41,
+        "p10": 5.904,
+        "p90": 25.602000000000004,
+        "min": 3.61,
+        "max": 37.21
+      },
+      "expansion_range_ticks": {
+        "n": 99,
+        "mean": 2505.8585858585857,
+        "median": 2130,
+        "p10": 1120.8,
+        "p90": 4276,
+        "min": 520,
+        "max": 7240
+      },
+      "expansion_body_ticks": {
+        "n": 99,
+        "mean": 2002.3939393939395,
+        "median": 1730,
+        "p10": 826,
+        "p90": 3644.0000000000005,
+        "min": 380,
+        "max": 6236
+      },
+      "pullback_depth_ticks": {
+        "n": 99,
+        "mean": 984.8585858585859,
+        "median": 830,
+        "p10": 415.6,
+        "p90": 1732.4000000000005,
+        "min": 191,
+        "max": 2437
+      },
+      "pullback_depth_fraction": {
+        "n": 99,
+        "mean": 0.40331330385329295,
+        "median": 0.3937991670522906,
+        "p10": 0.2725025817555938,
+        "p90": 0.5447760339099553,
+        "min": 0.2519280205655527,
+        "max": 0.6
+      },
+      "expansion_to_pullback_ms": {
+        "n": 99,
+        "mean": 179393.9393939394,
+        "median": 120000,
+        "p10": 60000,
+        "p90": 372000.0000000002,
+        "min": 60000,
+        "max": 1080000
+      },
+      "pullback_to_confirmation_ms": {
+        "n": 99,
+        "mean": 253939.39393939395,
+        "median": 180000,
+        "p10": 60000,
+        "p90": 540000,
+        "min": 60000,
+        "max": 960000
+      },
+      "direction": {
+        "LONG": {
+          "n": 59,
+          "netUSD500": -392.36999999999995
+        },
+        "SHORT": {
+          "n": 40,
+          "netUSD500": -221.86999999999998
+        }
+      }
+    },
+    "DEV_B_2024_to_2025_02": {
+      "split": {
+        "start": "2024-01-01T00:00:00.000Z",
+        "end_exclusive": "2025-03-01T00:00:00.000Z"
+      },
+      "setup_count": 20073,
+      "terminal_reasons": {
+        "range_below_prior_median": 6354,
+        "body_below_60pct": 3721,
+        "direction_context_mismatch": 6998,
+        "weak_close_location": 1387,
+        "pullback_timeout_20": 42,
+        "side_already_consumed_today": 1274,
+        "pullback_deeper_than_60": 134,
+        "boundary_hold_failed": 51,
+        "confirmation_timeout_20": 8,
+        "structural_risk_above_40": 6
+      },
+      "accepted_filled_trades": 98,
+      "exits": {
+        "exit_stop": 66,
+        "exit_t40": 28,
+        "exit_timeout_120": 2,
+        "exit_stop_entry_bar": 2
+      },
+      "target_hit_rate": 0.2857142857142857,
+      "stop_rate": 0.6938775510204082,
+      "timeout_rate": 0.02040816326530612,
+      "label_rates": {
+        "3000": {
+          "target": 36,
+          "stop": 62,
+          "horizon": 0,
+          "n": 98
+        },
+        "4000": {
+          "target": 28,
+          "stop": 68,
+          "horizon": 2,
+          "n": 98
+        },
+        "5000": {
+          "target": 22,
+          "stop": 71,
+          "horizon": 5,
+          "n": 98
+        },
+        "7000": {
+          "target": 16,
+          "stop": 73,
+          "horizon": 9,
+          "n": 98
+        },
+        "10000": {
+          "target": 9,
+          "stop": 73,
+          "horizon": 16,
+          "n": 98
+        }
+      },
+      "expectancy": {
+        "gross_usd": 0.9056122448979592,
+        "net_usd_0": 0.9056122448979592,
+        "net_usd_025": -1.5943877551020411,
+        "net_usd_050": -4.094387755102041
+      },
+      "profit_factor": {
+        "gross": 1.0849729522715306,
+        "net_0": 1.0849729522715306,
+        "net_025": 0.8716052426147334,
+        "net_050": 0.7112166684659397
+      },
+      "total_net_usd_050": -401.25,
+      "weekdays": 305,
+      "daily": {
+        "mean": -1.3155737704918036,
+        "median": 0,
+        "losing_pct": 0.21967213114754097,
+        "le50_pct": 1,
+        "ge100_pct": 0,
+        "ge150_pct": 0,
+        "ge200_pct": 0
+      },
+      "max_drawdown_usd": 458.8000000000002,
+      "recovery_factor": -0.8745640802092411,
+      "worst_losing_trade_run": {
+        "count": 14,
+        "netLoss": -196.63000000000002
+      },
+      "actual_mfe_ticks": {
+        "n": 98,
+        "mean": 2083.6326530612246,
+        "median": 1671.5,
+        "p10": 232.1,
+        "p90": 4000,
+        "min": 0,
+        "max": 4000
+      },
+      "actual_mae_ticks": {
+        "n": 98,
+        "mean": 1283.9591836734694,
+        "median": 1171,
+        "p10": 304.3,
+        "p90": 2313.1,
+        "min": 0,
+        "max": 3811
+      },
+      "potential_mfe_ticks": {
+        "n": 98,
+        "mean": 3304.0408163265306,
+        "median": 1671.5,
+        "p10": 232.1,
+        "p90": 9835.099999999999,
+        "min": 0,
+        "max": 13727
+      },
+      "potential_mae_ticks": {
+        "n": 98,
+        "mean": 1410.5816326530612,
+        "median": 1314.5,
+        "p10": 473.1,
+        "p90": 2356.8999999999996,
+        "min": 0,
+        "max": 3891
+      },
+      "stop_distance_ticks": {
+        "n": 98,
+        "mean": 1653.8265306122448,
+        "median": 1507.5,
+        "p10": 801,
+        "p90": 2614.7,
+        "min": 471,
+        "max": 3891
+      },
+      "gross_stop_usd": {
+        "n": 98,
+        "mean": 16.538265306122447,
+        "median": 15.075,
+        "p10": 8.01,
+        "p90": 26.147000000000002,
+        "min": 4.71,
+        "max": 38.910000000000004
+      },
+      "expansion_range_ticks": {
+        "n": 98,
+        "mean": 3011.265306122449,
+        "median": 2620,
+        "p10": 1327,
+        "p90": 4953,
+        "min": 690,
+        "max": 11210
+      },
+      "expansion_body_ticks": {
+        "n": 98,
+        "mean": 2421.3469387755104,
+        "median": 2040.5,
+        "p10": 1006.0000000000001,
+        "p90": 3951.9999999999986,
+        "min": 480,
+        "max": 10630
+      },
+      "pullback_depth_ticks": {
+        "n": 98,
+        "mean": 1173.9285714285713,
+        "median": 965,
+        "p10": 427.90000000000003,
+        "p90": 1932.3999999999999,
+        "min": 200,
+        "max": 4621
+      },
+      "pullback_depth_fraction": {
+        "n": 98,
+        "mean": 0.3856513865799944,
+        "median": 0.357228144989339,
+        "p10": 0.27116666666666667,
+        "p90": 0.5360499522214941,
+        "min": 0.25,
+        "max": 0.5931558935361216
+      },
+      "expansion_to_pullback_ms": {
+        "n": 98,
+        "mean": 171428.57142857142,
+        "median": 60000,
+        "p10": 60000,
+        "p90": 360000,
+        "min": 60000,
+        "max": 900000
+      },
+      "pullback_to_confirmation_ms": {
+        "n": 98,
+        "mean": 231428.57142857142,
+        "median": 180000,
+        "p10": 60000,
+        "p90": 437999.9999999998,
+        "min": 60000,
+        "max": 1140000
+      },
+      "direction": {
+        "SHORT": {
+          "n": 39,
+          "netUSD500": -17.40000000000001
+        },
+        "LONG": {
+          "n": 59,
+          "netUSD500": -383.85
+        }
+      }
+    }
+  },
+  "development_gate": {
+    "accepted_ge_100": true,
+    "combined_expectancy_positive": false,
+    "dev_a_expectancy_positive": false,
+    "dev_b_expectancy_positive": false,
+    "combined_pf_ge_1_10": false,
+    "max_drawdown_le_200": false,
+    "recovery_factor_ge_1": false,
+    "pass": false
+  },
+  "execution_metadata": {
+    "engine_implementation": "research/code/engine-i-v0.1.js",
+    "data_source_repo": "kevingtlin/Market-Data-Lab",
+    "data_source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "split": "combined_development_2023_01_to_2025_02",
+    "primary_cost_xau": 0.5,
+    "primary_cost_usd": 5,
+    "validation_or_holdout_loaded": false
+  }
+}
