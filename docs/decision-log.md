@@ -427,3 +427,24 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Protection:** Mar-Aug 2025 validation and Sep-2025 through Feb-2026 fresh holdout were not loaded or inspected.
 
 **Next:** move to a genuinely different prospectively specified engine family. Do not create a rescue parameter grid, switch the actual target after seeing diagnostics, or reopen G/H tuning. EXP-015 remains paused.
+
+
+## 2026-09-23 — Freeze Engine J v0.1 / EXP-021 before outcomes
+
+**Decision:** After Engine I's decisive development failure, move immediately to a different causal family and freeze Engine J — Volatility Compression Breakout v0.1 before outcomes.
+
+**Causal family:** same-day 5m volatility baseline -> 30m realized-range compression / compact box -> strong 5m breakout expansion -> next-active-M1-open -> breakout-bar structural stop -> fixed T40.
+
+**Why different:** Engine J has no Asian/session boundary, established-direction filter, sweep/rejection, MSS/FVG, pullback, retest, or continuation confirmation. It tests direct expansion out of a low-volatility regime.
+
+**Frozen compression rule:** older 24 same-day active 5m bars define exact median range; latest six active 5m bars must average <=80% of that median and occupy a box <=3x the median range.
+
+**Frozen breakout rule:** candidate 5m bar opens from inside the relevant box boundary, closes outside it, has range >=1.25x baseline median, body >=60%, and closes in its directional outer 25%.
+
+**Entry/stop/target:** next-active-M1-open before 18:00 UTC; one tick beyond breakout-bar opposite extreme; <=4000-tick structural risk; T40 actual target; conservative stop-first same-bar handling.
+
+**Evidence design:** same reusable Jan-2023–Feb-2025 development pool with DEV-A/DEV-B; validation Mar-Aug 2025 and fresh holdout Sep-2025–Feb-2026 remain sealed; USD5 primary cost from run one; same >=100/expectancy/PF/drawdown/recovery gates.
+
+**Anti-mining:** one center configuration, no parameter grid. Zero Engine-J outcomes exist at freeze.
+
+**Next:** user review, implementation/preflight, then development only.
