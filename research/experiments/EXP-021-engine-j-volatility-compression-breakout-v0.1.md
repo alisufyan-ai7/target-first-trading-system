@@ -265,3 +265,96 @@ with Dec-2022 warm-up, DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025.
 Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain sealed and must not be downloaded or run.
 
 **Engine-J development backtest started at this checkpoint: NO.**
+
+
+## Checkpoint 2 — development failed; validation forbidden
+
+**Development run:** GitHub Actions run `35870120388`  
+**Result commit:** `f9034af1c8f86fb43561d51383e5b4164774dc09`  
+**Result file:** `research/results/EXP-021-development-summary-v0.1.json`  
+**Validation/holdout loaded:** NO
+
+### Combined development result
+
+Jan-2023 through Feb-2025:
+
+- eligible weekdays: **565**;
+- breakout-window 5m candidates: **80,350**;
+- compression-average passes: **14,410**;
+- compact-box passes: **14,347**;
+- qualifying breakouts: **349**;
+- accepted filled trades: **307**;
+- frozen minimum count >=100: **PASS**;
+- long trades: **147**;
+- short trades: **160**;
+- T40 hit rate: **27.04%**;
+- gross expectancy before transaction cost: **-USD0.15/trade**;
+- primary-cost expectancy: **-USD5.15/trade** — **FAIL**;
+- primary-cost PF: **0.671** — **FAIL**;
+- total primary-cost P&L: **-USD1,581.53**;
+- max drawdown: **USD1,659.93** — **FAIL** versus <=USD200;
+- recovery factor: **-0.953** — **FAIL**;
+- bootstrap 95% primary-cost expectancy interval: **[-USD7.93, -USD2.27]**;
+- bootstrap 95% mean eligible-weekday P&L interval: **[-USD4.36, -USD1.24]**.
+
+The combined gross expectancy is already slightly negative before transaction cost. Realistic cost does not merely weaken a positive edge; it pushes an already non-positive center result materially negative.
+
+### DEV-A — calendar 2023
+
+- accepted trades: **148**;
+- T40 hit rate: **20.95%**;
+- gross expectancy: **-USD1.95/trade**;
+- primary-cost expectancy: **-USD6.95/trade** — **FAIL**;
+- primary-cost PF: **0.543**;
+- total primary-cost P&L: **-USD1,028.85**;
+- max drawdown: **USD1,107.25**.
+
+### DEV-B — Jan-2024 through Feb-2025
+
+- accepted trades: **159**;
+- T40 hit rate: **32.70%**;
+- gross expectancy: **+USD1.52/trade**;
+- primary-cost expectancy: **-USD3.48/trade** — **FAIL**;
+- primary-cost PF: **0.784**;
+- total primary-cost P&L: **-USD552.68**;
+- max drawdown: **USD621.90**.
+
+DEV-B improved materially versus DEV-A and was positive before cost, but it still failed the frozen primary-cost economics and drawdown requirements. This does not authorize post-hoc compression/target tuning.
+
+### Target-first diagnostics
+
+From the same original entry/stop/horizon:
+
+- T30 target-before-stop: **106 / 307 = 34.53%**;
+- T40: **83 / 307 = 27.04%**;
+- T50: **65 / 307 = 21.17%**;
+- T70: **41 / 307 = 13.36%**;
+- T100: **12 / 307 = 3.91%**.
+
+These are diagnostics only. They do not authorize replacing the frozen T40 execution target after development.
+
+### Frozen gate disposition
+
+- accepted >=100: PASS;
+- combined primary-cost expectancy >0: FAIL;
+- DEV-A primary-cost expectancy >0: FAIL;
+- DEV-B primary-cost expectancy >0: FAIL;
+- combined primary-cost PF >=1.10: FAIL;
+- max drawdown <=USD200: FAIL;
+- recovery factor >=1.0: FAIL;
+- causal leakage absent: PASS;
+- optimistic same-bar handling absent: PASS;
+- provenance violation absent: PASS.
+
+**Final EXP-021 development disposition: FAIL.**
+
+Engine J v0.1 is stopped before validation.
+
+Do not:
+
+- run Mar-Aug 2025 validation;
+- run Sep-2025 through Feb-2026 fresh holdout;
+- switch actual execution from T40 to another target rung;
+- tune the 24+6 window, compression thresholds, breakout multiplier, session window, stop definition, or target distance on this inspected pool.
+
+The correct next action is to preserve validation/holdout and move to a genuinely different causal engine family.
