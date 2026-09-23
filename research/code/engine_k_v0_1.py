@@ -308,12 +308,21 @@ def next_active_entry(df1: pd.DataFrame, decision_start: pd.Timestamp) -> Option
 def latest_completed_hour_context(h1: pd.DataFrame, decision_end: pd.Timestamp) -> Optional[dict]:
     # Search directly on the timezone-aware pandas Series to avoid stripping UTC.
     k = int(h1["available_ts"].searchsorted(decision_end, side="right")) - 1
-    if k < 0:
+    if k < 20:
         return None
     row = h1.iloc[k]
     if pd.isna(row["mtr20"]) or float(row["mtr20"]) <= 0:
         return None
-    return {"mtr20": float(row["mtr20"]), "hour_ts": row["datetime"]}
+    prior20 = h1.iloc[k-20:k]["tr"].astype(float)
+    if len(prior20) != 20 or prior20.isna().any():
+        return None
+    pct = float((prior20 <= float(row["tr"])).mean())
+    return {
+        "mtr20": float(row["mtr20"]),
+        "hour_ts": row["datetime"],
+        "hourly_tr": float(row["tr"]),
+        "hourly_tr_percentile_prior20": pct,
+    }
 
 
 def usd_value_per_native_unit_1lot(
@@ -379,6 +388,118 @@ def floor_lot(x: float, step: float = RESEARCH_LOT_STEP) -> float:
     if not math.isfinite(x) or x <= 0:
         return 0.0
     return math.floor((x + 1e-12) / step) * step
+
+
+def _safe_ratio(num: float, den: float) -> Optional[float]:
+    if not math.isfinite(num) or not math.isfinite(den) or den == 0:
+        return None
+    return num / den
+
+
+def causal_state_features(
+    symbol: str,
+    b5: pd.DataFrame,
+    i: int,
+    direction: str,
+    entry: float,
+    stop: float,
+    hour_context: dict,
+) -> Optional[dict]:
+    """Materialize the frozen causal state features with no future bars."""
+    if i < 48 or direction not in ("long", "short"):
+        return None
+    row = b5.iloc[i]
+    vol5 = float(row["median_tr20_5m"])
+    if not math.isfinite(vol5) or vol5 <= 0:
+        return None
+    mtr20 = float(hour_context["mtr20"])
+    if not math.isfinite(mtr20) or mtr20 <= 0:
+        return None
+
+    d = 1.0 if direction == "long" else -1.0
+    close = float(row["close"])
+
+    def signed_move(back: int) -> float:
+        return d * (close - float(b5.iloc[i-back]["close"])) / vol5
+
+    def window_range(n: int) -> float:
+        x = b5.iloc[i-n+1:i+1]
+        return float(x["high"].max() - x["low"].min())
+
+    r15 = window_range(3)
+    r30 = window_range(6)
+    r60 = window_range(12)
+    r120 = window_range(24)
+
+    rh60 = float(row["range60_high"])
+    rl60 = float(row["range60_low"])
+    rh240 = float(row["range240_high"])
+    rl240 = float(row["range240_low"])
+
+    bar_range = float(row["high"] - row["low"])
+    if bar_range <= 0 or r60 <= 0 or r120 <= 0 or rh60 <= rl60 or rh240 <= rl240:
+        return None
+
+    body = abs(float(row["close"] - row["open"]))
+    upper_wick = float(row["high"] - max(row["open"], row["close"]))
+    lower_wick = float(min(row["open"], row["close"]) - row["low"])
+
+    last3 = b5.iloc[i-2:i+1]
+    prior12 = b5.iloc[i-14:i-2]
+    prior12_med_tr = float(prior12["tr"].median()) if len(prior12) == 12 else math.nan
+    last3_mean_tr = float(last3["tr"].mean())
+    if not math.isfinite(prior12_med_tr) or prior12_med_tr <= 0:
+        return None
+
+    balance_den = float((last3["high"] - last3["low"]).sum())
+    if balance_den <= 0:
+        return None
+    directional_body_balance = d * float((last3["close"] - last3["open"]).sum()) / balance_den
+
+    decision_end = row["datetime"] + pd.Timedelta(minutes=5)
+    minutes = decision_end.hour * 60 + decision_end.minute
+    angle = 2.0 * math.pi * minutes / (24.0 * 60.0)
+
+    features = {
+        "signed_move_5m_volnorm": signed_move(1),
+        "signed_move_15m_volnorm": signed_move(3),
+        "signed_move_30m_volnorm": signed_move(6),
+        "signed_move_60m_volnorm": signed_move(12),
+        "signed_move_120m_volnorm": signed_move(24),
+        "ema10_minus_ema30_dir_volnorm": d * float(row["ema10"] - row["ema30"]) / vol5,
+        "ema10_slope_15m_dir_volnorm": d * float(row["ema10"] - b5.iloc[i-3]["ema10"]) / vol5,
+        "ema30_slope_15m_dir_volnorm": d * float(row["ema30"] - b5.iloc[i-3]["ema30"]) / vol5,
+        "distance_to_60m_high_volnorm": (rh60 - close) / vol5,
+        "distance_from_60m_low_volnorm": (close - rl60) / vol5,
+        "position_in_60m_range": (close - rl60) / (rh60 - rl60),
+        "position_in_240m_range": (close - rl240) / (rh240 - rl240),
+        "tr5_over_median20_tr5": float(row["tr"]) / vol5,
+        "range15_over_range60": r15 / r60,
+        "range30_over_range120": r30 / r120,
+        "hourly_tr_percentile_prior20": float(hour_context["hourly_tr_percentile_prior20"]),
+        "compression_expansion_ratio": last3_mean_tr / prior12_med_tr,
+        "body_over_range": body / bar_range,
+        "upper_wick_over_range": upper_wick / bar_range,
+        "lower_wick_over_range": lower_wick / bar_range,
+        "prior3_directional_body_balance": directional_body_balance,
+        "stop_distance_native": abs(entry - stop),
+        "stop_distance_over_mtr20": abs(entry - stop) / mtr20,
+        "market_identity": symbol,
+        "direction": direction,
+        "utc_hour_sin": math.sin(angle),
+        "utc_hour_cos": math.cos(angle),
+        "weekday": int(decision_end.weekday()),
+    }
+    numeric = [v for v in features.values() if not isinstance(v, str)]
+    if not all(math.isfinite(float(v)) for v in numeric):
+        return None
+    return features
+
+
+def rung_features(common_features: dict, economics: dict) -> dict:
+    out = dict(common_features)
+    out["stop_risk_usd"] = float(economics["stop_risk_usd"])
+    return out
 
 
 def candidate_economics(
@@ -450,6 +571,8 @@ def preflight_states(
     short_structural = 0
     economic_rungs = 0
     state_examples = []
+    feature_complete_states = 0
+    feature_complete_rungs = 0
 
     usd_jpy_series = None
     if usd_jpy_df is not None:
@@ -510,6 +633,13 @@ def preflight_states(
                 if x.get("execution_admissible_pre_probability", False)
             )
 
+            common_features = causal_state_features(
+                symbol, b5, i, direction, entry, stop, hc
+            )
+            if common_features is not None:
+                feature_complete_states += 1
+                feature_complete_rungs += len(econ)
+
             if len(state_examples) < 5:
                 state_examples.append({
                     "decision": str(decision_end),
@@ -517,6 +647,9 @@ def preflight_states(
                     "entry": entry,
                     "stop": stop,
                     "mtr20": hc["mtr20"],
+                    "hourly_tr_percentile_prior20": hc["hourly_tr_percentile_prior20"],
+                    "feature_complete": common_features is not None,
+                    "features": common_features,
                     "economic": econ,
                 })
 
@@ -536,6 +669,8 @@ def preflight_states(
         "long_states": long_structural,
         "short_states": short_structural,
         "admissible_target_rungs": economic_rungs,
+        "feature_complete_states": feature_complete_states,
+        "feature_complete_rungs": feature_complete_rungs,
         "examples": state_examples,
     }
 
@@ -589,6 +724,32 @@ def self_tests() -> list[str]:
     max_notional = REFERENCE_EQUITY_USD * MAX_NOTIONAL_TO_EQUITY
     assert abs(max_notional / RESEARCH_LEVERAGE_REFERENCE - REFERENCE_EQUITY_USD * MAX_MARGIN_FRACTION_OF_EQUITY) < 1e-9
     passed.append("notional_margin_gate")
+
+    # Feature contract: 28 common causal features, plus rung-specific stop risk = 29.
+    toy5 = pd.DataFrame({
+        "datetime": pd.date_range("2026-01-05T00:00:00Z", periods=60, freq="5min"),
+        "open": np.linspace(100,106,60),
+        "high": np.linspace(100.2,106.2,60),
+        "low": np.linspace(99.8,105.8,60),
+        "close": np.linspace(100.1,106.1,60),
+        "volume": np.ones(60),
+    })
+    toy5 = add_true_range(toy5)
+    toy5["ema10"] = toy5["close"].ewm(span=10,adjust=False).mean()
+    toy5["ema30"] = toy5["close"].ewm(span=30,adjust=False).mean()
+    toy5["range60_high"] = toy5["high"].rolling(12,min_periods=12).max()
+    toy5["range60_low"] = toy5["low"].rolling(12,min_periods=12).min()
+    toy5["range240_high"] = toy5["high"].rolling(48,min_periods=48).max()
+    toy5["range240_low"] = toy5["low"].rolling(48,min_periods=48).min()
+    toy5["median_tr20_5m"] = toy5["tr"].rolling(20,min_periods=20).median()
+    cf = causal_state_features(
+        "EURUSD", toy5, 55, "long", 106.0, 105.5,
+        {"mtr20":2.0,"hourly_tr_percentile_prior20":0.5},
+    )
+    assert cf is not None and len(cf) == 28
+    rf = rung_features(cf, {"stop_risk_usd":12.0})
+    assert len(rf) == 29 and rf["stop_risk_usd"] == 12.0
+    passed.append("feature_contract_29")
 
     # Entry must not jump across a long closure.
     toy = pd.DataFrame({
