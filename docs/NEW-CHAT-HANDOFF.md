@@ -47,6 +47,7 @@ Research/backtesting is the evidence layer used to build a profitable, reproduci
 22. `strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md`
 23. `research/experiments/EXP-022-engine-k-multimarket-direct-target-move-scanner-v0.1.md`
 24. `research/provenance/EXP-022-wave1-data-manifest.md`
+25. `research/provenance/EXP-022-symbol-admission-policy.md`
 
 Read the Badar/video and timeframe documents only when needed for historical context; do not use them as justification to keep retuning reversal engines.
 
