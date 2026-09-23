@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine I v0.1 / EXP-020 failed development; validation/holdout preserved; next distinct engine family required
+**Phase:** Phase 2 — Engine I failed development; Engine J v0.1 / EXP-021 prospectively frozen; zero Engine-J outcomes
 
 ## Authorized context
 
@@ -116,6 +116,7 @@ There is currently **no strategy engine promoted as a validated execution lead**
 - Engine H v0.2: **simplified confirmation to MSS-within-20 + next-active-M1-open entry. 69 setups reached economic admission, but only 6 passed target/stop/room/R:R/risk geometry. Primary-cost expectancy +USD0.08/trade with bootstrap CI -USD32.65 to +USD40.00; insufficient evidence; validation/holdout untouched.**
 - Engine H v0.3: **post-raid 1m stop + fixed T40 target, with expanded Jan-2023–Feb-2025 development. 58 accepted trades (<100), primary-cost expectancy -USD4.52/trade; DEV-A -USD7.18, DEV-B -USD1.24. Validation/holdout untouched; not promoted.**
 - Engine I v0.1: **development failed under EXP-020: 197 trades, T40 24.37%, primary-cost expectancy -USD5.15/trade, PF 0.631, DEV-A -USD6.20, DEV-B -USD4.09, max drawdown USD1,060.90; validation/holdout untouched; not promoted.**
+- Engine J v0.1: **prospectively frozen under EXP-021 as a volatility-compression/direct-breakout family; zero outcomes calculated; implementation not started.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -183,15 +184,42 @@ Interpretation: Engine I solved the sample-size problem but did not produce econ
 
 Do not create an Engine-I parameter grid or switch targets post hoc. Validation and holdout remain sealed.
 
+## Engine J / EXP-021 status
+
+**Engine J v0.1 is prospectively frozen and has not been run.**
+
+Frozen center thesis:
+
+~~~text
+same-day 5m volatility baseline
+    -> 30m realized-range compression into a compact box
+    -> strong 5m expansion closes outside that box
+    -> next-active-M1-open momentum entry
+    -> breakout-bar structural stop
+    -> fixed T40 target
+~~~
+
+Material differences from Engine I:
+
+- no Asian-session boundary;
+- no established-direction filter;
+- no pullback;
+- no continuation confirmation;
+- direct breakout entry;
+- structural stop comes from the breakout bar, not the pullback.
+
+Development remains Jan-2023 through Feb-2025, with DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025. Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain sealed.
+
 ## Exact next action
 
-Move to a **genuinely different engine family**.
+Do **not** backtest Engine J yet.
 
-Do not:
+1. review the frozen Engine-J v0.1 specification;
+2. implement exact-arithmetic Engine-J reference code;
+3. add unit/causality tests and a development-only harness;
+4. re-verify the frozen 27-file development manifest with zero Engine-J outcomes;
+5. checkpoint preflight;
+6. only then run development;
+7. stop before validation on any failed frozen gate.
 
-- run Engine-I validation or holdout;
-- create Engine I v0.2 as a default rescue;
-- resume Engine G/H reversal tuning;
-- resume EXP-015 before a reproducible engine validates.
-
-The next engine should be frozen prospectively with enough natural development frequency, realistic costs from run one, and the same validation/holdout discipline.
+EXP-015 remains paused.
