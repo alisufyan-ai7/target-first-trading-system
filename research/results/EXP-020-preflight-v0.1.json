@@ -5,6 +5,8 @@
   "engine_outcomes_calculated": false,
   "development_backtest_run": false,
   "validation_or_holdout_loaded": false,
+  "tested_repository_sha": "0fa662744b08c14d7f52709986b5c6dab9ec0e1a",
+  "engine_file_sha256": "2037c20640476b254e3ffb04069f1ab0556e11cd1fb1cf41ffae55d0c4c61ac4",
   "source_repo": "kevingtlin/Market-Data-Lab",
   "source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
   "self_test": {
