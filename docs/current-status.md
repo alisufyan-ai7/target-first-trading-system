@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine G failed; Engine H v0.1/v0.2 insufficient evidence; validation/holdout preserved
+**Phase:** Phase 2 — Engine G failed; Engine H v0.1/v0.2 insufficient, v0.3 failed development; validation/holdout preserved
 
 ## Authorized context
 
@@ -114,6 +114,7 @@ There is currently **no strategy engine promoted as a validated execution lead**
 - Engine G v0.1: **prospectively frozen, then failed the EXP-016 development gate: 71 accepted trades (<100 minimum), -USD 9.27/trade at primary cost, bootstrap expectancy CI entirely below zero. Validation/holdout remain untouched; not promoted.**
 - Engine H v0.1: **prospectively frozen from the two video motifs, then produced only 2 accepted development trades from 180 in-window raids versus the >=100 minimum. Formally insufficient evidence; validation/holdout untouched; not promoted.**
 - Engine H v0.2: **simplified confirmation to MSS-within-20 + next-active-M1-open entry. 69 setups reached economic admission, but only 6 passed target/stop/room/R:R/risk geometry. Primary-cost expectancy +USD0.08/trade with bootstrap CI -USD32.65 to +USD40.00; insufficient evidence; validation/holdout untouched.**
+- Engine H v0.3: **post-raid 1m stop + fixed T40 target, with expanded Jan-2023–Feb-2025 development. 58 accepted trades (<100), primary-cost expectancy -USD4.52/trade; DEV-A -USD7.18, DEV-B -USD1.24. Validation/holdout untouched; not promoted.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -160,16 +161,16 @@ EXP-015 remains paused until at least one reproducible engine validates.
 
 ## Exact next action
 
-Do not inspect validation/holdout for Engine G v0.1, Engine H v0.1, or Engine H v0.2, and do not retune any frozen version.
+Do not inspect validation/holdout for Engine G v0.1 or Engine H v0.1/v0.2/v0.3, and do not retune any frozen version.
 
-The key new evidence is architectural: H v0.2's simplified confirmation produced **69 causal MSS/next-open admission candidates**, but only **6** survived the economic geometry. The remaining bottleneck is therefore not primarily confirmation anymore; it is the combination of:
+Engine H has now tested three materially different confirmation/economic architectures around the same video-derived location thesis:
 
-- opposite-range target;
-- sweep-extreme structural stop;
-- >=3.000-XAU target room;
-- >=2.0 reward/risk;
-- <=USD40 gross structural risk.
+- v0.1: too restrictive;
+- v0.2: confirmation simplified, but economic geometry left only 6 trades;
+- v0.3: post-raid lower-timeframe stop + fixed T40 increased admissible trades to 58 over 26 development months, but cost-adjusted expectancy was negative in both predeclared development subperiods.
 
-A next experiment should prospectively test a different target/stop architecture while preserving the useful range-raid-into-pre-existing-FVG location concept. It must be versioned as Engine H v0.3 or a new engine before any outcome calculation.
+This is sufficient evidence to stop iterating the same H location thesis for now rather than continuing version-by-version target/stop tuning.
+
+The next engine should be a genuinely different hypothesis family—preferably continuation/session expansion or another independently motivated setup—prospectively frozen before outcomes.
 
 EXP-015 remains paused until at least one reproducible engine validates.
