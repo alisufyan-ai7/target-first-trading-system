@@ -110,3 +110,8 @@
 - Reclassified EXP-013 same-0.10-lot FX market ranking as a historical diagnostic, not the forward scanner-universe rule.
 - Strengthened daily-distribution metrics to include median daily P&L and 5-day rolling consistency.
 - Added explicit common-factor/correlation exposure controls to the system risk framework.
+
+- Frozen Engine I v0.1 / EXP-020 prospectively before any Engine-I outcome calculation.
+- Engine I changes causal family to session expansion/continuation: 15m direction -> Asian boundary expansion -> controlled pullback -> 1m continuation -> structural pullback stop -> T40.
+- Frozen Jan-2023–Feb-2025 development with DEV-A/DEV-B stability, Mar-Aug 2025 validation, Sep-2025–Feb-2026 fresh holdout, USD5 primary round-trip cost, and >=100-trade / expectancy / PF / drawdown gates.
+- Explicitly prohibited an Engine-I v0.1 parameter grid or post-failure sensitivity rescue; next checkpoint is user approval plus implementation/provenance verification, not a backtest.
