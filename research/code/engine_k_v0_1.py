@@ -1,0 +1,453 @@
+#!/usr/bin/env python3
+"""Engine K v0.1 causal market-state utilities.
+
+This module intentionally separates:
+- causal data/state construction (safe for preflight)
+from
+- future target labeling/model evaluation (development runner only).
+
+External datasets are research-data transport, not project context.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import io
+import math
+import urllib.request
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, Iterable, Optional
+
+import numpy as np
+import pandas as pd
+
+REFERENCE_EQUITY_USD = 500.0
+PRIMARY_STOP_RISK_USD = 20.0
+RESEARCH_LOT_STEP = 0.01
+
+SOURCES = {
+    "XAUUSD": {
+        "repo": "getdata-finance/xauusd-1m-ohlcv-metals-historical-data",
+        "commit": "8b1cea156045bda7aefa2245d202cf0a8fd04bb1",
+        "file": "XAUUSD_1m.csv",
+        "blob": "8ff56a9776ab68d2aad4f2ef5d039874603a06e2",
+        "rows": 179921,
+        "kind": "xau",
+    },
+    "EURUSD": {
+        "repo": "getdata-finance/eurusd-1m-ohlcv-forex-historical-data",
+        "commit": "d7c7be3ebabea6829ac0828ff0fe14c2e567e1e3",
+        "file": "EURUSD_1m.csv",
+        "blob": "a3b314549440faabf0f6ef3051087a6ba72582b5",
+        "rows": 189940,
+        "kind": "usd_quote",
+    },
+    "GBPUSD": {
+        "repo": "getdata-finance/gbpusd-1m-ohlcv-forex-historical-data",
+        "commit": "2ff10e3bfd0160a93afe6c867158083e07d966d6",
+        "file": "GBPUSD_1m.csv",
+        "blob": "c08632a8c65e358efcb0146a2ab27084ef12b75a",
+        "rows": 189876,
+        "kind": "usd_quote",
+    },
+    "USDJPY": {
+        "repo": "getdata-finance/usdjpy-1m-ohlcv-forex-historical-data",
+        "commit": "ff31183928d89096d08cd3cf32316d3b42397bcb",
+        "file": "USDJPY_1m.csv",
+        "blob": "acd5f7e96c69a69f1193ae9c95fbfc6cdbfb777d",
+        "rows": 189765,
+        "kind": "jpy_quote",
+    },
+    "EURJPY": {
+        "repo": "getdata-finance/eurjpy-1m-ohlcv-forex-historical-data",
+        "commit": "eb85398a913fb6304b1ea17c661f9ec58891ce31",
+        "file": "EURJPY_1m.csv",
+        "blob": "f79f4acc7fd140a63a2c120f08516fb239b489f5",
+        "rows": 189916,
+        "kind": "eurjpy",
+    },
+    "AUDUSD": {
+        "repo": "getdata-finance/audusd-1m-ohlcv-forex-historical-data",
+        "commit": "97b572279e9f4cf83d8e40e69afb8d9a3b05d39f",
+        "file": "AUDUSD_1m.csv",
+        "blob": "d1604b891bbd4fb65cc4c06b8ec7b6d5813eeff3",
+        "rows": 189815,
+        "kind": "usd_quote",
+    },
+    "USDCAD": {
+        "repo": "getdata-finance/usdcad-1m-ohlcv-forex-historical-data",
+        "commit": "108c13fa875437fde58c11d89d987b1c64ee1e5d",
+        "file": "USDCAD_1m.csv",
+        "blob": "901411b8fdc223ec14ce473429e15ff58b62e83d",
+        "rows": 189719,
+        "kind": "cad_quote",
+    },
+    "USDCHF": {
+        "repo": "getdata-finance/usdchf-1m-ohlcv-forex-historical-data",
+        "commit": "545c371fd14537cff8cf52ca4ac8c67cae46f80f",
+        "file": "USDCHF_1m.csv",
+        "blob": "6ebec50b4c26380526b25f3d6ad3c65c0de11918",
+        "rows": 189553,
+        "kind": "chf_quote",
+    },
+    "XAGUSD": {
+        "repo": "getdata-finance/xagusd-1m-ohlcv-metals-historical-data",
+        "commit": "5e3f6bdee52b79ce0006d459fce7d324bb1fe36a",
+        "file": "XAGUSD_1m.csv",
+        "blob": "ef933e44d0430195d0d477f83ad5b8b7d690b900",
+        "rows": 180106,
+        "kind": "xag_forecast_only",
+    },
+}
+
+
+def raw_url(meta: dict) -> str:
+    return f"https://raw.githubusercontent.com/{meta['repo']}/{meta['commit']}/{meta['file']}"
+
+
+def git_blob_sha(data: bytes) -> str:
+    header = f"blob {len(data)}\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
+
+
+def download_pinned(symbol: str, cache_dir: Path) -> Path:
+    meta = SOURCES[symbol]
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    path = cache_dir / f"{symbol}_{meta['commit'][:12]}.csv"
+    if path.exists():
+        data = path.read_bytes()
+        if git_blob_sha(data) == meta["blob"]:
+            return path
+        path.unlink()
+
+    req = urllib.request.Request(
+        raw_url(meta),
+        headers={"User-Agent": "target-first-trading-system-engine-k/0.1"},
+    )
+    with urllib.request.urlopen(req, timeout=180) as resp:
+        data = resp.read()
+
+    got = git_blob_sha(data)
+    if got != meta["blob"]:
+        raise RuntimeError(f"{symbol}: blob SHA mismatch: expected {meta['blob']} got {got}")
+    path.write_bytes(data)
+    return path
+
+
+def load_csv(path: Path, symbol: str) -> pd.DataFrame:
+    df = pd.read_csv(path)
+    required = ["datetime", "open", "high", "low", "close", "volume"]
+    if list(df.columns[:6]) != required:
+        raise ValueError(f"{symbol}: unexpected columns {list(df.columns)}")
+
+    df = df[required].copy()
+    df["datetime"] = pd.to_datetime(df["datetime"], utc=True, errors="raise")
+    for c in ["open", "high", "low", "close", "volume"]:
+        df[c] = pd.to_numeric(df[c], errors="raise")
+
+    if len(df) != SOURCES[symbol]["rows"]:
+        raise ValueError(f"{symbol}: expected {SOURCES[symbol]['rows']} rows, got {len(df)}")
+    if df["datetime"].duplicated().any():
+        raise ValueError(f"{symbol}: duplicate timestamps")
+    if not df["datetime"].is_monotonic_increasing:
+        raise ValueError(f"{symbol}: timestamps not monotonic")
+    if (df[["open", "high", "low", "close"]] <= 0).any().any():
+        raise ValueError(f"{symbol}: non-positive price")
+    if (df["high"] < df[["open", "close", "low"]].max(axis=1)).any():
+        raise ValueError(f"{symbol}: invalid high geometry")
+    if (df["low"] > df[["open", "close", "high"]].min(axis=1)).any():
+        raise ValueError(f"{symbol}: invalid low geometry")
+
+    # Freeze experiment to complete days through Sep 22.
+    df = df[df["datetime"] < pd.Timestamp("2026-09-23", tz="UTC")].reset_index(drop=True)
+    return df
+
+
+def resample_ohlc(df: pd.DataFrame, rule: str) -> pd.DataFrame:
+    x = df.set_index("datetime")
+    out = x.resample(rule, label="left", closed="left").agg(
+        open=("open", "first"),
+        high=("high", "max"),
+        low=("low", "min"),
+        close=("close", "last"),
+        volume=("volume", "sum"),
+        n=("close", "count"),
+    )
+    out = out.dropna(subset=["open", "high", "low", "close"]).reset_index()
+    return out
+
+
+def add_true_range(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    prev = out["close"].shift(1)
+    out["tr"] = np.maximum.reduce([
+        (out["high"] - out["low"]).to_numpy(),
+        (out["high"] - prev).abs().fillna(0).to_numpy(),
+        (out["low"] - prev).abs().fillna(0).to_numpy(),
+    ])
+    return out
+
+
+def build_context(df1: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    b5 = add_true_range(resample_ohlc(df1, "5min"))
+    h1 = add_true_range(resample_ohlc(df1, "1h"))
+
+    # Hourly statistics become available only after the hour completes.
+    h1["available_ts"] = h1["datetime"] + pd.Timedelta(hours=1)
+    h1["mtr20"] = h1["tr"].rolling(20, min_periods=20).median()
+
+    # 5m feature foundations, all based on current/past completed bars.
+    b5["ema10"] = b5["close"].ewm(span=10, adjust=False).mean()
+    b5["ema30"] = b5["close"].ewm(span=30, adjust=False).mean()
+    b5["ret5"] = b5["close"].pct_change(1)
+    b5["ret15"] = b5["close"].pct_change(3)
+    b5["ret30"] = b5["close"].pct_change(6)
+    b5["ret60"] = b5["close"].pct_change(12)
+    b5["ret120"] = b5["close"].pct_change(24)
+    b5["range60_high"] = b5["high"].rolling(12, min_periods=12).max()
+    b5["range60_low"] = b5["low"].rolling(12, min_periods=12).min()
+    b5["range240_high"] = b5["high"].rolling(48, min_periods=48).max()
+    b5["range240_low"] = b5["low"].rolling(48, min_periods=48).min()
+    b5["median_tr20_5m"] = b5["tr"].rolling(20, min_periods=20).median()
+
+    # Strict 2-left / 2-right pivot. A pivot at j is only known after j+2 is complete.
+    b5["pivot_high_raw"] = (
+        (b5["high"] > b5["high"].shift(1))
+        & (b5["high"] > b5["high"].shift(2))
+        & (b5["high"] > b5["high"].shift(-1))
+        & (b5["high"] > b5["high"].shift(-2))
+    )
+    b5["pivot_low_raw"] = (
+        (b5["low"] < b5["low"].shift(1))
+        & (b5["low"] < b5["low"].shift(2))
+        & (b5["low"] < b5["low"].shift(-1))
+        & (b5["low"] < b5["low"].shift(-2))
+    )
+    return b5, h1
+
+
+def _latest_confirmed_pivot(
+    b5: pd.DataFrame, i: int, direction: str, max_age_bars: int = 12
+) -> Optional[float]:
+    # At decision bar i, pivot j can be used only if j+2 <= i.
+    jmax = i - 2
+    if jmax < 2:
+        return None
+    jmin = max(2, i - max_age_bars)
+    col = "pivot_low_raw" if direction == "long" else "pivot_high_raw"
+    px = "low" if direction == "long" else "high"
+    for j in range(jmax, jmin - 1, -1):
+        if bool(b5.iloc[j][col]):
+            return float(b5.iloc[j][px])
+    return None
+
+
+def next_active_entry(df1: pd.DataFrame, decision_start: pd.Timestamp) -> Optional[tuple[pd.Timestamp, float]]:
+    end = decision_start + pd.Timedelta(minutes=5)
+    ts = df1["datetime"].to_numpy()
+    k = int(np.searchsorted(ts, np.datetime64(end.to_datetime64()), side="left"))
+    if k >= len(df1):
+        return None
+    row = df1.iloc[k]
+    return row["datetime"], float(row["open"])
+
+
+def latest_completed_hour_context(h1: pd.DataFrame, decision_end: pd.Timestamp) -> Optional[dict]:
+    avail = h1["available_ts"].to_numpy()
+    k = int(np.searchsorted(avail, np.datetime64(decision_end.to_datetime64()), side="right")) - 1
+    if k < 0:
+        return None
+    row = h1.iloc[k]
+    if pd.isna(row["mtr20"]) or float(row["mtr20"]) <= 0:
+        return None
+    return {"mtr20": float(row["mtr20"]), "hour_ts": row["datetime"]}
+
+
+def usd_value_per_native_unit_1lot(
+    symbol: str,
+    entry: float,
+    usd_jpy: Optional[float] = None,
+) -> Optional[float]:
+    kind = SOURCES[symbol]["kind"]
+    if kind == "xau":
+        return 100.0  # USD per $1 XAU move at 1 lot under 100oz convention.
+    if kind == "usd_quote":
+        return 100000.0
+    if kind in ("jpy_quote", "cad_quote", "chf_quote"):
+        return 100000.0 / entry
+    if kind == "eurjpy":
+        if usd_jpy is None or usd_jpy <= 0:
+            return None
+        return 100000.0 / usd_jpy
+    return None
+
+
+def floor_lot(x: float, step: float = RESEARCH_LOT_STEP) -> float:
+    if not math.isfinite(x) or x <= 0:
+        return 0.0
+    return math.floor((x + 1e-12) / step) * step
+
+
+def candidate_economics(
+    symbol: str,
+    entry: float,
+    stop: float,
+    mtr20: float,
+    usd_jpy: Optional[float] = None,
+) -> Dict[str, dict]:
+    if symbol == "XAGUSD":
+        return {}
+    if symbol == "XAUUSD":
+        distances = {"T30": 3.0, "T40": 4.0, "T50": 5.0}
+        lots = {"T30": 0.10, "T40": 0.10, "T50": 0.10}
+        targets = {"T30": 30.0, "T40": 40.0, "T50": 50.0}
+    else:
+        distances = {"T30": 0.14*mtr20, "T40": 0.19*mtr20, "T50": 0.23*mtr20}
+        targets = {"T30": 30.0, "T40": 40.0, "T50": 50.0}
+        v = usd_value_per_native_unit_1lot(symbol, entry, usd_jpy)
+        if v is None or v <= 0:
+            return {}
+        lots = {k: floor_lot(targets[k] / (distances[k] * v)) for k in distances}
+
+    v = usd_value_per_native_unit_1lot(symbol, entry, usd_jpy)
+    if v is None:
+        return {}
+    stop_dist = abs(entry-stop)
+    out = {}
+    for k in distances:
+        lot = lots[k]
+        risk = stop_dist * v * lot
+        out[k] = {
+            "target_usd": targets[k],
+            "distance": distances[k],
+            "lot": lot,
+            "stop_risk_usd": risk,
+            "admissible_risk": bool(lot >= RESEARCH_LOT_STEP and risk <= PRIMARY_STOP_RISK_USD),
+        }
+    return out
+
+
+def preflight_states(
+    symbol: str,
+    df1: pd.DataFrame,
+    usd_jpy_df: Optional[pd.DataFrame] = None,
+) -> dict:
+    b5, h1 = build_context(df1)
+    # Exclude weekends and only score 00:00-20:00 decision-bar completion.
+    candidate_count = 0
+    long_structural = 0
+    short_structural = 0
+    economic_rungs = 0
+    state_examples = []
+
+    usd_jpy_series = None
+    if usd_jpy_df is not None:
+        usd_jpy_series = usd_jpy_df.set_index("datetime")["close"].sort_index()
+
+    for i in range(50, len(b5)):
+        row = b5.iloc[i]
+        decision_start = row["datetime"]
+        decision_end = decision_start + pd.Timedelta(minutes=5)
+        if decision_end.weekday() >= 5:
+            continue
+        minutes = decision_end.hour*60 + decision_end.minute
+        if not (0 <= minutes < 20*60):
+            continue
+        hc = latest_completed_hour_context(h1, decision_end)
+        if hc is None:
+            continue
+        nxt = next_active_entry(df1, decision_start)
+        if nxt is None:
+            continue
+        entry_ts, entry = nxt
+        if entry_ts.date() != decision_start.date():
+            continue
+
+        usd_jpy = None
+        if symbol == "EURJPY" and usd_jpy_series is not None:
+            pos = usd_jpy_series.index.searchsorted(entry_ts, side="right") - 1
+            if pos >= 0:
+                usd_jpy = float(usd_jpy_series.iloc[pos])
+
+        for direction in ("long", "short"):
+            p = _latest_confirmed_pivot(b5, i, direction)
+            if p is None:
+                continue
+            stop = p
+            # One research tick buffer.
+            if symbol in ("USDJPY","EURJPY"):
+                tick = 0.001
+            elif symbol == "XAUUSD":
+                tick = 0.001
+            else:
+                tick = 0.00001
+            stop = stop - tick if direction == "long" else stop + tick
+            if direction == "long" and not stop < entry:
+                continue
+            if direction == "short" and not stop > entry:
+                continue
+
+            if direction == "long":
+                long_structural += 1
+            else:
+                short_structural += 1
+            candidate_count += 1
+
+            econ = candidate_economics(symbol, entry, stop, hc["mtr20"], usd_jpy)
+            economic_rungs += sum(1 for x in econ.values() if x["admissible_risk"])
+
+            if len(state_examples) < 5:
+                state_examples.append({
+                    "decision": str(decision_end),
+                    "direction": direction,
+                    "entry": entry,
+                    "stop": stop,
+                    "mtr20": hc["mtr20"],
+                    "economic": econ,
+                })
+
+    return {
+        "symbol": symbol,
+        "m1_rows_after_cut": len(df1),
+        "first_ts": str(df1["datetime"].iloc[0]),
+        "last_ts": str(df1["datetime"].iloc[-1]),
+        "bars_5m": len(b5),
+        "bars_1h": len(h1),
+        "structural_states": candidate_count,
+        "long_states": long_structural,
+        "short_states": short_structural,
+        "admissible_target_rungs": economic_rungs,
+        "examples": state_examples,
+    }
+
+
+def self_tests() -> list[str]:
+    passed = []
+
+    # Git blob computation sanity.
+    data = b"hello\n"
+    expected = hashlib.sha1(f"blob {len(data)}\0".encode()+data).hexdigest()
+    assert git_blob_sha(data) == expected
+    passed.append("git_blob_sha")
+
+    # Lot floor never rounds upward.
+    for x in [0.001,0.019,0.021,1.237]:
+        y = floor_lot(x)
+        assert y <= x + 1e-12
+        assert abs((y / RESEARCH_LOT_STEP) - round(y/RESEARCH_LOT_STEP)) < 1e-9
+    passed.append("lot_floor")
+
+    # USD quote P&L math.
+    assert abs(usd_value_per_native_unit_1lot("EURUSD",1.2)-100000.0) < 1e-9
+    passed.append("usd_quote_value")
+
+    # XAU convention.
+    assert abs(usd_value_per_native_unit_1lot("XAUUSD",4000)-100.0) < 1e-9
+    passed.append("xau_value")
+
+    # JPY conversion.
+    assert abs(usd_value_per_native_unit_1lot("USDJPY",150)-666.6666666667) < 1e-6
+    passed.append("jpy_quote_value")
+
+    return passed
