@@ -17,7 +17,7 @@ _Last updated: 2026-09-23_
 | Engine H v0.1 | Recent range raid into pre-existing external 5m FVG -> 1m MSS/displacement/FVG -> opposite range target | **Development insufficient evidence: only 2 accepted trades vs >=100 minimum; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.2 | Same range/FVG raid -> 1m MSS within 20 active bars -> next-active-M1-open entry -> opposite range target | **Development insufficient evidence: 6 accepted trades vs >=100 minimum; +$0.08/trade at primary cost is statistically meaningless; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.3 | Same range/FVG raid + MSS/next-open -> post-raid 1m structural stop -> fixed T40 target | **Development failed: 58 trades (<100), -$4.52/trade at primary cost; DEV-A -$7.18 and DEV-B -$1.24; validation/holdout untouched; not promoted** |
-| Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Prospectively frozen under EXP-020; zero Engine-I outcomes calculated; validation/holdout untouched** |
+| Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Frozen and preflight-verified under EXP-020; zero outcomes calculated; development is next; validation/holdout untouched** |
 
 ## Current promotion state
 
@@ -86,4 +86,6 @@ Engine I is now the active prospective engine family.
 - development requires >=100 accepted trades, positive combined/DEV-A/DEV-B expectancy, PF >=1.10, max drawdown <=USD200, and recovery factor >=1.0;
 - no Engine-I parameter grid or rescue sensitivity is authorized.
 
-**Current next step:** user review/approval of the frozen specification, then implementation + provenance/causality verification. Do not launch the development backtest before that checkpoint.
+**Preflight checkpoint:** complete. Final result commit `61e2e81e95bb01b2ae891b3cb7814cb03efdea60`; all 27 development/warm-up files and 11 self/causality tests passed; zero outcomes calculated.
+
+**Current next step:** run combined Jan-2023 through Feb-2025 development only. Validation/holdout remain sealed unless all frozen development gates pass.
