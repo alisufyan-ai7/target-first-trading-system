@@ -86,3 +86,27 @@ Verification passed:
 No Engine-H-v0.3 development result existed when this checkpoint was committed.
 
 The next permitted computation is combined development only: Jan-2023 through Feb-2025, with Dec-2022 warm-up.
+
+### Development execution harness frozen before outcomes
+
+Development runner:
+
+- `research/code/run-engine-h-v0.3-development.js`
+- commit: `b2fc6ee55f4a5cbdb0057857db5f806125fa743c`
+
+Development workflow:
+
+- `.github/workflows/exp019-engine-h-v03-development.yml`
+- commit: `01d8ade1469bc52d30856624ee7219a27d6799cc`
+
+The workflow downloads only:
+
+- Dec-2022 warm-up;
+- Jan-Dec 2023 DEV-A;
+- Jan-2024 through Feb-2025 DEV-B.
+
+It does not download validation or holdout files.
+
+The runner verifies each loaded file's frozen Git blob SHA and byte count before calculating outcomes.
+
+**Engine-H-v0.3 outcomes calculated at this checkpoint: ZERO.**
