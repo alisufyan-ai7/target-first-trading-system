@@ -239,6 +239,13 @@ If no market-active M1 bar opens before 18:00:
 
 The synthetic market entry price is exactly that next active M1 `open_tick`; there is no favorable midpoint assumption and no pending limit order.
 
+If multiple still-valid Engine-H-v0.2 setups are scheduled for the same next market-active M1 open while flat, process them in deterministic priority order:
+
+1. earlier sweep-completion timestamp;
+2. if tied, lower setup ID.
+
+Each setup is tested against the frozen geometry/risk/room/R:R admission rules using that open. The first setup that passes becomes the open trade. All remaining same-open setups are terminated as `suppressed_one_open`. If an earlier-priority setup fails admission, the next setup may be tested at that same open.
+
 Because entry occurs at the bar open, the full OHLC of that entry bar is post-entry information for hit-testing and MFE/MAE.
 
 ## 12. Structural stop
