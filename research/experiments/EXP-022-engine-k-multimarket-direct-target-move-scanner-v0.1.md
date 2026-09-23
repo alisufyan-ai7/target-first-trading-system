@@ -1,6 +1,6 @@
 # EXP-022 — Engine K Multi-Market Direct Target-Move Scanner v0.1
 
-**Status:** FROZEN PROSPECTIVELY — PRE-OUTCOME IMPLEMENTATION/DATA CHECK NEXT  
+**Status:** FROZEN PROSPECTIVELY — CHECKPOINT 1 DATA PROVENANCE COMPLETE; PRE-OUTCOME IMPLEMENTATION NEXT  
 **Date:** 2026-09-23  
 **Strategy:** strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md  
 **Outcome status at freeze:** ZERO ENGINE-K OUTCOMES CALCULATED
@@ -52,16 +52,18 @@ Wave 2 target additions:
 
 ## Frozen split
 
-Common external sample:
+The currently pinned rolling public samples share coverage beginning 2026-03-23. The exact frozen source manifest is in `research/provenance/EXP-022-wave1-data-manifest.md`.
 
-- training: 2026-03-12–2026-04-30;
-- calibration: 2026-05-01–2026-05-31;
-- secondary test: 2026-06-01–2026-08-20;
-- final common-sample holdout: 2026-08-21–2026-09-11.
+Frozen split:
 
-The secondary period is explicitly not pristine because prior project experiments have inspected related 2026 data.
+- training: 2026-03-23 through 2026-05-31;
+- calibration: 2026-06-01 through 2026-06-30;
+- historical secondary test: 2026-07-01 through 2026-08-31;
+- final common-sample holdout: 2026-09-01 through 2026-09-22.
 
-The final common-sample holdout must remain untouched until model/features/qualification logic are frozen and preflight passes.
+2026-09-23 is excluded as a potentially incomplete current UTC day.
+
+The secondary period is not pristine because prior project work inspected related 2026 periods. The September final holdout must remain untouched until implementation, features, model, and qualification logic are frozen and preflight passes.
 
 ## Target logic
 
@@ -137,10 +139,11 @@ Per market and combined:
 
 ## Immediate next action
 
-Run Checkpoint 1 only:
+Checkpoint 1 is complete.
 
-- verify the documented Wave-1 public one-minute samples;
-- freeze exact repository/blob/date provenance;
-- confirm common date coverage;
-- document standard FX contract/pip conventions used strictly for research sizing;
-- do not calculate Engine-K model outcomes yet.
+Next:
+
+- implement Engine-K feature/candidate/preflight code against the pinned Wave-1 manifest;
+- verify causal feature construction and structural pivots with zero target/model outcomes;
+- checkpoint preflight;
+- then run training + calibration only.
