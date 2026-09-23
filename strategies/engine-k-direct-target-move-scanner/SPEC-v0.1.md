@@ -548,7 +548,8 @@ Before any Engine-K target labels or model performance were calculated, v0.1 was
 8. research primary/stress transaction-cost conventions frozen;
 9. stop-risk, notional and research-margin gates frozen;
 10. probability qualification tied to both the 60% floor and break-even economics;
-11. final September holdout classified as an initial OOS test, not sufficient live-promotion evidence.
+11. final September holdout classified as an initial OOS test, not sufficient live-promotion evidence;
+12. final preflight may verify raw pinned-file integrity across the full file, but candidate/state/feature diagnostics are restricted through June 30 so July-August and September state distributions are not inspected.
 
 **Engine-K target outcomes calculated at this checkpoint: NO.**  
 **Engine-K model outcomes calculated at this checkpoint: NO.**
