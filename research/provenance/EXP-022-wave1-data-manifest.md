@@ -166,3 +166,12 @@ Engine K v0.1 now requires:
 - long session/feed gaps may not be crossed by a delayed next-open entry.
 
 No target labels or model outcomes were used to make these cleanup amendments.
+
+
+## Later-period feature-distribution protection
+
+The final cleanup preflight may load the full pinned file only to verify immutable raw-file properties such as blob SHA, schema, row count, timestamp ordering and OHLC validity.
+
+Candidate construction, pivot counts, economic-rung counts, feature completeness and feature examples in the final authoritative preflight are restricted to **2026-03-23 through 2026-06-30**.
+
+July-August secondary-test and Sep-1–Sep-22 final-holdout state/feature distributions are not to be inspected by the final cleanup preflight.
