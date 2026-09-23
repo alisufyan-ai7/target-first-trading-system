@@ -355,3 +355,13 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Interpretation:** Do not interpret two positive/ mixed trades as edge. H v0.1 is insufficient evidence, not validated.
 
 **Next:** preserve validation/holdout untouched. Any simplified confirmation architecture must be a prospectively frozen H v0.2/new experiment rather than a post-hoc rewrite of v0.1.
+
+## 2026-09-23 — Stop Engine H v0.2 before validation
+
+**Decision:** Engine H v0.2 is not promoted and will not inspect validation or holdout.
+
+**Development evidence:** 180 in-window qualifying raids; 69 reached an MSS/next-open economic-admission decision; only 6 passed all frozen geometry/risk gates versus >=100 required. Primary-cost expectancy was approximately +USD0.08/trade, profit factor approximately 1.004, total net approximately +USD0.49, and the 95% block-bootstrap expectancy interval approximately -USD32.65 to +USD40.00.
+
+**Interpretation:** Simplifying confirmation from H v0.1 increased accepted trades from 2 to 6 but did not solve evidence scarcity. The dominant bottleneck moved to the target/stop/economic geometry: 24 candidates failed 3-XAU target room, 21 exceeded USD40 gross structural risk, 15 failed 2R, and 3 failed next-open geometry.
+
+**Next:** preserve validation/holdout untouched. Any revised target/stop architecture must be a new prospectively frozen H v0.3 or different engine; do not reinterpret the six-trade positive point estimate as edge.
