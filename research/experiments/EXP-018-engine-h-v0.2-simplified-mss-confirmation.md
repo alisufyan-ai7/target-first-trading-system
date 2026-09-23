@@ -86,3 +86,14 @@ Validation/holdout bootstrap expectancy lower bound >0.
 - validation/holdout still untouched: YES;
 - Engine-H-v0.2 outcomes calculated: NO;
 - next permitted outcome: DEVELOPMENT ONLY.
+
+## Pre-outcome deterministic same-open clarification
+
+Before any v0.2 outcome calculation, simultaneous next-open entries were made deterministic:
+
+1. earlier sweep completion timestamp;
+2. then lower setup ID.
+
+At a shared next active M1 open, setups are tested in that order against the already-frozen geometry/risk/room/R:R admission rules. The first passing setup opens the trade; remaining same-open setups become `suppressed_one_open`. A rejected earlier-priority setup does not block a later setup from being tested at that same open.
+
+**Engine-H-v0.2 outcomes calculated at this point: ZERO.**
