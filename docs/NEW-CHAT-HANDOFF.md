@@ -345,3 +345,50 @@ Do not:
 - create H v0.4 or reopen G/H reversal tuning.
 
 Current strategy action: move to a genuinely different prospectively frozen engine family. EXP-015 remains paused until one reproducible engine validates.
+
+
+## Engine J / EXP-021 prospective freeze
+
+After Engine I failed development, Engine J v0.1 — Volatility Compression Breakout — was prospectively frozen before any Engine-J outcome.
+
+Center rule:
+
+```text
+same-day 5m volatility baseline
+    -> 30m compression / compact box
+    -> strong 5m direct breakout
+    -> next-active-M1-open
+    -> breakout-bar structural stop
+    -> fixed T40
+```
+
+Key rules:
+
+- baseline = older 24 of previous 30 same-day active 5m bars;
+- compression = latest six active 5m bars;
+- compression average range <=80% of baseline median;
+- compression box width <=3.0x baseline median;
+- breakout range >=1.25x baseline median;
+- breakout body >=60%;
+- breakout close in outer 25%;
+- first qualifying breakout per side/day;
+- structural stop one tick beyond breakout-bar opposite extreme;
+- gross stop <=USD40-equivalent / 4000 ticks;
+- primary cost USD5;
+- T40 actual target;
+- same Jan-2023–Feb-2025 development and sealed validation/holdout;
+- same development/validation promotion gates;
+- no parameter grid.
+
+Files:
+
+- `strategies/engine-j-volatility-compression-breakout/SPEC-v0.1.md`;
+- `research/experiments/EXP-021-engine-j-volatility-compression-breakout-v0.1.md`.
+
+At this checkpoint:
+
+- Engine-J outcomes calculated: NO;
+- Engine-J implementation started: NO;
+- Engine-J development launched: NO.
+
+Next: review spec, implement/preflight, then development only.
