@@ -16,6 +16,7 @@ _Last updated: 2026-09-23_
 | Engine G v0.1 | Contextual liquidity reversal: HTF location -> liquidity sweep -> MSS -> displacement/FVG -> S1 | **Development gate failed: 71 accepted trades (<100 minimum), -$9.27/trade at primary cost, bootstrap CI entirely negative; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.1 | Recent range raid into pre-existing external 5m FVG -> 1m MSS/displacement/FVG -> opposite range target | **Development insufficient evidence: only 2 accepted trades vs >=100 minimum; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.2 | Same range/FVG raid -> 1m MSS within 20 active bars -> next-active-M1-open entry -> opposite range target | **Development insufficient evidence: 6 accepted trades vs >=100 minimum; +$0.08/trade at primary cost is statistically meaningless; validation/holdout preserved untouched; not promoted** |
+| Engine H v0.3 | Same range/FVG raid + MSS/next-open -> post-raid 1m structural stop -> fixed T40 target | **Development failed: 58 trades (<100), -$4.52/trade at primary cost; DEV-A -$7.18 and DEV-B -$1.24; validation/holdout untouched; not promoted** |
 
 ## Current promotion state
 
@@ -64,10 +65,10 @@ Do not let a generic broad-pivot candidate universe silently replace validated e
 
 Engine G v0.1 failed its development gate and is not promoted.
 
-Engine H v0.1 was prospectively frozen from the video motifs and produced only 2 accepted development trades.
+Engine H v0.1 and v0.2 were insufficient-evidence development results.
 
-Engine H v0.2 then simplified the confirmation to MSS-within-20 plus next-active-M1-open entry. It produced 69 MSS/next-open admission candidates but only 6 accepted trades because the frozen opposite-range target / sweep-stop / 3-XAU / 2R / USD40 geometry rejected nearly all of them. Primary-cost expectancy was approximately +USD0.08/trade with an extremely wide bootstrap interval, so the result is insufficient evidence.
+Engine H v0.3 prospectively replaced the sweep-extreme/opposite-range geometry with a post-raid 1m structural stop and fixed T40 target, and expanded development backward into unused 2023 data rather than lowering the evidence standard. It produced 58 accepted trades, still below the >=100 minimum, with primary-cost expectancy about -USD4.52/trade. Both predeclared development subperiods were negative: DEV-A about -USD7.18/trade and DEV-B about -USD1.24/trade.
 
-Do not retune any frozen version. Validation and fresh holdout remain untouched.
+Do not retune any frozen H version. Validation and fresh holdout remain untouched.
 
 EXP-015 remains paused until at least one reproducible engine validates.
