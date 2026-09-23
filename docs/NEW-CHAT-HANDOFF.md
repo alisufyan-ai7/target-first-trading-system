@@ -392,3 +392,34 @@ At this checkpoint:
 - Engine-J development launched: NO.
 
 Next: review spec, implement/preflight, then development only.
+
+
+## Engine J / EXP-021 implementation checkpoint
+
+Engine J v0.1 is now implemented and preflight-verified with **zero Engine-J outcomes calculated**.
+
+Reference implementation:
+
+- `research/code/engine-j-v0.1.js`;
+- final preflight-ready implementation commit: `a59cc2cf1a48b49c6e76a7da99aa7ed51dd56064`.
+
+Harnesses:
+
+- `research/code/run-engine-j-preflight.js`;
+- `research/code/run-engine-j-development.js`;
+- `.github/workflows/exp021-engine-j-preflight.yml`;
+- `.github/workflows/exp021-engine-j-development.yml`.
+
+Final preflight:
+
+- run ID `35869719236`;
+- tested SHA `88717bb88993f2cbbffe1f7174e6d49e3201695f`;
+- result commit `1473aa343c7d0ea746c4ff643571fb729329f687`;
+- engine SHA-256 `21f60faee3263d5a33b7b5448a79e1355e30562bb4f5dcc677b09e7e3b6ac1ce`;
+- 27 frozen warm-up/development files verified;
+- 1,182,240 rows / 59,108,737 bytes;
+- all 16 Engine-J self/causality tests passed;
+- validation/holdout loaded: NO;
+- development run: NO.
+
+The only permitted next outcome computation is EXP-021 combined development Jan-2023 through Feb-2025. If any frozen development gate fails, stop before validation and preserve Mar-Aug 2025 validation plus Sep-2025–Feb-2026 fresh holdout.
