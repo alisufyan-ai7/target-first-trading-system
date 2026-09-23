@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine K v0.1 training/calibration implementation frozen; zero target/model outcomes; outcome run authorized next
+**Phase:** Phase 2 — Engine K v0.1 failed training/June-calibration gate; July-August and September preserved; prospective scanner revision required
 
 ## Authorized context
 
@@ -308,15 +308,16 @@ Engine-K model outcomes calculated: **NO**.
 
 ## Exact next action
 
-Trigger **EXP-022 training + June calibration only** from the frozen implementation.
+Do **not** open Engine-K v0.1 July-August secondary-test or September final-holdout outcomes.
 
-Authorized scope:
+EXP-022 v0.1 failed before secondary testing:
 
-- train: Mar-23 through May-31 2026;
-- calibrate: June 2026;
-- execution markets only: 8;
-- July-August secondary test: SEALED;
-- Sep-1 through Sep-22 final holdout: SEALED;
-- forecast-only markets: not loaded for this outcome run.
+- 7,098 economically admissible labeled rungs, all XAUUSD;
+- all seven FX execution markets: zero executable rungs under the frozen economic gates;
+- zero qualified trades because calibrated p never reached the frozen >=0.60 floor;
+- June primary raw ROC-AUC roughly 0.62-0.63;
+- causality/provenance checks passed.
 
-Apply the predeclared development gate exactly. If it fails or is insufficient-frequency, stop before July-August. Do not alter features, model hyperparameters, target distances, cost assumptions, probability thresholds, or universe to rescue the result.
+The next permitted design work is a prospectively frozen **Engine K v0.2 / new experiment** that keeps direct dense multi-market target-first scanning but replaces the infeasible non-Gold target/equivalent-size construction before any non-Gold labels are inspected.
+
+Do not lower v0.1 probability thresholds or tune the XAU model on inspected development/calibration data to manufacture trades.
