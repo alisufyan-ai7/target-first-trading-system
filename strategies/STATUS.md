@@ -17,7 +17,7 @@ _Last updated: 2026-09-23_
 | Engine H v0.1 | Recent range raid into pre-existing external 5m FVG -> 1m MSS/displacement/FVG -> opposite range target | **Development insufficient evidence: only 2 accepted trades vs >=100 minimum; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.2 | Same range/FVG raid -> 1m MSS within 20 active bars -> next-active-M1-open entry -> opposite range target | **Development insufficient evidence: 6 accepted trades vs >=100 minimum; +$0.08/trade at primary cost is statistically meaningless; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.3 | Same range/FVG raid + MSS/next-open -> post-raid 1m structural stop -> fixed T40 target | **Development failed: 58 trades (<100), -$4.52/trade at primary cost; DEV-A -$7.18 and DEV-B -$1.24; validation/holdout untouched; not promoted** |
-| Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Frozen and preflight-verified under EXP-020; zero outcomes calculated; development is next; validation/holdout untouched** |
+| Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Development failed: 197 trades, -$5.15/trade at primary cost, PF 0.631, DEV-A -$6.20, DEV-B -$4.09, MDD $1,060.90; validation/holdout untouched; not promoted** |
 
 ## Current promotion state
 
@@ -76,16 +76,19 @@ EXP-015 remains paused until at least one reproducible engine validates.
 
 ## Engine I v0.1 / EXP-020
 
-Engine I is now the active prospective engine family.
+Engine I v0.1 is stopped before validation.
 
-- full v0.1 rules are frozen in `strategies/engine-i-session-expansion-continuation/SPEC-v0.1.md`;
-- EXP-020 is frozen before outcomes;
-- primary development = Jan-2023 through Feb-2025, with DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025;
-- validation = Mar-Aug 2025 and fresh holdout = Sep-2025 through Feb-2026 remain closed;
-- primary cost = USD5 / 0.50-XAU round-trip stress from the first development run;
-- development requires >=100 accepted trades, positive combined/DEV-A/DEV-B expectancy, PF >=1.10, max drawdown <=USD200, and recovery factor >=1.0;
-- no Engine-I parameter grid or rescue sensitivity is authorized.
+- 197 accepted development trades;
+- T40 hit rate 24.37%;
+- gross expectancy about -USD0.15/trade;
+- primary-cost expectancy about -USD5.15/trade;
+- primary-cost PF 0.631;
+- DEV-A about -USD6.20/trade;
+- DEV-B about -USD4.09/trade;
+- max drawdown about USD1,060.90;
+- 95% bootstrap expectancy interval about -USD8.38 to -USD1.94;
+- validation and fresh holdout remain untouched.
 
-**Preflight checkpoint:** complete. Final result commit `61e2e81e95bb01b2ae891b3cb7814cb03efdea60`; all 27 development/warm-up files and 11 self/causality tests passed; zero outcomes calculated.
+The sample-size goal was achieved, so this is not an insufficient-frequency result. The economics failed decisively. Do not tune Engine I v0.1 post hoc.
 
-**Current next step:** run combined Jan-2023 through Feb-2025 development only. Validation/holdout remain sealed unless all frozen development gates pass.
+**Current next step:** prospectively freeze the next genuinely different engine family. EXP-015 remains paused.
