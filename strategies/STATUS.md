@@ -18,6 +18,7 @@ _Last updated: 2026-09-23_
 | Engine H v0.2 | Same range/FVG raid -> 1m MSS within 20 active bars -> next-active-M1-open entry -> opposite range target | **Development insufficient evidence: 6 accepted trades vs >=100 minimum; +$0.08/trade at primary cost is statistically meaningless; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.3 | Same range/FVG raid + MSS/next-open -> post-raid 1m structural stop -> fixed T40 target | **Development failed: 58 trades (<100), -$4.52/trade at primary cost; DEV-A -$7.18 and DEV-B -$1.24; validation/holdout untouched; not promoted** |
 | Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Development failed: 197 trades, -$5.15/trade at primary cost, PF 0.631, DEV-A -$6.20, DEV-B -$4.09, MDD $1,060.90; validation/holdout untouched; not promoted** |
+| Engine J v0.1 | Same-day 5m baseline -> 30m compression box -> strong 5m breakout -> next-open -> breakout-bar stop -> T40 | **Prospectively frozen under EXP-021; zero Engine-J outcomes calculated; implementation not started** |
 
 ## Current promotion state
 
@@ -92,3 +93,20 @@ Engine I v0.1 is stopped before validation.
 The sample-size goal was achieved, so this is not an insufficient-frequency result. The economics failed decisively. Do not tune Engine I v0.1 post hoc.
 
 **Current next step:** prospectively freeze the next genuinely different engine family. EXP-015 remains paused.
+
+
+## Engine J v0.1 / EXP-021
+
+Engine J is the new active prospective engine family.
+
+- causal family: volatility compression -> direct breakout expansion;
+- no Asian-boundary condition;
+- no pre-established directional context;
+- no pullback/retest;
+- no reversal MSS/FVG/location rule;
+- actual target T40 with diagnostic ladder;
+- same Jan-2023–Feb-2025 development split and sealed validation/holdout;
+- same primary USD5 cost and frozen economic gates;
+- zero Engine-J outcomes calculated.
+
+**Current next step:** user review of the frozen Engine-J v0.1 spec, then exact-arithmetic implementation/preflight. Do not backtest Engine J before that checkpoint.
