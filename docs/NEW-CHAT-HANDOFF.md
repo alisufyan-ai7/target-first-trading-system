@@ -150,7 +150,7 @@ At the checkpoint when this handoff was updated:
 - pre-outcome universe/economic/feature cleanup: COMPLETE;
 - primary execution universe: 8 markets;
 - forecast-only universe: 4 markets;
-- final cleanup preflight: NEXT / CHECK RESULT BEFORE MODEL FITTING.
+- final cleanup preflight: PASSED; result commit `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`.
 
 Files:
 
@@ -539,6 +539,30 @@ Do not:
 
 Current strategy action: move to a genuinely different prospectively frozen engine family. EXP-015 remains paused until one reproducible engine validates.
 
+
+
+### Final zero-outcome cleanup preflight
+
+Authoritative tested SHA:
+
+`2c319cd45cbae6cdb1934540f6933890886c1812`
+
+Durable result commit:
+
+`48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`
+
+Result:
+
+- 11/11 cleanup self-tests passed;
+- 205,196 execution structural states through June 30;
+- 7,098 execution target rungs passed pre-probability economic feasibility;
+- 103,041 forecast-only structural states;
+- target outcomes calculated: NO;
+- model outcomes calculated: NO;
+- July-August state/outcome distributions inspected by authoritative preflight: NO;
+- September final-holdout outcomes inspected: NO.
+
+The next permitted stage is training Mar23-May31 + June calibration only. Checkpoint before opening July-August.
 
 ## Engine K pre-outcome cleanup — authoritative current rules
 
