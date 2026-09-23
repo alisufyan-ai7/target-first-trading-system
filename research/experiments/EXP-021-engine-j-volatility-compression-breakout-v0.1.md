@@ -176,3 +176,92 @@ Only after approval:
 2. run preflight/provenance with zero outcomes;
 3. checkpoint;
 4. run development only.
+
+
+## Checkpoint 1 — implementation and preflight verified before outcomes
+
+**Outcome status:** ZERO ENGINE-J OUTCOMES CALCULATED.
+
+Reference implementation:
+
+- `research/code/engine-j-v0.1.js`;
+- initial implementation commit: `e9953da73357e546bc0e72d0c9d8079a7ee84544`;
+- final preflight-ready implementation commit: `a59cc2cf1a48b49c6e76a7da99aa7ed51dd56064`.
+
+Execution harnesses:
+
+- preflight verifier: `research/code/run-engine-j-preflight.js`;
+- development runner: `research/code/run-engine-j-development.js`;
+- preflight workflow: `.github/workflows/exp021-engine-j-preflight.yml`;
+- development workflow: `.github/workflows/exp021-engine-j-development.yml`.
+
+The development workflow exists but has **not** been triggered.
+
+### Final preflight
+
+Successful GitHub Actions run:
+
+- run ID: `35869719236`;
+- tested repository SHA: `88717bb88993f2cbbffe1f7174e6d49e3201695f`;
+- result commit: `1473aa343c7d0ea746c4ff643571fb729329f687`;
+- engine file SHA-256: `21f60faee3263d5a33b7b5448a79e1355e30562bb4f5dcc677b09e7e3b6ac1ce`;
+- durable result: `research/results/EXP-021-preflight-v0.1.json`.
+
+Preflight verified:
+
+- 27 frozen warm-up/development files only;
+- 1,182,240 total M1 rows;
+- 59,108,737 total bytes;
+- every file matched frozen Git blob SHA and byte size;
+- every file matched exact full-month row count;
+- every first/last timestamp matched exact calendar-month boundaries;
+- one-minute chronology passed;
+- exact 0.001-XAU grid and OHLC validity passed;
+- validation/holdout filenames were absent from the development runner and workflow;
+- validation/holdout data were not loaded;
+- exact integer compression comparisons are present;
+- exact integer breakout-expansion comparison is present;
+- the breakout bar is excluded from the previous-30 window;
+- same-day history enforcement is present;
+- conservative stop-first same-bar handling is present;
+- first-qualifying-breakout-per-side/day consumption is present;
+- chronological 20:00 session close is present, including carry-forward final minute handling.
+
+### Self/causality tests
+
+All 16 frozen tests passed:
+
+1. exact tick parsing;
+2. off-grid rejection;
+3. exact baseline median numerator;
+4. compression equality boundary;
+5. compression-average failure boundary;
+6. compact-box arithmetic;
+7. box-width failure boundary;
+8. long breakout geometry;
+9. short breakout geometry;
+10. open-already-outside rejection;
+11. close-inside rejection;
+12. previous-30 candidate exclusion;
+13. same-day history enforcement;
+14. structural stop geometry;
+15. 4000-tick risk-cap boundary;
+16. stop-first same-bar handling.
+
+### Pre-outcome implementation clarification
+
+Before any Engine-J outcome, the implementation made one mechanical interpretation explicit: the 20:00 UTC horizon closes on the final chronological M1 close even when that minute is classified carry-forward. This implements the frozen “final permitted M1 close” rule and changes no strategy threshold.
+
+### Permission to begin next stage
+
+Checkpoint-1 requirements are satisfied.
+
+The **next and only permitted outcome computation** is combined development:
+
+`2023-01-01 through 2025-02-28`
+
+with Dec-2022 warm-up, DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025.
+
+Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain sealed and must not be downloaded or run.
+
+**Engine-J development backtest started at this checkpoint: NO.**
