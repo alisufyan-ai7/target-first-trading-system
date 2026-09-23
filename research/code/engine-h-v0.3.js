@@ -345,7 +345,7 @@ function runEngineH(months,splitStart,splitEnd){
   return{
     source_rows:rows.length,market_active_m1:rows.filter(x=>x.active).length,split:{start:new Date(splitStart).toISOString(),end_exclusive:new Date(splitEnd).toISOString()},
     event_counts:counts,setup_count:ss.length,terminal_reasons:reasons,accepted_filled_trades:tt.length,exits,
-    target_hit_rate:tt.length?(exits.exit_target||0)/tt.length:null,stop_rate:tt.length?((exits.exit_stop||0)+(exits.exit_stop_fill_bar||0))/tt.length:null,
+    target_hit_rate:tt.length?(exits.exit_t40||0)/tt.length:null,stop_rate:tt.length?((exits.exit_stop||0)+(exits.exit_stop_fill_bar||0))/tt.length:null,
     timeout_rate:tt.length?((exits.exit_timeout_120||0)+(exits.exit_session_2000||0)+(exits.exit_data_end||0))/tt.length:null,
     label_rates:labels,expectancy:{gross_usd:avg("grossUSD"),net_usd_0:avg("netUSD0"),net_usd_025:avg("netUSD250"),net_usd_050:avg("netUSD500")},
     profit_factor:{gross:pf("grossUSD"),net_0:pf("netUSD0"),net_025:pf("netUSD250"),net_050:pf("netUSD500")},
