@@ -534,15 +534,17 @@ def candidate_economics(
         risk = stop_dist * v * lot
         notional = n1 * lot
         margin = notional / RESEARCH_LEVERAGE_REFERENCE
-        costs = research_costs(targets[k])
+        actual_gross_target = distances[k] * v * lot
+        costs = research_costs(actual_gross_target)
         probs = qualification_probability_floor(
-            targets[k], risk, costs["primary_cost_usd"]
+            actual_gross_target, risk, costs["primary_cost_usd"]
         )
         risk_ok = lot >= RESEARCH_LOT_STEP and risk <= PRIMARY_STOP_RISK_USD
         notional_ok = notional <= REFERENCE_EQUITY_USD * MAX_NOTIONAL_TO_EQUITY
         margin_ok = margin <= REFERENCE_EQUITY_USD * MAX_MARGIN_FRACTION_OF_EQUITY
         out[k] = {
-            "target_usd": targets[k],
+            "target_usd_nominal": targets[k],
+            "gross_target_usd_actual": actual_gross_target,
             "distance": distances[k],
             "lot": lot,
             "stop_risk_usd": risk,
