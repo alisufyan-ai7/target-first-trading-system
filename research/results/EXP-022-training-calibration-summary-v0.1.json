@@ -1,0 +1,1516 @@
+{
+  "experiment": "EXP-022",
+  "engine": "Engine K v0.1",
+  "stage": "training_plus_june_calibration_only",
+  "tested_repository_sha": "69a95393f0072d4a4a84668f0a300eb97cf49336",
+  "engine_sha256": "565bfe4ca5e29465e74ec3b1fb8409780e1e67f999ef4bee20e713b39cb1ac51",
+  "runner_sha256": "3cd2c0b3004067d8b94f5088250959f7184bc02cf31fbac49a4c473d7f9958a6",
+  "sklearn_version": "1.5.2",
+  "scope": {
+    "training": [
+      "2026-03-23",
+      "2026-05-31"
+    ],
+    "calibration": [
+      "2026-06-01",
+      "2026-06-30"
+    ],
+    "secondary_test_loaded_or_labeled": false,
+    "final_holdout_loaded_or_labeled": false,
+    "parsed_market_data_max_timestamp": "2026-06-30 23:59:00+00:00",
+    "forecast_only_markets_loaded": false
+  },
+  "frozen_model": {
+    "hist_gradient_boosting": {
+      "learning_rate": 0.05,
+      "max_iter": 150,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 100,
+      "l2_regularization": 1.0,
+      "random_state": 20260923
+    },
+    "platt": {
+      "C": 1000000.0,
+      "solver": "lbfgs",
+      "max_iter": 1000
+    },
+    "diagnostic_logistic": {
+      "C": 1.0,
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "random_state": 20260923
+    },
+    "encoded_feature_columns": [
+      "signed_move_5m_volnorm",
+      "signed_move_15m_volnorm",
+      "signed_move_30m_volnorm",
+      "signed_move_60m_volnorm",
+      "signed_move_120m_volnorm",
+      "ema10_minus_ema30_dir_volnorm",
+      "ema10_slope_15m_dir_volnorm",
+      "ema30_slope_15m_dir_volnorm",
+      "distance_to_60m_high_volnorm",
+      "distance_from_60m_low_volnorm",
+      "position_in_60m_range",
+      "position_in_240m_range",
+      "tr5_over_median20_tr5",
+      "range15_over_range60",
+      "range30_over_range120",
+      "hourly_tr_percentile_prior20",
+      "compression_expansion_ratio",
+      "body_over_range",
+      "upper_wick_over_range",
+      "lower_wick_over_range",
+      "prior3_directional_body_balance",
+      "stop_distance_native",
+      "stop_distance_over_mtr20",
+      "stop_risk_usd",
+      "utc_hour_sin",
+      "utc_hour_cos",
+      "weekday",
+      "market__XAUUSD",
+      "market__EURUSD",
+      "market__GBPUSD",
+      "market__USDJPY",
+      "market__EURJPY",
+      "market__AUDUSD",
+      "market__USDCAD",
+      "market__USDCHF",
+      "direction__long",
+      "direction__short"
+    ]
+  },
+  "integrity_tests": [
+    "git_blob_sha",
+    "lot_floor",
+    "usd_quote_value",
+    "xau_value",
+    "jpy_quote_value",
+    "universe_separation",
+    "research_cost_schedule",
+    "probability_floor",
+    "notional_margin_gate",
+    "rounded_lot_actual_reward",
+    "feature_contract_29",
+    "entry_gap_reject"
+  ],
+  "label_tests": [
+    "same_bar_stop_first",
+    "later_target",
+    "horizon_120_includes_entry",
+    "session_cutoff_2000"
+  ],
+  "counts": {
+    "combined_labeled_rungs": 7098,
+    "training_labeled_rungs": 4677,
+    "calibration_labeled_rungs": 2421,
+    "by_market_combined": {
+      "XAUUSD": {
+        "labeled_rungs": 7098,
+        "unique_economically_admissible_states": 2366,
+        "target_hit_rate_by_rung": {
+          "T30": 0.2459847844463229,
+          "T40": 0.20667793744716823,
+          "T50": 0.1724429416737109
+        }
+      },
+      "EURUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "GBPUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDJPY": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "EURJPY": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "AUDUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDCAD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDCHF": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      }
+    },
+    "by_market_training": {
+      "XAUUSD": {
+        "labeled_rungs": 4677,
+        "unique_economically_admissible_states": 1559,
+        "target_hit_rate_by_rung": {
+          "T30": 0.24053880692751764,
+          "T40": 0.2026940346375882,
+          "T50": 0.17382937780628607
+        }
+      },
+      "EURUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "GBPUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDJPY": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "EURJPY": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "AUDUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDCAD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDCHF": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      }
+    },
+    "by_market_calibration": {
+      "XAUUSD": {
+        "labeled_rungs": 2421,
+        "unique_economically_admissible_states": 807,
+        "target_hit_rate_by_rung": {
+          "T30": 0.25650557620817843,
+          "T40": 0.21437422552664187,
+          "T50": 0.1697645600991326
+        }
+      },
+      "EURUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "GBPUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDJPY": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "EURJPY": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "AUDUSD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDCAD": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      },
+      "USDCHF": {
+        "labeled_rungs": 0,
+        "unique_economically_admissible_states": 0,
+        "target_hit_rate_by_rung": {
+          "T30": null,
+          "T40": null,
+          "T50": null
+        }
+      }
+    }
+  },
+  "rung_metrics": {
+    "T30": {
+      "primary_raw": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.24053880692751764,
+          "brier": 0.09672551079174038,
+          "log_loss": 0.3272975080048543,
+          "roc_auc": 0.9614954954954955,
+          "probability_quantiles": {
+            "0": 0.010558646766320762,
+            "0.1": 0.04236745046429708,
+            "0.25": 0.09564925859685401,
+            "0.5": 0.1958641519099427,
+            "0.75": 0.3427322619308172,
+            "0.9": 0.520508397445061,
+            "1": 0.8006499825784055
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 403,
+              "mean_pred": 0.05463430258560468,
+              "observed_rate": 0.0024813895781637717
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 386,
+              "mean_pred": 0.14935824377001838,
+              "observed_rate": 0.012953367875647668
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 298,
+              "mean_pred": 0.24835835266278833,
+              "observed_rate": 0.1342281879194631
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 168,
+              "mean_pred": 0.3457709967468131,
+              "observed_rate": 0.2916666666666667
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 123,
+              "mean_pred": 0.4500543613796409,
+              "observed_rate": 0.8211382113821138
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 97,
+              "mean_pred": 0.5445066383313488,
+              "observed_rate": 0.979381443298969
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "n": 67,
+              "mean_pred": 0.6439690064613982,
+              "observed_rate": 1.0
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "n": 16,
+              "mean_pred": 0.7266913099837065,
+              "observed_rate": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 1,
+              "mean_pred": 0.8006499825784055,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.25650557620817843,
+          "brier": 0.18928554118329285,
+          "log_loss": 0.5670315115094188,
+          "roc_auc": 0.62682769726248,
+          "probability_quantiles": {
+            "0": 0.01313233967118072,
+            "0.1": 0.05150523745084163,
+            "0.25": 0.11141659163971246,
+            "0.5": 0.2200620359911198,
+            "0.75": 0.34575965347792725,
+            "0.9": 0.4566759361889568,
+            "1": 0.7077055522481525
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 176,
+              "mean_pred": 0.05336719390429832,
+              "observed_rate": 0.11363636363636363
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 184,
+              "mean_pred": 0.15116630967122696,
+              "observed_rate": 0.2608695652173913
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 177,
+              "mean_pred": 0.2467674595859383,
+              "observed_rate": 0.2711864406779661
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 135,
+              "mean_pred": 0.34795713098879677,
+              "observed_rate": 0.3037037037037037
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 94,
+              "mean_pred": 0.45027769945450674,
+              "observed_rate": 0.32978723404255317
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 32,
+              "mean_pred": 0.5471800741156863,
+              "observed_rate": 0.5
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "n": 7,
+              "mean_pred": 0.6232719128501947,
+              "observed_rate": 0.42857142857142855
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "n": 2,
+              "mean_pred": 0.7039038626645093,
+              "observed_rate": 0.0
+            }
+          ]
+        }
+      },
+      "primary_platt": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.24053880692751764,
+          "brier": 0.12975223766866179,
+          "log_loss": 0.41753299328765825,
+          "roc_auc": 0.9614954954954955,
+          "probability_quantiles": {
+            "0": 0.06531766851734819,
+            "0.1": 0.12303727817950512,
+            "0.25": 0.17699594452070544,
+            "0.5": 0.24452903894405764,
+            "0.75": 0.31974455571618104,
+            "0.9": 0.40237014489310763,
+            "1": 0.5610884902761566
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 52,
+              "mean_pred": 0.08776184508024747,
+              "observed_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 452,
+              "mean_pred": 0.15200073103238293,
+              "observed_rate": 0.008849557522123894
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 585,
+              "mean_pred": 0.24913584195709854,
+              "observed_rate": 0.07179487179487179
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 311,
+              "mean_pred": 0.3457113611920227,
+              "observed_rate": 0.5498392282958199
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 145,
+              "mean_pred": 0.44144820013092895,
+              "observed_rate": 0.993103448275862
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 14,
+              "mean_pred": 0.5176097969004075,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.25650557620817843,
+          "brier": 0.18345624448341302,
+          "log_loss": 0.5480098740439614,
+          "roc_auc": 0.62682769726248,
+          "probability_quantiles": {
+            "0": 0.07224112872095442,
+            "0.1": 0.1342879973695291,
+            "0.25": 0.1894737569673473,
+            "0.5": 0.2580855150414919,
+            "0.75": 0.32117584665715226,
+            "0.9": 0.3726252923300295,
+            "1": 0.4993867558281728
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 30,
+              "mean_pred": 0.08740458585494523,
+              "observed_rate": 0.03333333333333333
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 193,
+              "mean_pred": 0.153527520909477,
+              "observed_rate": 0.15544041450777202
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 317,
+              "mean_pred": 0.25223698952915047,
+              "observed_rate": 0.2744479495268139
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 233,
+              "mean_pred": 0.3438664047822864,
+              "observed_rate": 0.31759656652360513
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 34,
+              "mean_pred": 0.43141441145883125,
+              "observed_rate": 0.4411764705882353
+            }
+          ]
+        }
+      },
+      "diagnostic_logistic": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.24053880692751764,
+          "brier": 0.16868143417391107,
+          "log_loss": 0.5094049666147943,
+          "roc_auc": 0.6913806306306306,
+          "probability_quantiles": {
+            "0": 0.015328120147299827,
+            "0.1": 0.088294481297694,
+            "0.25": 0.1404039303897621,
+            "0.5": 0.22637785847776098,
+            "0.75": 0.3298639059218929,
+            "0.9": 0.41838791342199355,
+            "1": 0.5969041480191725
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 221,
+              "mean_pred": 0.07646752581133184,
+              "observed_rate": 0.06334841628959276
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 450,
+              "mean_pred": 0.1511798309042589,
+              "observed_rate": 0.13777777777777778
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 413,
+              "mean_pred": 0.25092352813865,
+              "observed_rate": 0.3026634382566586
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 283,
+              "mean_pred": 0.3474227137507392,
+              "observed_rate": 0.3250883392226148
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 161,
+              "mean_pred": 0.4434389348843493,
+              "observed_rate": 0.42857142857142855
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 31,
+              "mean_pred": 0.5391741644653942,
+              "observed_rate": 0.41935483870967744
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.25650557620817843,
+          "brier": 0.18305942353234253,
+          "log_loss": 0.5449791500283022,
+          "roc_auc": 0.6502254428341384,
+          "probability_quantiles": {
+            "0": 0.037666014493875195,
+            "0.1": 0.08842091376618928,
+            "0.25": 0.137309210170867,
+            "0.5": 0.2229559068672869,
+            "0.75": 0.328245427303182,
+            "0.9": 0.42782531602855695,
+            "1": 0.6076494679026223
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 115,
+              "mean_pred": 0.07933841921054983,
+              "observed_rate": 0.06086956521739131
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 240,
+              "mean_pred": 0.1507573635697654,
+              "observed_rate": 0.23333333333333334
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 208,
+              "mean_pred": 0.2476232277357543,
+              "observed_rate": 0.25961538461538464
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 131,
+              "mean_pred": 0.3469202880857853,
+              "observed_rate": 0.37404580152671757
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 95,
+              "mean_pred": 0.44447165635338026,
+              "observed_rate": 0.3684210526315789
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 17,
+              "mean_pred": 0.5228309783309936,
+              "observed_rate": 0.29411764705882354
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "n": 1,
+              "mean_pred": 0.6076494679026223,
+              "observed_rate": 1.0
+            }
+          ]
+        }
+      },
+      "platt_coef": 0.49009307424743753,
+      "platt_intercept": -0.4358258377297471
+    },
+    "T40": {
+      "primary_raw": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.2026940346375882,
+          "brier": 0.08399721675358712,
+          "log_loss": 0.2890911337106859,
+          "roc_auc": 0.9701467458272656,
+          "probability_quantiles": {
+            "0": 0.008785385712900476,
+            "0.1": 0.035863843769020284,
+            "0.25": 0.07608872624426449,
+            "0.5": 0.1529402249844278,
+            "0.75": 0.2844425600033996,
+            "0.9": 0.476679104857318,
+            "1": 0.7936801379945265
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 522,
+              "mean_pred": 0.054120075781896766,
+              "observed_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 447,
+              "mean_pred": 0.14657540436928843,
+              "observed_rate": 0.024608501118568233
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 229,
+              "mean_pred": 0.24637358483731053,
+              "observed_rate": 0.1091703056768559
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 138,
+              "mean_pred": 0.34529481176352284,
+              "observed_rate": 0.5072463768115942
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 92,
+              "mean_pred": 0.45234066599270367,
+              "observed_rate": 0.8586956521739131
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 80,
+              "mean_pred": 0.5492454196006527,
+              "observed_rate": 1.0
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "n": 42,
+              "mean_pred": 0.6375269229084825,
+              "observed_rate": 1.0
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "n": 9,
+              "mean_pred": 0.7311086413758996,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.21437422552664187,
+          "brier": 0.17004883438247023,
+          "log_loss": 0.5239972347724261,
+          "roc_auc": 0.6184879925603107,
+          "probability_quantiles": {
+            "0": 0.009905064164259693,
+            "0.1": 0.039937336831300185,
+            "0.25": 0.08729606877878371,
+            "0.5": 0.1763558730329171,
+            "0.75": 0.2859530372553716,
+            "0.9": 0.38629793324667705,
+            "1": 0.65146804141757
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 233,
+              "mean_pred": 0.05483843588427408,
+              "observed_rate": 0.11587982832618025
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 220,
+              "mean_pred": 0.14824385249442998,
+              "observed_rate": 0.2409090909090909
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 171,
+              "mean_pred": 0.2460367131175474,
+              "observed_rate": 0.23391812865497075
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 108,
+              "mean_pred": 0.3466342080940472,
+              "observed_rate": 0.2962962962962963
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 55,
+              "mean_pred": 0.4445081181203675,
+              "observed_rate": 0.2909090909090909
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 16,
+              "mean_pred": 0.5380431588722685,
+              "observed_rate": 0.25
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "n": 4,
+              "mean_pred": 0.6281410819461773,
+              "observed_rate": 0.25
+            }
+          ]
+        }
+      },
+      "primary_platt": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.2026940346375882,
+          "brier": 0.11842134708599521,
+          "log_loss": 0.3850398795907899,
+          "roc_auc": 0.9701467458272656,
+          "probability_quantiles": {
+            "0": 0.061272654195215756,
+            "0.1": 0.1105981622647487,
+            "0.25": 0.15090841600355298,
+            "0.5": 0.20185450433081187,
+            "0.75": 0.265006763483474,
+            "0.9": 0.3435533896979715,
+            "1": 0.4999656010597353
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 98,
+              "mean_pred": 0.08771532413865193,
+              "observed_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 663,
+              "mean_pred": 0.15353619640602476,
+              "observed_rate": 0.007541478129713424
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 540,
+              "mean_pred": 0.24152548905475815,
+              "observed_rate": 0.14074074074074075
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 215,
+              "mean_pred": 0.34677875004945763,
+              "observed_rate": 0.8930232558139535
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 43,
+              "mean_pred": 0.4261248499216223,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.21437422552664187,
+          "brier": 0.16382671842428437,
+          "log_loss": 0.5039692759855858,
+          "roc_auc": 0.6184879925603107,
+          "probability_quantiles": {
+            "0": 0.06447810071255962,
+            "0.1": 0.11563827591259528,
+            "0.25": 0.15972519927542328,
+            "0.5": 0.2144796969782034,
+            "0.75": 0.26565585441516415,
+            "0.9": 0.30713186148609173,
+            "1": 0.41958654561432657
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 40,
+              "mean_pred": 0.08840428100035705,
+              "observed_rate": 0.025
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 307,
+              "mean_pred": 0.15416359225112639,
+              "observed_rate": 0.1498371335504886
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 351,
+              "mean_pred": 0.24517745548985934,
+              "observed_rate": 0.2678062678062678
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 106,
+              "mean_pred": 0.32868216120406835,
+              "observed_rate": 0.29245283018867924
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 3,
+              "mean_pred": 0.4121476307588352,
+              "observed_rate": 0.3333333333333333
+            }
+          ]
+        }
+      },
+      "diagnostic_logistic": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.2026940346375882,
+          "brier": 0.150608717730606,
+          "log_loss": 0.4685104378733282,
+          "roc_auc": 0.6860291047588012,
+          "probability_quantiles": {
+            "0": 0.00521187368511097,
+            "0.1": 0.07440355941530301,
+            "0.25": 0.11673216081455264,
+            "0.5": 0.18503548416823043,
+            "0.75": 0.2765880417820812,
+            "0.9": 0.35719101808001025,
+            "1": 0.5477997598355696
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 294,
+              "mean_pred": 0.07109301190842407,
+              "observed_rate": 0.07142857142857142
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 561,
+              "mean_pred": 0.1493191601955447,
+              "observed_rate": 0.14795008912655971
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 398,
+              "mean_pred": 0.2482854838405054,
+              "observed_rate": 0.26884422110552764
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 238,
+              "mean_pred": 0.3462516054349327,
+              "observed_rate": 0.31092436974789917
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 61,
+              "mean_pred": 0.43378845932209087,
+              "observed_rate": 0.4262295081967213
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 7,
+              "mean_pred": 0.5260531938500443,
+              "observed_rate": 0.7142857142857143
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.21437422552664187,
+          "brier": 0.16321037558045023,
+          "log_loss": 0.5009435435306653,
+          "roc_auc": 0.6454477489469558,
+          "probability_quantiles": {
+            "0": 0.03215779803904566,
+            "0.1": 0.07524437626040265,
+            "0.25": 0.11491744639388743,
+            "0.5": 0.18395023798216412,
+            "0.75": 0.27557212270496567,
+            "0.9": 0.35910653917981383,
+            "1": 0.5467608048490818
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 160,
+              "mean_pred": 0.07428163406686836,
+              "observed_rate": 0.08125
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 286,
+              "mean_pred": 0.1477376094800153,
+              "observed_rate": 0.1958041958041958
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 197,
+              "mean_pred": 0.24584813435743672,
+              "observed_rate": 0.2639593908629442
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 124,
+              "mean_pred": 0.34622032369591865,
+              "observed_rate": 0.3387096774193548
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 36,
+              "mean_pred": 0.43033114089673835,
+              "observed_rate": 0.25
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 4,
+              "mean_pred": 0.5284199254825959,
+              "observed_rate": 0.25
+            }
+          ]
+        }
+      },
+      "platt_coef": 0.44936793348997117,
+      "platt_intercept": -0.6055498196743153
+    },
+    "T50": {
+      "primary_raw": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.17382937780628607,
+          "brier": 0.07147474719317498,
+          "log_loss": 0.25133628032721095,
+          "roc_auc": 0.9815097064014118,
+          "probability_quantiles": {
+            "0": 0.0037415804097177775,
+            "0.1": 0.029164988318648284,
+            "0.25": 0.05668547495920678,
+            "0.5": 0.1243393266915816,
+            "0.75": 0.22811864236168364,
+            "0.9": 0.4396059507189381,
+            "1": 0.7431789245802106
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 655,
+              "mean_pred": 0.05112367281057446,
+              "observed_rate": 0.0015267175572519084
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 441,
+              "mean_pred": 0.14633660752346997,
+              "observed_rate": 0.018140589569160998
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 176,
+              "mean_pred": 0.23797447450269357,
+              "observed_rate": 0.13636363636363635
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 96,
+              "mean_pred": 0.3428669324465096,
+              "observed_rate": 0.5104166666666666
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 92,
+              "mean_pred": 0.4494596142698373,
+              "observed_rate": 0.9891304347826086
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 64,
+              "mean_pred": 0.5467786051624677,
+              "observed_rate": 0.984375
+            },
+            {
+              "lo": 0.6000000000000001,
+              "hi": 0.7000000000000001,
+              "n": 32,
+              "mean_pred": 0.6404533150140495,
+              "observed_rate": 1.0
+            },
+            {
+              "lo": 0.7000000000000001,
+              "hi": 0.8,
+              "n": 3,
+              "mean_pred": 0.728171873915256,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.1697645600991326,
+          "brier": 0.14111600563094487,
+          "log_loss": 0.45589418904318413,
+          "roc_auc": 0.626353633293387,
+          "probability_quantiles": {
+            "0": 0.005501411239056027,
+            "0.1": 0.032866095276922115,
+            "0.25": 0.0722321050354344,
+            "0.5": 0.14594334883481458,
+            "0.75": 0.24487575574323456,
+            "0.9": 0.35076566617433214,
+            "1": 0.5743697943591554
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 291,
+              "mean_pred": 0.0536207729033059,
+              "observed_rate": 0.11683848797250859
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 244,
+              "mean_pred": 0.149581931670684,
+              "observed_rate": 0.15163934426229508
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 136,
+              "mean_pred": 0.24574914911946433,
+              "observed_rate": 0.18382352941176472
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 94,
+              "mean_pred": 0.3457937267470148,
+              "observed_rate": 0.32978723404255317
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 31,
+              "mean_pred": 0.4360152357274102,
+              "observed_rate": 0.25806451612903225
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 11,
+              "mean_pred": 0.5286117417155898,
+              "observed_rate": 0.18181818181818182
+            }
+          ]
+        }
+      },
+      "primary_platt": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.17382937780628607,
+          "brier": 0.10476334174349015,
+          "log_loss": 0.34103738386251536,
+          "roc_auc": 0.9815097064014118,
+          "probability_quantiles": {
+            "0": 0.032375370242365815,
+            "0.1": 0.08165511925668768,
+            "0.25": 0.10966369882097529,
+            "0.5": 0.1557787813182578,
+            "0.75": 0.20661816485556192,
+            "0.9": 0.2918184274182457,
+            "1": 0.43216947403819295
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 304,
+              "mean_pred": 0.07896015193370258,
+              "observed_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 840,
+              "mean_pred": 0.14931035823498817,
+              "observed_rate": 0.010714285714285714
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 280,
+              "mean_pred": 0.24339312888771164,
+              "observed_rate": 0.45714285714285713
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 130,
+              "mean_pred": 0.33692034900750883,
+              "observed_rate": 0.9923076923076923
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 5,
+              "mean_pred": 0.4167322952691192,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.1697645600991326,
+          "brier": 0.1371161210939278,
+          "log_loss": 0.4410043664659559,
+          "roc_auc": 0.626353633293387,
+          "probability_quantiles": {
+            "0": 0.03858980611932307,
+            "0.1": 0.0861066206425762,
+            "0.25": 0.12212590692955491,
+            "0.5": 0.16757229818717936,
+            "0.75": 0.21386291683219874,
+            "0.9": 0.25695475273915264,
+            "1": 0.34715141884337675
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 124,
+              "mean_pred": 0.07859360228479981,
+              "observed_rate": 0.08064516129032258
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 428,
+              "mean_pred": 0.15157194213146527,
+              "observed_rate": 0.15186915887850466
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 240,
+              "mean_pred": 0.23958814907753456,
+              "observed_rate": 0.24583333333333332
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 15,
+              "mean_pred": 0.3227656514157147,
+              "observed_rate": 0.2
+            }
+          ]
+        }
+      },
+      "diagnostic_logistic": {
+        "train": {
+          "n": 1559,
+          "positive_rate": 0.17382937780628607,
+          "brier": 0.13452311965408362,
+          "log_loss": 0.42940132269219217,
+          "roc_auc": 0.6884525910476497,
+          "probability_quantiles": {
+            "0": 0.0031559529723922523,
+            "0.1": 0.06180816524251787,
+            "0.25": 0.09604993670094567,
+            "0.5": 0.15738339287319594,
+            "0.75": 0.23644972052882696,
+            "0.9": 0.3183906428164747,
+            "1": 0.5086450715641465
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 418,
+              "mean_pred": 0.06844995367573135,
+              "observed_rate": 0.050239234449760764
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 609,
+              "mean_pred": 0.14856730920482544,
+              "observed_rate": 0.16748768472906403
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 336,
+              "mean_pred": 0.2452835337255105,
+              "observed_rate": 0.25595238095238093
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 171,
+              "mean_pred": 0.34266674311428374,
+              "observed_rate": 0.29239766081871343
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 24,
+              "mean_pred": 0.4331239764145603,
+              "observed_rate": 0.4583333333333333
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 1,
+              "mean_pred": 0.5086450715641465,
+              "observed_rate": 1.0
+            }
+          ]
+        },
+        "calibration": {
+          "n": 807,
+          "positive_rate": 0.1697645600991326,
+          "brier": 0.13914749751282507,
+          "log_loss": 0.44368124068373826,
+          "roc_auc": 0.6345026691360715,
+          "probability_quantiles": {
+            "0": 0.029868744450405584,
+            "0.1": 0.0610080758445171,
+            "0.25": 0.09243124836340949,
+            "0.5": 0.15698311543609078,
+            "0.75": 0.2397208457835168,
+            "0.9": 0.3178818811015807,
+            "1": 0.5112352477767127
+          },
+          "calibration_bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 227,
+              "mean_pred": 0.0694281626979704,
+              "observed_rate": 0.07488986784140969
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 286,
+              "mean_pred": 0.14594090736449886,
+              "observed_rate": 0.18181818181818182
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.30000000000000004,
+              "n": 183,
+              "mean_pred": 0.24235100388373887,
+              "observed_rate": 0.23497267759562843
+            },
+            {
+              "lo": 0.30000000000000004,
+              "hi": 0.4,
+              "n": 94,
+              "mean_pred": 0.3375954647828507,
+              "observed_rate": 0.23404255319148937
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 15,
+              "mean_pred": 0.4316056834443691,
+              "observed_rate": 0.2
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6000000000000001,
+              "n": 2,
+              "mean_pred": 0.5058576105639994,
+              "observed_rate": 0.0
+            }
+          ]
+        }
+      },
+      "platt_coef": 0.4700488739050471,
+      "platt_intercept": -0.7724590034517417
+    }
+  },
+  "one_open_training_calibration_simulation": {
+    "qualified_candidate_rungs_before_one_open": 0,
+    "actual_trades": 0,
+    "target_hits": 0,
+    "target_hit_rate": null,
+    "mean_break_even_probability": null,
+    "mean_required_probability": null,
+    "mean_calibrated_probability": null,
+    "primary_net_pnl_usd": 0.0,
+    "primary_expectancy_usd": null,
+    "stress_net_pnl_usd": 0.0,
+    "stress_expectancy_usd": null,
+    "profit_factor": null,
+    "max_drawdown_usd": 0.0,
+    "longest_losing_trade_run": 0,
+    "market_pnl_usd": {},
+    "market_trade_count": {},
+    "largest_market_abs_pnl_share": 0.0,
+    "eligible_weekdays": 72,
+    "zero_trade_days": 72,
+    "mean_daily_pnl_usd": 0.0,
+    "median_daily_pnl_usd": 0.0,
+    "pct_days_le_50": 1.0,
+    "pct_days_ge_100": 0.0,
+    "pct_days_ge_150": 0.0,
+    "pct_days_ge_200": 0.0,
+    "losing_day_pct": 0.0,
+    "longest_losing_day_run": 0,
+    "trade_examples": []
+  },
+  "development_gate": {
+    "market_state_coverage_ge_200_each": false,
+    "actual_qualified_trades_ge_100": false,
+    "qualified_hit_rate_above_mean_break_even": false,
+    "combined_primary_expectancy_gt_0": false,
+    "causality_same_bar_provenance_integrity": true,
+    "final_training_calibration_gate": false
+  },
+  "disposition": "FAIL_OR_INSUFFICIENT_STOP_BEFORE_SECONDARY"
+}
