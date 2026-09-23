@@ -1,6 +1,6 @@
 # New Chat Handoff — Target-First Trading System
 
-_Last updated: 2026-09-23 after Engine K / EXP-022 freeze and Wave-1 provenance checkpoint_
+_Last updated: 2026-09-23 after Engine K / EXP-022 pre-outcome cleanup checkpoint_
 
 Use this file as the **first document to read whenever a new ChatGPT conversation is started for this project**.
 
@@ -43,6 +43,10 @@ Research/backtesting is the evidence layer used to build a profitable, reproduci
 18. `research/experiments/EXP-019-engine-h-v0.3-postraid-stop-t40.md`
 19. `research/experiments/EXP-020-engine-i-session-expansion-continuation-v0.1.md`
 20. `strategies/engine-i-session-expansion-continuation/SPEC-v0.1.md`
+21. `research/experiments/EXP-021-engine-j-volatility-compression-breakout-v0.1.md`
+22. `strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md`
+23. `research/experiments/EXP-022-engine-k-multimarket-direct-target-move-scanner-v0.1.md`
+24. `research/provenance/EXP-022-wave1-data-manifest.md`
 
 Read the Badar/video and timeframe documents only when needed for historical context; do not use them as justification to keep retuning reversal engines.
 
@@ -105,7 +109,14 @@ Wave-1 execution-research universe:
 - USDCAD;
 - USDCHF.
 
-XAGUSD is forecast-only until contract economics are frozen.
+Forecast-only until contract economics are frozen:
+
+- XAGUSD;
+- NAS100;
+- US30;
+- SPX500.
+
+These four markets cannot influence primary executable model fitting, calibration, ranking or P&L simulation.
 
 Engine K:
 
@@ -116,7 +127,7 @@ Engine K:
 - calculates P&L-equivalent size;
 - requires primary structural risk <= USD20;
 - uses a pooled multi-market probability model;
-- requires calibrated p >= 0.60 and positive conservative EV;
+- requires calibrated p >= max(0.60, break-even probability + 0.05) and positive primary-cost EV;
 - trades nothing if no candidate qualifies.
 
 Frozen rolling-source provenance:
@@ -132,10 +143,13 @@ Frozen split:
 
 At the checkpoint when this handoff was updated:
 
-- Engine-K outcomes calculated: NO;
+- Engine-K target outcomes calculated: NO;
+- Engine-K model outcomes calculated: NO;
 - data provenance: COMPLETE;
-- implementation files: CREATED;
-- zero-outcome GitHub preflight workflow: LAUNCHED / CHECK RUN STATUS BEFORE DEVELOPMENT.
+- pre-outcome universe/economic/feature cleanup: COMPLETE;
+- primary execution universe: 8 markets;
+- forecast-only universe: 4 markets;
+- final cleanup preflight: NEXT / CHECK RESULT BEFORE MODEL FITTING.
 
 Files:
 
@@ -523,3 +537,61 @@ Do not:
 - reopen G/H/I tuning.
 
 Current strategy action: move to a genuinely different prospectively frozen engine family. EXP-015 remains paused until one reproducible engine validates.
+
+
+## Engine K pre-outcome cleanup — authoritative current rules
+
+This section supersedes any older “exact next strategy direction” wording elsewhere in this historical handoff.
+
+Engine K is the current primary path.
+
+Execution-research markets:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF.
+
+Forecast-only:
+
+- XAGUSD;
+- NAS100;
+- US30;
+- SPX500.
+
+Research-only feasibility gates before broker-native economics:
+
+- reference equity USD500;
+- stop risk <=USD20;
+- primary cost = 10% of gross target;
+- stress cost = 20% of gross target;
+- notional/equity <=100x;
+- research margin <=USD100 at 1:500;
+- p_required = max(0.60, p_break-even + 0.05);
+- primary-cost EV >0.
+
+Causality:
+
+- complete 5m bars only;
+- complete 1h MTR bars only;
+- next-open entry gap <=5 minutes;
+- 29 causal features frozen in code/spec;
+- forecast-only markets excluded from executable model fit.
+
+Split:
+
+- train: Mar-23–May-31 2026;
+- calibration: June;
+- secondary test: July-August;
+- final common holdout: Sep-1–Sep-22;
+- Sep-23 excluded.
+
+The final September holdout is an initial OOS test only. Live promotion additionally requires longer-history/independent-feed and forward/demo evidence.
+
+BTCUSD/BTCUSDT, GBPJPY and additional liquid markets are desired expansion candidates, but they are not admitted to Engine-K v0.1 until pinned data and exact executable contract/cost/margin conventions are frozen.
+
+**Next:** final zero-outcome cleanup preflight. Only after it passes may the primary eight-market training period be labeled/fitted.
