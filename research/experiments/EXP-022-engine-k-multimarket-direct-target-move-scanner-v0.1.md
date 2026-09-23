@@ -1,6 +1,6 @@
 # EXP-022 — Engine K Multi-Market Direct Target-Move Scanner v0.1
 
-**Status:** FROZEN PROSPECTIVELY — PRE-OUTCOME CLEANUP + FINAL ZERO-OUTCOME PREFLIGHT COMPLETE; TRAINING/CALIBRATION NEXT  
+**Status:** TRAINING/JUNE-CALIBRATION GATE FAILED — STOP BEFORE JULY-AUGUST SECONDARY TEST  
 **Date:** 2026-09-23  
 **Strategy:** strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md  
 **Outcome status at freeze:** ZERO ENGINE-K OUTCOMES CALCULATED
@@ -329,3 +329,126 @@ Frozen pre-secondary gate:
 If this gate fails, July-August remains unopened and Engine K v0.1 stops before secondary testing.
 
 **Training/calibration workflow triggered at this checkpoint: NO.**
+
+
+## Checkpoint 4 — training + June calibration failed; secondary test forbidden
+
+**Workflow run:** `35901103493`  
+**Tested repository SHA:** `69a95393f0072d4a4a84668f0a300eb97cf49336`  
+**Durable result/model commit:** `d24e05ca513777d63a5d0f6762dfdb35bc42cfc3`  
+**Summary:** `research/results/EXP-022-training-calibration-summary-v0.1.json`  
+**Model bundle:** `research/results/EXP-022-model-bundle-v0.1.joblib`
+
+### Protection status
+
+- July-August secondary test loaded/labeled: **NO**;
+- September final holdout loaded/labeled: **NO**;
+- forecast-only markets loaded into outcome stage: **NO**;
+- latest parsed outcome-stage market timestamp: **2026-06-30 23:59 UTC**.
+
+### Economically admissible label universe
+
+Combined train + June calibration:
+
+- labeled rungs: **7,098**;
+- training labeled rungs: **4,677**;
+- calibration labeled rungs: **2,421**.
+
+However every one of those labeled rungs came from **XAUUSD**:
+
+- XAUUSD: 7,098 labeled rungs / 2,366 unique economically admissible states;
+- EURUSD: 0;
+- GBPUSD: 0;
+- USDJPY: 0;
+- EURJPY: 0;
+- AUDUSD: 0;
+- USDCAD: 0;
+- USDCHF: 0.
+
+Therefore Engine K v0.1 did **not** achieve its intended multi-market executable universe. The frozen non-Gold MTR20 target grid plus USD30-50 equivalent sizing was eliminated by the USD20 stop-risk / 100x-notional / USD100-margin feasibility gates before non-Gold outcomes were labeled.
+
+This is an economic-feasibility failure, not evidence that the seven FX markets themselves lack predictive opportunity: **their target-first outcomes were never calculated because no rung passed the frozen execution-economics gate.**
+
+### XAUUSD target-first base rates
+
+Across the economically admissible XAU states:
+
+Combined target-first hit rates:
+
+- T30: **24.60%**;
+- T40: **20.67%**;
+- T50: **17.24%**.
+
+Training:
+
+- T30: 24.05%;
+- T40: 20.27%;
+- T50: 17.38%.
+
+June calibration:
+
+- T30: 25.65%;
+- T40: 21.44%;
+- T50: 16.98%.
+
+### Model generalization / calibration
+
+The primary HistGradientBoosting model fit the training sample strongly but generalized much more weakly into June.
+
+June raw ROC-AUC:
+
+- T30: **0.627**;
+- T40: **0.618**;
+- T50: **0.626**.
+
+June diagnostic logistic ROC-AUC:
+
+- T30: **0.650**;
+- T40: **0.645**;
+- T50: **0.635**.
+
+The frozen Platt calibration compressed the primary probabilities substantially.
+
+Maximum calibrated probability observed:
+
+- T30 training max: **0.5611**; June max: **0.4994**;
+- T40 training max: **0.5000**; June max: **0.4196**;
+- T50 training max: **0.4322**; June max: **0.3472**.
+
+The frozen qualification floor was at least 0.60, so:
+
+- qualified candidate rungs before one-open: **0**;
+- actual simulated trades: **0**;
+- qualified trade expectancy: unavailable;
+- all 72 eligible weekdays: zero trades.
+
+Do **not** lower the probability floor after seeing this result.
+
+### Frozen gate disposition
+
+- >=200 economically admissible unique states per execution market: **FAIL**;
+- >=100 qualified one-open simulated trades: **FAIL / insufficient frequency**;
+- qualified hit rate above mean break-even: **FAIL / no qualified trades**;
+- combined primary expectancy >0: **FAIL / no qualified trades**;
+- causality / same-bar / provenance integrity: **PASS**.
+
+**Final training/calibration disposition: FAIL_OR_INSUFFICIENT_STOP_BEFORE_SECONDARY.**
+
+### Interpretation
+
+Engine K v0.1 established that dense direct market-state scanning is technically viable, but the particular v0.1 economic/qualification center configuration failed for two independent reasons:
+
+1. the non-Gold target-distance/equivalent-size construction produced **zero executable FX rungs** under the small-account feasibility gates;
+2. the XAU-only fitted model did not produce calibrated probabilities high enough to clear the frozen >=60% qualification rule.
+
+The second point is genuine XAU development/calibration evidence and must not be rescued by lowering the threshold or tuning the same fitted center rule on July-August.
+
+The first point is different: non-Gold outcomes were never labeled, so their execution-target economics can still be redesigned prospectively in a new version without having inspected their target outcomes.
+
+### Next
+
+Do not run July-August or September under Engine K v0.1.
+
+The clean next research direction is a prospectively frozen **Engine K v0.2 / new EXP** that preserves the direct target-first scanner architecture but fixes non-Gold candidate economics **before labels**, using target distances that are natively large enough to be executable at safe position size rather than translating very small volatility-burden moves into oversized lots.
+
+Do not lower the 60% v0.1 threshold or retune the v0.1 XAU model to rescue this result.
