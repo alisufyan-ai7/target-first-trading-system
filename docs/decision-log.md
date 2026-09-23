@@ -448,3 +448,18 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Anti-mining:** one center configuration, no parameter grid. Zero Engine-J outcomes exist at freeze.
 
 **Next:** user review, implementation/preflight, then development only.
+
+
+## 2026-09-23 — Engine J preflight passed; authorize development-only next
+
+**Decision:** Accept the Engine-J v0.1 implementation/provenance checkpoint with zero Engine-J outcomes calculated.
+
+**Implementation:** `research/code/engine-j-v0.1.js`; final preflight-ready implementation commit `a59cc2cf1a48b49c6e76a7da99aa7ed51dd56064`.
+
+**Verification:** GitHub Actions run `35869719236`, result commit `1473aa343c7d0ea746c4ff643571fb729329f687`.
+
+**Evidence:** 27 frozen Dec-2022 through Feb-2025 files matched blob SHA, byte size, row count, exact month boundaries, minute chronology and exact-grid/OHLC checks. All 16 Engine-J exact-arithmetic/causality tests passed. Validation and holdout files were absent and not loaded.
+
+**Mechanical clarification before outcomes:** the 20:00 UTC horizon closes on the final chronological M1 close even when that minute is carry-forward. This is an implementation of the already-frozen final-permitted-M1-close rule, not a strategy change.
+
+**Next:** the only permitted outcome run is combined development Jan-2023 through Feb-2025. Validation/holdout remain sealed. The development workflow is implemented but untriggered.
