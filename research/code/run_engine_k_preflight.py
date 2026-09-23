@@ -60,6 +60,7 @@ def main():
         "calibration_run":False,
         "secondary_test_run":False,
         "final_holdout_loaded_for_outcomes":False,
+        "secondary_or_final_state_distributions_inspected_by_final_preflight":False,
         "execution_markets":list(EXECUTION_MARKETS),
         "forecast_only_markets":list(FORECAST_ONLY_MARKETS),
         "split":{
@@ -104,9 +105,17 @@ def main():
             "gap_diagnostics":gap_diagnostics(df),
         }
 
+    # Preserve later-period state/feature distributions: full pinned files are
+    # verified for raw integrity, but candidate/feature preflight uses only
+    # training + calibration data through 2026-06-30.
+    preflight_cutoff=__import__("pandas").Timestamp("2026-07-01", tz="UTC")
     for symbol,df in data.items():
-        uj=data.get("USDJPY") if symbol=="EURJPY" else None
-        result["markets"][symbol]["state_preflight"]=preflight_states(symbol,df,uj)
+        scoped=df[df["datetime"] < preflight_cutoff].reset_index(drop=True)
+        uj=None
+        if symbol=="EURJPY":
+            uj=data["USDJPY"][data["USDJPY"]["datetime"] < preflight_cutoff].reset_index(drop=True)
+        result["markets"][symbol]["state_preflight_scope"]="2026-03-23 through 2026-06-30 only"
+        result["markets"][symbol]["state_preflight"]=preflight_states(symbol,scoped,uj)
 
     result["totals"]={
         "execution_structural_states":sum(
