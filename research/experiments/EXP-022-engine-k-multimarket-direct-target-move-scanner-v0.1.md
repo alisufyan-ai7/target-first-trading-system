@@ -1,6 +1,6 @@
 # EXP-022 — Engine K Multi-Market Direct Target-Move Scanner v0.1
 
-**Status:** FROZEN PROSPECTIVELY — PRE-OUTCOME CLEANUP COMPLETE IN SPEC/CODE; FINAL ZERO-OUTCOME PREFLIGHT NEXT  
+**Status:** FROZEN PROSPECTIVELY — PRE-OUTCOME CLEANUP + FINAL ZERO-OUTCOME PREFLIGHT COMPLETE; TRAINING/CALIBRATION NEXT  
 **Date:** 2026-09-23  
 **Strategy:** strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md  
 **Outcome status at freeze:** ZERO ENGINE-K OUTCOMES CALCULATED
@@ -190,3 +190,48 @@ Implementation commits:
 Run the final zero-outcome cleanup preflight against all 12 pinned datasets. Full files may be checked for raw integrity, but structural-state/feature diagnostics must stop at June 30.
 
 Only after that passes may the primary model be fit on the eight execution-research markets using the frozen training period.
+
+
+## Checkpoint 2 — final zero-outcome cleanup preflight passed
+
+**Authoritative tested repository SHA:** `2c319cd45cbae6cdb1934540f6933890886c1812`  
+**Durable preflight result commit:** `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`  
+**Result:** `research/results/EXP-022-preflight-cleanup-v0.1.json`
+
+Final preflight status:
+
+- Engine-K target outcomes calculated: **NO**;
+- Engine-K model outcomes calculated: **NO**;
+- training run: **NO**;
+- calibration run: **NO**;
+- secondary test run: **NO**;
+- final holdout outcomes loaded: **NO**;
+- July-August / September state-feature distributions inspected by final preflight: **NO**.
+
+Verified universe:
+
+- execution-research markets: **8**;
+- forecast-only markets: **4**.
+
+Zero-outcome preflight self-tests passed: **11 / 11**.
+
+Training+calibration-scope state diagnostics through June 30 only:
+
+- execution structural states: **205,196**;
+- economically admissible execution target rungs before probability qualification: **7,098**;
+- forecast-only structural states: **103,041**.
+
+The cleanup therefore does not create an artificially empty scanner. It leaves thousands of economically admissible rungs before any fitted probability or outcome-based selection.
+
+### Next permitted stage
+
+Implement/freeze the outcome-label + primary-model training/calibration runner if not already present, then:
+
+1. calculate target labels only as needed for **training Mar-23 through May-31** and **calibration June**;
+2. fit the primary model only on the eight execution-research markets;
+3. calibrate probabilities only on June;
+4. checkpoint all training/calibration outputs and qualification behavior;
+5. keep July-August secondary test unopened until that checkpoint;
+6. keep Sep-1 through Sep-22 final holdout unopened until the later secondary-test checkpoint.
+
+No model/threshold/feature/universe changes may be made using later-period outcomes.
