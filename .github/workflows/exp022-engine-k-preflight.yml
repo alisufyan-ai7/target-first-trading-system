@@ -1,17 +1,14 @@
-name: EXP-022 Engine K Preflight
+name: EXP-022 Engine K Pre-Outcome Cleanup Preflight
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'research/code/engine_k_v0_1.py'
-      - 'research/code/run_engine_k_preflight.py'
-      - 'research/provenance/EXP-022-wave1-data-manifest.md'
-      - '.github/workflows/exp022-engine-k-preflight.yml'
+      - 'research/triggers/EXP-022-preflight-cleanup-v0.1.txt'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   preflight:
@@ -19,6 +16,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -29,14 +28,33 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas numpy
 
-      - name: Run Engine K zero-outcome preflight
-        working-directory: research/code
+      - name: Syntax and zero-outcome self-tests
         run: |
-          python run_engine_k_preflight.py
+          python -m py_compile research/code/engine_k_v0_1.py
+          python -m py_compile research/code/run_engine_k_preflight.py
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, "research/code")
+          import engine_k_v0_1 as e
+          print(e.self_tests())
+          PY
+
+      - name: Run Engine K cleanup preflight without labels or model outcomes
+        run: python research/code/run_engine_k_preflight.py
 
       - name: Upload preflight result
         uses: actions/upload-artifact@v4
         with:
-          name: exp022-engine-k-preflight
-          path: research/code/research/results/exp022/preflight.json
+          name: exp022-engine-k-preflight-cleanup
+          path: research/results/EXP-022-preflight-cleanup-v0.1.json
           if-no-files-found: error
+
+      - name: Commit zero-outcome cleanup checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-022-preflight-cleanup-v0.1.json
+          git commit -m "Checkpoint EXP-022 Engine K pre-outcome cleanup"
+          git push origin HEAD:main
