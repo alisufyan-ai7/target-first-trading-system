@@ -41,6 +41,8 @@ Research/backtesting is the evidence layer used to build a profitable, reproduci
 16. `research/experiments/EXP-017-engine-h-range-raid-preexisting-fvg-reversal-v0.1.md`
 17. `research/experiments/EXP-018-engine-h-v0.2-simplified-mss-confirmation.md`
 18. `research/experiments/EXP-019-engine-h-v0.3-postraid-stop-t40.md`
+19. `research/experiments/EXP-020-engine-i-session-expansion-continuation-v0.1.md`
+20. `strategies/engine-i-session-expansion-continuation/SPEC-v0.1.md`
 
 Read the Badar/video and timeframe documents only when needed for historical context; do not use them as justification to keep retuning reversal engines.
 
@@ -152,6 +154,37 @@ Frozen development gate failed on trade count and all expectancy-sign requiremen
 
 **Engine H thesis family is paused. Do not create H v0.4 by tuning the same reversal thesis on the same development evidence.**
 
+## Engine I / EXP-020 freeze checkpoint
+
+Engine I v0.1 — Session Expansion / Continuation is now prospectively frozen before outcomes.
+
+Center rule:
+
+```text
+established 15m direction
+    -> Asian-session boundary breakout/acceptance
+    -> strong 5m expansion
+    -> 25%-60% controlled pullback holding the boundary
+    -> 1m continuation break
+    -> next-active-M1-open
+    -> structural pullback stop
+    -> fixed T40 actual target
+```
+
+Frozen evidence design:
+
+- warm-up Dec-2022;
+- development Jan-2023 through Feb-2025;
+- DEV-A=2023;
+- DEV-B=Jan-2024 through Feb-2025;
+- validation Mar-Aug 2025 remains closed;
+- fresh holdout Sep-2025 through Feb-2026 remains closed;
+- primary round-trip cost USD5 / 0.50 XAU;
+- development requires >=100 accepted trades, positive combined/DEV-A/DEV-B expectancy, PF >=1.10, max drawdown <=USD200 and recovery factor >=1.0;
+- no Engine-I v0.1 sensitivity grid is authorized.
+
+At this checkpoint zero Engine-I outcomes have been calculated. Do not backtest until the user reviews/approves the frozen specification and the implementation/provenance checkpoint is complete.
+
 ## Current promotion state
 
 **No strategy engine is currently promoted as a validated execution lead.**
@@ -223,25 +256,17 @@ Before freezing Engine I, explicitly verify data-provenance and contamination st
 
 Do **not** immediately backtest.
 
-First:
+Current state is already past the initial Engine-I design freeze. The next steps are:
 
-1. read this handoff and the ordered source-of-truth files;
-2. summarize the post-EXP-019 state;
-3. propose a concise Engine I v0.1 specification with:
-   - directional/session context;
-   - expansion trigger;
-   - controlled-pullback definition;
-   - continuation entry;
-   - structural stop;
-   - T30/T40/T50 actual/counterfactual targets;
-   - session/horizon rules;
-   - realistic costs;
-   - one-open and same-bar rules;
-   - evidence gates;
-4. ensure the specification is materially different from G/H;
-5. checkpoint Engine I spec + EXP-020 before outcome inspection;
-6. get user approval;
-7. run development only.
+1. read this handoff and the ordered source-of-truth files including EXP-020 and Engine-I v0.1 spec;
+2. confirm that zero Engine-I outcomes have been calculated;
+3. present/review the frozen Engine-I v0.1 mechanics and rationale with the user;
+4. obtain user approval before launching development;
+5. implement exact-arithmetic Engine-I code and a development-only harness;
+6. re-verify frozen source manifest, unit checks and causal sequencing with zero outcomes;
+7. checkpoint the pre-outcome implementation/provenance state;
+8. only then run combined development Jan-2023 through Feb-2025;
+9. stop before validation if any frozen development gate fails.
 
 ## Required development gate for Engine I
 
