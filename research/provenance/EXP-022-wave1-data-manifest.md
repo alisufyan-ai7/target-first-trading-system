@@ -28,6 +28,9 @@ Current common sample coverage reported by the pinned repositories:
 | USDCAD | getdata-finance/usdcad-1m-ohlcv-forex-historical-data | 108c13fa875437fde58c11d89d987b1c64ee1e5d | 901411b8fdc223ec14ce473429e15ff58b62e83d | 189,719 | 2026-03-23 -> 2026-09-23 |
 | USDCHF | getdata-finance/usdchf-1m-ohlcv-forex-historical-data | 545c371fd14537cff8cf52ca4ac8c67cae46f80f | 6ebec50b4c26380526b25f3d6ad3c65c0de11918 | 189,553 | 2026-03-23 -> 2026-09-23 |
 | XAGUSD | getdata-finance/xagusd-1m-ohlcv-metals-historical-data | 5e3f6bdee52b79ce0006d459fce7d324bb1fe36a | ef933e44d0430195d0d477f83ad5b8b7d690b900 | 180,106 | 2026-03-23 -> 2026-09-23 |
+| NAS100 | getdata-finance/nas100-1m-ohlcv-index-historical-data | 5260d251ecc38918fa3d464c4a2988f7dec25f0d | 204a04ca70579a0ea89953e9bd4dc1f35b30a336 | 180,750 | 2026-03-23 -> 2026-09-23 |
+| US30 | getdata-finance/us30-1m-ohlcv-index-historical-data | 66841c6540c1d7b6a22b908c5977cf738f8737e8 | 28e9d0c5b00bface9117f393b2184b2c87319806 | 180,658 | 2026-03-23 -> 2026-09-23 |
+| SPX500 | getdata-finance/spx500-1m-ohlcv-index-historical-data | 71f7399603f3ba6ee931668dad58c4b323f83f81 | 1fd0ae9813edc333da5c2b831555c791b7310d6f | 180,576 | 2026-03-23 -> 2026-09-23 |
 
 ## Frozen evaluation split
 
@@ -92,6 +95,11 @@ These are research translation conventions pending broker-specific verification.
 
 ### XAGUSD
 Forecast-only in v0.1 until the project freezes a research contract/quantity convention.
+
+### NAS100 / US30 / SPX500
+Forecast-only in Engine K v0.1 until the intended broker/CFD contract size, point value, tick value, and margin convention are frozen.
+
+Their price-move labels/features may be tested now; they may not enter the dollar-P&L execution simulation yet.
 
 ## Preflight requirements
 
