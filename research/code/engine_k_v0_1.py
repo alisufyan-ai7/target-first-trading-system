@@ -26,6 +26,22 @@ REFERENCE_EQUITY_USD = 500.0
 PRIMARY_STOP_RISK_USD = 20.0
 RESEARCH_LOT_STEP = 0.01
 
+# Pre-outcome cleanup checkpoint: research-only feasibility conventions.
+# These are deliberately not claimed to be broker specifications.
+EXECUTION_MARKETS = (
+    "XAUUSD","EURUSD","GBPUSD","USDJPY",
+    "EURJPY","AUDUSD","USDCAD","USDCHF",
+)
+FORECAST_ONLY_MARKETS = ("XAGUSD","NAS100","US30","SPX500")
+PRIMARY_PROBABILITY_FLOOR = 0.60
+BREAKEVEN_PROBABILITY_BUFFER = 0.05
+PRIMARY_COST_FRACTION_OF_GROSS_TARGET = 0.10
+STRESS_COST_FRACTION_OF_GROSS_TARGET = 0.20
+RESEARCH_LEVERAGE_REFERENCE = 500.0
+MAX_MARGIN_FRACTION_OF_EQUITY = 0.20
+MAX_NOTIONAL_TO_EQUITY = 100.0
+MAX_NEXT_ENTRY_GAP_MINUTES = 5
+
 SOURCES = {
     "XAUUSD": {
         "repo": "getdata-finance/xauusd-1m-ohlcv-metals-historical-data",
@@ -188,7 +204,11 @@ def load_csv(path: Path, symbol: str) -> pd.DataFrame:
     return df
 
 
-def resample_ohlc(df: pd.DataFrame, rule: str) -> pd.DataFrame:
+def resample_ohlc(
+    df: pd.DataFrame,
+    rule: str,
+    required_count: Optional[int] = None,
+) -> pd.DataFrame:
     x = df.set_index("datetime")
     out = x.resample(rule, label="left", closed="left").agg(
         open=("open", "first"),
@@ -198,8 +218,10 @@ def resample_ohlc(df: pd.DataFrame, rule: str) -> pd.DataFrame:
         volume=("volume", "sum"),
         n=("close", "count"),
     )
-    out = out.dropna(subset=["open", "high", "low", "close"]).reset_index()
-    return out
+    out = out.dropna(subset=["open", "high", "low", "close"])
+    if required_count is not None:
+        out = out[out["n"] == required_count]
+    return out.reset_index()
 
 
 def add_true_range(df: pd.DataFrame) -> pd.DataFrame:
@@ -214,8 +236,10 @@ def add_true_range(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_context(df1: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
-    b5 = add_true_range(resample_ohlc(df1, "5min"))
-    h1 = add_true_range(resample_ohlc(df1, "1h"))
+    # Structural/feature bars must be complete. Incomplete bins around closures
+    # are excluded rather than silently treated as ordinary 5m/1h bars.
+    b5 = add_true_range(resample_ohlc(df1, "5min", required_count=5))
+    h1 = add_true_range(resample_ohlc(df1, "1h", required_count=60))
 
     # Hourly statistics become available only after the hour completes.
     h1["available_ts"] = h1["datetime"] + pd.Timedelta(hours=1)
@@ -275,7 +299,10 @@ def next_active_entry(df1: pd.DataFrame, decision_start: pd.Timestamp) -> Option
     if k >= len(df1):
         return None
     row = df1.iloc[k]
-    return row["datetime"], float(row["open"])
+    entry_ts = row["datetime"]
+    if entry_ts - end > pd.Timedelta(minutes=MAX_NEXT_ENTRY_GAP_MINUTES):
+        return None
+    return entry_ts, float(row["open"])
 
 
 def latest_completed_hour_context(h1: pd.DataFrame, decision_end: pd.Timestamp) -> Optional[dict]:
@@ -308,6 +335,46 @@ def usd_value_per_native_unit_1lot(
     return None
 
 
+def notional_usd_1lot(
+    symbol: str,
+    entry: float,
+    usd_jpy: Optional[float] = None,
+) -> Optional[float]:
+    kind = SOURCES[symbol]["kind"]
+    if kind == "xau":
+        return entry * 100.0
+    if kind == "usd_quote":
+        return entry * 100000.0
+    if kind in ("jpy_quote", "cad_quote", "chf_quote"):
+        return 100000.0
+    if kind == "eurjpy":
+        if usd_jpy is None or usd_jpy <= 0:
+            return None
+        eurusd_cross = entry / usd_jpy
+        return eurusd_cross * 100000.0
+    return None
+
+
+def research_costs(target_usd: float) -> dict:
+    return {
+        "primary_cost_usd": target_usd * PRIMARY_COST_FRACTION_OF_GROSS_TARGET,
+        "stress_cost_usd": target_usd * STRESS_COST_FRACTION_OF_GROSS_TARGET,
+    }
+
+
+def qualification_probability_floor(
+    target_usd: float,
+    stop_risk_usd: float,
+    primary_cost_usd: float,
+) -> dict:
+    denom = target_usd + stop_risk_usd
+    if denom <= 0:
+        return {"breakeven_probability": None, "required_probability": None}
+    p_be = (stop_risk_usd + primary_cost_usd) / denom
+    required = max(PRIMARY_PROBABILITY_FLOOR, p_be + BREAKEVEN_PROBABILITY_BUFFER)
+    return {"breakeven_probability": p_be, "required_probability": required}
+
+
 def floor_lot(x: float, step: float = RESEARCH_LOT_STEP) -> float:
     if not math.isfinite(x) or x <= 0:
         return 0.0
@@ -336,19 +403,37 @@ def candidate_economics(
         lots = {k: floor_lot(targets[k] / (distances[k] * v)) for k in distances}
 
     v = usd_value_per_native_unit_1lot(symbol, entry, usd_jpy)
-    if v is None:
+    n1 = notional_usd_1lot(symbol, entry, usd_jpy)
+    if v is None or n1 is None:
         return {}
     stop_dist = abs(entry-stop)
     out = {}
     for k in distances:
         lot = lots[k]
         risk = stop_dist * v * lot
+        notional = n1 * lot
+        margin = notional / RESEARCH_LEVERAGE_REFERENCE
+        costs = research_costs(targets[k])
+        probs = qualification_probability_floor(
+            targets[k], risk, costs["primary_cost_usd"]
+        )
+        risk_ok = lot >= RESEARCH_LOT_STEP and risk <= PRIMARY_STOP_RISK_USD
+        notional_ok = notional <= REFERENCE_EQUITY_USD * MAX_NOTIONAL_TO_EQUITY
+        margin_ok = margin <= REFERENCE_EQUITY_USD * MAX_MARGIN_FRACTION_OF_EQUITY
         out[k] = {
             "target_usd": targets[k],
             "distance": distances[k],
             "lot": lot,
             "stop_risk_usd": risk,
-            "admissible_risk": bool(lot >= RESEARCH_LOT_STEP and risk <= PRIMARY_STOP_RISK_USD),
+            "notional_usd": notional,
+            "notional_to_equity": notional / REFERENCE_EQUITY_USD,
+            "research_margin_usd_at_1_500": margin,
+            **costs,
+            **probs,
+            "admissible_risk": bool(risk_ok),
+            "admissible_notional": bool(notional_ok),
+            "admissible_margin": bool(margin_ok),
+            "execution_admissible_pre_probability": bool(risk_ok and notional_ok and margin_ok),
         }
     return out
 
@@ -420,7 +505,10 @@ def preflight_states(
             candidate_count += 1
 
             econ = candidate_economics(symbol, entry, stop, hc["mtr20"], usd_jpy)
-            economic_rungs += sum(1 for x in econ.values() if x["admissible_risk"])
+            economic_rungs += sum(
+                1 for x in econ.values()
+                if x.get("execution_admissible_pre_probability", False)
+            )
 
             if len(state_examples) < 5:
                 state_examples.append({
@@ -434,6 +522,11 @@ def preflight_states(
 
     return {
         "symbol": symbol,
+        "universe_class": (
+            "execution"
+            if symbol in EXECUTION_MARKETS
+            else "forecast_only"
+        ),
         "m1_rows_after_cut": len(df1),
         "first_ts": str(df1["datetime"].iloc[0]),
         "last_ts": str(df1["datetime"].iloc[-1]),
@@ -474,5 +567,39 @@ def self_tests() -> list[str]:
     # JPY conversion.
     assert abs(usd_value_per_native_unit_1lot("USDJPY",150)-666.6666666667) < 1e-6
     passed.append("jpy_quote_value")
+
+    # Universe separation is frozen before outcomes.
+    assert set(EXECUTION_MARKETS).isdisjoint(set(FORECAST_ONLY_MARKETS))
+    assert set(EXECUTION_MARKETS) | set(FORECAST_ONLY_MARKETS) == set(SOURCES)
+    passed.append("universe_separation")
+
+    # Primary and stress cost conventions are target-relative research stresses.
+    cc = research_costs(50.0)
+    assert abs(cc["primary_cost_usd"] - 5.0) < 1e-12
+    assert abs(cc["stress_cost_usd"] - 10.0) < 1e-12
+    passed.append("research_cost_schedule")
+
+    # Probability gate is never below 60% and carries a break-even buffer.
+    pq = qualification_probability_floor(50.0,20.0,5.0)
+    assert pq["required_probability"] >= 0.60
+    assert pq["required_probability"] >= pq["breakeven_probability"] + 0.05 - 1e-12
+    passed.append("probability_floor")
+
+    # Notional/margin research gate is internally consistent at the frozen 1:500 reference.
+    max_notional = REFERENCE_EQUITY_USD * MAX_NOTIONAL_TO_EQUITY
+    assert abs(max_notional / RESEARCH_LEVERAGE_REFERENCE - REFERENCE_EQUITY_USD * MAX_MARGIN_FRACTION_OF_EQUITY) < 1e-9
+    passed.append("notional_margin_gate")
+
+    # Entry must not jump across a long closure.
+    toy = pd.DataFrame({
+        "datetime": pd.to_datetime([
+            "2026-01-05T10:00:00Z","2026-01-05T10:01:00Z",
+            "2026-01-05T10:02:00Z","2026-01-05T10:03:00Z",
+            "2026-01-05T10:04:00Z","2026-01-05T10:20:00Z",
+        ]),
+        "open":[1,1,1,1,1,2],
+    })
+    assert next_active_entry(toy, pd.Timestamp("2026-01-05T10:00:00Z")) is None
+    passed.append("entry_gap_reject")
 
     return passed
