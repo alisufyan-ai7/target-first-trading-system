@@ -110,3 +110,127 @@ It does not download validation or holdout files.
 The runner verifies each loaded file's frozen Git blob SHA and byte count before calculating outcomes.
 
 **Engine-H-v0.3 outcomes calculated at this checkpoint: ZERO.**
+
+## Checkpoint 2 — combined development result
+
+**Development result commit:** `dc1d54d8c0b57a8eb56c1cb9efe84dbcdcc45db6`  
+**Combined development:** 2023-01-01 through 2025-02-28  
+**DEV-A:** calendar 2023  
+**DEV-B:** 2024-01-01 through 2025-02-28  
+**Validation outcomes inspected:** NO  
+**Fresh-holdout outcomes inspected:** NO
+
+Durable result files:
+
+- `research/results/EXP-019-development-summary-v0.3.json`
+- `research/results/EXP-019-development-setups-v0.3.jsonl`
+- `research/results/EXP-019-development-trades-v0.3.jsonl`
+
+### Combined development funnel
+
+- market-active M1 rows: **795,011**
+- active 5m bars: **153,365**
+- prior-range boundary breach bars: **46,512**
+- external pre-existing FVG touch bars: **2,310**
+- qualifying close-back raids: **613**
+- in-window qualifying raids: **338**
+- accepted filled trades: **58**
+
+Post-raid terminal reasons included:
+
+- MSS timeout after 20 active M1 bars: **168**
+- no post-raid invalidation pivot: **55**
+- no internal MSS pivot: **42**
+- structural risk above USD40: **11**
+- session close before MSS: **4**
+- one-open suppression: **1**
+
+### Combined filled-trade outcomes
+
+- actual T40 exits: **17 / 58 = 29.31%**
+- stops including entry-bar stops: **39 / 58 = 67.24%**
+- timeouts: **2 / 58 = 3.45%**
+
+Counterfactual target reachability:
+
+- T30: **21 / 58 = 36.21%**
+- T40: **17 / 58 = 29.31%**
+- T50: **12 / 58 = 20.69%**
+- T70: **11 / 58 = 18.97%**
+- T100: **5 / 58 = 8.62%**
+
+### Combined economics
+
+- gross expectancy/trade: **+USD 0.48**
+- net expectancy/trade at 0.25-XAU cost: **-USD 2.02**
+- net expectancy/trade at primary 0.50-XAU cost: **-USD 4.52**
+- primary-cost profit factor: **0.703**
+- total primary-cost net P&L: **-USD 261.98**
+- mean eligible-weekday P&L: **-USD 0.46**
+- median eligible-weekday P&L: **USD 0**
+- >=USD100/150/200 weekdays: **0%**
+
+Risk:
+
+- maximum drawdown: **USD 336.05**
+- worst losing-trade run: **7 trades / -USD 163.45**
+- mean gross structural stop risk: **USD 19.48**
+- median gross structural stop risk: **USD 18.16**
+- maximum admitted gross stop observed: **USD 39.11**
+
+### Development subperiod stability
+
+DEV-A — calendar 2023:
+
+- accepted trades: **32**
+- T40 hit rate: **18.75%**
+- primary-cost expectancy: **-USD 7.18/trade**
+- primary-cost PF: **0.507**
+- total primary-cost P&L: **-USD 229.65**
+
+DEV-B — Jan-2024 through Feb-2025:
+
+- accepted trades: **26**
+- T40 hit rate: **42.31%**
+- primary-cost expectancy: **-USD 1.24/trade**
+- primary-cost PF: **0.923**
+- total primary-cost P&L: **-USD 32.33**
+
+Both frozen development subperiod expectancy signs are negative.
+
+### Bootstrap uncertainty
+
+Frozen 10,000-rep, 5-weekday moving-block bootstrap, seed 19019:
+
+- combined primary-cost expectancy point: **-USD 4.52/trade**
+- 95% expectancy interval: **[-USD 11.60, +USD 2.69]**
+- mean daily point: **-USD 0.46**
+- 95% mean-daily interval: **[-USD 1.19, +USD 0.27]**
+
+### Frozen-gate disposition
+
+The frozen development gate required all of:
+
+- combined accepted trades >=100;
+- combined primary-cost expectancy >0;
+- DEV-A primary-cost expectancy >0;
+- DEV-B primary-cost expectancy >0.
+
+Observed:
+
+- accepted trades: **58** -> FAIL;
+- combined expectancy: **-USD 4.52** -> FAIL;
+- DEV-A expectancy: **-USD 7.18** -> FAIL;
+- DEV-B expectancy: **-USD 1.24** -> FAIL.
+
+Therefore Engine H v0.3 is **not eligible for validation**.
+
+### Decision
+
+**STOP EXP-019 / Engine H v0.3 before validation.**
+
+Do not expose the untouched validation or fresh-holdout periods to v0.3.
+
+The post-raid lower-timeframe stop substantially increased admissible trades relative to H v0.2 and reduced median stop risk, but the fixed T40 target did not produce positive cost-adjusted expectancy. The failure is present in both development subperiods rather than being solely a single-period artifact.
+
+Do not retune v0.3. Any further redesign requires a new prospectively frozen version/engine.
