@@ -120,3 +120,9 @@
 - Added exact-arithmetic Engine-I implementation, preflight verifier, development runner, and separate preflight/development GitHub Actions workflows.
 - Final preflight verified 27 Dec-2022–Feb-2025 warm-up/development files (1,182,240 rows) against frozen blob/byte/month/chronology/OHLC rules and passed all 11 self/causality tests.
 - Confirmed validation/holdout were not loaded; development workflow remains untriggered. Next permitted outcome is EXP-020 development only.
+
+- Engine I v0.1 completed development with 197 accepted trades, satisfying the frozen >=100 frequency requirement.
+- Engine I failed economics decisively: T40 24.37%, gross expectancy about -USD0.15/trade, primary-cost expectancy about -USD5.15/trade, PF 0.631, total net -USD1,015.49, max drawdown USD1,060.90.
+- Both predeclared development subperiods failed at primary cost: DEV-A about -USD6.20/trade and DEV-B about -USD4.09/trade; 95% bootstrap expectancy interval was entirely negative at about -USD8.38 to -USD1.94.
+- Stopped EXP-020 before validation. Mar-Aug 2025 validation and Sep-2025–Feb-2026 fresh holdout remain untouched.
+- Prohibited post-hoc Engine-I target switching/parameter rescue; next action is a genuinely different engine family.
