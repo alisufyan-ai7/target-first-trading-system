@@ -310,3 +310,38 @@ After each material result, update:
 - favor simple causal engines with enough candidate frequency and realistic transaction-cost headroom.
 
 Do not trade statistical certainty for speed.
+
+
+## Engine I / EXP-020 development outcome
+
+Engine I v0.1 has now completed development and failed decisively.
+
+Frozen Jan-2023 through Feb-2025 development result:
+
+- accepted trades: 197;
+- T40 hit rate: 24.37%;
+- gross expectancy: approximately -USD0.15/trade;
+- primary-cost expectancy: approximately -USD5.15/trade;
+- primary-cost PF: 0.631;
+- total primary-cost P&L: -USD1,015.49;
+- max drawdown: USD1,060.90;
+- DEV-A expectancy: approximately -USD6.20/trade;
+- DEV-B expectancy: approximately -USD4.09/trade;
+- 95% block-bootstrap expectancy interval: approximately -USD8.38 to -USD1.94.
+
+Only the >=100 trade-count gate passed. Combined expectancy, both subperiod expectancy gates, PF, drawdown and recovery factor failed.
+
+Development workflow run: `35844194955`.
+
+Durable result commit: `a891dc1aa956151df1b87f6c9e03daae2dabf29b`.
+
+Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 were not loaded or inspected.
+
+Do not:
+
+- run Engine-I validation/holdout;
+- create a post-hoc Engine-I sensitivity grid;
+- switch T40 to another target because the diagnostic ladder looks different;
+- create H v0.4 or reopen G/H reversal tuning.
+
+Current strategy action: move to a genuinely different prospectively frozen engine family. EXP-015 remains paused until one reproducible engine validates.
