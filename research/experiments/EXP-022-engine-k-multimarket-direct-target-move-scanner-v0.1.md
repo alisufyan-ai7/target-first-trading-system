@@ -1,6 +1,6 @@
 # EXP-022 — Engine K Multi-Market Direct Target-Move Scanner v0.1
 
-**Status:** FROZEN PROSPECTIVELY — CHECKPOINT 1 DATA PROVENANCE COMPLETE; PRE-OUTCOME IMPLEMENTATION NEXT  
+**Status:** FROZEN PROSPECTIVELY — PRE-OUTCOME CLEANUP COMPLETE IN SPEC/CODE; FINAL ZERO-OUTCOME PREFLIGHT NEXT  
 **Date:** 2026-09-23  
 **Strategy:** strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md  
 **Outcome status at freeze:** ZERO ENGINE-K OUTCOMES CALCULATED
@@ -40,15 +40,18 @@ Execution-research eligible:
 
 Forecast-only until economics are frozen:
 
-- XAGUSD.
+- XAGUSD;
+- NAS100;
+- US30;
+- SPX500.
+
+These four forecast-only markets may be preflighted and researched, but they may not fit/calibrate the primary executable model or enter trade/P&L ranking.
 
 Wave 2 target additions:
 
 - GBPJPY;
-- NAS100/USTEC;
-- US30;
-- US500/SPX500;
-- BTCUSD/BTCUSDT.
+- BTCUSD/BTCUSDT;
+- additional liquid markets only after pinned data and contract economics are documented.
 
 ## Frozen split
 
@@ -77,7 +80,15 @@ Use the prospectively frozen dynamic native target ladder from the Engine-K spec
 
 - 0.14 / 0.19 / 0.23 x median true range of prior 20 completed active 1h bars.
 
-Then size each target rung economically to approximately USD30 / USD40 / USD50 gross, subject to the primary USD20 structural-risk gate.
+Then size each target rung economically to approximately USD30 / USD40 / USD50 gross.
+
+The MTR20 fractions are a frozen **forecast-label grid**, not a global replacement for the engine-conditioned sizing doctrine. Execution eligibility additionally requires:
+
+- structural stop risk <=USD20;
+- notional/equity <=100x;
+- research margin <=USD100 at the frozen 1:500 research reference;
+- primary research round-trip cost = 10% of gross target;
+- stress research round-trip cost = 20% of gross target.
 
 ## Structural invalidation
 
@@ -91,10 +102,13 @@ Frozen pooled HistGradientBoostingClassifier with fixed hyperparameters from the
 
 Qualification:
 
-- calibrated target-first probability >= 0.60;
-- conservative net EV > 0;
+- `p_BE = (stop_risk + primary_cost) / (target + stop_risk)`;
+- calibrated target-first probability >= `max(0.60, p_BE + 0.05)`;
+- primary-cost net EV > 0;
 - structural stop risk <= USD20;
-- economic/margin gates pass.
+- notional/equity <=100x;
+- research margin <=USD100 at 1:500;
+- all other economic/session/data gates pass.
 
 ## Required outputs
 
@@ -117,33 +131,59 @@ Per market and combined:
 ## Checkpoint sequence
 
 1. data/provenance inventory for all Wave-1 markets;
-2. exact target/economic conversion verification;
-3. feature/label implementation self-tests with zero model outcomes;
-4. checkpoint preflight;
-5. training + May calibration only;
-6. checkpoint;
-7. freeze calibration/qualification outputs;
-8. secondary Jun–Aug test;
-9. checkpoint;
-10. final Aug21–Sep11 holdout once;
-11. checkpoint before any revision.
+2. pre-outcome cleanup of universe, economics, causal bars and feature formulas;
+3. exact target/economic conversion verification;
+4. 29-feature / pivot / entry-gap self-tests with zero target/model outcomes;
+5. durable zero-outcome cleanup preflight checkpoint;
+6. fit primary execution model on **training Mar-23 through May-31 only**;
+7. calibrate probabilities on **June only**;
+8. checkpoint training/calibration outputs and freeze qualification outputs;
+9. run historical secondary test on **July through August**;
+10. checkpoint;
+11. run final common-sample holdout **Sep-1 through Sep-22 once**;
+12. checkpoint before any revision.
+
+The September holdout is an initial out-of-sample test, not sufficient by itself for live promotion.
 
 ## Prohibited
 
-- changing p>=0.60 after seeing low trade frequency;
+- lowering the 0.60 floor or the +0.05 break-even buffer after seeing low trade frequency;
 - choosing a different target burden after seeing results;
 - market-specific feature hand-tuning after outcome inspection;
 - using final holdout to select model hyperparameters;
 - dropping bad markets from reported combined results without documenting the exclusion rule;
 - replacing structural stops after outcome inspection.
 
+## Pre-outcome cleanup checkpoint
+
+Completed before target labels/model outcomes:
+
+- exact execution universe: 8 markets;
+- exact forecast-only universe: 4 markets;
+- forecast-only isolation from primary executable model;
+- authoritative train/calibration/secondary/final split reconciled;
+- complete-bar-only 5m/1h construction;
+- <=5-minute next-entry gap rule;
+- complete 29-feature causal contract;
+- target-relative research cost stress;
+- USD20 stop-risk gate;
+- 100x notional/equity cap;
+- USD100 research-margin cap at 1:500;
+- qualification probability = max(0.60, break-even + 0.05);
+- September final holdout explicitly not sufficient alone for live promotion.
+
+Implementation commits:
+
+- Engine-K economics/causality hardening: `ae8bf29f0d6c083120f851616b4220dc80448d43`;
+- complete 29-feature contract: `4269d95a3483f97630ecbc5c87aee6025d713e39`;
+- strengthened cleanup preflight runner: `4b0df1ebfd10b243bd8fe769f6196fd9c8f12a88`;
+- durable preflight workflow: `16be981d83594829a52399c10de28052c2bb1b4b`.
+
+**Engine-K target outcomes calculated: NO.**  
+**Engine-K model outcomes calculated: NO.**
+
 ## Immediate next action
 
-Checkpoint 1 is complete.
+Run the final zero-outcome cleanup preflight against all 12 pinned datasets.
 
-Next:
-
-- implement Engine-K feature/candidate/preflight code against the pinned Wave-1 manifest;
-- verify causal feature construction and structural pivots with zero target/model outcomes;
-- checkpoint preflight;
-- then run training + calibration only.
+Only after that passes may the primary model be fit on the eight execution-research markets using the frozen training period.
