@@ -18,7 +18,7 @@ _Last updated: 2026-09-23_
 | Engine H v0.2 | Same range/FVG raid -> 1m MSS within 20 active bars -> next-active-M1-open entry -> opposite range target | **Development insufficient evidence: 6 accepted trades vs >=100 minimum; +$0.08/trade at primary cost is statistically meaningless; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.3 | Same range/FVG raid + MSS/next-open -> post-raid 1m structural stop -> fixed T40 target | **Development failed: 58 trades (<100), -$4.52/trade at primary cost; DEV-A -$7.18 and DEV-B -$1.24; validation/holdout untouched; not promoted** |
 | Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Development failed: 197 trades, -$5.15/trade at primary cost, PF 0.631, DEV-A -$6.20, DEV-B -$4.09, MDD $1,060.90; validation/holdout untouched; not promoted** |
-| Engine J v0.1 | Same-day 5m baseline -> 30m compression box -> strong 5m breakout -> next-open -> breakout-bar stop -> T40 | **Prospectively frozen under EXP-021; zero Engine-J outcomes calculated; implementation not started** |
+| Engine J v0.1 | Same-day 5m baseline -> 30m compression box -> strong 5m breakout -> next-open -> breakout-bar stop -> T40 | **Frozen and preflight-verified under EXP-021; zero outcomes calculated; development is next; validation/holdout untouched** |
 
 ## Current promotion state
 
@@ -109,4 +109,6 @@ Engine J is the new active prospective engine family.
 - same primary USD5 cost and frozen economic gates;
 - zero Engine-J outcomes calculated.
 
-**Current next step:** user review of the frozen Engine-J v0.1 spec, then exact-arithmetic implementation/preflight. Do not backtest Engine J before that checkpoint.
+**Preflight checkpoint:** complete. Final result commit `1473aa343c7d0ea746c4ff643571fb729329f687`; all 27 development/warm-up files and 16 Engine-J self/causality tests passed; zero outcomes calculated.
+
+**Current next step:** run combined Jan-2023 through Feb-2025 development only. Validation/holdout remain sealed unless all frozen development gates pass.
