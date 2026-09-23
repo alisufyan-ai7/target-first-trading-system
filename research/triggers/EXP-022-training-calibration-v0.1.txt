@@ -1,0 +1,1 @@
+Trigger frozen Engine K v0.1 training Mar-23 through May-31 plus June calibration only. July-August secondary test and September final holdout remain sealed. Forecast-only markets are not loaded. 2026-09-23.
