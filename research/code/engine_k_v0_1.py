@@ -727,6 +727,14 @@ def self_tests() -> list[str]:
     assert abs(max_notional / RESEARCH_LEVERAGE_REFERENCE - REFERENCE_EQUITY_USD * MAX_MARGIN_FRACTION_OF_EQUITY) < 1e-9
     passed.append("notional_margin_gate")
 
+    # Rounded-lot reward must never exceed the nominal rung.
+    ec = candidate_economics("EURUSD",1.1000,1.0990,0.0100)
+    assert ec
+    for rung, x in ec.items():
+        assert x["gross_target_usd_actual"] <= x["target_usd_nominal"] + 1e-9
+        assert x["primary_cost_usd"] <= 0.10*x["target_usd_nominal"] + 1e-9
+    passed.append("rounded_lot_actual_reward")
+
     # Feature contract: 28 common causal features, plus rung-specific stop risk = 29.
     toy5 = pd.DataFrame({
         "datetime": pd.date_range("2026-01-05T00:00:00Z", periods=60, freq="5min"),
