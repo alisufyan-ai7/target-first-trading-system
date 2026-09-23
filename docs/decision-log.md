@@ -536,3 +536,18 @@ Frozen Engine-K split:
 **Outcome status:** ZERO Engine-K target outcomes and ZERO model outcomes at this decision.
 
 **BTC / universe policy:** BTCUSD/BTCUSDT and further markets remain planned expansion candidates, but are not admitted to v0.1 until exact pinned data plus venue/contract/cost/margin economics are prospectively documented. The 8-execution/12-observed universe is sufficient for the first architecture/economic proof, not the intended final production universe.
+
+
+## 2026-09-23 — Engine K final cleanup preflight passed with zero outcomes
+
+**Decision:** Accept the reconciled Engine-K v0.1 pre-outcome implementation/economics/provenance checkpoint.
+
+**Tested repository SHA:** `2c319cd45cbae6cdb1934540f6933890886c1812`.
+
+**Durable result commit:** `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`.
+
+**Evidence:** all 11 frozen cleanup self-tests passed. Across training+calibration scope through June 30, the 8 execution markets produced 205,196 causal structural states and 7,098 target rungs that already pass frozen stop-risk/notional/margin feasibility before any probability qualification. The 4 forecast-only markets produced 103,041 structural states but zero executable economic rungs by design.
+
+**Protection:** no target outcomes, fitted model outcomes, training result, calibration result, July-August state/outcome diagnostics, or September final-holdout outcomes were inspected by the authoritative preflight.
+
+**Next:** training Mar-23 through May-31 and probability calibration on June only. Checkpoint before any July-August secondary-test outcome.
