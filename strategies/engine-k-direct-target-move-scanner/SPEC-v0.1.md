@@ -402,7 +402,8 @@ Primary v0.1 execution model:
 - fit only on the eight **execution-research markets**: XAUUSD, EURUSD, GBPUSD, USDJPY, EURJPY, AUDUSD, USDCAD and USDCHF;
 - XAGUSD, NAS100, US30 and SPX500 are excluded from fitting, calibration, trade ranking and P&L simulation while they remain forecast-only;
 - one binary model per target rung;
-- market identity and direction encoded prospectively;
+- market identity encoded as eight fixed one-hot columns in the frozen execution-market order;
+- direction encoded as fixed long/short one-hot columns;
 - fixed hyperparameters before outcome inspection:
 
   - learning_rate = 0.05;
@@ -438,7 +439,10 @@ Training model fit:
 Probability calibration:
 
 - 2026-06-01 through 2026-06-30;
-- sigmoid/Platt calibration only.
+- sigmoid/Platt calibration only;
+- calibration input = clipped logit of the primary model's raw probability;
+- Platt estimator = LogisticRegression(C=1,000,000, solver=lbfgs, max_iter=1000);
+- calibration labels are June only.
 
 No threshold tuning on later periods.
 
