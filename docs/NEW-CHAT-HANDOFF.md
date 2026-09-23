@@ -1,6 +1,6 @@
 # New Chat Handoff — Target-First Trading System
 
-_Last updated: 2026-09-23 after EXP-019_
+_Last updated: 2026-09-23 after Engine K / EXP-022 freeze and Wave-1 provenance checkpoint_
 
 Use this file as the **first document to read whenever a new ChatGPT conversation is started for this project**.
 
@@ -83,6 +83,70 @@ daily P&L state machine
 ```
 
 EXP-015 remains paused until a reproducible engine validates.
+
+
+
+## Engine K / EXP-022 — CURRENT PRIMARY PATH
+
+The user explicitly redirected the project away from sequential one-pattern XAU discovery toward the actual operating requirement:
+
+> continuously scan all supported markets and identify where an economically useful move is most likely next.
+
+Engine K v0.1 is now prospectively frozen as a **multi-market direct target-move forecasting engine**.
+
+Wave-1 execution-research universe:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF.
+
+XAGUSD is forecast-only until contract economics are frozen.
+
+Engine K:
+
+- scores long and short every 5 minutes;
+- uses a confirmed structural pivot stop;
+- asks Gold directly about +3/+4/+5 XAU moves;
+- uses frozen non-Gold movement-equivalence distances;
+- calculates P&L-equivalent size;
+- requires primary structural risk <= USD20;
+- uses a pooled multi-market probability model;
+- requires calibrated p >= 0.60 and positive conservative EV;
+- trades nothing if no candidate qualifies.
+
+Frozen rolling-source provenance:
+
+- `research/provenance/EXP-022-wave1-data-manifest.md`.
+
+Frozen split:
+
+- training: 2026-03-23 through 2026-05-31;
+- calibration: 2026-06-01 through 2026-06-30;
+- secondary test: 2026-07-01 through 2026-08-31;
+- final common-sample holdout: 2026-09-01 through 2026-09-22.
+
+At the checkpoint when this handoff was updated:
+
+- Engine-K outcomes calculated: NO;
+- data provenance: COMPLETE;
+- implementation files: CREATED;
+- zero-outcome GitHub preflight workflow: LAUNCHED / CHECK RUN STATUS BEFORE DEVELOPMENT.
+
+Files:
+
+- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md`;
+- `research/experiments/EXP-022-engine-k-multimarket-direct-target-move-scanner-v0.1.md`;
+- `research/provenance/EXP-022-wave1-data-manifest.md`;
+- `research/code/engine_k_v0_1.py`;
+- `research/code/run_engine_k_preflight.py`;
+- `.github/workflows/exp022-engine-k-preflight.yml`.
+
+Do not return to G/H/I/J tuning while Engine K is being evaluated.
 
 ## EXP-014 conclusion
 
