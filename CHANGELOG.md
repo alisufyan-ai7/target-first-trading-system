@@ -126,3 +126,9 @@
 - Both predeclared development subperiods failed at primary cost: DEV-A about -USD6.20/trade and DEV-B about -USD4.09/trade; 95% bootstrap expectancy interval was entirely negative at about -USD8.38 to -USD1.94.
 - Stopped EXP-020 before validation. Mar-Aug 2025 validation and Sep-2025–Feb-2026 fresh holdout remain untouched.
 - Prohibited post-hoc Engine-I target switching/parameter rescue; next action is a genuinely different engine family.
+
+- Frozen Engine J v0.1 / EXP-021 prospectively after Engine I's decisive development failure.
+- Engine J tests a new volatility-compression/direct-breakout family: 24-bar same-day baseline -> 6-bar compression -> strong 5m breakout -> next-open -> breakout-bar stop -> T40.
+- Removed Engine-I-specific dependencies: no Asian boundary, trend context, pullback, or continuation confirmation.
+- Preserved the same sealed validation/holdout, USD5 primary cost, >=100-trade development minimum, subperiod expectancy, PF, drawdown and recovery gates.
+- Zero Engine-J outcomes calculated; implementation/backtest not started.
