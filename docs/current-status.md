@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine K v0.1 cleanup preflight passed; zero target/model outcomes; training + June calibration next
+**Phase:** Phase 2 — Engine K v0.1 training/calibration implementation frozen; zero target/model outcomes; outcome run authorized next
 
 ## Authorized context
 
@@ -308,20 +308,15 @@ Engine-K model outcomes calculated: **NO**.
 
 ## Exact next action
 
-Engine-K pre-outcome cleanup and final zero-outcome preflight are complete.
+Trigger **EXP-022 training + June calibration only** from the frozen implementation.
 
-Authoritative cleanup checkpoint:
+Authorized scope:
 
-- tested SHA: `2c319cd45cbae6cdb1934540f6933890886c1812`;
-- result commit: `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`;
-- self-tests: 11/11;
-- execution structural states through June 30: 205,196;
-- economically admissible target rungs before probability qualification: 7,098;
-- target outcomes calculated: NO;
-- model outcomes calculated: NO.
+- train: Mar-23 through May-31 2026;
+- calibrate: June 2026;
+- execution markets only: 8;
+- July-August secondary test: SEALED;
+- Sep-1 through Sep-22 final holdout: SEALED;
+- forecast-only markets: not loaded for this outcome run.
 
-The next permitted stage is **training + June calibration only** on the 8 execution-research markets.
-
-Do not inspect July-August secondary-test outcomes or Sep-1–Sep-22 final-holdout outcomes until each preceding checkpoint is frozen.
-
-Do not add BTC or another executable symbol to Engine-K v0.1. New symbols follow `research/provenance/EXP-022-symbol-admission-policy.md` and enter prospectively in a new wave/version.
+Apply the predeclared development gate exactly. If it fails or is insufficient-frequency, stop before July-August. Do not alter features, model hyperparameters, target distances, cost assumptions, probability thresholds, or universe to rescue the result.
