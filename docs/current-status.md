@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine G failed; Engine H v0.1/v0.2 insufficient, v0.3 failed development; validation/holdout preserved
+**Phase:** Phase 2 — Engine I v0.1 / EXP-020 prospectively frozen; zero Engine-I outcomes; validation/holdout preserved
 
 ## Authorized context
 
@@ -115,6 +115,7 @@ There is currently **no strategy engine promoted as a validated execution lead**
 - Engine H v0.1: **prospectively frozen from the two video motifs, then produced only 2 accepted development trades from 180 in-window raids versus the >=100 minimum. Formally insufficient evidence; validation/holdout untouched; not promoted.**
 - Engine H v0.2: **simplified confirmation to MSS-within-20 + next-active-M1-open entry. 69 setups reached economic admission, but only 6 passed target/stop/room/R:R/risk geometry. Primary-cost expectancy +USD0.08/trade with bootstrap CI -USD32.65 to +USD40.00; insufficient evidence; validation/holdout untouched.**
 - Engine H v0.3: **post-raid 1m stop + fixed T40 target, with expanded Jan-2023–Feb-2025 development. 58 accepted trades (<100), primary-cost expectancy -USD4.52/trade; DEV-A -USD7.18, DEV-B -USD1.24. Validation/holdout untouched; not promoted.**
+- Engine I v0.1: **prospectively frozen under EXP-020 as a materially different session-expansion/continuation family; zero outcomes calculated; development/validation/holdout gates frozen before results.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -159,18 +160,49 @@ Because the mandatory development expectancy criterion already failed and the mi
 
 EXP-015 remains paused until at least one reproducible engine validates.
 
+## Engine I / EXP-020 status
+
+**Engine I v0.1 is prospectively frozen and has not been run.**
+
+Frozen center thesis:
+
+~~~text
+established 15m intraday direction
+    -> Asian-session boundary cleared by strong 5m expansion
+    -> 25%-60% controlled pullback that holds the cleared boundary
+    -> 1m continuation break
+    -> next-active-M1-open entry
+    -> structural pullback stop
+    -> fixed T40 actual target with T30/T50 diagnostics
+~~~
+
+Key pre-outcome protections:
+
+- development: Jan-2023 through Feb-2025;
+- DEV-A: calendar 2023;
+- DEV-B: Jan-2024 through Feb-2025;
+- validation: Mar-Aug 2025, still closed;
+- fresh holdout: Sep-2025 through Feb-2026, still closed;
+- Mar-Aug 20 2026 remains quarantined;
+- USD5 / 0.50-XAU round-trip primary cost is active from the first development run;
+- >=100 accepted development trades required;
+- combined, DEV-A and DEV-B expectancy must all be positive;
+- development PF >=1.10;
+- development max drawdown <=USD200 and recovery factor >=1.0;
+- no Engine-I sensitivity grid is authorized to rescue a failed center rule.
+
+Development dates are acknowledged as reusable project development data rather than pristine project-level data because G/H development outcomes were already inspected there. No Engine-I outcomes have been inspected. Validation/holdout remain protected.
+
 ## Exact next action
 
-Do not inspect validation/holdout for Engine G v0.1 or Engine H v0.1/v0.2/v0.3, and do not retune any frozen version.
+Do **not** run an Engine-I backtest yet.
 
-Engine H has now tested three materially different confirmation/economic architectures around the same video-derived location thesis:
+1. present the frozen Engine-I specification and rationale to the user;
+2. obtain user approval;
+3. implement the exact-arithmetic Engine-I v0.1 reference engine and development-only harness;
+4. re-verify the frozen source manifest and causal/unit checks with zero outcomes calculated;
+5. checkpoint that pre-outcome implementation/provenance state in GitHub;
+6. only then run combined development Jan-2023 through Feb-2025;
+7. stop before validation if any frozen development gate fails.
 
-- v0.1: too restrictive;
-- v0.2: confirmation simplified, but economic geometry left only 6 trades;
-- v0.3: post-raid lower-timeframe stop + fixed T40 increased admissible trades to 58 over 26 development months, but cost-adjusted expectancy was negative in both predeclared development subperiods.
-
-This is sufficient evidence to stop iterating the same H location thesis for now rather than continuing version-by-version target/stop tuning.
-
-The next engine should be a genuinely different hypothesis family—preferably continuation/session expansion or another independently motivated setup—prospectively frozen before outcomes.
-
-EXP-015 remains paused until at least one reproducible engine validates.
+Do not create H v0.4 or resume G/H reversal tuning. EXP-015 remains paused until at least one reproducible engine validates.
