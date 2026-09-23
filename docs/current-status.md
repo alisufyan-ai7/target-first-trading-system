@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine J v0.1 / EXP-021 implementation + preflight verified; zero Engine-J outcomes; development ready
+**Phase:** Phase 2 — Engine J v0.1 / EXP-021 failed development; validation/holdout preserved; next distinct engine family required
 
 ## Authorized context
 
@@ -116,7 +116,7 @@ There is currently **no strategy engine promoted as a validated execution lead**
 - Engine H v0.2: **simplified confirmation to MSS-within-20 + next-active-M1-open entry. 69 setups reached economic admission, but only 6 passed target/stop/room/R:R/risk geometry. Primary-cost expectancy +USD0.08/trade with bootstrap CI -USD32.65 to +USD40.00; insufficient evidence; validation/holdout untouched.**
 - Engine H v0.3: **post-raid 1m stop + fixed T40 target, with expanded Jan-2023–Feb-2025 development. 58 accepted trades (<100), primary-cost expectancy -USD4.52/trade; DEV-A -USD7.18, DEV-B -USD1.24. Validation/holdout untouched; not promoted.**
 - Engine I v0.1: **development failed under EXP-020: 197 trades, T40 24.37%, primary-cost expectancy -USD5.15/trade, PF 0.631, DEV-A -USD6.20, DEV-B -USD4.09, max drawdown USD1,060.90; validation/holdout untouched; not promoted.**
-- Engine J v0.1: **prospectively frozen and preflight-verified under EXP-021; implementation/harness/provenance checks passed with zero outcomes calculated; development is now the only permitted next outcome run.**
+- Engine J v0.1: **development failed under EXP-021: 307 trades, T40 27.04%, primary-cost expectancy -USD5.15/trade, PF 0.671, DEV-A -USD6.95, DEV-B -USD3.48, max drawdown USD1,659.93; validation/holdout untouched; not promoted.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -186,54 +186,37 @@ Do not create an Engine-I parameter grid or switch targets post hoc. Validation 
 
 ## Engine J / EXP-021 status
 
-**Engine J v0.1 is prospectively frozen, implemented, and preflight-verified; it has not been development-backtested.**
+**Engine J v0.1 failed development and is stopped before validation.**
 
-Frozen center thesis:
+Development result:
 
-~~~text
-same-day 5m volatility baseline
-    -> 30m realized-range compression into a compact box
-    -> strong 5m expansion closes outside that box
-    -> next-active-M1-open momentum entry
-    -> breakout-bar structural stop
-    -> fixed T40 target
-~~~
+- 307 accepted trades;
+- 349 qualifying compression breakouts;
+- T40 hit rate: 27.04%;
+- gross expectancy: about -USD0.15/trade;
+- primary-cost expectancy: about -USD5.15/trade;
+- primary-cost PF: about 0.671;
+- total primary-cost P&L: -USD1,581.53;
+- DEV-A expectancy: about -USD6.95/trade;
+- DEV-B expectancy: about -USD3.48/trade;
+- max drawdown: about USD1,659.93;
+- bootstrap expectancy 95% interval: about -USD7.93 to -USD2.27;
+- validation outcomes inspected: NO;
+- fresh-holdout outcomes inspected: NO.
 
-Material differences from Engine I:
+Interpretation: Engine J had ample frequency, but the direct compression-breakout thesis did not establish cost-adjusted edge. DEV-B improved and was gross-positive before cost, but both predeclared subperiods remained negative at the frozen primary cost. The combined bootstrap interval is entirely negative.
 
-- no Asian-session boundary;
-- no established-direction filter;
-- no pullback;
-- no continuation confirmation;
-- direct breakout entry;
-- structural stop comes from the breakout bar, not the pullback.
-
-Development remains Jan-2023 through Feb-2025, with DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025. Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain sealed.
-
-Implementation/preflight is complete:
-
-- final Engine-J implementation commit: `a59cc2cf1a48b49c6e76a7da99aa7ed51dd56064`;
-- final preflight tested repository SHA: `88717bb88993f2cbbffe1f7174e6d49e3201695f`;
-- final Engine-J preflight result commit: `1473aa343c7d0ea746c4ff643571fb729329f687`;
-- engine SHA-256: `21f60faee3263d5a33b7b5448a79e1355e30562bb4f5dcc677b09e7e3b6ac1ce`;
-- 27 warm-up/development files / 1,182,240 rows / 59,108,737 bytes verified;
-- all 16 Engine-J self/causality tests passed;
-- validation/holdout loaded: NO;
-- development backtest run: NO.
+Do not tune the compression/breakout thresholds or switch targets post hoc. Validation and holdout remain sealed.
 
 ## Exact next action
 
-The Engine-J pre-outcome implementation/provenance checkpoint is complete.
+Move to a **genuinely different causal engine family**.
 
-The next permitted computation is **EXP-021 combined development only**:
+Do not:
 
-- warm-up: Dec-2022;
-- DEV-A: Jan-Dec 2023;
-- DEV-B: Jan-2024 through Feb-2025;
-- combined development: Jan-2023 through Feb-2025;
-- primary cost: USD5 / 0.50 XAU round trip;
-- bootstrap: 5-weekday moving blocks, 10,000 replications, seed 21021.
+- run Engine-J validation or holdout;
+- create Engine J v0.2 as a default threshold/target rescue;
+- reopen G/H reversal tuning or I continuation tuning;
+- resume EXP-015 before a reproducible engine validates.
 
-Do not load or inspect Mar-Aug 2025 validation or Sep-2025 through Feb-2026 fresh holdout unless every frozen development gate passes.
-
-If development fails any mandatory gate, stop Engine J v0.1 and preserve validation/holdout. Do not run a compression/breakout parameter grid. EXP-015 remains paused.
+The next engine should again be prospectively frozen before outcomes, designed for natural >=100 development-trade frequency and enough gross economic headroom to survive realistic costs.
