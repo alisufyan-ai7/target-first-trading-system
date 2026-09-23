@@ -463,3 +463,18 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Mechanical clarification before outcomes:** the 20:00 UTC horizon closes on the final chronological M1 close even when that minute is carry-forward. This is an implementation of the already-frozen final-permitted-M1-close rule, not a strategy change.
 
 **Next:** the only permitted outcome run is combined development Jan-2023 through Feb-2025. Validation/holdout remain sealed. The development workflow is implemented but untriggered.
+
+
+## 2026-09-23 — Stop Engine J v0.1 after decisive development failure
+
+**Decision:** Stop Engine J v0.1 before validation. Do not tune the same 24+6 volatility-compression/direct-breakout center rule on the inspected development pool.
+
+**Evidence:** 307 accepted trades from 349 qualifying breakouts; T40 hit rate 27.04%; gross expectancy about -USD0.15/trade; primary-cost expectancy about -USD5.15/trade; PF 0.671; total net -USD1,581.53; max drawdown USD1,659.93. DEV-A expectancy was about -USD6.95/trade and DEV-B about -USD3.48/trade. The 95% moving-block bootstrap primary-cost expectancy interval was approximately -USD7.93 to -USD2.27.
+
+**Gate:** the >=100 trade-count requirement and implementation integrity checks passed. Combined expectancy, both subperiod expectancy tests, PF, drawdown and recovery factor failed.
+
+**Interpretation:** Engine J solved frequency easily but did not create enough gross edge. DEV-B showed improvement and gross expectancy around +USD1.52/trade, but this remained materially below the frozen USD5 round-trip cost and did not justify post-hoc tuning.
+
+**Protection:** Mar-Aug 2025 validation and Sep-2025 through Feb-2026 fresh holdout were not loaded or inspected.
+
+**Next:** move to a genuinely different prospectively specified engine family. Do not run a compression/breakout parameter grid or change the frozen T40 target after seeing diagnostics. EXP-015 remains paused.
