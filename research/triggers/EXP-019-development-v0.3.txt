@@ -1,0 +1,5 @@
+EXP-019 Engine H v0.3 development trigger
+Scope: Dec-2022 warm-up + Jan-2023 through Feb-2025 development only
+DEV-A: 2023
+DEV-B: Jan-2024 through Feb-2025
+Validation/holdout files: not loaded
