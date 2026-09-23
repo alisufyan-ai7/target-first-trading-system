@@ -130,3 +130,19 @@ Static implementation checks confirmed:
 - next-active-M1-open entry path is present.
 
 The next permitted computation is development only.
+
+### Development execution harness frozen before outcomes
+
+Development-only runner:
+
+- `research/code/run-engine-h-v0.2-development.js`
+- commit: `9e6f149e142ca8b43d34abed4d9700e5238ddfd4`
+
+Development-only workflow:
+
+- `.github/workflows/exp018-engine-h-v02-development.yml`
+- commit: `0b9f9cdc82ac75ef83fd08f5abcbce6c41ac96fa`
+
+The workflow downloads only December-2023 warm-up plus January-2024 through February-2025 development files from the pinned external commit and verifies their blob identities in the runner. It does not download validation or holdout files.
+
+**Engine-H-v0.2 outcomes calculated: ZERO.**
