@@ -1,6 +1,6 @@
 # Engine K — Multi-Market Direct Target-Move Scanner v0.1
 
-**Status:** FROZEN PROSPECTIVELY — 2026-09-23  
+**Status:** FROZEN PROSPECTIVELY — PRE-OUTCOME CLEANUP AMENDED — 2026-09-23  
 **Engine ID:** `engine-k-direct-target-move-scanner`  
 **Version:** `0.1`  
 **Experiment:** `EXP-022 — Multi-Market Direct Target-Move Scanner v0.1`  
@@ -155,6 +155,11 @@ If the next active 1m open is unavailable or outside the permitted market sessio
 
 reject.
 
+Pre-outcome cleanup clarification:
+
+- the next-active 1m entry may be at most **5 chronological minutes** after the completed 5m decision bar;
+- a candidate may not jump across a long feed/session closure into a later session.
+
 ## 7. Gold target ladder
 
 For XAUUSD at the 0.10-lot research anchor:
@@ -195,7 +200,9 @@ These are native price distances.
 
 No holdout-derived target optimization is allowed in v0.1.
 
-This target-distance formula is only for Engine K v0.1. It does not globally replace the engine-conditioned sizing method in docs/PNL-EQUIVALENT-SIZING.md.
+This target-distance formula is only for Engine K v0.1.
+
+**Important pre-outcome clarification:** the 0.14 / 0.19 / 0.23 x MTR20 ladder is a prospectively frozen **forecast-label grid**, not a replacement portfolio-sizing doctrine. It is permitted here so the direct scanner can ask the same target-first question across non-Gold markets. A non-Gold rung becomes execution-research eligible only if its P&L-equivalent size passes every stop-risk, notional, margin and cost gate below. Final paper/live promotion still requires a market/engine native target and broker economics consistent with `docs/PNL-EQUIVALENT-SIZING.md`.
 
 ## 9. Equivalent position sizing
 
@@ -230,6 +237,48 @@ The USD60 emergency ceiling is never a sizing allowance.
 For XAUUSD at 0.10 lot, the same primary risk gate means structural stop distance <= approximately USD2.00 Gold.
 
 If no target rung is economically admissible, the market-direction state is not execution-eligible, although raw model diagnostics may still be recorded.
+
+### Research transaction-cost convention
+
+Broker-specific spreads/commission are not yet frozen in the repository for all eight execution markets. Engine K therefore uses a **uniform research stress convention**, not a claim about broker pricing:
+
+- primary round-trip cost = **10% of gross target**;
+- stress round-trip cost = **20% of gross target**.
+
+Therefore:
+
+| Rung | Gross target | Primary research cost | Stress research cost |
+|---|---:|---:|---:|
+| T30 | USD30 | USD3 | USD6 |
+| T40 | USD40 | USD4 | USD8 |
+| T50 | USD50 | USD5 | USD10 |
+
+The primary cost convention preserves the project's established approximately USD5 cost stress at a USD50 objective while applying the same proportional friction standard across markets. Broker-specific cost modeling is mandatory before paper/live promotion.
+
+### Research notional / margin convention
+
+Before broker-specific verification, execution-research rungs must also satisfy:
+
+- reference equity = **USD500**;
+- research leverage reference = **1:500**;
+- maximum research margin use = **20% of reference equity = USD100**;
+- maximum notional/equity = **100x**, therefore maximum notional = **USD50,000**.
+
+These two leverage/notional gates are deliberately equivalent at the frozen 1:500 research reference.
+
+This is a research feasibility screen only. It prevents the small-target / huge-position problem already identified in EXP-006. It does not assert that 1:500 leverage will be available or appropriate live.
+
+### Probability economics
+
+For each execution-research rung define:
+
+`p_BE = (stop_risk_USD + primary_cost_USD) / (target_USD + stop_risk_USD)`.
+
+The required calibrated probability is:
+
+`p_required = max(0.60, p_BE + 0.05)`.
+
+Thus the old 60% floor remains, but a candidate with unfavorable stop/target economics must clear a higher probability threshold rather than qualifying merely because `p >= 0.60`.
 
 ## 10. Outcome label
 
@@ -313,11 +362,33 @@ Normalize by current volatility scale.
 
 No future bars, post-entry excursion, news result, or holdout outcome may enter features.
 
+### Exact v0.1 feature formulas frozen before outcomes
+
+The implementation in `research/code/engine_k_v0_1.py` freezes the previously qualitative feature descriptions as follows:
+
+- directional moves = signed price change over 5/15/30/60/120m divided by the rolling median of the latest 20 complete 5m true ranges;
+- EMA gap = direction-signed EMA10 minus EMA30 divided by the same 5m volatility scale;
+- EMA slopes = direction-signed 15m change in EMA10 / EMA30 divided by that scale;
+- 60m/240m range-position features use only complete 5m bars through the decision bar;
+- 15m/60m and 30m/120m range ratios use completed windows ending at the decision bar;
+- hourly-range percentile compares the latest fully completed 1h true range with the **prior** 20 complete 1h true ranges;
+- compression/expansion ratio = mean true range of the latest three complete 5m bars divided by median true range of the preceding 12 complete 5m bars;
+- candle body/wicks are divided by current complete 5m range;
+- prior-three directional body balance = direction-signed sum of candle bodies divided by total range of the same three bars;
+- structural stop distance is recorded in native units and divided by causal MTR20;
+- target-rung-specific dollar stop risk is the 29th model feature;
+- UTC time uses sine/cosine of the completed decision time;
+- market identity and direction are explicit categorical inputs.
+
+All 5m feature bars require exactly five 1m observations. All 1h MTR bars require exactly 60 1m observations. Incomplete resample bins are excluded.
+
 ## 12. Model
 
-Primary v0.1 model:
+Primary v0.1 execution model:
 
 - pooled multi-market HistGradientBoostingClassifier from scikit-learn;
+- fit only on the eight **execution-research markets**: XAUUSD, EURUSD, GBPUSD, USDJPY, EURJPY, AUDUSD, USDCAD and USDCHF;
+- XAGUSD, NAS100, US30 and SPX500 are excluded from fitting, calibration, trade ranking and P&L simulation while they remain forecast-only;
 - one binary model per target rung;
 - market identity and direction encoded prospectively;
 - fixed hyperparameters before outcome inspection:
@@ -334,6 +405,8 @@ Diagnostic baseline:
 - L2 logistic regression.
 
 The diagnostic baseline cannot replace the primary model after seeing final holdout merely because it performs better.
+
+A separate 12-market **forecast diagnostic** model may be reported for research, but forecast-only markets may not influence the primary executable model or execution ranking until their contract economics are prospectively frozen.
 
 ## 13. Probability calibration
 
@@ -378,6 +451,8 @@ This is not treated as pristine because prior project work touched related 2026 
 
 Do not change model features, model hyperparameters, target fractions, structural stop, or qualification logic after final-holdout inspection.
 
+The Sep-1 through Sep-22 holdout is an **initial common-sample out-of-sample test**, not sufficient evidence by itself for live promotion. Any successful Engine-K v0.1 result must subsequently survive longer-history and/or independent-feed validation plus forward/demo evidence before execution promotion.
+
 ## 15. Cross-market ranking
 
 At each timestamp:
@@ -393,16 +468,20 @@ At each timestamp:
 
 Primary qualification:
 
-- calibrated p >= 0.60;
-- conservative EV > 0;
+- calibrated `p >= p_required = max(0.60, p_BE + 0.05)`;
+- primary-cost EV > 0;
 - structural risk <= USD20;
-- all economic/margin gates pass.
+- notional/equity <=100x;
+- research margin at 1:500 <=USD100;
+- all other economic/session/data gates pass.
+
+Stress-cost EV under the 20%-of-target friction schedule must also be reported, but is diagnostic rather than an additional v0.1 hard gate.
 
 If no candidate qualifies:
 
 - take no trade.
 
-The 0.60 threshold is prospectively frozen for v0.1 and must not be lowered after seeing low trade frequency.
+The 0.60 floor and +5 percentage-point break-even buffer are prospectively frozen for v0.1 and must not be lowered after seeing low trade frequency.
 
 ## 16. Portfolio rule for v0.1
 
@@ -453,3 +532,23 @@ Engine K asks the user's actual question directly:
 > Right now, across all supported markets, which direction has the highest validated probability of making a useful move before invalidation?
 
 This is the primary new discovery path.
+
+
+## 27. Pre-outcome cleanup checkpoint
+
+Before any Engine-K target labels or model performance were calculated, v0.1 was cleaned up to remove ambiguities:
+
+1. execution universe fixed at 8 markets;
+2. forecast-only universe fixed at XAGUSD, NAS100, US30 and SPX500;
+3. forecast-only markets prohibited from influencing the executable pooled model;
+4. one authoritative train/calibration/secondary/final-holdout split retained;
+5. incomplete 5m/1h resample bins excluded;
+6. next-entry gap capped at five chronological minutes;
+7. all 29 causal model features defined explicitly;
+8. research primary/stress transaction-cost conventions frozen;
+9. stop-risk, notional and research-margin gates frozen;
+10. probability qualification tied to both the 60% floor and break-even economics;
+11. final September holdout classified as an initial OOS test, not sufficient live-promotion evidence.
+
+**Engine-K target outcomes calculated at this checkpoint: NO.**  
+**Engine-K model outcomes calculated at this checkpoint: NO.**
