@@ -294,9 +294,17 @@ Horizon:
 - or market/session cutoff;
 - whichever occurs first.
 
+Pre-outcome mechanical clarification for v0.1:
+
+- the **entry M1 bar counts as active bar 1**;
+- the research session cutoff is **20:00 UTC on the entry date**;
+- only M1 bars with bar-start timestamp <20:00 UTC are eligible;
+- if neither stop nor target has fired, the close of the last eligible processed M1 bar is the horizon mark;
+- no overnight carry.
+
 Same-bar target + stop ambiguity:
 
-- stop wins.
+- stop wins, including the entry M1 bar.
 
 If neither target nor stop is reached by horizon:
 
@@ -402,7 +410,12 @@ Primary v0.1 execution model:
 
 Diagnostic baseline:
 
-- L2 logistic regression.
+- L2 logistic regression;
+- StandardScaler on numeric encoded features;
+- solver = lbfgs;
+- C = 1.0;
+- max_iter = 1000;
+- random_state = 20260923 where accepted by the estimator.
 
 The diagnostic baseline cannot replace the primary model after seeing final holdout merely because it performs better.
 
