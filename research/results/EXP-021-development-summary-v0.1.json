@@ -1,0 +1,711 @@
+{
+  "source_rows": 1182240,
+  "market_active_m1": 795011,
+  "split": {
+    "start": "2023-01-01T00:00:00.000Z",
+    "end_exclusive": "2025-03-01T00:00:00.000Z"
+  },
+  "event_counts": {
+    "eligible_weekdays": 565,
+    "active_5m_eligible_weekday": 151342,
+    "breakout_window_candidates": 80350,
+    "same_day_30_history": 80350,
+    "positive_baseline": 80350,
+    "compression_average_pass": 14410,
+    "compact_box_pass": 14347,
+    "qualifying_breakouts": 349,
+    "qualifying_long_breakouts": 162,
+    "qualifying_short_breakouts": 187,
+    "accepted_filled_trades": 307
+  },
+  "setup_count": 151342,
+  "terminal_reasons": {
+    "outside_breakout_window": 70992,
+    "compression_average_failed": 65940,
+    "compression_box_too_wide": 63,
+    "breakout_close_not_beyond_box": 10799,
+    "breakout_range_below_1_25_median": 2821,
+    "body_below_60pct": 147,
+    "structural_risk_above_40": 38,
+    "breakout_open_already_outside_box": 77,
+    "weak_close_location": 65,
+    "side_already_consumed_today": 89,
+    "suppressed_one_open": 4
+  },
+  "accepted_filled_trades": 307,
+  "exits": {
+    "exit_t40": 83,
+    "exit_timeout_120": 41,
+    "exit_stop": 181,
+    "exit_session_2000": 2
+  },
+  "target_hit_rate": 0.2703583061889251,
+  "stop_rate": 0.5895765472312704,
+  "timeout_rate": 0.14006514657980457,
+  "label_rates": {
+    "3000": {
+      "target": 106,
+      "stop": 172,
+      "horizon": 29,
+      "n": 307
+    },
+    "4000": {
+      "target": 83,
+      "stop": 181,
+      "horizon": 43,
+      "n": 307
+    },
+    "5000": {
+      "target": 65,
+      "stop": 186,
+      "horizon": 56,
+      "n": 307
+    },
+    "7000": {
+      "target": 41,
+      "stop": 193,
+      "horizon": 73,
+      "n": 307
+    },
+    "10000": {
+      "target": 12,
+      "stop": 196,
+      "horizon": 99,
+      "n": 307
+    }
+  },
+  "expectancy": {
+    "gross_usd": -0.15156351791530986,
+    "net_usd_0": -0.15156351791530986,
+    "net_usd_025": -2.651563517915309,
+    "net_usd_050": -5.151563517915312
+  },
+  "profit_factor": {
+    "gross": 0.9878526338873134,
+    "net_0": 0.9878526338873134,
+    "net_025": 0.8113177371015852,
+    "net_050": 0.6710463916668051
+  },
+  "total_net_usd_050": -1581.5300000000007,
+  "daily": {
+    "mean": -2.7991681415929217,
+    "median": 0,
+    "losing_pct": 0.30442477876106194,
+    "le50_pct": 0.9946902654867257,
+    "ge100_pct": 0,
+    "ge150_pct": 0,
+    "ge200_pct": 0
+  },
+  "max_drawdown_usd": 1659.9300000000007,
+  "recovery_factor": -0.9527690926725826,
+  "worst_losing_trade_run": {
+    "count": 12,
+    "netLoss": -234.55
+  },
+  "max_consecutive_losing_weekdays": 5,
+  "max_consecutive_le50_weekdays": 352,
+  "stop_distance_ticks": {
+    "n": 307,
+    "mean": 2159.358306188925,
+    "median": 2071,
+    "p10": 1175.2,
+    "p90": 3289.000000000001,
+    "min": 571,
+    "max": 3964
+  },
+  "gross_stop_usd": {
+    "n": 307,
+    "mean": 21.593583061889266,
+    "median": 20.71,
+    "p10": 11.752,
+    "p90": 32.89000000000001,
+    "min": 5.71,
+    "max": 39.64
+  },
+  "actual_mfe_ticks": {
+    "n": 307,
+    "mean": 2042.3745928338762,
+    "median": 1800,
+    "p10": 190,
+    "p90": 4000,
+    "min": 0,
+    "max": 4000
+  },
+  "actual_mae_ticks": {
+    "n": 307,
+    "mean": 1614.384364820847,
+    "median": 1571,
+    "p10": 355.20000000000005,
+    "p90": 2923.4,
+    "min": 0,
+    "max": 3901
+  },
+  "potential_mfe_ticks": {
+    "n": 307,
+    "mean": 3122.403908794788,
+    "median": 1800,
+    "p10": 190,
+    "p90": 8026.000000000003,
+    "min": 0,
+    "max": 27530
+  },
+  "potential_mae_ticks": {
+    "n": 307,
+    "mean": 1702.0912052117264,
+    "median": 1670,
+    "p10": 462,
+    "p90": 2963.000000000001,
+    "min": 0,
+    "max": 3901
+  },
+  "breakout_range_ticks": {
+    "n": 307,
+    "mean": 2375,
+    "median": 2230,
+    "p10": 1276,
+    "p90": 3624.800000000001,
+    "min": 680,
+    "max": 4840
+  },
+  "breakout_body_ticks": {
+    "n": 307,
+    "mean": 1947.8078175895766,
+    "median": 1860,
+    "p10": 1020,
+    "p90": 3074.000000000002,
+    "min": 490,
+    "max": 3800
+  },
+  "baseline_median_range_ticks": {
+    "n": 307,
+    "mean": 1532.299674267101,
+    "median": 1445,
+    "p10": 847.4,
+    "p90": 2399.1,
+    "min": 445,
+    "max": 3305
+  },
+  "compression_sum_range_ticks": {
+    "n": 307,
+    "mean": 6453.195439739414,
+    "median": 6170,
+    "p10": 3637.6,
+    "p90": 9766.400000000001,
+    "min": 1760,
+    "max": 13854
+  },
+  "compression_avg_range_ticks": {
+    "n": 307,
+    "mean": 1075.5325732899025,
+    "median": 1028.3333333333333,
+    "p10": 606.2666666666667,
+    "p90": 1627.7333333333336,
+    "min": 293.3333333333333,
+    "max": 2309
+  },
+  "compression_box_width_ticks": {
+    "n": 307,
+    "mean": 2408.6938110749184,
+    "median": 2217,
+    "p10": 1280,
+    "p90": 3879.2000000000044,
+    "min": 450,
+    "max": 5840
+  },
+  "direction": {
+    "LONG": {
+      "n": 147,
+      "netUSD500": -786.96
+    },
+    "SHORT": {
+      "n": 160,
+      "netUSD500": -794.5700000000004
+    }
+  },
+  "bootstrap": {
+    "reps": 10000,
+    "seed": 21021,
+    "block_weekdays": 5,
+    "zero_trade_resamples": 0,
+    "expectancy_net_usd_050": {
+      "point": -5.151563517915312,
+      "lo": -7.934041722445335,
+      "hi": -2.2726922414892266
+    },
+    "mean_daily_net_usd_050": {
+      "point": -2.7991681415929217,
+      "lo": -4.362036283185842,
+      "hi": -1.2426530973451329
+    }
+  },
+  "development_subperiods": {
+    "DEV_A_2023": {
+      "split": {
+        "start": "2023-01-01T00:00:00.000Z",
+        "end_exclusive": "2024-01-01T00:00:00.000Z"
+      },
+      "event_counts": {
+        "eligible_weekdays": 260,
+        "active_5m_eligible_weekday": 69683,
+        "breakout_window_candidates": 37006,
+        "same_day_30_history": 37006,
+        "positive_baseline": 37006,
+        "compression_average_pass": 7279,
+        "compact_box_pass": 7240,
+        "qualifying_breakouts": 160,
+        "qualifying_long_breakouts": 79,
+        "qualifying_short_breakouts": 81,
+        "accepted_filled_trades": 148
+      },
+      "setup_count": 69683,
+      "terminal_reasons": {
+        "outside_breakout_window": 32677,
+        "compression_average_failed": 29727,
+        "compression_box_too_wide": 39,
+        "breakout_close_not_beyond_box": 5432,
+        "breakout_range_below_1_25_median": 1454,
+        "body_below_60pct": 69,
+        "structural_risk_above_40": 9,
+        "breakout_open_already_outside_box": 50,
+        "weak_close_location": 33,
+        "side_already_consumed_today": 42,
+        "suppressed_one_open": 3
+      },
+      "accepted_filled_trades": 148,
+      "exits": {
+        "exit_t40": 31,
+        "exit_timeout_120": 22,
+        "exit_stop": 94,
+        "exit_session_2000": 1
+      },
+      "target_hit_rate": 0.20945945945945946,
+      "stop_rate": 0.6351351351351351,
+      "timeout_rate": 0.1554054054054054,
+      "label_rates": {
+        "3000": {
+          "target": 38,
+          "stop": 91,
+          "horizon": 19,
+          "n": 148
+        },
+        "4000": {
+          "target": 31,
+          "stop": 94,
+          "horizon": 23,
+          "n": 148
+        },
+        "5000": {
+          "target": 21,
+          "stop": 97,
+          "horizon": 30,
+          "n": 148
+        },
+        "7000": {
+          "target": 14,
+          "stop": 98,
+          "horizon": 36,
+          "n": 148
+        },
+        "10000": {
+          "target": 4,
+          "stop": 98,
+          "horizon": 46,
+          "n": 148
+        }
+      },
+      "expectancy": {
+        "gross_usd": -1.9516891891891897,
+        "net_usd_0": -1.9516891891891897,
+        "net_usd_025": -4.451689189189188,
+        "net_usd_050": -6.951689189189187
+      },
+      "profit_factor": {
+        "gross": 0.8335714861890552,
+        "net_0": 0.8335714861890552,
+        "net_025": 0.6692038499580764,
+        "net_050": 0.5432570652318677
+      },
+      "total_net_usd_050": -1028.8499999999997,
+      "daily": {
+        "mean": -3.9571153846153835,
+        "median": 0,
+        "losing_pct": 0.35,
+        "le50_pct": 1,
+        "ge100_pct": 0,
+        "ge150_pct": 0,
+        "ge200_pct": 0
+      },
+      "max_drawdown_usd": 1107.25,
+      "recovery_factor": -0.9291939489726798,
+      "worst_losing_trade_run": {
+        "count": 12,
+        "netLoss": -234.55
+      },
+      "max_consecutive_losing_weekdays": 5,
+      "max_consecutive_le50_weekdays": 260,
+      "stop_distance_ticks": {
+        "n": 148,
+        "mean": 1868.662162162162,
+        "median": 1686,
+        "p10": 995,
+        "p90": 3203.7000000000003,
+        "min": 571,
+        "max": 3901
+      },
+      "gross_stop_usd": {
+        "n": 148,
+        "mean": 18.68662162162162,
+        "median": 16.86,
+        "p10": 9.950000000000001,
+        "p90": 32.037,
+        "min": 5.71,
+        "max": 39.01
+      },
+      "actual_mfe_ticks": {
+        "n": 148,
+        "mean": 1754.7297297297298,
+        "median": 1210,
+        "p10": 164.00000000000003,
+        "p90": 4000,
+        "min": 0,
+        "max": 4000
+      },
+      "actual_mae_ticks": {
+        "n": 148,
+        "mean": 1453.1756756756756,
+        "median": 1396,
+        "p10": 438.90000000000003,
+        "p90": 2589.1000000000004,
+        "min": 0,
+        "max": 3901
+      },
+      "potential_mfe_ticks": {
+        "n": 148,
+        "mean": 2523.3716216216217,
+        "median": 1210,
+        "p10": 164.00000000000003,
+        "p90": 6331.000000000006,
+        "min": 0,
+        "max": 25040
+      },
+      "potential_mae_ticks": {
+        "n": 148,
+        "mean": 1493.5405405405406,
+        "median": 1436,
+        "p10": 521.9,
+        "p90": 2589.1000000000004,
+        "min": 0,
+        "max": 3901
+      },
+      "breakout_range_ticks": {
+        "n": 148,
+        "mean": 2059.608108108108,
+        "median": 1825,
+        "p10": 1097.3,
+        "p90": 3385.3,
+        "min": 680,
+        "max": 4610
+      },
+      "breakout_body_ticks": {
+        "n": 148,
+        "mean": 1687.8175675675675,
+        "median": 1509.5,
+        "p10": 879.1,
+        "p90": 2728.1000000000004,
+        "min": 490,
+        "max": 3800
+      },
+      "baseline_median_range_ticks": {
+        "n": 148,
+        "mean": 1305.1418918918919,
+        "median": 1202.5,
+        "p10": 743.5,
+        "p90": 2075.000000000001,
+        "min": 445,
+        "max": 2755
+      },
+      "compression_sum_range_ticks": {
+        "n": 148,
+        "mean": 5467.52027027027,
+        "median": 5165.5,
+        "p10": 3207.7000000000003,
+        "p90": 8407.000000000004,
+        "min": 1760,
+        "max": 11934
+      },
+      "compression_avg_range_ticks": {
+        "n": 148,
+        "mean": 911.2533783783788,
+        "median": 860.9166666666666,
+        "p10": 534.6166666666667,
+        "p90": 1401.1666666666672,
+        "min": 293.3333333333333,
+        "max": 1989
+      },
+      "compression_box_width_ticks": {
+        "n": 148,
+        "mean": 2096.7905405405404,
+        "median": 1868.5,
+        "p10": 1133.7,
+        "p90": 3419.9000000000005,
+        "min": 450,
+        "max": 5840
+      },
+      "direction": {
+        "LONG": {
+          "n": 72,
+          "netUSD500": -471.47999999999996
+        },
+        "SHORT": {
+          "n": 76,
+          "netUSD500": -557.3700000000001
+        }
+      }
+    },
+    "DEV_B_2024_to_2025_02": {
+      "split": {
+        "start": "2024-01-01T00:00:00.000Z",
+        "end_exclusive": "2025-03-01T00:00:00.000Z"
+      },
+      "event_counts": {
+        "eligible_weekdays": 305,
+        "active_5m_eligible_weekday": 81659,
+        "breakout_window_candidates": 43344,
+        "same_day_30_history": 43344,
+        "positive_baseline": 43344,
+        "compression_average_pass": 7131,
+        "compact_box_pass": 7107,
+        "qualifying_breakouts": 189,
+        "qualifying_long_breakouts": 83,
+        "qualifying_short_breakouts": 106,
+        "accepted_filled_trades": 159
+      },
+      "setup_count": 81659,
+      "terminal_reasons": {
+        "outside_breakout_window": 38315,
+        "compression_average_failed": 36213,
+        "breakout_close_not_beyond_box": 5367,
+        "breakout_range_below_1_25_median": 1367,
+        "suppressed_one_open": 1,
+        "compression_box_too_wide": 24,
+        "weak_close_location": 32,
+        "structural_risk_above_40": 29,
+        "body_below_60pct": 78,
+        "breakout_open_already_outside_box": 27,
+        "side_already_consumed_today": 47
+      },
+      "accepted_filled_trades": 159,
+      "exits": {
+        "exit_timeout_120": 19,
+        "exit_t40": 52,
+        "exit_stop": 87,
+        "exit_session_2000": 1
+      },
+      "target_hit_rate": 0.3270440251572327,
+      "stop_rate": 0.5471698113207547,
+      "timeout_rate": 0.12578616352201258,
+      "label_rates": {
+        "3000": {
+          "target": 68,
+          "stop": 81,
+          "horizon": 10,
+          "n": 159
+        },
+        "4000": {
+          "target": 52,
+          "stop": 87,
+          "horizon": 20,
+          "n": 159
+        },
+        "5000": {
+          "target": 44,
+          "stop": 89,
+          "horizon": 26,
+          "n": 159
+        },
+        "7000": {
+          "target": 27,
+          "stop": 95,
+          "horizon": 37,
+          "n": 159
+        },
+        "10000": {
+          "target": 8,
+          "stop": 98,
+          "horizon": 53,
+          "n": 159
+        }
+      },
+      "expectancy": {
+        "gross_usd": 1.5240251572327037,
+        "net_usd_0": 1.5240251572327037,
+        "net_usd_025": -0.9759748427672955,
+        "net_usd_050": -3.4759748427672967
+      },
+      "profit_factor": {
+        "gross": 1.1156724967539906,
+        "net_0": 1.1156724967539906,
+        "net_025": 0.9331863703295472,
+        "net_050": 0.7837021266603525
+      },
+      "total_net_usd_050": -552.6800000000002,
+      "daily": {
+        "mean": -1.8120655737704925,
+        "median": 0,
+        "losing_pct": 0.26557377049180325,
+        "le50_pct": 0.9901639344262295,
+        "ge100_pct": 0,
+        "ge150_pct": 0,
+        "ge200_pct": 0
+      },
+      "max_drawdown_usd": 621.8999999999996,
+      "recovery_factor": -0.8886959318218371,
+      "worst_losing_trade_run": {
+        "count": 8,
+        "netLoss": -145.57
+      },
+      "max_consecutive_losing_weekdays": 4,
+      "max_consecutive_le50_weekdays": 99,
+      "stop_distance_ticks": {
+        "n": 159,
+        "mean": 2429.943396226415,
+        "median": 2321,
+        "p10": 1585,
+        "p90": 3365.0000000000005,
+        "min": 791,
+        "max": 3964
+      },
+      "gross_stop_usd": {
+        "n": 159,
+        "mean": 24.299433962264168,
+        "median": 23.21,
+        "p10": 15.850000000000001,
+        "p90": 33.650000000000006,
+        "min": 7.91,
+        "max": 39.64
+      },
+      "actual_mfe_ticks": {
+        "n": 159,
+        "mean": 2310.119496855346,
+        "median": 2420,
+        "p10": 224.00000000000003,
+        "p90": 4000,
+        "min": 0,
+        "max": 4000
+      },
+      "actual_mae_ticks": {
+        "n": 159,
+        "mean": 1764.440251572327,
+        "median": 1914,
+        "p10": 184.00000000000003,
+        "p90": 3013,
+        "min": 0,
+        "max": 3801
+      },
+      "potential_mfe_ticks": {
+        "n": 159,
+        "mean": 3679.9937106918237,
+        "median": 2420,
+        "p10": 224.00000000000003,
+        "p90": 8821.200000000003,
+        "min": 0,
+        "max": 27530
+      },
+      "potential_mae_ticks": {
+        "n": 159,
+        "mean": 1896.2138364779873,
+        "median": 2041,
+        "p10": 378.6,
+        "p90": 3057.0000000000014,
+        "min": 0,
+        "max": 3801
+      },
+      "breakout_range_ticks": {
+        "n": 159,
+        "mean": 2668.5723270440253,
+        "median": 2557,
+        "p10": 1746,
+        "p90": 3686.0000000000005,
+        "min": 943,
+        "max": 4840
+      },
+      "breakout_body_ticks": {
+        "n": 159,
+        "mean": 2189.811320754717,
+        "median": 2090,
+        "p10": 1334,
+        "p90": 3161.6000000000004,
+        "min": 760,
+        "max": 3750
+      },
+      "baseline_median_range_ticks": {
+        "n": 159,
+        "mean": 1743.74213836478,
+        "median": 1673.5,
+        "p10": 1076.3,
+        "p90": 2520.5,
+        "min": 685,
+        "max": 3305
+      },
+      "compression_sum_range_ticks": {
+        "n": 159,
+        "mean": 7370.679245283019,
+        "median": 7110,
+        "p10": 4614.2,
+        "p90": 10553.000000000002,
+        "min": 2614,
+        "max": 13854
+      },
+      "compression_avg_range_ticks": {
+        "n": 159,
+        "mean": 1228.4465408805038,
+        "median": 1185,
+        "p10": 769.0333333333333,
+        "p90": 1758.8333333333337,
+        "min": 435.6666666666667,
+        "max": 2309
+      },
+      "compression_box_width_ticks": {
+        "n": 159,
+        "mean": 2699.0188679245284,
+        "median": 2510,
+        "p10": 1625.6,
+        "p90": 4074.800000000001,
+        "min": 630,
+        "max": 5723
+      },
+      "direction": {
+        "SHORT": {
+          "n": 84,
+          "netUSD500": -237.19999999999993
+        },
+        "LONG": {
+          "n": 75,
+          "netUSD500": -315.48
+        }
+      }
+    }
+  },
+  "development_gate": {
+    "accepted_ge_100": true,
+    "combined_expectancy_positive": false,
+    "dev_a_expectancy_positive": false,
+    "dev_b_expectancy_positive": false,
+    "combined_pf_ge_1_10": false,
+    "max_drawdown_le_200": false,
+    "recovery_factor_ge_1": false,
+    "causal_leakage_absent": true,
+    "optimistic_same_bar_absent": true,
+    "provenance_violation_absent": true,
+    "pass": false
+  },
+  "execution_metadata": {
+    "engine_implementation": "research/code/engine-j-v0.1.js",
+    "data_source_repo": "kevingtlin/Market-Data-Lab",
+    "data_source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "split": "combined_development_2023_01_to_2025_02",
+    "primary_cost_xau": 0.5,
+    "primary_cost_usd": 5,
+    "validation_or_holdout_loaded": false
+  }
+}
