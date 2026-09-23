@@ -242,8 +242,8 @@ If no target rung is economically admissible, the market-direction state is not 
 
 Broker-specific spreads/commission are not yet frozen in the repository for all eight execution markets. Engine K therefore uses a **uniform research stress convention**, not a claim about broker pricing:
 
-- primary round-trip cost = **10% of gross target**;
-- stress round-trip cost = **20% of gross target**.
+- primary round-trip cost = **10% of actual rounded-lot gross target**;
+- stress round-trip cost = **20% of actual rounded-lot gross target**.
 
 Therefore:
 
@@ -270,9 +270,13 @@ This is a research feasibility screen only. It prevents the small-target / huge-
 
 ### Probability economics
 
+For each execution-research rung, first compute the actual rounded-lot gross target:
+
+`gross_target_actual = native_target_distance × USD_value_per_native_unit_1lot × rounded_lot`.
+
 For each execution-research rung define:
 
-`p_BE = (stop_risk_USD + primary_cost_USD) / (target_USD + stop_risk_USD)`.
+`p_BE = (stop_risk_USD + primary_cost_USD) / (gross_target_actual + stop_risk_USD)`.
 
 The required calibrated probability is:
 
@@ -472,9 +476,9 @@ At each timestamp:
 
 1. score every admissible market/direction/target rung;
 2. estimate calibrated target-first probability `p`;
-3. calculate conservative net EV:
+3. calculate conservative net EV using the actual rounded-lot gross reward:
 
-`EV = p * target_USD - (1-p) * stop_risk_USD - estimated_cost_USD`;
+`EV = p * gross_target_actual - (1-p) * stop_risk_USD - estimated_cost_USD`;
 
 4. reject if EV <= 0;
 5. rank primarily by calibrated probability, then conservative EV.
