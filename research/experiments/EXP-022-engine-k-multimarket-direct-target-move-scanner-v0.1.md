@@ -252,3 +252,26 @@ Before any Engine-K target outcome was calculated, the label horizon was made ex
 The diagnostic L2 logistic baseline is also frozen to StandardScaler + LogisticRegression(C=1.0, solver=lbfgs, max_iter=1000). It remains diagnostic and may not replace the primary HistGradientBoosting model based on observed performance.
 
 These are implementation clarifications, not outcome-driven revisions. Engine-K target/model outcomes remained zero when frozen.
+
+
+### Rounded-lot gross-reward correction before outcomes
+
+Before any Engine-K target/model outcome was calculated, one arithmetic issue was corrected prospectively.
+
+For non-Gold rungs the requested USD30/USD40/USD50 target-equivalent lot is rounded **down** to the 0.01 research lot step. Therefore the actual gross target can be slightly below the nominal rung.
+
+Engine K now uses:
+
+`gross_target_actual = native_distance × USD_value_per_native_unit_1lot × rounded_lot`
+
+for:
+
+- primary/stress proportional transaction-cost stress;
+- break-even probability;
+- probability qualification;
+- EV;
+- simulated target profit.
+
+The nominal T30/T40/T50 label is retained as the target-rung identity. XAUUSD at the fixed 0.10-lot anchor remains exactly approximately USD30/USD40/USD50 gross for its 3/4/5 XAU movement ladder.
+
+No target or model outcome had been calculated when this correction was frozen.
