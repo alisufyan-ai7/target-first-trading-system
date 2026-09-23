@@ -154,3 +154,12 @@
 - Completed EXP-022 Checkpoint 1: pinned exact rolling GetData repositories, commit SHAs, CSV blob SHAs, sample row counts, research contract conventions, and common dates.
 - Corrected Engine-K split to the currently pinned sample: training Mar23-May31, calibration Jun, secondary Jul-Aug, fresh common-sample holdout Sep1-Sep22; excluded Sep23 as potentially incomplete.
 - Next: Engine-K causal implementation/preflight with zero target/model outcomes, then training+calibration across all Wave-1 markets together.
+
+- Pre-outcome cleanup pass for Engine K / EXP-022 completed before any target/model outcomes.
+- Reconciled the universe to 8 execution-research markets plus 4 forecast-only markets (XAGUSD, NAS100, US30, SPX500) and prohibited forecast-only markets from influencing executable model fit/calibration/ranking.
+- Clarified the non-Gold MTR20 ladder as a forecast-label grid, not a replacement for the frozen P&L-equivalent sizing doctrine.
+- Frozen research-only friction at 10% of gross target primary / 20% stress, USD20 stop-risk cap, 100x notional/equity cap, and USD100 margin cap at the 1:500 research reference.
+- Strengthened qualification to calibrated p >= max(0.60, break-even probability + 0.05) plus positive primary-cost EV.
+- Hardened data causality: complete 5m/1h bins only, <=5-minute next-entry gap, and explicit 29-feature causal contract.
+- Reconciled EXP-022 dates to train Mar23-May31, calibrate June, secondary Jul-Aug, final Sep1-Sep22; Sep23 excluded.
+- Recorded BTC/GBPJPY and other liquid markets as expansion candidates only after pinned data and executable contract economics are documented.
