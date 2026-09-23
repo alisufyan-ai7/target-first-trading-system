@@ -1,0 +1,75 @@
+name: EXP-022 Engine K Training + June Calibration
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-022-training-calibration-v0.1.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  train-calibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install frozen research dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy joblib scikit-learn==1.5.2
+
+      - name: Verify frozen runner and sealed scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile research/code/engine_k_v0_1.py
+          python -m py_compile research/code/run_engine_k_training_calibration.py
+          python - <<'PY'
+          import json, pathlib, sys
+          sys.path.insert(0, "research/code")
+          import engine_k_v0_1 as e
+          import run_engine_k_training_calibration as r
+          print("engine tests:", e.self_tests())
+          print("label tests:", r.label_self_tests())
+          p=pathlib.Path("research/results/EXP-022-preflight-cleanup-v0.1.json")
+          x=json.loads(p.read_text())
+          assert x["target_outcomes_calculated"] is False
+          assert x["model_outcomes_calculated"] is False
+          assert x["secondary_or_final_state_distributions_inspected_by_final_preflight"] is False
+          assert r.SEALED_START.isoformat() == "2026-07-01T00:00:00+00:00"
+          assert set(r.EXECUTION_MARKETS).isdisjoint(set(r.FORECAST_ONLY_MARKETS))
+          print("SEALED_SECONDARY_AND_HOLDOUT=YES")
+          PY
+
+      - name: Run training and June calibration only
+        run: python research/code/run_engine_k_training_calibration.py
+
+      - name: Upload training/calibration artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp022-engine-k-training-calibration-v0.1
+          path: |
+            research/results/EXP-022-training-calibration-summary-v0.1.json
+            research/results/EXP-022-model-bundle-v0.1.joblib
+          if-no-files-found: error
+
+      - name: Commit training/calibration checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-022-training-calibration-summary-v0.1.json
+          git add research/results/EXP-022-model-bundle-v0.1.joblib
+          git commit -m "Checkpoint EXP-022 Engine K training and June calibration"
+          git push origin HEAD:main
