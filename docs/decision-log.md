@@ -397,3 +397,18 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Promotion sequence:** validation and holdout remain unopened unless each preceding split passes its frozen gate. No v0.1 parameter grid is authorized.
 
 **Next:** user review/approval, then implementation/provenance verification with zero outcomes; only afterward may development run.
+
+
+## 2026-09-23 — Engine I preflight passed; authorize development-only next
+
+**Decision:** Accept the Engine-I v0.1 implementation/provenance checkpoint with zero Engine-I outcomes calculated.
+
+**Implementation:** `research/code/engine-i-v0.1.js`; final pre-outcome amendment commit `060ee9848575516ae06e16c1b17b921b525942f8`.
+
+**Verification:** final preflight GitHub Actions run `35842855789`, result commit `61e2e81e95bb01b2ae891b3cb7814cb03efdea60`.
+
+**Evidence:** 27 frozen Dec-2022 through Feb-2025 files matched blob SHA, byte size, row count, exact month boundaries, minute chronology and exact-grid/OHLC checks; 11 exact-arithmetic/causality tests passed. Validation and holdout files were absent and not loaded.
+
+**Clarification before outcomes:** reporting counters were completed for valid Asian weekdays and aligned long/short context events, and the 20-bar unarmed timeout uses `pullback_timeout_20`. No frozen threshold or causal rule changed.
+
+**Next:** the only permitted outcome run is combined development Jan-2023 through Feb-2025. Validation/holdout remain sealed. The development workflow is implemented but untriggered at this checkpoint.
