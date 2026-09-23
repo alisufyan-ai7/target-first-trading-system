@@ -138,3 +138,10 @@
 - Implemented frozen same-day 24+6 active-5m compression logic using exact integer inequalities, direct breakout entry, breakout-bar structural stop, conservative same-bar handling, and chronological 20:00 close.
 - Final preflight verified 27 Dec-2022–Feb-2025 warm-up/development files (1,182,240 rows / 59,108,737 bytes) against frozen blob/byte/month/chronology/OHLC rules and passed all 16 Engine-J self/causality tests.
 - Confirmed validation/holdout were not loaded; Engine-J development workflow remains untriggered. Next permitted outcome is EXP-021 development only.
+
+- Engine J v0.1 completed development with 307 accepted trades, comfortably satisfying the frozen >=100 frequency requirement.
+- Engine J failed economics decisively: T40 27.04%, gross expectancy about -USD0.15/trade, primary-cost expectancy about -USD5.15/trade, PF 0.671, total net -USD1,581.53, max drawdown USD1,659.93.
+- Both predeclared development subperiods failed at primary cost: DEV-A about -USD6.95/trade and DEV-B about -USD3.48/trade; 95% bootstrap expectancy interval was entirely negative at about -USD7.93 to -USD2.27.
+- DEV-B was gross-positive at about +USD1.52/trade before cost, but not enough to survive the frozen USD5 round-trip primary cost.
+- Stopped EXP-021 before validation. Mar-Aug 2025 validation and Sep-2025–Feb-2026 fresh holdout remain untouched.
+- Prohibited post-hoc compression/breakout threshold tuning and target switching; next action is a genuinely different engine family.
