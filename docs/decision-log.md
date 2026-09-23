@@ -478,3 +478,40 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Protection:** Mar-Aug 2025 validation and Sep-2025 through Feb-2026 fresh holdout were not loaded or inspected.
 
 **Next:** move to a genuinely different prospectively specified engine family. Do not run a compression/breakout parameter grid or change the frozen T40 target after seeing diagnostics. EXP-015 remains paused.
+
+
+## 2026-09-23 — Shift primary discovery from sequential pattern engines to direct multi-market scanning
+
+**Decision:** Stop using one handcrafted XAUUSD pattern family at a time as the primary discovery loop.
+
+Freeze Engine K v0.1 as a direct multi-market target-move forecasting engine.
+
+**Reason:** The user's operating requirement is to continuously scan all supported markets and identify where an economically useful move is most likely next. Engines G–J showed that a sequence of isolated handcrafted XAU theses can consume time without addressing that cross-market selection problem directly.
+
+Engine K therefore:
+
+- scores both directions every five minutes;
+- scans the full supported Wave-1 universe simultaneously;
+- predicts target-first probability directly from causal market-state features;
+- ranks by probability and conservative EV;
+- trades nothing when no candidate qualifies.
+
+This is not permission to claim certainty. “Maximum probability” means calibrated out-of-sample probability and positive expected value.
+
+## 2026-09-23 — Freeze Engine K Wave-1 universe and rolling-sample provenance
+
+**Decision:** Initial Engine-K execution-research universe is XAUUSD, EURUSD, GBPUSD, USDJPY, EURJPY, AUDUSD, USDCAD, and USDCHF.
+
+XAGUSD is forecast-only pending contract economics.
+
+Pinned GetData GitHub sample commits/blob SHAs are recorded in `research/provenance/EXP-022-wave1-data-manifest.md`.
+
+Because those public samples roll weekly, Engine K must fetch pinned commits rather than `main`.
+
+Frozen Engine-K split:
+
+- training 2026-03-23 through 2026-05-31;
+- calibration 2026-06-01 through 2026-06-30;
+- secondary test 2026-07-01 through 2026-08-31;
+- final holdout 2026-09-01 through 2026-09-22;
+- 2026-09-23 excluded as potentially incomplete.
