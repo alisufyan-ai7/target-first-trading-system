@@ -176,8 +176,9 @@ function runEngineI(months,splitStart,splitEnd){
   let setupSeq=0,tradeSeq=0;
   const consumed=new Set();
   const counts={
-    active_5m:0,boundary_close_events:0,qualifying_expansions:0,
-    pullback_armed:0,continuation_confirmed:0
+    active_5m:0,boundary_close_events:0,
+    long_context_aligned:0,short_context_aligned:0,
+    qualifying_expansions:0,pullback_armed:0,continuation_confirmed:0
   };
   const inSplit=ts=>ts>=splitStart&&ts<splitEnd;
 
@@ -364,7 +365,7 @@ function runEngineI(months,splitStart,splitEnd){
         inc(counts,"continuation_confirmed");continue;
       }
       if(s.postSeen>=20){
-        reject(s,s.armedOrd===null?"pullback_not_armed_25":"confirmation_timeout_20",ct);
+        reject(s,s.armedOrd===null?"pullback_timeout_20":"confirmation_timeout_20",ct);
       }
     }
     pending=pending.filter(s=>s.state!=="done");
@@ -392,22 +393,26 @@ function runEngineI(months,splitStart,splitEnd){
             if(!ctx)newTerminal(dir,b,"context_15m_unavailable",{asiaHigh:a.hi,asiaLow:a.lo});
             else if((dir==="LONG"&&!ctx.long)||(dir==="SHORT"&&!ctx.short))
               newTerminal(dir,b,"direction_context_mismatch",{asiaHigh:a.hi,asiaLow:a.lo,contextC0:ctx.c0,contextC2:ctx.c2});
-            else if(active5.length<12)newTerminal(dir,b,"prior_12_5m_unavailable",{asiaHigh:a.hi,asiaLow:a.lo});
-            else if(!median12Pass(b.h-b.l,active5.slice(-12)))
-              newTerminal(dir,b,"range_below_prior_median",{asiaHigh:a.hi,asiaLow:a.lo});
-            else if(5*Math.abs(b.c-b.o)<3*(b.h-b.l))
-              newTerminal(dir,b,"body_below_60pct",{asiaHigh:a.hi,asiaLow:a.lo});
-            else if(!expansionShapePass(dir,b))
-              newTerminal(dir,b,"weak_close_location",{asiaHigh:a.hi,asiaLow:a.lo});
-            else{
-              const key=utcDate(b.closeTs)+"|"+dir;
-              if(consumed.has(key))newTerminal(dir,b,"side_already_consumed_today",{asiaHigh:a.hi,asiaLow:a.lo});
+            else {
+              inc(counts,dir==="LONG"?"long_context_aligned":"short_context_aligned");
+              if(active5.length<12)newTerminal(dir,b,"prior_12_5m_unavailable",{asiaHigh:a.hi,asiaLow:a.lo});
+              else if(!median12Pass(b.h-b.l,active5.slice(-12)))
+                newTerminal(dir,b,"range_below_prior_median",{asiaHigh:a.hi,asiaLow:a.lo});
+              else if(5*Math.abs(b.c-b.o)<3*(b.h-b.l))
+                newTerminal(dir,b,"body_below_60pct",{asiaHigh:a.hi,asiaLow:a.lo});
+              else if(!expansionShapePass(dir,b))
+                newTerminal(dir,b,"weak_close_location",{asiaHigh:a.hi,asiaLow:a.lo});
               else{
-                consumed.add(key);counts.qualifying_expansions++;
-                if(openTrade)newTerminal(dir,b,"suppressed_one_open",{asiaHigh:a.hi,asiaLow:a.lo});
-                else createSetup(dir,b,a,ctx);
+                const key=utcDate(b.closeTs)+"|"+dir;
+                if(consumed.has(key))newTerminal(dir,b,"side_already_consumed_today",{asiaHigh:a.hi,asiaLow:a.lo});
+                else{
+                  consumed.add(key);counts.qualifying_expansions++;
+                  if(openTrade)newTerminal(dir,b,"suppressed_one_open",{asiaHigh:a.hi,asiaLow:a.lo});
+                  else createSetup(dir,b,a,ctx);
+                }
               }
             }
+
           }
         }
       }
@@ -452,6 +457,7 @@ function runEngineI(months,splitStart,splitEnd){
 
   const dates=[];
   for(let ts=dayStart(splitStart);ts<splitEnd;ts+=24*60*MIN)if(eligibleWeekday(ts))dates.push(utcDate(ts));
+  const validAsiaWeekdays=dates.filter(d=>{const a=asiaByDate.get(d);return !!a&&a.complete&&!a.zero;}).length;
   const daily={};for(const d of dates)daily[d]=0;
   for(const t of tt){const d=utcDate(t.fillTs);if(daily[d]!==undefined)daily[d]+=t.netUSD500;}
   const dv=dates.map(d=>daily[d]);
@@ -491,7 +497,7 @@ function runEngineI(months,splitStart,splitEnd){
     label_rates:labels,
     expectancy:{gross_usd:avg("grossUSD"),net_usd_0:avg("netUSD0"),net_usd_025:avg("netUSD250"),net_usd_050:avg("netUSD500")},
     profit_factor:{gross:pf("grossUSD"),net_0:pf("netUSD0"),net_025:pf("netUSD250"),net_050:pf("netUSD500")},
-    total_net_usd_050:totalNet,weekdays:dates.length,
+    total_net_usd_050:totalNet,weekdays:dates.length,valid_asia_weekdays:validAsiaWeekdays,
     daily:{mean:dv.length?dv.reduce((a,b)=>a+b,0)/dv.length:null,median:pctile(dv,.5),losing_pct:dv.length?dv.filter(x=>x<0).length/dv.length:null,le50_pct:dv.length?dv.filter(x=>x<=50).length/dv.length:null,ge100_pct:dv.length?dv.filter(x=>x>=100).length/dv.length:null,ge150_pct:dv.length?dv.filter(x=>x>=150).length/dv.length:null,ge200_pct:dv.length?dv.filter(x=>x>=200).length/dv.length:null},
     max_drawdown_usd:maxDD,recovery_factor:maxDD>0?totalNet/maxDD:null,
     worst_losing_trade_run:lossRun(),max_consecutive_losing_weekdays:consec(x=>x<0),max_consecutive_le50_weekdays:consec(x=>x<=50),
