@@ -145,3 +145,12 @@
 - DEV-B was gross-positive at about +USD1.52/trade before cost, but not enough to survive the frozen USD5 round-trip primary cost.
 - Stopped EXP-021 before validation. Mar-Aug 2025 validation and Sep-2025–Feb-2026 fresh holdout remain untouched.
 - Prohibited post-hoc compression/breakout threshold tuning and target switching; next action is a genuinely different engine family.
+
+- Course-corrected the primary discovery path after user review: stop relying on sequential single-pattern XAU engines as the main approach.
+- Froze Engine K v0.1 / EXP-022 — Multi-Market Direct Target-Move Scanner — with zero outcomes calculated.
+- Engine K scans both long and short states every five minutes across XAUUSD, EURUSD, GBPUSD, USDJPY, EURJPY, AUDUSD, USDCAD, and USDCHF; XAGUSD is forecast-only pending execution economics.
+- Frozen Gold movement targets at +3/+4/+5 XAU and a prospectively fixed non-Gold movement-equivalence ladder, followed by P&L-equivalent sizing and a USD20 primary structural-risk gate.
+- Frozen pooled multi-market probability model, p>=0.60 qualification, positive conservative-EV requirement, and one-open-position v0.1 portfolio rule.
+- Completed EXP-022 Checkpoint 1: pinned exact rolling GetData repositories, commit SHAs, CSV blob SHAs, sample row counts, research contract conventions, and common dates.
+- Corrected Engine-K split to the currently pinned sample: training Mar23-May31, calibration Jun, secondary Jul-Aug, fresh common-sample holdout Sep1-Sep22; excluded Sep23 as potentially incomplete.
+- Next: Engine-K causal implementation/preflight with zero target/model outcomes, then training+calibration across all Wave-1 markets together.
