@@ -378,6 +378,8 @@ A new qualifying setup while one is open receives:
 
 It is not queued.
 
+If a trade opens while other Engine-H-v0.2 setup pipelines are already pending from earlier raids, every other pending pipeline is immediately terminated as `suppressed_one_open`. Pending setups may not wait for the open trade to close.
+
 Location-FVG mitigation caused by the raid still occurs.
 
 ## 18. Cost stress
