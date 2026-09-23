@@ -132,3 +132,9 @@
 - Removed Engine-I-specific dependencies: no Asian boundary, trend context, pullback, or continuation confirmation.
 - Preserved the same sealed validation/holdout, USD5 primary cost, >=100-trade development minimum, subperiod expectancy, PF, drawdown and recovery gates.
 - Zero Engine-J outcomes calculated; implementation/backtest not started.
+
+- Completed Engine J v0.1 pre-outcome implementation/preflight with zero strategy outcomes calculated.
+- Added exact-arithmetic Engine-J implementation, preflight verifier, development runner, and separate preflight/development GitHub Actions workflows.
+- Implemented frozen same-day 24+6 active-5m compression logic using exact integer inequalities, direct breakout entry, breakout-bar structural stop, conservative same-bar handling, and chronological 20:00 close.
+- Final preflight verified 27 Dec-2022–Feb-2025 warm-up/development files (1,182,240 rows / 59,108,737 bytes) against frozen blob/byte/month/chronology/OHLC rules and passed all 16 Engine-J self/causality tests.
+- Confirmed validation/holdout were not loaded; Engine-J development workflow remains untriggered. Next permitted outcome is EXP-021 development only.
