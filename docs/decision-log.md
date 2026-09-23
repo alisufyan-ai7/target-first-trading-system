@@ -377,3 +377,23 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Interpretation:** The post-raid structural stop solved much of the previous economic-admission scarcity, but the fixed T40 execution still failed cost-adjusted development expectancy in both subperiods. Together with H v0.1 and v0.2, this is enough evidence to pause this location thesis rather than keep redesigning exits on the same development data.
 
 **Next:** preserve validation/holdout untouched and move to a genuinely different prospectively specified strategy-engine family. EXP-015 remains paused.
+
+## 2026-09-23 — Freeze Engine I v0.1 / EXP-020 before outcomes
+
+**Decision:** Freeze Engine I — Session Expansion / Continuation v0.1 and EXP-020 before calculating any Engine-I outcome.
+
+**Causal family:** established 15m direction -> Asian-session boundary breakout/acceptance -> strong 5m expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-active-M1-open -> structural pullback stop -> fixed T40 actual target.
+
+**Why materially different from G/H:** Engine I is a continuation engine. It removes reversal raid/rejection logic, pre-existing-FVG location, reversal MSS, displacement-created entry FVG, opposing-range target geometry, and the separate 2R admission gate.
+
+**Frozen split:** warm-up Dec-2022; development Jan-2023 through Feb-2025; DEV-A calendar 2023; DEV-B Jan-2024 through Feb-2025; validation Mar-Aug 2025; fresh holdout Sep-2025 through Feb-2026; Mar-Aug 20 2026 quarantined.
+
+**Contamination treatment:** 2023-Feb-2025 is reusable development data but is not pristine at the project level because G/H development results were inspected there. No Engine-I outcomes exist. Validation and fresh holdout remain uninspected by G/H outcomes and stay closed until prospective gates permit them.
+
+**Primary cost:** 0.50 XAU / USD5 round trip from the first development run.
+
+**Frozen development gate:** >=100 accepted trades; positive primary-cost expectancy overall, DEV-A and DEV-B; PF >=1.10; max drawdown <=USD200; net-profit/max-drawdown recovery factor >=1.0; no causal, same-bar or provenance defect.
+
+**Promotion sequence:** validation and holdout remain unopened unless each preceding split passes its frozen gate. No v0.1 parameter grid is authorized.
+
+**Next:** user review/approval, then implementation/provenance verification with zero outcomes; only afterward may development run.
