@@ -57,6 +57,8 @@ Wave 2 target additions:
 
 The currently pinned rolling public samples share coverage beginning 2026-03-23. The exact frozen source manifest is in `research/provenance/EXP-022-wave1-data-manifest.md`.
 
+Additional-market admission is governed prospectively by `research/provenance/EXP-022-symbol-admission-policy.md`.
+
 Frozen split:
 
 - training: 2026-03-23 through 2026-05-31;
