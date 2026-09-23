@@ -146,3 +146,102 @@ Development-only workflow:
 The workflow downloads only December-2023 warm-up plus January-2024 through February-2025 development files from the pinned external commit and verifies their blob identities in the runner. It does not download validation or holdout files.
 
 **Engine-H-v0.2 outcomes calculated: ZERO.**
+
+## Checkpoint 2 — development result
+
+**Development result commit:** `8facb9b831a99dccf92b231ebff2de4d0836a0c1`  
+**Split:** 2024-01-01 through 2025-02-28  
+**Validation outcomes inspected:** NO  
+**Fresh-holdout outcomes inspected:** NO
+
+Durable result files:
+
+- `research/results/EXP-018-development-summary-v0.2.json`
+- `research/results/EXP-018-development-setups-v0.2.jsonl`
+- `research/results/EXP-018-development-trades-v0.2.jsonl`
+
+### Development funnel
+
+- market-active 5m bars: **82,724**
+- prior-range boundary breach bars: **25,120**
+- external pre-existing FVG touch bars: **1,234**
+- qualifying close-back raids: **341**
+- in-window qualifying raids: **180**
+- accepted filled trades: **6**
+
+Post-raid confirmation/economic funnel:
+
+- no internal MSS pivot: **21**
+- MSS timeout after 20 active M1 bars: **86**
+- session closed before MSS: **4**
+- therefore setups reaching an MSS/next-open admission decision: **69**
+- insufficient 3-XAU target room: **24**
+- gross structural risk above USD40: **21**
+- reward/risk below 2.0: **15**
+- invalid next-open entry geometry: **3**
+- accepted: **6**
+
+### Filled-trade outcomes
+
+- actual target exits: **2 / 6 = 33.33%**
+- stop exits: **4 / 6 = 66.67%**
+- timeouts: **0**
+- T30/T40/T50/T70/T100 counterfactual reach: **2 / 6 = 33.33% at every rung**
+
+Economics:
+
+- gross expectancy/trade: **+USD 5.08**
+- net expectancy/trade at 0.25-XAU cost: **+USD 2.58**
+- net expectancy/trade at primary 0.50-XAU cost: **+USD 0.08**
+- primary-cost profit factor: **1.004**
+- total primary-cost net P&L: **+USD 0.49**
+
+Daily evidence:
+
+- eligible weekdays: **305**
+- mean net weekday P&L: **approximately USD 0.00**
+- median weekday P&L: **USD 0**
+- >=USD100/150/200 weekdays: **0%**
+
+Risk:
+
+- maximum drawdown: **USD 83.20**
+- worst losing-trade run: **3 trades / -USD 83.20**
+- mean gross structural stop risk: **USD 25.80**
+- maximum gross structural stop observed: **USD 33.01**
+
+### Bootstrap uncertainty
+
+Frozen 10,000-rep, 5-weekday moving-block bootstrap, seed 18018:
+
+- primary-cost expectancy point: **+USD 0.08/trade**
+- 95% expectancy interval: **[-USD 32.65, +USD 40.00]**
+- mean daily point: **approximately USD 0.00**
+- 95% mean-daily interval: **[-USD 0.62, +USD 0.73]**
+- zero-trade bootstrap resamples: **12**
+
+### Frozen-gate disposition
+
+The minimum development evidence requirement is:
+
+- **>=100 accepted filled trades**
+
+Observed:
+
+- **6 accepted trades**
+
+Therefore EXP-018 development is formally:
+
+**INSUFFICIENT_EVIDENCE**
+
+The near-zero positive point expectancy is not interpretable as validated edge with six trades, and the bootstrap interval is extremely wide across both positive and negative outcomes.
+
+### Decision
+
+**STOP Engine H v0.2 before validation.**
+
+Do not expose the untouched validation or fresh-holdout periods to H v0.2.
+
+The development funnel shows that the simplified MSS/next-open confirmation increased accepted trades from H v0.1's 2 to only 6. The dominant remaining bottleneck is now the frozen economic geometry after MSS: opposite-range target distance, sweep-extreme stop risk, and minimum 2R together rejected 60 of the 69 setups reaching next-open admission, with 3 additional geometry failures.
+
+Do not retune v0.2. Any revised target/stop/economic architecture must be prospectively frozen as Engine H v0.3 or another engine before outcomes.
