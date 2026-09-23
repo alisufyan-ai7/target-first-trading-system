@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine I v0.1 / EXP-020 prospectively frozen; zero Engine-I outcomes; validation/holdout preserved
+**Phase:** Phase 2 — Engine I v0.1 / EXP-020 implementation + preflight verified; zero Engine-I outcomes; development ready
 
 ## Authorized context
 
@@ -115,7 +115,7 @@ There is currently **no strategy engine promoted as a validated execution lead**
 - Engine H v0.1: **prospectively frozen from the two video motifs, then produced only 2 accepted development trades from 180 in-window raids versus the >=100 minimum. Formally insufficient evidence; validation/holdout untouched; not promoted.**
 - Engine H v0.2: **simplified confirmation to MSS-within-20 + next-active-M1-open entry. 69 setups reached economic admission, but only 6 passed target/stop/room/R:R/risk geometry. Primary-cost expectancy +USD0.08/trade with bootstrap CI -USD32.65 to +USD40.00; insufficient evidence; validation/holdout untouched.**
 - Engine H v0.3: **post-raid 1m stop + fixed T40 target, with expanded Jan-2023–Feb-2025 development. 58 accepted trades (<100), primary-cost expectancy -USD4.52/trade; DEV-A -USD7.18, DEV-B -USD1.24. Validation/holdout untouched; not promoted.**
-- Engine I v0.1: **prospectively frozen under EXP-020 as a materially different session-expansion/continuation family; zero outcomes calculated; development/validation/holdout gates frozen before results.**
+- Engine I v0.1: **prospectively frozen and preflight-verified under EXP-020; implementation/harness/provenance checks passed with zero outcomes calculated; development is now the only permitted next outcome run.**
 - Original Engine A / EXP-002: historical positive exploratory result; implementation unrecoverable.
 - A6 recovery variant: closest causal diagnostic reconstruction; not promoted.
 - Engine A v0.2-portable: historical rewrite; not promoted.
@@ -193,16 +193,28 @@ Key pre-outcome protections:
 
 Development dates are acknowledged as reusable project development data rather than pristine project-level data because G/H development outcomes were already inspected there. No Engine-I outcomes have been inspected. Validation/holdout remain protected.
 
+Implementation/preflight is complete:
+
+- final Engine-I implementation amendment: `060ee9848575516ae06e16c1b17b921b525942f8`;
+- final preflight tested repository SHA: `0fa662744b08c14d7f52709986b5c6dab9ec0e1a`;
+- final preflight result commit: `61e2e81e95bb01b2ae891b3cb7814cb03efdea60`;
+- 27 warm-up/development files / 1,182,240 rows / 59,108,737 bytes verified;
+- all 11 self/causality tests passed;
+- validation/holdout loaded: NO;
+- development backtest run: NO.
+
 ## Exact next action
 
-Do **not** run an Engine-I backtest yet.
+The Engine-I pre-outcome checkpoint is complete.
 
-1. present the frozen Engine-I specification and rationale to the user;
-2. obtain user approval;
-3. implement the exact-arithmetic Engine-I v0.1 reference engine and development-only harness;
-4. re-verify the frozen source manifest and causal/unit checks with zero outcomes calculated;
-5. checkpoint that pre-outcome implementation/provenance state in GitHub;
-6. only then run combined development Jan-2023 through Feb-2025;
-7. stop before validation if any frozen development gate fails.
+The next permitted computation is **EXP-020 combined development only**:
 
-Do not create H v0.4 or resume G/H reversal tuning. EXP-015 remains paused until at least one reproducible engine validates.
+- warm-up: Dec-2022;
+- DEV-A: Jan-Dec 2023;
+- DEV-B: Jan-2024 through Feb-2025;
+- combined development: Jan-2023 through Feb-2025;
+- primary cost: USD5 / 0.50 XAU round trip.
+
+Do not load or inspect Mar-Aug 2025 validation or Sep-2025 through Feb-2026 fresh holdout unless every frozen development gate passes.
+
+If development fails any mandatory gate, stop Engine I v0.1 and preserve validation/holdout. Do not launch an Engine-I parameter grid or create H v0.4. EXP-015 remains paused.
