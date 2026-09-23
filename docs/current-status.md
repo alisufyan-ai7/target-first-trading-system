@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine K v0.1 multi-market direct target-move scanner frozen; Wave-1 provenance complete; implementation/preflight next
+**Phase:** Phase 2 — Engine K v0.1 pre-outcome cleanup frozen; zero target/model outcomes; final cleanup preflight next
 
 ## Authorized context
 
@@ -254,15 +254,68 @@ Interpretation: Engine J had ample frequency, but the direct compression-breakou
 
 Do not tune the compression/breakout thresholds or switch targets post hoc. Validation and holdout remain sealed.
 
+## Engine K / EXP-022 status
+
+**Engine K v0.1 is the current primary discovery path.**
+
+Purpose: scan supported markets every five minutes, evaluate long/short target-first states directly, apply economic/risk feasibility, and rank the best qualified opportunity rather than waiting for one named chart pattern.
+
+Frozen primary execution-research universe:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF.
+
+Frozen forecast-only universe:
+
+- XAGUSD;
+- NAS100;
+- US30;
+- SPX500.
+
+Forecast-only markets are isolated from primary executable model fitting, calibration, ranking and P&L until their contract economics are prospectively frozen.
+
+Pre-outcome cleanup completed before any Engine-K target/model outcomes:
+
+- complete 5m bars require 5 M1 observations;
+- complete 1h MTR bars require 60 M1 observations;
+- delayed next entry cannot cross more than 5 chronological minutes;
+- all 29 causal features are now explicitly defined;
+- primary cost stress = 10% of gross target;
+- stress cost = 20% of gross target;
+- stop-risk cap = USD20;
+- research leverage reference = 1:500;
+- max research margin = USD100;
+- max notional/equity = 100x / USD50,000;
+- probability qualification = max(0.60, break-even probability + 0.05);
+- Sep-1 through Sep-22 is an initial OOS holdout, not sufficient alone for live promotion.
+
+Authoritative split:
+
+- train: Mar-23 through May-31 2026;
+- calibration: June 2026;
+- historical secondary test: July-August 2026;
+- final common-sample holdout: Sep-1 through Sep-22 2026;
+- Sep-23 excluded as potentially incomplete.
+
+Engine-K target outcomes calculated: **NO**.  
+Engine-K model outcomes calculated: **NO**.
+
 ## Exact next action
 
-Move to a **genuinely different causal engine family**.
+Run the **final Engine-K zero-outcome cleanup preflight** across all 12 pinned datasets.
 
-Do not:
+If it passes:
 
-- run Engine-J validation or holdout;
-- create Engine J v0.2 as a default threshold/target rescue;
-- reopen G/H reversal tuning or I continuation tuning;
-- resume EXP-015 before a reproducible engine validates.
+1. checkpoint the durable preflight result;
+2. fit the primary model only on the 8 execution-research markets and only on Mar-23 through May-31;
+3. calibrate only on June;
+4. checkpoint before opening July-August secondary test;
+5. do not inspect Sep-1 through Sep-22 final holdout until the earlier checkpoint is frozen.
 
-The next engine should again be prospectively frozen before outcomes, designed for natural >=100 development-trade frequency and enough gross economic headroom to survive realistic costs.
+Do not retune G/H/I/J. Do not add BTC or other new executable symbols to Engine-K v0.1 without first pinning data and freezing their contract/cost/margin economics.
