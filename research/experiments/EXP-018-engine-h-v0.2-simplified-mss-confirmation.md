@@ -103,3 +103,30 @@ At a shared next active M1 open, setups are tested in that order against the alr
 If an Engine-H-v0.2 trade opens, every other already-pending H-v0.2 setup pipeline is immediately terminated as `suppressed_one_open`. No pending setup may queue behind an open trade.
 
 **Engine-H-v0.2 outcomes calculated: ZERO.**
+
+## Checkpoint 1 — implementation verified before outcomes
+
+**Engine-H-v0.2 outcomes calculated:** ZERO.
+
+Executable implementation:
+
+- `research/code/engine-h-v0.2.js`
+- commit: `194b7c0c525a1298c65a82ae7f655cfe62f85aaa`
+
+Unit checks passed for:
+
+- exact integer source-tick parsing;
+- off-grid price rejection;
+- exact 2.0 reward/risk inequality;
+- exact USD40 gross structural-risk equivalence.
+
+Static implementation checks confirmed:
+
+- no Engine-H-v0.1 export remains;
+- no displacement state remains;
+- no 1m entry-FVG state remains;
+- no MSS-10 timeout remains;
+- v0.2 MSS timeout is 20 active M1 bars;
+- next-active-M1-open entry path is present.
+
+The next permitted computation is development only.
