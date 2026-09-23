@@ -115,3 +115,8 @@
 - Engine I changes causal family to session expansion/continuation: 15m direction -> Asian boundary expansion -> controlled pullback -> 1m continuation -> structural pullback stop -> T40.
 - Frozen Jan-2023–Feb-2025 development with DEV-A/DEV-B stability, Mar-Aug 2025 validation, Sep-2025–Feb-2026 fresh holdout, USD5 primary round-trip cost, and >=100-trade / expectancy / PF / drawdown gates.
 - Explicitly prohibited an Engine-I v0.1 parameter grid or post-failure sensitivity rescue; next checkpoint is user approval plus implementation/provenance verification, not a backtest.
+
+- Completed Engine I v0.1 pre-outcome implementation/preflight with zero strategy outcomes calculated.
+- Added exact-arithmetic Engine-I implementation, preflight verifier, development runner, and separate preflight/development GitHub Actions workflows.
+- Final preflight verified 27 Dec-2022–Feb-2025 warm-up/development files (1,182,240 rows) against frozen blob/byte/month/chronology/OHLC rules and passed all 11 self/causality tests.
+- Confirmed validation/holdout were not loaded; development workflow remains untriggered. Next permitted outcome is EXP-020 development only.
