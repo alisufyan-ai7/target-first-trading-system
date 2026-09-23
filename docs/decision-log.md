@@ -365,3 +365,15 @@ A future Badar-derived engine may use evidence-supported concepts, but it must b
 **Interpretation:** Simplifying confirmation from H v0.1 increased accepted trades from 2 to 6 but did not solve evidence scarcity. The dominant bottleneck moved to the target/stop/economic geometry: 24 candidates failed 3-XAU target room, 21 exceeded USD40 gross structural risk, 15 failed 2R, and 3 failed next-open geometry.
 
 **Next:** preserve validation/holdout untouched. Any revised target/stop architecture must be a new prospectively frozen H v0.3 or different engine; do not reinterpret the six-trade positive point estimate as edge.
+
+## 2026-09-23 — Stop Engine H v0.3 and pause the H thesis family
+
+**Decision:** Stop Engine H v0.3 before validation and do not continue immediate post-hoc revisions of the same range-raid/pre-existing-FVG reversal thesis.
+
+**Development design:** expanded prospectively to Jan-2023 through Feb-2025 rather than lowering the >=100 evidence standard; DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025 were frozen as separate stability checks.
+
+**Evidence:** 58 accepted trades; primary-cost expectancy about -USD4.52/trade; PF about 0.703; T40 hit rate about 29.31%; DEV-A expectancy about -USD7.18/trade; DEV-B expectancy about -USD1.24/trade; 95% block-bootstrap expectancy interval about -USD11.60 to +USD2.69.
+
+**Interpretation:** The post-raid structural stop solved much of the previous economic-admission scarcity, but the fixed T40 execution still failed cost-adjusted development expectancy in both subperiods. Together with H v0.1 and v0.2, this is enough evidence to pause this location thesis rather than keep redesigning exits on the same development data.
+
+**Next:** preserve validation/holdout untouched and move to a genuinely different prospectively specified strategy-engine family. EXP-015 remains paused.
