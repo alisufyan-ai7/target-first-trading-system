@@ -1,2 +1,3 @@
 Trigger EXP-020 Engine I v0.1 preflight only. No strategy outcomes. 2026-09-23.
 Rerun after pre-outcome reporting-counter amendment 060ee9848575516ae06e16c1b17b921b525942f8.
+Final fingerprinted preflight after ddd302db3bbdaa2cbbffaf48e8ead568e8a6a854.
