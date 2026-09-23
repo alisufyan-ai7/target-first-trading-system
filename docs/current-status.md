@@ -318,4 +318,4 @@ If it passes:
 4. checkpoint before opening July-August secondary test;
 5. do not inspect Sep-1 through Sep-22 final holdout until the earlier checkpoint is frozen.
 
-Do not retune G/H/I/J. Do not add BTC or other new executable symbols to Engine-K v0.1 without first pinning data and freezing their contract/cost/margin economics.
+Do not retune G/H/I/J. Do not add BTC or other new executable symbols to Engine-K v0.1 without first pinning data and freezing their contract/cost/margin economics under `research/provenance/EXP-022-symbol-admission-policy.md`.
