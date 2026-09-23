@@ -18,7 +18,7 @@ _Last updated: 2026-09-23_
 | Engine H v0.2 | Same range/FVG raid -> 1m MSS within 20 active bars -> next-active-M1-open entry -> opposite range target | **Development insufficient evidence: 6 accepted trades vs >=100 minimum; +$0.08/trade at primary cost is statistically meaningless; validation/holdout preserved untouched; not promoted** |
 | Engine H v0.3 | Same range/FVG raid + MSS/next-open -> post-raid 1m structural stop -> fixed T40 target | **Development failed: 58 trades (<100), -$4.52/trade at primary cost; DEV-A -$7.18 and DEV-B -$1.24; validation/holdout untouched; not promoted** |
 | Engine I v0.1 | Established 15m direction -> Asian boundary expansion -> controlled 25%-60% pullback -> 1m continuation break -> next-open -> structural pullback stop -> T40 | **Development failed: 197 trades, -$5.15/trade at primary cost, PF 0.631, DEV-A -$6.20, DEV-B -$4.09, MDD $1,060.90; validation/holdout untouched; not promoted** |
-| Engine K v0.1 | Multi-market direct target-move probability scanner | **PRIMARY CURRENT PATH; cleanup preflight passed; 8 execution + 4 forecast-only; zero target/model outcomes at checkpoint; training + June calibration next** |
+| Engine K v0.1 | Multi-market direct target-move probability scanner | **Training/June-calibration gate failed: 7,098 labeled rungs all XAUUSD, 0 executable FX rungs, 0 qualified trades after frozen >=60% calibrated-probability gate; July-August/September untouched; stopped before secondary test** |
 | Engine J v0.1 | Same-day 5m baseline -> 30m compression box -> strong 5m breakout -> next-open -> breakout-bar stop -> T40 | **Development failed: 307 trades, -$5.15/trade at primary cost, PF 0.671, DEV-A -$6.95, DEV-B -$3.48, MDD $1,659.93; validation/holdout untouched; not promoted** |
 
 ## Current promotion state
@@ -151,6 +151,6 @@ Status:
 - zero Engine-K target outcomes calculated;
 - zero Engine-K model outcomes calculated;
 - final zero-outcome cleanup preflight PASSED at result commit `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`;
-- next stage is training Mar23-May31 + June calibration only.
+- training + June calibration completed and FAILED the frozen pre-secondary gate; July-August and September remain sealed.
 
 Do not retune G/H/I/J while Engine K is being evaluated.
