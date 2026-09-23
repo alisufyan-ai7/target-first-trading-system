@@ -501,7 +501,20 @@ function runEngineJ(months,splitStart,splitEnd){
       shadows=shadows.filter(t=>!t.shadowDone);
       processDueEntries(m,occupiedAtOpen);
     }
-    const bc=b5End.get(m.ts+MIN);
+
+    const closeTs=m.ts+MIN;
+    if(openTrade&&closeTs===dayStart(openTrade.fillTs)+20*60*MIN)
+      closeTrade(openTrade,"exit_session_2000",m.c,closeTs);
+
+    for(const t of shadows){
+      if(!t.shadowDone&&closeTs===dayStart(t.fillTs)+20*60*MIN){
+        for(const k of Object.keys(t.labels))if(t.labels[k]===null)t.labels[k]="horizon_without_target_or_stop";
+        t.shadowDone=true;
+      }
+    }
+    shadows=shadows.filter(t=>!t.shadowDone);
+
+    const bc=b5End.get(closeTs);
     if(bc)on5Close(bc);
   }
 
@@ -581,9 +594,9 @@ function selfTest(){
   assert(sb.boxWidth===301&&!sb.compactBoxPass,"box_width_fail");
 
   const stats={medianNum:200,boxHigh:1100,boxLow:900};
-  let bd=breakoutDecision({o:1090,h:1240,l:990,c:1220},stats);
+  let bd=breakoutDecision({o:1040,h:1240,l:990,c:1220},stats);
   assert(bd.ok&&bd.dir==="LONG","long_breakout");
-  bd=breakoutDecision({o:910,h:1010,l:760,c:780},stats);
+  bd=breakoutDecision({o:960,h:1010,l:760,c:780},stats);
   assert(bd.ok&&bd.dir==="SHORT","short_breakout");
   bd=breakoutDecision({o:1110,h:1240,l:1000,c:1220},stats);
   assert(!bd.ok&&bd.reason==="breakout_open_already_outside_box","open_outside_reject");
@@ -599,10 +612,10 @@ function selfTest(){
   const cross=[{startTs:day-MIN,closeTs:day},...prior.slice(1)];
   assert(previous30SameDay(cross,cb)===null,"same_day_strict");
 
-  let g=structuralStop("LONG",{l:1000,h:2000},5001);
-  assert(g.valid&&g.stop===999&&g.stopDist===4002,"structural_stop_long");
-  g=structuralStop("SHORT",{l:1000,h:2000},-2001);
-  assert(g.valid&&g.stop===2001&&g.stopDist===4002,"structural_stop_short");
+  let g=structuralStop("LONG",{l:1000,h:2000},2000);
+  assert(g.valid&&g.stop===999&&g.stopDist===1001,"structural_stop_long");
+  g=structuralStop("SHORT",{l:1000,h:2000},1000);
+  assert(g.valid&&g.stop===2001&&g.stopDist===1001,"structural_stop_short");
   assert(Math.abs(5000-1000)===4000,"risk_cap_boundary");
   assert(!(Math.abs(5001-1000)<=4000),"risk_cap_over");
 
