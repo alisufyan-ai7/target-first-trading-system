@@ -1,0 +1,246 @@
+# EXP-020 — Engine I Session Expansion / Continuation v0.1
+
+**Status:** FROZEN / NOT YET RUN  
+**Frozen:** 2026-09-23  
+**Engine:** Engine I — Session Expansion / Continuation v0.1  
+**Spec:** `strategies/engine-i-session-expansion-continuation/SPEC-v0.1.md`  
+**Outcome status at freeze:** ZERO ENGINE-I OUTCOMES CALCULATED
+
+## Why EXP-020 exists
+
+EXP-016 Engine G and EXP-017 through EXP-019 Engine H tested reversal-oriented liquidity/location theses and did not produce a promotable development result.
+
+Engine I intentionally changes causal family:
+
+```text
+established intraday direction
+    ->
+Asian/session boundary cleared
+    ->
+strong 5m expansion
+    ->
+controlled pullback
+    ->
+1m continuation confirmation
+    ->
+next-open entry
+    ->
+structural pullback stop
+    ->
+T40 execution target
+```
+
+The goal is fast hypothesis turnover with enough natural opportunity frequency to test >=100 accepted development trades without lowering evidence standards or mining a large parameter grid.
+
+## Frozen v0.1 center rule
+
+- XAUUSD only for first engine proof;
+- exact 0.001-XAU integer source ticks;
+- daily Asian range = complete 00:00-05:59 UTC interval;
+- directional context = latest completed active 15m close vs two active 15m bars earlier, aligned with Asian-range midpoint;
+- candidate expansion = first per side/day completed active 5m bar from 06:00 to before 17:00 that closes through the Asian boundary in the context direction;
+- expansion bar range >= median prior-12 active 5m ranges;
+- body >=60% of range;
+- close in directional outer 25% of expansion bar;
+- controlled pullback = 25%-60% retracement of expansion range while completed M1 closes continue to hold beyond the cleared Asian boundary;
+- pullback/confirmation window = maximum 20 active M1 bars after expansion and before 18:00;
+- continuation confirmation = first directional M1 close after the pullback-arm bar that closes beyond the previous three active-M1 highs/lows;
+- entry = next active M1 open before 18:00;
+- stop = one tick beyond frozen post-expansion pullback extreme through confirmation;
+- gross structural risk <=USD40 at the XAU 0.10-lot research convention;
+- actual target = fixed T40 / 4.000 XAU;
+- counterfactual target-first labels include T30/T40/T50/T70/T100;
+- actual horizon = 120 active M1 bars or 20:00 UTC;
+- no overnight;
+- one open Engine-I trade maximum;
+- first qualifying expansion per side/day only;
+- conservative stop-first same-bar treatment;
+- primary round-trip cost = 0.50 XAU / USD5 per filled trade.
+
+No FVG, reversal MSS, opposing-range target, target-room filter, or separate 2R gate is part of Engine I v0.1.
+
+## Frozen source snapshot
+
+Use the same immutable Dukascopy-derived BID M1 transport already audited in EXP-016 through EXP-019:
+
+- transport repository: `kevingtlin/Market-Data-Lab`;
+- pinned commit: `922f83a60cc574e7395fb27397077288055a1ef6`;
+- BID M1 subtree: `86dd3acd141ffe4b5eb8ad86a04ca42398d0b558`.
+
+The exact monthly file/blob/byte manifest is frozen in the Engine-I specification and must be re-verified before any outcome calculation.
+
+Development execution must not download validation or holdout files.
+
+## Frozen split
+
+Warm-up:
+
+`2022-12-01 through 2022-12-31`.
+
+Combined development:
+
+`2023-01-01 through 2025-02-28`.
+
+Development stability subperiods:
+
+- DEV-A = calendar 2023;
+- DEV-B = Jan-2024 through Feb-2025.
+
+Validation:
+
+`2025-03-01 through 2025-08-31`.
+
+Fresh holdout:
+
+`2025-09-01 through 2026-02-28`.
+
+Quarantined prior-research period:
+
+`2026-03-01 through 2026-08-20`.
+
+## Contamination classification at freeze
+
+Development is not pristine at the project level because G/H results have already been inspected on parts of 2023-Feb-2025. It remains the explicitly reusable project development pool.
+
+This is acceptable for Engine-I hypothesis screening only because:
+
+- zero Engine-I outcomes have been calculated;
+- the complete Engine-I rule is frozen before any Engine-I development result;
+- no Engine-I parameter search has occurred.
+
+The stronger protection remains validation/holdout:
+
+- G/H validation Mar-Aug 2025 was never inspected;
+- G/H fresh holdout Sep 2025-Feb 2026 was never inspected.
+
+These periods remain closed unless Engine-I development/validation gates prospectively permit opening them.
+
+## Why the frequency design should avoid another sparse engine
+
+Unlike H, Engine I does not stack external-FVG location + reversal MSS + displacement + new FVG + midpoint fill + target-room + 2R conditions.
+
+The center rule permits up to:
+
+- one long expansion event per eligible weekday;
+- one short expansion event per eligible weekday.
+
+The 26-month development interval therefore has a structurally broad event pool before pullback/confirmation/risk admission.
+
+The required development count remains >=100. If v0.1 produces fewer, the experiment is insufficient and the rule is not loosened post hoc.
+
+## Frozen development gate
+
+Validation is forbidden unless all pass:
+
+1. accepted development trades >=100;
+2. combined primary-cost expectancy >0;
+3. DEV-A primary-cost expectancy >0;
+4. DEV-B primary-cost expectancy >0;
+5. combined primary-cost PF >=1.10;
+6. combined max drawdown <=USD200 on the standalone USD500 reference curve;
+7. combined net-profit / max-drawdown recovery factor >=1.00 when MDD >0;
+8. no causal leakage;
+9. no optimistic same-bar dependency;
+10. no provenance defect.
+
+Below 100 accepted development trades = `INSUFFICIENT_EVIDENCE`.
+
+A failure of any mandatory gate stops v0.1 before validation.
+
+## Frozen validation gate
+
+Only after a passing development checkpoint:
+
+- accepted trades >=50;
+- primary-cost expectancy >0;
+- primary-cost PF >=1.10;
+- 95% moving-block-bootstrap expectancy lower bound >0;
+- max drawdown <=USD200;
+- no causal/provenance/same-bar defect.
+
+If validation fails, fresh holdout remains untouched.
+
+## Frozen fresh-holdout gate
+
+Only after a passing validation checkpoint:
+
+- accepted trades >=50;
+- primary-cost expectancy >0;
+- primary-cost PF >=1.10;
+- 95% moving-block-bootstrap expectancy lower bound >0;
+- max drawdown <=USD200;
+- no causal/provenance/same-bar defect.
+
+Final same-feed historical promotion also requires no expectancy sign reversal across development, DEV-A, DEV-B, validation and holdout.
+
+## Bootstrap
+
+Use moving blocks of 5 consecutive eligible weekdays.
+
+- replications: 10,000;
+- seed: `20020`;
+- interval: percentile 95%.
+
+Development lower-bound positivity is reported but is not a hard gate.
+
+Validation and holdout lower-bound positivity are hard gates.
+
+## Primary cost
+
+Primary historical economics use:
+
+`0.50 XAU round-trip = 500 ticks = USD5 per filled trade`.
+
+The 0.00 and 0.25 XAU cases are diagnostics only.
+
+This cost is included from the first development run.
+
+## No-parameter-mining rule
+
+EXP-020 has one frozen center rule.
+
+Do not rescue a failed result by trying neighboring:
+
+- direction lookbacks;
+- session windows;
+- expansion thresholds;
+- pullback-depth bands;
+- confirmation lookbacks;
+- stop caps;
+- target distances.
+
+No v0.1 sensitivity grid is authorized.
+
+If development fails decisively, preserve validation/holdout and move to the next genuinely different engine family rather than endlessly creating Engine-I variants.
+
+## Required first checkpoint after implementation
+
+Before any development outcome:
+
+1. exact-arithmetic unit tests pass;
+2. causal sequencing tests pass;
+3. frozen source manifest is re-verified;
+4. development-only runner/workflow is confirmed not to download validation/holdout;
+5. implementation matches the frozen v0.1 specification;
+6. GitHub checkpoint records that zero Engine-I outcomes have yet been calculated.
+
+Only then may combined development Jan-2023 through Feb-2025 run.
+
+## Checkpoint 0 — frozen before outcomes
+
+- Engine-I v0.1 specification frozen: YES;
+- EXP-020 frozen: YES;
+- source snapshot/manifest frozen: YES;
+- split frozen: YES;
+- transaction costs frozen: YES;
+- development/validation/holdout gates frozen: YES;
+- Engine-I outcomes calculated: NO;
+- Engine-I development backtest launched: NO.
+
+## Relationship to EXP-015
+
+EXP-015 remains paused.
+
+If Engine I ultimately validates, it becomes a standardized candidate source that can feed the target-first ranker alongside future independently validated engines.
+
+The long-term goal remains several profitable, reproducible strategy engines whose combined opportunity stream can later be ranked and risk-gated toward the USD150-200 strong-day objective under the approximately USD40 normal / USD60 emergency daily loss framework.
