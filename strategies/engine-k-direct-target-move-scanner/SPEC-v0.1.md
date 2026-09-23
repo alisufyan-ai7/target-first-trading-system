@@ -75,15 +75,18 @@ Wave 1 uses markets for which clean public one-minute research samples have alre
 - USDCAD;
 - USDCHF.
 
-XAGUSD may be scored for raw move probability where data are available, but it is not execution-eligible until its research contract/quantity convention is frozen.
+Forecast-only markets with clean pinned one-minute data, pending executable contract economics:
+
+- XAGUSD;
+- NAS100;
+- US30;
+- SPX500.
 
 Wave 2 should add as soon as clean data and economics are documented:
 
 - GBPJPY;
 - XAGUSD execution economics;
-- NAS100 / USTEC;
-- US30;
-- US500 / SPX500;
+- NAS100 / US30 / SPX500 execution economics;
 - BTCUSD / BTCUSDT;
 - other liquid markets with reliable data and executable contract economics.
 
