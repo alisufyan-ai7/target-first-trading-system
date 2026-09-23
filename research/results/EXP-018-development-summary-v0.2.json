@@ -1,0 +1,212 @@
+{
+  "source_rows": 656640,
+  "market_active_m1": 440969,
+  "split": {
+    "start": "2024-01-01T00:00:00.000Z",
+    "end_exclusive": "2025-03-01T00:00:00.000Z"
+  },
+  "event_counts": {
+    "active_5m": 82724,
+    "boundary_breach_bars": 25120,
+    "external_fvg_touch_bars": 1234,
+    "qualifying_raids": 341,
+    "in_window_raids": 180
+  },
+  "setup_count": 12686,
+  "terminal_reasons": {
+    "raid_without_rejection_close": 893,
+    "no_external_preexisting_fvg": 11452,
+    "mss_timeout_20": 86,
+    "outside_setup_window": 161,
+    "insufficient_target_room_3xau": 24,
+    "no_internal_mss_pivot": 21,
+    "setup_window_closed_before_mss": 4,
+    "reward_risk_below_2": 15,
+    "structural_risk_above_40": 21,
+    "invalid_entry_geometry_at_open": 3
+  },
+  "accepted_filled_trades": 6,
+  "exits": {
+    "exit_stop": 4,
+    "exit_target": 2
+  },
+  "target_hit_rate": 0.3333333333333333,
+  "stop_rate": 0.6666666666666666,
+  "timeout_rate": 0,
+  "label_rates": {
+    "3000": {
+      "target": 2,
+      "stop": 4,
+      "horizon": 0,
+      "n": 6
+    },
+    "4000": {
+      "target": 2,
+      "stop": 4,
+      "horizon": 0,
+      "n": 6
+    },
+    "5000": {
+      "target": 2,
+      "stop": 4,
+      "horizon": 0,
+      "n": 6
+    },
+    "7000": {
+      "target": 2,
+      "stop": 4,
+      "horizon": 0,
+      "n": 6
+    },
+    "10000": {
+      "target": 2,
+      "stop": 4,
+      "horizon": 0,
+      "n": 6
+    }
+  },
+  "expectancy": {
+    "gross_usd": 5.081666666666668,
+    "net_usd_0": 5.081666666666668,
+    "net_usd_025": 2.581666666666667,
+    "net_usd_050": 0.08166666666666818
+  },
+  "profit_factor": {
+    "gross": 1.313650858965127,
+    "net_0": 1.313650858965127,
+    "net_025": 1.144482790784442,
+    "net_050": 1.0041805306714444
+  },
+  "total_net_usd_050": 0.4900000000000091,
+  "weekdays": 305,
+  "daily": {
+    "mean": 0.0016065573770492102,
+    "median": 0,
+    "losing_pct": 0.013114754098360656,
+    "le50_pct": 0.9967213114754099,
+    "ge100_pct": 0,
+    "ge150_pct": 0,
+    "ge200_pct": 0
+  },
+  "max_drawdown_usd": 83.19999999999999,
+  "worst_losing_trade_run": {
+    "count": 3,
+    "netLoss": -83.2
+  },
+  "max_consecutive_losing_weekdays": 1,
+  "max_consecutive_le50_weekdays": 273,
+  "actual_mfe_ticks": {
+    "n": 6,
+    "mean": 3051.1666666666665,
+    "median": 2045,
+    "p10": 723.5,
+    "p90": 6385,
+    "min": 137,
+    "max": 7460
+  },
+  "actual_mae_ticks": {
+    "n": 6,
+    "mean": 2277.8333333333335,
+    "median": 2222,
+    "p10": 1510.5,
+    "p90": 3101,
+    "min": 1460,
+    "max": 3301
+  },
+  "potential_mfe_ticks": {
+    "n": 6,
+    "mean": 5170,
+    "median": 2045,
+    "p10": 723.5,
+    "p90": 12741.5,
+    "min": 137,
+    "max": 14663
+  },
+  "potential_mae_ticks": {
+    "n": 6,
+    "mean": 2277.8333333333335,
+    "median": 2222,
+    "p10": 1510.5,
+    "p90": 3101,
+    "min": 1460,
+    "max": 3301
+  },
+  "target_distance_ticks": {
+    "n": 6,
+    "mean": 6315.666666666667,
+    "median": 6400,
+    "p10": 4683.5,
+    "p90": 7863.5,
+    "min": 4057,
+    "max": 8267
+  },
+  "stop_distance_ticks": {
+    "n": 6,
+    "mean": 2579.8333333333335,
+    "median": 2731,
+    "p10": 1759.5,
+    "p90": 3249,
+    "min": 1561,
+    "max": 3301
+  },
+  "gross_stop_usd": {
+    "n": 6,
+    "mean": 25.798333333333336,
+    "median": 27.310000000000002,
+    "p10": 17.595000000000002,
+    "p90": 32.49,
+    "min": 15.610000000000001,
+    "max": 33.01
+  },
+  "location_fvg_age_active5": {
+    "n": 6,
+    "mean": 32.666666666666664,
+    "median": 31.5,
+    "p10": 22.5,
+    "p90": 44,
+    "min": 18,
+    "max": 48
+  },
+  "location_distance_ticks": {
+    "n": 6,
+    "mean": 390,
+    "median": 290,
+    "p10": 115,
+    "p90": 765,
+    "min": 70,
+    "max": 1200
+  },
+  "direction": {
+    "LONG": {
+      "n": 3,
+      "netUSD500": 93.12
+    },
+    "SHORT": {
+      "n": 3,
+      "netUSD500": -92.63
+    }
+  },
+  "bootstrap": {
+    "reps": 10000,
+    "seed": 18018,
+    "block_weekdays": 5,
+    "zero_trade_resamples": 12,
+    "expectancy_net_usd_050": {
+      "point": 0.08166666666666818,
+      "lo": -32.652499999999996,
+      "hi": 40.00247222222221
+    },
+    "mean_daily_net_usd_050": {
+      "point": 0.0016065573770492102,
+      "lo": -0.6204262295081967,
+      "hi": 0.7273631147540978
+    }
+  },
+  "execution_metadata": {
+    "engine_implementation": "research/code/engine-h-v0.2.js",
+    "data_source_repo": "kevingtlin/Market-Data-Lab",
+    "data_source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "split": "development",
+    "validation_or_holdout_loaded": false
+  }
+}
