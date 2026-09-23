@@ -235,3 +235,20 @@ Implement/freeze the outcome-label + primary-model training/calibration runner i
 6. keep Sep-1 through Sep-22 final holdout unopened until the later secondary-test checkpoint.
 
 No model/threshold/feature/universe changes may be made using later-period outcomes.
+
+
+### Final pre-outcome label mechanics clarification
+
+Before any Engine-K target outcome was calculated, the label horizon was made explicit:
+
+- entry M1 bar counts as active bar 1;
+- maximum 120 active M1 bars;
+- 20:00 UTC same-entry-date session cutoff;
+- only bars starting before 20:00 are eligible;
+- stop wins target/stop same-bar ambiguity, including on the entry bar;
+- if neither stop nor target is reached, mark to the close of the last eligible processed M1 bar;
+- no overnight carry.
+
+The diagnostic L2 logistic baseline is also frozen to StandardScaler + LogisticRegression(C=1.0, solver=lbfgs, max_iter=1000). It remains diagnostic and may not replace the primary HistGradientBoosting model based on observed performance.
+
+These are implementation clarifications, not outcome-driven revisions. Engine-K target/model outcomes remained zero when frozen.
