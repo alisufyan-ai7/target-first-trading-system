@@ -116,3 +116,53 @@ Before Engine-K training outcomes:
 9. do not calculate target labels or model metrics in preflight.
 
 After preflight passes, development/training may run.
+
+
+## Pre-outcome universe classification
+
+Primary **execution-research** model/trade universe:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF.
+
+**Forecast-only** datasets:
+
+- XAGUSD;
+- NAS100;
+- US30;
+- SPX500.
+
+Forecast-only datasets are pinned and may be used for data/feature diagnostics, but they must not influence the primary executable model fit, probability calibration, cross-market execution ranking, or P&L simulation until contract economics are prospectively frozen.
+
+## Pre-outcome research feasibility conventions
+
+Because broker-specific costs and leverage specifications are not yet available uniformly in the repository, EXP-022 v0.1 freezes the following **research-only** conventions before any target/model outcome:
+
+- reference equity: USD500;
+- primary stop-risk cap: USD20;
+- primary round-trip cost: 10% of gross target;
+- stress round-trip cost: 20% of gross target;
+- research leverage reference: 1:500;
+- max margin at that reference: USD100 / 20% of equity;
+- max notional/equity: 100x / USD50,000;
+- next-active-M1 entry gap: maximum five chronological minutes;
+- calibrated probability qualification: `max(0.60, break-even probability + 0.05)`.
+
+These conventions are screening assumptions, not claims about broker pricing or available leverage. Broker-native spread, commission, tick value, contract size and margin rules must replace them before paper/live promotion.
+
+## Bar-integrity cleanup
+
+Engine K v0.1 now requires:
+
+- complete 5m feature bars: exactly five one-minute observations;
+- complete 1h MTR bars: exactly sixty one-minute observations;
+- incomplete resample bins are excluded;
+- long session/feed gaps may not be crossed by a delayed next-open entry.
+
+No target labels or model outcomes were used to make these cleanup amendments.
