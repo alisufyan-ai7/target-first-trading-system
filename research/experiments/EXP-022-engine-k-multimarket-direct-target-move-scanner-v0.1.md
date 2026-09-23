@@ -275,3 +275,57 @@ for:
 The nominal T30/T40/T50 label is retained as the target-rung identity. XAUUSD at the fixed 0.10-lot anchor remains exactly approximately USD30/USD40/USD50 gross for its 3/4/5 XAU movement ladder.
 
 No target or model outcome had been calculated when this correction was frozen.
+
+
+## Checkpoint 3 — training/calibration implementation frozen before outcomes
+
+**Outcome status:** ZERO ENGINE-K TARGET/MODEL OUTCOMES AT IMPLEMENTATION FREEZE.
+
+Files:
+
+- `research/code/run_engine_k_training_calibration.py`;
+- `.github/workflows/exp022-engine-k-training-calibration.yml`.
+
+Implementation commits:
+
+- training/calibration runner: `80f1fb42d70eab371385b75eac46e210f15209be`;
+- sealed workflow: `a736694afcfbc068e530cff797c04db3b28e9f57`.
+
+The runner freezes:
+
+- source parsing stops before `2026-07-01T00:00:00Z`;
+- only the eight execution-research markets are downloaded/parsed for the outcome stage;
+- forecast-only markets are not loaded;
+- training candidate dates: Mar-23 through May-31;
+- calibration candidate dates: June only;
+- entry-bar counts as active M1 #1;
+- max horizon 120 active M1 bars;
+- same-date 20:00 UTC session cutoff;
+- stop-first same-bar handling;
+- no overnight carry;
+- actual rounded-lot target reward used for P&L/EV/cost/break-even;
+- one primary HistGradientBoosting model per T30/T40/T50 rung;
+- fixed eight-market + direction one-hot encoding;
+- Platt calibration = one-variable logistic regression on clipped logit(raw primary probability), C=1,000,000, lbfgs, max_iter=1000;
+- diagnostic baseline = StandardScaler + L2 logistic regression(C=1.0, lbfgs, max_iter=1000);
+- deterministic one-open cross-market simulation ranks by calibrated probability then primary EV;
+- same-minute re-entry after an exit bar is prohibited because that entry open would have occurred before the prior trade's intrabar exit was known;
+- daily stop-adding-risk <= -USD40 and stop-adding-profit >= +USD150 are applied in the combined training/calibration simulation.
+
+Durable outputs, once triggered:
+
+- `research/results/EXP-022-training-calibration-summary-v0.1.json`;
+- `research/results/EXP-022-model-bundle-v0.1.joblib`.
+
+Frozen pre-secondary gate:
+
+1. >=200 unique economically admissible labeled states per execution market;
+2. >=100 actual qualified one-open simulated trades combined across training/calibration, otherwise insufficient frequency;
+3. realized qualified-trade target-hit rate > mean actual break-even probability;
+4. combined primary-cost expectancy >0;
+5. causality/same-bar/provenance integrity passes;
+6. market concentration is reported explicitly.
+
+If this gate fails, July-August remains unopened and Engine K v0.1 stops before secondary testing.
+
+**Training/calibration workflow triggered at this checkpoint: NO.**
