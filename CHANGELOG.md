@@ -163,3 +163,9 @@
 - Hardened data causality: complete 5m/1h bins only, <=5-minute next-entry gap, and explicit 29-feature causal contract.
 - Reconciled EXP-022 dates to train Mar23-May31, calibrate June, secondary Jul-Aug, final Sep1-Sep22; Sep23 excluded.
 - Recorded BTC/GBPJPY and other liquid markets as expansion candidates only after pinned data and executable contract economics are documented.
+
+- Final Engine-K zero-outcome cleanup preflight passed on reconciled SHA `2c319cd45cbae6cdb1934540f6933890886c1812`; durable result commit `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`.
+- All 11 cleanup self-tests passed; no target/model outcomes were calculated.
+- Through June 30 only, 8 execution markets produced 205,196 causal structural states and 7,098 economically admissible target rungs before probability qualification; 4 forecast-only markets remained isolated from executable economics.
+- July-August secondary-test and September final-holdout state/outcome distributions remained unopened by the authoritative preflight.
+- Next permitted stage: train on Mar23-May31 and calibrate on June only, then checkpoint before secondary testing.
