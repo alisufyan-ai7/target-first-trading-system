@@ -1,0 +1,58 @@
+name: EXP-020 Engine I Preflight
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-020-preflight-v0.1.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Syntax and frozen self-test
+        run: |
+          node --check research/code/engine-i-v0.1.js
+          node --check research/code/run-engine-i-preflight.js
+          node --check research/code/run-engine-i-development.js
+          node -e 'require("./research/code/engine-i-v0.1.js"); console.log(globalThis.EngineIv01.selfTest())'
+      - name: Download frozen warm-up and development data only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/engine-i-v01
+          BASE="https://raw.githubusercontent.com/kevingtlin/Market-Data-Lab/922f83a60cc574e7395fb27397077288055a1ef6/xauusd/bid/m1"
+          for F in \
+            xauusd_bid_m1_2022_12.csv \
+            xauusd_bid_m1_2023_01.csv xauusd_bid_m1_2023_02.csv xauusd_bid_m1_2023_03.csv \
+            xauusd_bid_m1_2023_04.csv xauusd_bid_m1_2023_05.csv xauusd_bid_m1_2023_06.csv \
+            xauusd_bid_m1_2023_07.csv xauusd_bid_m1_2023_08.csv xauusd_bid_m1_2023_09.csv \
+            xauusd_bid_m1_2023_10.csv xauusd_bid_m1_2023_11.csv xauusd_bid_m1_2023_12.csv \
+            xauusd_bid_m1_2024_01.csv xauusd_bid_m1_2024_02.csv xauusd_bid_m1_2024_03.csv \
+            xauusd_bid_m1_2024_04.csv xauusd_bid_m1_2024_05.csv xauusd_bid_m1_2024_06.csv \
+            xauusd_bid_m1_2024_07.csv xauusd_bid_m1_2024_08.csv xauusd_bid_m1_2024_09.csv \
+            xauusd_bid_m1_2024_10.csv xauusd_bid_m1_2024_11.csv xauusd_bid_m1_2024_12.csv \
+            xauusd_bid_m1_2025_01.csv xauusd_bid_m1_2025_02.csv
+          do
+            curl --fail --location --silent --show-error "$BASE/$F" -o "data/engine-i-v01/$F"
+          done
+      - name: Verify provenance and causality without outcomes
+        run: node research/code/run-engine-i-preflight.js
+      - name: Commit pre-outcome verification checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-020-preflight-v0.1.json
+          git commit -m "Checkpoint EXP-020 Engine I preflight before outcomes"
+          git push origin HEAD:main
