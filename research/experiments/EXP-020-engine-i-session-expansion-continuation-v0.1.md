@@ -244,3 +244,89 @@ EXP-015 remains paused.
 If Engine I ultimately validates, it becomes a standardized candidate source that can feed the target-first ranker alongside future independently validated engines.
 
 The long-term goal remains several profitable, reproducible strategy engines whose combined opportunity stream can later be ranked and risk-gated toward the USD150-200 strong-day objective under the approximately USD40 normal / USD60 emergency daily loss framework.
+
+
+## Checkpoint 1 — implementation and preflight verified before outcomes
+
+**Outcome status:** ZERO ENGINE-I OUTCOMES CALCULATED.
+
+Reference implementation:
+
+- `research/code/engine-i-v0.1.js`;
+- initial implementation commit: `e4a894b8f4d8c29ccebd209b94e63b77cf2c7295`;
+- final pre-outcome reporting/terminal-reason amendment: `060ee9848575516ae06e16c1b17b921b525942f8`.
+
+Execution harnesses:
+
+- preflight verifier: `research/code/run-engine-i-preflight.js`;
+- development runner: `research/code/run-engine-i-development.js`;
+- preflight workflow: `.github/workflows/exp020-engine-i-preflight.yml`;
+- development workflow: `.github/workflows/exp020-engine-i-development.yml`.
+
+The development workflow exists but has **not** been triggered.
+
+### Final preflight
+
+Final successful GitHub Actions run:
+
+- run ID: `35842855789`;
+- tested repository SHA: `0fa662744b08c14d7f52709986b5c6dab9ec0e1a`;
+- result commit: `61e2e81e95bb01b2ae891b3cb7814cb03efdea60`;
+- engine file SHA-256: `2037c20640476b254e3ffb04069f1ab0556e11cd1fb1cf41ffae55d0c4c61ac4`;
+- durable result: `research/results/EXP-020-preflight-v0.1.json`.
+
+Preflight verified:
+
+- 27 frozen warm-up/development files only;
+- 1,182,240 total M1 rows;
+- 59,108,737 total bytes;
+- every file matched frozen Git blob SHA and byte size;
+- every file matched exact full-month row count;
+- every first/last timestamp matched exact calendar-month boundaries;
+- one-minute chronology passed;
+- exact price-grid/OHLC checks passed;
+- validation/holdout filenames were absent from both development runner and workflow;
+- validation/holdout data were not loaded;
+- strict-before-expansion 15m context path is present;
+- conservative same-bar stop-first handling is present;
+- first-qualifying-expansion-per-side/day consumption is present.
+
+### Self/causality tests
+
+All 11 frozen tests passed:
+
+1. exact tick parsing;
+2. off-grid rejection;
+3. 15m context strictly before expansion open;
+4. equal-close-time context leakage prevention;
+5. exact prior-12 median comparison;
+6. expansion shape;
+7. 25%-60% pullback arithmetic;
+8. strict cleared-boundary hold;
+9. previous-three-M1 continuation break;
+10. stop-first same-bar handling;
+11. 4000-tick structural-risk boundary.
+
+### Pre-outcome implementation clarification
+
+Before any Engine-I outcome, reporting counters were completed for:
+
+- valid Asian weekdays;
+- long/short aligned directional-context boundary events;
+- explicit `pullback_timeout_20` versus session-close `pullback_not_armed_25`.
+
+This changed no frozen strategy threshold or causal rule.
+
+### Permission to begin next stage
+
+Checkpoint-1 requirements are satisfied.
+
+The **next and only permitted outcome computation** is combined development:
+
+`2023-01-01 through 2025-02-28`
+
+with Dec-2022 warm-up, DEV-A=2023 and DEV-B=Jan-2024 through Feb-2025.
+
+Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain uninspected and must not be downloaded or run.
+
+**Development backtest started at this checkpoint: NO.**
