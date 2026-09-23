@@ -515,3 +515,24 @@ Frozen Engine-K split:
 - secondary test 2026-07-01 through 2026-08-31;
 - final holdout 2026-09-01 through 2026-09-22;
 - 2026-09-23 excluded as potentially incomplete.
+
+
+## 2026-09-23 — Pre-outcome cleanup Engine K before first target/model outcomes
+
+**Decision:** Keep Engine K / EXP-022 as the primary discovery path, but remove implementation/spec ambiguities before any target label, fitted probability, calibration result, or trading outcome is inspected.
+
+**Universe:** primary executable model is frozen to XAUUSD, EURUSD, GBPUSD, USDJPY, EURJPY, AUDUSD, USDCAD and USDCHF. XAGUSD, NAS100, US30 and SPX500 remain forecast-only and may not influence primary fitting/calibration/ranking/P&L until contract economics are frozen.
+
+**Target clarification:** the non-Gold 0.14/0.19/0.23 x MTR20 ladder remains a prospectively frozen forecast-label grid only. It does not replace the engine-conditioned target doctrine in PNL-EQUIVALENT-SIZING. Any non-Gold rung must independently pass execution feasibility.
+
+**Research economics:** before broker-native specifications are available, freeze primary round-trip cost = 10% of gross target and stress cost = 20% of gross target. Freeze USD20 structural-stop risk, <=100x notional/equity, and <=USD100 research margin at a 1:500 research reference. These are research screens, not broker claims.
+
+**Probability gate:** require calibrated p >= max(0.60, p_break_even + 0.05), with p_break_even = (stop risk + primary cost)/(target + stop risk), plus primary-cost EV >0.
+
+**Causality/data cleanup:** complete 5m bars require 5 M1 rows, complete 1h context bars require 60 M1 rows, next-open entry gap <=5 chronological minutes, and all 29 model features are now explicitly defined from information available by decision time.
+
+**Evidence split:** training Mar-23–May-31; calibration June; secondary July-August; final common holdout Sep-1–Sep-22; Sep-23 excluded. The September holdout is an initial OOS check and cannot by itself authorize live deployment.
+
+**Outcome status:** ZERO Engine-K target outcomes and ZERO model outcomes at this decision.
+
+**BTC / universe policy:** BTCUSD/BTCUSDT and further markets remain planned expansion candidates, but are not admitted to v0.1 until exact pinned data plus venue/contract/cost/margin economics are prospectively documented. The 8-execution/12-observed universe is sufficient for the first architecture/economic proof, not the intended final production universe.
