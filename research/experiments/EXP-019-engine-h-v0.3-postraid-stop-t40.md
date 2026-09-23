@@ -60,3 +60,29 @@ Holdout same.
 - validation/holdout untouched: YES;
 - Engine-H-v0.3 outcomes calculated: NO;
 - next permitted outcome: combined development only.
+
+## Checkpoint 1 — implementation verified before outcomes
+
+**Engine-H-v0.3 outcomes calculated:** ZERO.
+
+Executable:
+
+- `research/code/engine-h-v0.3.js`
+- corrected pre-outcome implementation commit: `a11d4574a6bf500b7a71f8014dbafa8d560e31ce`
+
+Verification passed:
+
+- exact integer tick parsing;
+- off-grid price rejection;
+- USD40 gross-risk arithmetic;
+- USD5 primary transaction-cost arithmetic;
+- no v0.2 export remains;
+- no `reward_risk_below_2` admission logic remains;
+- no `insufficient_target_room_3xau` admission logic remains;
+- no sweep-extreme stop admission remains;
+- post-raid invalidation-pivot stop logic is present;
+- actual target exit/reporting uses `exit_t40`.
+
+No Engine-H-v0.3 development result existed when this checkpoint was committed.
+
+The next permitted computation is combined development only: Jan-2023 through Feb-2025, with Dec-2022 warm-up.
