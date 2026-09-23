@@ -1,6 +1,6 @@
 # New Chat Handoff — Target-First Trading System
 
-_Last updated: 2026-09-23_
+_Last updated: 2026-09-23 after EXP-019_
 
 Use this file as the **first document to read whenever a new ChatGPT conversation is started for this project**.
 
@@ -13,190 +13,275 @@ For this project, use only:
 
 Do not use any other GitHub repository, other ChatGPT chat/project, or unrelated account memory/context unless the user explicitly introduces that material into this project.
 
-External sources may be used only as documented research data/reference; they do not become durable project context unless the relevant findings are checkpointed here.
+External sources may be used only as documented research data/reference; they do not become durable project context unless relevant findings are checkpointed here.
 
 ## Project identity
 
 We are **building a trading system**, not merely conducting research.
 
-Research, backtesting, video analysis, statistics, and machine learning are validation layers used to build the system.
+Research/backtesting is the evidence layer used to build a profitable, reproducible multi-strategy, multi-market system.
 
-## Read in this order before doing any new work
+## Read in this order before new work
 
 1. `README.md`
 2. `PROJECT.md`
 3. `docs/SOURCE-OF-TRUTH.md`
 4. `docs/SYSTEM-BLUEPRINT.md`
 5. `docs/ORIGINAL-PROJECT-CONTEXT.md`
-6. `docs/BADAR-VIDEO-EVIDENCE.md`
-7. `docs/TIMEFRAME-AND-MARKET-CONTEXT.md`
-8. `docs/SUPERSEDED-ASSUMPTIONS.md`
-9. `docs/objectives.md`
-10. `docs/risk-framework.md`
-11. `docs/PNL-EQUIVALENT-SIZING.md`
-12. `docs/current-status.md`
-13. `docs/decision-log.md`
-14. `docs/STRATEGY-ENGINE-CONTRACT.md`
-15. `docs/BUILD-AND-DEPLOYMENT-ROADMAP.md`
-16. `strategies/STATUS.md`
-17. `research/experiments/EXP-001-badar-video-reverse-engineering.md`
-18. `research/experiments/EXP-002-engine-a-target-first-screen.md`
-19. `research/experiments/EXP-014-original-engine-a-recovery-equivalent-sizing.md`
-20. `research/experiments/EXP-015-target-first-opportunity-ranker-v0.1.md`
+6. `docs/objectives.md`
+7. `docs/risk-framework.md`
+8. `docs/PNL-EQUIVALENT-SIZING.md`
+9. `docs/current-status.md`
+10. `docs/decision-log.md`
+11. `docs/STRATEGY-ENGINE-CONTRACT.md`
+12. `strategies/STATUS.md`
+13. `research/experiments/EXP-014-original-engine-a-recovery-equivalent-sizing.md`
+14. `research/experiments/EXP-015-target-first-opportunity-ranker-v0.1.md`
+15. `research/experiments/EXP-016-engine-g-contextual-liquidity-reversal-v0.1.md`
+16. `research/experiments/EXP-017-engine-h-range-raid-preexisting-fvg-reversal-v0.1.md`
+17. `research/experiments/EXP-018-engine-h-v0.2-simplified-mss-confirmation.md`
+18. `research/experiments/EXP-019-engine-h-v0.3-postraid-stop-t40.md`
 
-Inspect the A1–A9 recovery specifications only when the recovery history/mechanics matter.
+Read the Badar/video and timeframe documents only when needed for historical context; do not use them as justification to keep retuning reversal engines.
 
-## Non-negotiable operating context
+## Non-negotiable operating objective
 
 Reference starting equity: about USD 500.
 
-Economic anchor:
-
-- XAUUSD reference size: 0.10 lot;
+- XAUUSD economic anchor: 0.10 lot;
 - normal successful-trade objective: about USD 50;
-- USD 30–40 may be accepted only when independently validated;
-- USD 70–100+ may be pursued under validated continuation/runner logic.
+- USD 30–40 allowed only when independently validated;
+- USD 70–100+ allowed only under validated continuation/runner logic;
+- desired strong-day net zone: about USD 150–200 when sufficient opportunity exists;
+- normal daily stop-adding-risk zone: about -USD 40;
+- emergency hard ceiling: about -USD 60;
+- roughly 3–4 qualified trades/day is desirable, not a quota;
+- low-output day = <= USD 50;
+- aspirational low-output-day frequency: toward ~20% if evidence and risk permit;
+- no forced trades, martingale, recovery sizing, or revenge trading.
 
-Daily framework:
-
-- desired strong-day zone: about USD 150–200 when sufficient qualified opportunity exists;
-- normal daily loss stop / stop-adding-risk zone: about USD 40;
-- emergency hard ceiling: about USD 60 and **not** a routine sizing allowance;
-- roughly 3–4 qualified trades/day is a desirable normal range, not a quota;
-- no forced minimum;
-- no martingale;
-- no size increase after losses;
-- no revenge/recovery trading.
-
-Low-output day:
-
-- net P&L <= USD 50.
-
-Consistency objective:
-
-- reduce low-output days materially, ideally toward ~20% if evidence and risk permit;
-- judge the distribution of daily outcomes, not only aggregate profit.
-
-## Core system architecture
-
-Default architecture:
+## Core architecture
 
 ```text
 validated strategy engines
-        ->
-meaningful standardized trade candidates
-        ->
-target-first probability / expected-value layer
-        ->
-P&L-equivalent position sizing
-        ->
+    ->
+standardized meaningful candidates
+    ->
+target-first probability / EV selector
+    ->
+P&L-equivalent sizing
+    ->
 risk / margin / leverage / daily-budget / correlation gates
-        ->
+    ->
 cross-market ranking
-        ->
-execution + management
-        ->
+    ->
+execution / management
+    ->
 daily P&L state machine
-        ->
-journal / performance database
 ```
 
-Do not silently replace this with a broad raw-pivot ML scanner.
+EXP-015 remains paused until a reproducible engine validates.
 
-The target-first model is normally a **selector/ranker after validated engines**, not an unrestricted trade inventor.
+## EXP-014 conclusion
 
-## EXP-014 is complete
+The original EXP-002 positive Engine A result is historical but not reproducible from surviving evidence.
 
-### Part A — original Engine A recovery
+A1–A9 did not honestly recover it.
 
-EXP-002 remains historically important because it recorded positive simplified expectancy.
+Do not restart EXP-002 recovery.
 
-However, EXP-014 froze a numerical multi-dimensional reproduction protocol and then tested recovery variants A1–A9.
+Equivalent non-Gold sizing is frozen in `docs/PNL-EQUIVALENT-SIZING.md`.
 
-Conclusion:
+## Engine G / EXP-016
 
-**The original EXP-002 implementation is not honestly recoverable from the surviving evidence.**
+Engine G v0.1 was prospectively frozen and failed development:
 
-- no original detector/backtest code survives;
-- A6 was the closest causal reconstruction on frequency/split balance and average risk but produced target-first rates roughly half the EXP-002 benchmark and near-flat expectancy;
-- A8/A9 were forensic/non-deployable tests and did not explain the full discrepancy;
-- further post-hoc fitting to force the old benchmark is closed.
+- accepted trades: 71 vs >=100 required;
+- primary-cost expectancy: about -USD 9.27/trade;
+- primary-cost PF: about 0.496;
+- 95% bootstrap expectancy interval entirely negative;
+- validation and holdout untouched.
 
-Do not call A6, v0.2-portable, A8, or A9 the recovered original.
+Do not retune or validate Engine G v0.1.
 
-### Part B — equivalent sizing
+## Engine H family / EXP-017–019
 
-The forward sizing methodology is frozen in `docs/PNL-EQUIVALENT-SIZING.md`.
+### H v0.1
 
-For non-Gold markets:
+- 180 in-window raids;
+- only 2 accepted trades;
+- insufficient evidence;
+- validation/holdout untouched.
 
-1. freeze/use an engine-conditioned native target or target function;
-2. calculate symbol-specific lot size for approximately USD 50 gross;
-3. apply structural-stop, margin, notional/leverage, daily-budget, aggregate-risk, and correlation gates;
-4. use a separately validated USD 40/30 fallback only if safe;
-5. otherwise reject.
+### H v0.2
 
-Same-0.10-lot FX and volatility-burden target mappings are historical diagnostics, not forward rules.
+- simplified to MSS-within-20 + next-open;
+- 69 setups reached economic admission;
+- only 6 accepted trades;
+- primary-cost expectancy +USD 0.08/trade but statistically meaningless;
+- validation/holdout untouched.
 
-## Current strategy/ranker state
+### H v0.3 / EXP-019
 
-There is currently **no strategy engine promoted as a validated execution lead**.
+Prospectively changed to:
 
-EXP-015 remains **PAUSED**.
+- post-raid 1m structural stop;
+- fixed T40 = +4.000 XAU actual target;
+- expanded unused development Jan-2023 through Feb-2025;
+- validation Mar-Aug 2025 untouched;
+- fresh holdout Sep 2025-Feb 2026 untouched.
 
-Its Part-A recovery and sizing prerequisites are resolved, but it still lacks the essential input: at least one **prospectively specified, causal, reproducible, validated engine** emitting the common candidate contract.
+Development result:
 
-The old broad-pivot Stage-1 EXP-015 statistics remain diagnostic only.
+- accepted trades: 58 vs >=100 required;
+- T30 hit: 36.21%;
+- T40 hit: 29.31%;
+- T50 hit: 20.69%;
+- T70 hit: 18.97%;
+- T100 hit: 8.62%;
+- primary-cost expectancy: -USD 4.52/trade;
+- PF: 0.703;
+- net P&L: -USD 261.98;
+- 95% bootstrap expectancy interval: [-USD 11.60, +USD 2.69];
+- DEV-A 2023 expectancy: -USD 7.18/trade;
+- DEV-B Jan-2024–Feb-2025 expectancy: -USD 1.24/trade;
+- max drawdown: USD 336.05;
+- worst losing run: 7 trades / -USD 163.45.
 
-## Current technical gate / exact next direction
+Frozen development gate failed on trade count and all expectancy-sign requirements.
 
-Do not restart EXP-002 recovery and do not resume EXP-015 yet.
+**Engine H thesis family is paused. Do not create H v0.4 by tuning the same reversal thesis on the same development evidence.**
 
-The next strategy-development step is to define and freeze a **new causal strategy engine prospectively**. It may use Badar-derived evidence-supported concepts, or another independent setup family, but it must:
+## Current promotion state
 
-- have a new version/identity;
-- define candidate, context, entry, structural invalidation, target logic, session rules, and outcome handling before outcome inspection;
-- emit the common strategy-engine candidate contract;
-- preserve development / validation / holdout separation;
-- model realistic costs at the appropriate stage;
-- avoid future-looking pivots and optimistic same-bar assumptions;
-- be checkpointed before long computation.
+**No strategy engine is currently promoted as a validated execution lead.**
 
-A future Badar-derived engine is **not** the recovered EXP-002 engine.
+This is the system's main blocker.
 
-## What a new chat must do first
+EXP-015 remains paused.
 
-Before executing a new long strategy computation:
+## Exact next strategy direction
 
-1. read the ordered documents above;
-2. summarize the post-EXP-014 project state;
-3. confirm that EXP-014 is complete and EXP-015 remains paused;
-4. identify the proposed new causal engine/specification;
-5. freeze that specification and experiment protocol;
-6. obtain user confirmation before launching the long computation.
+The next engine must be a genuinely different causal family, not another liquidity-reversal variation.
+
+Preferred next family:
+
+### Engine I — Session Expansion / Continuation
+
+Concept:
+
+```text
+established intraday direction
+    ->
+liquidity / session boundary cleared
+    ->
+strong session displacement
+    ->
+controlled pullback
+    ->
+continuation confirmation
+    ->
+structural pullback stop
+    ->
+T30 / T40 / T50 ladder
+```
+
+Why this is preferred:
+
+- G/H repeatedly tested reversal logic and failed development;
+- continuation is structurally different and can diversify the future engine portfolio;
+- the desired system needs several independent profitable engines, not one over-tuned motif;
+- continuation can naturally use tighter pullback stops and target-first ladder economics.
+
+## Rapid engine-development discipline
+
+The goal is to find a profitable engine **quickly without overfitting**.
+
+For Engine I:
+
+1. use only development data first;
+2. prospectively freeze a simple center configuration;
+3. avoid a huge parameter grid;
+4. target >=100 development trades if feasible;
+5. use realistic primary transaction cost from the start;
+6. require positive expectancy and positive subperiod expectancy before validation;
+7. keep validation and fresh holdout untouched until the development gate passes;
+8. if the center rule fails decisively, stop quickly and move to the next genuinely different family rather than creating endless I v0.x variants.
+
+## Recommended Engine-I split
+
+Reuse untouched periods only if the new chat confirms they remain uncontaminated for Engine I:
+
+- development: Jan-2023 through Feb-2025;
+- validation: Mar-Aug 2025;
+- fresh holdout: Sep 2025-Feb 2026;
+- previously heavily researched 2026 Mar-Aug period remains quarantined.
+
+Before freezing Engine I, explicitly verify data-provenance and contamination status.
+
+## First task in the new chat
+
+Do **not** immediately backtest.
+
+First:
+
+1. read this handoff and the ordered source-of-truth files;
+2. summarize the post-EXP-019 state;
+3. propose a concise Engine I v0.1 specification with:
+   - directional/session context;
+   - expansion trigger;
+   - controlled-pullback definition;
+   - continuation entry;
+   - structural stop;
+   - T30/T40/T50 actual/counterfactual targets;
+   - session/horizon rules;
+   - realistic costs;
+   - one-open and same-bar rules;
+   - evidence gates;
+4. ensure the specification is materially different from G/H;
+5. checkpoint Engine I spec + EXP-020 before outcome inspection;
+6. get user approval;
+7. run development only.
+
+## Required development gate for Engine I
+
+Do not invent a favorable threshold after seeing results.
+
+Recommended predeclared minimum:
+
+- accepted development trades >=100;
+- primary-cost expectancy >0;
+- DEV-A expectancy >0;
+- DEV-B expectancy >0;
+- primary-cost PF materially >1.0;
+- no causal leakage or optimistic same-bar handling.
+
+Validation/holdout promotion gates should be frozen before development.
 
 ## GitHub checkpoint discipline
 
-Before a substantial experiment:
+Before any substantial experiment:
 
-- create/confirm the experiment record;
-- freeze the rules to be tested.
+- create/freeze the strategy specification;
+- create the experiment record;
+- freeze source provenance, split, costs, and evidence gates.
 
-After every material result:
+After each material result, update:
 
-- record data source/date range;
-- parameters;
-- split;
-- result;
-- limitation;
-- conclusion;
-- status;
-- next action.
+- experiment file;
+- `docs/current-status.md`;
+- `docs/decision-log.md`;
+- `strategies/STATUS.md`;
+- `CHANGELOG.md`.
 
-Update `docs/current-status.md`, `docs/decision-log.md`, `strategies/STATUS.md`, and `CHANGELOG.md` when materially appropriate.
+## Principle for speed
 
-## If chat and repository appear to conflict
+“Build a profitable engine quickly” means:
 
-Use the latest explicit user instruction, then immediately update the repository to reflect the correction.
+- test **distinct hypotheses** quickly;
+- reject weak development results quickly;
+- preserve validation/holdout;
+- do not spend many versions tuning one failed thesis;
+- favor simple causal engines with enough candidate frequency and realistic transaction-cost headroom.
 
-Do not rely on vague memory from another chat.
+Do not trade statistical certainty for speed.
