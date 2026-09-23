@@ -99,6 +99,30 @@ SOURCES = {
         "rows": 180106,
         "kind": "xag_forecast_only",
     },
+    "NAS100": {
+        "repo": "getdata-finance/nas100-1m-ohlcv-index-historical-data",
+        "commit": "5260d251ecc38918fa3d464c4a2988f7dec25f0d",
+        "file": "NAS100_1m.csv",
+        "blob": "204a04ca70579a0ea89953e9bd4dc1f35b30a336",
+        "rows": 180750,
+        "kind": "index_forecast_only",
+    },
+    "US30": {
+        "repo": "getdata-finance/us30-1m-ohlcv-index-historical-data",
+        "commit": "66841c6540c1d7b6a22b908c5977cf738f8737e8",
+        "file": "US30_1m.csv",
+        "blob": "28e9d0c5b00bface9117f393b2184b2c87319806",
+        "rows": 180658,
+        "kind": "index_forecast_only",
+    },
+    "SPX500": {
+        "repo": "getdata-finance/spx500-1m-ohlcv-index-historical-data",
+        "commit": "71f7399603f3ba6ee931668dad58c4b323f83f81",
+        "file": "SPX500_1m.csv",
+        "blob": "1fd0ae9813edc333da5c2b831555c791b7310d6f",
+        "rows": 180576,
+        "kind": "index_forecast_only",
+    },
 }
 
 
@@ -297,7 +321,7 @@ def candidate_economics(
     mtr20: float,
     usd_jpy: Optional[float] = None,
 ) -> Dict[str, dict]:
-    if symbol == "XAGUSD":
+    if SOURCES[symbol]["kind"] in ("xag_forecast_only", "index_forecast_only"):
         return {}
     if symbol == "XAUUSD":
         distances = {"T30": 3.0, "T40": 4.0, "T50": 5.0}
