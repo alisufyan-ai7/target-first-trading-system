@@ -551,3 +551,20 @@ Frozen Engine-K split:
 **Protection:** no target outcomes, fitted model outcomes, training result, calibration result, July-August state/outcome diagnostics, or September final-holdout outcomes were inspected by the authoritative preflight.
 
 **Next:** training Mar-23 through May-31 and probability calibration on June only. Checkpoint before any July-August secondary-test outcome.
+
+
+## 2026-09-23 — Stop Engine K v0.1 before secondary test
+
+**Decision:** EXP-022 Engine K v0.1 fails the frozen training/June-calibration gate. Do not inspect July-August secondary-test outcomes or September final holdout.
+
+**Result commit:** `d24e05ca513777d63a5d0f6762dfdb35bc42cfc3`.
+
+**Economic-universe evidence:** 7,098 admissible labeled rungs were generated, but all were XAUUSD. EURUSD, GBPUSD, USDJPY, EURJPY, AUDUSD, USDCAD and USDCHF each produced zero rungs after the frozen stop-risk/notional/margin gates. Their target outcomes were therefore not labeled.
+
+**Model evidence on XAU:** June raw AUC was about 0.627 / 0.618 / 0.626 for T30/T40/T50. Frozen Platt-calibrated probabilities never reached 0.60: June maxima were about 0.499 / 0.420 / 0.347. Therefore zero candidate rungs qualified and the one-open simulation placed zero trades.
+
+**Gate:** market coverage FAIL; >=100 qualified trades FAIL; hit-rate/expectancy gates unavailable/FAIL because zero trades; causality/provenance PASS.
+
+**Protection:** July-August and September remain sealed.
+
+**Interpretation:** v0.1 failed both its multi-market economic admission design and its XAU qualification-frequency requirement. Do not lower the probability floor or tune the inspected XAU model. Non-Gold target economics may be prospectively redesigned in a new version because their target outcomes were never inspected.
