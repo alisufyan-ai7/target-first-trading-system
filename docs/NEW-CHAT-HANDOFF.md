@@ -423,3 +423,39 @@ Final preflight:
 - development run: NO.
 
 The only permitted next outcome computation is EXP-021 combined development Jan-2023 through Feb-2025. If any frozen development gate fails, stop before validation and preserve Mar-Aug 2025 validation plus Sep-2025–Feb-2026 fresh holdout.
+
+
+## Engine J / EXP-021 development outcome
+
+Engine J v0.1 completed frozen Jan-2023 through Feb-2025 development and failed decisively.
+
+Result:
+
+- accepted trades: 307;
+- qualifying breakouts: 349;
+- T40 hit rate: 27.04%;
+- gross expectancy: approximately -USD0.15/trade;
+- primary-cost expectancy: approximately -USD5.15/trade;
+- primary-cost PF: 0.671;
+- total primary-cost P&L: -USD1,581.53;
+- max drawdown: USD1,659.93;
+- DEV-A primary-cost expectancy: approximately -USD6.95/trade;
+- DEV-B primary-cost expectancy: approximately -USD3.48/trade;
+- 95% block-bootstrap primary-cost expectancy interval: approximately -USD7.93 to -USD2.27.
+
+DEV-B gross expectancy improved to approximately +USD1.52/trade before cost, but remained negative under the prospectively frozen USD5 primary cost.
+
+Development workflow run: `35870120388`.
+
+Durable result commit: `f9034af1c8f86fb43561d51383e5b4164774dc09`.
+
+Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 were not loaded or inspected.
+
+Do not:
+
+- run Engine-J validation/holdout;
+- run a post-hoc Engine-J compression/breakout parameter grid;
+- switch T40 to T30/T50/etc. after seeing diagnostics;
+- reopen G/H/I tuning.
+
+Current strategy action: move to a genuinely different prospectively frozen engine family. EXP-015 remains paused until one reproducible engine validates.
