@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine K v0.1 pre-outcome cleanup frozen; zero target/model outcomes; final cleanup preflight next
+**Phase:** Phase 2 — Engine K v0.1 cleanup preflight passed; zero target/model outcomes; training + June calibration next
 
 ## Authorized context
 
@@ -308,14 +308,20 @@ Engine-K model outcomes calculated: **NO**.
 
 ## Exact next action
 
-Run the **final Engine-K zero-outcome cleanup preflight** across all 12 pinned datasets.
+Engine-K pre-outcome cleanup and final zero-outcome preflight are complete.
 
-If it passes:
+Authoritative cleanup checkpoint:
 
-1. checkpoint the durable preflight result;
-2. fit the primary model only on the 8 execution-research markets and only on Mar-23 through May-31;
-3. calibrate only on June;
-4. checkpoint before opening July-August secondary test;
-5. do not inspect Sep-1 through Sep-22 final holdout until the earlier checkpoint is frozen.
+- tested SHA: `2c319cd45cbae6cdb1934540f6933890886c1812`;
+- result commit: `48aa0af80b7fc2fff1dab56d3fb617b1c2140f3f`;
+- self-tests: 11/11;
+- execution structural states through June 30: 205,196;
+- economically admissible target rungs before probability qualification: 7,098;
+- target outcomes calculated: NO;
+- model outcomes calculated: NO.
 
-Do not retune G/H/I/J. Do not add BTC or other new executable symbols to Engine-K v0.1 without first pinning data and freezing their contract/cost/margin economics under `research/provenance/EXP-022-symbol-admission-policy.md`.
+The next permitted stage is **training + June calibration only** on the 8 execution-research markets.
+
+Do not inspect July-August secondary-test outcomes or Sep-1–Sep-22 final-holdout outcomes until each preceding checkpoint is frozen.
+
+Do not add BTC or another executable symbol to Engine-K v0.1. New symbols follow `research/provenance/EXP-022-symbol-admission-policy.md` and enter prospectively in a new wave/version.
