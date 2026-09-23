@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine J v0.1 / EXP-021 failed development; validation/holdout preserved; next distinct engine family required
+**Phase:** Phase 2 — Engine K v0.1 multi-market direct target-move scanner frozen; Wave-1 provenance complete; implementation/preflight next
 
 ## Authorized context
 
@@ -49,6 +49,52 @@ Reference starting balance: about USD 500.
 - low-output day = <= USD 50;
 - aspirational low-output-day frequency: around 20% or less if evidence/risk permit;
 - no forced trades, martingale, recovery sizing, or revenge trading.
+
+## Engine K / EXP-022 — current primary path
+
+**Engine K v0.1 is prospectively frozen with zero Engine-K outcomes calculated.**
+
+This is a deliberate course correction from sequential single-pattern XAU development.
+
+Engine K directly scans all supported markets every five minutes and asks:
+
+> Which market/direction currently has the highest validated probability of reaching an economically useful target before structural invalidation?
+
+Wave-1 execution-research universe:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- AUDUSD;
+- USDCAD;
+- USDCHF.
+
+XAGUSD is forecast-only until its contract/quantity economics are frozen.
+
+Core Engine-K design:
+
+- broad causal long/short state every 5m;
+- latest confirmed 5m swing provides structural invalidation;
+- Gold target ladder = +3 / +4 / +5 XAU;
+- non-Gold target distances = prospectively frozen volatility-burden equivalents;
+- P&L-equivalent sizing;
+- primary per-trade structural risk <= USD20;
+- pooled multi-market probability model;
+- p >= 0.60 plus positive conservative EV required;
+- maximum one open Engine-K trade across the portfolio for v0.1;
+- no forced trade.
+
+Checkpoint 1 is complete:
+
+- exact rolling public repositories, commits, CSV blobs, research contract conventions, and dates are pinned in `research/provenance/EXP-022-wave1-data-manifest.md`;
+- all pinned public samples currently share approximately 2026-03-23 through 2026-09-23 coverage;
+- 2026-09-23 is excluded as potentially incomplete;
+- final common-sample holdout is frozen at 2026-09-01 through 2026-09-22;
+- zero Engine-K target/model outcomes have been inspected.
+
+**Next action:** implement Engine-K causal feature/candidate code and preflight it against the pinned Wave-1 data with zero target/model outcomes, checkpoint the implementation, then run training + calibration only.
 
 ## EXP-014 status
 
