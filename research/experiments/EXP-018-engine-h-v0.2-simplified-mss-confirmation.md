@@ -97,3 +97,9 @@ Before any v0.2 outcome calculation, simultaneous next-open entries were made de
 At a shared next active M1 open, setups are tested in that order against the already-frozen geometry/risk/room/R:R admission rules. The first passing setup opens the trade; remaining same-open setups become `suppressed_one_open`. A rejected earlier-priority setup does not block a later setup from being tested at that same open.
 
 **Engine-H-v0.2 outcomes calculated at this point: ZERO.**
+
+### Pre-outcome no-queue clarification
+
+If an Engine-H-v0.2 trade opens, every other already-pending H-v0.2 setup pipeline is immediately terminated as `suppressed_one_open`. No pending setup may queue behind an open trade.
+
+**Engine-H-v0.2 outcomes calculated: ZERO.**
