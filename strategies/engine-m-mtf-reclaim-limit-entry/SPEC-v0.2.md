@@ -89,6 +89,12 @@ Let:
 
 Round **down** to the 0.01 research lot step.
 
+### Gold anchor cap
+
+For XAUUSD only, final safe lot is additionally capped at **0.10 lot**, preserving the frozen Gold economic anchor.
+
+Non-Gold may use the full safe lot implied by the unchanged risk/notional/margin envelope.
+
 If rounded safe lot <0.01, signal is non-deployable at the reference account.
 
 Otherwise report:
