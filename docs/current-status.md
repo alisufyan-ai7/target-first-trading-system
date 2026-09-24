@@ -930,3 +930,19 @@ Implementation-only fixes:
 - `a50cf398e57fd13fb1ac1e8b26fbe701df1e1cf9`.
 
 **Next remains:** rerun the identical frozen EXP-031 zero-outcome preflight.
+
+
+### EXP-031 zero-outcome preflight PASS
+
+Durable checkpoint: `e0c7566`.
+
+- 417 filled valid signals;
+- all 8 markets >=25 and both directions;
+- all 417 safely deployable;
+- GE40 16 / GE30 35 / LT30 366;
+- zero target/P&L outcomes;
+- Jul-Aug and Sep sealed.
+
+The unchanged v0.4 frequency gate was passed without moving the goalposts.
+
+**Next permitted stage:** six-slice EXP-031 development using the already frozen >+0.20R gross-edge and post-cost economic gates.
