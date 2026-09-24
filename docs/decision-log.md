@@ -1013,3 +1013,16 @@ Instead, preserve the same opening-drive/pullback mechanics and sample the thesi
 The prior anchor's hard order horizon equals the next anchor decision, preventing overlapping pending cycles by construction.
 
 No v0.2 outcomes exist at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — EXP-033 rolling-drive preflight passed
+
+**Result commit:** `2b8c781`.
+
+Continuous hourly scanning raised zero-outcome filled signals from v0.1's 123 to v0.2's 626 while preserving the unchanged >=300 total / >=25-per-market gate.
+
+All eight markets passed with both directions.
+
+**Next:** development must determine whether the increased opportunity stream contains actual predictive edge rather than merely more samples. Report hourly-anchor cohorts separately, but do not post-hoc whitelist hours.
+
+Protected periods remain sealed.
