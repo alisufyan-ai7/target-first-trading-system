@@ -221,3 +221,21 @@ v0.4 prospectively freezes a bounded walk-forward development selection:
 - hard stop before secondary if no configuration passes.
 
 **Next:** run EXP-025 development-only walk-forward selection.
+
+
+## Engine K v0.4 / EXP-025 — closed
+
+Walk-forward result commit:
+
+`24ce35448cb93158aadeb843dce928199c0c5385`
+
+- 12 frozen configs;
+- 6 chronological folds;
+- 0 passing configs;
+- no selected winner;
+- Jul-Aug unopened;
+- Sep unopened.
+
+Engine K tuning on the current Mar-Jun development pool is stopped by the frozen anti-mining rule.
+
+Do not create v0.5 as another threshold/configuration extension of this search. Future work must broaden evidence or materially change the prediction design.
