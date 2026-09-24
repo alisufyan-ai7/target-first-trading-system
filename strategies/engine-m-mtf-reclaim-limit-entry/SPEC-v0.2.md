@@ -191,6 +191,14 @@ Report both:
 - percentage of days reaching USD100 / USD150;
 - market contribution.
 
+### End-of-day target-day reporting
+
+For development reporting, a weekday "reaches USD100" or "reaches USD150" only if its **final realized primary P&L for that UTC weekday** is at least the respective threshold.
+
+All eligible UTC weekdays in the evaluation slices, including zero-trade days, are in the denominator.
+
+This is a descriptive portfolio metric, not a development pass gate.
+
 ## 7. Development gate
 
 No July-Aug access unless both **edge** and **deployability** are adequate.
