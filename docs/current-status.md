@@ -1652,3 +1652,32 @@ Engine R v0.1 implementation, preflight runner and workflow are frozen at main S
 Target/P&L outcomes remain zero; Jul-Aug/Sep remain sealed.
 
 **Next:** trigger one EXP-039 zero-outcome preflight only.
+
+
+## 2026-09-25 — ROOT-CAUSE / EDGE-SOURCE RESEARCH PAUSE
+
+The strategy-family iteration loop is paused before any further outcome development.
+
+Authoritative audit:
+
+- `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md`;
+- audit commit: `b170bef290827c0c6d3c46b8d62873131c675085`.
+
+Core finding:
+
+- recent reproducible engines largely transform the same OHLC information source;
+- their gross expectancy clusters near zero and does not clear the approximately +0.20R raw-edge hurdle needed to survive the frozen cost model;
+- non-chasing execution helps materially but does not create enough predictor edge;
+- the next research phase must test genuinely new information sources (microstructure/order flow, macro surprise, rates/cross-asset context, execution-grade spread/tick data) before another strategy family is advanced.
+
+Economic finding:
+
+- USD150-200 is a 30%-40% daily return on the USD500 reference equity;
+- increasing per-trade risk can make the arithmetic easier but quickly conflicts with the -USD40 normal / -USD60 emergency loss framework;
+- risk is therefore not to be increased merely to force the daily objective before a stable positive post-cost edge exists.
+
+Engine R / EXP-039 is **PAUSED BEFORE DEVELOPMENT** for this audit. Its frozen artifact may remain in the repository, but no Engine-R target/P&L development should be launched merely from a successful frequency preflight.
+
+Jul-Aug secondary and Sep final holdout remain sealed.
+
+**Next project action:** complete the economic-feasibility and edge-source information-content program described in the audit before selecting the next engine for outcome development.
