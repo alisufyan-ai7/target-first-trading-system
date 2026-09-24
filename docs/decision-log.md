@@ -1311,3 +1311,22 @@ Matched immediate entry was worse (gross -0.0190R), so preserve the non-chasing 
 **Protection:** Jul-Aug secondary and Sep final holdout remain sealed.
 
 **Next:** prospectively freeze a genuinely different information-source family before any new outcomes.
+
+
+## 2026-09-25 — Freeze Engine R v0.1 dynamic peer-residual family
+
+**Decision:** after closing Engine Q, move from factor confirmation/volatility breadth to a causal dynamic relative-value relationship.
+
+For each candidate, estimate prior-48 M5 return correlation to every other market, select the strongest absolute-correlation peer, normalize current 15m moves by each market's own prior-48 median absolute 15m move, and trade a large candidate-vs-sign-adjusted-peer residual back toward the relationship.
+
+Frozen thresholds:
+
+- |rho|>=0.60;
+- peer |NM15|>=1.00;
+- |residual|>=1.50;
+- current rejection body >=35%;
+- favorable outer-40% close;
+- 50% pullback limit;
+- unchanged T40/cost/safety gates.
+
+This is prospectively frozen with zero outcomes. Jun30 source seal and Jul-Aug/Sep protection remain intact.
