@@ -31,6 +31,7 @@ Zero-outcome only:
 - both directions every market;
 - >=600 total;
 - safe-lot overlay for each signal;
+- Gold remains capped at 0.10 lot;
 - no safety-cap violations;
 - utility bands GE40 / GE30 / LT30 reported;
 - Jul-Aug/Sep sealed.
