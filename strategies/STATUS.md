@@ -649,3 +649,22 @@ Engine Q v0.2 preflight: **PASS** at `3d9ca37`.
 - Jul-Aug/Sep sealed.
 
 **Next:** six-slice development only.
+
+
+## Engine Q family — closed
+
+Engine Q v0.2 / EXP-038 development: **FAIL** at `6f25b08`.
+
+- 363 signals;
+- gross +0.09479R;
+- primary -0.09022R;
+- stress -0.27524R;
+- 1/6 stress-positive folds;
+- 251 reference-account trades;
+- primary/stress expectancy -USD1.53 / -USD3.89;
+- primary/stress PF 0.836 / 0.640;
+- stress MDD USD1,102.23.
+
+The non-chasing limit entry improved the matched immediate control, but raw predictor edge remained insufficient. No post-hoc cohort rescue. Jul-Aug/Sep sealed.
+
+Next family must use a genuinely different information source.
