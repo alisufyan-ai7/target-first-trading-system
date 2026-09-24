@@ -697,3 +697,28 @@ Some configurations became mildly positive at primary cost, but none remained ec
 **Methodological conclusion:** stop adding Engine-K configurations or thresholds on the Mar-Jun pool. The next research step must broaden evidence or materially change the prediction/target design.
 
 **Anti-mining:** do not weaken EXP-025 gates, select a near-miss, or open protected periods.
+
+
+## 2026-09-24 — Freeze Engine L v0.1 / EXP-026 entry architecture
+
+**Decision:** respond to the persistent Engine-K economic failure by changing the entry architecture rather than adding more history or tuning probability thresholds.
+
+**Observed architectural problem:** Engine K treated a completed 5m forecast as an immediate trade instruction. Entry was the next active M1 open and the stop remained an older 5m pivot. There was no favorable execution-price requirement or microstructure confirmation.
+
+**Engine L thesis:** forecast should arm a market, not force a trade.
+
+Frozen flow:
+
+- fixed raw T40 forecast;
+- higher-scoring direction armed;
+- 15 active-M1 lifetime;
+- 0.20*V5 favorable pullback;
+- causal M1 resumption confirmation;
+- next-M1-open entry;
+- fresh M1 pullback-extreme stop;
+- T40 only;
+- matched immediate-entry control.
+
+**Protection:** Mar-Jun development reusable; Jul-Aug and Sep sealed.
+
+**Next:** zero-outcome mechanics preflight. Require >=100 admissible trigger paths per market and both directions before any Engine-L target/P&L outcome.
