@@ -1160,3 +1160,16 @@ This eliminates opportunity density as a blocker for the cross-market factor fam
 Development must now test whether synchronized factor confirmation creates real pre-cost edge. MOM, USD_SCORE, EURJPY-leg, time and market cohorts are diagnostic only; no post-outcome threshold or whitelist rescue is allowed.
 
 Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Freeze EXP-036 cross-market development
+
+**Decision:** after Engine P v0.1 passed the unchanged zero-outcome opportunity-density gate with 6,063 signals, freeze one six-slice development run.
+
+The runner reuses the audited project target-first label and portfolio framework.
+
+Matched immediate-entry control and MOM/USD_SCORE/EURJPY-leg/hour/market diagnostics are descriptive only. No threshold, hour, symbol or direction may be selected post hoc inside v0.1.
+
+Outcome convention: T40 vs trigger-bar structural stop, stop-first on same bar, max 120 active M1 bars, hard 20:00 UTC cutoff.
+
+No Engine-P development outcome existed at freeze. Jul-Aug and Sep remain sealed.
