@@ -910,3 +910,21 @@ Preflight opportunity-density floor:
 The total floor is tied to the desired multi-market opportunity density, not observed profitability.
 
 Protection: no v0.4 outcomes; Jul-Aug and Sep sealed.
+
+
+## 2026-09-24 — Freeze Engine M v0.5 recent-H1 range fallback
+
+**Decision:** after v0.4 recovered frequency to 237 signals but still failed the unchanged >=300 / >=25-per-market preflight, preserve the H1-range architecture and broaden only the range recency.
+
+At each M15 decision:
+
+1. evaluate latest completed H1 range H1_0;
+2. if it does not fully qualify, evaluate H1_1;
+3. select the first qualifying range only;
+4. use that same range for both sweep/reclaim and opposite-boundary target room.
+
+No duplicate setup is allowed from one M15 decision.
+
+The v0.4 frequency gate is deliberately **not lowered**.
+
+No v0.5 outcomes exist at freeze; Jul-Aug and Sep remain sealed.
