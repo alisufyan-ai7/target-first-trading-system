@@ -269,7 +269,29 @@ Per fold and pooled:
 - daily P&L including zero-trade weekdays;
 - immediate-entry control metrics on matched forecast arms.
 
-## 15. Engine-L development gate
+## 15. Zero-outcome entry-mechanics preflight
+
+Before any Engine-L target/P&L outcome is calculated, run a mechanics-only preflight through Jun30.
+
+For every market and direction independently, verify the causal arm/pullback/resumption/fresh-stop path without using future target labels.
+
+Mandatory preflight gates:
+
+1. all eight markets parse only through Jun30;
+2. no Jul-Aug/Sep data loaded;
+3. exact 0.20*V5 pullback boundary tests pass;
+4. 15-active-M1 expiry tests pass;
+5. pre-entry old-pivot invalidation tests pass;
+6. resumption-bar mirror tests pass;
+7. next-open gap tests pass;
+8. fresh-stop geometry tests pass;
+9. T40 economics use the fresh stop;
+10. each market has >=100 mechanically triggerable + economically admissible T40 entry paths across both directions through Jun30;
+11. each market has at least one long and one short admissible trigger.
+
+If preflight fails, correct mechanics before outcomes.
+
+## 16. Engine-L development gate
 
 Engine L passes development only if **all** hold across the six forward folds:
 
@@ -291,7 +313,7 @@ Engine L passes development only if **all** hold across the six forward folds:
 
 Fail any -> stop before secondary.
 
-## 16. Anti-mining
+## 17. Anti-mining
 
 Do not after EXP-026 outcomes:
 
@@ -307,7 +329,7 @@ Do not after EXP-026 outcomes:
 
 A redesign requires a new experiment.
 
-## 17. Outcome status at freeze
+## 18. Outcome status at freeze
 
 At freeze:
 
