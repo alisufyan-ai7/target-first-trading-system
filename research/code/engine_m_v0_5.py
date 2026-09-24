@@ -152,11 +152,11 @@ def recent_h1_range_setup_at(
             reasons.append(f"{label}:room")
 
     return {
+        **arm,
         "status":"no_recent_h1_range_qualified",
         "decision_ts":decision_ts,
         "candidate_failures":reasons,
         **ctx,
-        **arm,
     }
 
 
