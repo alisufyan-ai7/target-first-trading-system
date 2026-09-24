@@ -340,3 +340,8 @@
 - Froze T40/trigger-stop outcome convention, 120-active-M1 maximum horizon, 20:00 UTC cutoff and matched immediate-entry control.
 - Time-of-day diagnostics are descriptive only; no post-outcome hour/minute/symbol whitelist is allowed.
 - Jul-Aug and Sep remain sealed.
+
+- Closed Engine O family after EXP-035 development failed: gross -0.0719R, primary -0.2611R, stress -0.4504R, 0/6 positive-stress folds.
+- Matched immediate-entry control was also negative, confirming the weakness was the isolated-symbol mean-reversion predictor rather than only the 50% entry.
+- Preserved Jul-Aug and Sep.
+- Next research family will use cross-market relative-strength information rather than another isolated-symbol pattern.
