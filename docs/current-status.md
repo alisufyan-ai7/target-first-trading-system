@@ -1588,3 +1588,24 @@ Mandatory gross hurdle remains >+0.20R and all post-cost economic gates remain u
 Fold membership is keyed to breakout completion time. Jul-Aug and Sep remain sealed.
 
 **Exact next action:** run EXP-038 development only.
+
+
+## Engine Q family — CLOSED after EXP-038 development
+
+Engine Q v0.2 / EXP-038 failed its frozen development gate at durable result `6f25b089d6d7eea01d37d293c48bd51bf1e84d9e`.
+
+- 363 development signals;
+- gross **+0.09479R**;
+- primary **-0.09022R**;
+- stress **-0.27524R**;
+- **1/6** positive-stress folds;
+- 251 reference-account trades;
+- reference primary/stress **-USD1.53 / -USD3.89 per trade**;
+- primary/stress PF **0.836 / 0.640**;
+- stress MDD **USD1,102.23**.
+
+The 50% pullback entry materially beat matched immediate entry, but the underlying spillover/breakout predictor still did not clear the frozen +0.20R gross hurdle or post-cost gates.
+
+Do not post-hoc select peer-shock ages, lag VR, trigger VR, hours, symbols or directions. Jul-Aug and Sep remain sealed.
+
+**Exact next strategy action:** open a genuinely different prospectively frozen information-source family.
