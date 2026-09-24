@@ -1,6 +1,6 @@
 # EXP-036 — Engine P v0.1 Cross-Market Relative-Strength Pullback
 
-**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
+**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-p-cross-market-relative-strength-pullback/SPEC-v0.1.md`
 
@@ -106,3 +106,39 @@ Before any development label:
 - Jul1 hard source seal.
 
 No Engine-P development outcome existed at this freeze.
+
+
+## Development implementation checkpoint — zero outcomes
+
+Frozen before any EXP-036 development outcome:
+
+- same six chronological development slices used by EXP-028/031/033/035;
+- same audited target-first labeler;
+- T40 vs frozen trigger-bar structural stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- 20:00 UTC hard cutoff;
+- same normalized-R signal metrics;
+- same safe-lot USD500 one-open portfolio;
+- same >+0.20R pooled gross hurdle;
+- same post-cost expectancy / PF / drawdown / weekday / concentration gates;
+- matched immediate-entry control on the same non-suppressed qualified arm;
+- own-MOM / USD_SCORE / EURJPY-leg / hour / market diagnostics are descriptive only;
+- no post-outcome factor-threshold, hour, symbol or direction whitelist;
+- Jul1 hard source seal.
+
+Implementation commits:
+
+- development runner: `82335c86c4e82d6bd5f17eb822ed83aeb8e9d41b`;
+- development workflow: `2c2e84f4f92529f629c67a9738e36c411ed71c65`.
+
+At this checkpoint:
+
+- EXP-036 target outcomes: **NO**;
+- EXP-036 P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+### Next
+
+Trigger EXP-036 development only. Any failed mandatory gate stops before secondary testing.
