@@ -1689,3 +1689,18 @@ Engine Q v0.2 is implemented and frozen before outcomes at main SHA `850fe44fa42
 - Jul-Aug/Sep: sealed.
 
 **Exact next action:** trigger exactly one EXP-038 zero-outcome preflight, confirm it starts once, then follow the long-running pipeline policy.
+
+
+### EXP-038 preflight PASS
+
+Durable result `3d9ca37`:
+
+- 467 fills;
+- every market >=25 and both directions;
+- 466 safely deployable;
+- GE40 6 / GE30 134 / LT30 326 / NONDEPLOYABLE 1;
+- zero target/P&L outcomes;
+- Jun30 hard source seal passed;
+- Jul-Aug/Sep sealed.
+
+**Exact next action:** implement/freeze the six-slice EXP-038 development runner and then run development only. Stop before secondary on any failed mandatory gate.
