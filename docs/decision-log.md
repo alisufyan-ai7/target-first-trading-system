@@ -1147,3 +1147,16 @@ Frozen v0.1:
 - unchanged T40, costs and safety caps.
 
 No Engine-P outcomes exist at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — EXP-036 cross-market preflight passed
+
+**Result commit:** `12c6f5d`.
+
+Engine P produced 6,063 zero-outcome filled signals across all eight markets, with both directions everywhere and 6,059 safely deployable.
+
+This eliminates opportunity density as a blocker for the cross-market factor family.
+
+Development must now test whether synchronized factor confirmation creates real pre-cost edge. MOM, USD_SCORE, EURJPY-leg, time and market cohorts are diagnostic only; no post-outcome threshold or whitelist rescue is allowed.
+
+Jul-Aug and Sep remain sealed.
