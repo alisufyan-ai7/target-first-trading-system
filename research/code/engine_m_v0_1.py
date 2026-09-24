@@ -247,12 +247,12 @@ def self_tests_engine_m()->list[str]:
     h4=pd.DataFrame({
         "datetime":pd.to_datetime(["2026-01-01T00:00Z","2026-01-01T04:00Z"]),
         "available_ts":pd.to_datetime(["2026-01-01T04:00Z","2026-01-01T08:00Z"]),
-        "open":[1,1],"high":[2,3],"low":[0,0],"close":[1,2],
+        "open":[1.0,1.0],"high":[2.0,3.0],"low":[0.0,0.0],"close":[1.0,2.0],
     })
     h1=pd.DataFrame({
         "datetime":pd.to_datetime(["2026-01-01T06:00Z","2026-01-01T07:00Z"]),
         "available_ts":pd.to_datetime(["2026-01-01T07:00Z","2026-01-01T08:00Z"]),
-        "open":[1,1],"high":[2,3],"low":[0,0],"close":[1,2],
+        "open":[1.0,1.0],"high":[2.0,3.0],"low":[0.0,0.0],"close":[1.0,2.0],
     })
     x=htf_context(h4,h1,pd.Timestamp("2026-01-01T08:00Z"))
     assert x["direction"]=="long"
