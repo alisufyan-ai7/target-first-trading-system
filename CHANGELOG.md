@@ -289,3 +289,8 @@
 - EXP-031 recent-H1 zero-outcome preflight passed at `e0c7566`: 417 filled valid signals, all eight markets passing, both directions, all safely deployable.
 - Kept the unchanged v0.4 frequency gate; no post-hoc threshold relaxation.
 - v0.5 may proceed to development; Jul-Aug and Sep remain sealed.
+
+- Frozen EXP-031 development runner before outcomes using audited target/portfolio machinery.
+- Added separate H1_0/H1_1 cohort diagnostics without allowing post-outcome cohort selection.
+- Preserved >+0.20R gross-edge gate and all post-cost economic gates.
+- Jul-Aug and Sep remain sealed.
