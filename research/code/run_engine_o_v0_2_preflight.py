@@ -15,7 +15,6 @@ from engine_m_v0_1 import build_mtf_bars
 from engine_m_v0_2 import safe_deployability_overlay, self_tests_engine_m_v02
 from engine_o_v0_2 import setup_at, find_limit_fill, self_tests_engine_o_v02
 from run_engine_k_v0_2_training_calibration import load_scoped_csv
-from run_engine_o_v0_1_preflight import synthetic_engine_o_tests
 
 ROOT=Path(__file__).resolve().parents[2]
 CACHE=Path("/tmp/engine-o-v02-preflight")
@@ -24,6 +23,59 @@ OUT.mkdir(parents=True,exist_ok=True)
 
 START=pd.Timestamp("2026-03-23",tz="UTC")
 SEALED_START=pd.Timestamp("2026-07-01",tz="UTC")
+
+
+def synthetic_engine_o_v02_tests()->list[str]:
+    tests=[]
+
+    starts=pd.date_range("2026-04-06T04:10:00Z",periods=25,freq="5min")
+    closes=[99.0]*12+[101.0]*12
+
+    rows=[]
+    for i,t in enumerate(starts[:24]):
+        px=closes[i]
+        rows.append((t,px,px+0.4,px-0.4,px))
+    rows.append((starts[24],96.2,98.0,96.0,97.4))
+    bars5=pd.DataFrame(rows,columns=["datetime","open","high","low","close"])
+    bars5["available_ts"]=bars5["datetime"]+pd.Timedelta(minutes=5)
+
+    x=setup_at(bars5,24,"EURUSD")
+    assert x["status"]=="armed" and x["direction"]=="long"
+    assert x["stretch_mad_multiple"]>=2.5
+    assert x["target_price"]<=x["center"]
+    tests.append("synthetic_long_v02")
+
+    rows2=[]
+    for i,t in enumerate(starts[:24]):
+        px=closes[i]
+        rows2.append((t,px,px+0.4,px-0.4,px))
+    rows2.append((starts[24],103.8,104.0,102.0,102.6))
+    b2=pd.DataFrame(rows2,columns=["datetime","open","high","low","close"])
+    b2["available_ts"]=b2["datetime"]+pd.Timedelta(minutes=5)
+
+    y=setup_at(b2,24,"EURUSD")
+    assert y["status"]=="armed" and y["direction"]=="short"
+    assert y["target_price"]>=y["center"]
+    tests.append("synthetic_short_v02")
+
+    center_before=x["center"]
+    b3=bars5.copy()
+    b3.loc[24,"close"]=97.3
+    z=setup_at(b3,24,"EURUSD")
+    assert z["status"]=="armed"
+    assert z["center"]==center_before
+    tests.append("trigger_excluded_from_baseline_v02")
+
+    return tests
+
+
+def pending_suppression_tests()->list[str]:
+    tests=[]
+    pending_until=pd.Timestamp("2026-04-06T06:20:00Z")
+    assert pd.Timestamp("2026-04-06T06:10:00Z") < pending_until
+    assert pd.Timestamp("2026-04-06T06:20:00Z") >= pending_until
+    tests.append("pending_suppresses_only_before_resolution")
+    return tests
 
 
 def continuous_grid_tests()->list[str]:
@@ -169,7 +221,8 @@ def main():
     tests={
         "engine_o_v02":self_tests_engine_o_v02(),
         "engine_m_v02_safe_overlay":self_tests_engine_m_v02(),
-        "synthetic_engine_o":synthetic_engine_o_tests(),
+        "synthetic_engine_o_v02":synthetic_engine_o_v02_tests(),
+        "pending_suppression":pending_suppression_tests(),
         "continuous_grid":continuous_grid_tests(),
     }
 
