@@ -253,3 +253,7 @@
 - Opened EXP-028 / Engine M v0.2 signal-first validation with unchanged MTF/limit trading mechanics.
 - Added maximum-safe-lot overlay under unchanged USD20 risk / USD50k notional / USD100 margin caps; Gold remains capped at 0.10 lot.
 - Added GE40 / GE30 / LT30 utility reporting while retaining all filled valid signals for strategy-edge research.
+
+- EXP-028 signal-first preflight passed at `68e52188de8abb2c708cacb611e347afb22a086d`: 1,581 filled valid signals, all eight markets passing, all safely deployable under unchanged caps.
+- Reference-account utility: 66 GE40, 160 GE30, 1,355 LT30.
+- No target/P&L outcomes yet; Jul-Aug and Sep remain sealed.
