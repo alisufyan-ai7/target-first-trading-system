@@ -827,3 +827,18 @@ Reference-account utility distribution:
 **Interpretation:** the earlier FX scarcity was caused by forcing each signal to manufacture ~USD40 before validating the signal. It was not a lack of MTF/limit opportunities.
 
 **Next:** development must now test whether the 1,581-signal architecture actually has positive normalized-R edge and whether its safe-lot portfolio is economically useful.
+
+
+## 2026-09-24 — Freeze EXP-028 signal-edge versus deployability development
+
+**Decision:** after the v0.2 zero-outcome preflight passed, freeze one six-slice development run that separately measures:
+
+- size-invariant normalized-R Engine-M signal edge;
+- safe-lot USD500 portfolio economics;
+- matched immediate-entry control.
+
+No Engine-M setup/entry/stop/target parameter changes.
+
+Daily USD100/USD150 reporting uses final realized UTC-day primary P&L with all eligible weekdays in the denominator.
+
+At freeze: no EXP-028 target/P&L outcomes; Jul-Aug and Sep sealed.
