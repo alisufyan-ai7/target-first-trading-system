@@ -473,3 +473,16 @@ The preflight gate is unchanged:
 **Status:** prospectively frozen, zero outcomes.
 
 **Next:** EXP-033 zero-outcome preflight only.
+
+
+Engine N v0.2 preflight: **PASS** at `2b8c781`.
+
+- 626 filled valid signals;
+- all eight markets pass;
+- both directions every market;
+- 624 safely deployable;
+- GE40 32 / GE30 474 / LT30 118.
+
+Target/P&L outcomes remain zero. Jul-Aug and Sep remain sealed.
+
+**Next:** six-slice development.
