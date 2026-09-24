@@ -52,6 +52,7 @@ def find_micro_entry(
     old_invalidation:float,
     symbol:str,
     usd_jpy:Optional[float]=None,
+    usd_jpy_series:Optional[pd.Series]=None,
 )->dict:
     """Find the first causal Engine-L entry after an armed 5m decision.
 
@@ -130,7 +131,12 @@ def find_micro_entry(
         if direction=="short" and not stop>entry:
             return {"status":"invalid_fresh_stop_geometry"}
 
-        econ=candidate_economics_v02(symbol,entry,stop,usd_jpy)
+        entry_usd_jpy=usd_jpy
+        if symbol=="EURJPY" and usd_jpy_series is not None:
+            k=int(usd_jpy_series.index.searchsorted(entry_ts,side="right"))-1
+            if k>=0:
+                entry_usd_jpy=float(usd_jpy_series.iloc[k])
+        econ=candidate_economics_v02(symbol,entry,stop,entry_usd_jpy)
         t40=econ.get("T40")
         if not t40:
             return {"status":"no_t40_economics"}
