@@ -1359,3 +1359,17 @@ The audit also records that the USD150-200 strong-day zone cannot be turned into
 **Engine R consequence:** preserve the prospective EXP-039 artifact, but pause before target/P&L development while the root-cause program is active. Do not consume Jul-Aug or Sep.
 
 Authoritative research checkpoint: `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md` at `b170bef2`.
+
+
+## 2026-09-25 — Root-cause research narrows the next information-source path
+
+Two follow-up research checkpoints are now frozen:
+
+- economic feasibility frontier `73e75b5`;
+- edge-source matrix `fac6c1b`.
+
+**Economic decision:** do not raise per-trade risk to force the daily target before stable post-cost edge is demonstrated. At the USD500 reference balance, the required daily return and current -USD40/-USD60 loss gates make high-risk sizing internally inconsistent.
+
+**Information-source decision:** next alpha research should first test whether macro/catalyst, order-flow/book, rates/cross-asset and execution-feed information adds incremental out-of-sample value over the existing price-only baseline. Another OHLC momentum/reversion/correlation family is not the next default action.
+
+Engine R remains preserved but paused before target/P&L development. Protected periods remain sealed.
