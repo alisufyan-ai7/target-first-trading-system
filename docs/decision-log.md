@@ -952,3 +952,24 @@ The runner reuses the audited EXP-028 outcome/portfolio machinery and changes on
 H1_0 and H1_1 signal cohorts will be reported separately to diagnose whether fallback contributes edge, but no cohort may be removed or favored after seeing development outcomes.
 
 No v0.5 outcome existed at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Close Engine M family after EXP-031
+
+**Decision:** stop the Engine-M H1/midpoint/sweep-reclaim family before secondary testing.
+
+EXP-031 result:
+
+- gross -0.0099R;
+- primary -0.2063R;
+- stress -0.4027R;
+- 0/6 positive-stress folds;
+- safe-account economics negative.
+
+H1_1 fallback increased opportunity count but had worse expectancy than H1_0.
+
+Do not rescue by post-hoc symbol selection or another minor H1 lookback/filter variant.
+
+Retain only the architectural lesson that non-chasing limit/retracement execution can improve entry quality.
+
+Protected Jul-Aug and Sep remain sealed for a genuinely different prospectively frozen family.
