@@ -565,3 +565,12 @@ Files:
 - `research/code/engine_m_v0_1.py`;
 - `research/code/run_engine_m_v0_1_preflight.py`;
 - `.github/workflows/exp027-engine-m-v0.1-preflight.yml`.
+
+
+### EXP-027 preflight attempt 1 infrastructure note
+
+Run `35995612463` failed before the real preflight because of a synthetic-test pandas dtype mutation. No market preflight, target outcome, P&L outcome or protected-period inspection occurred.
+
+The test fixture was corrected at `569cc707571f063fb5b9b939cfba08555273086a` with **no Engine-M rule change**.
+
+**Next remains:** rerun the identical zero-outcome EXP-027 preflight.
