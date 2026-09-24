@@ -962,3 +962,34 @@ Next prospective architecture should use:
 `4H/1H context -> 15m setup/location -> 5m tactical decision -> lower-timeframe entry`
 
 with an entry design that preserves favorable price rather than waiting for a completed breakout.
+
+
+## Engine M v0.1 / EXP-027 authoritative current state
+
+Engine L v0.1 / EXP-026 is closed. Its decisive lesson: waiting for M1 breakout/resumption then entering next-open chased price and worsened stress expectancy.
+
+Current active family:
+
+**Engine M v0.1 — Multi-Timeframe Reclaim Limit Entry**
+
+Frozen flow:
+
+`H4/H1 direction -> M15 H1-midpoint reclaim -> M5 rejection arm -> 50% M5 retracement limit -> M5 structural stop -> T40 economics`.
+
+Important:
+
+- no ML probability model;
+- entry is precomputed before future M1 path;
+- no trade if retracement never fills;
+- one pending order per symbol;
+- matched immediate-entry control reserved for development;
+- Mar-Jun reusable;
+- Jul-Aug unopened;
+- Sep unopened.
+
+Current outcome state:
+
+- Engine-M target/P&L outcomes: NO;
+- matched-control outcomes: NO.
+
+**Next:** trigger EXP-027 zero-outcome mechanics preflight. Development is forbidden unless every market has >=50 admissible filled paths, both directions, and >=600 total.
