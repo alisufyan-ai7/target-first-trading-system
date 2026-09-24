@@ -1026,3 +1026,14 @@ All eight markets passed with both directions.
 **Next:** development must determine whether the increased opportunity stream contains actual predictive edge rather than merely more samples. Report hourly-anchor cohorts separately, but do not post-hoc whitelist hours.
 
 Protected periods remain sealed.
+
+
+## 2026-09-24 — Freeze EXP-033 rolling-drive development
+
+**Decision:** after the rolling scanner passed the unchanged opportunity-density preflight, freeze one six-slice development run using the audited project label/portfolio framework.
+
+Hourly-anchor cohorts and the matched immediate-entry control are diagnostic only. No hour may be selected or excluded after outcomes inside v0.2.
+
+Outcome horizon: T40 vs frozen stop, stop-first on same bar, max 120 active M1 bars, hard 20:00 UTC cutoff.
+
+No v0.2 development outcome existed at freeze. Jul-Aug and Sep remain sealed.
