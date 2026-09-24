@@ -1045,3 +1045,24 @@ Durable result:
 - Jul-Aug/Sep: unopened.
 
 **Next:** Engine M v0.2 development: report normalized-R signal edge separately from safe-lot USD500 portfolio economics.
+
+
+### EXP-028 development launch checkpoint
+
+v0.2 zero-outcome preflight passed.
+
+Development runner/workflow are frozen.
+
+It will report separately:
+
+- all-signal normalized-R edge;
+- safe-lot USD500 one-open portfolio;
+- matched immediate-entry control.
+
+At launch:
+
+- target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-028 development and apply the frozen gate.
