@@ -1267,3 +1267,16 @@ Protection: Jun30 hard source seal; Jul-Aug and Sep sealed.
 **Decision:** Engine Q v0.2 rolling-spillover mechanics and zero-outcome preflight are frozen at repository SHA `850fe44fa426b2ee4f235d3af140fa981ff26ae2`.
 
 No outcome exists and protected periods remain sealed. The only permitted next computation is one EXP-038 zero-outcome preflight.
+
+
+## 2026-09-24 — EXP-038 rolling-spillover preflight passed
+
+**Result:** `3d9ca37fc733542f1ed2554e26a2989b1b578f2d`.
+
+The rolling 15-minute unique-peer shock memory raised zero-outcome filled signals from v0.1's 56 to v0.2's 467 without changing the VR>=1.75 shock threshold, >=4-peer breadth requirement, candidate lag rule, breakout mechanics, target, costs, safety caps or frequency gate.
+
+All eight markets passed >=25 with both directions and 466/467 signals were safely deployable.
+
+No target/P&L outcome was calculated. Jun30 hard source seal held; Jul-Aug and Sep remain sealed.
+
+**Next:** freeze and run six-slice development only under the already-declared gate.
