@@ -862,3 +862,25 @@ But primary/stress normalized expectancy remained -0.1625R / -0.3616R, with zero
 **Protection:** Jul-Aug and Sep remain sealed.
 
 **Next research requirement:** improve pre-cost signal quality prospectively; do not lower costs/gates or tune against protected data.
+
+
+## 2026-09-24 — Freeze Engine M v0.3 liquidity-reclaim selectivity
+
+**Decision:** preserve Engine-M v0.2 non-chasing execution and replace only the broad setup admission with stronger structural selectivity.
+
+Evidence used prospectively:
+
+- v0.2 gross edge was slightly positive (+0.0367R) and better than immediate control (-0.0146R);
+- frozen costs erased that edge;
+- all markets remained negative after primary cost.
+
+v0.3 adds exactly two selection ideas:
+
+1. completed M15 must strictly sweep and reclaim the prior four contiguous M15-bar local extreme while also reclaiming the latest completed H1 midpoint;
+2. the frozen T40 target must point to a recent completed H1 directional liquidity extreme from the latest two H1 bars.
+
+Execution, target, costs and account safety rules are unchanged.
+
+**New gross-edge gate:** >+0.20R in development if preflight passes. This is frozen before v0.3 outcomes because v0.2 proved that +0.0367R is economically insufficient.
+
+**Protection:** Jul-Aug and Sep remain sealed.
