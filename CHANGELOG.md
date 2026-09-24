@@ -299,3 +299,10 @@
 - H1_1 fallback added frequency but reduced edge versus H1_0.
 - Safe-account portfolio remained negative; Jul-Aug and Sep remain unopened.
 - Preserved non-chasing execution as an architectural lesson; prohibited Engine M v0.6 minor-filter rescue.
+
+- Closed Engine M family after EXP-031 development failure.
+- Opened EXP-032 / Engine N v0.1 as a genuinely different session opening-drive continuation family.
+- Frozen London 07:00 UTC and New York 13:30 UTC 30-minute opening drives.
+- Added prior-eight-M15 volatility baseline, 1.50x expansion, 60% body and outer-25% close qualification.
+- Preserved non-chasing execution via 50% pullback limit while removing H1 sweep/reclaim logic.
+- Frozen zero-outcome preflight at >=25 signals per market, both directions, >=300 total.
