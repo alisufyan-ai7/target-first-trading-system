@@ -1,6 +1,6 @@
 # EXP-024 — Engine K v0.3 Market-Aware Stress-EV Scanner
 
-**Status:** FROZEN PROSPECTIVELY BEFORE V0.3 METRICS  
+**Status:** CLOSED — JUNE DEVELOPMENT GATE FAILED  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-k-direct-target-move-scanner/SPEC-v0.3.md`
 
@@ -99,3 +99,74 @@ At EXP-024 freeze:
 ## Next step
 
 Implement a separate v0.3 development-gate runner/workflow. It may parse only through June 30 and must not load July-Aug or September.
+
+
+## June development outcome — FAIL
+
+**Workflow run:** `35975630207`  
+**Tested repository SHA:** `85b01583cd2ab74fb242e7d0d55fabbbf9b4378d`  
+**Durable result/model commit:** `db53f3a96fbbb6ed7b1b01f25e931e4140bec215`
+
+Protected scope:
+
+- Mar23-Apr30 model fit;
+- May calibration;
+- June development gate;
+- July-Aug secondary test loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+June output:
+
+- 81,667 labeled rungs;
+- 106 qualified candidate rungs before one-open;
+- 39 actual one-open trades;
+- 19 distinct June trade weekdays;
+- 15 target hits;
+- hit rate: **38.46%**;
+- mean stress break-even probability: **46.79%**;
+- mean calibrated probability: **49.52%**;
+- primary net P&L: **-USD8.50**;
+- primary expectancy: **-USD0.22/trade**;
+- stress net P&L: **-USD151.70**;
+- stress expectancy: **-USD3.89/trade**;
+- primary PF: **0.983**;
+- stress PF: **0.742**;
+- max drawdown: **USD212.34**;
+- longest losing trade run: 5.
+
+Market trade counts:
+
+- GBPUSD 22;
+- AUDUSD 10;
+- USDCHF 4;
+- XAUUSD 2;
+- EURJPY 1.
+
+June discrimination remained non-random:
+
+- T30 calibrated AUC: about **0.672**;
+- T40: about **0.708**;
+- T50: about **0.740**.
+
+Frozen gate disposition:
+
+- >=200 June states per market: PASS;
+- >=30 June trades: PASS;
+- >=10 trade weekdays: PASS;
+- hit rate > mean stress break-even: FAIL;
+- primary expectancy >0: FAIL;
+- stress expectancy >0: FAIL;
+- primary PF >=1.10: FAIL;
+- stress PF >=1.00: FAIL;
+- max DD <=USD100: FAIL;
+- causality/provenance: PASS;
+- market contribution reporting: PASS;
+- protected-period seal: PASS.
+
+**Final disposition:** FAIL. Stop before July-Aug.
+
+Interpretation:
+
+v0.3 fixed the trade-density problem and preserved useful rank discrimination, but the selected trades were not economically profitable out of sample in June. The issue is no longer candidate scarcity; it is that the manually frozen model/calibration/qualification configuration is not converting rank signal into positive economic edge.
+
+Do not open July-Aug or retune v0.3 in place.
