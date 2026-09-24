@@ -225,3 +225,8 @@
 - Added matched immediate-entry control to isolate whether entry quality materially improves economics.
 - Added separate Engine-L causal mechanics module and zero-outcome preflight requiring >=100 admissible trigger paths per market before P&L outcomes.
 - Jul-Aug and Sep remain sealed.
+
+- Engine L zero-outcome mechanics preflight passed at result commit `b19d4ef6c3a689117fc5b8237167322bd64a2aa7`: 12,532 admissible paths, all 8 markets >=100 and both directions represented.
+- No Engine-L target/P&L outcomes were calculated; Jul-Aug and Sep remain sealed.
+- Added `research/notes/MULTI-TIMEFRAME-INTRADAY-GUIDANCE.md` from user-supplied top-down timeframe examples.
+- Guidance separates 4H/1H context, 15m setup/location, 5m arm, and 1m execution without treating any social-media timeframe claim as a hard rule.
