@@ -1633,3 +1633,17 @@ Source/split is frozen in `research/provenance/EXP-037-engine-q-v0.1-source-mani
 Outcome state: **zero Engine-Q target/P&L outcomes**.
 
 **Exact next action:** implement and run EXP-037 zero-outcome preflight only. Development is forbidden until that durable preflight passes the unchanged >=25-per-market / both-directions / >=300-total gate.
+
+
+### EXP-037 implementation checkpoint
+
+Engine Q v0.1 implementation is frozen before outcomes:
+
+- main SHA: `c51c8f9566a6ccfddaf8117c2b0a80c45fbeb10b`;
+- engine commit: `9a2a2c7`;
+- preflight runner: `2bfb0c5`;
+- workflow: `c51c8f9`;
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: sealed.
+
+**Exact next action:** trigger exactly one EXP-037 zero-outcome preflight, confirm it starts once, then do not poll repeatedly.
