@@ -378,3 +378,8 @@
 - No target/P&L outcomes were calculated; Jun30 hard source seal held and Jul-Aug/Sep remained unopened.
 - Same-bar >=4-peer VR>=1.75 synchronization was identified as the dominant frequency bottleneck.
 - Frequency gate remains unchanged; any next version must redesign peer-shock sampling prospectively rather than lower the gate.
+
+- Opened EXP-038 / Engine Q v0.2 after v0.1 failed only zero-outcome frequency.
+- Preserved peer shock VR>=1.75 and >=4 unique-peer breadth; changed same-bar synchronization to causal rolling 15-minute peer-shock memory across t/t-5/t-10.
+- Candidate lag, breakout, 50% retracement entry, structural stop, T40, 10%/20% costs, USD500 safety caps and preflight/development gates remain unchanged.
+- Jun30 hard source seal preserved; Jul-Aug and Sep remain sealed; v0.2 outcomes zero at freeze.
