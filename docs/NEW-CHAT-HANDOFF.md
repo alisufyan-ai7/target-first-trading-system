@@ -1795,3 +1795,13 @@ Engine R / EXP-039 remains prospectively frozen but is **PAUSED BEFORE DEVELOPME
 Jul-Aug and Sep remain sealed.
 
 **Exact next action:** economic-feasibility frontier + edge-source data/information-content study, not another OHLC strategy family.
+
+
+### Root-cause research deliverables
+
+In addition to `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md`, read:
+
+- `research/ECONOMIC-FEASIBILITY-FRONTIER-v0.1.md` — commit `73e75b5`;
+- `research/EDGE-SOURCE-RESEARCH-MATRIX-v0.1.md` — commit `fac6c1b`.
+
+Current research conclusion: do not increase risk and do not advance another price-only engine. First establish incremental predictive information from macro/catalyst + order-flow/book + rates/cross-asset + execution-grade data versus the frozen OHLC baseline. Engine R is paused before development; Jul-Aug/Sep remain sealed.
