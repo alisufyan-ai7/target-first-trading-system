@@ -266,3 +266,10 @@
 - Frozen costs erased that edge: primary/stress -0.1625R / -0.3616R, zero positive-stress folds.
 - Safe-lot portfolio: 593 trades, primary/stress expectancy -USD1.69 / -USD3.42, stress MDD USD2,065.82.
 - Jul-Aug and Sep remain unopened.
+
+- Opened EXP-029 / Engine M v0.3 after v0.2 established a small gross edge that failed costs.
+- Preserved non-chasing 50% M5 limit entry, structural stop, T40, signal-first sizing, safety caps and costs.
+- Added strict prior-4-M15 liquidity sweep/reclaim plus H1 midpoint reclaim.
+- Added recent-two-H1 target-destination gate requiring T40 to point toward a completed H1 liquidity extreme.
+- Frozen preflight at >=35 filled signals per market, both directions, >=400 total, zero outcomes.
+- Frozen future development gross-edge requirement >+0.20R.
