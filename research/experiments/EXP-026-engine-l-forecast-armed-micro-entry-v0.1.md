@@ -126,3 +126,16 @@ Per-market admissible paths:
 **Disposition:** PASS. Engine-L mechanics are sufficiently abundant and balanced to justify the prospectively frozen development test.
 
 No profitability conclusion is implied by this preflight.
+
+
+## Final pre-outcome matched-domain clarification
+
+Before Engine-L development outcomes:
+
+- forecast fit/evaluation sides are restricted to the same complete, pre-probability economically admitted T40 state domain used by the Engine-K v0.2/v0.3 forecast model;
+- this restriction is intentional so EXP-026 isolates **entry timing + execution stop** rather than candidate-universe expansion;
+- Engine-L recomputes T40 economics at its later micro-entry using the fresh M1 stop;
+- exact LONG/SHORT raw-score ties use lower old-reference stop risk, then LONG;
+- pending-arm resolution is tracked causally so later 5m decisions cannot overlap an unresolved same-symbol arm.
+
+No Engine-L target/P&L outcome had been calculated when these mechanics were frozen.
