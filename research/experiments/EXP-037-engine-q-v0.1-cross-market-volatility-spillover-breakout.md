@@ -133,3 +133,26 @@ At EXP-037 freeze:
 ## Exact next action
 
 Implement Engine Q v0.1 mechanics and run a **zero-outcome preflight only**. Do not launch development until the durable preflight passes.
+
+
+## Zero-outcome implementation checkpoint
+
+Frozen before any Engine-Q target/P&L outcome:
+
+- engine implementation commit: `9a2a2c797e7d526a42ab36399c82bec18c05540c`;
+- preflight runner commit: `2bfb0c576167dd9b7f895e00d0b7ed68ccfe2453`;
+- workflow commit: `c51c8f9566a6ccfddaf8117c2b0a80c45fbeb10b`;
+- engine blob: `d1d95cc14a04ee700ae3709c1b7872941ebdac70`;
+- runner blob: `239ca6ba52693cbaf6ce0ad0f928fcfb24a385c2`;
+- workflow blob: `4235154e3a091a1caed67e943e0d6f14f6c0bab6`.
+
+Implementation reuses only generic audited infrastructure for bar construction, safe-lot overlay, and limit-fill gap semantics. Engine-Q selection mechanics are new and follow the frozen spec.
+
+At this checkpoint:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+**Next:** trigger exactly one EXP-037 zero-outcome preflight run. Do not modify frozen inputs while it runs.
