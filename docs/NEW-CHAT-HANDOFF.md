@@ -722,3 +722,47 @@ Result:
 Engine K v0.2 is closed before secondary testing.
 
 Do not lower its threshold or open protected periods. Any continuation requires a newly frozen version using only the already-inspected Mar-Jun development evidence.
+
+
+## Engine K v0.3 / EXP-024 authoritative current state
+
+Engine K v0.2 is closed before secondary testing.
+
+v0.3 is the active path.
+
+Frozen design:
+
+- HGB fit Mar23-Apr30;
+- market-direction-aware Platt calibration May;
+- June true development gate;
+- same v0.2 targets/economics;
+- qualification = positive primary EV and positive stress EV;
+- no fixed probability floor;
+- same one-open/daily-risk state machine.
+
+June mandatory gate:
+
+- >=200 states per market;
+- >=30 one-open trades;
+- >=10 trade weekdays;
+- observed hit rate > mean stress break-even;
+- primary expectancy >0;
+- stress expectancy >0;
+- primary PF >=1.10;
+- stress PF >=1.00;
+- max DD <=USD100;
+- integrity/provenance pass.
+
+Protected:
+
+- Jul-Aug secondary outcomes: unopened;
+- Sep final holdout: unopened.
+
+Files:
+
+- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.3.md`;
+- `research/experiments/EXP-024-engine-k-v0.3-market-aware-stress-ev.md`;
+- `research/code/run_engine_k_v0_3_june_gate.py`;
+- `.github/workflows/exp024-engine-k-v0.3-june-gate.yml`.
+
+**Next:** trigger June gate only.
