@@ -995,3 +995,21 @@ Engine N v0.1:
 Preflight opportunity-density gate remains >=25 filled signals per market and >=300 total.
 
 No outcomes exist at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Freeze Engine N v0.2 rolling intraday scanner
+
+**Decision:** EXP-032 showed that two named session anchors generated too few zero-outcome opportunities. Do not lower the opportunity-density gate.
+
+Instead, preserve the same opening-drive/pullback mechanics and sample the thesis continuously:
+
+- fixed hourly anchors 06:00-17:00 UTC;
+- exact 30m drive;
+- prior-eight-M15 baseline;
+- unchanged 1.50x expansion / 60% body / outer-25% close;
+- unchanged 50% pullback limit;
+- unchanged stop/T40/sizing/cost rules.
+
+The prior anchor's hard order horizon equals the next anchor decision, preventing overlapping pending cycles by construction.
+
+No v0.2 outcomes exist at freeze. Jul-Aug and Sep remain sealed.
