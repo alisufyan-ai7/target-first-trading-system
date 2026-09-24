@@ -999,3 +999,69 @@ Do not create Engine M v0.6 by another small location/lookback/filter change.
 Jul-Aug and Sep remain sealed.
 
 **Next:** open a genuinely different engine family prospectively.
+
+
+## Engine N v0.1 / EXP-032 — CURRENT PRIMARY PATH
+
+Engine M is closed at the family level after EXP-031 failed development.
+
+Retained lesson:
+
+- non-chasing retracement/limit execution can improve entry quality.
+
+Rejected family thesis:
+
+- H4/H1 close-direction plus midpoint/H1-range sweep-reclaim did not create robust enough predictive edge.
+
+The current path is a genuinely different family:
+
+**Engine N v0.1 — Session Opening Drive Pullback Continuation**
+
+Flow:
+
+`fixed session anchor -> 30m opening displacement -> first 50% pullback -> continuation`.
+
+Frozen sessions:
+
+- London 07:00 UTC;
+- New York 13:30 UTC.
+
+Qualification:
+
+- exact 30-minute drive;
+- eight preceding exact M15 bars as volatility baseline;
+- drive range >=1.50x baseline median;
+- body >=60%;
+- close in directional outer 25%.
+
+Execution:
+
+- limit at 50% of drive range;
+- stop beyond drive extreme by one research tick;
+- 45 active-M1 order life;
+- maximum anchor+90m;
+- unchanged T40 and safe-lot overlay.
+
+No H1 sweep/reclaim.
+No ML probability threshold.
+
+### EXP-032 zero-outcome preflight
+
+Require:
+
+- >=25 filled valid signals per market;
+- LONG + SHORT on every market;
+- >=300 total;
+- chronology/qualification/entry/safety tests pass;
+- no target/P&L outcomes;
+- Jul-Aug and Sep unloaded.
+
+**Exact next action:** run EXP-032 zero-outcome preflight only.
+
+Files:
+
+- `strategies/engine-n-session-opening-drive-pullback/SPEC-v0.1.md`;
+- `research/experiments/EXP-032-engine-n-v0.1-session-opening-drive-pullback.md`;
+- `research/code/engine_n_v0_1.py`;
+- `research/code/run_engine_n_v0_1_preflight.py`;
+- `.github/workflows/exp032-engine-n-v0.1-preflight.yml`.
