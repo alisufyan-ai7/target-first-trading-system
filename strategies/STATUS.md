@@ -194,4 +194,14 @@ v0.3 is frozen prospectively:
 - no fixed probability floor;
 - July-Aug and September sealed.
 
-**Next:** EXP-024 June gate only. Open July-Aug only after a durable PASS.
+**June result:** FAILED at commit `db53f3a96fbbb6ed7b1b01f25e931e4140bec215`.
+
+- 39 trades / 19 weekdays;
+- primary expectancy -USD0.22/trade;
+- stress expectancy -USD3.89/trade;
+- primary PF 0.983;
+- stress PF 0.742;
+- max DD USD212.34;
+- calibrated June AUC 0.672/0.708/0.740.
+
+v0.3 is closed before secondary testing. July-Aug and September remain sealed.
