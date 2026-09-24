@@ -163,3 +163,49 @@ At this checkpoint:
 - Sep loaded/labeled: **NO**.
 
 **Next:** trigger exactly one EXP-038 development run. Any failed mandatory gate stops before secondary testing.
+
+
+## Development result — FAIL / STOP BEFORE SECONDARY
+
+**Durable result commit:** `6f25b089d6d7eea01d37d293c48bd51bf1e84d9e`  
+**Tested repository SHA:** `e5f18258d8bc559e09f14f89b0276feb048c084f`  
+**Result file:** `research/results/EXP-038-development-summary-v0.2.json`
+
+Frozen development result:
+
+- pooled development signals: **363**;
+- target hits: **142** / hit rate **39.1185%**;
+- gross normalized expectancy: **+0.0947930R**;
+- primary normalized expectancy: **-0.0902225R**;
+- stress normalized expectancy: **-0.2752379R**;
+- positive-stress folds: **1/6**;
+- reference-account trades: **251** across **57** trade weekdays;
+- reference primary expectancy: **-USD1.5256/trade**;
+- reference stress expectancy: **-USD3.8859/trade**;
+- reference primary PF: **0.8362**;
+- reference stress PF: **0.6403**;
+- stress max drawdown: **USD1,102.23**;
+- development gate: **FAIL**;
+- disposition: **FAIL_STOP_BEFORE_SECONDARY**.
+
+Matched immediate-entry control:
+
+- 651 signals;
+- gross expectancy **-0.0190R**;
+- primary expectancy **-0.1956R**;
+- stress expectancy **-0.3721R**.
+
+Interpretation:
+
+- the 50% non-chasing entry materially improved Engine-Q economics versus immediate entry;
+- nevertheless the actual Engine-Q signal layer achieved only +0.0948R gross, below the frozen >+0.20R hurdle, and remained negative after costs;
+- only one of six folds was stress-positive;
+- no peer-shock-age, lag-VR, breakout-VR, hour, market or direction rescue is permitted inside v0.2.
+
+Protection verified by the durable result:
+
+- parsed source max **2026-06-30 23:59 UTC**;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+**Final disposition:** Engine Q v0.2 / EXP-038 is closed before secondary testing. Do not inspect protected periods. Retain non-chasing execution as an architectural lesson, but move to a genuinely different information source/family rather than another Engine-Q temporal/threshold variant.
