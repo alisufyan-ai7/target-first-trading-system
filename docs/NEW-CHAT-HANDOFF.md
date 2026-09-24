@@ -1491,3 +1491,24 @@ Development runner/workflow frozen:
 - >+0.20R gross hurdle and all post-cost gates unchanged.
 
 **Next:** trigger EXP-035 development and stop before secondary on any mandatory failure.
+
+
+## Engine O family final outcome
+
+Engine O is CLOSED after v0.2 / EXP-035 development failure at `f37a757`.
+
+- 430 signals;
+- gross -0.0719R;
+- primary -0.2611R;
+- stress -0.4504R;
+- 0/6 positive-stress folds;
+- safe-account primary/stress -USD3.11 / -USD5.38;
+- stress MDD about USD1,394.
+
+Immediate-entry control was also negative.
+
+Do not post-hoc select EURJPY or favorable time cohorts.
+
+Jul-Aug and Sep remain unopened.
+
+**Next:** genuinely different cross-market relative-strength / factor-divergence family.
