@@ -792,3 +792,31 @@ Trade density passed; economics failed.
 Jul-Aug and Sep remain sealed.
 
 Current methodological conclusion: the scanner has broad economic coverage and measurable rank signal, but manual threshold/calibration versions are not converting it into reliable positive expectancy. Next work should use bounded chronological model/configuration selection on Mar-Jun development only, then freeze one configuration before opening Jul-Aug.
+
+
+## Engine K v0.4 / EXP-025 authoritative current state
+
+Engine K v0.3 / EXP-024 is closed before secondary testing.
+
+EXP-025 is now the active path.
+
+Frozen before EXP-025 metrics:
+
+- Mar-Jun = reusable development pool;
+- Jul-Aug secondary = unopened;
+- Sep final holdout = unopened;
+- 12 configurations exactly;
+- 6 chronological expanding walk-forward folds;
+- unchanged targets/stops/features/sizing/cost/risk architecture;
+- bounded model/calibration/qualification search only;
+- stability-first pass and winner criteria;
+- no July-Aug access unless one configuration passes.
+
+Read:
+
+- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.4.md`;
+- `research/experiments/EXP-025-engine-k-v0.4-walk-forward-selection.md`;
+- `research/code/run_engine_k_v0_4_walkforward_selection.py`;
+- `.github/workflows/exp025-engine-k-v0.4-walkforward.yml`.
+
+**Next:** trigger EXP-025 development-only walk-forward selection. If none of the 12 configurations passes, stop Engine K tuning on this development pool.
