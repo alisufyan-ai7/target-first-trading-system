@@ -108,3 +108,53 @@ Fix commit:
 ### Next
 
 Rerun the identical frozen zero-outcome EXP-027 preflight.
+
+
+## Preflight attempt 2 — research gate FAIL
+
+**Workflow run:** `35996465892`  
+**Trigger SHA:** `6d3b0e5a244c4d3f0c47ee800a91b9fabfbb6c0c`  
+**Durable result commit:** `89279ad`
+
+This time the full zero-outcome market preflight executed successfully and then the workflow intentionally failed at the final frozen research-gate enforcement step.
+
+Protection:
+
+- target outcomes calculated: **NO**;
+- P&L outcomes calculated: **NO**;
+- Jul-Aug loaded/inspected: **NO**;
+- Sep loaded/inspected: **NO**.
+
+Mechanics:
+
+- 1,581 mechanical MTF retracement-limit fills across eight markets;
+- 126 economically admissible T40 paths;
+- required total: >=600;
+- only XAUUSD passed the per-market >=50 + both-directions gate.
+
+Admissible paths:
+
+- XAUUSD 61;
+- EURUSD 6;
+- GBPUSD 12;
+- USDJPY 8;
+- EURJPY 3;
+- AUDUSD 20;
+- USDCAD 3;
+- USDCHF 13.
+
+The MTF/limit mechanics are therefore **not sparse**. The blocker is post-fill economic admission, especially on non-Gold markets.
+
+### Next zero-outcome diagnostic
+
+Do not change Engine-M strategy mechanics yet.
+
+Add rejection-reason accounting for every mechanically filled but economically rejected T40 path:
+
+- lot minimum;
+- USD20 structural-risk gate;
+- USD50k notional gate;
+- USD100 reference-margin gate;
+- combinations of the above.
+
+Rerun the same zero-outcome preflight only to identify the economic bottleneck. No target/P&L outcomes.
