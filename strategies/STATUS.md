@@ -684,3 +684,12 @@ New family after Engine Q closure: dynamic cross-market relative-value residual 
 **Status:** prospectively frozen, zero outcomes. Jul-Aug/Sep sealed.
 
 **Next:** EXP-039 zero-outcome preflight only.
+
+
+## Research pause — root-cause / edge-source audit
+
+As of 2026-09-25, no new strategy family is to be advanced to target/P&L development merely because it passes signal-frequency preflight.
+
+Engine R v0.1 / EXP-039 remains a prospectively frozen artifact but is **paused before development** while `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md` is executed.
+
+Next strategy selection must be supported by incremental-information evidence beyond the existing OHLC-derived price state. Protected Jul-Aug and Sep remain sealed.
