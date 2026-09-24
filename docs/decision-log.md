@@ -1037,3 +1037,44 @@ Hourly-anchor cohorts and the matched immediate-entry control are diagnostic onl
 Outcome horizon: T40 vs frozen stop, stop-first on same bar, max 120 active M1 bars, hard 20:00 UTC cutoff.
 
 No v0.2 development outcome existed at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Close Engine N family after EXP-033
+
+**Decision:** stop the opening-drive continuation family before secondary testing.
+
+EXP-033 development:
+
+- 505 signals;
+- gross +0.0411R;
+- primary -0.1450R;
+- stress -0.3312R;
+- only 1/6 positive-stress folds;
+- reference primary/stress expectancy -USD2.82 / -USD6.07;
+- stress MDD about USD1,244.
+
+Continuous hourly scanning solved frequency but not predictive edge.
+
+Do not rescue retrospectively positive H14/H15 or XAUUSD diagnostics with an hour/symbol whitelist.
+
+**Next:** prospectively test a genuinely different rolling mean-reversion family.
+
+## 2026-09-24 — Freeze Engine O v0.1 rolling statistical reversion
+
+**Decision:** preserve continuous multi-market scanning but invert the market thesis from continuation to statistical mean reversion.
+
+Frozen v0.1:
+
+- completed M5 decisions every 15 minutes from 06:15 through 17:45 UTC;
+- prior 24 contiguous M5 bars define median close CENTER, close MAD and median range;
+- trigger close >=2.50 MAD from CENTER;
+- trigger range >=1.25x prior median range;
+- body >=50%;
+- directional rejection close in favorable outer 35%;
+- non-chasing 50% trigger-bar limit;
+- stop beyond trigger extreme;
+- 10-active-M1 / decision+30m order life;
+- unchanged T40 must fit before CENTER;
+- unchanged signal-first safe-lot overlay.
+
+No outcomes exist at freeze. Jul-Aug and Sep remain sealed.
