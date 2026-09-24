@@ -1,6 +1,6 @@
 # EXP-023 — Engine K v0.2 Risk-Normalized Multi-Market Target Scanner
 
-**Status:** ZERO-OUTCOME PREFLIGHT PASSED — TRAINING + JUNE CALIBRATION NEXT  
+**Status:** CLOSED — TRAINING/JUNE GATE FAILED; SECONDARY/FINAL SEALED  
 **Date:** 2026-09-24  
 **Strategy:** strategies/engine-k-direct-target-move-scanner/SPEC-v0.2.md
 
@@ -184,3 +184,59 @@ Run only:
 Use the frozen HGB/Platt model, feature contract, v0.2 target/economic rules and pre-secondary gate.
 
 Do not inspect July-August or September unless the training/June gate passes and is durably checkpointed.
+
+
+## Training + June calibration outcome — FAIL
+
+**Workflow run:** `35972821506`  
+**Tested repository SHA:** `dddecc79a1cfadaa497ff7ea4b2d7e2d70c473cc`  
+**Durable result/model commit:** `763aefadbe56ee7012b475dcb677f6f78d8036ec`
+
+Scope integrity:
+
+- training labeled: Mar23-May31 only;
+- calibration: June only;
+- July-August secondary test loaded/labeled: **NO**;
+- Sep1-Sep22 final holdout loaded/labeled: **NO**;
+- forecast-only markets loaded: **NO**.
+
+Coverage succeeded:
+
+- combined labeled rungs: 281,955;
+- all 8 execution markets retained >200 admissible states.
+
+Prediction diagnostics on June remained non-random:
+
+- T30 raw/Platt ROC-AUC: about 0.674;
+- T40: about 0.710;
+- T50: about 0.743.
+
+However the frozen qualification rule produced almost no executable trades:
+
+- combined qualified candidate rungs before one-open: 2;
+- combined actual trades: 2;
+- June qualified candidate rungs: 0;
+- June actual trades: 0.
+
+The two combined trades both won, but they are only two in-sample-development trades and provide no admissible evidence for promotion.
+
+Frozen pre-secondary gate:
+
+- >=200 states each: PASS;
+- >=100 qualified combined trades: FAIL;
+- >=20 qualified June trades: FAIL;
+- June hit rate > mean break-even: FAIL / unavailable;
+- June primary expectancy >0: FAIL / unavailable;
+- June PF >=1.10: FAIL / unavailable;
+- June max DD <=USD100: PASS;
+- causality/provenance: PASS;
+- market contribution reporting: PASS;
+- protected-period seal: PASS.
+
+**Disposition:** FAIL. Stop EXP-023 before July-August.
+
+Interpretation:
+
+v0.2 fixed the multi-market economic-admission problem but its frozen probability qualification remained too sparse to create a testable trading stream. The model showed meaningful rank discrimination, especially for longer targets, but that does not override the predeclared trade-frequency gate.
+
+Do not lower the v0.2 threshold or inspect July-August to rescue it.
