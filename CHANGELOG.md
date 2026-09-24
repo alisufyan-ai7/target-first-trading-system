@@ -247,3 +247,9 @@
 - Removed ML probability scoring from the v0.1 center design.
 - Added matched immediate-entry control for later development and a zero-outcome preflight requiring >=50 admissible paths per market, both directions, >=600 total.
 - Jul-Aug and Sep remain sealed.
+
+- EXP-027 audit confirmed 1,581 mechanical Engine-M fills but only 126 old USD40-equivalent admissions; FX rejections were overwhelmingly notional+margin with stop risk already near USD20.
+- Closed EXP-027 before outcomes because sizing/deployment feasibility was incorrectly filtering strategy validity.
+- Opened EXP-028 / Engine M v0.2 signal-first validation with unchanged MTF/limit trading mechanics.
+- Added maximum-safe-lot overlay under unchanged USD20 risk / USD50k notional / USD100 margin caps; Gold remains capped at 0.10 lot.
+- Added GE40 / GE30 / LT30 utility reporting while retaining all filled valid signals for strategy-edge research.
