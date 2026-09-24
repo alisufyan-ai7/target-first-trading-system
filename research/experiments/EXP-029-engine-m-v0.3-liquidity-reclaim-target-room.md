@@ -1,6 +1,6 @@
 # EXP-029 — Engine M v0.3 Liquidity Reclaim + HTF Target-Room
 
-**Status:** FROZEN PROSPECTIVELY — ZERO V0.3 OUTCOMES  
+**Status:** CLOSED — ZERO-OUTCOME PREFLIGHT FREQUENCY FAIL  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.3.md`
 
@@ -61,3 +61,60 @@ At freeze:
 ## Next
 
 Implement v0.3 mechanics and run zero-outcome preflight only.
+
+
+## Zero-outcome preflight outcome — FAIL
+
+**Workflow run:** `36002890180`  
+**Trigger SHA:** `9a8179a43a41b4bcc67584f17a175764157ef8bd`  
+**Durable result commit:** `c078179`
+
+Protection:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Result:
+
+- filled valid signals: **106**;
+- deployable signals: **106**;
+- required total: >=400;
+- every market failed the >=35-per-market gate;
+- both directions existed on every market;
+- safety overlay passed.
+
+Per-market filled signals:
+
+- XAUUSD 19;
+- EURUSD 10;
+- GBPUSD 13;
+- USDJPY 14;
+- EURJPY 15;
+- AUDUSD 9;
+- USDCAD 12;
+- USDCHF 14.
+
+Utility:
+
+- GE40 5;
+- GE30 11;
+- LT30 90.
+
+Structural diagnosis:
+
+- the recent-H1 target-destination filter rejected only a modest number of otherwise qualified setups;
+- the dominant frequency collapse occurred earlier from combining strict prior-4-M15 sweep/reclaim, H1-midpoint reclaim, and M5 arm.
+
+**Disposition:** insufficient frequency. Do not calculate v0.3 outcomes.
+
+### Next design implication
+
+Do not relax the same conjunction one threshold at a time.
+
+Use one coherent higher-timeframe location object instead:
+
+`latest completed H1 range -> M15 sweep/reclaim of directional boundary -> unchanged M5 arm -> unchanged non-chasing limit -> opposite H1 boundary as target-room check`.
+
+This becomes Engine M v0.4 / EXP-030.
