@@ -363,3 +363,9 @@
 - Reference-account: 836 trades; primary/stress expectancy -USD2.02 / -USD4.15; primary/stress PF 0.761 / 0.580; stress MDD USD3,526.25.
 - Durable result confirms Jul-Aug and Sep remained sealed.
 - Prohibited post-hoc MOM/USD_SCORE/hour/symbol/direction rescue; next engine must use a genuinely different prospectively frozen information source/family.
+
+- Opened EXP-037 / Engine Q v0.1 after closing Engine P.
+- Changed information source from directional factor consensus to directionless cross-market volatility-spillover breadth.
+- Frozen candidate-self exclusion, >=4 peer shocks at VR>=1.75, candidate lag VR<=1.00 inside a fixed six-M5 box, first breakout within six M5 bars, breakout VR>=1.25/body>=50%/outer-25% close, 50% retracement limit and structural stop.
+- Frozen same six Apr13-Jun30 development slices, Jun30 hard source seal, T40, 10%/20% target-cost stresses and unchanged USD500 safe-lot caps.
+- Jul-Aug and Sep remain sealed; Engine-Q outcomes are zero at freeze.
