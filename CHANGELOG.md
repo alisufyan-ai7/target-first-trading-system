@@ -412,3 +412,9 @@
 - Implemented Engine R v0.1 dynamic peer-residual mechanics and EXP-039 zero-outcome preflight/workflow before outcomes.
 - Frozen implementation checkpoint at main SHA `db879da22f4ec6ab3a7ca497f110f847b7ff373f`.
 - Protected Jul-Aug and Sep remain sealed; next computation is exactly one EXP-039 preflight.
+
+- Added `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md` at `b170bef2` and paused the strategy-family iteration loop.
+- Root cause: repeated recent engines mostly transform OHLC state and do not clear the raw-edge hurdle required to survive costs; Q demonstrated that non-chasing execution helps but is insufficient by itself.
+- Added research priority for microstructure/order flow, macro surprise, rates/cross-asset context, execution-grade spread/tick data, and target-ladder path modeling before another outcome engine.
+- Recorded the economic constraint that USD150-200 on USD500 is a 30%-40% daily return; per-trade risk will not be increased merely to force the objective before stable post-cost edge exists.
+- Engine R / EXP-039 paused before development during the audit; Jul-Aug and Sep remain sealed.
