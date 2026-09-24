@@ -1,6 +1,6 @@
 # EXP-033 — Engine N v0.2 Rolling Intraday Drive Pullback
 
-**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
+**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-n-rolling-drive-pullback/SPEC-v0.2.md`
 
@@ -87,3 +87,39 @@ Utility:
 - NONDEPLOYABLE 2.
 
 **Disposition:** PASS. Engine N v0.2 may proceed to development while Jul-Aug and Sep remain sealed.
+
+
+## Development implementation checkpoint — zero outcomes
+
+Frozen before any EXP-033 development outcome:
+
+- same six chronological development slices used by EXP-028/031;
+- same audited target-first labeler;
+- T40 vs frozen stop, same-bar stop first;
+- maximum 120 active M1 bars counting entry;
+- 20:00 UTC hard session cutoff;
+- same normalized-R signal metrics;
+- same safe-lot USD500 one-open portfolio;
+- same daily stop-adding-risk logic;
+- same >+0.20R pooled gross hurdle;
+- same post-cost expectancy / PF / drawdown / weekday / concentration gates;
+- hourly-anchor cohorts reported diagnostically only;
+- matched immediate control = first active M1 open after each qualified 30m drive, independent of later pullback fill;
+- no post-outcome hour selection;
+- Jul1 hard source seal.
+
+Implementation commits:
+
+- development runner: `48d527d0c0359c231ffb0f4d193c0d4c1495e5e0`;
+- development workflow: `bb4e70614a83a89086b276a9287fbbbf6996224a`.
+
+At this checkpoint:
+
+- EXP-033 target outcomes: **NO**;
+- EXP-033 P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+### Next
+
+Trigger EXP-033 development only. Any failed mandatory gate stops before secondary testing.
