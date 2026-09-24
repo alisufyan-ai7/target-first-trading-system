@@ -862,3 +862,57 @@ Files:
 - `research/code/engine_m_v0_4.py`;
 - `research/code/run_engine_m_v0_4_preflight.py`;
 - `.github/workflows/exp030-engine-m-v0.4-preflight.yml`.
+
+
+## Engine M v0.5 / EXP-031 — CURRENT PRIMARY PATH
+
+Engine M v0.4 / EXP-030 is closed before outcomes after its zero-outcome preflight failed frequency:
+
+- 237 filled valid signals;
+- 7/8 markets passed the >=25 + both-directions gate;
+- GBPUSD had 19;
+- total requirement >=300 was missed;
+- target/P&L outcomes remained zero;
+- Jul-Aug / Sep remained unopened.
+
+v0.4 materially improved opportunity density versus v0.3, so the H1-range concept is retained.
+
+v0.5 does **not** lower the failed v0.4 preflight gate. Instead it prospectively broadens the same coherent H1-range logic:
+
+- evaluate H1_0 first;
+- if H1_0 does not fully qualify, evaluate H1_1;
+- first qualifying range supplies both swept boundary and opposite target-room boundary;
+- one M15 bar can create at most one arm.
+
+Everything else remains unchanged:
+
+- H4/H1 directional alignment;
+- unchanged M5 rejection arm;
+- unchanged 50% M5 retracement limit;
+- unchanged structural stop;
+- unchanged T40;
+- signal-first sizing;
+- USD20 risk / USD50k notional / USD100 margin;
+- XAUUSD <=0.10 lot;
+- frozen costs.
+
+### EXP-031 zero-outcome preflight
+
+The frequency gate is intentionally unchanged from v0.4:
+
+- >=25 filled valid signals per market;
+- LONG + SHORT on every market;
+- >=300 total;
+- safe overlay passes;
+- no target/P&L outcomes;
+- Jul-Aug/Sep sealed.
+
+**Exact next action:** run EXP-031 preflight only.
+
+Files:
+
+- `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.5.md`;
+- `research/experiments/EXP-031-engine-m-v0.5-recent-h1-range-reclaim.md`;
+- `research/code/engine_m_v0_5.py`;
+- `research/code/run_engine_m_v0_5_preflight.py`;
+- `.github/workflows/exp031-engine-m-v0.5-preflight.yml`.
