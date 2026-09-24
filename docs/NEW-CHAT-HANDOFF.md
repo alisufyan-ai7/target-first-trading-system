@@ -1,6 +1,6 @@
 # New Chat Handoff — Target-First Trading System
 
-_Last updated: 2026-09-23 after Engine K / EXP-022 pre-outcome cleanup checkpoint_
+_Last updated: 2026-09-24 after Engine K v0.2 / EXP-023 freeze and pipeline-policy checkpoint_
 
 Use this file as the **first document to read whenever a new ChatGPT conversation is started for this project**.
 
@@ -36,19 +36,21 @@ Research/backtesting is the evidence layer used to build a profitable, reproduci
 11. `docs/decision-log.md`
 12. `docs/STRATEGY-ENGINE-CONTRACT.md`
 13. `strategies/STATUS.md`
-13. `research/experiments/EXP-014-original-engine-a-recovery-equivalent-sizing.md`
-14. `research/experiments/EXP-015-target-first-opportunity-ranker-v0.1.md`
-15. `research/experiments/EXP-016-engine-g-contextual-liquidity-reversal-v0.1.md`
-16. `research/experiments/EXP-017-engine-h-range-raid-preexisting-fvg-reversal-v0.1.md`
-17. `research/experiments/EXP-018-engine-h-v0.2-simplified-mss-confirmation.md`
-18. `research/experiments/EXP-019-engine-h-v0.3-postraid-stop-t40.md`
-19. `research/experiments/EXP-020-engine-i-session-expansion-continuation-v0.1.md`
-20. `strategies/engine-i-session-expansion-continuation/SPEC-v0.1.md`
-21. `research/experiments/EXP-021-engine-j-volatility-compression-breakout-v0.1.md`
-22. `strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md`
-23. `research/experiments/EXP-022-engine-k-multimarket-direct-target-move-scanner-v0.1.md`
-24. `research/provenance/EXP-022-wave1-data-manifest.md`
-25. `research/provenance/EXP-022-symbol-admission-policy.md`
+14. `research/experiments/EXP-014-original-engine-a-recovery-equivalent-sizing.md`
+15. `research/experiments/EXP-015-target-first-opportunity-ranker-v0.1.md`
+16. `research/experiments/EXP-016-engine-g-contextual-liquidity-reversal-v0.1.md`
+17. `research/experiments/EXP-017-engine-h-range-raid-preexisting-fvg-reversal-v0.1.md`
+18. `research/experiments/EXP-018-engine-h-v0.2-simplified-mss-confirmation.md`
+19. `research/experiments/EXP-019-engine-h-v0.3-postraid-stop-t40.md`
+20. `research/experiments/EXP-020-engine-i-session-expansion-continuation-v0.1.md`
+21. `strategies/engine-i-session-expansion-continuation/SPEC-v0.1.md`
+22. `research/experiments/EXP-021-engine-j-volatility-compression-breakout-v0.1.md`
+23. `strategies/engine-k-direct-target-move-scanner/SPEC-v0.1.md`
+24. `research/experiments/EXP-022-engine-k-multimarket-direct-target-move-scanner-v0.1.md`
+25. `strategies/engine-k-direct-target-move-scanner/SPEC-v0.2.md`
+26. `research/experiments/EXP-023-engine-k-v0.2-risk-normalized-target-scanner.md`
+27. `research/provenance/EXP-022-wave1-data-manifest.md`
+28. `research/provenance/EXP-022-symbol-admission-policy.md`
 
 Read the Badar/video and timeframe documents only when needed for historical context; do not use them as justification to keep retuning reversal engines.
 
