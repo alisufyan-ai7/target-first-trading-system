@@ -53,6 +53,17 @@
         "expired_unfilled": 78,
         "filled_economically_rejected": 135
       },
+      "economic_rejection_reason_counts": {
+        "risk": 135
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 33.3600000000024,
+        "median_notional_usd": 45983.95000000001,
+        "median_margin_usd": 91.96790000000003,
+        "median_gross_target_usd_actual": 40.0,
+        "max_notional_usd": 49600.450000000004,
+        "max_margin_usd": 99.2009
+      },
       "mechanical_fills": 196,
       "admissible_entry_paths": 61,
       "admissible_by_direction": {
@@ -252,6 +263,17 @@
         "admissible_fill": 6,
         "expired_unfilled": 84,
         "filled_economically_rejected": 170
+      },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 170
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.692499999997782,
+        "median_notional_usd": 149073.61,
+        "median_margin_usd": 298.14721999999995,
+        "median_gross_target_usd_actual": 39.9,
+        "max_notional_usd": 461644.00000000006,
+        "max_margin_usd": 923.2880000000001
       },
       "mechanical_fills": 176,
       "admissible_entry_paths": 6,
@@ -453,6 +475,17 @@
         "expired_unfilled": 108,
         "filled_economically_rejected": 200
       },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 200
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.600000000004062,
+        "median_notional_usd": 128819.0849999999,
+        "median_margin_usd": 257.63816999999983,
+        "median_gross_target_usd_actual": 39.84,
+        "max_notional_usd": 446945.9399999998,
+        "max_margin_usd": 893.8918799999997
+      },
       "mechanical_fills": 212,
       "admissible_entry_paths": 12,
       "admissible_by_direction": {
@@ -652,6 +685,17 @@
         "admissible_fill": 8,
         "expired_unfilled": 103,
         "filled_economically_rejected": 185
+      },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 185
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.880913824454026,
+        "median_notional_usd": 190000.0,
+        "median_margin_usd": 380.0,
+        "median_gross_target_usd_actual": 39.91763915499265,
+        "max_notional_usd": 584000.0,
+        "max_margin_usd": 1168.0
       },
       "mechanical_fills": 193,
       "admissible_entry_paths": 8,
@@ -853,6 +897,17 @@
         "expired_unfilled": 119,
         "filled_economically_rejected": 190
       },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 190
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.85780925288406,
+        "median_notional_usd": 144840.6849765425,
+        "median_margin_usd": 289.681369953085,
+        "median_gross_target_usd_actual": 39.85914148983713,
+        "max_notional_usd": 436007.5082311998,
+        "max_margin_usd": 872.0150164623997
+      },
       "mechanical_fills": 193,
       "admissible_entry_paths": 3,
       "admissible_by_direction": {
@@ -1012,6 +1067,17 @@
         "admissible_fill": 20,
         "expired_unfilled": 114,
         "filled_economically_rejected": 178
+      },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 178
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.94999999999081,
+        "median_notional_usd": 92971.59000000017,
+        "median_margin_usd": 185.94318000000035,
+        "median_gross_target_usd_actual": 39.9,
+        "max_notional_usd": 261347.2950000005,
+        "max_margin_usd": 522.694590000001
       },
       "mechanical_fills": 198,
       "admissible_entry_paths": 20,
@@ -1213,6 +1279,17 @@
         "expired_unfilled": 114,
         "filled_economically_rejected": 209
       },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 209
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.764830034917413,
+        "median_notional_usd": 177000.0,
+        "median_margin_usd": 354.0,
+        "median_gross_target_usd_actual": 39.89395833868065,
+        "max_notional_usd": 926000.0,
+        "max_margin_usd": 1852.0
+      },
       "mechanical_fills": 212,
       "admissible_entry_paths": 3,
       "admissible_by_direction": {
@@ -1372,6 +1449,17 @@
         "admissible_fill": 13,
         "expired_unfilled": 86,
         "filled_economically_rejected": 188
+      },
+      "economic_rejection_reason_counts": {
+        "notional+margin": 188
+      },
+      "economic_rejection_diagnostics": {
+        "median_stop_risk_usd": 19.921928866889793,
+        "median_notional_usd": 119000.0,
+        "median_margin_usd": 238.0,
+        "median_gross_target_usd_actual": 39.851325141316664,
+        "max_notional_usd": 517000.0,
+        "max_margin_usd": 1034.0
       },
       "mechanical_fills": 201,
       "admissible_entry_paths": 13,
