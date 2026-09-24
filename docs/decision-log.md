@@ -609,3 +609,20 @@ When the user returns, resume by reading the durable GitHub result and applying 
 **Integrity:** all v0.2 zero-outcome self-tests passed. No target/model outcomes were calculated; July-August and September remain unopened.
 
 **Next:** run only Mar23-May31 training + June calibration under the frozen v0.2 model/economic gates. Stop before secondary testing if any mandatory gate fails.
+
+
+## 2026-09-24 — Stop Engine K v0.2 before secondary test
+
+**Decision:** EXP-023 fails its frozen training/June gate. Do not inspect July-August or September.
+
+**Result/model commit:** `763aefadbe56ee7012b475dcb677f6f78d8036ec`.
+
+**Evidence:** 281,955 labeled rungs across all eight execution markets; June AUC approximately 0.674 / 0.710 / 0.743 for T30/T40/T50. Despite this rank discrimination, the frozen qualification rule yielded only 2 combined trades and 0 June trades.
+
+**Gate:** market coverage PASS; combined >=100 trades FAIL; June >=20 trades FAIL; June hit-rate/expectancy/PF gates FAIL/unavailable; DD/integrity/protection PASS.
+
+**Interpretation:** v0.2 solved cross-market economic admission but not trade qualification density. The two combined trades both won but are statistically meaningless and cannot justify secondary testing.
+
+**Protection:** July-August secondary test and September final holdout remain sealed.
+
+**Next:** new prospectively frozen version only; no threshold relaxation inside v0.2.
