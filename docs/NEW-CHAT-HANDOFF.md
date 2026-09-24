@@ -1679,3 +1679,13 @@ Candidate lag, six-M5 breakout arm, breakout confirmation, 50% limit, stop, T40,
 No v0.2 outcomes exist. Jul-Aug and Sep remain sealed.
 
 **Exact next action:** implement and run EXP-038 zero-outcome preflight only.
+
+
+### EXP-038 implementation checkpoint
+
+Engine Q v0.2 is implemented and frozen before outcomes at main SHA `850fe44fa426b2ee4f235d3af140fa981ff26ae2`.
+
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: sealed.
+
+**Exact next action:** trigger exactly one EXP-038 zero-outcome preflight, confirm it starts once, then follow the long-running pipeline policy.
