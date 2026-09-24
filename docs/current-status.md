@@ -1569,3 +1569,22 @@ Durable checkpoint: `3d9ca37fc733542f1ed2554e26a2989b1b578f2d`.
 - Jul-Aug and Sep remain sealed.
 
 **Next permitted stage:** six-slice EXP-038 development using the already-frozen >+0.20R gross hurdle and post-cost/stability/reference-account gates.
+
+
+### EXP-038 development launch checkpoint
+
+Engine Q v0.2 passed zero-outcome preflight and its six-slice development runner/workflow are frozen at main SHA `be6c986d6ec887b202372a912444cbf7b73b9669` before outcomes.
+
+Development evaluates:
+
+1. pooled normalized-R signal edge;
+2. per-market and six-fold stability;
+3. descriptive rolling peer-shock/lag/breakout/time diagnostics;
+4. safe-lot USD500 one-open portfolio;
+5. matched immediate-entry control on the same qualified breakout triggers.
+
+Mandatory gross hurdle remains >+0.20R and all post-cost economic gates remain unchanged.
+
+Fold membership is keyed to breakout completion time. Jul-Aug and Sep remain sealed.
+
+**Exact next action:** run EXP-038 development only.
