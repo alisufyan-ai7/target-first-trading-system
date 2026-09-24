@@ -946,3 +946,20 @@ Durable checkpoint: `e0c7566`.
 The unchanged v0.4 frequency gate was passed without moving the goalposts.
 
 **Next permitted stage:** six-slice EXP-031 development using the already frozen >+0.20R gross-edge and post-cost economic gates.
+
+
+### EXP-031 development launch checkpoint
+
+Engine M v0.5 passed zero-outcome preflight and its six-slice development runner is now frozen.
+
+Development will test:
+
+1. pooled normalized-R signal edge;
+2. H1_0 and H1_1 cohorts separately;
+3. safe-lot USD500 one-open portfolio economics.
+
+Mandatory gross-edge hurdle remains **>+0.20R**. Post-cost primary/stress expectancy, PF, drawdown, weekday and concentration gates remain unchanged.
+
+Jul-Aug and Sep remain sealed.
+
+**Exact next action:** run EXP-031 development only.
