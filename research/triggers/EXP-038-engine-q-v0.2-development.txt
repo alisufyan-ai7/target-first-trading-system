@@ -1,0 +1,2 @@
+Trigger EXP-038 Engine Q v0.2 development.
+Frozen inputs are checkpointed; do not mutate while this run is active.
