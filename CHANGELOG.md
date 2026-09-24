@@ -206,3 +206,9 @@
 - Calibrated June AUC remained about 0.672/0.708/0.740 for T30/T40/T50, indicating rank signal without sufficient economic conversion.
 - July-Aug secondary-test and September final-holdout remain unopened.
 - Next methodology shifts from hand-picked threshold/version changes to bounded chronological development model/configuration selection on the reusable Mar-Jun pool.
+
+- Opened EXP-025 / Engine K v0.4 bounded walk-forward selection after v0.3 failed June economics.
+- Frozen exactly 12 configurations across two HGB variants, two Platt calibration methods, and three stress-EV qualification policies.
+- Frozen six expanding chronological development folds through Jun30; Jul-Aug and Sep remain sealed.
+- Added stability-first configuration gate/winner rule and a hard stop if no configuration passes.
+- Added development-only EXP-025 walk-forward runner and workflow.
