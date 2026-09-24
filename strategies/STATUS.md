@@ -172,4 +172,6 @@ v0.2 is prospectively frozen with zero outcomes:
 - p_required = max(0.50, break-even +0.10);
 - July-August and September remain sealed.
 
-**Next:** zero-outcome EXP-023 economic-coverage preflight. No labels unless every execution market has >=200 admissible states through June.
+**Preflight:** PASSED at result commit `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`. All 8 execution markets exceeded 200 admissible states; total 94,238 states / 281,955 rungs through June.
+
+**Next:** training Mar23-May31 + June calibration only. July-August and September remain sealed.
