@@ -1343,3 +1343,34 @@ Durable result: `2b8c781`.
 - Jul-Aug/Sep: unopened.
 
 **Next:** EXP-033 six-slice development. Report hourly-anchor cohorts diagnostically without post-outcome hour selection.
+
+
+### EXP-033 development launch checkpoint
+
+Engine N v0.2 zero-outcome preflight passed:
+
+- 626 filled valid signals;
+- all eight markets passed >=25 and both directions;
+- 624 safely deployable;
+- GE40 32 / GE30 474 / LT30 118.
+
+Development runner/workflow are frozen:
+
+- six fixed slices;
+- normalized-R signal edge;
+- safe-lot USD500 one-open portfolio;
+- hourly-anchor diagnostics only;
+- matched immediate control = first active M1 open after each qualified 30m drive;
+- T40 vs frozen stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- 20:00 UTC cutoff;
+- >+0.20R gross hurdle and all post-cost gates unchanged.
+
+At launch:
+
+- target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-033 development and stop before secondary on any failed mandatory gate.
