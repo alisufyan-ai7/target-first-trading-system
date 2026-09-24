@@ -795,3 +795,18 @@ Frozen roles:
 **Protection:** Mar-Jun reusable development; Jul-Aug and Sep sealed.
 
 **Next:** zero-outcome mechanics preflight only. Require >=50 admissible paths per market, both directions, >=600 total before development P&L is permitted.
+
+
+## 2026-09-24 — Separate Engine-M signal validity from account deployability
+
+**Decision:** close EXP-027 before outcomes and open EXP-028 / Engine M v0.2 with unchanged trade mechanics.
+
+**Evidence:** EXP-027 produced 1,581 mechanical fills. Only 126 passed old USD40-equivalent admission. FX rejections were almost entirely notional+margin while median stop risk stayed near USD20.
+
+**Interpretation:** account-specific USD40 sizing was being used too early as a strategy-validation filter. This conflicts with the project architecture: validate engine candidate first, then apply equivalent sizing/risk/margin/notional gates.
+
+**v0.2 correction:** retain all causal filled signals for signal-edge validation; separately annotate the maximum safe reference-account lot and achievable USD target under unchanged safety caps.
+
+**No safety relaxation:** USD20 stop risk, USD50k notional, USD100 margin and 0.10 Gold anchor remain unchanged.
+
+**Protection:** no Engine-M target/P&L outcomes yet; Jul-Aug and Sep remain sealed.
