@@ -347,3 +347,22 @@ Engine M v0.2 development: **FAIL** at `bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb
 The MTF retracement-limit entry improved the immediate control but did not create enough edge to cover costs.
 
 Jul-Aug / Sep remain sealed.
+
+
+## Engine M v0.3 / EXP-029 — current primary path
+
+v0.2 is closed before secondary testing after producing a small positive gross edge but negative post-cost economics.
+
+v0.3 preserves the successful execution insight and strengthens setup selection:
+
+- H4/H1 aligned direction;
+- strict prior-4-M15 liquidity sweep + reclaim;
+- H1 midpoint reclaim;
+- unchanged M5 outer-quartile arm;
+- unchanged 50% M5 retracement limit;
+- unchanged structural stop;
+- T40 must point toward a recent completed H1 liquidity extreme.
+
+**Status:** prospectively frozen, zero v0.3 outcomes.
+
+**Next:** zero-outcome EXP-029 selective preflight only.
