@@ -1,6 +1,6 @@
 # EXP-026 — Engine L v0.1 Forecast-Armed Micro Pullback Entry
 
-**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
+**Status:** CLOSED — DEVELOPMENT GATE FAILED; SECONDARY SEALED  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-l-forecast-armed-micro-entry/SPEC-v0.1.md`
 
@@ -171,3 +171,94 @@ At this checkpoint:
 ### Next
 
 Trigger EXP-026 development only. Apply the frozen development gate; fail any mandatory condition -> stop before secondary.
+
+
+## Development outcome — FAIL
+
+**Workflow run:** `35991120871`  
+**Tested repository SHA:** `ca05b65200a66fd2ff39f4b902a3deed53894ef0`  
+**Durable result commit:** `7cacd739f80ab37a2f6465924937bd6489b1b966`
+
+Protection:
+
+- development only through Jun30;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+Engine L pooled result:
+
+- 303 actual trades;
+- 57 distinct trade weekdays;
+- target hits: 80;
+- hit rate: **26.40%**;
+- mean stress break-even probability: **46.42%**;
+- primary expectancy: **-USD5.82/trade**;
+- stress expectancy: **-USD9.77/trade**;
+- primary PF: **0.628**;
+- stress PF: **0.469**;
+- stress max drawdown: **USD3,141.88**;
+- positive-stress folds: **0/6**.
+
+Matched immediate-entry control:
+
+- 438 actual trades;
+- hit rate: **18.49%**;
+- primary expectancy: **-USD4.55/trade**;
+- stress expectancy: **-USD8.49/trade**;
+- primary PF: **0.645**;
+- stress PF: **0.452**.
+
+Engine L increased hit rate substantially but **reduced** pooled stress expectancy versus the matched control by about **USD1.28/trade**. It beat the control on stress expectancy in only 3/6 folds.
+
+Entry-quality diagnostics:
+
+- 35,211 forecast arms;
+- 28,976 reached the required pullback;
+- 23,457 reached M1 resumption;
+- only 2,643 became economically admissible micro entries;
+- 20,178 resumption triggers were economically rejected;
+- median wait to micro entry: 7 active M1 bars;
+- median fresh-stop distance: about 0.00051 native units;
+- median old-stop distance: about 0.00106;
+- median "entry price improvement" was **negative ~0.516 V5**.
+
+Interpretation of the last point:
+
+the pullback occurred, but waiting for the frozen previous-M1-break + outer-quartile resumption and then entering next-open caused the system to re-enter after price had already moved back in the forecast direction. The typical executed entry was therefore **worse than the original decision close by about half a recent 5m median range**, not better.
+
+This is the central entry lesson from EXP-026: confirmation as implemented became **chasing**, even though it tightened the stop and improved raw hit rate.
+
+Forecast-score development diagnostic:
+
+- lowest quartile hit rate ~25.3%, stress expectancy ~-USD10.52/trade;
+- second quartile ~25.0%, ~-USD10.79/trade;
+- third quartile ~28.9%, ~-USD6.68/trade;
+- highest quartile ~26.3%, ~-USD11.10/trade.
+
+Thus a simple absolute probability threshold is not the justified next fix.
+
+Frozen gate result:
+
+- frequency / weekday / market-concentration gates: PASS;
+- primary expectancy: FAIL;
+- stress expectancy: FAIL;
+- primary PF: FAIL;
+- stress PF: FAIL;
+- hit-rate vs stress break-even: FAIL;
+- positive-stress folds: FAIL;
+- stress drawdown: FAIL;
+- >=USD2/trade improvement over control: FAIL;
+- better than control in >=4 folds: FAIL;
+- integrity/protection: PASS.
+
+**Final disposition:** FAIL. Do not open Jul-Aug.
+
+### Methodological conclusion
+
+Engine L demonstrated that lower-timeframe entry mechanics matter, but the specific "pullback -> breakout/resumption -> next-open" rule enters too late. The next design should not add a probability threshold or tune the same resumption rule.
+
+The strongest prospective direction is the already documented multi-timeframe hierarchy:
+
+`4H/1H context -> 15m setup/location -> 5m tactical decision -> lower-timeframe entry`
+
+with an entry mechanism that preserves the favorable pullback price rather than requiring a chase after a full short-term breakout.
