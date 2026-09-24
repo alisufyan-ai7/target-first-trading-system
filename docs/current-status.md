@@ -1545,3 +1545,12 @@ Jun30 remains the hard source seal. Jul-Aug and Sep remain sealed.
 No Engine-Q v0.2 outcomes exist.
 
 **Exact next action:** implement and run EXP-038 zero-outcome preflight only.
+
+
+### EXP-038 zero-outcome implementation checkpoint
+
+Engine Q v0.2 implementation, runner and workflow are frozen at main SHA `850fe44fa426b2ee4f235d3af140fa981ff26ae2` before outcomes.
+
+Target/P&L outcomes remain zero; Jul-Aug/Sep remain sealed.
+
+**Next:** trigger one EXP-038 zero-outcome preflight only.
