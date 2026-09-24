@@ -973,3 +973,25 @@ Do not rescue by post-hoc symbol selection or another minor H1 lookback/filter v
 Retain only the architectural lesson that non-chasing limit/retracement execution can improve entry quality.
 
 Protected Jul-Aug and Sep remain sealed for a genuinely different prospectively frozen family.
+
+
+## 2026-09-24 — Freeze Engine N v0.1 session opening-drive family
+
+**Decision:** after closing Engine M, test a genuinely different session-continuation family rather than another H1/liquidity-filter variant.
+
+Engine N v0.1:
+
+- fixed London 07:00 UTC and New York 13:30 UTC anchors;
+- first exact 30 minutes define opening drive;
+- eight preceding exact M15 bars define baseline;
+- drive >=1.50x baseline median;
+- body >=60%;
+- directional outer-25% close;
+- non-chasing 50% drive pullback entry;
+- stop beyond drive extreme;
+- 45-active-M1 order life;
+- unchanged T40, costs and account safety.
+
+Preflight opportunity-density gate remains >=25 filled signals per market and >=300 total.
+
+No outcomes exist at freeze. Jul-Aug and Sep remain sealed.
