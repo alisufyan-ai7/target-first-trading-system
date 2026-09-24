@@ -842,3 +842,23 @@ No Engine-M setup/entry/stop/target parameter changes.
 Daily USD100/USD150 reporting uses final realized UTC-day primary P&L with all eligible weekdays in the denominator.
 
 At freeze: no EXP-028 target/P&L outcomes; Jul-Aug and Sep sealed.
+
+
+## 2026-09-24 — Close EXP-028 after small gross edge failed costs
+
+**Decision:** stop Engine M v0.2 before secondary testing.
+
+**Result:** `bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb`.
+
+Engine-M limit entry improved the matched immediate control:
+
+- gross normalized expectancy +0.0367R vs -0.0146R;
+- hit rate 35.07% vs 32.55%.
+
+But primary/stress normalized expectancy remained -0.1625R / -0.3616R, with zero positive-stress folds. The safe-lot portfolio was also negative and had excessive drawdown.
+
+**Interpretation:** non-chasing entry is a useful architectural improvement, but the current H4/H1 direction + H1-midpoint reclaim + M5 rejection setup is not selective enough.
+
+**Protection:** Jul-Aug and Sep remain sealed.
+
+**Next research requirement:** improve pre-cost signal quality prospectively; do not lower costs/gates or tune against protected data.
