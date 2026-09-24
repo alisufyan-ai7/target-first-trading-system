@@ -1,0 +1,1 @@
+Trigger EXP-026 Engine L v0.1 six-fold development versus matched immediate-entry control. Use fixed M2 raw T40 forecast and frozen pullback/resumption/fresh-stop mechanics. Development through 2026-06-30 only. Do not load or label Jul-Aug secondary test or Sep final holdout. 2026-09-24.
