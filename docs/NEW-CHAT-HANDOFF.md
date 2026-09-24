@@ -1289,3 +1289,43 @@ Outcome state:
 - Sep: unopened.
 
 **Next:** trigger EXP-032 zero-outcome preflight. Require >=25 signals per market, both directions, >=300 total.
+
+
+## Engine N v0.2 / EXP-033 authoritative current state
+
+EXP-032 / Engine N v0.1 closed before outcomes:
+
+- 123 filled signals;
+- frequency gate failed;
+- both directions everywhere;
+- safe overlay passed;
+- Jul-Aug/Sep unopened.
+
+Current prospectively frozen version:
+
+**Engine N v0.2 — Rolling Intraday Drive Pullback Scanner**
+
+Every eligible weekday and market scans:
+
+`06:00, 07:00, ..., 17:00 UTC`.
+
+For each anchor:
+
+- 30m drive;
+- prior-eight-M15 baseline;
+- 1.50x expansion;
+- 60% body;
+- outer-25% close;
+- 50% pullback limit;
+- drive-extreme stop;
+- 45-M1 / anchor+90m horizon.
+
+Adjacent cycles are non-overlapping.
+
+Outcome state:
+
+- target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-033 zero-outcome preflight with unchanged >=25-per-market / >=300-total gate.
