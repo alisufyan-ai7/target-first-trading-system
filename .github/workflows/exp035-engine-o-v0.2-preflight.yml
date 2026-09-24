@@ -37,7 +37,8 @@ jobs:
           import engine_o_v0_2 as o
           import run_engine_o_v0_2_preflight as r
           print(o.self_tests_engine_o_v02())
-          print(r.synthetic_engine_o_tests())
+          print(r.synthetic_engine_o_v02_tests())
+          print(r.pending_suppression_tests())
           print(r.continuous_grid_tests())
           print("ZERO_OUTCOME_CONTINUOUS_M5_REVERSION_PREFLIGHT=YES")
           PY
