@@ -1129,3 +1129,20 @@ Files:
 - `research/code/engine_n_v0_2.py`;
 - `research/code/run_engine_n_v0_2_preflight.py`;
 - `.github/workflows/exp033-engine-n-v0.2-preflight.yml`.
+
+
+### EXP-033 zero-outcome preflight PASS
+
+Durable checkpoint: `2b8c781`.
+
+- 626 filled valid signals;
+- all eight markets pass >=25 and both directions;
+- 624 safely deployable;
+- GE40 32 / GE30 474 / LT30 118 / NONDEPLOYABLE 2;
+- parsed source max timestamp 2026-06-30 23:59 UTC;
+- zero target/P&L outcomes;
+- Jul-Aug and Sep sealed.
+
+The rolling hourly scanner solved the v0.1 opportunity-density failure without lowering the gate.
+
+**Next permitted stage:** six-slice EXP-033 development using the already frozen >+0.20R gross-edge and post-cost economic gates.
