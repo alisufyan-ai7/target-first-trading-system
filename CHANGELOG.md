@@ -317,3 +317,8 @@
 - 624 signals were safely deployable; GE40 32 / GE30 474 / LT30 118.
 - The unchanged opportunity-density gate passed without post-hoc relaxation.
 - Jul-Aug and Sep remain sealed.
+
+- Frozen EXP-033 development runner before outcomes after rolling scanner preflight PASS.
+- Froze T40/stop-first outcome handling, 120-active-M1 maximum horizon, 20:00 UTC cutoff and matched immediate-entry control.
+- Hourly-anchor cohorts are diagnostic only; no post-outcome hour whitelist is allowed.
+- Jul-Aug and Sep remain sealed.
