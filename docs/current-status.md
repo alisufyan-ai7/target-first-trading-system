@@ -1497,3 +1497,20 @@ Engine-Q implementation/preflight/workflow are frozen at main SHA `c51c8f9566a6c
 - Jul-Aug/Sep: sealed.
 
 **Next:** trigger one EXP-037 zero-outcome preflight and follow the long-running pipeline policy.
+
+
+## Engine Q v0.1 / EXP-037 — CLOSED AT ZERO-OUTCOME PREFLIGHT
+
+Durable result: `b05efb3038d6f3531a0def07ff6df09f0a25622b`.
+
+- 56 filled signals total;
+- all 56 safely deployable;
+- all eight markets failed the >=25 + both-directions gate;
+- total >=300 failed;
+- no target/P&L outcomes were calculated;
+- Jun30 source seal held;
+- Jul-Aug and Sep remained unopened.
+
+Main bottleneck: simultaneous same-M5 >=4 peer shocks at VR>=1.75 was too sparse, especially for FX.
+
+Do not lower the frequency gate. Any next version must alter the zero-outcome sampling architecture prospectively rather than relax the failed gate.
