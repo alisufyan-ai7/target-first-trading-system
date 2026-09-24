@@ -1137,3 +1137,34 @@ Outcome state:
 - Sep: unopened.
 
 **Next:** trigger EXP-029 zero-outcome preflight. Require >=35 signals per market, both directions, >=400 total.
+
+
+## Engine M v0.4 / EXP-030 authoritative current state
+
+EXP-029 / v0.3 is closed before outcomes:
+
+- 106 filled signals;
+- frequency gate failed;
+- target/P&L outcomes NO;
+- Jul-Aug/Sep unopened.
+
+Current version:
+
+**Engine M v0.4 — Prior-H1 Range Sweep/Reclaim Limit Entry**
+
+Flow:
+
+`H4/H1 direction -> M15 sweep/reclaim latest completed H1 boundary -> unchanged M5 arm -> unchanged 50% retracement limit`.
+
+Target-room:
+
+- LONG target <= H1_0.high;
+- SHORT target >= H1_0.low.
+
+Outcome state:
+
+- v0.4 outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-030 zero-outcome preflight. Require >=25 signals per market, both directions, >=300 total.
