@@ -85,8 +85,8 @@ def synthetic_recent_h1_tests()->list[str]:
     # Short mirror: H1_0 fails on sweep, H1_1 qualifies.
     bars4=_base_fixture()
     bars4["h4"].loc[1,"close"]=1.02
-    bars4["h1"].loc[0,["open","high","low","close"]]=[1.20,1.35,0.80,1.18]
-    bars4["h1"].loc[1,["open","high","low","close"]]=[1.16,1.20,0.85,1.02]
+    bars4["h1"].loc[0,["open","high","low","close"]]=[1.20,1.20,0.80,1.18]
+    bars4["h1"].loc[1,["open","high","low","close"]]=[1.16,1.35,0.90,1.02]
     bars4["m15"].loc[0,["open","high","low","close"]]=[1.15,1.25,1.00,1.05]
     bars4["m5"].loc[0,["open","high","low","close"]]=[1.10,1.12,1.04,1.08]
     bars4["m5"].loc[1,["open","high","low","close"]]=[1.08,1.12,0.94,0.96]
