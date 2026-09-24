@@ -580,3 +580,22 @@ Engine P v0.1 preflight: **PASS** at `12c6f5d`.
 - Jul-Aug and Sep sealed.
 
 **Next:** six-slice development.
+
+
+## Engine P family — closed
+
+Engine P v0.1 / EXP-036 development: **FAIL** at `52e9003f351eb7f5abdf9b38f74c279c88d33906`.
+
+- 4,804 signals;
+- gross -0.04065R;
+- primary -0.23568R;
+- stress -0.43072R;
+- 0/6 stress-positive folds;
+- 836 reference-account trades;
+- primary/stress expectancy -USD2.02 / -USD4.15;
+- primary/stress PF 0.761 / 0.580;
+- stress MDD USD3,526.25.
+
+Jul-Aug and Sep remain sealed. No Engine-P threshold/hour/symbol/direction rescue is permitted.
+
+Next family must use a genuinely different information source and be prospectively frozen before outcomes.
