@@ -1225,3 +1225,12 @@ The same six development slices are frozen and source is hard-sealed at Jun30. J
 No Engine-Q outcome exists at freeze.
 
 **Next:** zero-outcome implementation/preflight only; require >=25 fills per market, both directions, >=300 total before any target/P&L labeling.
+
+
+## 2026-09-24 — Freeze EXP-037 implementation before preflight outcomes
+
+**Decision:** Engine-Q mechanics, zero-outcome runner and workflow are now frozen at repository SHA `c51c8f9566a6ccfddaf8117c2b0a80c45fbeb10b`.
+
+No target/P&L outcomes exist and protected periods remain sealed.
+
+The only permitted next computation is the EXP-037 zero-outcome preflight. No frozen input may change while that workflow is running.
