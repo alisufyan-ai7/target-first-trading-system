@@ -593,3 +593,57 @@ Durable checkpoint: `89279ad`.
 This indicates that the immediate blocker is **post-fill economic feasibility**, not a shortage of MTF setups or retracement fills.
 
 **Next:** zero-outcome rejection audit of lot/risk/notional/margin gates. Do not alter MTF entry mechanics yet.
+
+
+## Engine M v0.2 / EXP-028 — CURRENT PRIMARY PATH
+
+EXP-027 / Engine M v0.1 is closed before outcomes because its preflight incorrectly used USD40-equivalent deployment feasibility as a prerequisite for strategy-signal validity.
+
+Audited EXP-027 result:
+
+- 1,581 mechanical MTF limit fills;
+- 126 old-style economically admitted paths;
+- FX rejections overwhelmingly caused by the USD50k-notional / USD100-margin envelope, not by excessive stop risk;
+- target/P&L outcomes remained zero;
+- Jul-Aug / Sep remain unopened.
+
+Engine M v0.2 keeps **all trading mechanics unchanged** and restores the intended research order:
+
+`signal validity -> safe sizing/deployability -> portfolio economics`.
+
+### v0.2 zero-outcome preflight
+
+Every mechanically filled valid signal is retained for signal-layer research.
+
+Separately calculate the largest safe lot under the unchanged:
+
+- stop risk <=USD20;
+- notional <=USD50k;
+- margin <=USD100 at 1:500;
+- 0.01 lot step;
+- XAUUSD capped at 0.10 lot.
+
+Report utility:
+
+- GE40;
+- GE30;
+- LT30.
+
+Mandatory preflight:
+
+- >=50 filled valid signals per market;
+- both directions per market;
+- >=600 total;
+- safe overlay never violates frozen safety caps;
+- no target/P&L outcomes;
+- Jul-Aug/Sep sealed.
+
+Files:
+
+- `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.2.md`;
+- `research/experiments/EXP-028-engine-m-v0.2-signal-first-validation.md`;
+- `research/code/engine_m_v0_2.py`;
+- `research/code/run_engine_m_v0_2_preflight.py`;
+- `.github/workflows/exp028-engine-m-v0.2-preflight.yml`.
+
+**Exact next action:** run EXP-028 zero-outcome preflight only.
