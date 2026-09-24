@@ -1,6 +1,6 @@
 # EXP-035 — Engine O v0.2 Continuous M5 Statistical Reversion
 
-**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
+**Status:** CLOSED — DEVELOPMENT GATE FAILED; SECONDARY SEALED  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-o-continuous-m5-statistical-stretch-reversion/SPEC-v0.2.md`
 
@@ -141,3 +141,87 @@ At this checkpoint:
 ### Next
 
 Trigger EXP-035 development only. Any failed mandatory gate stops before secondary testing.
+
+
+## Development outcome — FAIL
+
+**Trigger SHA:** `f7190c51a65a1dffd22d1f34af070c74dc0be73a`  
+**Durable result commit:** `f37a757`  
+**Result:** `research/results/EXP-035-development-summary-v0.2.json`
+
+Protection:
+
+- development source parsed only through 2026-06-30;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+### Pooled signal layer
+
+- 430 development signals;
+- target hit rate: **33.02%**;
+- gross normalized expectancy: **-0.0719R**;
+- primary expectancy: **-0.2611R**;
+- stress expectancy: **-0.4504R**;
+- primary PF: **0.672**;
+- stress PF: **0.514**;
+- positive-stress folds: **0/6**.
+
+### Matched immediate-entry control
+
+- 784 controls;
+- gross expectancy: **-0.0161R**;
+- primary expectancy: **-0.1991R**;
+- stress expectancy: **-0.3821R**.
+
+The pullback entry did not rescue a weak underlying mean-reversion predictor.
+
+### Reference USD500 portfolio
+
+- 253 trades;
+- 57 distinct trade weekdays;
+- primary P&L: **-USD787.13**;
+- stress P&L: **-USD1,362.06**;
+- primary expectancy: **-USD3.11/trade**;
+- stress expectancy: **-USD5.38/trade**;
+- primary PF: **0.682**;
+- stress PF: **0.524**;
+- primary MDD: **USD827.20**;
+- stress MDD: **USD1,393.67**;
+- final-day >=USD100: **0**;
+- final-day >=USD150: **0**.
+
+### Diagnostics
+
+EURJPY was the only market with materially positive gross development expectancy, but stress expectancy was still slightly negative.
+
+Some hour cohorts looked positive retrospectively, especially H16, but sample size was tiny.
+
+These are inspected development diagnostics only.
+
+**Do not create a post-hoc EURJPY-only or H16 whitelist.**
+
+### Failed mandatory gates
+
+- pooled gross normalized expectancy >+0.20R;
+- pooled primary expectancy >0;
+- pooled stress expectancy >0;
+- >=4/6 positive-stress folds;
+- reference primary expectancy >0;
+- reference stress expectancy >0;
+- primary PF >=1.10;
+- stress PF >=1.05;
+- stress MDD <=USD150.
+
+Frequency, fold count, weekday count, diversification, provenance and protected-period gates passed.
+
+### Final disposition
+
+**FAIL.** Do not open Jul-Aug.
+
+### Family-level conclusion
+
+Engine O proved that continuous M5 scanning can create enough multi-market opportunity density, but isolated-symbol statistical stretch/rejection is **not a robust predictor** of the required target-first move.
+
+Do not create Engine O v0.3 by selecting retrospective hours, symbols or minor stretch thresholds.
+
+Preserve only the continuous-scanning architecture and move to a genuinely different information source.
