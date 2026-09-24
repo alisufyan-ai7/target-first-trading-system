@@ -154,3 +154,22 @@ Status:
 - training + June calibration completed and FAILED the frozen pre-secondary gate; July-August and September remain sealed.
 
 Do not retune G/H/I/J while Engine K is being evaluated.
+
+
+## Engine K v0.2 / EXP-023 — current primary path
+
+v0.1 is closed before secondary testing.
+
+v0.2 is prospectively frozen with zero outcomes:
+
+- same 8 execution markets / 4 forecast-only markets;
+- same dense 5m long/short scanner;
+- same structural stop and 29 causal features;
+- Gold remains +3/+4/+5 at 0.10 lot;
+- non-Gold target-first ladder = 1.5R / 2.0R / 2.5R, target defined before size;
+- downward P&L-equivalent sizing to USD30/40/50;
+- unchanged USD20 risk, USD50k notional, USD100 research-margin gates;
+- p_required = max(0.50, break-even +0.10);
+- July-August and September remain sealed.
+
+**Next:** zero-outcome EXP-023 economic-coverage preflight. No labels unless every execution market has >=200 admissible states through June.
