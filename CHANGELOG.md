@@ -230,3 +230,6 @@
 - No Engine-L target/P&L outcomes were calculated; Jul-Aug and Sep remain sealed.
 - Added `research/notes/MULTI-TIMEFRAME-INTRADAY-GUIDANCE.md` from user-supplied top-down timeframe examples.
 - Guidance separates 4H/1H context, 15m setup/location, 5m arm, and 1m execution without treating any social-media timeframe claim as a hard rule.
+
+- Frozen Engine L six-fold development runner before outcomes, including matched immediate-entry control, causal pending-arm resolution, and pooled entry-quality diagnostics.
+- EXP-026 still has zero development P&L outcomes at the implementation checkpoint; Jul-Aug and Sep remain sealed.
