@@ -1258,3 +1258,34 @@ Family conclusion:
 Jul-Aug and Sep remain unopened.
 
 **Next:** genuinely different prospectively frozen engine family.
+
+
+## Engine N v0.1 / EXP-032 authoritative current state
+
+Engine M family is closed.
+
+Current prospectively frozen family:
+
+**Engine N v0.1 — Session Opening Drive Pullback Continuation**
+
+Mechanics:
+
+- London anchor 07:00 UTC;
+- New York anchor 13:30 UTC;
+- first exact 30 minutes = drive;
+- prior eight exact M15 bars = volatility baseline;
+- drive >=1.50x median baseline range;
+- body >=60%;
+- close in directional outer 25%;
+- enter first 50% pullback;
+- stop beyond drive extreme;
+- order life 45 active M1 / max anchor+90m;
+- unchanged T40 + safe-lot overlay.
+
+Outcome state:
+
+- Engine-N target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-032 zero-outcome preflight. Require >=25 signals per market, both directions, >=300 total.
