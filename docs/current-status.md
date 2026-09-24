@@ -1283,3 +1283,24 @@ Development outcome convention is frozen:
 - >+0.20R gross hurdle and all post-cost gates unchanged.
 
 **Next:** implement and trigger EXP-035 development only.
+
+
+### EXP-035 development launch checkpoint
+
+Engine O v0.2 passed zero-outcome preflight and its six-slice development runner/workflow are frozen.
+
+Development will evaluate:
+
+1. pooled normalized-R signal edge;
+2. per-market and six-fold stability;
+3. descriptive hour-of-day cohorts only;
+4. safe-lot USD500 one-open portfolio;
+5. matched immediate-entry control on the same non-suppressed qualified arms.
+
+Mandatory gross hurdle remains **>+0.20R**. All post-cost economic gates remain unchanged.
+
+No post-outcome hour/minute/symbol whitelist is permitted inside v0.2.
+
+Jul-Aug and Sep remain sealed.
+
+**Exact next action:** run EXP-035 development only.
