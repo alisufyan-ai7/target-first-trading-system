@@ -392,3 +392,8 @@
 - Rolling 15-minute peer-shock memory solved v0.1's opportunity-density failure without lowering VR>=1.75, four-peer breadth, or the frequency gate.
 - Target/P&L outcomes remain zero; Jun30 source seal held and Jul-Aug/Sep remain unopened.
 - Next permitted stage is frozen six-slice development only.
+
+- Frozen EXP-038 Engine Q v0.2 six-slice development runner/workflow before outcomes.
+- Development fold membership and matched immediate control are keyed to breakout completion time, the first directional candidate decision.
+- Preserved T40/stop-first/120-active-M1/20:00 UTC outcome convention, >+0.20R gross hurdle, all post-cost gates and protected-period seals.
+- Jul-Aug and Sep remain sealed at launch checkpoint.
