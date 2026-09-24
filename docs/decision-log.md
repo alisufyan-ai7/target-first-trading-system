@@ -760,3 +760,18 @@ Forecast/control domain stays the old Engine-K pre-probability T40 economic doma
 Development uses six fixed forward folds and the already frozen gate. Jul-Aug and Sep remain sealed.
 
 No EXP-026 development P&L outcome existed at this checkpoint.
+
+
+## 2026-09-24 — Stop Engine L v0.1 after development failure
+
+**Decision:** EXP-026 fails the frozen six-fold development gate. Do not inspect Jul-Aug or Sep.
+
+**Result:** `7cacd739f80ab37a2f6465924937bd6489b1b966`.
+
+Engine L produced 303 trades but -USD5.82/trade primary, -USD9.77/trade stress, stress PF 0.469 and zero positive-stress folds. It underperformed the matched immediate-entry control by about USD1.28/trade under stress cost.
+
+**Key execution finding:** median entry price improvement was negative by ~0.516 V5. The rule waited for a favorable pullback, then chased the resumption far enough that the final next-open entry was usually worse than the original decision close.
+
+**Forecast finding:** raw-score quartiles were not monotonically profitable, so an arbitrary probability cutoff is not the next justified change.
+
+**Next direction:** prospectively test a true multi-timeframe context/setup hierarchy and an entry mechanism that preserves location instead of chasing confirmation.
