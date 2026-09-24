@@ -522,3 +522,20 @@ Every 15 minutes from 06:15-17:45 UTC:
 **Status:** prospectively frozen, zero outcomes.
 
 **Next:** EXP-034 zero-outcome preflight only.
+
+
+## Engine O v0.2 / EXP-035 — current primary path
+
+v0.1 closed at zero-outcome preflight with 209 signals; six of eight markets passed individually.
+
+v0.2 keeps the same statistical-reversion mechanics and changes only the decision grid to every completed M5 bar from 06:05-17:55 UTC.
+
+Preflight gate unchanged:
+
+- >=25 signals per market;
+- both directions;
+- >=300 total.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-035 zero-outcome preflight only.
