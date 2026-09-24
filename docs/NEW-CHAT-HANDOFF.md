@@ -1104,3 +1104,36 @@ Conclusion:
 The non-chasing MTF limit entry improved raw edge but the current setup/context is not selective enough to overcome costs.
 
 Do not open Jul-Aug or Sep. Do not weaken costs. Any next version must materially improve pre-cost selectivity.
+
+
+## Engine M v0.3 / EXP-029 authoritative current state
+
+Engine M v0.2 / EXP-028 is closed before secondary testing.
+
+Key v0.2 lesson:
+
+- non-chasing MTF limit entry improved gross edge to +0.0367R versus -0.0146R immediate control;
+- edge remained too small for frozen costs;
+- Jul-Aug and Sep remain unopened.
+
+Current frozen version:
+
+**Engine M v0.3 — Liquidity Reclaim + HTF Target-Room Limit Entry**
+
+Flow:
+
+`H4/H1 direction -> strict prior-4-M15 liquidity sweep/reclaim -> H1 midpoint reclaim -> unchanged M5 arm -> unchanged 50% retracement limit`.
+
+Additional requirement:
+
+T40 must lie no farther than a recent completed H1 directional liquidity extreme from the latest two H1 bars.
+
+No ML model. No parameter grid. Execution/cost/sizing mechanics unchanged.
+
+Outcome state:
+
+- v0.3 target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-029 zero-outcome preflight. Require >=35 signals per market, both directions, >=400 total.
