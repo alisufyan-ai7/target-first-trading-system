@@ -847,3 +847,34 @@ Frozen conclusion:
 Engine K tuning on the Mar-Jun development pool is closed. Do not add configurations, weaken gates, pick a near-miss, or open Jul-Aug.
 
 Next research must broaden evidence or use a genuinely different prediction/target design.
+
+
+## Engine L v0.1 / EXP-026 authoritative current state
+
+Engine K tuning on Mar-Jun is closed after EXP-025 no-pass walk-forward.
+
+The current active path is a materially different entry architecture.
+
+Engine L flow:
+
+`5m forecast -> arm -> favorable pullback -> M1 resumption -> next-open entry -> fresh execution stop`.
+
+Frozen center config:
+
+- fixed M2 raw T40 forecast;
+- 15 active-M1 arm;
+- 0.20*V5 pullback;
+- M1 break/resumption + outer-quartile close;
+- fresh pullback-extreme stop;
+- Gold target 4 XAU;
+- non-Gold 2R target-before-size;
+- same risk/notional/margin/cost framework;
+- matched immediate-entry control.
+
+Current outcome status:
+
+- Engine-L target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** run zero-outcome EXP-026 mechanics preflight. Do not run development unless every market has >=100 admissible trigger paths and both directions.
