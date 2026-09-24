@@ -1,0 +1,1219 @@
+{
+  "experiment": "EXP-037",
+  "engine": "Engine Q v0.1",
+  "stage": "zero_outcome_cross_market_volatility_spillover_preflight",
+  "target_outcomes_calculated": false,
+  "pnl_outcomes_calculated": false,
+  "secondary_test_loaded_or_inspected": false,
+  "final_holdout_loaded_or_inspected": false,
+  "parsed_market_data_max_timestamp": "2026-06-30 23:59:00+00:00",
+  "tests": {
+    "engine_q_v01": [
+      "even_median_exact",
+      "arm_decision_grid",
+      "candidate_self_excluded_from_peer_breadth",
+      "peer_breadth_and_candidate_lag_arm",
+      "candidate_lag_boundary",
+      "long_breakout_boundary",
+      "short_breakout_boundary"
+    ],
+    "engine_m_v02_safe_overlay": [
+      "eurusd_safe_overlay_respects_caps",
+      "tight_stop_signal_not_rejected_for_low_utility",
+      "gold_anchor_cap_preserved",
+      "notional_margin_cap_equivalence",
+      "normalized_cost_units"
+    ],
+    "synthetic_spillover": [
+      "four_of_seven_peer_shock",
+      "lagging_candidate_arms",
+      "candidate_must_remain_inside_fixed_box",
+      "candidate_cannot_supply_own_peer_shock"
+    ]
+  },
+  "markets": {
+    "XAUUSD": {
+      "arm_status_counts": {
+        "armed": 106,
+        "candidate_metric_unavailable": 141,
+        "candidate_not_lagging": 711,
+        "candidate_outside_box": 19,
+        "peer_shock_failed": 8415
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 65,
+        "triggered": 41
+      },
+      "blocked_due_active_arm_or_order": 472,
+      "fill_status_counts": {
+        "expired_unfilled": 18,
+        "filled": 23
+      },
+      "filled_signal_paths": 23,
+      "filled_by_direction": {
+        "long": 6,
+        "short": 17
+      },
+      "deployable_paths_safe_lot_ge_0_01": 23,
+      "utility_band_counts": {
+        "LT30": 23
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.151999999999138,
+        "notional": 33204.95500000001,
+        "margin": 66.40991000000002
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-27 07:30:00+00:00",
+          "trigger_decision_ts": "2026-03-27 07:55:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.9210191082802723,
+          "trigger_vr": 1.2741589119542425,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-27 07:56:00+00:00",
+          "entry": 4532.66,
+          "stop": 4537.111,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.04,
+            "safe_lot_raw": 0.04493372275893036,
+            "lot_cap_risk": 0.04493372275893036,
+            "lot_cap_notional": 0.11031050200103251,
+            "lot_cap_margin": 0.11031050200103251,
+            "target_distance": 4.0,
+            "reward_multiple": 0.8986744551786071,
+            "stop_distance_native": 4.451000000000022,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 453266.0,
+            "reason": "ok",
+            "stop_risk_usd": 17.804000000000087,
+            "notional_usd": 18130.64,
+            "margin_usd": 36.26128,
+            "gross_target_usd": 16.0,
+            "primary_cost_usd": 1.6,
+            "stress_cost_usd": 3.2,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-01 17:10:00+00:00",
+          "trigger_decision_ts": "2026-04-01 17:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.751286449399685,
+          "trigger_vr": 1.3201506591336516,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-04-01 17:39:00+00:00",
+          "entry": 4887.5,
+          "stop": 4891.006,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.05,
+            "safe_lot_raw": 0.05704506560182035,
+            "lot_cap_risk": 0.05704506560182035,
+            "lot_cap_notional": 0.10230179028132992,
+            "lot_cap_margin": 0.10230179028132992,
+            "target_distance": 4.0,
+            "reward_multiple": 1.140901312036407,
+            "stop_distance_native": 3.506000000000313,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 488750.0,
+            "reason": "ok",
+            "stop_risk_usd": 17.530000000001564,
+            "notional_usd": 24437.5,
+            "margin_usd": 48.875,
+            "gross_target_usd": 20.0,
+            "primary_cost_usd": 2.0,
+            "stress_cost_usd": 4.0,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-07 08:10:00+00:00",
+          "trigger_decision_ts": "2026-04-07 08:15:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.7683333333332205,
+          "trigger_vr": 2.5216666666664938,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-04-07 08:17:00+00:00",
+          "entry": 4647.695,
+          "stop": 4640.129,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.02,
+            "safe_lot_raw": 0.02643404705260444,
+            "lot_cap_risk": 0.02643404705260444,
+            "lot_cap_notional": 0.10758020911441048,
+            "lot_cap_margin": 0.10758020911441048,
+            "target_distance": 4.0,
+            "reward_multiple": 0.5286809410520888,
+            "stop_distance_native": 7.5659999999998035,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 464769.5,
+            "reason": "ok",
+            "stop_risk_usd": 15.131999999999607,
+            "notional_usd": 9295.39,
+            "margin_usd": 18.59078,
+            "gross_target_usd": 8.0,
+            "primary_cost_usd": 0.8,
+            "stress_cost_usd": 1.6,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-13 07:00:00+00:00",
+          "trigger_decision_ts": "2026-04-13 07:05:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.6139999999999418,
+          "trigger_vr": 2.6859999999998765,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-04-13 07:09:00+00:00",
+          "entry": 4800.02,
+          "stop": 4793.304,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.02,
+            "safe_lot_raw": 0.029779630732577368,
+            "lot_cap_risk": 0.029779630732577368,
+            "lot_cap_notional": 0.10416623264069731,
+            "lot_cap_margin": 0.10416623264069731,
+            "target_distance": 4.0,
+            "reward_multiple": 0.5955926146515473,
+            "stop_distance_native": 6.716000000000349,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 480002.00000000006,
+            "reason": "ok",
+            "stop_risk_usd": 13.432000000000698,
+            "notional_usd": 9600.04,
+            "margin_usd": 19.200080000000003,
+            "gross_target_usd": 8.0,
+            "primary_cost_usd": 0.8,
+            "stress_cost_usd": 1.6,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-14 12:05:00+00:00",
+          "trigger_decision_ts": "2026-04-14 12:15:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.8225108225108814,
+          "trigger_vr": 1.4250559284116724,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-04-14 12:17:00+00:00",
+          "entry": 4846.710000000001,
+          "stop": 4849.896000000001,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.06,
+            "safe_lot_raw": 0.06277463904583151,
+            "lot_cap_risk": 0.06277463904583151,
+            "lot_cap_notional": 0.10316276401930378,
+            "lot_cap_margin": 0.10316276401930378,
+            "target_distance": 4.0,
+            "reward_multiple": 1.25549278091663,
+            "stop_distance_native": 3.1859999999996944,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 484671.0000000001,
+            "reason": "ok",
+            "stop_risk_usd": 19.115999999998166,
+            "notional_usd": 29080.260000000006,
+            "margin_usd": 58.16052000000001,
+            "gross_target_usd": 24.0,
+            "primary_cost_usd": 2.4000000000000004,
+            "stress_cost_usd": 4.800000000000001,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "EURUSD": {
+      "arm_status_counts": {
+        "armed": 2,
+        "candidate_not_lagging": 780,
+        "candidate_outside_box": 2,
+        "peer_shock_failed": 9074
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 1,
+        "triggered": 1
+      },
+      "blocked_due_active_arm_or_order": 6,
+      "fill_status_counts": {
+        "filled": 1
+      },
+      "filled_signal_paths": 1,
+      "filled_by_direction": {
+        "long": 0,
+        "short": 1
+      },
+      "deployable_paths_safe_lot_ge_0_01": 1,
+      "utility_band_counts": {
+        "LT30": 1
+      },
+      "safe_overlay_maxima": {
+        "risk": 10.250000000003423,
+        "notional": 48856.829999999965,
+        "margin": 97.71365999999993
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-05-11 14:55:00+00:00",
+          "trigger_decision_ts": "2026-05-11 15:00:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.7200000000001658,
+          "trigger_vr": 1.31506849315036,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-05-11 15:02:00+00:00",
+          "entry": 1.191629999999999,
+          "stop": 1.1918799999999992,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.41000000000000003,
+            "safe_lot_raw": 0.41959333014442435,
+            "lot_cap_risk": 0.7999999999997328,
+            "lot_cap_notional": 0.41959333014442435,
+            "lot_cap_margin": 0.41959333014442435,
+            "target_distance": 0.00051,
+            "reward_multiple": 2.039999999999319,
+            "stop_distance_native": 0.0002500000000000835,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 119162.99999999991,
+            "reason": "ok",
+            "stop_risk_usd": 10.250000000003423,
+            "notional_usd": 48856.829999999965,
+            "margin_usd": 97.71365999999993,
+            "gross_target_usd": 20.910000000000004,
+            "primary_cost_usd": 2.0910000000000006,
+            "stress_cost_usd": 4.182000000000001,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "GBPUSD": {
+      "arm_status_counts": {
+        "armed": 6,
+        "candidate_not_lagging": 817,
+        "candidate_outside_box": 2,
+        "peer_shock_failed": 9011
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 5,
+        "triggered": 1
+      },
+      "blocked_due_active_arm_or_order": 28,
+      "fill_status_counts": {
+        "expired_unfilled": 1
+      },
+      "filled_signal_paths": 0,
+      "filled_by_direction": {
+        "long": 0,
+        "short": 0
+      },
+      "deployable_paths_safe_lot_ge_0_01": 0,
+      "utility_band_counts": {},
+      "safe_overlay_maxima": {
+        "risk": null,
+        "notional": null,
+        "margin": null
+      },
+      "examples": []
+    },
+    "USDJPY": {
+      "arm_status_counts": {
+        "armed": 33,
+        "candidate_not_lagging": 802,
+        "candidate_outside_box": 8,
+        "peer_shock_failed": 8871
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 20,
+        "triggered": 13
+      },
+      "blocked_due_active_arm_or_order": 150,
+      "fill_status_counts": {
+        "expired_unfilled": 7,
+        "filled": 6
+      },
+      "filled_signal_paths": 6,
+      "filled_by_direction": {
+        "long": 2,
+        "short": 4
+      },
+      "deployable_paths_safe_lot_ge_0_01": 6,
+      "utility_band_counts": {
+        "GE30": 1,
+        "GE40": 1,
+        "LT30": 4
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.85945713635389,
+        "notional": 50000.0,
+        "margin": 100.0
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-26 06:10:00+00:00",
+          "trigger_decision_ts": "2026-03-26 06:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "candidate_vr_at_arm": 0.793650793650765,
+          "trigger_vr": 1.4153846153853016,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-26 06:36:00+00:00",
+          "entry": 160.8380000000003,
+          "stop": 160.86200000000034,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.3403166666650312,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.049,
+            "reward_multiple": 2.0416666666641716,
+            "stop_distance_native": 0.02400000000002933,
+            "usd_value_per_native_unit_1lot": 621.7436178017621,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 7.460923413630263,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 15.232718636143172,
+            "primary_cost_usd": 1.5232718636143172,
+            "stress_cost_usd": 3.0465437272286344,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-05-06 07:10:00+00:00",
+          "trigger_decision_ts": "2026-05-06 07:15:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.8461538461534818,
+          "trigger_vr": 1.6493506493508123,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-05-06 07:16:00+00:00",
+          "entry": 155.89550000000003,
+          "stop": 155.83100000000002,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.48,
+            "safe_lot_raw": 0.4833968992247347,
+            "lot_cap_risk": 0.4833968992247347,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.13,
+            "reward_multiple": 2.015503875968694,
+            "stop_distance_native": 0.06450000000000955,
+            "usd_value_per_native_unit_1lot": 641.4553338614647,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.85945713635389,
+            "notional_usd": 48000.0,
+            "margin_usd": 96.0,
+            "gross_target_usd": 40.0268128329554,
+            "primary_cost_usd": 4.00268128329554,
+            "stress_cost_usd": 8.00536256659108,
+            "utility_band": "GE40"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-05-06 14:35:00+00:00",
+          "trigger_decision_ts": "2026-05-06 14:45:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.6060606060604625,
+          "trigger_vr": 1.877862595418857,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-05-06 14:50:00+00:00",
+          "entry": 155.56650000000002,
+          "stop": 155.629,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.49,
+            "safe_lot_raw": 0.49781280000022643,
+            "lot_cap_risk": 0.49781280000022643,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.125,
+            "reward_multiple": 2.0000000000009095,
+            "stop_distance_native": 0.06249999999997158,
+            "usd_value_per_native_unit_1lot": 642.811916447307,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.686114941189825,
+            "notional_usd": 49000.0,
+            "margin_usd": 98.0,
+            "gross_target_usd": 39.372229882397555,
+            "primary_cost_usd": 3.9372229882397556,
+            "stress_cost_usd": 7.874445976479511,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-06-11 13:15:00+00:00",
+          "trigger_decision_ts": "2026-06-11 13:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.8571428571421611,
+          "trigger_vr": 1.6410256410226138,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-06-11 13:37:00+00:00",
+          "entry": 160.86200000000002,
+          "stop": 160.879,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.8924941176506787,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.034,
+            "reward_multiple": 2.0000000000038254,
+            "stop_distance_native": 0.016999999999967486,
+            "usd_value_per_native_unit_1lot": 621.6508560132287,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 5.284032276102337,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 10.568064552224888,
+            "primary_cost_usd": 1.0568064552224887,
+            "stress_cost_usd": 2.1136129104449775,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-06-18 06:25:00+00:00",
+          "trigger_decision_ts": "2026-06-18 06:55:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "candidate_vr_at_arm": 0.9375000000014433,
+          "trigger_vr": 2.9375000000014433,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-06-18 06:57:00+00:00",
+          "entry": 161.10750000000002,
+          "stop": 161.08300000000003,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.3151632653067085,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.049,
+            "reward_multiple": 2.000000000000891,
+            "stop_distance_native": 0.024499999999989086,
+            "usd_value_per_native_unit_1lot": 620.7035674937541,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 7.603618701795101,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 15.207237403596977,
+            "primary_cost_usd": 1.5207237403596978,
+            "stress_cost_usd": 3.0414474807193956,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "EURJPY": {
+      "arm_status_counts": {
+        "armed": 65,
+        "candidate_not_lagging": 791,
+        "candidate_outside_box": 3,
+        "peer_shock_failed": 8715
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 44,
+        "triggered": 21
+      },
+      "blocked_due_active_arm_or_order": 290,
+      "fill_status_counts": {
+        "expired_unfilled": 10,
+        "filled": 11
+      },
+      "filled_signal_paths": 11,
+      "filled_by_direction": {
+        "long": 6,
+        "short": 5
+      },
+      "deployable_paths_safe_lot_ge_0_01": 11,
+      "utility_band_counts": {
+        "GE30": 3,
+        "LT30": 8
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.06313173583566,
+        "notional": 49799.69557654066,
+        "margin": 99.59939115308131
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 06:20:00+00:00",
+          "trigger_decision_ts": "2026-03-23 06:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.9072164948443399,
+          "trigger_vr": 1.8400000000009322,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-23 06:35:00+00:00",
+          "entry": 186.413,
+          "stop": 186.46000000000004,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.4317295467590788,
+            "lot_cap_risk": 0.6849361702123963,
+            "lot_cap_notional": 0.4317295467590788,
+            "lot_cap_margin": 0.4317295467590788,
+            "target_distance": 0.095,
+            "reward_multiple": 2.021276595743586,
+            "stop_distance_native": 0.047000000000025466,
+            "usd_value_per_native_unit_1lot": 621.2723658051677,
+            "notional_usd_1lot": 115813.24552683874,
+            "reason": "ok",
+            "stop_risk_usd": 12.555914512929242,
+            "notional_usd": 49799.69557654066,
+            "margin_usd": 99.59939115308131,
+            "gross_target_usd": 25.378976143141102,
+            "primary_cost_usd": 2.5378976143141103,
+            "stress_cost_usd": 5.075795228628221,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 13:45:00+00:00",
+          "trigger_decision_ts": "2026-03-30 13:55:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.9784172661869532,
+          "trigger_vr": 1.5474452554740468,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-30 13:59:00+00:00",
+          "entry": 185.78900000000007,
+          "stop": 185.84300000000007,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.433427167378048,
+            "lot_cap_risk": 0.5964888888888676,
+            "lot_cap_notional": 0.433427167378048,
+            "lot_cap_margin": 0.433427167378048,
+            "target_distance": 0.108,
+            "reward_multiple": 1.9999999999999243,
+            "stop_distance_native": 0.054000000000002046,
+            "usd_value_per_native_unit_1lot": 620.9174676501985,
+            "notional_usd_1lot": 115359.63539726277,
+            "reason": "ok",
+            "stop_risk_usd": 14.417703598838155,
+            "notional_usd": 49604.64322082299,
+            "margin_usd": 99.20928644164597,
+            "gross_target_usd": 28.835407197675224,
+            "primary_cost_usd": 2.8835407197675225,
+            "stress_cost_usd": 5.767081439535045,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 17:15:00+00:00",
+          "trigger_decision_ts": "2026-03-30 17:45:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.7567567567566599,
+          "trigger_vr": 1.317647058823907,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-03-30 17:48:00+00:00",
+          "entry": 185.70600000000007,
+          "stop": 185.67700000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.43361280734063606,
+            "lot_cap_risk": 1.1106827586197432,
+            "lot_cap_notional": 0.43361280734063606,
+            "lot_cap_margin": 0.43361280734063606,
+            "target_distance": 0.059,
+            "reward_multiple": 2.034482758618951,
+            "stop_distance_native": 0.029000000000024784,
+            "usd_value_per_native_unit_1lot": 620.9290340207003,
+            "notional_usd_1lot": 115310.24719184822,
+            "reason": "ok",
+            "stop_risk_usd": 7.74298505424475,
+            "notional_usd": 49583.406292494736,
+            "margin_usd": 99.16681258498947,
+            "gross_target_usd": 15.752969593105167,
+            "primary_cost_usd": 1.5752969593105168,
+            "stress_cost_usd": 3.1505939186210337,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-14 12:30:00+00:00",
+          "trigger_decision_ts": "2026-04-14 12:40:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "candidate_vr_at_arm": 1.0000000000006046,
+          "trigger_vr": 1.319148936171152,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-04-14 12:42:00+00:00",
+          "entry": 187.54199999999986,
+          "stop": 187.5739999999999,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.42,
+            "safe_lot_raw": 0.4219348199336684,
+            "lot_cap_risk": 0.9891312499987909,
+            "lot_cap_notional": 0.4219348199336684,
+            "lot_cap_margin": 0.4219348199336684,
+            "target_distance": 0.065,
+            "reward_multiple": 2.0312499999975175,
+            "stop_distance_native": 0.03200000000003911,
+            "usd_value_per_native_unit_1lot": 631.8676110981229,
+            "notional_usd_1lot": 118501.71552056407,
+            "reason": "ok",
+            "stop_risk_usd": 8.49230069316915,
+            "notional_usd": 49770.72051863691,
+            "margin_usd": 99.54144103727381,
+            "gross_target_usd": 17.249985782978754,
+            "primary_cost_usd": 1.7249985782978756,
+            "stress_cost_usd": 3.4499971565957512,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-05-05 14:10:00+00:00",
+          "trigger_decision_ts": "2026-05-05 14:25:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.991596638655422,
+          "trigger_vr": 1.5789473684210527,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-05-05 14:26:00+00:00",
+          "entry": 184.48899999999998,
+          "stop": 184.44299999999998,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.42,
+            "safe_lot_raw": 0.42589531083154014,
+            "lot_cap_risk": 0.6832434782609844,
+            "lot_cap_notional": 0.42589531083154014,
+            "lot_cap_margin": 0.42589531083154014,
+            "target_distance": 0.092,
+            "reward_multiple": 2.000000000000336,
+            "stop_distance_native": 0.04599999999999227,
+            "usd_value_per_native_unit_1lot": 636.3509093454494,
+            "notional_usd_1lot": 117399.74291423261,
+            "reason": "ok",
+            "stop_risk_usd": 12.294299568552017,
+            "notional_usd": 49307.8920239777,
+            "margin_usd": 98.6157840479554,
+            "gross_target_usd": 24.58859913710816,
+            "primary_cost_usd": 2.4588599137108162,
+            "stress_cost_usd": 4.9177198274216325,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "AUDUSD": {
+      "arm_status_counts": {
+        "armed": 16,
+        "candidate_not_lagging": 820,
+        "candidate_outside_box": 7,
+        "peer_shock_failed": 8949
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 12,
+        "triggered": 4
+      },
+      "blocked_due_active_arm_or_order": 72,
+      "fill_status_counts": {
+        "expired_unfilled": 1,
+        "filled": 3
+      },
+      "filled_signal_paths": 3,
+      "filled_by_direction": {
+        "long": 2,
+        "short": 1
+      },
+      "deployable_paths_safe_lot_ge_0_01": 3,
+      "utility_band_counts": {
+        "GE30": 2,
+        "LT30": 1
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.97500000000041,
+        "notional": 49960.280000000064,
+        "margin": 99.92056000000012
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-04-14 06:55:00+00:00",
+          "trigger_decision_ts": "2026-04-14 07:05:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.8518518518516995,
+          "trigger_vr": 3.0740740740745616,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-04-14 07:10:00+00:00",
+          "entry": 0.7167250000000005,
+          "stop": 0.7163000000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.47000000000000003,
+            "safe_lot_raw": 0.47058823529410804,
+            "lot_cap_risk": 0.47058823529410804,
+            "lot_cap_notional": 0.697617635773832,
+            "lot_cap_margin": 0.697617635773832,
+            "target_distance": 0.00085,
+            "reward_multiple": 1.999999999999959,
+            "stop_distance_native": 0.0004250000000000087,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 71672.50000000004,
+            "reason": "ok",
+            "stop_risk_usd": 19.97500000000041,
+            "notional_usd": 33686.075000000026,
+            "margin_usd": 67.37215000000005,
+            "gross_target_usd": 39.95,
+            "primary_cost_usd": 3.9950000000000006,
+            "stress_cost_usd": 7.990000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-05-14 12:35:00+00:00",
+          "trigger_decision_ts": "2026-05-14 13:05:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 7,
+          "candidate_vr_at_arm": 0.7450980392157631,
+          "trigger_vr": 2.1666666666663583,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-05-14 13:08:00+00:00",
+          "entry": 0.7347100000000009,
+          "stop": 0.7349800000000007,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.68,
+            "safe_lot_raw": 0.6805406214696947,
+            "lot_cap_risk": 0.740740740741066,
+            "lot_cap_notional": 0.6805406214696947,
+            "lot_cap_margin": 0.6805406214696947,
+            "target_distance": 0.00054,
+            "reward_multiple": 2.0000000000008784,
+            "stop_distance_native": 0.00026999999999988145,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 73471.00000000009,
+            "reason": "ok",
+            "stop_risk_usd": 18.35999999999194,
+            "notional_usd": 49960.280000000064,
+            "margin_usd": 99.92056000000012,
+            "gross_target_usd": 36.720000000000006,
+            "primary_cost_usd": 3.6720000000000006,
+            "stress_cost_usd": 7.344000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-06-01 07:00:00+00:00",
+          "trigger_decision_ts": "2026-06-01 07:10:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.8095238095240864,
+          "trigger_vr": 1.4634146341466452,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-06-01 07:10:00+00:00",
+          "entry": 0.7292400000000019,
+          "stop": 0.7290800000000018,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.68,
+            "safe_lot_raw": 0.6856453293840145,
+            "lot_cap_risk": 1.2499999999996172,
+            "lot_cap_notional": 0.6856453293840145,
+            "lot_cap_margin": 0.6856453293840145,
+            "target_distance": 0.00033,
+            "reward_multiple": 2.0624999999993685,
+            "stop_distance_native": 0.000160000000000049,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 72924.00000000019,
+            "reason": "ok",
+            "stop_risk_usd": 10.880000000003331,
+            "notional_usd": 49588.32000000013,
+            "margin_usd": 99.17664000000026,
+            "gross_target_usd": 22.44,
+            "primary_cost_usd": 2.244,
+            "stress_cost_usd": 4.488,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "USDCAD": {
+      "arm_status_counts": {
+        "armed": 30,
+        "candidate_not_lagging": 824,
+        "candidate_outside_box": 7,
+        "peer_shock_failed": 8885
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 18,
+        "triggered": 12
+      },
+      "blocked_due_active_arm_or_order": 118,
+      "fill_status_counts": {
+        "expired_unfilled": 3,
+        "filled": 9
+      },
+      "filled_signal_paths": 9,
+      "filled_by_direction": {
+        "long": 2,
+        "short": 7
+      },
+      "deployable_paths_safe_lot_ge_0_01": 9,
+      "utility_band_counts": {
+        "GE30": 2,
+        "LT30": 7
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.704864912211427,
+        "notional": 50000.0,
+        "margin": 100.0
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-24 12:35:00+00:00",
+          "trigger_decision_ts": "2026-03-24 12:55:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "candidate_vr_at_arm": 0.799999999999704,
+          "trigger_vr": 2.3555555555559504,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-24 12:55:00+00:00",
+          "entry": 1.3702200000000002,
+          "stop": 1.3707600000000004,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5074888888886945,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00109,
+            "reward_multiple": 2.018518518517745,
+            "stop_distance_native": 0.000540000000000207,
+            "usd_value_per_native_unit_1lot": 72980.98115631065,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.704864912211427,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 39.774634730189305,
+            "primary_cost_usd": 3.977463473018931,
+            "stress_cost_usd": 7.954926946037862,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 07:30:00+00:00",
+          "trigger_decision_ts": "2026-03-27 07:50:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.9361702127660378,
+          "trigger_vr": 1.7142857142849375,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-27 07:51:00+00:00",
+          "entry": 1.3807400000000005,
+          "stop": 1.3809600000000006,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.2552181818175603,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00045,
+            "reward_multiple": 2.045454545453532,
+            "stop_distance_native": 0.000220000000000109,
+            "usd_value_per_native_unit_1lot": 72424.93155843965,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 7.966742471432309,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 16.295609600648923,
+            "primary_cost_usd": 1.6295609600648924,
+            "stress_cost_usd": 3.2591219201297847,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 13:25:00+00:00",
+          "trigger_decision_ts": "2026-03-27 13:40:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.8266666666669666,
+          "trigger_vr": 1.5365853658533548,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-27 13:41:00+00:00",
+          "entry": 1.3818650000000003,
+          "stop": 1.3821900000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.8503784615381197,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00066,
+            "reward_multiple": 2.030769230768414,
+            "stop_distance_native": 0.00032500000000013074,
+            "usd_value_per_native_unit_1lot": 72365.96917933371,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 11.759469991646458,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 23.880769829180124,
+            "primary_cost_usd": 2.3880769829180126,
+            "stress_cost_usd": 4.776153965836025,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-06 11:15:00+00:00",
+          "trigger_decision_ts": "2026-04-06 11:25:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.6938775510202787,
+          "trigger_vr": 1.791666666667168,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-04-06 11:31:00+00:00",
+          "entry": 1.390795,
+          "stop": 1.3910200000000001,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.2362622222214434,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00046,
+            "reward_multiple": 2.0444444444431564,
+            "stop_distance_native": 0.00022500000000014175,
+            "usd_value_per_native_unit_1lot": 71901.32262482969,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 8.088898795298435,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 16.53730420371083,
+            "primary_cost_usd": 1.653730420371083,
+            "stress_cost_usd": 3.307460840742166,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-10 12:45:00+00:00",
+          "trigger_decision_ts": "2026-04-10 12:50:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.9589041095890828,
+          "trigger_vr": 2.7671232876706577,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-04-10 12:56:00+00:00",
+          "entry": 1.3817450000000004,
+          "stop": 1.3812300000000004,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5365999999999551,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00103,
+            "reward_multiple": 1.9999999999998324,
+            "stop_distance_native": 0.0005150000000000432,
+            "usd_value_per_native_unit_1lot": 72372.2539252901,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 18.635855385763765,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 37.271710771524404,
+            "primary_cost_usd": 3.7271710771524407,
+            "stress_cost_usd": 7.454342154304881,
+            "utility_band": "GE30"
+          }
+        }
+      ]
+    },
+    "USDCHF": {
+      "arm_status_counts": {
+        "armed": 8,
+        "candidate_not_lagging": 826,
+        "candidate_outside_box": 2,
+        "peer_shock_failed": 8991
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 5,
+        "triggered": 3
+      },
+      "blocked_due_active_arm_or_order": 37,
+      "fill_status_counts": {
+        "filled": 3
+      },
+      "filled_signal_paths": 3,
+      "filled_by_direction": {
+        "long": 1,
+        "short": 2
+      },
+      "deployable_paths_safe_lot_ge_0_01": 3,
+      "utility_band_counts": {
+        "GE30": 3
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.991775535382754,
+        "notional": 49000.0,
+        "margin": 98.0
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-04-08 06:05:00+00:00",
+          "trigger_decision_ts": "2026-04-08 06:30:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "candidate_vr_at_arm": 0.8787878787880725,
+          "trigger_vr": 2.3235294117648597,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-04-08 06:31:00+00:00",
+          "entry": 0.7861449999999998,
+          "stop": 0.7865499999999997,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.38,
+            "safe_lot_raw": 0.3882197530864305,
+            "lot_cap_risk": 0.3882197530864305,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00081,
+            "reward_multiple": 2.0000000000000555,
+            "stop_distance_native": 0.0004049999999999887,
+            "usd_value_per_native_unit_1lot": 127202.99690260706,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.57654122331068,
+            "notional_usd": 38000.0,
+            "margin_usd": 76.0,
+            "gross_target_usd": 39.15308244662245,
+            "primary_cost_usd": 3.915308244662245,
+            "stress_cost_usd": 7.83061648932449,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-09 15:00:00+00:00",
+          "trigger_decision_ts": "2026-04-09 15:05:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.7105263157893661,
+          "trigger_vr": 2.026315789473561,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-04-09 15:14:00+00:00",
+          "entry": 0.7903249999999997,
+          "stop": 0.7899299999999997,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.4,
+            "safe_lot_raw": 0.40016455696199055,
+            "lot_cap_risk": 0.40016455696199055,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00079,
+            "reward_multiple": 1.9999999999998268,
+            "stop_distance_native": 0.0003950000000000342,
+            "usd_value_per_native_unit_1lot": 126530.22490747481,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.991775535382754,
+            "notional_usd": 40000.0,
+            "margin_usd": 80.0,
+            "gross_target_usd": 39.98355107076205,
+            "primary_cost_usd": 3.998355107076205,
+            "stress_cost_usd": 7.99671021415241,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-05-08 13:10:00+00:00",
+          "trigger_decision_ts": "2026-05-08 13:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "candidate_vr_at_arm": 0.8333333333331792,
+          "trigger_vr": 2.1818181818185853,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-05-08 13:39:00+00:00",
+          "entry": 0.7622999999999998,
+          "stop": 0.7626099999999997,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.49,
+            "safe_lot_raw": 0.4918064516130278,
+            "lot_cap_risk": 0.4918064516130278,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00062,
+            "reward_multiple": 2.0000000000005067,
+            "stop_distance_native": 0.00030999999999992145,
+            "usd_value_per_native_unit_1lot": 131181.94936376758,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.926538108351245,
+            "notional_usd": 49000.0,
+            "margin_usd": 98.0,
+            "gross_target_usd": 39.853076216712594,
+            "primary_cost_usd": 3.9853076216712595,
+            "stress_cost_usd": 7.970615243342519,
+            "utility_band": "GE30"
+          }
+        }
+      ]
+    }
+  },
+  "per_market_gate": {
+    "XAUUSD": false,
+    "EURUSD": false,
+    "GBPUSD": false,
+    "USDJPY": false,
+    "EURJPY": false,
+    "AUDUSD": false,
+    "USDCAD": false,
+    "USDCHF": false
+  },
+  "gate": {
+    "each_market_ge_25_and_both_directions": false,
+    "total_signal_paths_ge_300": false,
+    "safe_overlay_never_violates_caps": true,
+    "protected_periods_sealed": true,
+    "target_outcomes_calculated": false,
+    "pnl_outcomes_calculated": false
+  },
+  "totals": {
+    "filled_signal_paths": 56,
+    "deployable_paths_safe_lot_ge_0_01": 56,
+    "utility_band_counts": {
+      "GE30": 11,
+      "GE40": 1,
+      "LT30": 44
+    }
+  },
+  "preflight_pass": false
+}
