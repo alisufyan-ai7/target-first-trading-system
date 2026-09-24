@@ -304,3 +304,47 @@ July-August secondary-test and Sep final-holdout outcomes remain unopened.
 
 Interpretation: the v0.2 target/economic redesign solved market admission, but the fixed `max(0.50, break-even+0.10)` qualification rule did not yield a testable trading stream. Do not lower that threshold inside v0.2.
 
+
+
+## Engine K v0.4 / EXP-025 — CURRENT PRIMARY PATH
+
+This section supersedes older Engine-K “next action” text above.
+
+Engine K v0.3 / EXP-024 is closed before secondary testing. Durable failure result: `db53f3a96fbbb6ed7b1b01f25e931e4140bec215`.
+
+Engine K v0.4 / EXP-025 is prospectively frozen **before walk-forward metrics**.
+
+Methodology:
+
+- Mar-Jun 2026 is reusable development evidence;
+- Jul-Aug secondary test remains sealed;
+- Sep final holdout remains sealed;
+- exact bounded search = 12 configurations only;
+- 2 HGB variants x 2 Platt calibration variants x 3 stress-EV qualification policies;
+- exact six expanding chronological walk-forward folds;
+- targets, structural stop, features, sizing, costs, risk/notional/margin gates and daily state machine are unchanged.
+
+Configuration pass requires all frozen multi-fold trade-count, expectancy, PF, drawdown, hit-rate, market-concentration and integrity conditions.
+
+If no configuration passes, Engine K tuning on this Mar-Jun pool stops before July-Aug.
+
+If one or more pass, choose exactly one by frozen stability-first ordering:
+
+1. highest worst-fold stress expectancy;
+2. highest pooled stress PF;
+3. lowest pooled stress max drawdown;
+4. highest trade count;
+5. configuration ID.
+
+Files:
+
+- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.4.md`;
+- `research/experiments/EXP-025-engine-k-v0.4-walk-forward-selection.md`;
+- `research/code/run_engine_k_v0_4_walkforward_selection.py`;
+- `.github/workflows/exp025-engine-k-v0.4-walkforward.yml`.
+
+### Exact next action
+
+Run EXP-025 bounded walk-forward development selection only.
+
+Do not create or run a July-Aug secondary-test workflow unless EXP-025 durably selects a passing winner.
