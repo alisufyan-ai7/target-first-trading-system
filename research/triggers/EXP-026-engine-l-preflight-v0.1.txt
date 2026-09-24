@@ -1,0 +1,1 @@
+Trigger EXP-026 Engine L v0.1 zero-outcome entry-mechanics preflight only. Parse through 2026-06-30. Verify pullback/resumption/fresh-stop/T40 economic mechanics across all 8 execution markets. No target-hit labels, P&L outcomes, Jul-Aug secondary data, or Sep holdout data. 2026-09-24.
