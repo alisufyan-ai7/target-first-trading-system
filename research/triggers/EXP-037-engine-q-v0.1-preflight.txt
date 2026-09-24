@@ -1,0 +1,2 @@
+Trigger EXP-037 Engine Q v0.1 zero-outcome preflight.
+Frozen inputs are already checkpointed; do not mutate while this run is active.
