@@ -114,7 +114,6 @@ def mtf_setup_at(
         return {"status":"m5_arm_failed","decision_ts":decision_ts,**ctx}
 
     limit=(float(a5["high"])+float(a5["low"]))/2.0
-    tick=research_tick("__dummy__") if False else None
     return {
         "status":"armed",
         "decision_ts":decision_ts,
