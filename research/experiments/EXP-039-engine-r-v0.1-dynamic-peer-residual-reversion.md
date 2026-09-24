@@ -82,3 +82,24 @@ At freeze:
 ## Exact next action
 
 Implement Engine R v0.1 and run zero-outcome EXP-039 preflight only.
+
+
+## Zero-outcome implementation checkpoint
+
+Frozen before any Engine-R target/P&L outcome:
+
+- engine implementation commit: `8d31d100a747e8c666117b94e825535c7c35cf08`;
+- preflight runner commit: `fac8bf178c981ddb5e2f8d45be3b9e6673ca0913`;
+- workflow commit: `db879da22f4ec6ab3a7ca497f110f847b7ff373f`;
+- engine blob: `d4516a8eb607fca6c26106e1d33b3de3226ccc10`;
+- runner blob: `c996834b38a6cf89f41cb57b7ea8264328c0ed1d`;
+- workflow blob: `e8bcf489bbd9dffa8a631c2fa6aa95712b06bae1`.
+
+At this checkpoint:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+**Next:** trigger exactly one EXP-039 zero-outcome preflight and do not mutate frozen inputs while it runs.
