@@ -257,3 +257,14 @@ Engine L is a materially different **forecast-then-entry** engine:
 **Status:** prospectively frozen, zero Engine-L outcomes.
 
 **Next:** zero-outcome entry-mechanics preflight through Jun30 only.
+
+
+Engine L mechanics preflight: **PASS** at `b19d4ef6c3a689117fc5b8237167322bd64a2aa7`.
+
+- 12,532 admissible paths;
+- every market >=100;
+- both directions on every market;
+- no P&L outcomes yet;
+- Jul-Aug / Sep sealed.
+
+Multi-timeframe top-down guidance is preserved separately as future design guidance; it is not silently added to v0.1.
