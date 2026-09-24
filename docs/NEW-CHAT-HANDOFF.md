@@ -1720,3 +1720,25 @@ Engine Q v0.2 preflight passed and development is now frozen before outcomes.
 - Jul-Aug/Sep sealed.
 
 **Exact next action:** trigger one EXP-038 development run, confirm it starts once, then do not poll repeatedly.
+
+
+## Engine Q / EXP-038 authoritative final outcome
+
+Engine Q v0.2 is **CLOSED** after failing frozen development at `6f25b08`.
+
+Verified from `research/results/EXP-038-development-summary-v0.2.json`:
+
+- 363 development signals;
+- gross +0.094793R;
+- primary -0.090222R;
+- stress -0.275238R;
+- 1/6 positive-stress folds;
+- 251 reference-account trades;
+- primary/stress expectancy -USD1.5256 / -USD3.8859;
+- primary/stress PF 0.8362 / 0.6403;
+- stress MDD USD1,102.23;
+- disposition `FAIL_STOP_BEFORE_SECONDARY`.
+
+Protected Jul-Aug and Sep were not loaded/labeled.
+
+Do not create another Engine-Q temporal/threshold/cohort rescue. Retain the non-chasing entry lesson and move to a genuinely different information source/family.
