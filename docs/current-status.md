@@ -438,3 +438,24 @@ Files:
 - `research/code/engine_l_v0_1.py`;
 - `research/code/run_engine_l_v0_1_preflight.py`;
 - `.github/workflows/exp026-engine-l-v0.1-preflight.yml`.
+
+
+### Engine L zero-outcome preflight result
+
+EXP-026 mechanics preflight passed at durable result commit:
+
+`b19d4ef6c3a689117fc5b8237167322bd64a2aa7`
+
+- 12,532 admissible micro-entry paths through Jun30;
+- all 8 markets passed >=100-path gate;
+- long + short represented on every market;
+- target/P&L outcomes still zero at checkpoint;
+- Jul-Aug and Sep remain sealed.
+
+Engine-L v0.1 is therefore mechanically viable for development.
+
+Separately, `research/notes/MULTI-TIMEFRAME-INTRADAY-GUIDANCE.md` records the user-provided top-down guidance:
+
+`4H/1H context -> 15m setup/location -> 5m arm -> 1m execution`.
+
+This is design guidance, not a silent modification of v0.1. Engine-L v0.1 should first isolate whether improved execution alone beats the matched immediate-entry control.
