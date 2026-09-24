@@ -302,19 +302,32 @@ Files:
 - `research/code/run_engine_k_v0_2_preflight.py`;
 - `.github/workflows/exp023-engine-k-v0.2-preflight.yml`.
 
-The next gate is **zero-outcome economic coverage preflight through June only**. Every execution market must produce at least 200 unique economically admissible states before any v0.2 label is allowed.
+The zero-outcome economic coverage preflight **PASSED**.
+
+Durable result commit: `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`.
+
+All 8 execution markets exceeded the frozen >=200-state threshold. Combined through June: 94,238 unique admissible states and 281,955 admissible rungs. No v0.2 target/model outcomes, July-August outcomes, or September outcomes were inspected.
 
 ## Exact next action
 
-Run EXP-023 Engine K v0.2 **zero-outcome preflight only**.
+Run EXP-023 Engine K v0.2 **training Mar23-May31 + June calibration only**.
 
-Required pass condition before labels:
+The sealed runner/workflow are:
 
-- all 8 execution markets >0 admissible rungs;
-- each execution market >=200 unique economically admissible states through June;
-- v0.2 economics/unit/feature tests pass;
-- July-August and September remain unopened.
+- `research/code/run_engine_k_v0_2_training_calibration.py`;
+- `.github/workflows/exp023-engine-k-v0.2-training-calibration.yml`.
 
-If preflight passes, checkpoint it and only then implement/launch v0.2 Mar23-May31 training + June calibration. If it fails, revise economics before any v0.2 outcome labels.
+Mandatory pre-secondary gate remains frozen:
 
-Do not add BTC or other rescue symbols inside EXP-023. Symbol expansion remains governed by the frozen admission policy.
+- >=200 labeled admissible states per market;
+- >=100 qualified one-open trades combined train+cal;
+- >=20 qualified June trades;
+- June hit rate > June mean break-even;
+- June primary expectancy >0;
+- June PF >=1.10;
+- June max drawdown <=USD100;
+- causality/provenance pass;
+- market contribution reported;
+- July-August and September sealed.
+
+Stop before July-August if any mandatory gate fails.
