@@ -519,3 +519,49 @@ The next prospectively frozen architecture should implement the user-supplied mu
 `4H/1H context -> 15m setup/location -> 5m tactical decision -> lower-timeframe execution`.
 
 The lower-timeframe entry should be designed to **preserve favorable pullback price**, not wait for a full breakout/resumption that creates a chase entry.
+
+
+## Engine M v0.1 / EXP-027 — CURRENT PRIMARY PATH
+
+Engine L v0.1 / EXP-026 is closed after development failure. Its main lesson was that pullback + breakout/resumption + next-open confirmation **chased price**: the median executed entry was about 0.516 V5 worse than the original decision close.
+
+The active path is now Engine M v0.1, a genuinely different **rule-based multi-timeframe location + non-chasing limit-entry engine**.
+
+Architecture:
+
+`4H / 1H context -> 15m setup/location -> 5m tactical arm -> M1 retracement limit entry`.
+
+Frozen v0.1 center mechanics:
+
+- H4 and H1 must agree by completed-bar close direction;
+- completed M15 must interact with and reclaim the latest completed H1 midpoint;
+- the final completed M5 bar must reject in context direction and close in its outer quartile;
+- no immediate market entry;
+- precomputed entry = 50% of the completed M5 arm range;
+- stop = beyond the M5 arm extreme by one research tick;
+- limit lives 10 active M1 bars and no later than 18:00 UTC;
+- T40 only;
+- same USD20 stop-risk / notional / margin / cost framework;
+- no ML probability model;
+- matched immediate-entry control will later use the same MTF arms and same M5 stop.
+
+### Immediate next action
+
+Run EXP-027 **zero-outcome MTF/limit mechanics preflight only**.
+
+Frozen preflight gates:
+
+- exact causal multi-timeframe construction tests pass;
+- every execution market has >=50 mechanically filled + economically admissible limit paths;
+- LONG and SHORT represented on every market;
+- >=600 total admissible paths;
+- no target/P&L outcomes;
+- Jul-Aug and Sep remain unloaded.
+
+Files:
+
+- `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.1.md`;
+- `research/experiments/EXP-027-engine-m-mtf-reclaim-limit-entry-v0.1.md`;
+- `research/code/engine_m_v0_1.py`;
+- `research/code/run_engine_m_v0_1_preflight.py`;
+- `.github/workflows/exp027-engine-m-v0.1-preflight.yml`.
