@@ -1,0 +1,1571 @@
+{
+  "experiment": "EXP-027",
+  "engine": "Engine M v0.1",
+  "stage": "zero_outcome_mtf_limit_mechanics_preflight",
+  "target_outcomes_calculated": false,
+  "pnl_outcomes_calculated": false,
+  "secondary_test_loaded_or_inspected": false,
+  "final_holdout_loaded_or_inspected": false,
+  "parsed_market_data_max_timestamp": "2026-06-30 23:59:00+00:00",
+  "tests": {
+    "engine_m": [
+      "htf_long_context",
+      "htf_short_context",
+      "frozen_order_constants"
+    ],
+    "synthetic_setup": [
+      "synthetic_long_mtf_arm",
+      "synthetic_short_mtf_arm"
+    ],
+    "synthetic_fill": [
+      "long_limit_fill_at_precomputed_price",
+      "fill_bar_stop_touch_flagged",
+      "gap_through_stop_cancelled",
+      "ten_m1_expiry"
+    ]
+  },
+  "markets": {
+    "XAUUSD": {
+      "bar_counts": {
+        "m5": 19484,
+        "m15": 6490,
+        "h1": 1609,
+        "h4": 352
+      },
+      "context_counts": {
+        "long": 1204,
+        "neutral": 2444,
+        "short": 1452
+      },
+      "setup_status_counts": {
+        "armed": 274,
+        "m15_reclaim_failed": 1958,
+        "m5_arm_failed": 424,
+        "neutral_context": 2444
+      },
+      "armed_by_direction": {
+        "long": 126,
+        "short": 148
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 61,
+        "expired_unfilled": 78,
+        "filled_economically_rejected": 135
+      },
+      "mechanical_fills": 196,
+      "admissible_entry_paths": 61,
+      "admissible_by_direction": {
+        "long": 26,
+        "short": 35
+      },
+      "median_wait_active_m1_bars": 2,
+      "median_entry_improvement_a5_range": 0.3698884758363206,
+      "median_stop_distance_native": 1.5260000000007494,
+      "examples": [
+        {
+          "decision_ts": "2026-03-25 17:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 4637.424999999999,
+          "a5_close": 4637.389999999999,
+          "limit": 4638.969999999999,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-25 17:00:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-25 17:00:00+00:00",
+            "entry": 4638.969999999999,
+            "stop": 4640.771000000001,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 1.5799999999999272,
+            "entry_improvement_a5_range": 0.43888888888871347,
+            "stop_distance_native": 1.8010000000012951,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": null,
+              "distance": 4.0,
+              "lot": 0.1,
+              "gross_target_usd_actual": 40.0,
+              "stop_risk_usd": 18.01000000001295,
+              "notional_usd": 46389.7,
+              "notional_to_equity": 92.7794,
+              "research_margin_usd_at_1_500": 92.7794,
+              "primary_cost_usd": 4.0,
+              "stress_cost_usd": 8.0,
+              "breakeven_probability": 0.3794173418377528,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-06 16:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 4650.040000000001,
+          "a5_close": 4645.4400000000005,
+          "limit": 4646.675,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-06 16:46:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-06 16:46:00+00:00",
+            "entry": 4646.675,
+            "stop": 4648.501,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 1.2349999999996726,
+            "entry_improvement_a5_range": 0.3383561643835057,
+            "stop_distance_native": 1.8260000000000218,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": null,
+              "distance": 4.0,
+              "lot": 0.1,
+              "gross_target_usd_actual": 40.0,
+              "stop_risk_usd": 18.26000000000022,
+              "notional_usd": 46466.75,
+              "notional_to_equity": 92.9335,
+              "research_margin_usd_at_1_500": 92.9335,
+              "primary_cost_usd": 4.0,
+              "stress_cost_usd": 8.0,
+              "breakeven_probability": 0.38208032955715987,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-07 01:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 4644.84,
+          "a5_close": 4644.21,
+          "limit": 4645.655,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-07 01:02:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-07 01:02:00+00:00",
+            "entry": 4645.655,
+            "stop": 4647.491,
+            "fill_bar_stop_touched": true,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 1.444999999999709,
+            "entry_improvement_a5_range": 0.39373297002716084,
+            "stop_distance_native": 1.83600000000024,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": null,
+              "distance": 4.0,
+              "lot": 0.1,
+              "gross_target_usd_actual": 40.0,
+              "stop_risk_usd": 18.3600000000024,
+              "notional_usd": 46456.55,
+              "notional_to_equity": 92.9131,
+              "research_margin_usd_at_1_500": 92.9131,
+              "primary_cost_usd": 4.0,
+              "stress_cost_usd": 8.0,
+              "breakeven_probability": 0.38313913639481634,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-10 12:30:00+00:00",
+          "direction": "long",
+          "h1_mid": 4789.465,
+          "a5_close": 4790.595,
+          "limit": 4789.59,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-10 12:30:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-10 12:30:00+00:00",
+            "entry": 4789.59,
+            "stop": 4788.164,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 1.0050000000001091,
+            "entry_improvement_a5_range": 0.3526315789473617,
+            "stop_distance_native": 1.4260000000003856,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": null,
+              "distance": 4.0,
+              "lot": 0.1,
+              "gross_target_usd_actual": 40.0,
+              "stop_risk_usd": 14.260000000003856,
+              "notional_usd": 47895.9,
+              "notional_to_equity": 95.79180000000001,
+              "research_margin_usd_at_1_500": 95.79180000000001,
+              "primary_cost_usd": 4.0,
+              "stress_cost_usd": 8.0,
+              "breakeven_probability": 0.3365278289716653,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "EURUSD": {
+      "bar_counts": {
+        "m5": 20705,
+        "m15": 6901,
+        "h1": 1724,
+        "h4": 417
+      },
+      "context_counts": {
+        "long": 1288,
+        "neutral": 2477,
+        "short": 1408
+      },
+      "setup_status_counts": {
+        "armed": 260,
+        "m15_reclaim_failed": 2018,
+        "m5_arm_failed": 418,
+        "neutral_context": 2477
+      },
+      "armed_by_direction": {
+        "long": 119,
+        "short": 141
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 6,
+        "expired_unfilled": 84,
+        "filled_economically_rejected": 170
+      },
+      "mechanical_fills": 176,
+      "admissible_entry_paths": 6,
+      "admissible_by_direction": {
+        "long": 3,
+        "short": 3
+      },
+      "median_wait_active_m1_bars": 3.0,
+      "median_entry_improvement_a5_range": 0.43268608414226695,
+      "median_stop_distance_native": 0.0005250000000001087,
+      "examples": [
+        {
+          "decision_ts": "2026-03-24 13:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 1.16906,
+          "a5_close": 1.1684899999999998,
+          "limit": 1.168955,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 13:02:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 13:02:00+00:00",
+            "entry": 1.168955,
+            "stop": 1.1694799999999999,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.00046500000000015973,
+            "entry_improvement_a5_range": 0.45145631067982617,
+            "stop_distance_native": 0.0005249999999998867,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00105,
+              "lot": 0.38,
+              "gross_target_usd_actual": 39.9,
+              "stop_risk_usd": 19.949999999995693,
+              "notional_usd": 44420.29,
+              "notional_to_equity": 88.84058,
+              "research_margin_usd_at_1_500": 88.84058,
+              "primary_cost_usd": 3.99,
+              "stress_cost_usd": 7.98,
+              "breakeven_probability": 0.39999999999995683,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-01 12:45:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.171075,
+          "a5_close": 1.1721,
+          "limit": 1.171615,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-01 12:45:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-01 12:45:00+00:00",
+            "entry": 1.171615,
+            "stop": 1.17079,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 0.00048499999999984666,
+            "entry_improvement_a5_range": 0.29754601226984084,
+            "stop_distance_native": 0.0008250000000000757,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00165,
+              "lot": 0.24,
+              "gross_target_usd_actual": 39.6,
+              "stop_risk_usd": 19.800000000001813,
+              "notional_usd": 28118.760000000002,
+              "notional_to_equity": 56.23752,
+              "research_margin_usd_at_1_500": 56.23752,
+              "primary_cost_usd": 3.9600000000000004,
+              "stress_cost_usd": 7.920000000000001,
+              "breakeven_probability": 0.40000000000001834,
+              "required_probability": 0.5000000000000183,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-17 13:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.1868300000000005,
+          "a5_close": 1.1888100000000006,
+          "limit": 1.1883650000000006,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-17 13:01:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-17 13:01:00+00:00",
+            "entry": 1.1883650000000006,
+            "stop": 1.1878400000000002,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.0004450000000000287,
+            "entry_improvement_a5_range": 0.4320388349513548,
+            "stop_distance_native": 0.0005250000000003308,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00106,
+              "lot": 0.37,
+              "gross_target_usd_actual": 39.22,
+              "stop_risk_usd": 19.425000000012236,
+              "notional_usd": 43969.50500000002,
+              "notional_to_equity": 87.93901000000004,
+              "research_margin_usd_at_1_500": 87.93901000000004,
+              "primary_cost_usd": 3.922,
+              "stress_cost_usd": 7.844,
+              "breakeven_probability": 0.39810725552063037,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-05-19 10:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 1.1762549999999996,
+          "a5_close": 1.1755999999999995,
+          "limit": 1.1759499999999996,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-05-19 10:47:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-05-19 10:47:00+00:00",
+            "entry": 1.1759499999999996,
+            "stop": 1.1764599999999996,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.0003500000000000725,
+            "entry_improvement_a5_range": 0.350000000000111,
+            "stop_distance_native": 0.0005100000000000104,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00102,
+              "lot": 0.39,
+              "gross_target_usd_actual": 39.78000000000001,
+              "stop_risk_usd": 19.89000000000041,
+              "notional_usd": 45862.04999999998,
+              "notional_to_equity": 91.72409999999996,
+              "research_margin_usd_at_1_500": 91.72409999999996,
+              "primary_cost_usd": 3.978000000000001,
+              "stress_cost_usd": 7.956000000000002,
+              "breakeven_probability": 0.40000000000000413,
+              "required_probability": 0.5000000000000041,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "GBPUSD": {
+      "bar_counts": {
+        "m5": 20692,
+        "m15": 6888,
+        "h1": 1711,
+        "h4": 415
+      },
+      "context_counts": {
+        "long": 1332,
+        "neutral": 2461,
+        "short": 1380
+      },
+      "setup_status_counts": {
+        "armed": 320,
+        "m15_reclaim_failed": 1980,
+        "m5_arm_failed": 412,
+        "neutral_context": 2461
+      },
+      "armed_by_direction": {
+        "long": 153,
+        "short": 167
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 12,
+        "expired_unfilled": 108,
+        "filled_economically_rejected": 200
+      },
+      "mechanical_fills": 212,
+      "admissible_entry_paths": 12,
+      "admissible_by_direction": {
+        "long": 7,
+        "short": 5
+      },
+      "median_wait_active_m1_bars": 3.0,
+      "median_entry_improvement_a5_range": 0.4067781265088434,
+      "median_stop_distance_native": 0.0006200000000000649,
+      "examples": [
+        {
+          "decision_ts": "2026-03-24 11:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.3520750000000008,
+          "a5_close": 1.3525800000000008,
+          "limit": 1.3520800000000008,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 11:01:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 11:01:00+00:00",
+            "entry": 1.3520800000000008,
+            "stop": 1.3515100000000007,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.0004999999999999449,
+            "entry_improvement_a5_range": 0.44642857142851833,
+            "stop_distance_native": 0.0005700000000001815,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00115,
+              "lot": 0.34,
+              "gross_target_usd_actual": 39.1,
+              "stop_risk_usd": 19.38000000000617,
+              "notional_usd": 45970.72000000003,
+              "notional_to_equity": 91.94144000000006,
+              "research_margin_usd_at_1_500": 91.94144000000006,
+              "primary_cost_usd": 3.91,
+              "stress_cost_usd": 7.82,
+              "breakeven_probability": 0.39825581395355186,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-01 12:45:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.33228,
+          "a5_close": 1.332835,
+          "limit": 1.33232,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-01 12:45:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-01 12:45:00+00:00",
+            "entry": 1.33232,
+            "stop": 1.3312849999999998,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 0.0005150000000000432,
+            "entry_improvement_a5_range": 0.2512195121951299,
+            "stop_distance_native": 0.0010350000000001192,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00208,
+              "lot": 0.19,
+              "gross_target_usd_actual": 39.519999999999996,
+              "stop_risk_usd": 19.665000000002262,
+              "notional_usd": 25314.08,
+              "notional_to_equity": 50.62816,
+              "research_margin_usd_at_1_500": 50.62816,
+              "primary_cost_usd": 3.952,
+              "stress_cost_usd": 7.904,
+              "breakeven_probability": 0.39903691813806474,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-01 14:45:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.332005,
+          "a5_close": 1.332845,
+          "limit": 1.3322150000000001,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-01 14:47:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-01 14:47:00+00:00",
+            "entry": 1.3322150000000001,
+            "stop": 1.331445,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.0006299999999999084,
+            "entry_improvement_a5_range": 0.41447368421047537,
+            "stop_distance_native": 0.0007700000000001594,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00155,
+              "lot": 0.25,
+              "gross_target_usd_actual": 38.75,
+              "stop_risk_usd": 19.250000000003986,
+              "notional_usd": 33305.37500000001,
+              "notional_to_equity": 66.61075000000001,
+              "research_margin_usd_at_1_500": 66.61075000000001,
+              "primary_cost_usd": 3.875,
+              "stress_cost_usd": 7.75,
+              "breakeven_probability": 0.39870689655176544,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-08 15:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.3452600000000003,
+          "a5_close": 1.3453400000000002,
+          "limit": 1.3447550000000001,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-08 15:02:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-08 15:02:00+00:00",
+            "entry": 1.3447550000000001,
+            "stop": 1.3440100000000001,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.0005850000000000577,
+            "entry_improvement_a5_range": 0.3979591836734863,
+            "stop_distance_native": 0.0007449999999999957,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00149,
+              "lot": 0.26,
+              "gross_target_usd_actual": 38.74,
+              "stop_risk_usd": 19.36999999999989,
+              "notional_usd": 34963.630000000005,
+              "notional_to_equity": 69.92726,
+              "research_margin_usd_at_1_500": 69.92726,
+              "primary_cost_usd": 3.8740000000000006,
+              "stress_cost_usd": 7.748000000000001,
+              "breakeven_probability": 0.3999999999999989,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "USDJPY": {
+      "bar_counts": {
+        "m5": 20704,
+        "m15": 6900,
+        "h1": 1723,
+        "h4": 417
+      },
+      "context_counts": {
+        "long": 1592,
+        "neutral": 2369,
+        "short": 1212
+      },
+      "setup_status_counts": {
+        "armed": 296,
+        "m15_reclaim_failed": 2065,
+        "m5_arm_failed": 443,
+        "neutral_context": 2369
+      },
+      "armed_by_direction": {
+        "long": 181,
+        "short": 115
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 8,
+        "expired_unfilled": 103,
+        "filled_economically_rejected": 185
+      },
+      "mechanical_fills": 193,
+      "admissible_entry_paths": 8,
+      "admissible_by_direction": {
+        "long": 4,
+        "short": 4
+      },
+      "median_wait_active_m1_bars": 1.5,
+      "median_entry_improvement_a5_range": 0.4001408450704716,
+      "median_stop_distance_native": 0.0762500000000017,
+      "examples": [
+        {
+          "decision_ts": "2026-03-24 01:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 159.9680000000003,
+          "a5_close": 159.97500000000034,
+          "limit": 159.92100000000033,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 01:04:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 01:04:00+00:00",
+            "entry": 159.92100000000033,
+            "stop": 159.84900000000033,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 5,
+            "entry_improvement_native": 0.054000000000002046,
+            "entry_improvement_a5_range": 0.38028169014087043,
+            "stop_distance_native": 0.07200000000000273,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.144,
+              "lot": 0.44,
+              "gross_target_usd_actual": 39.61956215881583,
+              "stop_risk_usd": 19.809781079408666,
+              "notional_usd": 44000.0,
+              "notional_to_equity": 88.0,
+              "research_margin_usd_at_1_500": 88.0,
+              "primary_cost_usd": 3.9619562158815835,
+              "stress_cost_usd": 7.923912431763167,
+              "breakeven_probability": 0.4000000000000076,
+              "required_probability": 0.5000000000000077,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-03-31 06:30:00+00:00",
+          "direction": "short",
+          "h1_mid": 161.08450000000036,
+          "a5_close": 161.05100000000036,
+          "limit": 161.08550000000037,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-31 06:30:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-31 06:30:00+00:00",
+            "entry": 161.08550000000037,
+            "stop": 161.15200000000038,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 0.03450000000000841,
+            "entry_improvement_a5_range": 0.263358778626018,
+            "stop_distance_native": 0.0665000000000191,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.134,
+              "lot": 0.48,
+              "gross_target_usd_actual": 39.92910597167334,
+              "stop_risk_usd": 19.81556378445552,
+              "notional_usd": 48000.0,
+              "notional_to_equity": 96.0,
+              "research_margin_usd_at_1_500": 96.0,
+              "primary_cost_usd": 3.992910597167334,
+              "stress_cost_usd": 7.985821194334668,
+              "breakeven_probability": 0.39850374064843636,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-01 12:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 160.02200000000033,
+          "a5_close": 159.93100000000035,
+          "limit": 159.99850000000032,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-01 12:45:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-01 12:45:00+00:00",
+            "entry": 159.99850000000032,
+            "stop": 160.10600000000034,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 0.06749999999996703,
+            "entry_improvement_a5_range": 0.3169014084505586,
+            "stop_distance_native": 0.10750000000001592,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.216,
+              "lot": 0.29,
+              "gross_target_usd_actual": 39.150367034690866,
+              "stop_risk_usd": 19.48455766773098,
+              "notional_usd": 28999.999999999996,
+              "notional_to_equity": 57.99999999999999,
+              "research_margin_usd_at_1_500": 57.99999999999999,
+              "primary_cost_usd": 3.9150367034690867,
+              "stress_cost_usd": 7.830073406938173,
+              "breakeven_probability": 0.3990726429675721,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-17 13:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 158.27050000000003,
+          "a5_close": 157.89000000000004,
+          "limit": 157.96250000000003,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-17 13:01:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-17 13:01:00+00:00",
+            "entry": 157.96250000000003,
+            "stop": 158.04300000000003,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.0724999999999909,
+            "entry_improvement_a5_range": 0.45597484276726186,
+            "stop_distance_native": 0.08050000000000068,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.161,
+              "lot": 0.39,
+              "gross_target_usd_actual": 39.74994065047084,
+              "stop_risk_usd": 19.874970325235584,
+              "notional_usd": 39000.0,
+              "notional_to_equity": 78.0,
+              "research_margin_usd_at_1_500": 78.0,
+              "primary_cost_usd": 3.9749940650470843,
+              "stress_cost_usd": 7.949988130094169,
+              "breakeven_probability": 0.40000000000000163,
+              "required_probability": 0.5000000000000017,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "EURJPY": {
+      "bar_counts": {
+        "m5": 20695,
+        "m15": 6891,
+        "h1": 1714,
+        "h4": 417
+      },
+      "context_counts": {
+        "long": 1500,
+        "neutral": 2453,
+        "short": 1220
+      },
+      "setup_status_counts": {
+        "armed": 312,
+        "m15_reclaim_failed": 1918,
+        "m5_arm_failed": 490,
+        "neutral_context": 2453
+      },
+      "armed_by_direction": {
+        "long": 169,
+        "short": 143
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 3,
+        "expired_unfilled": 119,
+        "filled_economically_rejected": 190
+      },
+      "mechanical_fills": 193,
+      "admissible_entry_paths": 3,
+      "admissible_by_direction": {
+        "long": 2,
+        "short": 1
+      },
+      "median_wait_active_m1_bars": 4,
+      "median_entry_improvement_a5_range": 0.3168557536467152,
+      "median_stop_distance_native": 0.10250000000002046,
+      "examples": [
+        {
+          "decision_ts": "2026-05-14 13:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 185.73950000000008,
+          "a5_close": 185.27700000000004,
+          "limit": 185.47250000000008,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-05-14 13:50:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-05-14 13:50:00+00:00",
+            "entry": 185.47250000000008,
+            "stop": 185.7820000000001,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 6,
+            "entry_improvement_native": 0.1955000000000382,
+            "entry_improvement_a5_range": 0.3168557536467152,
+            "stop_distance_native": 0.3095000000000141,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.62,
+              "lot": 0.1,
+              "gross_target_usd_actual": 39.339602289311046,
+              "stop_risk_usd": 19.63807565893923,
+              "notional_usd": 11768.410299361687,
+              "notional_to_equity": 23.536820598723374,
+              "research_margin_usd_at_1_500": 23.536820598723374,
+              "primary_cost_usd": 3.9339602289311046,
+              "stress_cost_usd": 7.867920457862209,
+              "breakeven_probability": 0.3996772458311011,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-06-18 16:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 185.2655000000001,
+          "a5_close": 185.46900000000008,
+          "limit": 185.3785000000001,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-06-18 16:00:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-06-18 16:00:00+00:00",
+            "entry": 185.3785000000001,
+            "stop": 185.2800000000001,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 1,
+            "entry_improvement_native": 0.09049999999999159,
+            "entry_improvement_a5_range": 0.4641025641025372,
+            "stop_distance_native": 0.09850000000000136,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.197,
+              "lot": 0.32,
+              "gross_target_usd_actual": 38.98818727194013,
+              "stop_risk_usd": 19.494093635970334,
+              "notional_usd": 36688.18108726577,
+              "notional_to_equity": 73.37636217453155,
+              "research_margin_usd_at_1_500": 73.37636217453155,
+              "primary_cost_usd": 3.898818727194013,
+              "stress_cost_usd": 7.797637454388026,
+              "breakeven_probability": 0.40000000000000274,
+              "required_probability": 0.5000000000000028,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-06-30 15:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 186.03350000000012,
+          "a5_close": 186.38500000000016,
+          "limit": 186.32150000000013,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-06-30 15:03:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-06-30 15:03:00+00:00",
+            "entry": 186.32150000000013,
+            "stop": 186.2190000000001,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 4,
+            "entry_improvement_native": 0.0635000000000332,
+            "entry_improvement_a5_range": 0.312807881773558,
+            "stop_distance_native": 0.10250000000002046,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.206,
+              "lot": 0.31,
+              "gross_target_usd_actual": 39.17815446720531,
+              "stop_risk_usd": 19.493984625676436,
+              "notional_usd": 35435.5946969,
+              "notional_to_equity": 70.8711893938,
+              "research_margin_usd_at_1_500": 70.8711893938,
+              "primary_cost_usd": 3.9178154467205313,
+              "stress_cost_usd": 7.835630893441063,
+              "breakeven_probability": 0.39902755267427,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "AUDUSD": {
+      "bar_counts": {
+        "m5": 20705,
+        "m15": 6901,
+        "h1": 1724,
+        "h4": 417
+      },
+      "context_counts": {
+        "long": 1276,
+        "neutral": 2377,
+        "short": 1520
+      },
+      "setup_status_counts": {
+        "armed": 312,
+        "m15_reclaim_failed": 2089,
+        "m5_arm_failed": 395,
+        "neutral_context": 2377
+      },
+      "armed_by_direction": {
+        "long": 133,
+        "short": 179
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 20,
+        "expired_unfilled": 114,
+        "filled_economically_rejected": 178
+      },
+      "mechanical_fills": 198,
+      "admissible_entry_paths": 20,
+      "admissible_by_direction": {
+        "long": 10,
+        "short": 10
+      },
+      "median_wait_active_m1_bars": 3.0,
+      "median_entry_improvement_a5_range": 0.3893939393940361,
+      "median_stop_distance_native": 0.0003449999999999287,
+      "examples": [
+        {
+          "decision_ts": "2026-03-24 05:30:00+00:00",
+          "direction": "short",
+          "h1_mid": 0.7215650000000018,
+          "a5_close": 0.7210100000000018,
+          "limit": 0.7211750000000018,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 05:31:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 05:31:00+00:00",
+            "entry": 0.7211750000000018,
+            "stop": 0.7214900000000017,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.00016499999999997073,
+            "entry_improvement_a5_range": 0.2704918032786408,
+            "stop_distance_native": 0.0003149999999999542,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00063,
+              "lot": 0.63,
+              "gross_target_usd_actual": 39.69,
+              "stop_risk_usd": 19.844999999997114,
+              "notional_usd": 45434.02500000011,
+              "notional_to_equity": 90.86805000000022,
+              "research_margin_usd_at_1_500": 90.86805000000022,
+              "primary_cost_usd": 3.969,
+              "stress_cost_usd": 7.938,
+              "breakeven_probability": 0.39999999999997093,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-03-24 11:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 0.7222850000000017,
+          "a5_close": 0.7227400000000017,
+          "limit": 0.7224750000000018,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 11:01:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 11:01:00+00:00",
+            "entry": 0.7224750000000018,
+            "stop": 0.7221700000000018,
+            "fill_bar_stop_touched": true,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.0002649999999999597,
+            "entry_improvement_a5_range": 0.4491525423727442,
+            "stop_distance_native": 0.0003049999999999997,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00061,
+              "lot": 0.65,
+              "gross_target_usd_actual": 39.65,
+              "stop_risk_usd": 19.82499999999998,
+              "notional_usd": 46960.87500000012,
+              "notional_to_equity": 93.92175000000023,
+              "research_margin_usd_at_1_500": 93.92175000000023,
+              "primary_cost_usd": 3.965,
+              "stress_cost_usd": 7.93,
+              "breakeven_probability": 0.3999999999999998,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-03-24 13:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 0.7212400000000018,
+          "a5_close": 0.7207600000000017,
+          "limit": 0.7209550000000018,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 13:02:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 13:02:00+00:00",
+            "entry": 0.7209550000000018,
+            "stop": 0.7212500000000017,
+            "fill_bar_stop_touched": true,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.00019500000000005624,
+            "entry_improvement_a5_range": 0.34210526315801776,
+            "stop_distance_native": 0.0002949999999999342,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00059,
+              "lot": 0.67,
+              "gross_target_usd_actual": 39.53,
+              "stop_risk_usd": 19.76499999999559,
+              "notional_usd": 48303.98500000012,
+              "notional_to_equity": 96.60797000000024,
+              "research_margin_usd_at_1_500": 96.60797000000024,
+              "primary_cost_usd": 3.9530000000000003,
+              "stress_cost_usd": 7.906000000000001,
+              "breakeven_probability": 0.39999999999995534,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-03-25 14:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 0.7208850000000018,
+          "a5_close": 0.7198900000000018,
+          "limit": 0.7201050000000018,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-25 14:02:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-25 14:02:00+00:00",
+            "entry": 0.7201050000000018,
+            "stop": 0.7204300000000017,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.00021499999999996522,
+            "entry_improvement_a5_range": 0.34126984126983567,
+            "stop_distance_native": 0.0003249999999999087,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00065,
+              "lot": 0.61,
+              "gross_target_usd_actual": 39.65,
+              "stop_risk_usd": 19.82499999999443,
+              "notional_usd": 43926.40500000011,
+              "notional_to_equity": 87.85281000000022,
+              "research_margin_usd_at_1_500": 87.85281000000022,
+              "primary_cost_usd": 3.965,
+              "stress_cost_usd": 7.93,
+              "breakeven_probability": 0.39999999999994384,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "USDCAD": {
+      "bar_counts": {
+        "m5": 20706,
+        "m15": 6902,
+        "h1": 1725,
+        "h4": 417
+      },
+      "context_counts": {
+        "long": 1688,
+        "neutral": 2325,
+        "short": 1160
+      },
+      "setup_status_counts": {
+        "armed": 326,
+        "m15_reclaim_failed": 2124,
+        "m5_arm_failed": 398,
+        "neutral_context": 2325
+      },
+      "armed_by_direction": {
+        "long": 194,
+        "short": 132
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 3,
+        "expired_unfilled": 114,
+        "filled_economically_rejected": 209
+      },
+      "mechanical_fills": 212,
+      "admissible_entry_paths": 3,
+      "admissible_by_direction": {
+        "long": 1,
+        "short": 2
+      },
+      "median_wait_active_m1_bars": 3,
+      "median_entry_improvement_a5_range": 0.30869565217381567,
+      "median_stop_distance_native": 0.0005850000000000577,
+      "examples": [
+        {
+          "decision_ts": "2026-04-01 12:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 1.3863150000000004,
+          "a5_close": 1.3855400000000002,
+          "limit": 1.3860250000000005,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-01 12:46:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-01 12:46:00+00:00",
+            "entry": 1.3860250000000005,
+            "stop": 1.3866500000000004,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.00048500000000029075,
+            "entry_improvement_a5_range": 0.3943089430897178,
+            "stop_distance_native": 0.0006249999999998757,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00125,
+              "lot": 0.44,
+              "gross_target_usd_actual": 39.681823920924934,
+              "stop_risk_usd": 19.840911960458516,
+              "notional_usd": 44000.0,
+              "notional_to_equity": 88.0,
+              "research_margin_usd_at_1_500": 88.0,
+              "primary_cost_usd": 3.9681823920924937,
+              "stress_cost_usd": 7.936364784184987,
+              "breakeven_probability": 0.39999999999996017,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-28 07:30:00+00:00",
+          "direction": "long",
+          "h1_mid": 1.3598850000000002,
+          "a5_close": 1.3599000000000003,
+          "limit": 1.3595650000000004,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-28 07:32:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-28 07:32:00+00:00",
+            "entry": 1.3595650000000004,
+            "stop": 1.3590000000000004,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 3,
+            "entry_improvement_native": 0.0003349999999999742,
+            "entry_improvement_a5_range": 0.30180180180185406,
+            "stop_distance_native": 0.0005649999999999267,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00113,
+              "lot": 0.48,
+              "gross_target_usd_actual": 39.895113510571385,
+              "stop_risk_usd": 19.947556755283102,
+              "notional_usd": 48000.0,
+              "notional_to_equity": 96.0,
+              "research_margin_usd_at_1_500": 96.0,
+              "primary_cost_usd": 3.9895113510571387,
+              "stress_cost_usd": 7.979022702114277,
+              "breakeven_probability": 0.39999999999997404,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-30 15:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 1.359455000000001,
+          "a5_close": 1.3570700000000009,
+          "limit": 1.3574250000000008,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-30 15:04:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-30 15:04:00+00:00",
+            "entry": 1.3574250000000008,
+            "stop": 1.3580100000000008,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 5,
+            "entry_improvement_native": 0.0003549999999998832,
+            "entry_improvement_a5_range": 0.30869565217381567,
+            "stop_distance_native": 0.0005850000000000577,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00117,
+              "lot": 0.46,
+              "gross_target_usd_actual": 39.64859937013093,
+              "stop_risk_usd": 19.82429968506742,
+              "notional_usd": 46000.0,
+              "notional_to_equity": 92.0,
+              "research_margin_usd_at_1_500": 92.0,
+              "primary_cost_usd": 3.9648599370130935,
+              "stress_cost_usd": 7.929719874026187,
+              "breakeven_probability": 0.4000000000000197,
+              "required_probability": 0.5000000000000197,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    },
+    "USDCHF": {
+      "bar_counts": {
+        "m5": 20705,
+        "m15": 6901,
+        "h1": 1724,
+        "h4": 417
+      },
+      "context_counts": {
+        "long": 1480,
+        "neutral": 2545,
+        "short": 1148
+      },
+      "setup_status_counts": {
+        "armed": 287,
+        "m15_reclaim_failed": 1994,
+        "m5_arm_failed": 347,
+        "neutral_context": 2545
+      },
+      "armed_by_direction": {
+        "long": 163,
+        "short": 124
+      },
+      "blocked_setups_due_pending_order": 0,
+      "fill_status_counts": {
+        "admissible_fill": 13,
+        "expired_unfilled": 86,
+        "filled_economically_rejected": 188
+      },
+      "mechanical_fills": 201,
+      "admissible_entry_paths": 13,
+      "admissible_by_direction": {
+        "long": 5,
+        "short": 8
+      },
+      "median_wait_active_m1_bars": 3,
+      "median_entry_improvement_a5_range": 0.43548387096768415,
+      "median_stop_distance_native": 0.00034999999999996145,
+      "examples": [
+        {
+          "decision_ts": "2026-03-24 08:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 0.7854950000000002,
+          "a5_close": 0.7851100000000002,
+          "limit": 0.7854650000000002,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 08:50:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 08:50:00+00:00",
+            "entry": 0.7854650000000002,
+            "stop": 0.7858300000000001,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 6,
+            "entry_improvement_native": 0.0003549999999999942,
+            "entry_improvement_a5_range": 0.5,
+            "stop_distance_native": 0.0003649999999999487,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00073,
+              "lot": 0.43,
+              "gross_target_usd_actual": 39.96358844760746,
+              "stop_risk_usd": 19.981794223800918,
+              "notional_usd": 43000.0,
+              "notional_to_equity": 86.0,
+              "research_margin_usd_at_1_500": 86.0,
+              "primary_cost_usd": 3.9963588447607457,
+              "stress_cost_usd": 7.992717689521491,
+              "breakeven_probability": 0.3999999999999719,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-03-24 13:00:00+00:00",
+          "direction": "long",
+          "h1_mid": 0.7867300000000002,
+          "a5_close": 0.7875000000000001,
+          "limit": 0.7872250000000001,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-24 13:03:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-24 13:03:00+00:00",
+            "entry": 0.7872250000000001,
+            "stop": 0.7869000000000002,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 4,
+            "entry_improvement_native": 0.0002750000000000252,
+            "entry_improvement_a5_range": 0.4365079365079631,
+            "stop_distance_native": 0.0003249999999999087,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00065,
+              "lot": 0.48,
+              "gross_target_usd_actual": 39.63288767506112,
+              "stop_risk_usd": 19.816443837524996,
+              "notional_usd": 48000.0,
+              "notional_to_equity": 96.0,
+              "research_margin_usd_at_1_500": 96.0,
+              "primary_cost_usd": 3.9632887675061124,
+              "stress_cost_usd": 7.926577535012225,
+              "breakeven_probability": 0.39999999999994384,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-03-31 14:00:00+00:00",
+          "direction": "short",
+          "h1_mid": 0.7947600000000005,
+          "a5_close": 0.7945600000000005,
+          "limit": 0.7948900000000004,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-03-31 14:08:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-03-31 14:08:00+00:00",
+            "entry": 0.7948900000000004,
+            "stop": 0.7952400000000004,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 9,
+            "entry_improvement_native": 0.00032999999999994145,
+            "entry_improvement_a5_range": 0.4852941176469628,
+            "stop_distance_native": 0.00034999999999996145,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.0007,
+              "lot": 0.45,
+              "gross_target_usd_actual": 39.62812464617743,
+              "stop_risk_usd": 19.81406232308654,
+              "notional_usd": 45000.0,
+              "notional_to_equity": 90.0,
+              "research_margin_usd_at_1_500": 90.0,
+              "primary_cost_usd": 3.9628124646177434,
+              "stress_cost_usd": 7.925624929235487,
+              "breakeven_probability": 0.39999999999997804,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        },
+        {
+          "decision_ts": "2026-04-01 12:45:00+00:00",
+          "direction": "short",
+          "h1_mid": 0.7884950000000004,
+          "a5_close": 0.7873800000000004,
+          "limit": 0.7878800000000004,
+          "entry": {
+            "status": "admissible_fill",
+            "resolved_ts": "2026-04-01 12:46:00+00:00",
+            "filled": true,
+            "entry_ts": "2026-04-01 12:46:00+00:00",
+            "entry": 0.7878800000000004,
+            "stop": 0.7885000000000003,
+            "fill_bar_stop_touched": false,
+            "wait_active_m1_bars": 2,
+            "entry_improvement_native": 0.0004999999999999449,
+            "entry_improvement_a5_range": 0.40983606557372576,
+            "stop_distance_native": 0.0006199999999999539,
+            "t40": {
+              "target_usd_nominal": 40.0,
+              "target_r_multiple": 2.0,
+              "distance": 0.00124,
+              "lot": 0.25,
+              "gross_target_usd_actual": 39.346093313702575,
+              "stop_risk_usd": 19.673046656849827,
+              "notional_usd": 25000.0,
+              "notional_to_equity": 50.0,
+              "research_margin_usd_at_1_500": 50.0,
+              "primary_cost_usd": 3.9346093313702575,
+              "stress_cost_usd": 7.869218662740515,
+              "breakeven_probability": 0.39999999999998515,
+              "required_probability": 0.5,
+              "admissible_lot": true,
+              "admissible_risk": true,
+              "admissible_notional": true,
+              "admissible_margin": true,
+              "execution_admissible_pre_probability": true
+            }
+          }
+        }
+      ]
+    }
+  },
+  "per_market_gate": {
+    "XAUUSD": true,
+    "EURUSD": false,
+    "GBPUSD": false,
+    "USDJPY": false,
+    "EURJPY": false,
+    "AUDUSD": false,
+    "USDCAD": false,
+    "USDCHF": false
+  },
+  "gate": {
+    "each_market_ge_50_and_both_directions": false,
+    "total_admissible_paths_ge_600": false,
+    "protected_periods_sealed": true,
+    "target_outcomes_calculated": false,
+    "pnl_outcomes_calculated": false
+  },
+  "totals": {
+    "admissible_entry_paths": 126,
+    "mechanical_fills": 1581
+  },
+  "preflight_pass": false
+}
