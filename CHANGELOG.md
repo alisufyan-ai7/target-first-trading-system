@@ -169,3 +169,10 @@
 - Through June 30 only, 8 execution markets produced 205,196 causal structural states and 7,098 economically admissible target rungs before probability qualification; 4 forecast-only markets remained isolated from executable economics.
 - July-August secondary-test and September final-holdout state/outcome distributions remained unopened by the authoritative preflight.
 - Next permitted stage: train on Mar23-May31 and calibrate on June only, then checkpoint before secondary testing.
+
+- Closed Engine K v0.1 / EXP-022 before secondary testing: 7,098 admissible labeled rungs were all XAUUSD, all seven FX markets had zero executable rungs, and zero trades cleared the frozen 60% qualification floor.
+- Preserved July-August 2026 secondary-test and Sep1-Sep22 final-holdout outcomes unopened.
+- Opened EXP-023 / Engine K v0.2 prospectively with zero v0.2 outcomes.
+- Kept Gold +3/+4/+5 unchanged; replaced non-Gold generic volatility-burden targets with target-before-size 1.5R/2R/2.5R structural target functions.
+- Frozen v0.2 qualification at max(0.50, break-even+0.10), with existing positive-EV, USD20 stop-risk, notional and margin gates.
+- Added separate v0.2 economics module and zero-outcome preflight requiring >=200 admissible states in every execution market before labeling.
