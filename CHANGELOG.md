@@ -195,3 +195,8 @@
 - Only 2 combined trades qualified and 0 June trades qualified, so the >=100 combined and >=20 June gates failed; June expectancy/PF/hit-rate gates were unavailable/failed.
 - July-August secondary-test and September final-holdout outcomes remain unopened.
 - v0.2 is closed; no post-hoc threshold relaxation permitted.
+
+- Opened EXP-024 / Engine K v0.3 after v0.2 failed trade-density gates.
+- v0.3 keeps v0.2 targets/economics/features/HGB but separates Mar-Apr fit, May calibration and June development gate.
+- Added market-direction-aware Platt calibration and replaced arbitrary probability floors with positive primary-EV + positive stress-EV qualification.
+- Added separate June-gate runner/workflow; July-Aug secondary test and September final holdout remain sealed.
