@@ -205,3 +205,19 @@ v0.3 is frozen prospectively:
 - calibrated June AUC 0.672/0.708/0.740.
 
 v0.3 is closed before secondary testing. July-Aug and September remain sealed.
+
+
+## Engine K v0.4 / EXP-025 — current primary path
+
+v0.3 is closed before secondary testing.
+
+v0.4 prospectively freezes a bounded walk-forward development selection:
+
+- 12 configurations only;
+- 6 chronological folds;
+- unchanged scanner/economics/risk architecture;
+- July-Aug and September sealed;
+- stability-first frozen winner rule;
+- hard stop before secondary if no configuration passes.
+
+**Next:** run EXP-025 development-only walk-forward selection.
