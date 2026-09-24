@@ -1231,3 +1231,30 @@ At launch:
 - Sep: unopened.
 
 **Next:** trigger EXP-031 development and stop before secondary on any failed mandatory gate.
+
+
+## Engine M family final outcome
+
+Engine M is CLOSED after v0.5 / EXP-031 development failure at `d10e0e9`.
+
+v0.5:
+
+- 329 signals;
+- gross -0.0099R;
+- primary -0.2063R;
+- stress -0.4027R;
+- 0/6 positive-stress folds;
+- safe-account primary/stress -USD1.29 / -USD3.05 per trade;
+- stress MDD USD856.89.
+
+H1_0 cohort gross +0.0259R; H1_1 -0.0628R. Do not post-hoc rescue H1_0 or selected symbols.
+
+Family conclusion:
+
+- retain non-chasing execution insight;
+- reject H1/midpoint/range sweep-reclaim as sufficient standalone predictor;
+- no Engine M v0.6 minor variant.
+
+Jul-Aug and Sep remain unopened.
+
+**Next:** genuinely different prospectively frozen engine family.
