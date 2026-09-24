@@ -922,3 +922,43 @@ At launch checkpoint:
 - Sep: unopened.
 
 **Next:** trigger EXP-026 development and apply the frozen gate.
+
+
+### EXP-026 Engine L development outcome — FAIL
+
+Durable result:
+
+`7cacd739f80ab37a2f6465924937bd6489b1b966`
+
+Engine L pooled:
+
+- 303 trades;
+- hit 26.40%;
+- primary expectancy -USD5.82/trade;
+- stress expectancy -USD9.77/trade;
+- PF 0.628 / 0.469;
+- stress MDD USD3,141.88;
+- positive stress folds 0/6.
+
+Matched immediate control:
+
+- stress expectancy -USD8.49/trade.
+
+Engine L underperformed by ~USD1.28/trade.
+
+Critical lesson:
+
+- pullback occurred;
+- M1 resumption confirmation occurred;
+- but next-open entry was median ~0.516 V5 worse than original decision close;
+- confirmation became chase.
+
+Do not add a probability threshold or tune v0.1.
+
+Jul-Aug and Sep remain unopened.
+
+Next prospective architecture should use:
+
+`4H/1H context -> 15m setup/location -> 5m tactical decision -> lower-timeframe entry`
+
+with an entry design that preserves favorable price rather than waiting for a completed breakout.
