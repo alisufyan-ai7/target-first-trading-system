@@ -1166,3 +1166,30 @@ Outcome horizon is frozen at T40/stop first within 120 active M1 bars and before
 Jul-Aug and Sep remain sealed.
 
 **Exact next action:** run EXP-033 development only.
+
+
+## Engine N family — CLOSED
+
+Engine N v0.2 / EXP-033 failed development at `78fc698522916ce24a48d718cf948399c902e945`.
+
+- 505 development signals;
+- gross +0.0411R;
+- primary -0.1450R;
+- stress -0.3312R;
+- only 1/6 positive-stress folds;
+- safe-account primary/stress -USD2.82 / -USD6.07 per trade;
+- stress MDD about USD1,244.
+
+Continuous hourly scanning solved opportunity density but the directional-drive continuation thesis did not create robust edge.
+
+Do not post-hoc whitelist H14/H15 or XAUUSD.
+
+## Engine O v0.1 / EXP-034 — CURRENT PRIMARY PATH
+
+Genuinely different family:
+
+**rolling statistical stretch mean reversion**.
+
+Every 15 minutes from 06:15 through 17:45 UTC, compare the latest completed M5 rejection bar to the prior 24-M5 robust center/MAD state, then use a non-chasing 50% limit with T40 required to fit before the recent center.
+
+**Next:** zero-outcome EXP-034 preflight only.
