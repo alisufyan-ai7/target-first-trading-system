@@ -100,3 +100,10 @@ Per-market signal counts:
 All 1,581 are mechanically filled valid signals and all remain safely deployable at some >=0.01 lot size.
 
 **Disposition:** PASS. EXP-028 may proceed to development outcomes while Jul-Aug and Sep remain sealed.
+
+
+## Final pre-development reporting clarification
+
+Daily USD100/USD150 reporting uses final realized UTC-day primary P&L, with all eligible weekdays including zero-trade days in the denominator. These are descriptive metrics, not pass gates.
+
+No EXP-028 target/P&L outcome existed when this clarification was frozen.
