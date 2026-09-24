@@ -1484,3 +1484,16 @@ Files:
 - `strategies/engine-q-cross-market-volatility-spillover-breakout/SPEC-v0.1.md`;
 - `research/experiments/EXP-037-engine-q-v0.1-cross-market-volatility-spillover-breakout.md`;
 - `research/provenance/EXP-037-engine-q-v0.1-source-manifest.md`.
+
+
+### EXP-037 zero-outcome implementation checkpoint
+
+Engine-Q implementation/preflight/workflow are frozen at main SHA `c51c8f9566a6ccfddaf8117c2b0a80c45fbeb10b` before outcomes.
+
+- engine commit `9a2a2c7`;
+- runner commit `2bfb0c5`;
+- workflow commit `c51c8f9`;
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: sealed.
+
+**Next:** trigger one EXP-037 zero-outcome preflight and follow the long-running pipeline policy.
