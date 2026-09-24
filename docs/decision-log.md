@@ -1330,3 +1330,10 @@ Frozen thresholds:
 - unchanged T40/cost/safety gates.
 
 This is prospectively frozen with zero outcomes. Jun30 source seal and Jul-Aug/Sep protection remain intact.
+
+
+## 2026-09-25 — Freeze EXP-039 implementation before preflight outcomes
+
+**Decision:** Engine-R dynamic peer-residual mechanics and zero-outcome preflight are frozen at repository SHA `db879da22f4ec6ab3a7ca497f110f847b7ff373f`.
+
+No target/P&L outcome exists and protected periods remain sealed. The only permitted next computation is one EXP-039 zero-outcome preflight.
