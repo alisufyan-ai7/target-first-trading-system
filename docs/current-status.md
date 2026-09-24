@@ -1438,3 +1438,49 @@ The durable result confirms Jul-Aug secondary and Sep final holdout were not loa
 Do not rescue Engine P by changing MOM/USD_SCORE thresholds, hours, symbols, directions, target, costs or entry rules from inspected development diagnostics.
 
 **Exact next strategy action:** open a genuinely different prospectively frozen engine family. Protected Jul-Aug and Sep remain sealed.
+
+
+## Engine Q v0.1 / EXP-037 — CURRENT PRIMARY PATH
+
+Engine P is closed after EXP-036 development failure.
+
+The new prospectively frozen family uses a genuinely different information source:
+
+**Cross-Market Volatility Spillover Breakout**.
+
+Flow:
+
+`directionless peer volatility breadth -> candidate lag/compression -> first local breakout -> non-chasing 50% pullback -> T40`.
+
+Frozen center mechanics:
+
+- completed M5 arm decisions 06:05-17:25 UTC;
+- prior-24-M5 median range per market;
+- candidate excluded from peer breadth;
+- >=4 shocked peers with VR>=1.75 and >=6 valid peers;
+- candidate VR<=1.00 and close inside fixed prior-six-M5 box;
+- next-six-M5 breakout arm;
+- first breakout VR>=1.25, body>=50%, outer-25% close;
+- 50% breakout-bar retracement limit;
+- stop beyond breakout extreme;
+- 10-active-M1 / 30m order life;
+- unchanged T40;
+- primary/stress costs 10%/20% of gross target;
+- unchanged USD500 safe-lot caps.
+
+Protection/split:
+
+- source hard-sealed at 2026-06-30 23:59 UTC;
+- same six development slices from Apr13 through Jun30;
+- Jul-Aug secondary sealed;
+- Sep final holdout sealed.
+
+No Engine-Q outcomes exist.
+
+**Exact next action:** implement Engine Q v0.1 and run zero-outcome EXP-037 preflight only. Frequency gate remains >=25 filled signals per market, both directions, >=300 total.
+
+Files:
+
+- `strategies/engine-q-cross-market-volatility-spillover-breakout/SPEC-v0.1.md`;
+- `research/experiments/EXP-037-engine-q-v0.1-cross-market-volatility-spillover-breakout.md`;
+- `research/provenance/EXP-037-engine-q-v0.1-source-manifest.md`.
