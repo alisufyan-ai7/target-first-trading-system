@@ -1554,3 +1554,18 @@ Engine Q v0.2 implementation, runner and workflow are frozen at main SHA `850fe4
 Target/P&L outcomes remain zero; Jul-Aug/Sep remain sealed.
 
 **Next:** trigger one EXP-038 zero-outcome preflight only.
+
+
+### EXP-038 zero-outcome preflight PASS
+
+Durable checkpoint: `3d9ca37fc733542f1ed2554e26a2989b1b578f2d`.
+
+- 467 filled valid signals;
+- all 8 markets pass >=25 and both directions;
+- 466 safely deployable;
+- GE40 6 / GE30 134 / LT30 326 / NONDEPLOYABLE 1;
+- source max Jun30 23:59 UTC;
+- target/P&L outcomes still zero;
+- Jul-Aug and Sep remain sealed.
+
+**Next permitted stage:** six-slice EXP-038 development using the already-frozen >+0.20R gross hurdle and post-cost/stability/reference-account gates.
