@@ -1,6 +1,6 @@
 # EXP-027 — Engine M v0.1 Multi-Timeframe Reclaim Limit Entry
 
-**Status:** FROZEN PROSPECTIVELY — ZERO ENGINE-M OUTCOMES  
+**Status:** CLOSED — PREFLIGHT ECONOMIC-ORDERING FAILURE; ZERO OUTCOMES  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.1.md`
 
@@ -158,3 +158,46 @@ Add rejection-reason accounting for every mechanically filled but economically r
 - combinations of the above.
 
 Rerun the same zero-outcome preflight only to identify the economic bottleneck. No target/P&L outcomes.
+
+
+## Final EXP-027 disposition
+
+Durable audited preflight result:
+
+`48e5ebab997471503e93e9ca62ad718539e95083`
+
+EXP-027 is closed **before target/P&L outcomes**.
+
+Findings:
+
+- 1,581 mechanical retracement-limit fills;
+- only 126 admitted under the old USD40-equivalent sizing-first gate;
+- XAUUSD 61 admitted;
+- FX rejections were overwhelmingly `notional+margin`;
+- rejected FX median stop risk remained around USD19.6–19.95;
+- notional/margin exceeded the reference-account envelope because tight structural stops required large lots to manufacture USD40 gross.
+
+Examples of median rejected notional/margin:
+
+- EURUSD ~USD149k / USD298;
+- GBPUSD ~USD129k / USD258;
+- USDJPY ~USD190k / USD380;
+- EURJPY ~USD145k / USD290;
+- AUDUSD ~USD93k / USD186;
+- USDCAD ~USD177k / USD354;
+- USDCHF ~USD119k / USD238.
+
+At 1:500, the frozen USD100 margin cap and USD50k notional cap encode the same effective leverage envelope.
+
+**Methodological conclusion:** the strategy-signal layer was incorrectly being filtered by whether a USD500 account could immediately size the signal to roughly USD40 gross. That reverses the intended project architecture (engine validity first, sizing/deployment second).
+
+Therefore EXP-027 does **not** establish that Engine-M MTF/limit signals lack edge.
+
+Protection:
+
+- target outcomes: NO;
+- P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Next: EXP-028 / Engine M v0.2 signal-first validation with unchanged trading mechanics and separate safe-lot deployability overlay.
