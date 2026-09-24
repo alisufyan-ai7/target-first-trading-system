@@ -627,3 +627,14 @@ EXP-037 zero-outcome preflight failed opportunity density at `b05efb3`:
 - Jul-Aug/Sep sealed.
 
 Same-bar four-peer VR>=1.75 synchronization was the dominant bottleneck. The opportunity gate is not lowered.
+
+
+## Engine Q v0.2 / EXP-038 — current primary path
+
+After v0.1's zero-outcome frequency failure, v0.2 keeps VR>=1.75 and >=4 peers but changes same-bar synchronization to a rolling 15-minute unique-peer shock memory.
+
+Candidate lag, breakout, entry, target, costs, safety and gates are unchanged.
+
+**Status:** prospectively frozen, zero outcomes. Jul-Aug/Sep sealed.
+
+**Next:** implement/run EXP-038 zero-outcome preflight only.
