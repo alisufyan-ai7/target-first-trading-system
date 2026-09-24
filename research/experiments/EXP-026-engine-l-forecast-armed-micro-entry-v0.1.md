@@ -61,6 +61,15 @@ Protected:
 
 Use the same six forward folds as EXP-025.
 
+## Zero-outcome preflight gate
+
+Before any Engine-L outcome:
+
+- mechanics/unit tests must pass;
+- each execution market must produce >=100 mechanically triggerable and economically admissible T40 entry paths through Jun30;
+- both directions must be represented on every market;
+- Jul-Aug and Sep remain unloaded.
+
 ## Gate
 
 Engine L must independently be profitable/stable and materially beat the matched immediate-entry control.
