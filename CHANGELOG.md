@@ -306,3 +306,9 @@
 - Added prior-eight-M15 volatility baseline, 1.50x expansion, 60% body and outer-25% close qualification.
 - Preserved non-chasing execution via 50% pullback limit while removing H1 sweep/reclaim logic.
 - Frozen zero-outcome preflight at >=25 signals per market, both directions, >=300 total.
+
+- Closed EXP-032 at zero-outcome preflight after 123 filled signals; no P&L outcomes were calculated.
+- Opened EXP-033 / Engine N v0.2 with continuous hourly scanning from 06:00 through 17:00 UTC.
+- Kept the same >=300 total / >=25-per-market frequency gate.
+- Preserved all drive qualification, pullback entry, stop, T40, sizing, safety and cost assumptions.
+- Corrected the descriptive max-timestamp reporting bug in the new preflight runner.
