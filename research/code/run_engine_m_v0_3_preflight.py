@@ -53,7 +53,7 @@ def synthetic_selective_setup_tests()->list[str]:
         "open":[1.19,1.18,1.17,1.18,1.17],
         "high":[1.21,1.20,1.20,1.19,1.25],
         "low":[1.15,1.14,1.13,1.14,1.12],
-        "close":[1.18,1.17,1.18,1.17,1.23],
+        "close":[1.18,1.17,1.18,1.17,1.24],
     })
     m5=pd.DataFrame({
         "datetime":pd.to_datetime(["2026-04-06T08:05Z","2026-04-06T08:10Z"]),
@@ -79,7 +79,7 @@ def synthetic_selective_setup_tests()->list[str]:
     h4s=h4.copy(); h4s.loc[1,"close"]=1.02
     h1s=h1.copy()
     h1s.loc[0,["open","high","low","close"]]=[1.20,1.30,0.90,1.18]
-    h1s.loc[1,["open","high","low","close"]]=[1.16,1.24,0.82,1.02]
+    h1s.loc[1,["open","high","low","close"]]=[1.16,1.24,0.81,1.02]
     m15s=m15.copy()
     m15s.loc[0,["open","high","low","close"]]=[1.08,1.10,1.04,1.07]
     m15s.loc[1,["open","high","low","close"]]=[1.07,1.11,1.03,1.06]
