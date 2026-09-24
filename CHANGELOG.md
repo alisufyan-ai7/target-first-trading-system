@@ -176,3 +176,7 @@
 - Kept Gold +3/+4/+5 unchanged; replaced non-Gold generic volatility-burden targets with target-before-size 1.5R/2R/2.5R structural target functions.
 - Frozen v0.2 qualification at max(0.50, break-even+0.10), with existing positive-EV, USD20 stop-risk, notional and margin gates.
 - Added separate v0.2 economics module and zero-outcome preflight requiring >=200 admissible states in every execution market before labeling.
+
+- Added a formal long-running pipeline workflow policy at `docs/PIPELINE-WORKFLOW-POLICY.md`.
+- Project default is now: confirm a long GitHub Actions run once, avoid repeated polling, use runtime only for independent non-contaminating work, otherwise end the turn and resume from the durable result later.
+- Added explicit protection against mid-run experiment mutation, duplicate triggers, and result-commit races; result-committing workflows should rebase from current `main` before push.
