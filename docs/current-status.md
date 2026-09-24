@@ -459,3 +459,22 @@ Separately, `research/notes/MULTI-TIMEFRAME-INTRADAY-GUIDANCE.md` records the us
 `4H/1H context -> 15m setup/location -> 5m arm -> 1m execution`.
 
 This is design guidance, not a silent modification of v0.1. Engine-L v0.1 should first isolate whether improved execution alone beats the matched immediate-entry control.
+
+
+### Engine L development runner checkpoint
+
+EXP-026 development code/workflow are frozen before outcomes.
+
+The development test uses:
+
+- fixed M2 raw T40 forecast;
+- same matched forecastable T40 domain as the old immediate-entry control;
+- one pending arm per symbol;
+- Engine-L 0.20*V5 pullback + M1 resumption + fresh stop;
+- matched immediate next-open/old-pivot control;
+- exact six forward folds;
+- independent one-open portfolio simulations;
+- frozen daily risk state;
+- Jul-Aug and Sep sealed.
+
+**Exact next action:** run EXP-026 development. Do not open secondary evidence on a failed gate.
