@@ -233,3 +233,10 @@
 
 - Frozen Engine L six-fold development runner before outcomes, including matched immediate-entry control, causal pending-arm resolution, and pooled entry-quality diagnostics.
 - EXP-026 still has zero development P&L outcomes at the implementation checkpoint; Jul-Aug and Sep remain sealed.
+
+- Engine L v0.1 development failed at durable result commit `7cacd739f80ab37a2f6465924937bd6489b1b966`.
+- 303 trades across 57 weekdays; primary/stress expectancy -USD5.82 / -USD9.77 per trade; stress PF 0.469; zero positive-stress folds.
+- Matched immediate control stress expectancy was -USD8.49/trade, so Engine L was worse by ~USD1.28/trade.
+- Entry diagnostics showed median executed entry ~0.516 V5 worse than decision close after the pullback/resumption sequence: confirmation became chase.
+- Raw forecast-score quartiles remained negative; no probability-threshold rescue is justified.
+- Jul-Aug secondary and Sep final holdout remain unopened.
