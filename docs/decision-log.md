@@ -680,3 +680,20 @@ When the user returns, resume by reading the durable GitHub result and applying 
 **Stopping rule:** if no configuration passes, stop Engine K tuning on this Mar-Jun pool and do not inspect July-Aug.
 
 **Outcome status at freeze:** EXP-025 metrics not calculated; no selected config; Jul-Aug unopened; Sep unopened.
+
+
+## 2026-09-24 — Stop Engine K tuning after EXP-025 no-pass walk-forward
+
+**Decision:** No EXP-025 configuration passed the frozen walk-forward gate. No winner is selected and Jul-Aug remains sealed.
+
+**Result commit:** `24ce35448cb93158aadeb843dce928199c0c5385`.
+
+**Evidence:** all 12 frozen configurations were evaluated across all six frozen chronological forward folds. None satisfied the combined trade-density, multi-fold stability, stress expectancy, PF, hit-rate-vs-break-even, drawdown and concentration requirements.
+
+Some configurations became mildly positive at primary cost, but none remained economically robust under the frozen stress cost or across folds. M1-C1-Q3 reached +USD2.15/trade primary but -USD1.67/trade stress with stress MDD ~USD301.54. M2-C2-Q3 reached +USD0.86/trade primary but -USD2.62/trade stress with stress MDD ~USD505.51.
+
+**Protection:** Jul-Aug secondary test and Sep final holdout were not loaded/labeled.
+
+**Methodological conclusion:** stop adding Engine-K configurations or thresholds on the Mar-Jun pool. The next research step must broaden evidence or materially change the prediction/target design.
+
+**Anti-mining:** do not weaken EXP-025 gates, select a near-miss, or open protected periods.
