@@ -1173,3 +1173,29 @@ Matched immediate-entry control and MOM/USD_SCORE/EURJPY-leg/hour/market diagnos
 Outcome convention: T40 vs trigger-bar structural stop, stop-first on same bar, max 120 active M1 bars, hard 20:00 UTC cutoff.
 
 No Engine-P development outcome existed at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Close Engine P after EXP-036 development failure
+
+**Decision:** stop Engine P v0.1 before secondary testing.
+
+**Durable result:** `52e9003f351eb7f5abdf9b38f74c279c88d33906`.
+
+EXP-036 produced 4,804 development signals but failed both raw-edge and post-cost gates:
+
+- gross -0.0406469R;
+- primary -0.2356814R;
+- stress -0.4307159R;
+- 0/6 positive-stress folds;
+- 836 reference-account trades;
+- primary/stress expectancy -USD2.02 / -USD4.15;
+- primary/stress PF 0.761 / 0.580;
+- stress MDD USD3,526.25.
+
+The matched immediate-entry control was also negative at the signal layer. Cross-market directional consensus therefore did not create sufficient predictive edge; this is not merely a limit-entry failure.
+
+No post-hoc MOM/USD_SCORE threshold, hour, symbol, direction, target or cost change is allowed inside v0.1.
+
+**Protection:** Jul-Aug secondary and Sep final holdout remain sealed.
+
+**Next:** freeze a genuinely different information-source family before any new outcomes.
