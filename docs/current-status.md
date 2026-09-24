@@ -1065,3 +1065,67 @@ Files:
 - `research/code/engine_n_v0_1.py`;
 - `research/code/run_engine_n_v0_1_preflight.py`;
 - `.github/workflows/exp032-engine-n-v0.1-preflight.yml`.
+
+
+## Engine N v0.2 / EXP-033 — CURRENT PRIMARY PATH
+
+Engine N v0.1 / EXP-032 is closed before outcomes after its zero-outcome preflight failed opportunity density:
+
+- 123 filled valid signals;
+- every market below the frozen >=25-per-market gate;
+- LONG + SHORT existed on every market;
+- safe overlay passed;
+- target/P&L outcomes remained zero;
+- Jul-Aug / Sep remained unopened.
+
+v0.1's fixed two-session sampling was the bottleneck.
+
+v0.2 keeps the same displacement-pullback thesis and all qualification/entry thresholds, but changes sampling architecture to continuous **non-overlapping hourly intraday scanning**.
+
+Frozen anchors:
+
+`06:00 through 17:00 UTC inclusive` — 12 anchors per market per eligible weekday.
+
+Each anchor:
+
+- exact 30m drive;
+- prior-eight-M15 volatility baseline;
+- >=1.50x expansion;
+- >=60% body;
+- directional outer-25% close;
+- 50% pullback limit;
+- drive-extreme stop;
+- 45 active-M1 order life;
+- hard horizon anchor+90m.
+
+Adjacent anchor cycles do not overlap: prior horizon equals next anchor decision.
+
+Unchanged:
+
+- eight markets;
+- T40;
+- signal-first safe-lot overlay;
+- USD20 risk / USD50k notional / USD100 margin;
+- XAUUSD <=0.10 lot;
+- frozen costs.
+
+### EXP-033 zero-outcome preflight
+
+Keep the same gate as v0.1:
+
+- >=25 filled valid signals per market;
+- LONG + SHORT every market;
+- >=300 total;
+- chronology/entry/safety tests pass;
+- no target/P&L outcomes;
+- Jul-Aug and Sep unloaded.
+
+**Exact next action:** run EXP-033 zero-outcome preflight only.
+
+Files:
+
+- `strategies/engine-n-rolling-drive-pullback/SPEC-v0.2.md`;
+- `research/experiments/EXP-033-engine-n-v0.2-rolling-intraday-drive-pullback.md`;
+- `research/code/engine_n_v0_2.py`;
+- `research/code/run_engine_n_v0_2_preflight.py`;
+- `.github/workflows/exp033-engine-n-v0.2-preflight.yml`.
