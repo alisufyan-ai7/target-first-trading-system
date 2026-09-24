@@ -1422,3 +1422,45 @@ Implementation:
 - `.github/workflows/exp034-engine-o-v0.1-preflight.yml`.
 
 **Next:** trigger EXP-034 zero-outcome preflight with unchanged >=25-per-market / >=300-total scanner gate.
+
+
+## Engine O v0.2 / EXP-035 authoritative current state
+
+EXP-034 / Engine O v0.1 closed before outcomes:
+
+- 209 filled valid signals;
+- 209 safely deployable;
+- six of eight markets passed >=25 + both directions;
+- USDJPY 18;
+- AUDUSD 22;
+- target/P&L outcomes NO;
+- Jul-Aug/Sep unopened.
+
+Current prospectively frozen version:
+
+**Engine O v0.2 — Continuous M5 Statistical Stretch Reversion**
+
+Change from v0.1:
+
+- decision grid only: every completed M5 from 06:05 through 17:55 UTC.
+
+Everything else unchanged:
+
+- prior 24 M5 CENTER/MAD state;
+- 2.50 MAD stretch;
+- 1.25x range;
+- 50% body;
+- favorable outer-35% close;
+- 50% limit;
+- trigger-extreme stop;
+- 10-M1 / 30m lifetime;
+- T40 before CENTER;
+- unchanged safe-lot overlay.
+
+Outcome state:
+
+- v0.2 outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-035 zero-outcome preflight with unchanged >=25-per-market / >=300-total gate.
