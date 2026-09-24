@@ -110,3 +110,29 @@ At EXP-023 freeze:
 - v0.2 model outcomes calculated: **NO**;
 - July-August outcomes inspected: **NO**;
 - September outcomes inspected: **NO**.
+
+
+## Preflight attempt 1 — operational self-test defect
+
+GitHub Actions run `35956306829` failed before data preflight.
+
+Failure location:
+
+- step: `Syntax and v0.2 zero-outcome tests`;
+- assertion: exact EURUSD T30 1.5R tick boundary;
+- no data-state preflight executed;
+- no v0.2 target labels calculated;
+- no v0.2 model outcomes calculated;
+- no July-August or September evidence inspected.
+
+Cause:
+
+binary floating-point representation made an exact 0.001 structural distance slightly larger than 0.001, so upward tick rounding incorrectly converted the intended exact 0.00150 target to 0.00151.
+
+Correction:
+
+- replaced floating tick-boundary arithmetic with Decimal-based exact structural-distance / tick rounding;
+- added an exact-boundary unit test;
+- correction commit: `d4983a061b86230d2f92b7fae80608a48c000a48`.
+
+This is an implementation-preflight defect, **not** an Engine-K v0.2 economic or predictive result.
