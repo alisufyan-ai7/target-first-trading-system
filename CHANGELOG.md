@@ -212,3 +212,10 @@
 - Frozen six expanding chronological development folds through Jun30; Jul-Aug and Sep remain sealed.
 - Added stability-first configuration gate/winner rule and a hard stop if no configuration passes.
 - Added development-only EXP-025 walk-forward runner and workflow.
+
+- EXP-025 bounded walk-forward completed with zero passing configurations; durable result commit `24ce35448cb93158aadeb843dce928199c0c5385`.
+- All 12 frozen configurations were evaluated across all 6 chronological folds; no winner was selected.
+- Best-looking primary-cost near-misses still failed stress expectancy/stability/drawdown gates.
+- Jul-Aug secondary test and Sep final holdout remain unopened.
+- Applied the prospectively frozen hard stop: no further Engine-K threshold/configuration tuning on the Mar-Jun development pool.
+- Next research must broaden evidence or materially change the prediction/target design.
