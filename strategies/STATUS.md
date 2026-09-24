@@ -172,6 +172,8 @@ v0.2 is prospectively frozen with zero outcomes:
 - p_required = max(0.50, break-even +0.10);
 - July-August and September remain sealed.
 
-**Preflight:** PASSED at result commit `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`. All 8 execution markets exceeded 200 admissible states; total 94,238 states / 281,955 rungs through June.
+**Preflight:** PASSED at result commit `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`.
 
-**Next:** training Mar23-May31 + June calibration only. July-August and September remain sealed.
+**Training/June result:** FAILED at result/model commit `763aefadbe56ee7012b475dcb677f6f78d8036ec`. 281,955 labeled rungs, but only 2 combined qualified trades and 0 June trades. T30/T40/T50 June AUC about 0.674/0.710/0.743. July-August and September remain sealed.
+
+**Status:** v0.2 closed before secondary testing.
