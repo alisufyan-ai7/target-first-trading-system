@@ -219,3 +219,9 @@
 - Jul-Aug secondary test and Sep final holdout remain unopened.
 - Applied the prospectively frozen hard stop: no further Engine-K threshold/configuration tuning on the Mar-Jun development pool.
 - Next research must broaden evidence or materially change the prediction/target design.
+
+- Opened EXP-026 / Engine L v0.1 forecast-armed micro-entry after identifying immediate next-M1-open execution as a fundamental weakness in Engine K.
+- Frozen one center entry architecture: 15-M1 arm, 0.20*V5 pullback, causal M1 resumption, next-open fill, fresh pullback-extreme stop, T40-only economics.
+- Added matched immediate-entry control to isolate whether entry quality materially improves economics.
+- Added separate Engine-L causal mechanics module and zero-outcome preflight requiring >=100 admissible trigger paths per market before P&L outcomes.
+- Jul-Aug and Sep remain sealed.
