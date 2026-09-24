@@ -674,3 +674,27 @@ Default behavior after triggering a long GitHub Actions research run:
 - workflows that commit generated results should `git pull --rebase origin main` before push.
 
 This is part of project reproducibility, not merely a conversational preference.
+
+
+### EXP-023 v0.2 preflight PASS
+
+Durable result commit:
+
+`02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`
+
+All 8 execution markets passed the >=200 unique admissible-state gate through June:
+
+- XAUUSD 2,366;
+- EURUSD 13,098;
+- GBPUSD 14,466;
+- USDJPY 10,503;
+- EURJPY 10,869;
+- AUDUSD 18,336;
+- USDCAD 9,397;
+- USDCHF 15,203.
+
+Total: 94,238 unique admissible states / 281,955 admissible rungs.
+
+No v0.2 target/model outcomes, July-August outcomes, or September holdout outcomes were inspected at preflight.
+
+**Current next action:** trigger only EXP-023 v0.2 Mar23-May31 training + June calibration. Apply the frozen pre-secondary gate before opening July-August.
