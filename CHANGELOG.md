@@ -184,3 +184,8 @@
 - EXP-023 first preflight attempt failed before data preflight because binary floating-point tick rounding turned an exact EURUSD 1.5R boundary into one extra tick.
 - No v0.2 target/model outcomes or protected-period evidence were inspected.
 - Replaced v0.2 structural-distance/tick rounding with Decimal-based exact arithmetic and added an exact-boundary self-test; correction commit `d4983a061b86230d2f92b7fae80608a48c000a48`.
+
+- EXP-023 v0.2 zero-outcome preflight passed; durable result commit `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`.
+- All 8 execution markets exceeded the frozen >=200 admissible-state threshold; total 94,238 unique admissible states and 281,955 admissible rungs through June.
+- No v0.2 target/model outcomes or protected July-September outcomes were inspected.
+- Added sealed v0.2 training + June calibration runner and workflow; July-August remains blocked behind the frozen pre-secondary gate.
