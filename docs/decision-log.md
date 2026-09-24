@@ -810,3 +810,20 @@ Frozen roles:
 **No safety relaxation:** USD20 stop risk, USD50k notional, USD100 margin and 0.10 Gold anchor remain unchanged.
 
 **Protection:** no Engine-M target/P&L outcomes yet; Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — EXP-028 signal-first preflight passed
+
+**Result commit:** `68e52188de8abb2c708cacb611e347afb22a086d`.
+
+Signal-first admission retained 1,581 filled valid Engine-M paths across all eight markets. All were safely deployable at >=0.01 lot while respecting the unchanged USD20 risk, USD50k notional, USD100 margin and 0.10 Gold cap.
+
+Reference-account utility distribution:
+
+- GE40 66;
+- GE30 160;
+- LT30 1,355.
+
+**Interpretation:** the earlier FX scarcity was caused by forcing each signal to manufacture ~USD40 before validating the signal. It was not a lack of MTF/limit opportunities.
+
+**Next:** development must now test whether the 1,581-signal architecture actually has positive normalized-R edge and whether its safe-lot portfolio is economically useful.
