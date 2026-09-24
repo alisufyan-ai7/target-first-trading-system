@@ -357,3 +357,9 @@
 - Froze T40/trigger-stop outcome convention, 120-active-M1 maximum horizon, 20:00 UTC cutoff and matched immediate-entry control.
 - Cross-market factor/time/market diagnostics are descriptive only; no post-outcome threshold or whitelist rescue is allowed.
 - Jul-Aug and Sep remain sealed.
+
+- Closed Engine P v0.1 / EXP-036 after frozen development failed at durable result commit `52e9003f351eb7f5abdf9b38f74c279c88d33906`.
+- Development: 4,804 signals; gross -0.04065R; primary -0.23568R; stress -0.43072R; 0/6 positive-stress folds.
+- Reference-account: 836 trades; primary/stress expectancy -USD2.02 / -USD4.15; primary/stress PF 0.761 / 0.580; stress MDD USD3,526.25.
+- Durable result confirms Jul-Aug and Sep remained sealed.
+- Prohibited post-hoc MOM/USD_SCORE/hour/symbol/direction rescue; next engine must use a genuinely different prospectively frozen information source/family.
