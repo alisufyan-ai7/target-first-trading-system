@@ -142,3 +142,43 @@ At this checkpoint:
 ### Next
 
 Trigger EXP-036 development only. Any failed mandatory gate stops before secondary testing.
+
+
+## Development result — FAIL / STOP BEFORE SECONDARY
+
+**Durable result commit:** `52e9003f351eb7f5abdf9b38f74c279c88d33906`  
+**Tested repository SHA:** `6b260da31f8f6bf5abb169787ffc05bd9c072182`  
+**Result file:** `research/results/EXP-036-development-summary-v0.1.json`
+
+Frozen Mar/Apr-Jun development result:
+
+- pooled filled development signals: **4,804**;
+- target hits: **1,580** / hit rate **32.8893%**;
+- gross normalized expectancy: **-0.0406469R**;
+- primary normalized expectancy: **-0.2356814R**;
+- stress normalized expectancy: **-0.4307159R**;
+- primary normalized PF: **0.7036**;
+- stress normalized PF: **0.5356**;
+- positive-stress folds: **0/6**;
+- reference-account trades: **836** across **57** trade weekdays;
+- reference primary expectancy: **-USD2.0238/trade**;
+- reference stress expectancy: **-USD4.1458/trade**;
+- reference primary PF: **0.7611**;
+- reference stress PF: **0.5800**;
+- stress max drawdown: **USD3,526.25**;
+- development gate: **FAIL**;
+- disposition: **FAIL_STOP_BEFORE_SECONDARY**.
+
+Protection verified by the durable result:
+
+- source parsed only through **2026-06-30**;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+Interpretation:
+
+- cross-market contemporaneous directional consensus solved opportunity density but did **not** create the required pre-cost edge;
+- the matched immediate-entry control was also negative at the signal layer, so the failure is not a 50% pullback-entry problem alone;
+- no post-hoc MOM/USD_SCORE/hour/symbol/direction rescue is permitted inside Engine P v0.1.
+
+**Final disposition:** Engine P v0.1 / EXP-036 is closed before secondary testing. Do not inspect Jul-Aug or Sep. Any next engine must use a genuinely different prospectively frozen information source/family rather than an Engine-P threshold variant.
