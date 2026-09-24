@@ -387,3 +387,8 @@
 - Implemented Engine Q v0.2 rolling peer-shock memory plus EXP-038 zero-outcome preflight/workflow.
 - Frozen implementation checkpoint at main SHA `850fe44fa426b2ee4f235d3af140fa981ff26ae2` before any target/P&L outcome.
 - Jul-Aug and Sep remain sealed; next computation is exactly one EXP-038 preflight.
+
+- EXP-038 Engine Q v0.2 zero-outcome preflight passed at `3d9ca37`: 467 filled signals, all eight markets >=25 with both directions, 466 safely deployable.
+- Rolling 15-minute peer-shock memory solved v0.1's opportunity-density failure without lowering VR>=1.75, four-peer breadth, or the frequency gate.
+- Target/P&L outcomes remain zero; Jun30 source seal held and Jul-Aug/Sep remain unopened.
+- Next permitted stage is frozen six-slice development only.
