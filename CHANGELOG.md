@@ -240,3 +240,10 @@
 - Entry diagnostics showed median executed entry ~0.516 V5 worse than decision close after the pullback/resumption sequence: confirmation became chase.
 - Raw forecast-score quartiles remained negative; no probability-threshold rescue is justified.
 - Jul-Aug secondary and Sep final holdout remain unopened.
+
+- Opened EXP-027 / Engine M v0.1 after Engine L showed breakout/resumption confirmation was chasing price.
+- Frozen rule-based MTF hierarchy: H4/H1 context -> M15 H1-midpoint reclaim -> M5 rejection arm -> M1 precomputed retracement limit.
+- Entry is fixed at 50% of the completed M5 arm range before future M1 prices are seen; stop is beyond the M5 arm extreme.
+- Removed ML probability scoring from the v0.1 center design.
+- Added matched immediate-entry control for later development and a zero-outcome preflight requiring >=50 admissible paths per market, both directions, >=600 total.
+- Jul-Aug and Sep remain sealed.
