@@ -1661,3 +1661,21 @@ Engine Q v0.1 is CLOSED at zero-outcome preflight `b05efb3`.
 - Jul-Aug/Sep sealed.
 
 The dominant bottleneck was simultaneous same-M5 four-peer VR>=1.75 shock breadth. Do not lower the opportunity gate. A subsequent version may alter peer-shock temporal sampling only if frozen before new results.
+
+
+## Engine Q v0.2 / EXP-038 authoritative current state
+
+Current path: **Engine Q v0.2 — Rolling Cross-Market Volatility Spillover**.
+
+The change from v0.1 is only temporal peer-shock memory:
+
+- same VR>=1.75 shock threshold;
+- same >=4 unique peers;
+- peer may qualify at current M5, 5 minutes ago or 10 minutes ago;
+- candidate excluded and each peer counted once.
+
+Candidate lag, six-M5 breakout arm, breakout confirmation, 50% limit, stop, T40, costs, account caps and gates are unchanged.
+
+No v0.2 outcomes exist. Jul-Aug and Sep remain sealed.
+
+**Exact next action:** implement and run EXP-038 zero-outcome preflight only.
