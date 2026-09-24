@@ -928,3 +928,16 @@ No duplicate setup is allowed from one M15 decision.
 The v0.4 frequency gate is deliberately **not lowered**.
 
 No v0.5 outcomes exist at freeze; Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — EXP-031 recent-H1 preflight passed
+
+**Result commit:** `e0c7566`.
+
+The deterministic H1_0 -> H1_1 fallback raised zero-outcome filled signals from v0.4's 237 to v0.5's 417 while preserving the unchanged >=300 total / >=25-per-market gate.
+
+All eight markets passed with both directions and all 417 signals were safely deployable.
+
+**Next:** development must determine whether H1_1 fallback contributes actual edge or merely frequency. Report H1_0 and H1_1 cohorts separately, but do not tune either cohort after outcomes.
+
+Protected periods remain sealed.
