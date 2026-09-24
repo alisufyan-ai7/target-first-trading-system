@@ -1126,3 +1126,24 @@ Do not rescue retrospective EURJPY or time-of-day cohorts.
 Protected Jul-Aug and Sep remain sealed.
 
 **Next:** prospectively test a cross-market relative-strength family using information unavailable to the prior single-symbol engines.
+
+
+## 2026-09-24 — Freeze Engine P v0.1 cross-market relative-strength family
+
+**Decision:** after repeated single-symbol families failed to create enough raw edge, test contemporaneous cross-market factor information prospectively.
+
+Frozen v0.1:
+
+- continuous M5 decisions 06:05-17:55 UTC;
+- own 30m momentum normalized by prior-24-M5 median range;
+- own threshold |MOM| >=1.50;
+- USD_SCORE from other USD-linked FX markets with candidate self-excluded;
+- factor threshold |USD_SCORE| >=0.50 in the required direction;
+- EURJPY uses aligned EURUSD and USDJPY legs;
+- >=35% trigger body and favorable outer-40% close;
+- 50% pullback limit;
+- trigger-extreme stop;
+- 10-M1 / 30m order lifetime;
+- unchanged T40, costs and safety caps.
+
+No Engine-P outcomes exist at freeze. Jul-Aug and Sep remain sealed.
