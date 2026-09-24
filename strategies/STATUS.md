@@ -568,3 +568,15 @@ Thesis:
 **Status:** prospectively frozen, zero outcomes.
 
 **Next:** EXP-036 zero-outcome preflight only.
+
+
+Engine P v0.1 preflight: **PASS** at `12c6f5d`.
+
+- 6,063 filled valid signals;
+- all 8 markets pass >=25 and both directions;
+- 6,059 safely deployable;
+- GE40 105 / GE30 1,253 / LT30 4,701 / NONDEPLOYABLE 4;
+- target/P&L outcomes still zero;
+- Jul-Aug and Sep sealed.
+
+**Next:** six-slice development.
