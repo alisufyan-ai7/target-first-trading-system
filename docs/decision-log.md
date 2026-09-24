@@ -596,3 +596,16 @@ When the user returns, resume by reading the durable GitHub result and applying 
 **Repository safety:** do not mutate frozen inputs of a running experiment. Result-committing workflows should rebase from current `main` before pushing so safe unrelated commits do not create avoidable push races.
 
 **Policy:** `docs/PIPELINE-WORKFLOW-POLICY.md`.
+
+
+## 2026-09-24 — Engine K v0.2 zero-outcome preflight passed
+
+**Decision:** Accept EXP-023 v0.2 economic admission design and permit training + June calibration.
+
+**Result commit:** `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`.
+
+**Evidence:** all 8 execution markets exceeded the frozen >=200 unique admissible-state threshold through June. Total coverage was 94,238 unique admissible states / 281,955 admissible rungs. The weakest market, XAUUSD, still produced 2,366 admissible states.
+
+**Integrity:** all v0.2 zero-outcome self-tests passed. No target/model outcomes were calculated; July-August and September remain unopened.
+
+**Next:** run only Mar23-May31 training + June calibration under the frozen v0.2 model/economic gates. Stop before secondary testing if any mandatory gate fails.
