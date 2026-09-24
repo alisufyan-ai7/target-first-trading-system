@@ -1681,3 +1681,17 @@ Engine R / EXP-039 is **PAUSED BEFORE DEVELOPMENT** for this audit. Its frozen a
 Jul-Aug secondary and Sep final holdout remain sealed.
 
 **Next project action:** complete the economic-feasibility and edge-source information-content program described in the audit before selecting the next engine for outcome development.
+
+
+### Root-cause research deliverables completed
+
+Additional durable research checkpoints:
+
+- `research/ECONOMIC-FEASIBILITY-FRONTIER-v0.1.md` at `73e75b5d34e97d10a04d72176314363121a93d77`;
+- `research/EDGE-SOURCE-RESEARCH-MATRIX-v0.1.md` at `fac6c1bb4849789aa761a2d41d46ac6df40c00f3`.
+
+The economic frontier confirms that increasing risk is not a valid substitute for edge: under the current primary-cost convention, routine USD150 strong days require exceptionally strong hit-rate/payoff combinations, while USD30-40 structural risk per trade rapidly conflicts with the -USD40 normal / -USD60 emergency daily loss architecture.
+
+The edge-source matrix prioritizes **macro surprise + execution-grade microstructure/order flow + rates/cross-asset interpretation**, especially COMEX Gold and representative/centralized FX flow, before another OHLC-derived strategy family.
+
+No new strategy outcome was calculated. Engine R remains paused before development. Jul-Aug and Sep remain sealed.
