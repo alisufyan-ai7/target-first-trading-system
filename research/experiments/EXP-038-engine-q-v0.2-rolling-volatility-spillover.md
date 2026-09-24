@@ -99,3 +99,37 @@ At this checkpoint:
 - Sep loaded/labeled: NO.
 
 **Next:** trigger exactly one EXP-038 zero-outcome preflight run and do not mutate frozen inputs while it runs.
+
+
+## Zero-outcome preflight — PASS
+
+**Durable result commit:** `3d9ca37fc733542f1ed2554e26a2989b1b578f2d`  
+**Result file:** `research/results/EXP-038-rolling-volatility-spillover-preflight-v0.2.json`  
+**Result blob:** `83061d6ff47f2ddccc36cdb2f75be30df6d1ce37`
+
+Frozen-gate result:
+
+- filled valid signals: **467**;
+- safely deployable: **466**;
+- every market >=25 and both directions: **PASS**;
+- total >=300: **PASS**;
+- safe overlay caps: **PASS**;
+- utility: GE40 **6** / GE30 **134** / LT30 **326** / NONDEPLOYABLE **1**;
+- parsed source max: **2026-06-30 23:59 UTC**;
+- target outcomes calculated: **NO**;
+- P&L outcomes calculated: **NO**;
+- Jul-Aug secondary loaded/inspected: **NO**;
+- Sep final holdout loaded/inspected: **NO**.
+
+Per-market filled signals:
+
+- XAUUSD 69;
+- EURUSD 53;
+- GBPUSD 50;
+- USDJPY 55;
+- EURJPY 50;
+- AUDUSD 64;
+- USDCAD 72;
+- USDCHF 54.
+
+**Disposition:** PASS. Engine Q v0.2 may proceed to the already-frozen six-slice development stage while protected periods remain sealed.
