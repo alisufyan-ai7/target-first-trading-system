@@ -1,6 +1,6 @@
 # EXP-031 — Engine M v0.5 Recent-H1 Range Sweep/Reclaim
 
-**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
+**Status:** CLOSED — DEVELOPMENT GATE FAILED; SECONDARY SEALED  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.5.md`
 
@@ -160,3 +160,111 @@ At this checkpoint:
 ### Next
 
 Trigger EXP-031 development only. Any mandatory gate failure stops before secondary testing.
+
+
+## Development outcome — FAIL
+
+**Workflow run:** `36010973242`  
+**Trigger SHA:** `10456a42163eec1a89ba6cebcddda8e088979844`  
+**Durable result commit:** `d10e0e9`  
+**Result:** `research/results/EXP-031-development-summary-v0.5.json`
+
+Protection:
+
+- source parsed only through 2026-06-30;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+### Pooled signal layer
+
+- 329 development signals;
+- target hit rate: **33.74%**;
+- gross normalized expectancy: **-0.00994R**;
+- primary expectancy: **-0.2063R**;
+- stress expectancy: **-0.4027R**;
+- primary PF: **0.740**;
+- stress PF: **0.565**;
+- positive stress folds: **0/6**.
+
+### H1 recency cohorts
+
+H1_0:
+
+- 196 signals;
+- hit rate 34.18%;
+- gross expectancy **+0.0259R**;
+- primary **-0.1718R**;
+- stress **-0.3696R**.
+
+H1_1:
+
+- 133 signals;
+- hit rate 33.08%;
+- gross expectancy **-0.0628R**;
+- primary **-0.2571R**;
+- stress **-0.4514R**.
+
+Interpretation:
+
+The H1_1 fallback added frequency but did **not** add edge. H1_0 remained slightly better, but still far below the prospectively frozen >+0.20R gross hurdle and negative after costs.
+
+### Per-market development diagnostic
+
+No symbol-level result is eligible for promotion or selective rescue after observing development.
+
+Descriptive results:
+
+- GBPUSD gross +0.416R, primary +0.214R, stress +0.011R;
+- AUDUSD gross +0.203R, primary +0.003R, stress -0.198R;
+- XAUUSD gross +0.126R, primary -0.038R, stress -0.202R;
+- EURUSD gross +0.088R, primary -0.117R, stress -0.322R;
+- remaining markets gross and post-cost expectancy negative.
+
+These are retrospective diagnostics only. Do not create a post-hoc symbol whitelist.
+
+### Reference-account portfolio
+
+- 261 trades;
+- 57 distinct trade weekdays;
+- hit rate 35.63%;
+- primary P&L **-USD337.34**;
+- stress P&L **-USD797.31**;
+- primary expectancy **-USD1.29/trade**;
+- stress expectancy **-USD3.05/trade**;
+- primary PF **0.817**;
+- stress PF **0.626**;
+- primary MDD **USD408.93**;
+- stress MDD **USD856.89**;
+- final-day >=USD100: **0**;
+- final-day >=USD150: **0**.
+
+### Failed mandatory gates
+
+- pooled gross expectancy >+0.20R;
+- pooled primary expectancy >0;
+- pooled stress expectancy >0;
+- >=4/6 positive-stress folds;
+- reference primary expectancy >0;
+- reference stress expectancy >0;
+- primary PF >=1.10;
+- stress PF >=1.05;
+- stress MDD <=USD150.
+
+Frequency, weekday count, diversification and provenance gates passed.
+
+### Final disposition
+
+**FAIL.** Do not open Jul-Aug.
+
+### Family-level conclusion
+
+Engine M has now supplied enough development evidence across v0.2-v0.5:
+
+- non-chasing limit execution can improve entry quality versus immediate/chasing entry;
+- broad MTF midpoint logic produced only a tiny gross edge;
+- progressively stronger H1/liquidity selectivity either collapsed frequency or failed to create robust pre-cost edge;
+- v0.5 recovered frequency but pooled gross edge reverted slightly negative.
+
+Do not create Engine M v0.6 by another small H1/lookback/filter variation.
+
+Preserve the useful execution lesson and move to a genuinely different strategy family.
