@@ -1,0 +1,1988 @@
+{
+  "experiment": "EXP-038",
+  "engine": "Engine Q v0.2",
+  "stage": "zero_outcome_rolling_cross_market_volatility_spillover_preflight",
+  "target_outcomes_calculated": false,
+  "pnl_outcomes_calculated": false,
+  "secondary_test_loaded_or_inspected": false,
+  "final_holdout_loaded_or_inspected": false,
+  "parsed_market_data_max_timestamp": "2026-06-30 23:59:00+00:00",
+  "tests": {
+    "engine_q_v02": [
+      "rolling_three_bar_unique_peer_memory",
+      "candidate_self_excluded",
+      "peer_counts_once_most_recent_shock",
+      "rolling_breadth_arms_lagging_candidate",
+      "minimum_six_complete_peer_histories"
+    ],
+    "engine_m_v02_safe_overlay": [
+      "eurusd_safe_overlay_respects_caps",
+      "tight_stop_signal_not_rejected_for_low_utility",
+      "gold_anchor_cap_preserved",
+      "notional_margin_cap_equivalence",
+      "normalized_cost_units"
+    ],
+    "synthetic_rolling": [
+      "rolling_peer_threshold_boundary",
+      "rolling_four_peer_arm",
+      "candidate_lag_threshold_unchanged"
+    ]
+  },
+  "markets": {
+    "XAUUSD": {
+      "arm_status_counts": {
+        "armed": 401,
+        "candidate_metric_unavailable": 141,
+        "candidate_not_lagging": 1232,
+        "candidate_outside_box": 45,
+        "peer_shock_failed": 6203
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 272,
+        "triggered": 129
+      },
+      "blocked_due_active_arm_or_order": 1842,
+      "fill_status_counts": {
+        "expired_unfilled": 60,
+        "filled": 69
+      },
+      "filled_signal_paths": 69,
+      "filled_by_direction": {
+        "long": 33,
+        "short": 36
+      },
+      "deployable_paths_safe_lot_ge_0_01": 68,
+      "utility_band_counts": {
+        "GE40": 1,
+        "LT30": 67,
+        "NONDEPLOYABLE": 1
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 633,
+        "10": 625,
+        "5": 853
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.87999999999829,
+        "notional": 46400.5,
+        "margin": 92.801
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 08:25:00+00:00",
+          "trigger_decision_ts": "2026-03-23 08:35:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 0,
+            "EURUSD": 0,
+            "GBPUSD": 10,
+            "USDCAD": 5,
+            "USDCHF": 5
+          },
+          "candidate_vr_at_arm": 0.5179063360881497,
+          "trigger_vr": 1.2844574780058196,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-23 08:38:00+00:00",
+          "entry": 4317.4749999999985,
+          "stop": 4296.668999999999,
+          "safe_overlay": {
+            "deployable": false,
+            "safe_lot": 0.0,
+            "safe_lot_raw": 0.009612611746611746,
+            "lot_cap_risk": 0.009612611746611746,
+            "lot_cap_notional": 0.11580842969559757,
+            "lot_cap_margin": 0.11580842969559757,
+            "target_distance": 4.0,
+            "reward_multiple": 0.19225223493223492,
+            "stop_distance_native": 20.805999999999585,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 431747.4999999999,
+            "reason": "safe_lot_below_minimum",
+            "stop_risk_usd": 0.0,
+            "notional_usd": 0.0,
+            "margin_usd": 0.0,
+            "gross_target_usd": 0.0,
+            "primary_cost_usd": 0.0,
+            "stress_cost_usd": 0.0,
+            "utility_band": "NONDEPLOYABLE"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 07:30:00+00:00",
+          "trigger_decision_ts": "2026-03-27 07:55:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURJPY": 0,
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDJPY": 0
+          },
+          "candidate_vr_at_arm": 0.9210191082802723,
+          "trigger_vr": 1.2741589119542425,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-27 07:56:00+00:00",
+          "entry": 4532.66,
+          "stop": 4537.111,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.04,
+            "safe_lot_raw": 0.04493372275893036,
+            "lot_cap_risk": 0.04493372275893036,
+            "lot_cap_notional": 0.11031050200103251,
+            "lot_cap_margin": 0.11031050200103251,
+            "target_distance": 4.0,
+            "reward_multiple": 0.8986744551786071,
+            "stop_distance_native": 4.451000000000022,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 453266.0,
+            "reason": "ok",
+            "stop_risk_usd": 17.804000000000087,
+            "notional_usd": 18130.64,
+            "margin_usd": 36.26128,
+            "gross_target_usd": 16.0,
+            "primary_cost_usd": 1.6,
+            "stress_cost_usd": 3.2,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 08:00:00+00:00",
+          "trigger_decision_ts": "2026-03-27 08:20:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 0,
+            "EURUSD": 0,
+            "GBPUSD": 10,
+            "USDCHF": 10
+          },
+          "candidate_vr_at_arm": 0.6721088435374926,
+          "trigger_vr": 1.3359374999998674,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-27 08:21:00+00:00",
+          "entry": 4528.634999999999,
+          "stop": 4532.910999999999,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.04,
+            "safe_lot_raw": 0.046772684752106525,
+            "lot_cap_risk": 0.046772684752106525,
+            "lot_cap_notional": 0.11040854473809439,
+            "lot_cap_margin": 0.11040854473809439,
+            "target_distance": 4.0,
+            "reward_multiple": 0.9354536950421304,
+            "stop_distance_native": 4.27599999999984,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 452863.49999999994,
+            "reason": "ok",
+            "stop_risk_usd": 17.10399999999936,
+            "notional_usd": 18114.539999999997,
+            "margin_usd": 36.229079999999996,
+            "gross_target_usd": 16.0,
+            "primary_cost_usd": 1.6,
+            "stress_cost_usd": 3.2,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 17:20:00+00:00",
+          "trigger_decision_ts": "2026-03-30 17:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "GBPUSD": 5,
+            "USDCHF": 5,
+            "USDJPY": 5
+          },
+          "candidate_vr_at_arm": 0.8340486409155551,
+          "trigger_vr": 1.8200290275762256,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-30 17:42:00+00:00",
+          "entry": 4615.355,
+          "stop": 4621.625999999999,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.03,
+            "safe_lot_raw": 0.03189284005740848,
+            "lot_cap_risk": 0.03189284005740848,
+            "lot_cap_notional": 0.10833402847668273,
+            "lot_cap_margin": 0.10833402847668273,
+            "target_distance": 4.0,
+            "reward_multiple": 0.6378568011481697,
+            "stop_distance_native": 6.270999999999731,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 461535.49999999994,
+            "reason": "ok",
+            "stop_risk_usd": 18.812999999999192,
+            "notional_usd": 13846.064999999997,
+            "margin_usd": 27.692129999999995,
+            "gross_target_usd": 12.0,
+            "primary_cost_usd": 1.2000000000000002,
+            "stress_cost_usd": 2.4000000000000004,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-04-01 17:10:00+00:00",
+          "trigger_decision_ts": "2026-04-01 17:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURJPY": 0,
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDCHF": 0
+          },
+          "candidate_vr_at_arm": 0.751286449399685,
+          "trigger_vr": 1.3201506591336516,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-04-01 17:39:00+00:00",
+          "entry": 4887.5,
+          "stop": 4891.006,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.05,
+            "safe_lot_raw": 0.05704506560182035,
+            "lot_cap_risk": 0.05704506560182035,
+            "lot_cap_notional": 0.10230179028132992,
+            "lot_cap_margin": 0.10230179028132992,
+            "target_distance": 4.0,
+            "reward_multiple": 1.140901312036407,
+            "stop_distance_native": 3.506000000000313,
+            "usd_value_per_native_unit_1lot": 100.0,
+            "notional_usd_1lot": 488750.0,
+            "reason": "ok",
+            "stop_risk_usd": 17.530000000001564,
+            "notional_usd": 24437.5,
+            "margin_usd": 48.875,
+            "gross_target_usd": 20.0,
+            "primary_cost_usd": 2.0,
+            "stress_cost_usd": 4.0,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "EURUSD": {
+      "arm_status_counts": {
+        "armed": 261,
+        "candidate_not_lagging": 1666,
+        "candidate_outside_box": 32,
+        "peer_shock_failed": 6755
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 174,
+        "triggered": 87
+      },
+      "blocked_due_active_arm_or_order": 1150,
+      "fill_status_counts": {
+        "expired_unfilled": 34,
+        "filled": 53
+      },
+      "filled_signal_paths": 53,
+      "filled_by_direction": {
+        "long": 25,
+        "short": 28
+      },
+      "deployable_paths_safe_lot_ge_0_01": 53,
+      "utility_band_counts": {
+        "GE30": 17,
+        "LT30": 36
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 156,
+        "10": 506,
+        "5": 636
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.80000000000515,
+        "notional": 49995.45499999999,
+        "margin": 99.99090999999997
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-25 12:00:00+00:00",
+          "trigger_decision_ts": "2026-03-25 12:10:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 10,
+            "GBPUSD": 10,
+            "USDCHF": 10,
+            "USDJPY": 10,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.8888888888892544,
+          "trigger_vr": 1.8684210526307716,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-25 12:15:00+00:00",
+          "entry": 1.1710250000000002,
+          "stop": 1.17066,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.42,
+            "safe_lot_raw": 0.42697636685809437,
+            "lot_cap_risk": 0.5479452054791958,
+            "lot_cap_notional": 0.42697636685809437,
+            "lot_cap_margin": 0.42697636685809437,
+            "target_distance": 0.00074,
+            "reward_multiple": 2.027397260273024,
+            "stop_distance_native": 0.00036500000000017074,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 117102.50000000001,
+            "reason": "ok",
+            "stop_risk_usd": 15.330000000007171,
+            "notional_usd": 49183.05,
+            "margin_usd": 98.3661,
+            "gross_target_usd": 31.08,
+            "primary_cost_usd": 3.108,
+            "stress_cost_usd": 6.216,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-26 06:25:00+00:00",
+          "trigger_decision_ts": "2026-03-26 06:55:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURJPY": 10,
+            "GBPUSD": 5,
+            "USDCAD": 10,
+            "USDCHF": 5,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.8717948717946382,
+          "trigger_vr": 2.122448979592669,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-03-26 07:04:00+00:00",
+          "entry": 1.1660999999999997,
+          "stop": 1.1658299999999997,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.42,
+            "safe_lot_raw": 0.4287796929937399,
+            "lot_cap_risk": 0.7407407407407613,
+            "lot_cap_notional": 0.4287796929937399,
+            "lot_cap_margin": 0.4287796929937399,
+            "target_distance": 0.00054,
+            "reward_multiple": 2.000000000000056,
+            "stop_distance_native": 0.00026999999999999247,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 116609.99999999997,
+            "reason": "ok",
+            "stop_risk_usd": 11.339999999999684,
+            "notional_usd": 48976.19999999998,
+            "margin_usd": 97.95239999999997,
+            "gross_target_usd": 22.68,
+            "primary_cost_usd": 2.2680000000000002,
+            "stress_cost_usd": 4.5360000000000005,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-26 11:55:00+00:00",
+          "trigger_decision_ts": "2026-03-26 12:00:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURJPY": 10,
+            "GBPUSD": 10,
+            "USDCHF": 10,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.9859154929585922,
+          "trigger_vr": 1.5714285714272573,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-03-26 12:01:00+00:00",
+          "entry": 1.1626849999999997,
+          "stop": 1.1629699999999998,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.4300390905533314,
+            "lot_cap_risk": 0.7017543859646889,
+            "lot_cap_notional": 0.4300390905533314,
+            "lot_cap_margin": 0.4300390905533314,
+            "target_distance": 0.00058,
+            "reward_multiple": 2.035087719297598,
+            "stop_distance_native": 0.00028500000000009074,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 116268.49999999997,
+            "reason": "ok",
+            "stop_risk_usd": 12.255000000003902,
+            "notional_usd": 49995.45499999999,
+            "margin_usd": 99.99090999999997,
+            "gross_target_usd": 24.94,
+            "primary_cost_usd": 2.494,
+            "stress_cost_usd": 4.988,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 15:30:00+00:00",
+          "trigger_decision_ts": "2026-03-27 15:35:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 7,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURJPY": 5,
+            "GBPUSD": 5,
+            "USDCAD": 5,
+            "USDCHF": 5,
+            "USDJPY": 5,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.9473684210526726,
+          "trigger_vr": 2.126126126126959,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-03-27 15:36:00+00:00",
+          "entry": 1.1642799999999998,
+          "stop": 1.1636799999999996,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.33,
+            "safe_lot_raw": 0.33333333333324666,
+            "lot_cap_risk": 0.33333333333324666,
+            "lot_cap_notional": 0.42944996049060374,
+            "lot_cap_margin": 0.42944996049060374,
+            "target_distance": 0.00121,
+            "reward_multiple": 2.016666666666142,
+            "stop_distance_native": 0.000600000000000156,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 116427.99999999997,
+            "reason": "ok",
+            "stop_risk_usd": 19.80000000000515,
+            "notional_usd": 38421.23999999999,
+            "margin_usd": 76.84247999999998,
+            "gross_target_usd": 39.93,
+            "primary_cost_usd": 3.9930000000000003,
+            "stress_cost_usd": 7.986000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 07:15:00+00:00",
+          "trigger_decision_ts": "2026-03-30 07:20:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 0,
+            "GBPUSD": 10,
+            "USDCAD": 10,
+            "USDCHF": 10
+          },
+          "candidate_vr_at_arm": 0.9830508474575123,
+          "trigger_vr": 1.525423728814108,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-03-30 07:21:00+00:00",
+          "entry": 1.161155,
+          "stop": 1.1613900000000001,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.43060573308473027,
+            "lot_cap_risk": 0.8510638297864834,
+            "lot_cap_notional": 0.43060573308473027,
+            "lot_cap_margin": 0.43060573308473027,
+            "target_distance": 0.00048,
+            "reward_multiple": 2.0425531914875603,
+            "stop_distance_native": 0.00023500000000020727,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 116115.5,
+            "reason": "ok",
+            "stop_risk_usd": 10.105000000008912,
+            "notional_usd": 49929.665,
+            "margin_usd": 99.85933,
+            "gross_target_usd": 20.64,
+            "primary_cost_usd": 2.064,
+            "stress_cost_usd": 4.128,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "GBPUSD": {
+      "arm_status_counts": {
+        "armed": 284,
+        "candidate_not_lagging": 1666,
+        "candidate_outside_box": 40,
+        "peer_shock_failed": 6640
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 182,
+        "triggered": 102
+      },
+      "blocked_due_active_arm_or_order": 1234,
+      "fill_status_counts": {
+        "expired_unfilled": 52,
+        "filled": 50
+      },
+      "filled_signal_paths": 50,
+      "filled_by_direction": {
+        "long": 23,
+        "short": 27
+      },
+      "deployable_paths_safe_lot_ge_0_01": 50,
+      "utility_band_counts": {
+        "GE30": 22,
+        "GE40": 2,
+        "LT30": 26
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 189,
+        "10": 544,
+        "5": 680
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.949999999997466,
+        "notional": 49840.85,
+        "margin": 99.68169999999999
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 06:30:00+00:00",
+          "trigger_decision_ts": "2026-03-23 06:45:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "EURJPY": 0,
+            "EURUSD": 10,
+            "USDCHF": 10,
+            "USDJPY": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.8674698795180594,
+          "trigger_vr": 2.1839080459766538,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-23 06:49:00+00:00",
+          "entry": 1.340125000000001,
+          "stop": 1.340610000000001,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.37,
+            "safe_lot_raw": 0.3730995242981063,
+            "lot_cap_risk": 0.41237113402056014,
+            "lot_cap_notional": 0.3730995242981063,
+            "lot_cap_margin": 0.3730995242981063,
+            "target_distance": 0.00097,
+            "reward_multiple": 1.9999999999997167,
+            "stop_distance_native": 0.0004850000000000687,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 134012.5000000001,
+            "reason": "ok",
+            "stop_risk_usd": 17.94500000000254,
+            "notional_usd": 49584.62500000003,
+            "margin_usd": 99.16925000000006,
+            "gross_target_usd": 35.89,
+            "primary_cost_usd": 3.5890000000000004,
+            "stress_cost_usd": 7.178000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-23 07:50:00+00:00",
+          "trigger_decision_ts": "2026-03-23 08:15:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURUSD": 10,
+            "USDCAD": 10,
+            "USDCHF": 10,
+            "USDJPY": 10,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.9516129032258527,
+          "trigger_vr": 1.928571428570658,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-23 08:17:00+00:00",
+          "entry": 1.3424250000000009,
+          "stop": 1.3417400000000008,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.29,
+            "safe_lot_raw": 0.2919708029196882,
+            "lot_cap_risk": 0.2919708029196882,
+            "lot_cap_notional": 0.37246028642196,
+            "lot_cap_margin": 0.37246028642196,
+            "target_distance": 0.00138,
+            "reward_multiple": 2.014598540145848,
+            "stop_distance_native": 0.0006850000000000467,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 134242.5000000001,
+            "reason": "ok",
+            "stop_risk_usd": 19.865000000001352,
+            "notional_usd": 38930.325000000026,
+            "margin_usd": 77.86065000000005,
+            "gross_target_usd": 40.019999999999996,
+            "primary_cost_usd": 4.002,
+            "stress_cost_usd": 8.004,
+            "utility_band": "GE40"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-23 11:00:00+00:00",
+          "trigger_decision_ts": "2026-03-23 11:10:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURUSD": 5,
+            "USDCAD": 5,
+            "USDJPY": 5
+          },
+          "candidate_vr_at_arm": 0.8758169934643842,
+          "trigger_vr": 21.558441558443533,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-23 11:19:00+00:00",
+          "entry": 1.3465700000000007,
+          "stop": 1.3382600000000007,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.02,
+            "safe_lot_raw": 0.024067388688327203,
+            "lot_cap_risk": 0.024067388688327203,
+            "lot_cap_notional": 0.37131378242497587,
+            "lot_cap_margin": 0.37131378242497587,
+            "target_distance": 0.01662,
+            "reward_multiple": 1.9999999999999905,
+            "stop_distance_native": 0.00831000000000004,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 134657.00000000006,
+            "reason": "ok",
+            "stop_risk_usd": 16.62000000000008,
+            "notional_usd": 2693.1400000000012,
+            "margin_usd": 5.386280000000003,
+            "gross_target_usd": 33.24,
+            "primary_cost_usd": 3.3240000000000003,
+            "stress_cost_usd": 6.648000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-24 12:45:00+00:00",
+          "trigger_decision_ts": "2026-03-24 13:10:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURUSD": 10,
+            "USDCHF": 10,
+            "USDJPY": 10,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.6614173228349596,
+          "trigger_vr": 4.346456692914699,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-24 13:12:00+00:00",
+          "entry": 1.3499700000000008,
+          "stop": 1.3513600000000008,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.14,
+            "safe_lot_raw": 0.1438848920863307,
+            "lot_cap_risk": 0.1438848920863307,
+            "lot_cap_notional": 0.37037860100594805,
+            "lot_cap_margin": 0.37037860100594805,
+            "target_distance": 0.00278,
+            "reward_multiple": 1.9999999999999967,
+            "stop_distance_native": 0.0013900000000000023,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 134997.0000000001,
+            "reason": "ok",
+            "stop_risk_usd": 19.460000000000033,
+            "notional_usd": 18899.580000000013,
+            "margin_usd": 37.79916000000002,
+            "gross_target_usd": 38.92,
+            "primary_cost_usd": 3.8920000000000003,
+            "stress_cost_usd": 7.784000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 15:30:00+00:00",
+          "trigger_decision_ts": "2026-03-27 15:35:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 7,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURJPY": 5,
+            "EURUSD": 5,
+            "USDCAD": 5,
+            "USDCHF": 5,
+            "USDJPY": 5,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.6571428571430067,
+          "trigger_vr": 1.6142857142857436,
+          "arm_wait_m5_bars": 1,
+          "entry_ts": "2026-03-27 15:36:00+00:00",
+          "entry": 1.3445950000000004,
+          "stop": 1.3440200000000004,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.34,
+            "safe_lot_raw": 0.34782608695652645,
+            "lot_cap_risk": 0.34782608695652645,
+            "lot_cap_notional": 0.37185918436406495,
+            "lot_cap_margin": 0.37185918436406495,
+            "target_distance": 0.00115,
+            "reward_multiple": 2.000000000000027,
+            "stop_distance_native": 0.0005749999999999922,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 134459.50000000003,
+            "reason": "ok",
+            "stop_risk_usd": 19.549999999999734,
+            "notional_usd": 45716.23000000001,
+            "margin_usd": 91.43246000000002,
+            "gross_target_usd": 39.1,
+            "primary_cost_usd": 3.91,
+            "stress_cost_usd": 7.82,
+            "utility_band": "GE30"
+          }
+        }
+      ]
+    },
+    "USDJPY": {
+      "arm_status_counts": {
+        "armed": 318,
+        "candidate_not_lagging": 1539,
+        "candidate_outside_box": 44,
+        "peer_shock_failed": 6518
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 218,
+        "triggered": 100
+      },
+      "blocked_due_active_arm_or_order": 1445,
+      "fill_status_counts": {
+        "expired_unfilled": 45,
+        "filled": 55
+      },
+      "filled_signal_paths": 55,
+      "filled_by_direction": {
+        "long": 26,
+        "short": 29
+      },
+      "deployable_paths_safe_lot_ge_0_01": 55,
+      "utility_band_counts": {
+        "GE30": 8,
+        "GE40": 1,
+        "LT30": 46
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 339,
+        "10": 521,
+        "5": 739
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.85945713635389,
+        "notional": 50000.0,
+        "margin": 100.0
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 08:20:00+00:00",
+          "trigger_decision_ts": "2026-03-23 08:50:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURUSD": 10,
+            "GBPUSD": 5,
+            "USDCAD": 0,
+            "USDCHF": 0
+          },
+          "candidate_vr_at_arm": 0.9554140127388167,
+          "trigger_vr": 2.422535211267149,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-03-23 08:56:00+00:00",
+          "entry": 160.84400000000034,
+          "stop": 160.93100000000032,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.36,
+            "safe_lot_raw": 0.3697563218391276,
+            "lot_cap_risk": 0.3697563218391276,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.174,
+            "reward_multiple": 2.000000000000251,
+            "stop_distance_native": 0.08699999999998909,
+            "usd_value_per_native_unit_1lot": 621.7204247593929,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.472283703461745,
+            "notional_usd": 36000.0,
+            "margin_usd": 72.0,
+            "gross_target_usd": 38.94456740692837,
+            "primary_cost_usd": 3.894456740692837,
+            "stress_cost_usd": 7.788913481385674,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-25 07:30:00+00:00",
+          "trigger_decision_ts": "2026-03-25 08:00:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURUSD": 5,
+            "GBPUSD": 5,
+            "USDCAD": 5,
+            "USDCHF": 5
+          },
+          "candidate_vr_at_arm": 0.8157894736841318,
+          "trigger_vr": 1.67499999999992,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-03-25 08:03:00+00:00",
+          "entry": 160.51150000000032,
+          "stop": 160.47700000000032,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.9305014492751373,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.069,
+            "reward_multiple": 1.9999999999995124,
+            "stop_distance_native": 0.03450000000000841,
+            "usd_value_per_native_unit_1lot": 623.008320276116,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 10.746893524765621,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 21.493787049526006,
+            "primary_cost_usd": 2.1493787049526007,
+            "stress_cost_usd": 4.2987574099052015,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-25 12:00:00+00:00",
+          "trigger_decision_ts": "2026-03-25 12:10:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 10,
+            "EURUSD": 10,
+            "GBPUSD": 10,
+            "USDCHF": 10,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.9545454545455573,
+          "trigger_vr": 1.724137931035091,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-25 12:10:00+00:00",
+          "entry": 160.19250000000034,
+          "stop": 160.23100000000034,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.8321688311688525,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.077,
+            "reward_multiple": 2.000000000000047,
+            "stop_distance_native": 0.03849999999999909,
+            "usd_value_per_native_unit_1lot": 624.2489504814507,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 12.016792296767642,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 24.033584593535853,
+            "primary_cost_usd": 2.4033584593535853,
+            "stress_cost_usd": 4.8067169187071705,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-26 06:10:00+00:00",
+          "trigger_decision_ts": "2026-03-26 06:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 0,
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDCAD": 0,
+            "USDCHF": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.793650793650765,
+          "trigger_vr": 1.4153846153853016,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-26 06:36:00+00:00",
+          "entry": 160.8380000000003,
+          "stop": 160.86200000000034,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.3403166666650312,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.049,
+            "reward_multiple": 2.0416666666641716,
+            "stop_distance_native": 0.02400000000002933,
+            "usd_value_per_native_unit_1lot": 621.7436178017621,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 7.460923413630263,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 15.232718636143172,
+            "primary_cost_usd": 1.5232718636143172,
+            "stress_cost_usd": 3.0465437272286344,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-26 14:10:00+00:00",
+          "trigger_decision_ts": "2026-03-26 14:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 10,
+            "EURUSD": 10,
+            "USDCAD": 10,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.8971962616820444,
+          "trigger_vr": 2.196078431372363,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-26 14:40:00+00:00",
+          "entry": 160.89900000000034,
+          "stop": 160.95600000000033,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5645578947369627,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.114,
+            "reward_multiple": 2.0000000000004228,
+            "stop_distance_native": 0.05699999999998795,
+            "usd_value_per_native_unit_1lot": 621.5079024729786,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 17.712975220476146,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 35.42595044095978,
+            "primary_cost_usd": 3.5425950440959784,
+            "stress_cost_usd": 7.085190088191957,
+            "utility_band": "GE30"
+          }
+        }
+      ]
+    },
+    "EURJPY": {
+      "arm_status_counts": {
+        "armed": 340,
+        "candidate_not_lagging": 1493,
+        "candidate_outside_box": 41,
+        "peer_shock_failed": 6418
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 237,
+        "triggered": 103
+      },
+      "blocked_due_active_arm_or_order": 1572,
+      "fill_status_counts": {
+        "expired_unfilled": 53,
+        "filled": 50
+      },
+      "filled_signal_paths": 50,
+      "filled_by_direction": {
+        "long": 29,
+        "short": 21
+      },
+      "deployable_paths_safe_lot_ge_0_01": 50,
+      "utility_band_counts": {
+        "GE30": 9,
+        "LT30": 41
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 478,
+        "10": 522,
+        "5": 764
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.591471690085992,
+        "notional": 49988.033334589345,
+        "margin": 99.97606666917869
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 06:20:00+00:00",
+          "trigger_decision_ts": "2026-03-23 06:35:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDCAD": 5,
+            "USDCHF": 0,
+            "USDJPY": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.9072164948443399,
+          "trigger_vr": 1.8400000000009322,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-23 06:35:00+00:00",
+          "entry": 186.413,
+          "stop": 186.46000000000004,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.4317295467590788,
+            "lot_cap_risk": 0.6849361702123963,
+            "lot_cap_notional": 0.4317295467590788,
+            "lot_cap_margin": 0.4317295467590788,
+            "target_distance": 0.095,
+            "reward_multiple": 2.021276595743586,
+            "stop_distance_native": 0.047000000000025466,
+            "usd_value_per_native_unit_1lot": 621.2723658051677,
+            "notional_usd_1lot": 115813.24552683874,
+            "reason": "ok",
+            "stop_risk_usd": 12.555914512929242,
+            "notional_usd": 49799.69557654066,
+            "margin_usd": 99.59939115308131,
+            "gross_target_usd": 25.378976143141102,
+            "primary_cost_usd": 2.5378976143141103,
+            "stress_cost_usd": 5.075795228628221,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 06:15:00+00:00",
+          "trigger_decision_ts": "2026-03-30 06:40:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 7,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURUSD": 10,
+            "GBPUSD": 0,
+            "USDCAD": 0,
+            "USDCHF": 10,
+            "USDJPY": 10,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.6976744186048048,
+          "trigger_vr": 2.7021276595754458,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-30 06:41:00+00:00",
+          "entry": 186.83650000000006,
+          "stop": 186.77200000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.4315484394109296,
+            "lot_cap_risk": 0.5000248062014774,
+            "lot_cap_notional": 0.4315484394109296,
+            "lot_cap_margin": 0.4315484394109296,
+            "target_distance": 0.13,
+            "reward_multiple": 2.015503875968694,
+            "stop_distance_native": 0.06450000000000955,
+            "usd_value_per_native_unit_1lot": 620.1242729042887,
+            "notional_usd_1lot": 115861.84871448217,
+            "reason": "ok",
+            "stop_risk_usd": 17.199146709002992,
+            "notional_usd": 49820.594947227335,
+            "margin_usd": 99.64118989445467,
+            "gross_target_usd": 34.66494685534973,
+            "primary_cost_usd": 3.4664946855349736,
+            "stress_cost_usd": 6.932989371069947,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 13:45:00+00:00",
+          "trigger_decision_ts": "2026-03-30 13:55:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "AUDUSD": 0,
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.9784172661869532,
+          "trigger_vr": 1.5474452554740468,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-30 13:59:00+00:00",
+          "entry": 185.78900000000007,
+          "stop": 185.84300000000007,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.433427167378048,
+            "lot_cap_risk": 0.5964888888888676,
+            "lot_cap_notional": 0.433427167378048,
+            "lot_cap_margin": 0.433427167378048,
+            "target_distance": 0.108,
+            "reward_multiple": 1.9999999999999243,
+            "stop_distance_native": 0.054000000000002046,
+            "usd_value_per_native_unit_1lot": 620.9174676501985,
+            "notional_usd_1lot": 115359.63539726277,
+            "reason": "ok",
+            "stop_risk_usd": 14.417703598838155,
+            "notional_usd": 49604.64322082299,
+            "margin_usd": 99.20928644164597,
+            "gross_target_usd": 28.835407197675224,
+            "primary_cost_usd": 2.8835407197675225,
+            "stress_cost_usd": 5.767081439535045,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 14:55:00+00:00",
+          "trigger_decision_ts": "2026-03-30 15:15:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURUSD": 5,
+            "GBPUSD": 0,
+            "USDCAD": 0,
+            "USDCHF": 5
+          },
+          "candidate_vr_at_arm": 0.7846153846154889,
+          "trigger_vr": 1.7810218978096344,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-30 15:18:00+00:00",
+          "entry": 185.66300000000007,
+          "stop": 185.72500000000008,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.433993310460351,
+            "lot_cap_risk": 0.5198483870966762,
+            "lot_cap_notional": 0.433993310460351,
+            "lot_cap_margin": 0.433993310460351,
+            "target_distance": 0.125,
+            "reward_multiple": 2.01612903225768,
+            "stop_distance_native": 0.06200000000001182,
+            "usd_value_per_native_unit_1lot": 620.5283178097818,
+            "notional_usd_1lot": 115209.14906951757,
+            "reason": "ok",
+            "stop_risk_usd": 16.543284952811938,
+            "notional_usd": 49539.934099892555,
+            "margin_usd": 99.07986819978511,
+            "gross_target_usd": 33.35339708227577,
+            "primary_cost_usd": 3.3353397082275773,
+            "stress_cost_usd": 6.670679416455155,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 17:15:00+00:00",
+          "trigger_decision_ts": "2026-03-30 17:45:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 0,
+            "GBPUSD": 0,
+            "USDCHF": 0,
+            "USDJPY": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.7567567567566599,
+          "trigger_vr": 1.317647058823907,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-03-30 17:48:00+00:00",
+          "entry": 185.70600000000007,
+          "stop": 185.67700000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.43,
+            "safe_lot_raw": 0.43361280734063606,
+            "lot_cap_risk": 1.1106827586197432,
+            "lot_cap_notional": 0.43361280734063606,
+            "lot_cap_margin": 0.43361280734063606,
+            "target_distance": 0.059,
+            "reward_multiple": 2.034482758618951,
+            "stop_distance_native": 0.029000000000024784,
+            "usd_value_per_native_unit_1lot": 620.9290340207003,
+            "notional_usd_1lot": 115310.24719184822,
+            "reason": "ok",
+            "stop_risk_usd": 7.74298505424475,
+            "notional_usd": 49583.406292494736,
+            "margin_usd": 99.16681258498947,
+            "gross_target_usd": 15.752969593105167,
+            "primary_cost_usd": 1.5752969593105168,
+            "stress_cost_usd": 3.1505939186210337,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "AUDUSD": {
+      "arm_status_counts": {
+        "armed": 325,
+        "candidate_not_lagging": 1543,
+        "candidate_outside_box": 53,
+        "peer_shock_failed": 6498
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 221,
+        "triggered": 104
+      },
+      "blocked_due_active_arm_or_order": 1445,
+      "fill_status_counts": {
+        "expired_unfilled": 40,
+        "filled": 64
+      },
+      "filled_signal_paths": 64,
+      "filled_by_direction": {
+        "long": 32,
+        "short": 32
+      },
+      "deployable_paths_safe_lot_ge_0_01": 64,
+      "utility_band_counts": {
+        "GE30": 40,
+        "GE40": 2,
+        "LT30": 22
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 279,
+        "10": 551,
+        "5": 794
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.999999999997797,
+        "notional": 49999.470000000074,
+        "margin": 99.99894000000015
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 06:25:00+00:00",
+          "trigger_decision_ts": "2026-03-23 06:45:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "EURUSD": 5,
+            "GBPUSD": 0,
+            "USDCAD": 10,
+            "USDCHF": 5,
+            "USDJPY": 5,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.8533333333332662,
+          "trigger_vr": 1.333333333333523,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-23 06:50:00+00:00",
+          "entry": 0.7200700000000018,
+          "stop": 0.7203400000000018,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.6900000000000001,
+            "safe_lot_raw": 0.6943769355757062,
+            "lot_cap_risk": 0.7407407407407613,
+            "lot_cap_notional": 0.6943769355757062,
+            "lot_cap_margin": 0.6943769355757062,
+            "target_distance": 0.00054,
+            "reward_multiple": 2.000000000000056,
+            "stop_distance_native": 0.00026999999999999247,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 72007.00000000017,
+            "reason": "ok",
+            "stop_risk_usd": 18.62999999999948,
+            "notional_usd": 49684.830000000125,
+            "margin_usd": 99.36966000000025,
+            "gross_target_usd": 37.260000000000005,
+            "primary_cost_usd": 3.726000000000001,
+            "stress_cost_usd": 7.452000000000002,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-23 07:35:00+00:00",
+          "trigger_decision_ts": "2026-03-23 07:45:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDCHF": 10,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.607594936708939,
+          "trigger_vr": 1.298701298701074,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-23 07:53:00+00:00",
+          "entry": 0.7203100000000018,
+          "stop": 0.7200500000000019,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.6900000000000001,
+            "safe_lot_raw": 0.6941455762102411,
+            "lot_cap_risk": 0.7692307692309853,
+            "lot_cap_notional": 0.6941455762102411,
+            "lot_cap_margin": 0.6941455762102411,
+            "target_distance": 0.00052,
+            "reward_multiple": 2.0000000000005618,
+            "stop_distance_native": 0.00025999999999992696,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 72031.00000000017,
+            "reason": "ok",
+            "stop_risk_usd": 17.93999999999496,
+            "notional_usd": 49701.39000000012,
+            "margin_usd": 99.40278000000025,
+            "gross_target_usd": 35.879999999999995,
+            "primary_cost_usd": 3.5879999999999996,
+            "stress_cost_usd": 7.175999999999999,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-24 09:00:00+00:00",
+          "trigger_decision_ts": "2026-03-24 09:15:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURJPY": 5,
+            "EURUSD": 5,
+            "GBPUSD": 5,
+            "USDJPY": 5
+          },
+          "candidate_vr_at_arm": 0.8906249999999729,
+          "trigger_vr": 1.2499999999998843,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-24 09:17:00+00:00",
+          "entry": 0.7209950000000018,
+          "stop": 0.7213800000000017,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.51,
+            "safe_lot_raw": 0.5194805194807115,
+            "lot_cap_risk": 0.5194805194807115,
+            "lot_cap_notional": 0.6934860852016986,
+            "lot_cap_margin": 0.6934860852016986,
+            "target_distance": 0.00077,
+            "reward_multiple": 2.0000000000007394,
+            "stop_distance_native": 0.0003849999999998577,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 72099.50000000019,
+            "reason": "ok",
+            "stop_risk_usd": 19.634999999992743,
+            "notional_usd": 36770.7450000001,
+            "margin_usd": 73.5414900000002,
+            "gross_target_usd": 39.27,
+            "primary_cost_usd": 3.9270000000000005,
+            "stress_cost_usd": 7.854000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-24 12:45:00+00:00",
+          "trigger_decision_ts": "2026-03-24 13:10:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "EURUSD": 10,
+            "GBPUSD": 10,
+            "USDCHF": 10,
+            "USDJPY": 10,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.5490196078430221,
+          "trigger_vr": 3.568627450980187,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-24 13:12:00+00:00",
+          "entry": 0.7205300000000018,
+          "stop": 0.7214500000000017,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.21,
+            "safe_lot_raw": 0.2173913043478448,
+            "lot_cap_risk": 0.2173913043478448,
+            "lot_cap_notional": 0.6939336321874159,
+            "lot_cap_margin": 0.6939336321874159,
+            "target_distance": 0.00184,
+            "reward_multiple": 2.000000000000172,
+            "stop_distance_native": 0.0009199999999999209,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 72053.00000000017,
+            "reason": "ok",
+            "stop_risk_usd": 19.319999999998338,
+            "notional_usd": 15131.130000000036,
+            "margin_usd": 30.262260000000072,
+            "gross_target_usd": 38.64,
+            "primary_cost_usd": 3.8640000000000003,
+            "stress_cost_usd": 7.728000000000001,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-26 07:30:00+00:00",
+          "trigger_decision_ts": "2026-03-26 08:00:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "EURJPY": 5,
+            "EURUSD": 5,
+            "GBPUSD": 5,
+            "USDCAD": 5,
+            "USDCHF": 5
+          },
+          "candidate_vr_at_arm": 0.8115942028983035,
+          "trigger_vr": 1.5294117647060745,
+          "arm_wait_m5_bars": 6,
+          "entry_ts": "2026-03-26 08:00:00+00:00",
+          "entry": 0.7192400000000018,
+          "stop": 0.7195100000000018,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.6900000000000001,
+            "safe_lot_raw": 0.6951782437016835,
+            "lot_cap_risk": 0.7407407407407613,
+            "lot_cap_notional": 0.6951782437016835,
+            "lot_cap_margin": 0.6951782437016835,
+            "target_distance": 0.00054,
+            "reward_multiple": 2.000000000000056,
+            "stop_distance_native": 0.00026999999999999247,
+            "usd_value_per_native_unit_1lot": 100000.0,
+            "notional_usd_1lot": 71924.00000000017,
+            "reason": "ok",
+            "stop_risk_usd": 18.62999999999948,
+            "notional_usd": 49627.56000000012,
+            "margin_usd": 99.25512000000025,
+            "gross_target_usd": 37.260000000000005,
+            "primary_cost_usd": 3.726000000000001,
+            "stress_cost_usd": 7.452000000000002,
+            "utility_band": "GE30"
+          }
+        }
+      ]
+    },
+    "USDCAD": {
+      "arm_status_counts": {
+        "armed": 301,
+        "candidate_not_lagging": 1650,
+        "candidate_outside_box": 47,
+        "peer_shock_failed": 6584
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 191,
+        "triggered": 110
+      },
+      "blocked_due_active_arm_or_order": 1282,
+      "fill_status_counts": {
+        "expired_unfilled": 38,
+        "filled": 72
+      },
+      "filled_signal_paths": 72,
+      "filled_by_direction": {
+        "long": 31,
+        "short": 41
+      },
+      "deployable_paths_safe_lot_ge_0_01": 72,
+      "utility_band_counts": {
+        "GE30": 9,
+        "LT30": 63
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 280,
+        "10": 494,
+        "5": 777
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.711499490740433,
+        "notional": 50000.0,
+        "margin": 100.0
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 06:30:00+00:00",
+          "trigger_decision_ts": "2026-03-23 06:45:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "EURJPY": 0,
+            "EURUSD": 10,
+            "GBPUSD": 5,
+            "USDCHF": 10,
+            "USDJPY": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.8679245283026773,
+          "trigger_vr": 1.5925925925948465,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-23 06:49:00+00:00",
+          "entry": 1.3695650000000006,
+          "stop": 1.3693400000000002,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.217391111109143,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00046,
+            "reward_multiple": 2.044444444441139,
+            "stop_distance_native": 0.0002250000000003638,
+            "usd_value_per_native_unit_1lot": 73015.88460569594,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 8.214287018154076,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 16.793653459310068,
+            "primary_cost_usd": 1.679365345931007,
+            "stress_cost_usd": 3.358730691862014,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-24 12:35:00+00:00",
+          "trigger_decision_ts": "2026-03-24 12:55:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 0,
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDCHF": 0,
+            "USDJPY": 0,
+            "XAUUSD": 0
+          },
+          "candidate_vr_at_arm": 0.799999999999704,
+          "trigger_vr": 2.3555555555559504,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-24 12:55:00+00:00",
+          "entry": 1.3702200000000002,
+          "stop": 1.3707600000000004,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5074888888886945,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00109,
+            "reward_multiple": 2.018518518517745,
+            "stop_distance_native": 0.000540000000000207,
+            "usd_value_per_native_unit_1lot": 72980.98115631065,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.704864912211427,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 39.774634730189305,
+            "primary_cost_usd": 3.977463473018931,
+            "stress_cost_usd": 7.954926946037862,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-24 13:20:00+00:00",
+          "trigger_decision_ts": "2026-03-24 13:35:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 5,
+            "EURUSD": 5,
+            "GBPUSD": 10,
+            "USDCHF": 10,
+            "USDJPY": 10
+          },
+          "candidate_vr_at_arm": 0.9583333333333044,
+          "trigger_vr": 1.8383838383836482,
+          "arm_wait_m5_bars": 3,
+          "entry_ts": "2026-03-24 13:44:00+00:00",
+          "entry": 1.3712350000000004,
+          "stop": 1.3707700000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5897784946237352,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00093,
+            "reward_multiple": 2.0000000000002682,
+            "stop_distance_native": 0.0004649999999999377,
+            "usd_value_per_native_unit_1lot": 72926.96000320876,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 16.955518200743764,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 33.911036401492076,
+            "primary_cost_usd": 3.3911036401492076,
+            "stress_cost_usd": 6.782207280298415,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-25 13:10:00+00:00",
+          "trigger_decision_ts": "2026-03-25 13:20:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURJPY": 0,
+            "EURUSD": 0,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.7945205479448054,
+          "trigger_vr": 2.5128205128204546,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-25 13:22:00+00:00",
+          "entry": 1.3736900000000003,
+          "stop": 1.3741900000000005,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5494759999998167,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00101,
+            "reward_multiple": 2.0199999999993254,
+            "stop_distance_native": 0.000500000000000167,
+            "usd_value_per_native_unit_1lot": 72796.62806018823,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 18.199157015053135,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 36.76229717039506,
+            "primary_cost_usd": 3.676229717039506,
+            "stress_cost_usd": 7.352459434079012,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 07:30:00+00:00",
+          "trigger_decision_ts": "2026-03-27 07:50:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURJPY": 0,
+            "EURUSD": 0,
+            "GBPUSD": 0,
+            "USDJPY": 0
+          },
+          "candidate_vr_at_arm": 0.9361702127660378,
+          "trigger_vr": 1.7142857142849375,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-27 07:51:00+00:00",
+          "entry": 1.3807400000000005,
+          "stop": 1.3809600000000006,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.2552181818175603,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00045,
+            "reward_multiple": 2.045454545453532,
+            "stop_distance_native": 0.000220000000000109,
+            "usd_value_per_native_unit_1lot": 72424.93155843965,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 7.966742471432309,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 16.295609600648923,
+            "primary_cost_usd": 1.6295609600648924,
+            "stress_cost_usd": 3.2591219201297847,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    },
+    "USDCHF": {
+      "arm_status_counts": {
+        "armed": 266,
+        "candidate_not_lagging": 1690,
+        "candidate_outside_box": 47,
+        "peer_shock_failed": 6654
+      },
+      "trigger_status_counts": {
+        "arm_expired_no_breakout": 170,
+        "triggered": 96
+      },
+      "blocked_due_active_arm_or_order": 1207,
+      "fill_status_counts": {
+        "expired_unfilled": 42,
+        "filled": 54
+      },
+      "filled_signal_paths": 54,
+      "filled_by_direction": {
+        "long": 27,
+        "short": 27
+      },
+      "deployable_paths_safe_lot_ge_0_01": 54,
+      "utility_band_counts": {
+        "GE30": 29,
+        "LT30": 25
+      },
+      "shock_age_histogram_on_arms": {
+        "0": 149,
+        "10": 484,
+        "5": 678
+      },
+      "safe_overlay_maxima": {
+        "risk": 19.999618933902564,
+        "notional": 50000.0,
+        "margin": 100.0
+      },
+      "examples": [
+        {
+          "arm_decision_ts": "2026-03-23 07:45:00+00:00",
+          "trigger_decision_ts": "2026-03-23 08:10:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURUSD": 5,
+            "GBPUSD": 5,
+            "USDCAD": 5,
+            "USDJPY": 5,
+            "XAUUSD": 5
+          },
+          "candidate_vr_at_arm": 0.8493150684929257,
+          "trigger_vr": 2.8108108108110623,
+          "arm_wait_m5_bars": 5,
+          "entry_ts": "2026-03-23 08:15:00+00:00",
+          "entry": 0.7872400000000002,
+          "stop": 0.7877700000000002,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.29,
+            "safe_lot_raw": 0.2970716981131905,
+            "lot_cap_risk": 0.2970716981131905,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00106,
+            "reward_multiple": 1.999999999999885,
+            "stop_distance_native": 0.0005300000000000304,
+            "usd_value_per_native_unit_1lot": 127026.0657486916,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.52390630557502,
+            "notional_usd": 28999.999999999996,
+            "margin_usd": 57.99999999999999,
+            "gross_target_usd": 39.04781261114779,
+            "primary_cost_usd": 3.9047812611147794,
+            "stress_cost_usd": 7.809562522229559,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-25 12:00:00+00:00",
+          "trigger_decision_ts": "2026-03-25 12:10:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 10,
+            "EURUSD": 10,
+            "GBPUSD": 10,
+            "USDJPY": 10,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.4571428571430475,
+          "trigger_vr": 1.9117647058824299,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-25 12:16:00+00:00",
+          "entry": 0.7869750000000002,
+          "stop": 0.7873100000000002,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.46,
+            "safe_lot_raw": 0.4698358208955587,
+            "lot_cap_risk": 0.4698358208955587,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00067,
+            "reward_multiple": 2.000000000000154,
+            "stop_distance_native": 0.0003349999999999742,
+            "usd_value_per_native_unit_1lot": 127068.83954382283,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 19.58130817370159,
+            "notional_usd": 46000.0,
+            "margin_usd": 92.0,
+            "gross_target_usd": 39.1626163474062,
+            "primary_cost_usd": 3.91626163474062,
+            "stress_cost_usd": 7.83252326948124,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 06:25:00+00:00",
+          "trigger_decision_ts": "2026-03-27 06:35:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 4,
+          "shock_ages_minutes": {
+            "EURUSD": 5,
+            "GBPUSD": 5,
+            "USDCAD": 5,
+            "XAUUSD": 10
+          },
+          "candidate_vr_at_arm": 0.6666666666664769,
+          "trigger_vr": 1.2972972972978487,
+          "arm_wait_m5_bars": 2,
+          "entry_ts": "2026-03-27 06:39:00+00:00",
+          "entry": 0.7941300000000002,
+          "stop": 0.7940000000000003,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 1.221738461538805,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00026,
+            "reward_multiple": 2.0000000000005618,
+            "stop_distance_native": 0.00012999999999996348,
+            "usd_value_per_native_unit_1lot": 125923.96710865975,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 8.185057862060585,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 16.370115724125768,
+            "primary_cost_usd": 1.6370115724125769,
+            "stress_cost_usd": 3.2740231448251538,
+            "utility_band": "LT30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-27 08:10:00+00:00",
+          "trigger_decision_ts": "2026-03-27 08:30:00+00:00",
+          "direction": "short",
+          "peer_shock_count": 6,
+          "shock_ages_minutes": {
+            "AUDUSD": 5,
+            "EURJPY": 10,
+            "EURUSD": 10,
+            "GBPUSD": 5,
+            "USDCAD": 5,
+            "USDJPY": 5
+          },
+          "candidate_vr_at_arm": 0.8888888888889802,
+          "trigger_vr": 2.0370370370372806,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-27 08:36:00+00:00",
+          "entry": 0.7946750000000002,
+          "stop": 0.7949600000000002,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.5576666666667065,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00057,
+            "reward_multiple": 2.000000000000142,
+            "stop_distance_native": 0.0002849999999999797,
+            "usd_value_per_native_unit_1lot": 125837.60656872303,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 17.931858936041756,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 35.86371787208606,
+            "primary_cost_usd": 3.5863717872086065,
+            "stress_cost_usd": 7.172743574417213,
+            "utility_band": "GE30"
+          }
+        },
+        {
+          "arm_decision_ts": "2026-03-30 07:15:00+00:00",
+          "trigger_decision_ts": "2026-03-30 07:35:00+00:00",
+          "direction": "long",
+          "peer_shock_count": 5,
+          "shock_ages_minutes": {
+            "AUDUSD": 10,
+            "EURJPY": 0,
+            "EURUSD": 5,
+            "GBPUSD": 10,
+            "USDCAD": 10
+          },
+          "candidate_vr_at_arm": 0.8085106382978321,
+          "trigger_vr": 1.4693877551021794,
+          "arm_wait_m5_bars": 4,
+          "entry_ts": "2026-03-30 07:42:00+00:00",
+          "entry": 0.7944200000000003,
+          "stop": 0.7942300000000003,
+          "safe_overlay": {
+            "deployable": true,
+            "safe_lot": 0.5,
+            "safe_lot_raw": 0.5,
+            "lot_cap_risk": 0.8362315789472655,
+            "lot_cap_notional": 0.5,
+            "lot_cap_margin": 0.5,
+            "target_distance": 0.00038,
+            "reward_multiple": 1.9999999999997529,
+            "stop_distance_native": 0.00019000000000002348,
+            "usd_value_per_native_unit_1lot": 125877.99904332715,
+            "notional_usd_1lot": 100000.0,
+            "reason": "ok",
+            "stop_risk_usd": 11.958409909117556,
+            "notional_usd": 50000.0,
+            "margin_usd": 100.0,
+            "gross_target_usd": 23.91681981823216,
+            "primary_cost_usd": 2.3916819818232162,
+            "stress_cost_usd": 4.7833639636464325,
+            "utility_band": "LT30"
+          }
+        }
+      ]
+    }
+  },
+  "per_market_gate": {
+    "XAUUSD": true,
+    "EURUSD": true,
+    "GBPUSD": true,
+    "USDJPY": true,
+    "EURJPY": true,
+    "AUDUSD": true,
+    "USDCAD": true,
+    "USDCHF": true
+  },
+  "gate": {
+    "each_market_ge_25_and_both_directions": true,
+    "total_signal_paths_ge_300": true,
+    "safe_overlay_never_violates_caps": true,
+    "protected_periods_sealed": true,
+    "target_outcomes_calculated": false,
+    "pnl_outcomes_calculated": false
+  },
+  "totals": {
+    "filled_signal_paths": 467,
+    "deployable_paths_safe_lot_ge_0_01": 466,
+    "utility_band_counts": {
+      "GE30": 134,
+      "GE40": 6,
+      "LT30": 326,
+      "NONDEPLOYABLE": 1
+    }
+  },
+  "preflight_pass": true
+}
