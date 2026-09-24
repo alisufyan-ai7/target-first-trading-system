@@ -273,3 +273,10 @@
 - Added recent-two-H1 target-destination gate requiring T40 to point toward a completed H1 liquidity extreme.
 - Frozen preflight at >=35 filled signals per market, both directions, >=400 total, zero outcomes.
 - Frozen future development gross-edge requirement >+0.20R.
+
+- Closed EXP-029 at zero-outcome preflight after only 106 filled signals; no P&L outcomes were calculated.
+- Opened EXP-030 / Engine M v0.4 with a single prior-H1 range sweep/reclaim setup.
+- Preserved non-chasing 50% M5 limit entry, structural stop, T40, signal-first sizing, safety caps and costs.
+- Replaced rolling prior-4-M15 sweep + H1 midpoint conjunction with sweep/reclaim of the latest completed H1 boundary.
+- Added opposite H1 boundary T40 room check.
+- Frozen zero-outcome preflight at >=25 signals per market, both directions, >=300 total.
