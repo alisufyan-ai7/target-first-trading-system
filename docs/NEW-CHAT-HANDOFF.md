@@ -1601,3 +1601,35 @@ Protected periods were not loaded/labeled:
 - Sep final holdout: NO.
 
 Do not create Engine P v0.2 as a threshold/hour/symbol/direction rescue. The next engine must be prospectively frozen from a genuinely different information source/family.
+
+
+## Engine Q v0.1 / EXP-037 authoritative current state
+
+Engine P is closed. The current primary path is prospectively frozen **Engine Q v0.1 — Cross-Market Volatility Spillover Breakout**.
+
+Different information source:
+
+- peer **volatility breadth**, not peer directional consensus;
+- candidate must still be locally lagging/compressed;
+- trade direction is determined only by the candidate's first later local breakout.
+
+Frozen center mechanics:
+
+- decisions 06:05-17:25 UTC;
+- peer VR from current M5 range / prior-24-M5 median range;
+- candidate excluded;
+- >=4 shocked peers at VR>=1.75, >=6 valid peers;
+- candidate VR<=1.00 and inside fixed prior-six-M5 box;
+- next-six-M5 arm;
+- first breakout VR>=1.25, body>=50%, outer-25% close;
+- 50% retracement limit, stop beyond breakout extreme;
+- 10-M1/30m order life;
+- T40;
+- primary/stress costs =10%/20% gross target;
+- unchanged USD500 safe-lot overlay.
+
+Source/split is frozen in `research/provenance/EXP-037-engine-q-v0.1-source-manifest.md`. Jun30 is a hard source seal; Jul-Aug and Sep remain sealed.
+
+Outcome state: **zero Engine-Q target/P&L outcomes**.
+
+**Exact next action:** implement and run EXP-037 zero-outcome preflight only. Development is forbidden until that durable preflight passes the unchanged >=25-per-market / both-directions / >=300-total gate.
