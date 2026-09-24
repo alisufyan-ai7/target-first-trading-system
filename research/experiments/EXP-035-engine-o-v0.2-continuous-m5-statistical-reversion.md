@@ -1,6 +1,6 @@
 # EXP-035 — Engine O v0.2 Continuous M5 Statistical Reversion
 
-**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
+**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-o-continuous-m5-statistical-stretch-reversion/SPEC-v0.2.md`
 
@@ -104,3 +104,40 @@ Before any development label:
 - >+0.20R pooled gross hurdle and all post-cost gates unchanged.
 
 No v0.2 outcome existed at this freeze.
+
+
+## Development implementation checkpoint — zero outcomes
+
+Frozen before any EXP-035 development outcome:
+
+- same six chronological development slices used by EXP-028/031/033;
+- same audited target-first outcome labeler;
+- T40 vs frozen trigger-extreme stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- 20:00 UTC hard cutoff;
+- same normalized-R signal metrics;
+- same safe-lot USD500 one-open portfolio;
+- same daily stop-adding-risk logic;
+- same >+0.20R pooled gross hurdle;
+- same post-cost expectancy / PF / drawdown / weekday / concentration gates;
+- hour-of-day cohorts descriptive only;
+- matched immediate-entry control descriptive only;
+- no post-outcome hour/minute/symbol whitelist;
+- Jul1 hard source seal.
+
+Implementation commits:
+
+- development runner: `152413d7b4a080a2ad3cf471da34c04a5188441c`;
+- development workflow: `f9d2082c670853c753068c38d9c827deaa0d8a71`.
+
+At this checkpoint:
+
+- EXP-035 target outcomes: **NO**;
+- EXP-035 P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+### Next
+
+Trigger EXP-035 development only. Any failed mandatory gate stops before secondary testing.
