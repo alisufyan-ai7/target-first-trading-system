@@ -1,6 +1,6 @@
 # EXP-031 — Engine M v0.5 Recent-H1 Range Sweep/Reclaim
 
-**Status:** FROZEN PROSPECTIVELY — ZERO V0.5 OUTCOMES  
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.5.md`
 
@@ -79,3 +79,50 @@ Fix commits:
 ### Next
 
 Rerun the identical frozen EXP-031 zero-outcome preflight.
+
+
+## Zero-outcome preflight — PASS
+
+**Retry workflow run:** `36010384519`  
+**Retry trigger SHA:** `7ff211f748245ed744a4dfea2563dd02032fded2`  
+**Durable result commit:** `e0c7566`
+
+Protection:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Frozen-gate result:
+
+- filled valid signals: **417**;
+- deployable signals: **417**;
+- every market >=25: PASS;
+- LONG and SHORT every market: PASS;
+- total >=300: PASS;
+- safety overlay: PASS.
+
+Per-market signals:
+
+- XAUUSD 64;
+- EURUSD 50;
+- GBPUSD 51;
+- USDJPY 44;
+- EURJPY 55;
+- AUDUSD 53;
+- USDCAD 52;
+- USDCHF 48.
+
+Selected H1 range counts among armed setups:
+
+- H1_0: 340;
+- H1_1: 268.
+
+Reference-account utility across filled signals:
+
+- GE40: 16;
+- GE30: 35;
+- LT30: 366.
+
+**Disposition:** PASS. v0.5 may proceed to development while Jul-Aug and Sep remain sealed.
