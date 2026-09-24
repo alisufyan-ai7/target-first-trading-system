@@ -285,3 +285,7 @@
 - Opened EXP-031 / Engine M v0.5 with deterministic H1_0 -> H1_1 recent-range fallback.
 - Kept the same >=300 total / >=25-per-market frequency gate rather than lowering it post hoc.
 - Preserved non-chasing limit entry, structural stop, T40, sizing, safety and cost assumptions.
+
+- EXP-031 recent-H1 zero-outcome preflight passed at `e0c7566`: 417 filled valid signals, all eight markets passing, both directions, all safely deployable.
+- Kept the unchanged v0.4 frequency gate; no post-hoc threshold relaxation.
+- v0.5 may proceed to development; Jul-Aug and Sep remain sealed.
