@@ -1760,3 +1760,13 @@ Frozen: |rho|>=0.60, peer |NM15|>=1.00, |residual|>=1.50, 35% body, outer-40% cl
 No outcomes exist. Jun30 source seal and Jul-Aug/Sep protection remain intact.
 
 **Exact next action:** implement and run EXP-039 zero-outcome preflight only.
+
+
+### EXP-039 implementation checkpoint
+
+Engine R v0.1 implementation is frozen before outcomes at main SHA `db879da22f4ec6ab3a7ca497f110f847b7ff373f`.
+
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: sealed.
+
+**Exact next action:** trigger exactly one EXP-039 zero-outcome preflight, confirm it starts once, then follow the long-running pipeline policy.
