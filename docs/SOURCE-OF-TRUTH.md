@@ -35,6 +35,14 @@ When chat history and repository records conflict:
 
 Material conclusions should be checkpointed here before beginning another long-running experiment. This is intended to prevent loss of progress when a ChatGPT stream or tool session times out.
 
+## Long-running pipeline rule
+
+The project operating policy in `docs/PIPELINE-WORKFLOW-POLICY.md` is mandatory.
+
+After launching a long-running GitHub pipeline, confirm the intended run once. Do not repeatedly poll merely to wait. Use the turn only for independent work that cannot change the running experiment; otherwise end the turn and resume from GitHub's durable result later.
+
+Do not mutate the running experiment's frozen inputs while its pipeline is active. Result-committing workflows should rebase from current `main` before pushing so unrelated safe parallel commits do not create avoidable result-push failures.
+
 ## Sensitive information
 
 Do not store passwords, API keys, broker credentials, account identifiers, or other secrets in this repository.
