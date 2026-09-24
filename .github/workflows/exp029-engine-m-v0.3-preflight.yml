@@ -1,0 +1,90 @@
+name: EXP-029 Engine M v0.3 Selective Preflight
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-029-engine-m-v0.3-preflight.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy joblib scikit-learn==1.5.2
+
+      - name: Verify zero-outcome Engine M v0.3
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile research/code/engine_m_v0_1.py
+          python -m py_compile research/code/engine_m_v0_2.py
+          python -m py_compile research/code/engine_m_v0_3.py
+          python -m py_compile research/code/run_engine_m_v0_3_preflight.py
+          PYTHONPATH=research/code python - <<'PY'
+          import engine_m_v0_1 as m1
+          import engine_m_v0_2 as m2
+          import engine_m_v0_3 as m3
+          import run_engine_m_v0_3_preflight as r
+          print(m1.self_tests_engine_m())
+          print(m2.self_tests_engine_m_v02())
+          print(m3.self_tests_engine_m_v03())
+          print(r.synthetic_selective_setup_tests())
+          print(r.synthetic_fill_tests())
+          print("ZERO_OUTCOME_SELECTIVE_PREFLIGHT=YES")
+          PY
+
+      - name: Run selective preflight through June only
+        run: PYTHONPATH=research/code python research/code/run_engine_m_v0_3_preflight.py
+
+      - name: Upload EXP-029 preflight result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp029-engine-m-v03-preflight
+          path: research/results/EXP-029-selective-preflight-v0.3.json
+          if-no-files-found: warn
+
+      - name: Commit durable EXP-029 preflight
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f research/results/EXP-029-selective-preflight-v0.3.json ]; then
+            echo "No result file to checkpoint"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-029-selective-preflight-v0.3.json
+          git commit -m "Checkpoint EXP-029 Engine M v0.3 preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce EXP-029 frozen preflight gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-029-selective-preflight-v0.3.json")
+          if not p.exists():
+              raise SystemExit("EXP-029 preflight result missing")
+          x=json.loads(p.read_text())
+          if not x["preflight_pass"]:
+              raise SystemExit("EXP-029 frozen preflight research gate FAILED")
+          print("EXP-029 frozen preflight research gate PASSED")
+          PY
