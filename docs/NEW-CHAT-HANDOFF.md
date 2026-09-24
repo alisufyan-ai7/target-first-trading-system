@@ -1374,3 +1374,51 @@ At launch:
 - Sep: unopened.
 
 **Next:** trigger EXP-033 development and stop before secondary on any failed mandatory gate.
+
+
+## Engine O v0.1 / EXP-034 authoritative current state
+
+Engine N family is CLOSED after EXP-033 development failure:
+
+- 505 signals;
+- gross +0.0411R;
+- primary -0.1450R;
+- stress -0.3312R;
+- 1/6 positive-stress folds;
+- safe-account primary/stress -USD2.82 / -USD6.07.
+
+Do not post-hoc select positive hours/symbols from EXP-033.
+
+Current prospectively frozen family:
+
+**Engine O v0.1 — Rolling Statistical Stretch Reversion**
+
+Flow:
+
+`15m decision grid -> prior-24-M5 robust center/MAD -> stretched rejection M5 -> 50% limit -> T40 reversion toward center`.
+
+Frozen:
+
+- decisions 06:15-17:45 UTC every 15m;
+- stretch >=2.50 MAD;
+- trigger range >=1.25x baseline median;
+- body >=50%;
+- favorable outer-35% close;
+- 10-active-M1 / 30m limit life;
+- stop beyond trigger;
+- T40 must fit before CENTER;
+- unchanged safe-lot overlay.
+
+Outcome state:
+
+- Engine-O outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Implementation:
+
+- `research/code/engine_o_v0_1.py`;
+- `research/code/run_engine_o_v0_1_preflight.py`;
+- `.github/workflows/exp034-engine-o-v0.1-preflight.yml`.
+
+**Next:** trigger EXP-034 zero-outcome preflight with unchanged >=25-per-market / >=300-total scanner gate.
