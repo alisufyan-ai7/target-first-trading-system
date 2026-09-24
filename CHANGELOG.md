@@ -345,3 +345,9 @@
 - Matched immediate-entry control was also negative, confirming the weakness was the isolated-symbol mean-reversion predictor rather than only the 50% entry.
 - Preserved Jul-Aug and Sep.
 - Next research family will use cross-market relative-strength information rather than another isolated-symbol pattern.
+
+- Opened EXP-036 / Engine P v0.1 after closing Engine O.
+- Added synchronized cross-market 30m normalized-momentum state and candidate-excluded USD factor confirmation.
+- Added EURJPY EURUSD+USDJPY leg confirmation.
+- Preserved continuous M5 scanning, non-chasing 50% entry, frozen T40 and reference-account safety caps.
+- Kept the same >=300 total / >=25-per-market zero-outcome preflight gate.
