@@ -820,3 +820,30 @@ Read:
 - `.github/workflows/exp025-engine-k-v0.4-walkforward.yml`.
 
 **Next:** trigger EXP-025 development-only walk-forward selection. If none of the 12 configurations passes, stop Engine K tuning on this development pool.
+
+
+### EXP-025 v0.4 walk-forward outcome — NO PASS
+
+Durable result commit:
+
+`24ce35448cb93158aadeb843dce928199c0c5385`
+
+Result:
+
+- 12 frozen configurations evaluated;
+- 6 chronological forward folds;
+- passing configs: 0;
+- selected winner: NONE;
+- Jul-Aug secondary loaded/labeled: NO;
+- Sep final holdout loaded/labeled: NO.
+
+Representative near-misses:
+
+- M1-C1-Q3: 75 trades, primary +USD2.15/trade, stress -USD1.67/trade, primary/stress PF 1.185/0.879, stress MDD USD301.54;
+- M2-C2-Q3: 124 trades, primary +USD0.86/trade, stress -USD2.62/trade, primary/stress PF 1.079/0.799, stress MDD USD505.51.
+
+Frozen conclusion:
+
+Engine K tuning on the Mar-Jun development pool is closed. Do not add configurations, weaken gates, pick a near-miss, or open Jul-Aug.
+
+Next research must broaden evidence or use a genuinely different prediction/target design.
