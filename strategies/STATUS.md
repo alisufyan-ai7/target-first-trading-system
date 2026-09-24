@@ -331,3 +331,19 @@ Engine M v0.2 preflight: **PASS** at `68e52188de8abb2c708cacb611e347afb22a086d`.
 - Jul-Aug / Sep sealed.
 
 **Next:** six-slice development.
+
+
+Engine M v0.2 development: **FAIL** at `bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb`.
+
+- 1,249 signals;
+- gross +0.0367R/signal;
+- primary -0.1625R;
+- stress -0.3616R;
+- 0/6 stress-positive folds;
+- 593 safe-account trades;
+- primary/stress expectancy -USD1.69 / -USD3.42;
+- stress MDD USD2,065.82.
+
+The MTF retracement-limit entry improved the immediate control but did not create enough edge to cover costs.
+
+Jul-Aug / Sep remain sealed.
