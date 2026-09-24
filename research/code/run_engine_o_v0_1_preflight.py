@@ -64,7 +64,7 @@ def synthetic_engine_o_tests()->list[str]:
     # Candidate excluded from baseline: mutating trigger close cannot alter center.
     center_before=x["center"]
     b3=bars5.copy()
-    b3.loc[24,"close"]=97.2
+    b3.loc[24,"close"]=97.3
     z=setup_at(b3,24,"EURUSD")
     assert z["center"]==center_before
     tests.append("trigger_excluded_from_baseline")
