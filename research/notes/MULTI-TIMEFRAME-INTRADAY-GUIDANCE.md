@@ -159,3 +159,21 @@ Its intended value is to:
 - improve the probability that the few selected trades have sufficient target-first edge.
 
 The daily USD150–200 objective remains an **opportunity-dependent portfolio goal**, not a quota that forces trades.
+
+
+## Evidence added by EXP-026
+
+Engine L v0.1 development is now complete.
+
+Result commit:
+
+`7cacd739f80ab37a2f6465924937bd6489b1b966`
+
+Empirical entry lesson:
+
+- pullback/resumption entry increased target hit rate versus immediate-entry control;
+- but waiting for the frozen M1 resumption-break and then entering next-open produced a median executed price about **0.516 V5 worse than the original decision close** in the forecast direction;
+- fresh stops were roughly half the old stop distance;
+- despite higher hit rate, pooled stress expectancy was worse than the immediate-entry control by about USD1.28/trade.
+
+Therefore future lower-timeframe execution should not equate "confirmation" with chasing a completed breakout. Multi-timeframe context should allow the system to act closer to a favorable setup/location, with confirmation designed to preserve price quality.
