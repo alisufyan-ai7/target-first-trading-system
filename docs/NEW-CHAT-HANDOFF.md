@@ -1576,3 +1576,28 @@ Development runner/workflow frozen:
 - >+0.20R gross hurdle and all post-cost gates unchanged.
 
 **Next:** trigger EXP-036 development and stop before secondary on any mandatory failure.
+
+
+## Engine P / EXP-036 authoritative final outcome
+
+Engine P v0.1 is **CLOSED** after failing frozen development at durable result `52e9003f351eb7f5abdf9b38f74c279c88d33906`.
+
+Verified from `research/results/EXP-036-development-summary-v0.1.json`:
+
+- 4,804 development signals;
+- gross normalized expectancy -0.0406469R;
+- primary -0.2356814R;
+- stress -0.4307159R;
+- 0/6 positive-stress folds;
+- 836 reference-account trades;
+- primary/stress expectancy -USD2.0238 / -USD4.1458;
+- primary/stress PF 0.7611 / 0.5800;
+- stress MDD USD3,526.25;
+- final disposition `FAIL_STOP_BEFORE_SECONDARY`.
+
+Protected periods were not loaded/labeled:
+
+- Jul-Aug secondary: NO;
+- Sep final holdout: NO.
+
+Do not create Engine P v0.2 as a threshold/hour/symbol/direction rescue. The next engine must be prospectively frozen from a genuinely different information source/family.
