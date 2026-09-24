@@ -76,7 +76,31 @@ At a decision timestamp for a symbol:
 - if only one side has valid causal state geometry, that side may be armed;
 - if neither side is valid, no arm.
 
+### Direction tie-break
+
+If LONG and SHORT raw T40 probabilities are exactly equal:
+
+1. lower old-reference stop risk;
+2. LONG before SHORT.
+
+This tie-break is deterministic and frozen before outcomes.
+
 Raw probability is used only to rank simultaneous entry triggers; it is not itself an entry trigger.
+
+### Forecastable side domain
+
+To isolate **entry quality** rather than simultaneously change candidate admission, the v0.1 forecast model and arm population use the same pre-probability T40 domain as the Engine-K v0.2/v0.3 model:
+
+- complete 29-feature T40 state;
+- old next-active-M1-open reference entry;
+- old confirmed 5m-pivot stop;
+- v0.2 pre-probability T40 economic admission passes.
+
+This old entry/stop geometry is used only to define the forecast/control domain.
+
+After an arm is created, the Engine-L trade itself ignores the old execution geometry except that the old pivot remains the pre-entry invalidation boundary. Engine-L economics are recomputed from the later micro-entry and fresh M1 stop.
+
+Thus EXP-026 compares entry methods on the **same forecastable decisions** rather than giving Engine L a larger candidate universe.
 
 ## 5. Arm lifecycle
 
@@ -98,6 +122,17 @@ An arm:
 After expiry/cancellation/entry, the next completed 5m decision may create a fresh arm.
 
 This prevents overlapping same-symbol forecast spam.
+
+### Arm resolution time
+
+For enforcing one pending arm per symbol, an arm resolves causally at the first of:
+
+- invalidation/cancellation timestamp;
+- actual Engine-L entry timestamp;
+- expiry after the 15th active M1 bar;
+- 20:00 UTC session cutoff.
+
+A later completed 5m decision may create a fresh arm only when its decision time is at or after the prior arm's resolved timestamp.
 
 ## 6. Required favorable pullback
 
