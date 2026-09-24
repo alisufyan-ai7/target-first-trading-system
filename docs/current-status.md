@@ -574,3 +574,22 @@ Run `35995612463` failed before the real preflight because of a synthetic-test p
 The test fixture was corrected at `569cc707571f063fb5b9b939cfba08555273086a` with **no Engine-M rule change**.
 
 **Next remains:** rerun the identical zero-outcome EXP-027 preflight.
+
+
+### EXP-027 preflight attempt 2 research result
+
+The complete Engine-M zero-outcome preflight ran and failed its frozen frequency/economic-admission gate.
+
+Durable checkpoint: `89279ad`.
+
+- mechanical limit fills: 1,581;
+- economically admissible T40 paths: 126;
+- required: >=600 total and >=50 per market with both directions;
+- XAUUSD passed with 61;
+- all seven FX markets failed on economic admission;
+- no target/P&L outcomes;
+- Jul-Aug and Sep remain sealed.
+
+This indicates that the immediate blocker is **post-fill economic feasibility**, not a shortage of MTF setups or retracement fills.
+
+**Next:** zero-outcome rejection audit of lot/risk/notional/margin gates. Do not alter MTF entry mechanics yet.
