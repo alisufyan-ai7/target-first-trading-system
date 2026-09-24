@@ -156,3 +156,44 @@ At this checkpoint:
 - Sep loaded/labeled: **NO**.
 
 **Next:** trigger exactly one EXP-037 zero-outcome preflight run. Do not modify frozen inputs while it runs.
+
+
+## Zero-outcome preflight result — FAIL / CLOSED BEFORE OUTCOMES
+
+**Durable result commit:** `b05efb3038d6f3531a0def07ff6df09f0a25622b`  
+**Result file:** `research/results/EXP-037-cross-market-volatility-spillover-preflight-v0.1.json`
+
+Result:
+
+- total filled signal paths: **56**;
+- safely deployable: **56**;
+- utility: GE40 **1** / GE30 **11** / LT30 **44**;
+- per-market >=25 + both directions: **FAIL on all 8 markets**;
+- total >=300: **FAIL**;
+- safety overlay: PASS;
+- target outcomes calculated: **NO**;
+- P&L outcomes calculated: **NO**;
+- parsed source max: **2026-06-30 23:59 UTC**;
+- Jul-Aug secondary loaded/inspected: **NO**;
+- Sep final holdout loaded/inspected: **NO**.
+
+Per-market fills:
+
+- XAUUSD 23;
+- EURUSD 1;
+- GBPUSD 0;
+- USDJPY 6;
+- EURJPY 11;
+- AUDUSD 3;
+- USDCAD 9;
+- USDCHF 3.
+
+Zero-outcome diagnosis:
+
+- the dominant rejection was `peer_shock_failed` on every market;
+- same-bar four-peer VR>=1.75 synchronization was too sparse for the eight-market scanner;
+- candidate-lag and later breakout/fill mechanics were not the primary bottleneck.
+
+**Disposition:** close Engine Q v0.1 / EXP-037 before any target/P&L outcome. Do not lower the unchanged >=25-per-market / both-directions / >=300-total gate.
+
+A subsequent version may redesign the peer-shock sampling architecture because no outcome was inspected, but must be prospectively frozen before any new preflight/outcome.
