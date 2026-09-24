@@ -177,3 +177,21 @@ v0.2 is prospectively frozen with zero outcomes:
 **Training/June result:** FAILED at result/model commit `763aefadbe56ee7012b475dcb677f6f78d8036ec`. 281,955 labeled rungs, but only 2 combined qualified trades and 0 June trades. T30/T40/T50 June AUC about 0.674/0.710/0.743. July-August and September remain sealed.
 
 **Status:** v0.2 closed before secondary testing.
+
+
+## Engine K v0.3 / EXP-024 — current primary path
+
+v0.2 is closed before secondary testing.
+
+v0.3 is frozen prospectively:
+
+- same 8 execution markets;
+- same v0.2 target/economic construction;
+- Mar-Apr model fit;
+- May market-direction-aware calibration;
+- June true development gate;
+- qualification requires both positive primary EV and positive stress EV;
+- no fixed probability floor;
+- July-Aug and September sealed.
+
+**Next:** EXP-024 June gate only. Open July-Aug only after a durable PASS.
