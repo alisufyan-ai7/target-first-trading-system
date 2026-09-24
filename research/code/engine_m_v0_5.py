@@ -127,6 +127,7 @@ def recent_h1_range_setup_at(
 
         if swept and reclaimed and room:
             return {
+                **arm,
                 "status":"armed",
                 "decision_ts":decision_ts,
                 "direction":direction,
@@ -140,7 +141,6 @@ def recent_h1_range_setup_at(
                 "s15_high":float(s15["high"]),
                 "s15_low":float(s15["low"]),
                 "s15_close":float(s15["close"]),
-                **arm,
                 **{k:v for k,v in ctx.items() if k!="direction"},
             }
 
