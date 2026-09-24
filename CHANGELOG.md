@@ -189,3 +189,9 @@
 - All 8 execution markets exceeded the frozen >=200 admissible-state threshold; total 94,238 unique admissible states and 281,955 admissible rungs through June.
 - No v0.2 target/model outcomes or protected July-September outcomes were inspected.
 - Added sealed v0.2 training + June calibration runner and workflow; July-August remains blocked behind the frozen pre-secondary gate.
+
+- Engine K v0.2 training + June calibration completed and failed the frozen pre-secondary gate; durable result/model commit `763aefadbe56ee7012b475dcb677f6f78d8036ec`.
+- v0.2 labeled 281,955 rungs across all 8 execution markets; June AUC about 0.674/0.710/0.743 for T30/T40/T50.
+- Only 2 combined trades qualified and 0 June trades qualified, so the >=100 combined and >=20 June gates failed; June expectancy/PF/hit-rate gates were unavailable/failed.
+- July-August secondary-test and September final-holdout outcomes remain unopened.
+- v0.2 is closed; no post-hoc threshold relaxation permitted.
