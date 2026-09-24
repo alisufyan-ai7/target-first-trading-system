@@ -1325,3 +1325,43 @@ Do not post-hoc whitelist EURJPY, H16, or other retrospective cohorts.
 Jul-Aug and Sep remain sealed.
 
 **Next:** move to a genuinely different information source: cross-market relative strength / factor divergence.
+
+
+## Engine P v0.1 / EXP-036 — CURRENT PRIMARY PATH
+
+Engine O is closed at the family level after EXP-035 failed development despite adequate frequency.
+
+The current prospectively frozen family changes the information source:
+
+**Engine P v0.1 — Cross-Market Relative-Strength Pullback**
+
+Every completed M5 bar from 06:05-17:55 UTC:
+
+- compute each symbol's 30m normalized momentum from a prior-24-M5 range-vol baseline;
+- require |own MOM| >=1.50;
+- require contemporaneous cross-market factor confirmation;
+- USD-linked pairs use a median USD_SCORE built from the other USD FX majors;
+- EURJPY requires aligned EURUSD and USDJPY legs;
+- current M5 must confirm direction with >=35% body and favorable outer-40% close;
+- enter a non-chasing 50% M5 pullback;
+- stop beyond trigger extreme;
+- 10-active-M1 / 30m order life;
+- unchanged T40 and safe-lot overlay.
+
+This is the first current-family engine whose entry decision directly uses other markets' completed bars at the same timestamp.
+
+### EXP-036 zero-outcome preflight
+
+Require:
+
+- exact synchronized cross-market snapshots;
+- candidate-self exclusion from USD_SCORE;
+- EURJPY leg-identity checks;
+- all entry/safety tests;
+- >=25 filled signals per market;
+- both directions every market;
+- >=300 total;
+- zero target/P&L outcomes;
+- Jul-Aug and Sep unloaded.
+
+**Exact next action:** run EXP-036 zero-outcome preflight only.
