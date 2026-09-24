@@ -1,0 +1,1 @@
+Trigger EXP-023 Engine K v0.2 training Mar23-May31 plus June calibration only. Use frozen v0.2 targets/economics/model/gates. Do not load or label July-August secondary test or Sep1-Sep22 final holdout. 2026-09-24.
