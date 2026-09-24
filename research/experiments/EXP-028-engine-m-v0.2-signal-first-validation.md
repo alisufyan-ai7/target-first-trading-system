@@ -139,3 +139,37 @@ At this checkpoint:
 ### Next
 
 Trigger EXP-028 development only. Fail any mandatory development gate -> stop before secondary.
+
+
+## Development attempt 1 — reporting runtime failure
+
+**Workflow run:** `35999223397`  
+**Trigger SHA:** `45a742a2d7d21bb78996e5ebd9cacbb0dba9da07`
+
+The frozen verification step passed, and the development simulation started, but the runner crashed during pooled reporting before writing the durable JSON result.
+
+Root cause:
+
+- pooled distinct-trade-weekday reporting attempted to slice a pandas `Timestamp` as if it were a string.
+
+This was a **reporting implementation defect**, not a strategy-rule or development-gate failure.
+
+Evidence status:
+
+- no development result JSON was committed;
+- no development metrics were durably recorded or inspected;
+- no Jul-Aug secondary data was loaded/labeled;
+- no Sep final holdout data was loaded/labeled.
+
+Correction:
+
+- replace timestamp slicing with `entry_ts.date().isoformat()`;
+- no Engine-M mechanics, sizing, costs, development slices or gates changed.
+
+Fix commit:
+
+`57be12953b917c66b269800cb00889e7f707405b`
+
+### Next
+
+Rerun the identical frozen EXP-028 development workflow.
