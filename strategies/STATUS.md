@@ -414,3 +414,19 @@ Engine M v0.5 preflight: **PASS** at `e0c7566`.
 - Jul-Aug and Sep sealed.
 
 **Next:** six-slice development.
+
+
+## Engine M family — closed
+
+Latest: v0.5 / EXP-031 development FAIL at `d10e0e9`.
+
+- 329 signals;
+- gross -0.0099R;
+- primary -0.2063R;
+- stress -0.4027R;
+- 0/6 positive-stress folds;
+- reference primary/stress -USD1.29 / -USD3.05 per trade.
+
+Do not create another small Engine-M variant.
+
+Retain non-chasing execution insight; move to a genuinely different family.
