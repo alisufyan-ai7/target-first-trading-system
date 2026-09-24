@@ -3,7 +3,7 @@
 **Engine ID:** engine-o-continuous-m5-statistical-stretch-reversion  
 **Version:** 0.2  
 **Experiment:** EXP-035  
-**Status:** FROZEN PROSPECTIVELY — ZERO OUTCOMES — 2026-09-24
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT FREEZE IN PROGRESS — 2026-09-24
 
 ## 1. Purpose
 
@@ -114,6 +114,29 @@ Keep the **same** scanner opportunity-density gate:
 11. Jul-Aug / Sep unloaded.
 
 The gate is unchanged from v0.1.
+
+## 9A. Frozen development outcome convention
+
+Frozen before any v0.2 outcome is generated:
+
+After a valid 50% pullback fill:
+
+- target = unchanged project T40;
+- stop = frozen trigger-extreme stop;
+- target-vs-stop on the same M1 bar = **stop first**;
+- maximum outcome horizon = **120 active M1 bars counting the entry bar**;
+- hard session cutoff = **20:00 UTC** on the entry date;
+- timeout is marked to the final eligible M1 close.
+
+Matched immediate-entry control:
+
+- only for the **same non-suppressed qualified Engine-O arm**;
+- entry = first active M1 open at/after the M5 decision time;
+- uses the same frozen trigger-extreme stop;
+- evaluated independent of whether the later 50% limit fills;
+- descriptive only and does not alter Engine-O gates.
+
+Time-of-day cohorts are descriptive diagnostics only. No post-outcome hour or minute whitelist is allowed inside v0.2.
 
 ## 9. Development gate if preflight passes
 
