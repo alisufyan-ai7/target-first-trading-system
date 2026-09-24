@@ -1234,3 +1234,16 @@ No Engine-Q outcome exists at freeze.
 No target/P&L outcomes exist and protected periods remain sealed.
 
 The only permitted next computation is the EXP-037 zero-outcome preflight. No frozen input may change while that workflow is running.
+
+
+## 2026-09-24 — Close Engine Q v0.1 after zero-outcome frequency failure
+
+**Decision:** stop EXP-037 before development and before any target/P&L labeling.
+
+Durable result `b05efb3038d6f3531a0def07ff6df09f0a25622b` produced only 56 fills, with every market below the frozen >=25 + both-directions gate and total far below >=300.
+
+Safety passed and all protected-period seals held.
+
+The dominant zero-outcome bottleneck was the requirement that at least four peers be simultaneously shocked on the same completed M5 bar at VR>=1.75.
+
+Because no outcome was inspected, a new prospectively frozen version may change the **temporal sampling architecture** of peer shock evidence. The failed frequency gate itself must remain unchanged.
