@@ -334,3 +334,9 @@
 - Kept the same >=300 total / >=25-per-market opportunity-density gate.
 - Preserved all statistical-stretch, rejection, 50% limit, stop, T40-to-center, safety and cost rules.
 - Tightened v0.2-local synthetic and pending-order suppression verification before launch.
+
+- EXP-035 continuous-M5 zero-outcome preflight passed with 574 filled/deployable signals across all eight markets.
+- Frozen EXP-035 development runner before outcomes using audited target/portfolio machinery.
+- Froze T40/trigger-stop outcome convention, 120-active-M1 maximum horizon, 20:00 UTC cutoff and matched immediate-entry control.
+- Time-of-day diagnostics are descriptive only; no post-outcome hour/minute/symbol whitelist is allowed.
+- Jul-Aug and Sep remain sealed.
