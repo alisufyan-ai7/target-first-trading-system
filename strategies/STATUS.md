@@ -638,3 +638,14 @@ Candidate lag, breakout, entry, target, costs, safety and gates are unchanged.
 **Status:** prospectively frozen, zero outcomes. Jul-Aug/Sep sealed.
 
 **Next:** implement/run EXP-038 zero-outcome preflight only.
+
+
+Engine Q v0.2 preflight: **PASS** at `3d9ca37`.
+
+- 467 fills;
+- all eight markets >=25 with both directions;
+- 466 safely deployable;
+- target/P&L outcomes zero;
+- Jul-Aug/Sep sealed.
+
+**Next:** six-slice development only.
