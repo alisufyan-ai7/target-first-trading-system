@@ -260,3 +260,9 @@
 
 - Frozen EXP-028 development runner before outcomes: normalized-R signal edge, safe-lot USD500 portfolio, matched immediate-entry control, per-market diagnostics and daily-target reporting.
 - Jul-Aug and Sep remain sealed at launch checkpoint.
+
+- Engine M v0.2 development failed at `bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb`.
+- MTF limit entry improved raw signal versus immediate control: +0.0367R gross vs -0.0146R, hit 35.07% vs 32.55%.
+- Frozen costs erased that edge: primary/stress -0.1625R / -0.3616R, zero positive-stress folds.
+- Safe-lot portfolio: 593 trades, primary/stress expectancy -USD1.69 / -USD3.42, stress MDD USD2,065.82.
+- Jul-Aug and Sep remain unopened.
