@@ -800,3 +800,65 @@ Files:
 - `research/code/engine_m_v0_3.py`;
 - `research/code/run_engine_m_v0_3_preflight.py`;
 - `.github/workflows/exp029-engine-m-v0.3-preflight.yml`.
+
+
+## Engine M v0.4 / EXP-030 — CURRENT PRIMARY PATH
+
+Engine M v0.3 / EXP-029 is closed before outcomes after its zero-outcome preflight failed frequency:
+
+- 106 filled valid signals total;
+- all eight markets below the frozen >=35-per-market gate;
+- target/P&L outcomes remained zero;
+- Jul-Aug / Sep remained unopened.
+
+Diagnosis:
+
+The recent-H1 target-destination gate was not the main bottleneck. The main frequency collapse came from stacking:
+
+- prior-4-M15 local sweep/reclaim;
+- H1 midpoint reclaim;
+- M5 arm.
+
+v0.4 therefore does not relax those same rules one threshold at a time. It replaces them with one coherent completed-H1 range object.
+
+Frozen flow:
+
+`H4/H1 direction -> M15 strict sweep/reclaim of latest completed H1 boundary -> unchanged M5 arm -> unchanged 50% M5 retracement limit -> unchanged structural stop`.
+
+Target-room:
+
+- LONG T40 must fit before H1_0.high;
+- SHORT T40 must fit before H1_0.low.
+
+Unchanged:
+
+- eight markets;
+- non-chasing execution;
+- T40;
+- 10-active-M1 order life;
+- signal-first research ordering;
+- safe-lot overlay;
+- USD20 risk / USD50k notional / USD100 margin;
+- XAUUSD <=0.10 lot;
+- frozen costs.
+
+### EXP-030 zero-outcome preflight
+
+Require:
+
+- >=25 filled valid signals per market;
+- LONG + SHORT on every market;
+- >=300 total;
+- all H1 sweep/reclaim / target-room / limit / safety tests pass;
+- no target/P&L outcomes;
+- Jul-Aug and Sep unloaded.
+
+**Exact next action:** run EXP-030 preflight only.
+
+Files:
+
+- `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.4.md`;
+- `research/experiments/EXP-030-engine-m-v0.4-prior-h1-range-reclaim.md`;
+- `research/code/engine_m_v0_4.py`;
+- `research/code/run_engine_m_v0_4_preflight.py`;
+- `.github/workflows/exp030-engine-m-v0.4-preflight.yml`.
