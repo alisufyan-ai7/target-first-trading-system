@@ -1647,3 +1647,17 @@ Engine Q v0.1 implementation is frozen before outcomes:
 - Jul-Aug/Sep: sealed.
 
 **Exact next action:** trigger exactly one EXP-037 zero-outcome preflight, confirm it starts once, then do not poll repeatedly.
+
+
+## Engine Q v0.1 / EXP-037 final state
+
+Engine Q v0.1 is CLOSED at zero-outcome preflight `b05efb3`.
+
+- 56 fills total;
+- all 56 safely deployable;
+- all markets failed >=25 + both-directions;
+- total >=300 failed;
+- target/P&L outcomes zero;
+- Jul-Aug/Sep sealed.
+
+The dominant bottleneck was simultaneous same-M5 four-peer VR>=1.75 shock breadth. Do not lower the opportunity gate. A subsequent version may alter peer-shock temporal sampling only if frozen before new results.
