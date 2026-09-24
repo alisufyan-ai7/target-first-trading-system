@@ -133,3 +133,33 @@ Per-market filled signals:
 - USDCHF 54.
 
 **Disposition:** PASS. Engine Q v0.2 may proceed to the already-frozen six-slice development stage while protected periods remain sealed.
+
+
+## Development implementation checkpoint — zero outcomes
+
+Frozen before any EXP-038 development outcome:
+
+- development runner commit: `9f131006140ccb88709a72682760a5c6db66255b`;
+- development workflow commit: `be6c986d6ec887b202372a912444cbf7b73b9669`;
+- runner blob: `ae610dc3e138a4aabe3bcb3009ac2cd426f22c7b`;
+- workflow blob: `34d6158b2aa8b5767ea9b6a8b3ef420cc5b9b545`.
+
+Development convention is now explicit:
+
+- fold membership uses **breakout completion time**, not earlier spillover-arm time;
+- matched immediate control enters at first active M1 open after the same qualified breakout completion;
+- T40 vs breakout-bar structural stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- 20:00 UTC cutoff;
+- peer-shock count/age, candidate lag VR, breakout VR, hour, market and direction diagnostics are descriptive only;
+- >+0.20R gross hurdle and all post-cost/stability/reference-account gates unchanged.
+
+At this checkpoint:
+
+- EXP-038 target outcomes: **NO**;
+- EXP-038 P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+**Next:** trigger exactly one EXP-038 development run. Any failed mandatory gate stops before secondary testing.
