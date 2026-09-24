@@ -1092,3 +1092,16 @@ Because no Engine-O outcome was inspected, broaden only sampling frequency:
 - keep the same >=25-per-market / >=300-total preflight gate.
 
 No v0.2 outcomes exist at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Freeze EXP-035 continuous-M5 development
+
+**Decision:** after Engine O v0.2 passed the unchanged zero-outcome opportunity-density gate, freeze one six-slice development run.
+
+The runner reuses the audited project target-first label and portfolio framework.
+
+Matched immediate-entry control and hour cohorts are descriptive only. No post-outcome hour, minute or symbol selection is allowed within v0.2.
+
+Outcome convention: T40 vs trigger-extreme stop, stop-first on same bar, max 120 active M1 bars, hard 20:00 UTC cutoff.
+
+No v0.2 development outcome existed at freeze. Jul-Aug and Sep remain sealed.
