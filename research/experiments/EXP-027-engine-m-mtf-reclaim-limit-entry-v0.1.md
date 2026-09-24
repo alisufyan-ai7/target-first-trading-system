@@ -71,3 +71,40 @@ At freeze:
 ## Next
 
 Implement causal MTF/limit mechanics and run zero-outcome preflight only.
+
+
+## Preflight attempt 1 — infrastructure verification failure
+
+**Workflow run:** `35995612463`  
+**Trigger SHA:** `83751ee054de59418f93a5426c348ed7090f6cb5`
+
+The run failed in the deterministic verification step **before** the actual market preflight executed.
+
+Root cause:
+
+- the synthetic Engine-M self-test constructed integer-typed H4/H1 OHLC columns;
+- the short-context mirror test then assigned `0.5` into the integer `close` column;
+- the current pandas runtime rejected that incompatible dtype mutation.
+
+This was a **test-fixture implementation defect**, not a strategy/preflight research failure.
+
+Evidence status from attempt 1:
+
+- market preflight executed: **NO**;
+- Engine-M target outcomes: **NO**;
+- Engine-M P&L outcomes: **NO**;
+- Jul-Aug loaded/inspected: **NO**;
+- Sep loaded/inspected: **NO**.
+
+Correction:
+
+- synthetic H4/H1 OHLC fixtures now use floating-point values from construction;
+- strategy mechanics, thresholds, timeframe rules, entry price, stop, target, risk/cost assumptions and preflight gates are unchanged.
+
+Fix commit:
+
+`569cc707571f063fb5b9b939cfba08555273086a`
+
+### Next
+
+Rerun the identical frozen zero-outcome EXP-027 preflight.
