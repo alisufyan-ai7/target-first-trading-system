@@ -1,6 +1,6 @@
 # EXP-031 — Engine M v0.5 Recent-H1 Range Sweep/Reclaim
 
-**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
+**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.5.md`
 
@@ -126,3 +126,37 @@ Reference-account utility across filled signals:
 - LT30: 366.
 
 **Disposition:** PASS. v0.5 may proceed to development while Jul-Aug and Sep remain sealed.
+
+
+## Development implementation checkpoint — zero outcomes
+
+Frozen before any EXP-031 development outcome:
+
+- same six chronological slices as EXP-028;
+- same audited target-first labeler;
+- same stop-first / timeout semantics;
+- same normalized-R signal metrics;
+- same safe-lot USD500 one-open portfolio;
+- same daily stop-adding-risk rules;
+- same >+0.20R pooled gross gate;
+- same positive primary/stress gates;
+- same PF / MDD / weekday / market-share gates;
+- H1_0 and H1_1 cohorts reported separately;
+- cohort reporting is diagnostic only and may not be used to tune v0.5 after outcomes;
+- Jul1 hard seal.
+
+Implementation:
+
+- development runner `f3e508d5a7fa4f5d282959951640a264bb51995d`;
+- development workflow `29fe4dc6f95074cfe0401b48ee678b00f5d2c861`.
+
+At this checkpoint:
+
+- EXP-031 target outcomes: **NO**;
+- EXP-031 P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+### Next
+
+Trigger EXP-031 development only. Any mandatory gate failure stops before secondary testing.
