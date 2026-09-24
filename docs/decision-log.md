@@ -663,3 +663,20 @@ When the user returns, resume by reading the durable GitHub result and applying 
 **Interpretation:** the scanner appears to contain ranking information, but the manually selected model/calibration/qualification configuration does not convert that information into positive economic expectancy.
 
 **Next methodology change:** stop manual version-by-version threshold selection. Use the reusable Mar-Jun development pool for a prospectively bounded chronological model/configuration search, freeze the selected configuration, then expose Jul-Aug exactly once. September remains final holdout.
+
+
+## 2026-09-24 — Freeze Engine K v0.4 / EXP-025 bounded walk-forward selection
+
+**Decision:** stop manual Engine-K threshold/version iteration and use a small prospectively bounded configuration search on the already-inspected Mar-Jun development pool.
+
+**Search space:** exactly 12 configurations = 2 HGB variants x 2 Platt calibration variants x 3 stress-EV qualification policies.
+
+**Evaluation:** six expanding chronological walk-forward folds. Each configuration is judged only on forward evaluation slices, with July-Aug and September sealed.
+
+**Pass philosophy:** sufficient trade count, positive pooled primary/stress expectancy, PF thresholds, multi-fold stress stability, hit rate above stress break-even, stress MDD <=USD150, and <=60% market concentration.
+
+**Winner philosophy:** choose stability first, not total P&L or AUC. Lexicographic order = worst-fold stress expectancy, pooled stress PF, lower stress DD, trade count, config ID.
+
+**Stopping rule:** if no configuration passes, stop Engine K tuning on this Mar-Jun pool and do not inspect July-Aug.
+
+**Outcome status at freeze:** EXP-025 metrics not calculated; no selected config; Jul-Aug unopened; Sep unopened.
