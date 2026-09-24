@@ -1,6 +1,6 @@
 # EXP-023 — Engine K v0.2 Risk-Normalized Multi-Market Target Scanner
 
-**Status:** FROZEN PROSPECTIVELY — ZERO V0.2 OUTCOMES  
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — TRAINING + JUNE CALIBRATION NEXT  
 **Date:** 2026-09-24  
 **Strategy:** strategies/engine-k-direct-target-move-scanner/SPEC-v0.2.md
 
@@ -136,3 +136,51 @@ Correction:
 - correction commit: `d4983a061b86230d2f92b7fae80608a48c000a48`.
 
 This is an implementation-preflight defect, **not** an Engine-K v0.2 economic or predictive result.
+
+
+## Preflight attempt 2 — PASS
+
+**Workflow run:** `35956921023`  
+**Durable result commit:** `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`  
+**Result file:** `research/results/EXP-023-preflight-v0.2.json`
+
+Outcome status at this checkpoint:
+
+- v0.2 target outcomes calculated: **NO**;
+- v0.2 model outcomes calculated: **NO**;
+- July-August secondary test loaded/inspected: **NO**;
+- September final holdout loaded/inspected: **NO**.
+
+All seven v0.2 zero-outcome self-tests passed.
+
+Economic coverage through June:
+
+- XAUUSD: 2,366 unique admissible states;
+- EURUSD: 13,098;
+- GBPUSD: 14,466;
+- USDJPY: 10,503;
+- EURJPY: 10,869;
+- AUDUSD: 18,336;
+- USDCAD: 9,397;
+- USDCHF: 15,203.
+
+Totals:
+
+- structural states: 205,196;
+- unique economically admissible states: 94,238;
+- economically admissible rungs: 281,955.
+
+Every execution market exceeded the frozen >=200-state preflight threshold.
+
+**Disposition:** PASS. The v0.2 economic redesign fixed the v0.1 cross-market admission failure without using target/model outcomes.
+
+### Next permitted stage
+
+Run only:
+
+- training: Mar-23 through May-31;
+- calibration: June.
+
+Use the frozen HGB/Platt model, feature contract, v0.2 target/economic rules and pre-secondary gate.
+
+Do not inspect July-August or September unless the training/June gate passes and is durably checkpointed.
