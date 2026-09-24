@@ -441,7 +441,7 @@ def aggregate_portfolios(folds:list[dict],key:str)->dict:
     vals=[float(x["pnl"]) for x in daily]
     return {
         "actual_trades":len(trades),
-        "distinct_trade_weekdays":len(set(t["entry_ts"][:10] for t in trades)),
+        "distinct_trade_weekdays":len(set(t["entry_ts"].date().isoformat() for t in trades)),
         "target_hits":int(sum(t["label"] for t in trades)),
         "target_hit_rate":float(np.mean([t["label"] for t in trades])) if trades else None,
         "primary_net_pnl_usd":float(sum(primary)),
