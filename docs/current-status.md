@@ -254,70 +254,67 @@ Interpretation: Engine J had ample frequency, but the direct compression-breakou
 
 Do not tune the compression/breakout thresholds or switch targets post hoc. Validation and holdout remain sealed.
 
-## Engine K / EXP-022 status
+## Engine K v0.1 / EXP-022 outcome
 
-**Engine K v0.1 is the current primary discovery path.**
+**Engine K v0.1 failed the frozen training + June calibration gate and is stopped before secondary testing.**
 
-Purpose: scan supported markets every five minutes, evaluate long/short target-first states directly, apply economic/risk feasibility, and rank the best qualified opportunity rather than waiting for one named chart pattern.
+Durable result:
 
-Frozen primary execution-research universe:
+- workflow run: `35901103493`;
+- tested SHA: `69a95393f0072d4a4a84668f0a300eb97cf49336`;
+- result/model commit: `d24e05ca513777d63a5d0f6762dfdb35bc42cfc3`.
 
-- XAUUSD;
-- EURUSD;
-- GBPUSD;
-- USDJPY;
-- EURJPY;
-- AUDUSD;
-- USDCAD;
-- USDCHF.
+Key result:
 
-Frozen forecast-only universe:
+- 7,098 economically admissible labeled rungs;
+- all 7,098 were XAUUSD;
+- each of the seven FX execution markets produced zero executable rungs under v0.1 economics;
+- June HGB raw ROC-AUC was roughly 0.62-0.63;
+- June Platt-calibrated maximum probabilities were about 0.499 / 0.420 / 0.347 for T30/T40/T50;
+- zero candidates passed the frozen v0.1 probability gate;
+- zero simulated trades;
+- causality/provenance integrity passed.
 
-- XAGUSD;
-- NAS100;
-- US30;
-- SPX500.
+**Protection:** July-August secondary-test and Sep-1 through Sep-22 final-holdout outcomes remain unopened.
 
-Forecast-only markets are isolated from primary executable model fitting, calibration, ranking and P&L until their contract economics are prospectively frozen.
+Do not reopen v0.1 by lowering its threshold or tuning the inspected XAU model.
 
-Pre-outcome cleanup completed before any Engine-K target/model outcomes:
+## Engine K v0.2 / EXP-023 — CURRENT PRIMARY PATH
 
-- complete 5m bars require 5 M1 observations;
-- complete 1h MTR bars require 60 M1 observations;
-- delayed next entry cannot cross more than 5 chronological minutes;
-- all 29 causal features are now explicitly defined;
-- primary cost stress = 10% of gross target;
-- stress cost = 20% of gross target;
-- stop-risk cap = USD20;
-- research leverage reference = 1:500;
-- max research margin = USD100;
-- max notional/equity = 100x / USD50,000;
-- probability qualification = max(0.60, break-even probability + 0.05);
-- Sep-1 through Sep-22 is an initial OOS holdout, not sufficient alone for live promotion.
+Engine K v0.2 is prospectively frozen with **zero v0.2 target/model outcomes**.
 
-Authoritative split:
+It preserves dense five-minute multi-market scanning, structural stops, the 29 causal features, HGB model, June calibration, one-open portfolio logic, risk/notional/margin controls, and the protected July-September evidence.
 
-- train: Mar-23 through May-31 2026;
-- calibration: June 2026;
-- historical secondary test: July-August 2026;
-- final common-sample holdout: Sep-1 through Sep-22 2026;
-- Sep-23 excluded as potentially incomplete.
+The prospective changes are:
 
-Engine-K target outcomes calculated: **NO**.  
-Engine-K model outcomes calculated: **NO**.
+- XAUUSD remains fixed at +3/+4/+5 XAU with the 0.10-lot anchor;
+- non-Gold native target distance is defined **before size** as 1.5R / 2.0R / 2.5R from the unchanged structural stop;
+- equivalent lot is then rounded down toward USD30/USD40/USD50 gross;
+- all USD20 stop-risk, USD50k notional, USD100 research-margin gates remain;
+- qualification becomes `p_required = max(0.50, p_break_even + 0.10)`;
+- primary-cost EV must remain positive.
+
+Files:
+
+- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.2.md`;
+- `research/experiments/EXP-023-engine-k-v0.2-risk-normalized-target-scanner.md`;
+- `research/code/engine_k_v0_2.py`;
+- `research/code/run_engine_k_v0_2_preflight.py`;
+- `.github/workflows/exp023-engine-k-v0.2-preflight.yml`.
+
+The next gate is **zero-outcome economic coverage preflight through June only**. Every execution market must produce at least 200 unique economically admissible states before any v0.2 label is allowed.
 
 ## Exact next action
 
-Do **not** open Engine-K v0.1 July-August secondary-test or September final-holdout outcomes.
+Run EXP-023 Engine K v0.2 **zero-outcome preflight only**.
 
-EXP-022 v0.1 failed before secondary testing:
+Required pass condition before labels:
 
-- 7,098 economically admissible labeled rungs, all XAUUSD;
-- all seven FX execution markets: zero executable rungs under the frozen economic gates;
-- zero qualified trades because calibrated p never reached the frozen >=0.60 floor;
-- June primary raw ROC-AUC roughly 0.62-0.63;
-- causality/provenance checks passed.
+- all 8 execution markets >0 admissible rungs;
+- each execution market >=200 unique economically admissible states through June;
+- v0.2 economics/unit/feature tests pass;
+- July-August and September remain unopened.
 
-The next permitted design work is a prospectively frozen **Engine K v0.2 / new experiment** that keeps direct dense multi-market target-first scanning but replaces the infeasible non-Gold target/equivalent-size construction before any non-Gold labels are inspected.
+If preflight passes, checkpoint it and only then implement/launch v0.2 Mar23-May31 training + June calibration. If it fails, revise economics before any v0.2 outcome labels.
 
-Do not lower v0.1 probability thresholds or tune the XAU model on inspected development/calibration data to manufacture trades.
+Do not add BTC or other rescue symbols inside EXP-023. Symbol expansion remains governed by the frozen admission policy.
