@@ -418,3 +418,7 @@
 - Added research priority for microstructure/order flow, macro surprise, rates/cross-asset context, execution-grade spread/tick data, and target-ladder path modeling before another outcome engine.
 - Recorded the economic constraint that USD150-200 on USD500 is a 30%-40% daily return; per-trade risk will not be increased merely to force the objective before stable post-cost edge exists.
 - Engine R / EXP-039 paused before development during the audit; Jul-Aug and Sep remain sealed.
+
+- Added `research/ECONOMIC-FEASIBILITY-FRONTIER-v0.1.md` (`73e75b5`) with exact simplified daily-state arithmetic under current cost/loss-gate conventions.
+- Added `research/EDGE-SOURCE-RESEARCH-MATRIX-v0.1.md` (`fac6c1b`) prioritizing Gold/FX macro + microstructure/order-flow + rates/execution data over another OHLC-only family.
+- Confirmed that risk scaling is deferred until positive post-cost edge exists; Engine R remains paused before development and protected periods remain sealed.
