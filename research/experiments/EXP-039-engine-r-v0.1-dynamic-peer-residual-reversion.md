@@ -103,3 +103,14 @@ At this checkpoint:
 - Sep loaded/labeled: **NO**.
 
 **Next:** trigger exactly one EXP-039 zero-outcome preflight and do not mutate frozen inputs while it runs.
+
+
+## 2026-09-25 research-pause overlay
+
+EXP-039 remains prospectively frozen, but **development is paused** pending the root-cause / edge-source program in `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md`.
+
+This pause does not alter the frozen Engine-R mechanics and does not authorize any outcome-driven redesign.
+
+A zero-outcome preflight artifact, if produced by the already-triggered workflow, is frequency/integrity information only. It does **not** authorize target/P&L development while this research pause is active.
+
+Jul-Aug secondary and Sep final holdout remain sealed.
