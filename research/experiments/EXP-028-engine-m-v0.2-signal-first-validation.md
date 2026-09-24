@@ -1,6 +1,6 @@
 # EXP-028 — Engine M v0.2 Signal-First Validation
 
-**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
+**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.2.md`
 
@@ -107,3 +107,35 @@ All 1,581 are mechanically filled valid signals and all remain safely deployable
 Daily USD100/USD150 reporting uses final realized UTC-day primary P&L, with all eligible weekdays including zero-trade days in the denominator. These are descriptive metrics, not pass gates.
 
 No EXP-028 target/P&L outcome existed when this clarification was frozen.
+
+
+## Development implementation checkpoint — zero outcomes
+
+Frozen before EXP-028 development outcomes:
+
+- six fixed evaluation slices;
+- size-invariant normalized-R signal layer;
+- separate safe-lot USD500 reference-account portfolio;
+- matched immediate-entry control on the same MTF arms;
+- one-open portfolio ranking by achievable gross target, then lower stop risk;
+- daily stop-adding-risk rules;
+- end-of-day USD100/USD150 reporting definition;
+- per-market normalized-R diagnostics;
+- strict Jul1 seal.
+
+Implementation commits:
+
+- development runner: `033c870660e7a1d58ac7905cc78e107dd4f1aec0`;
+- development workflow: `526cdb2234da7f07e23196b60ee0c82b4118a792`;
+- per-market reporting hardening: `619e3d3d02bd80ed7182a3ee68b96f18887c64d5`.
+
+At this checkpoint:
+
+- EXP-028 target outcomes: **NO**;
+- EXP-028 P&L outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+### Next
+
+Trigger EXP-028 development only. Fail any mandatory development gate -> stop before secondary.
