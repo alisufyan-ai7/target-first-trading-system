@@ -647,3 +647,24 @@ Files:
 - `.github/workflows/exp028-engine-m-v0.2-preflight.yml`.
 
 **Exact next action:** run EXP-028 zero-outcome preflight only.
+
+
+### EXP-028 zero-outcome preflight PASS
+
+Durable checkpoint:
+
+`68e52188de8abb2c708cacb611e347afb22a086d`
+
+- 1,581 filled valid MTF/limit signals;
+- all eight markets >=50 and both directions;
+- all 1,581 safe-lot deployable;
+- GE40 66;
+- GE30 160;
+- LT30 1,355;
+- no safety-cap violations;
+- no target/P&L outcomes;
+- Jul-Aug / Sep sealed.
+
+This confirms the signal-first correction solved the false FX rejection problem.
+
+**Next permitted stage:** EXP-028 six-slice development outcomes: normalized-R signal edge + separate safe-lot USD500 portfolio.
