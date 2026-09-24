@@ -1643,3 +1643,12 @@ Jun30 remains the hard source seal. Jul-Aug and Sep remain sealed.
 No Engine-R outcomes exist.
 
 **Exact next action:** implement Engine R v0.1 and run zero-outcome EXP-039 preflight only. Frequency gate remains >=25 per market, both directions, >=300 total.
+
+
+### EXP-039 zero-outcome implementation checkpoint
+
+Engine R v0.1 implementation, preflight runner and workflow are frozen at main SHA `db879da22f4ec6ab3a7ca497f110f847b7ff373f` before outcomes.
+
+Target/P&L outcomes remain zero; Jul-Aug/Sep remain sealed.
+
+**Next:** trigger one EXP-039 zero-outcome preflight only.
