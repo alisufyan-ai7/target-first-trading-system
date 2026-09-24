@@ -555,3 +555,16 @@ Latest: v0.2 / EXP-035 development FAIL at `f37a757`.
 Do not create a minor-threshold v0.3.
 
 Next family must use a genuinely different information source.
+
+
+## Engine P v0.1 / EXP-036 — current primary path
+
+First current engine family to use synchronized cross-market factor information directly.
+
+Thesis:
+
+`own 30m relative strength + shared-currency factor confirmation -> non-chasing M5 pullback -> continuation`.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-036 zero-outcome preflight only.
