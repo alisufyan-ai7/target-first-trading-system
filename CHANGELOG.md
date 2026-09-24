@@ -369,3 +369,7 @@
 - Frozen candidate-self exclusion, >=4 peer shocks at VR>=1.75, candidate lag VR<=1.00 inside a fixed six-M5 box, first breakout within six M5 bars, breakout VR>=1.25/body>=50%/outer-25% close, 50% retracement limit and structural stop.
 - Frozen same six Apr13-Jun30 development slices, Jun30 hard source seal, T40, 10%/20% target-cost stresses and unchanged USD500 safe-lot caps.
 - Jul-Aug and Sep remain sealed; Engine-Q outcomes are zero at freeze.
+
+- Implemented Engine Q v0.1 and EXP-037 zero-outcome preflight/workflow before any outcomes.
+- Frozen implementation checkpoint at main SHA `c51c8f9566a6ccfddaf8117c2b0a80c45fbeb10b`; engine/runner/workflow commits `9a2a2c7` / `2bfb0c5` / `c51c8f9`.
+- Protected Jul-Aug and Sep remain sealed; next computation is one zero-outcome EXP-037 preflight only.
