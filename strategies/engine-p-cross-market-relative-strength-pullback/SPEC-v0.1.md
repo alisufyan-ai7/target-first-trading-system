@@ -3,7 +3,7 @@
 **Engine ID:** engine-p-cross-market-relative-strength-pullback  
 **Version:** 0.1  
 **Experiment:** EXP-036  
-**Status:** FROZEN PROSPECTIVELY — ZERO OUTCOMES — 2026-09-24
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT FREEZE — 2026-09-24
 
 ## 1. Thesis
 
@@ -248,6 +248,33 @@ Before target/P&L outcomes require:
 19. Jul-Aug and Sep unloaded.
 
 The opportunity-density gate is unchanged from recent scanner research.
+
+## 12A. Frozen development outcome convention
+
+Frozen before any Engine-P development outcome:
+
+After a valid 50% pullback fill:
+
+- target = unchanged project T40;
+- stop = frozen trigger-bar structural stop;
+- same M1 bar target+stop ambiguity = **stop first**;
+- maximum outcome horizon = **120 active M1 bars counting the entry bar**;
+- hard session cutoff = **20:00 UTC** on the entry date;
+- timeout is marked to the final eligible M1 close.
+
+Matched immediate-entry control:
+
+- same non-suppressed qualified Engine-P arm;
+- entry = first active M1 open at/after the decision time;
+- same frozen structural stop;
+- evaluated whether or not the 50% limit later fills;
+- descriptive only and does not alter Engine-P gates.
+
+Diagnostics:
+
+- own MOM, USD_SCORE and EURJPY leg distributions are descriptive only;
+- time-of-day and per-market cohorts are descriptive only;
+- no post-outcome factor threshold, hour, symbol or direction whitelist is permitted inside v0.1.
 
 ## 12. Development gate if preflight passes
 
