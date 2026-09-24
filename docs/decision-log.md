@@ -884,3 +884,29 @@ Execution, target, costs and account safety rules are unchanged.
 **New gross-edge gate:** >+0.20R in development if preflight passes. This is frozen before v0.3 outcomes because v0.2 proved that +0.0367R is economically insufficient.
 
 **Protection:** Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Freeze Engine M v0.4 prior-H1 range setup
+
+**Decision:** after EXP-029 failed zero-outcome frequency, preserve non-chasing execution and replace the over-constrained local-sweep + midpoint stack with one completed-H1 range object.
+
+v0.4:
+
+- H4/H1 directional alignment;
+- M15 strict sweep/reclaim of latest completed H1 directional boundary;
+- unchanged M5 rejection arm;
+- unchanged 50% M5 retracement limit;
+- unchanged structural stop;
+- T40 must fit before the opposite boundary of the same H1 range.
+
+This is a structural redesign, not a post-outcome threshold relaxation.
+
+Preflight opportunity-density floor:
+
+- >=25 filled valid signals per market;
+- both directions;
+- >=300 total.
+
+The total floor is tied to the desired multi-market opportunity density, not observed profitability.
+
+Protection: no v0.4 outcomes; Jul-Aug and Sep sealed.
