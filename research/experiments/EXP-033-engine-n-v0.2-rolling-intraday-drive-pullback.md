@@ -1,6 +1,6 @@
 # EXP-033 — Engine N v0.2 Rolling Intraday Drive Pullback
 
-**Status:** FROZEN PROSPECTIVELY — ZERO OUTCOMES  
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-n-rolling-drive-pullback/SPEC-v0.2.md`
 
@@ -44,3 +44,46 @@ No v0.2 outcomes exist at freeze.
 ## Next
 
 Implement and run zero-outcome preflight only.
+
+
+## Zero-outcome preflight — PASS
+
+**Trigger SHA:** `256929b292c5e9c0e2ded3bd78f3ceee0a5583ee`  
+**Durable result commit:** `2b8c781`
+
+Protection:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- parsed source max timestamp: **2026-06-30 23:59:00 UTC**;
+- Jul-Aug secondary: unopened;
+- Sep final holdout: unopened.
+
+Frozen-gate result:
+
+- filled valid signals: **626**;
+- safely deployable: **624**;
+- every market >=25: PASS;
+- LONG and SHORT every market: PASS;
+- total >=300: PASS;
+- safety overlay: PASS.
+
+Per-market filled signals:
+
+- XAUUSD 57;
+- EURUSD 81;
+- GBPUSD 89;
+- USDJPY 78;
+- EURJPY 65;
+- AUDUSD 79;
+- USDCAD 86;
+- USDCHF 91.
+
+Utility:
+
+- GE40 32;
+- GE30 474;
+- LT30 118;
+- NONDEPLOYABLE 2.
+
+**Disposition:** PASS. Engine N v0.2 may proceed to development while Jul-Aug and Sep remain sealed.
