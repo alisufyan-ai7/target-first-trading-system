@@ -430,3 +430,29 @@ Latest: v0.5 / EXP-031 development FAIL at `d10e0e9`.
 Do not create another small Engine-M variant.
 
 Retain non-chasing execution insight; move to a genuinely different family.
+
+
+## Engine N v0.1 / EXP-032 — current primary path
+
+Genuinely different family after Engine M closure.
+
+Thesis:
+
+`major-session opening drive -> first 50% pullback -> continuation`.
+
+Frozen:
+
+- London 07:00 UTC;
+- New York 13:30 UTC;
+- 30m drive;
+- prior eight M15 baseline;
+- 1.50x expansion;
+- 60% body;
+- outer-25% close;
+- 50% pullback limit;
+- drive-extreme stop;
+- 45-M1 order life.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-032 zero-outcome preflight only.
