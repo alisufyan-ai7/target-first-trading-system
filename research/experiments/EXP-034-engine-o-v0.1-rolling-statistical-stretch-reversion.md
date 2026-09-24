@@ -1,6 +1,6 @@
 # EXP-034 — Engine O v0.1 Rolling Statistical Stretch Reversion
 
-**Status:** FROZEN PROSPECTIVELY — ZERO OUTCOMES  
+**Status:** CLOSED — ZERO-OUTCOME PREFLIGHT FREQUENCY FAIL  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-o-rolling-statistical-stretch-reversion/SPEC-v0.1.md`
 
@@ -81,3 +81,64 @@ Evidence status from attempt 1:
 ### Next
 
 Rerun the identical frozen EXP-034 zero-outcome preflight.
+
+
+## Zero-outcome preflight outcome — FAIL
+
+**Retry workflow run:** `36017351416`  
+**Retry trigger SHA:** `315be86975a7e1763469c00a726d2da547377972`  
+**Durable result commit:** `65f37da`
+
+Protection:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- parsed source max timestamp: **2026-06-30 23:59:00 UTC**;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Result:
+
+- filled valid signals: **209**;
+- safely deployable: **209**;
+- required total: >=300;
+- six of eight markets passed >=25 + both-directions;
+- USDJPY: 18;
+- AUDUSD: 22;
+- all markets had LONG + SHORT;
+- safe overlay passed.
+
+Per-market signals:
+
+- XAUUSD 27;
+- EURUSD 34;
+- GBPUSD 28;
+- USDJPY 18;
+- EURJPY 25;
+- AUDUSD 22;
+- USDCAD 28;
+- USDCHF 27.
+
+Utility:
+
+- GE40 3;
+- GE30 44;
+- LT30 162.
+
+### Diagnosis
+
+The statistical-stretch/rejection mechanics produced a reasonably broad cross-market signal stream, but the frozen **15-minute decision grid** left total opportunity density below the project standard.
+
+The target-room gate was not the primary bottleneck; only a handful of otherwise qualified setups failed it.
+
+**Disposition:** insufficient frequency. Do not calculate v0.1 outcomes.
+
+### Next design implication
+
+Do not lower the >=300 / >=25-per-market gate.
+
+Because zero v0.1 outcomes were inspected, prospectively broaden **only the decision grid** from every 15 minutes to every completed M5 bar during the same active intraday window.
+
+All statistical thresholds, rejection rules, non-chasing entry, target-room, costs and safety rules remain unchanged.
+
+This becomes Engine O v0.2 / EXP-035.
