@@ -1393,3 +1393,24 @@ Development convention is frozen:
 - >+0.20R gross hurdle and all post-cost gates unchanged.
 
 **Next:** implement and trigger EXP-036 development only.
+
+
+### EXP-036 development launch checkpoint
+
+Engine P v0.1 passed zero-outcome preflight and its six-slice development runner/workflow are frozen.
+
+Development will evaluate:
+
+1. pooled normalized-R signal edge;
+2. per-market and six-fold stability;
+3. descriptive own-MOM / USD_SCORE / EURJPY-leg / time diagnostics;
+4. safe-lot USD500 one-open portfolio;
+5. matched immediate-entry control on the same non-suppressed qualified arms.
+
+Mandatory gross hurdle remains **>+0.20R**. All post-cost economic gates remain unchanged.
+
+No post-outcome factor-threshold, hour, symbol or direction whitelist is permitted inside v0.1.
+
+Jul-Aug and Sep remain sealed.
+
+**Exact next action:** run EXP-036 development only.
