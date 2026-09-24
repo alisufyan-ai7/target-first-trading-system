@@ -348,3 +348,42 @@ Files:
 Run EXP-025 bounded walk-forward development selection only.
 
 Do not create or run a July-Aug secondary-test workflow unless EXP-025 durably selects a passing winner.
+
+
+## Engine K v0.4 / EXP-025 outcome
+
+**Engine K v0.4 is CLOSED before secondary testing.**
+
+Durable result commit:
+
+`24ce35448cb93158aadeb843dce928199c0c5385`
+
+Walk-forward result:
+
+- exact 12 frozen configurations evaluated;
+- exact 6 frozen chronological folds evaluated;
+- development labeled through Jun30 only;
+- passing configurations: **0**;
+- selected configuration: **NONE**;
+- Jul-Aug secondary test: unopened;
+- Sep final holdout: unopened.
+
+Best-looking development near-misses were still not robust:
+
+- M1-C1-Q3: +USD2.15/trade primary but -USD1.67/trade stress, PF 1.185/0.879, stress MDD USD301.54, only 75 trades and only 1 positive-stress fold;
+- M2-C2-Q3: +USD0.86/trade primary but -USD2.62/trade stress, PF 1.079/0.799, stress MDD USD505.51, 124 trades but 0 positive-stress folds.
+
+The frozen hard-stop rule applies: **stop Engine K tuning on this Mar-Jun pool and do not open Jul-Aug**.
+
+Current blocker has changed from candidate scarcity to economic robustness. The scanner repeatedly shows rank discrimination, but no tested configuration converts that signal into stable stress-cost-adjusted expectancy.
+
+### Exact next research direction
+
+Do not create Engine K v0.5 by adding thresholds/configurations to this search.
+
+The next work must broaden either:
+
+1. **evidence** — materially longer and more diverse historical data / additional properly specified executable asset classes; or
+2. **prediction design** — a genuinely different target/outcome formulation rather than another qualification threshold.
+
+Protected Jul-Aug and Sep data remain available for a future prospectively frozen system that earns access.
