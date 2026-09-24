@@ -1609,3 +1609,37 @@ The 50% pullback entry materially beat matched immediate entry, but the underlyi
 Do not post-hoc select peer-shock ages, lag VR, trigger VR, hours, symbols or directions. Jul-Aug and Sep remain sealed.
 
 **Exact next strategy action:** open a genuinely different prospectively frozen information-source family.
+
+
+## Engine R v0.1 / EXP-039 — CURRENT PRIMARY PATH
+
+Engine Q is closed after EXP-038 development failure.
+
+The new prospectively frozen family is **Dynamic Peer-Residual Reversion**.
+
+Flow:
+
+`causal strongest peer -> sign-adjusted normalized 15m expectation -> candidate residual dislocation -> same-bar reversion rejection -> 50% non-chasing limit -> T40`.
+
+Frozen center mechanics:
+
+- continuous M5 decisions 06:05-17:55 UTC;
+- prior 48 M5 returns estimate candidate-peer Pearson correlation;
+- candidate excluded from peer search;
+- strongest absolute-correlation peer selected deterministically;
+- require |rho|>=0.60;
+- current 15m moves normalized by prior-48 median absolute 15m move;
+- selected peer |NM15|>=1.00;
+- candidate residual vs sign-adjusted peer >=1.50 in absolute value;
+- trade candidate toward peer-implied relationship;
+- current M5 must reject in reversion direction with >=35% body and outer-40% close;
+- 50% retracement limit;
+- rejection-bar structural stop;
+- T40;
+- unchanged 10%/20% costs and USD500 safe-lot caps.
+
+Jun30 remains the hard source seal. Jul-Aug and Sep remain sealed.
+
+No Engine-R outcomes exist.
+
+**Exact next action:** implement Engine R v0.1 and run zero-outcome EXP-039 preflight only. Frequency gate remains >=25 per market, both directions, >=300 total.
