@@ -135,6 +135,11 @@ def market_preflight(symbol:str,df1:pd.DataFrame,usd_jpy_df:pd.DataFrame|None=No
     blocked_pending=0
     fills=0
     admissible=0
+    economic_rejection_reasons=Counter()
+    rejected_stop_risks=[]
+    rejected_notionals=[]
+    rejected_margins=[]
+    rejected_gross_targets=[]
     waits=[]
     improvements=[]
     stop_dist=[]
@@ -163,6 +168,19 @@ def market_preflight(symbol:str,df1:pd.DataFrame,usd_jpy_df:pd.DataFrame|None=No
         fill_status[fill["status"]]+=1
         if fill.get("filled"):
             fills+=1
+        if fill["status"]=="filled_economically_rejected":
+            t40=fill.get("t40") or {}
+            failed=[]
+            if not t40.get("admissible_lot",False): failed.append("lot")
+            if not t40.get("admissible_risk",False): failed.append("risk")
+            if not t40.get("admissible_notional",False): failed.append("notional")
+            if not t40.get("admissible_margin",False): failed.append("margin")
+            economic_rejection_reasons["+".join(failed) if failed else "unknown"]+=1
+            if t40:
+                rejected_stop_risks.append(float(t40.get("stop_risk_usd",0.0)))
+                rejected_notionals.append(float(t40.get("notional_usd",0.0)))
+                rejected_margins.append(float(t40.get("research_margin_usd_at_1_500",0.0)))
+                rejected_gross_targets.append(float(t40.get("gross_target_usd_actual",0.0)))
         if fill["status"]!="admissible_fill":
             continue
 
@@ -188,6 +206,15 @@ def market_preflight(symbol:str,df1:pd.DataFrame,usd_jpy_df:pd.DataFrame|None=No
         "armed_by_direction":armed_by_direction,
         "blocked_setups_due_pending_order":blocked_pending,
         "fill_status_counts":dict(sorted(fill_status.items())),
+        "economic_rejection_reason_counts":dict(sorted(economic_rejection_reasons.items())),
+        "economic_rejection_diagnostics":{
+            "median_stop_risk_usd":statistics.median(rejected_stop_risks) if rejected_stop_risks else None,
+            "median_notional_usd":statistics.median(rejected_notionals) if rejected_notionals else None,
+            "median_margin_usd":statistics.median(rejected_margins) if rejected_margins else None,
+            "median_gross_target_usd_actual":statistics.median(rejected_gross_targets) if rejected_gross_targets else None,
+            "max_notional_usd":max(rejected_notionals) if rejected_notionals else None,
+            "max_margin_usd":max(rejected_margins) if rejected_margins else None
+        },
         "mechanical_fills":fills,
         "admissible_entry_paths":admissible,
         "admissible_by_direction":admissible_by_direction,
