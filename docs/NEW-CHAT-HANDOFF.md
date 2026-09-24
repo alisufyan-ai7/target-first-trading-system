@@ -26,15 +26,16 @@ Research/backtesting is the evidence layer used to build a profitable, reproduci
 1. `README.md`
 2. `PROJECT.md`
 3. `docs/SOURCE-OF-TRUTH.md`
-4. `docs/SYSTEM-BLUEPRINT.md`
-5. `docs/ORIGINAL-PROJECT-CONTEXT.md`
-6. `docs/objectives.md`
-7. `docs/risk-framework.md`
-8. `docs/PNL-EQUIVALENT-SIZING.md`
-9. `docs/current-status.md`
-10. `docs/decision-log.md`
-11. `docs/STRATEGY-ENGINE-CONTRACT.md`
-12. `strategies/STATUS.md`
+4. `docs/PIPELINE-WORKFLOW-POLICY.md`
+5. `docs/SYSTEM-BLUEPRINT.md`
+6. `docs/ORIGINAL-PROJECT-CONTEXT.md`
+7. `docs/objectives.md`
+8. `docs/risk-framework.md`
+9. `docs/PNL-EQUIVALENT-SIZING.md`
+10. `docs/current-status.md`
+11. `docs/decision-log.md`
+12. `docs/STRATEGY-ENGINE-CONTRACT.md`
+13. `strategies/STATUS.md`
 13. `research/experiments/EXP-014-original-engine-a-recovery-equivalent-sizing.md`
 14. `research/experiments/EXP-015-target-first-opportunity-ranker-v0.1.md`
 15. `research/experiments/EXP-016-engine-g-contextual-liquidity-reversal-v0.1.md`
@@ -655,3 +656,19 @@ Files to read:
 - `research/code/run_engine_k_v0_2_preflight.py`.
 
 **Next action:** run zero-outcome EXP-023 preflight through June only. Require >=200 economically admissible states in every execution market. Do not calculate v0.2 target labels until that passes.
+
+
+## Long-running pipeline operating rule
+
+Read and follow `docs/PIPELINE-WORKFLOW-POLICY.md`.
+
+Default behavior after triggering a long GitHub Actions research run:
+
+- confirm the intended workflow once;
+- do not repeatedly poll while waiting;
+- do only work that is independent of the pending result and cannot mutate the running experiment;
+- if no independent work remains, end the turn;
+- on the next user message, inspect GitHub's durable result first and continue from there;
+- workflows that commit generated results should `git pull --rebase origin main` before push.
+
+This is part of project reproducibility, not merely a conversational preference.
