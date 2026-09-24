@@ -916,3 +916,17 @@ Files:
 - `research/code/engine_m_v0_5.py`;
 - `research/code/run_engine_m_v0_5_preflight.py`;
 - `.github/workflows/exp031-engine-m-v0.5-preflight.yml`.
+
+
+### EXP-031 preflight attempt 1 verification note
+
+Run `36009869842` failed before the market preflight because a helper `status="ok"` field overwrote both the qualifying and non-qualifying v0.5 setup statuses.
+
+No market preflight or target/P&L outcome resulted. Jul-Aug and Sep remain sealed.
+
+Implementation-only fixes:
+
+- `5335a440edc0ad3a58995dfa0bb16b08fb91713b`;
+- `a50cf398e57fd13fb1ac1e8b26fbe701df1e1cf9`.
+
+**Next remains:** rerun the identical frozen EXP-031 zero-outcome preflight.
