@@ -1066,3 +1066,41 @@ At launch:
 - Sep: unopened.
 
 **Next:** trigger EXP-028 development and apply the frozen gate.
+
+
+### EXP-028 Engine M v0.2 development outcome — FAIL
+
+Durable result:
+
+`bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb`
+
+Signal layer:
+
+- 1,249 signals;
+- hit 35.07%;
+- gross +0.0367R;
+- primary -0.1625R;
+- stress -0.3616R;
+- 0/6 positive-stress folds.
+
+Immediate control:
+
+- gross -0.0146R;
+- primary -0.2032R;
+- stress -0.3918R.
+
+Safe-lot USD500 portfolio:
+
+- 593 trades / 57 weekdays;
+- primary -USD1.69/trade;
+- stress -USD3.42/trade;
+- PF 0.756 / 0.575;
+- stress MDD USD2,065.82;
+- 1 day >=USD100;
+- 0 days >=USD150.
+
+Conclusion:
+
+The non-chasing MTF limit entry improved raw edge but the current setup/context is not selective enough to overcome costs.
+
+Do not open Jul-Aug or Sep. Do not weaken costs. Any next version must materially improve pre-cost selectivity.
