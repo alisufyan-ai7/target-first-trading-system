@@ -486,3 +486,39 @@ Engine N v0.2 preflight: **PASS** at `2b8c781`.
 Target/P&L outcomes remain zero. Jul-Aug and Sep remain sealed.
 
 **Next:** six-slice development.
+
+
+## Engine N family — closed
+
+Engine N v0.2 / EXP-033 development failed at `78fc698522916ce24a48d718cf948399c902e945`.
+
+- 505 signals;
+- gross +0.0411R;
+- primary -0.1450R;
+- stress -0.3312R;
+- 1/6 positive-stress folds;
+- reference primary/stress -USD2.82 / -USD6.07 per trade.
+
+Continuous scanning worked; opening-drive continuation did not.
+
+Do not create a post-hoc hour or symbol whitelist.
+
+
+## Engine O v0.1 / EXP-034 — current primary path
+
+Genuinely different continuous-scanning mean-reversion family.
+
+Every 15 minutes from 06:15-17:45 UTC:
+
+- prior 24 M5 bars define robust CENTER/MAD/range state;
+- latest M5 must be >=2.50 MAD stretched;
+- range >=1.25x baseline median;
+- body >=50%;
+- rejection closes in favorable outer 35%;
+- enter 50% retracement limit;
+- T40 must fit before CENTER;
+- unchanged safety overlay.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-034 zero-outcome preflight only.
