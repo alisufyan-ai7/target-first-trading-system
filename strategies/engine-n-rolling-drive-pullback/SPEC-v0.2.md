@@ -109,6 +109,29 @@ Keep the same opportunity-density gate as v0.1:
 
 The gate is **not lowered** from v0.1.
 
+## 8A. Development outcome convention
+
+Frozen before any v0.2 outcome:
+
+After a valid Engine-N pullback fill:
+
+- target = unchanged project T40;
+- stop = frozen drive-extreme stop;
+- target-vs-stop on the same M1 bar = **stop first**;
+- maximum outcome horizon = **120 active M1 bars counting the entry bar**;
+- hard session cutoff = **20:00 UTC** on the entry date;
+- timeout is marked to the final eligible M1 close.
+
+Matched immediate-entry control:
+
+- same qualified 30-minute drive;
+- entry = first active M1 open at/after the 30-minute decision time;
+- uses the same frozen drive-extreme stop;
+- control is evaluated whether or not the later 50% pullback would fill;
+- descriptive only; it does not alter Engine-N gate rules.
+
+Hourly-anchor cohorts are descriptive diagnostics only. No post-outcome hour whitelist is allowed inside v0.2.
+
 ## 8. Development gate if preflight passes
 
 Use the same six frozen chronological slices.
