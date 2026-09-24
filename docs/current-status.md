@@ -668,3 +668,19 @@ Durable checkpoint:
 This confirms the signal-first correction solved the false FX rejection problem.
 
 **Next permitted stage:** EXP-028 six-slice development outcomes: normalized-R signal edge + separate safe-lot USD500 portfolio.
+
+
+### EXP-028 development launch checkpoint
+
+The Engine-M v0.2 development runner/workflow are frozen before outcomes.
+
+Development will separately evaluate:
+
+1. **signal edge** across every filled valid MTF/limit signal in normalized R;
+2. **reference-account economics** using the maximum safe lot under unchanged USD20 risk / USD50k notional / USD100 margin / 0.10 Gold cap.
+
+It also reports the matched immediate-entry control on the same MTF arms.
+
+Six fixed development slices only; Jul-Aug and Sep remain sealed.
+
+**Exact next action:** run EXP-028 development. Do not open secondary evidence on a failed gate.
