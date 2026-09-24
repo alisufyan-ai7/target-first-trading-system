@@ -775,3 +775,23 @@ Engine L produced 303 trades but -USD5.82/trade primary, -USD9.77/trade stress, 
 **Forecast finding:** raw-score quartiles were not monotonically profitable, so an arbitrary probability cutoff is not the next justified change.
 
 **Next direction:** prospectively test a true multi-timeframe context/setup hierarchy and an entry mechanism that preserves location instead of chasing confirmation.
+
+
+## 2026-09-24 — Freeze Engine M v0.1 / EXP-027 multi-timeframe limit-entry architecture
+
+**Decision:** after Engine L showed that confirmation could improve hit rate yet still worsen economics by chasing price, freeze a new rule-based top-down architecture that preserves favorable entry location.
+
+Frozen roles:
+
+- 4H / 1H = directional context;
+- 15m = setup/location via reclaim of latest completed H1 midpoint;
+- 5m = tactical rejection arm;
+- M1 = execution of a precomputed retracement limit.
+
+**Key execution change:** entry price is fixed at the 50% midpoint of the completed M5 arm before any subsequent M1 path is observed. If price never retraces there inside 10 active M1 bars, no trade.
+
+**No ML probability model** is used in v0.1.
+
+**Protection:** Mar-Jun reusable development; Jul-Aug and Sep sealed.
+
+**Next:** zero-outcome mechanics preflight only. Require >=50 admissible paths per market, both directions, >=600 total before development P&L is permitted.
