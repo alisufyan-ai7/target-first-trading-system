@@ -1,0 +1,83 @@
+name: EXP-039 Engine R v0.1 Dynamic Peer Residual Preflight
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-039-engine-r-v0.1-preflight.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy joblib scikit-learn==1.5.2
+
+      - name: Verify zero-outcome Engine R v0.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile research/code/engine_r_v0_1.py
+          python -m py_compile research/code/run_engine_r_v0_1_preflight.py
+          PYTHONPATH=research/code python - <<'PY'
+          import engine_r_v0_1 as r
+          import run_engine_r_v0_1_preflight as p
+          print(r.self_tests_engine_r_v01())
+          print(p.synthetic_residual_tests())
+          print("ZERO_OUTCOME_DYNAMIC_PEER_RESIDUAL_PREFLIGHT=YES")
+          PY
+
+      - name: Run EXP-039 preflight through June only
+        run: PYTHONPATH=research/code python research/code/run_engine_r_v0_1_preflight.py
+
+      - name: Upload EXP-039 preflight result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp039-engine-r-v01-preflight
+          path: research/results/EXP-039-dynamic-peer-residual-preflight-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable EXP-039 preflight
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f research/results/EXP-039-dynamic-peer-residual-preflight-v0.1.json ]; then
+            echo "No result file to checkpoint"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-039-dynamic-peer-residual-preflight-v0.1.json
+          git commit -m "Checkpoint EXP-039 Engine R v0.1 preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce EXP-039 frozen preflight gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-039-dynamic-peer-residual-preflight-v0.1.json")
+          if not p.exists():
+              raise SystemExit("EXP-039 preflight result missing")
+          x=json.loads(p.read_text())
+          if not x["preflight_pass"]:
+              raise SystemExit("EXP-039 frozen preflight research gate FAILED")
+          print("EXP-039 frozen preflight research gate PASSED")
+          PY
