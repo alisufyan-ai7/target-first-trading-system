@@ -941,3 +941,14 @@ All eight markets passed with both directions and all 417 signals were safely de
 **Next:** development must determine whether H1_1 fallback contributes actual edge or merely frequency. Report H1_0 and H1_1 cohorts separately, but do not tune either cohort after outcomes.
 
 Protected periods remain sealed.
+
+
+## 2026-09-24 — Freeze EXP-031 recent-H1 development
+
+**Decision:** after v0.5 passed the unchanged zero-outcome frequency gate, freeze one six-slice development run.
+
+The runner reuses the audited EXP-028 outcome/portfolio machinery and changes only the selector to v0.5.
+
+H1_0 and H1_1 signal cohorts will be reported separately to diagnose whether fallback contributes edge, but no cohort may be removed or favored after seeing development outcomes.
+
+No v0.5 outcome existed at freeze. Jul-Aug and Sep remain sealed.
