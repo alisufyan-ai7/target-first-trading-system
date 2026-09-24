@@ -1195,3 +1195,17 @@ At each M15 decision:
 Execution and economics remain unchanged.
 
 **Next:** trigger EXP-031 zero-outcome preflight with the same >=25-per-market / >=300-total gate.
+
+
+### EXP-031 zero-outcome preflight PASS
+
+Durable result: `e0c7566`.
+
+- 417 filled valid signals;
+- all 8 markets pass >=25 and both directions;
+- all 417 safely deployable;
+- GE40 16 / GE30 35 / LT30 366;
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: unopened.
+
+**Next:** EXP-031 six-slice development. Report H1_0 and H1_1 outcome cohorts separately without post-outcome tuning.
