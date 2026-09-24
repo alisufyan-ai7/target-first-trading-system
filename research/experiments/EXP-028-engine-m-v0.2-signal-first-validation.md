@@ -1,6 +1,6 @@
 # EXP-028 — Engine M v0.2 Signal-First Validation
 
-**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
+**Status:** CLOSED — DEVELOPMENT GATE FAILED; SECONDARY SEALED  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.2.md`
 
@@ -173,3 +173,117 @@ Fix commit:
 ### Next
 
 Rerun the identical frozen EXP-028 development workflow.
+
+
+## Development outcome — FAIL
+
+**Retry workflow run:** `35999708390`  
+**Tested SHA:** `0312884e3ff251036f6cd71754a2f470f0988fc6`  
+**Durable result commit:** `bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb`  
+**Result:** `research/results/EXP-028-development-summary-v0.2.json`
+
+Protection:
+
+- development source parsed only through Jun30;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+### Signal-layer result
+
+Across the six frozen development slices:
+
+- 1,249 Engine-M limit-entry signals;
+- target hit rate: **35.07%**;
+- gross normalized expectancy: **+0.0367R/signal**;
+- primary-cost expectancy: **-0.1625R/signal**;
+- stress-cost expectancy: **-0.3616R/signal**;
+- primary normalized PF: **0.791**;
+- stress normalized PF: **0.601**;
+- positive stress folds: **0/6**.
+
+Matched immediate-entry control:
+
+- 1,917 signals;
+- hit rate: 32.55%;
+- gross expectancy: **-0.0146R/signal**;
+- primary expectancy: **-0.2032R/signal**;
+- stress expectancy: **-0.3918R/signal**.
+
+Interpretation:
+
+The MTF retracement-limit entry **did improve the raw signal** relative to immediate entry:
+
+- hit rate improved by about 2.5 percentage points;
+- gross expectancy improved from slightly negative to slightly positive;
+- primary/stress normalized expectancy also improved.
+
+However, the gross edge is too small to overcome the prospectively frozen cost assumptions.
+
+Per-market primary normalized expectancy remained negative on every market. The least negative were approximately:
+
+- USDJPY -0.109R;
+- USDCAD -0.111R;
+- XAUUSD -0.114R.
+
+### Reference-account result
+
+Safe-lot USD500 one-open portfolio:
+
+- 593 trades;
+- 57 distinct trade weekdays;
+- hit rate: **34.06%**;
+- primary net P&L: **-USD999.84**;
+- stress net P&L: **-USD2,028.71**;
+- primary expectancy: **-USD1.69/trade**;
+- stress expectancy: **-USD3.42/trade**;
+- primary PF: **0.756**;
+- stress PF: **0.575**;
+- primary MDD: **USD1,062.68**;
+- stress MDD: **USD2,065.82**;
+- GE40 trades: 34;
+- GE30 trades: 45;
+- LT30 trades: 514;
+- final-day P&L >=USD100: 1/57 weekdays;
+- final-day P&L >=USD150: 0/57 weekdays.
+
+Matched immediate-control portfolio was also negative:
+
+- primary expectancy about -USD2.08/trade;
+- stress expectancy about -USD4.67/trade.
+
+Thus the limit-entry design improved economics versus immediate entry but remained decisively unprofitable after costs.
+
+### Fold stability
+
+Primary normalized R was positive in only one fold (WF5, about +0.017R). Stress normalized R was negative in **all six** folds.
+
+### Frozen gate failures
+
+Failed:
+
+- pooled primary normalized-R expectancy >0;
+- pooled stress normalized-R expectancy >0;
+- >=4 positive-stress folds;
+- reference-account primary expectancy >0;
+- reference-account stress expectancy >0;
+- primary PF >=1.10;
+- stress PF >=1.05;
+- stress MDD <=USD150.
+
+Passed:
+
+- signal/trade frequency;
+- executable weekdays;
+- market concentration;
+- integrity/provenance;
+- protected-period seal.
+
+**Final disposition:** FAIL. Do not open Jul-Aug.
+
+### Methodological conclusion
+
+Engine M v0.2 established a small raw edge from the user-guided MTF + non-chasing entry architecture, but not enough edge to cover the frozen transaction-cost model.
+
+Do not rescue v0.2 by weakening costs, gates or protected-period discipline.
+
+Any next version must increase **pre-cost signal quality/selectivity** materially while preserving the non-chasing entry principle.
