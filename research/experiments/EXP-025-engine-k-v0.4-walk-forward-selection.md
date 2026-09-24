@@ -1,6 +1,6 @@
 # EXP-025 — Engine K v0.4 Bounded Walk-Forward Selection
 
-**Status:** FROZEN PROSPECTIVELY BEFORE WALK-FORWARD METRICS  
+**Status:** CLOSED — NO CONFIGURATION PASSED; STOP BEFORE SECONDARY  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-k-direct-target-move-scanner/SPEC-v0.4.md`
 
@@ -58,3 +58,67 @@ At freeze:
 ## Next
 
 Implement one development-only runner/workflow for the exact 12 configs and six folds, checkpoint results, and do not create a secondary-test workflow unless one configuration passes.
+
+
+## Walk-forward outcome — NO PASSING CONFIGURATION
+
+**Tested repository SHA:** `5f887ecbd3fec1016a3f00ca4ab5e6d0464725d5`  
+**Durable result commit:** `24ce35448cb93158aadeb843dce928199c0c5385`  
+**Result:** `research/results/EXP-025-walkforward-selection-summary-v0.4.json`
+
+Protection:
+
+- development labeled through Jun30 only;
+- Jul-Aug secondary test loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**;
+- forecast-only markets loaded: **NO**.
+
+Outcome:
+
+- 12/12 frozen configurations evaluated;
+- 6/6 frozen chronological folds evaluated;
+- passing configurations: **0**;
+- selected configuration: **NONE**;
+- final disposition: `NO_PASSING_CONFIGURATION_STOP_BEFORE_SECONDARY`.
+
+Representative near-misses:
+
+### M1-C1-Q3
+- 75 pooled trades;
+- 28 trade weekdays;
+- primary expectancy **+USD2.15/trade**;
+- stress expectancy **-USD1.67/trade**;
+- primary PF **1.185**;
+- stress PF **0.879**;
+- stress MDD **USD301.54**;
+- only 1/6 folds positive on stress expectancy;
+- zero trades in WF3 and WF6.
+
+### M2-C2-Q3
+- 124 pooled trades;
+- 28 trade weekdays;
+- primary expectancy **+USD0.86/trade**;
+- stress expectancy **-USD2.62/trade**;
+- primary PF **1.079**;
+- stress PF **0.799**;
+- stress MDD **USD505.51**;
+- 0/6 folds positive on stress expectancy;
+- zero trades in WF3 and WF6.
+
+No configuration satisfied the predeclared combination of trade density, cross-fold stability, positive stress expectancy, PF, hit-rate-vs-break-even, drawdown and concentration criteria.
+
+Interpretation:
+
+The persistent AUC/ranking signal does not translate into a robust economically positive Engine-K trading policy under this fixed target/stop/cost architecture. A few configurations can become slightly positive before stress cost, but the advantage is not stable across forward folds and disappears under the frozen stress-cost assumption.
+
+Per the predeclared anti-mining rule:
+
+- do **not** add configurations to EXP-025;
+- do **not** change fold dates;
+- do **not** weaken pass criteria;
+- do **not** select a near-miss;
+- do **not** open Jul-Aug.
+
+Engine K tuning on the Mar-Jun development pool is closed.
+
+The next research move must broaden the evidence or prediction design rather than manufacture another threshold.
