@@ -902,3 +902,23 @@ Guidance only:
 `4H/1H context -> 15m setup/location -> 5m arm -> 1m execution`.
 
 Do not silently add MTF gates to Engine L v0.1. First run the frozen Engine-L development experiment versus its matched immediate-entry control.
+
+
+### Engine L development launch checkpoint
+
+EXP-026 mechanics preflight passed and the exact development runner/workflow are frozen.
+
+Development compares, on identical forecast arms:
+
+- Engine L: pullback -> M1 resumption -> next-open -> fresh stop;
+- Control: immediate next-open -> old 5m pivot stop.
+
+Six chronological forward folds; fixed M2 T40 model; no threshold grid.
+
+At launch checkpoint:
+
+- development outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-026 development and apply the frozen gate.
