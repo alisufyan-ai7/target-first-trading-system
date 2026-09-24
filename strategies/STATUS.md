@@ -456,3 +456,20 @@ Frozen:
 **Status:** prospectively frozen, zero outcomes.
 
 **Next:** EXP-032 zero-outcome preflight only.
+
+
+## Engine N v0.2 / EXP-033 — current primary path
+
+v0.1 closed at zero-outcome preflight for insufficient frequency.
+
+v0.2 keeps the same drive/pullback mechanics but scans 12 fixed hourly anchors from 06:00 through 17:00 UTC.
+
+The preflight gate is unchanged:
+
+- >=25 signals per market;
+- both directions;
+- >=300 total.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-033 zero-outcome preflight only.
