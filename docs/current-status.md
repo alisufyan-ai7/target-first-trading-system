@@ -387,3 +387,54 @@ The next work must broaden either:
 2. **prediction design** — a genuinely different target/outcome formulation rather than another qualification threshold.
 
 Protected Jul-Aug and Sep data remain available for a future prospectively frozen system that earns access.
+
+
+## Engine L v0.1 / EXP-026 — CURRENT PRIMARY PATH
+
+This section supersedes older “next research direction” text.
+
+Engine K tuning on the Mar-Jun pool is closed after EXP-025 produced zero passing walk-forward configurations.
+
+The current hypothesis is now **entry architecture**, not more threshold tuning or longer-history expansion.
+
+Concrete defect identified in Engine K:
+
+- a completed 5m forecast was converted almost directly into a next-active-M1-open market entry;
+- there was no favorable pullback requirement;
+- no M1 resumption confirmation;
+- the trade stop reused an older 5m pivot rather than fresh execution structure.
+
+Engine L changes the architecture to:
+
+`5m forecast -> arm direction -> wait for 0.20*V5 pullback -> require causal M1 resumption -> enter next M1 open -> fresh pullback-extreme stop -> T40 economics`.
+
+Frozen Engine-L v0.1:
+
+- 8 execution markets;
+- fixed M2 raw T40 forecast model;
+- no probability threshold;
+- 15 active-M1 arm life;
+- one pending arm per symbol;
+- required 0.20*V5 favorable pullback;
+- M1 break/resumption with outer-quartile close;
+- fresh M1 pullback-extreme stop;
+- Gold T40 = 4 XAU;
+- non-Gold T40 = 2R;
+- same USD20 risk / notional / margin / cost framework;
+- matched immediate-entry control on the same forecast arms;
+- six chronological development folds;
+- Jul-Aug and Sep remain sealed.
+
+### Immediate next action
+
+Run EXP-026 **zero-outcome entry-mechanics preflight only**.
+
+Before any Engine-L P&L outcome, every market must produce >=100 mechanically triggerable and economically admissible T40 entry paths through Jun30, with both long and short represented.
+
+Files:
+
+- `strategies/engine-l-forecast-armed-micro-entry/SPEC-v0.1.md`;
+- `research/experiments/EXP-026-engine-l-forecast-armed-micro-entry-v0.1.md`;
+- `research/code/engine_l_v0_1.py`;
+- `research/code/run_engine_l_v0_1_preflight.py`;
+- `.github/workflows/exp026-engine-l-v0.1-preflight.yml`.
