@@ -1206,3 +1206,53 @@ Fixture-only correction:
 - `99344d6656070d79aa8d562c56869f8e24ca8f7a`.
 
 **Next remains:** rerun the identical frozen EXP-034 zero-outcome preflight.
+
+
+## Engine O v0.2 / EXP-035 — CURRENT PRIMARY PATH
+
+Engine O v0.1 / EXP-034 is closed before outcomes after its real zero-outcome preflight failed only opportunity density:
+
+- 209 filled valid signals;
+- 209 safely deployable;
+- six of eight markets passed >=25 + both directions;
+- USDJPY 18;
+- AUDUSD 22;
+- all markets had both LONG and SHORT;
+- target/P&L outcomes remained zero;
+- Jul-Aug / Sep remained unopened.
+
+The target-room rule was not the bottleneck. The frozen 15-minute decision grid was too sparse.
+
+v0.2 changes **only the sampling grid**:
+
+- every completed UTC-aligned M5 bar from 06:05 through 17:55 UTC;
+- one decision every five minutes;
+- one pending Engine-O order per symbol at a time;
+- new qualified setup while pending is suppressed, not queued.
+
+Unchanged:
+
+- prior 24 contiguous M5 baseline;
+- median CENTER / MAD / median range;
+- >=2.50 MAD stretch;
+- >=1.25x trigger range;
+- >=50% body;
+- favorable outer-35% rejection close;
+- 50% non-chasing limit;
+- stop beyond trigger extreme;
+- 10-active-M1 / 30m order life;
+- T40 must fit before CENTER;
+- safe-lot caps and costs.
+
+### EXP-035 zero-outcome preflight
+
+Keep the same scanner gate:
+
+- >=25 filled valid signals per market;
+- LONG + SHORT every market;
+- >=300 total;
+- safety/causality tests pass;
+- no target/P&L outcomes;
+- Jul-Aug and Sep unloaded.
+
+**Exact next action:** run EXP-035 zero-outcome preflight only.
