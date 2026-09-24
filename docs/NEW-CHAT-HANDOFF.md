@@ -698,3 +698,27 @@ Total: 94,238 unique admissible states / 281,955 admissible rungs.
 No v0.2 target/model outcomes, July-August outcomes, or September holdout outcomes were inspected at preflight.
 
 **Current next action:** trigger only EXP-023 v0.2 Mar23-May31 training + June calibration. Apply the frozen pre-secondary gate before opening July-August.
+
+
+### EXP-023 v0.2 training/June outcome — FAIL
+
+Durable result/model commit:
+
+`763aefadbe56ee7012b475dcb677f6f78d8036ec`
+
+Result:
+
+- 281,955 labeled rungs across all 8 execution markets;
+- June AUC T30/T40/T50 about 0.674 / 0.710 / 0.743;
+- 2 qualified combined trades;
+- 0 qualified June trades;
+- >=100 combined frequency gate FAIL;
+- >=20 June gate FAIL;
+- June hit-rate/expectancy/PF gates FAIL/unavailable;
+- June DD/integrity gates PASS;
+- July-August secondary-test loaded/labeled: NO;
+- September final holdout loaded/labeled: NO.
+
+Engine K v0.2 is closed before secondary testing.
+
+Do not lower its threshold or open protected periods. Any continuation requires a newly frozen version using only the already-inspected Mar-Jun development evidence.
