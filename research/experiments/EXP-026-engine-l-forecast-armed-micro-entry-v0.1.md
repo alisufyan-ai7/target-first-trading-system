@@ -1,6 +1,6 @@
 # EXP-026 — Engine L v0.1 Forecast-Armed Micro Pullback Entry
 
-**Status:** ZERO-OUTCOME ENTRY-MECHANICS PREFLIGHT PASSED — DEVELOPMENT NEXT  
+**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-l-forecast-armed-micro-entry/SPEC-v0.1.md`
 
@@ -139,3 +139,35 @@ Before Engine-L development outcomes:
 - pending-arm resolution is tracked causally so later 5m decisions cannot overlap an unresolved same-symbol arm.
 
 No Engine-L target/P&L outcome had been calculated when these mechanics were frozen.
+
+
+## Development implementation checkpoint — zero Engine-L outcomes
+
+Frozen before development outcomes:
+
+- matched forecast domain clarification committed;
+- one-pending-arm causal resolution timestamps implemented;
+- exact six-fold T40/M2 development runner implemented;
+- Engine-L pullback/resumption/fresh-stop entry compared with matched immediate-entry control;
+- one-open portfolio and daily stop-adding-risk rules implemented separately for Engine L and control;
+- pooled arm, pullback, resumption, wait-time, entry-price-improvement and fresh-vs-old-stop diagnostics included;
+- strict Jul1 seal asserted in runner/workflow.
+
+Implementation commits:
+
+- matched-domain clarification: `1e595d8ce4ae248cff2551d33a4da8d220ba54a6`;
+- arm-resolution metadata: `a1f62169edc282e3965eb4a1729d37976021929b`;
+- development runner: `7aefb3d5b19b0144bb474596c78669ca1316b161`;
+- development workflow: `dd5f34f507c7e0d96d412112780394ab92256853`;
+- final reporting hardening: `467cf9f05e6ee67731605f5dd8af3083729b4ef9`.
+
+At this checkpoint:
+
+- Engine-L development outcomes: **NO**;
+- matched-control EXP-026 development outcomes: **NO**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**.
+
+### Next
+
+Trigger EXP-026 development only. Apply the frozen development gate; fail any mandatory condition -> stop before secondary.
