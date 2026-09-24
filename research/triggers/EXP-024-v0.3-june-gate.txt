@@ -1,0 +1,1 @@
+Trigger EXP-024 Engine K v0.3 June development gate only. Fit Mar23-Apr30, calibrate May, evaluate June. Use frozen stress-EV qualification. Do not load or label Jul-Aug secondary test or Sep1-Sep22 final holdout. 2026-09-24.
