@@ -739,3 +739,64 @@ The problem is now narrower:
 Do not weaken cost assumptions or reuse protected periods.
 
 A future engine/version must improve pre-cost signal quality/selectivity while preserving the non-chasing execution insight.
+
+
+## Engine M v0.3 / EXP-029 — CURRENT PRIMARY PATH
+
+Engine M v0.2 / EXP-028 is closed before secondary testing.
+
+Its key evidence is important:
+
+- the non-chasing MTF limit architecture improved gross normalized expectancy versus immediate entry;
+- v0.2 gross expectancy was +0.0367R versus -0.0146R control;
+- but primary/stress expectancy remained negative and all six stress folds failed.
+
+Therefore the next version preserves execution and changes **selectivity only**.
+
+### Frozen v0.3 thesis
+
+`H4/H1 directional context -> M15 strict liquidity sweep/reclaim -> H1 midpoint reclaim -> unchanged M5 arm -> unchanged 50% M5 retracement limit -> unchanged structural stop`.
+
+Additional structural destination gate:
+
+- LONG T40 target price must be no farther than the highest high of the latest two completed H1 bars;
+- SHORT target price must be no farther than the lowest low of the latest two completed H1 bars.
+
+Purpose:
+
+- replace the broad v0.2 midpoint touch/reclaim with an actual local liquidity event;
+- require a concrete recent H1 directional destination at or beyond T40;
+- materially raise **pre-cost signal quality** without chasing entry.
+
+Unchanged:
+
+- eight markets;
+- T40;
+- 50% M5 limit;
+- 10-active-M1 order life;
+- structural stop;
+- signal-first research ordering;
+- safe-lot overlay;
+- USD20 risk / USD50k notional / USD100 margin caps;
+- 0.10 Gold cap;
+- frozen cost assumptions.
+
+### EXP-029 zero-outcome preflight gate
+
+Before any v0.3 target/P&L outcome:
+
+- >=35 filled valid signals per market;
+- LONG + SHORT on every market;
+- >=400 total signals;
+- all causality / sweep / target-destination / limit / safety tests pass;
+- Jul-Aug and Sep remain unloaded.
+
+**Exact next action:** run EXP-029 zero-outcome preflight only.
+
+Files:
+
+- `strategies/engine-m-mtf-reclaim-limit-entry/SPEC-v0.3.md`;
+- `research/experiments/EXP-029-engine-m-v0.3-liquidity-reclaim-target-room.md`;
+- `research/code/engine_m_v0_3.py`;
+- `research/code/run_engine_m_v0_3_preflight.py`;
+- `.github/workflows/exp029-engine-m-v0.3-preflight.yml`.
