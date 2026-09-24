@@ -36,7 +36,7 @@ def synthetic_engine_o_tests()->list[str]:
         c=closes[i]
         rows.append((t,c,c+0.4,c-0.4,c))
     # Long rejection trigger ending 06:15: close 97.4, bullish, stretched and large.
-    rows.append((starts[24],96.8,98.0,96.0,97.4))
+    rows.append((starts[24],96.2,98.0,96.0,97.4))
     bars5=pd.DataFrame(rows,columns=["datetime","open","high","low","close"])
     bars5["available_ts"]=bars5["datetime"]+pd.Timedelta(minutes=5)
 
@@ -52,7 +52,7 @@ def synthetic_engine_o_tests()->list[str]:
     for i,t in enumerate(starts[:24]):
         c=closes[i]
         rows2.append((t,c,c+0.4,c-0.4,c))
-    rows2.append((starts[24],103.2,104.0,102.0,102.6))
+    rows2.append((starts[24],103.8,104.0,102.0,102.6))
     b2=pd.DataFrame(rows2,columns=["datetime","open","high","low","close"])
     b2["available_ts"]=b2["datetime"]+pd.Timedelta(minutes=5)
     y=setup_at(b2,24,"EURUSD")
