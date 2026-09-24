@@ -1329,3 +1329,17 @@ Outcome state:
 - Sep: unopened.
 
 **Next:** trigger EXP-033 zero-outcome preflight with unchanged >=25-per-market / >=300-total gate.
+
+
+### EXP-033 zero-outcome preflight PASS
+
+Durable result: `2b8c781`.
+
+- 626 filled valid signals;
+- all 8 markets pass >=25 and both directions;
+- 624 safely deployable;
+- GE40 32 / GE30 474 / LT30 118;
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: unopened.
+
+**Next:** EXP-033 six-slice development. Report hourly-anchor cohorts diagnostically without post-outcome hour selection.
