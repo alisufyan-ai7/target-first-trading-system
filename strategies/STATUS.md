@@ -239,3 +239,21 @@ Walk-forward result commit:
 Engine K tuning on the current Mar-Jun development pool is stopped by the frozen anti-mining rule.
 
 Do not create v0.5 as another threshold/configuration extension of this search. Future work must broaden evidence or materially change the prediction design.
+
+
+## Engine L v0.1 / EXP-026 — current primary path
+
+Engine K tuning is stopped on the current development pool.
+
+Engine L is a materially different **forecast-then-entry** engine:
+
+- forecast does not enter immediately;
+- wait for favorable pullback;
+- require M1 resumption;
+- use fresh execution stop;
+- T40 only;
+- compare directly with matched old immediate-entry control.
+
+**Status:** prospectively frozen, zero Engine-L outcomes.
+
+**Next:** zero-outcome entry-mechanics preflight through Jun30 only.
