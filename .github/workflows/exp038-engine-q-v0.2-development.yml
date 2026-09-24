@@ -1,0 +1,74 @@
+name: EXP-038 Engine Q v0.2 Development
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-038-engine-q-v0.2-development.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy joblib scikit-learn==1.5.2
+
+      - name: Verify frozen EXP-038 development
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile research/code/engine_q_v0_2.py
+          python -m py_compile research/code/run_engine_q_v0_2_development.py
+          PYTHONPATH=research/code python - <<'PY'
+          import json, pathlib
+          import engine_q_v0_2 as q
+          import run_engine_q_v0_2_development as r
+          print(q.self_tests_engine_q_v02())
+          print(r.synthetic_rolling_tests())
+          print(r.label_self_tests())
+          print(r.self_tests_q_development())
+          pre=pathlib.Path("research/results/EXP-038-rolling-volatility-spillover-preflight-v0.2.json")
+          x=json.loads(pre.read_text())
+          assert x["preflight_pass"] is True
+          assert x["target_outcomes_calculated"] is False
+          assert x["pnl_outcomes_calculated"] is False
+          assert x["secondary_test_loaded_or_inspected"] is False
+          assert x["final_holdout_loaded_or_inspected"] is False
+          assert r.SEALED_START.isoformat()=="2026-07-01T00:00:00+00:00"
+          print("JULY_AUGUST_AND_SEPTEMBER_SEALED=YES")
+          PY
+
+      - name: Run EXP-038 development through June only
+        run: PYTHONPATH=research/code python research/code/run_engine_q_v0_2_development.py
+
+      - name: Upload EXP-038 development result
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp038-engine-q-v02-development
+          path: research/results/EXP-038-development-summary-v0.2.json
+          if-no-files-found: error
+
+      - name: Commit durable EXP-038 development checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-038-development-summary-v0.2.json
+          git commit -m "Checkpoint EXP-038 Engine Q v0.2 development"
+          git pull --rebase origin main
+          git push origin HEAD:main
