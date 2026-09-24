@@ -648,3 +648,18 @@ When the user returns, resume by reading the durable GitHub result and applying 
 **Protection:** Mar-Jun is reusable inspected development data. Jul-Aug and Sep remain pristine for later stages.
 
 **Next:** run the June gate only. Fail -> stop before secondary.
+
+
+## 2026-09-24 — Stop Engine K v0.3 after failed June economics
+
+**Decision:** EXP-024 fails the June development gate. Do not inspect July-Aug or September.
+
+**Result commit:** `db53f3a96fbbb6ed7b1b01f25e931e4140bec215`.
+
+**Evidence:** 39 June trades across 19 weekdays; hit rate 38.46% vs 46.79% mean stress break-even; primary expectancy -USD0.22/trade; stress expectancy -USD3.89/trade; primary PF 0.983; stress PF 0.742; max drawdown USD212.34.
+
+**Positive diagnostic:** calibrated June AUC remained ~0.672 / 0.708 / 0.740 for T30/T40/T50. Candidate/trade density is no longer the blocker.
+
+**Interpretation:** the scanner appears to contain ranking information, but the manually selected model/calibration/qualification configuration does not convert that information into positive economic expectancy.
+
+**Next methodology change:** stop manual version-by-version threshold selection. Use the reusable Mar-Jun development pool for a prospectively bounded chronological model/configuration search, freeze the selected configuration, then expose Jul-Aug exactly once. September remains final holdout.
