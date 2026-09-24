@@ -1365,3 +1365,31 @@ Require:
 - Jul-Aug and Sep unloaded.
 
 **Exact next action:** run EXP-036 zero-outcome preflight only.
+
+
+### EXP-036 zero-outcome preflight PASS
+
+Durable checkpoint: `12c6f5d`.
+
+- 6,063 filled valid signals;
+- all eight markets pass >=25 and both directions;
+- 6,059 safely deployable;
+- GE40 105 / GE30 1,253 / LT30 4,701 / NONDEPLOYABLE 4;
+- parsed source max timestamp 2026-06-30 23:59 UTC;
+- zero target/P&L outcomes;
+- Jul-Aug and Sep sealed.
+
+Cross-market factor confirmation easily clears opportunity density.
+
+Development convention is frozen:
+
+- audited T40/structural-stop labeler;
+- same-bar stop first;
+- max 120 active M1;
+- 20:00 UTC cutoff;
+- six fixed slices;
+- matched immediate-entry control;
+- descriptive MOM/USD_SCORE/leg/time diagnostics only;
+- >+0.20R gross hurdle and all post-cost gates unchanged.
+
+**Next:** implement and trigger EXP-036 development only.
