@@ -200,3 +200,9 @@
 - v0.3 keeps v0.2 targets/economics/features/HGB but separates Mar-Apr fit, May calibration and June development gate.
 - Added market-direction-aware Platt calibration and replaced arbitrary probability floors with positive primary-EV + positive stress-EV qualification.
 - Added separate June-gate runner/workflow; July-Aug secondary test and September final holdout remain sealed.
+
+- Engine K v0.3 June gate failed at durable result/model commit `db53f3a96fbbb6ed7b1b01f25e931e4140bec215`.
+- June produced 39 one-open trades across 19 weekdays, solving the prior trade-density problem, but economics failed: -USD0.22/trade primary, -USD3.89/trade stress, PF 0.983/0.742, MDD USD212.34.
+- Calibrated June AUC remained about 0.672/0.708/0.740 for T30/T40/T50, indicating rank signal without sufficient economic conversion.
+- July-Aug secondary-test and September final-holdout remain unopened.
+- Next methodology shifts from hand-picked threshold/version changes to bounded chronological development model/configuration selection on the reusable Mar-Jun pool.
