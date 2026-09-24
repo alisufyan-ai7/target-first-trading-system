@@ -408,3 +408,7 @@
 - Frozen prior-48 Pearson peer selection, |rho|>=0.60, peer |NM15|>=1.00, |residual|>=1.50, same-bar rejection confirmation, 50% limit, structural stop and T40.
 - Preserved Jun30 hard source seal, 10%/20% costs, USD500 safety caps and unchanged preflight/development gates.
 - Jul-Aug and Sep remain sealed; Engine-R outcomes are zero at freeze.
+
+- Implemented Engine R v0.1 dynamic peer-residual mechanics and EXP-039 zero-outcome preflight/workflow before outcomes.
+- Frozen implementation checkpoint at main SHA `db879da22f4ec6ab3a7ca497f110f847b7ff373f`.
+- Protected Jul-Aug and Sep remain sealed; next computation is exactly one EXP-039 preflight.
