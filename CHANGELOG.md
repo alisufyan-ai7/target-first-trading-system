@@ -383,3 +383,7 @@
 - Preserved peer shock VR>=1.75 and >=4 unique-peer breadth; changed same-bar synchronization to causal rolling 15-minute peer-shock memory across t/t-5/t-10.
 - Candidate lag, breakout, 50% retracement entry, structural stop, T40, 10%/20% costs, USD500 safety caps and preflight/development gates remain unchanged.
 - Jun30 hard source seal preserved; Jul-Aug and Sep remain sealed; v0.2 outcomes zero at freeze.
+
+- Implemented Engine Q v0.2 rolling peer-shock memory plus EXP-038 zero-outcome preflight/workflow.
+- Frozen implementation checkpoint at main SHA `850fe44fa426b2ee4f235d3af140fa981ff26ae2` before any target/P&L outcome.
+- Jul-Aug and Sep remain sealed; next computation is exactly one EXP-038 preflight.
