@@ -1280,3 +1280,14 @@ All eight markets passed >=25 with both directions and 466/467 signals were safe
 No target/P&L outcome was calculated. Jun30 hard source seal held; Jul-Aug and Sep remain sealed.
 
 **Next:** freeze and run six-slice development only under the already-declared gate.
+
+
+## 2026-09-24 — Freeze EXP-038 development before outcomes
+
+**Decision:** after Engine Q v0.2 passed zero-outcome preflight, freeze one six-slice development run using the audited target-first label/portfolio machinery.
+
+Trade-decision/fold membership is the candidate's breakout completion time. The matched immediate-entry control also starts from that same breakout completion, avoiding ambiguity with the earlier directionless spillover arm.
+
+No peer-shock-age, lag-VR, breakout-VR, hour, symbol or direction cohort may be selected post hoc inside v0.2.
+
+No development outcome exists at freeze. Jul-Aug and Sep remain sealed.
