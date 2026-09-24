@@ -1304,3 +1304,24 @@ No post-outcome hour/minute/symbol whitelist is permitted inside v0.2.
 Jul-Aug and Sep remain sealed.
 
 **Exact next action:** run EXP-035 development only.
+
+
+## Engine O family — CLOSED
+
+Engine O v0.2 / EXP-035 failed development at durable result `f37a757`.
+
+- 430 signals;
+- gross -0.0719R;
+- primary -0.2611R;
+- stress -0.4504R;
+- 0/6 positive-stress folds;
+- reference primary/stress -USD3.11 / -USD5.38 per trade;
+- stress MDD about USD1,394.
+
+Continuous M5 scanning solved opportunity density, but isolated-symbol statistical-stretch mean reversion did not create robust predictive edge.
+
+Do not post-hoc whitelist EURJPY, H16, or other retrospective cohorts.
+
+Jul-Aug and Sep remain sealed.
+
+**Next:** move to a genuinely different information source: cross-market relative strength / factor divergence.
