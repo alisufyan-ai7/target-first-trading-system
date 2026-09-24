@@ -1,6 +1,6 @@
 # EXP-035 — Engine O v0.2 Continuous M5 Statistical Reversion
 
-**Status:** FROZEN PROSPECTIVELY — ZERO OUTCOMES  
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-o-continuous-m5-statistical-stretch-reversion/SPEC-v0.2.md`
 
@@ -44,3 +44,63 @@ No v0.2 outcomes exist at freeze.
 ## Next
 
 Implement and run zero-outcome preflight only.
+
+
+## Zero-outcome preflight — PASS
+
+**Trigger SHA:** `0b91627ad0f216c8395ebaa5907b6173bf122526`  
+**Durable result commit:** `6b637af`
+
+Protection:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- parsed source max timestamp: **2026-06-30 23:59:00 UTC**;
+- Jul-Aug secondary: unopened;
+- Sep final holdout: unopened.
+
+Frozen-gate result:
+
+- filled valid signals: **574**;
+- safely deployable: **574**;
+- every market >=25: PASS;
+- LONG and SHORT every market: PASS;
+- total >=300: PASS;
+- safety overlay: PASS.
+
+Per-market signals:
+
+- XAUUSD 68;
+- EURUSD 82;
+- GBPUSD 84;
+- USDJPY 55;
+- EURJPY 68;
+- AUDUSD 73;
+- USDCAD 70;
+- USDCHF 74.
+
+Utility:
+
+- GE40 7;
+- GE30 140;
+- LT30 427.
+
+**Disposition:** PASS. Engine O v0.2 may proceed to development while Jul-Aug and Sep remain sealed.
+
+## Development outcome convention freeze
+
+Before any development label:
+
+- same six chronological slices as EXP-028/031/033;
+- same audited target-first labeler;
+- T40 vs trigger-extreme stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- hard 20:00 UTC cutoff;
+- normalized-R signal metrics;
+- safe-lot USD500 one-open portfolio;
+- matched immediate-entry control on the same non-suppressed qualified arm;
+- time-of-day diagnostics descriptive only;
+- >+0.20R pooled gross hurdle and all post-cost gates unchanged.
+
+No v0.2 outcome existed at this freeze.
