@@ -312,3 +312,8 @@
 - Kept the same >=300 total / >=25-per-market frequency gate.
 - Preserved all drive qualification, pullback entry, stop, T40, sizing, safety and cost assumptions.
 - Corrected the descriptive max-timestamp reporting bug in the new preflight runner.
+
+- EXP-033 rolling-drive zero-outcome preflight passed at `2b8c781`: 626 filled signals, all eight markets passing, both directions.
+- 624 signals were safely deployable; GE40 32 / GE30 474 / LT30 118.
+- The unchanged opportunity-density gate passed without post-hoc relaxation.
+- Jul-Aug and Sep remain sealed.
