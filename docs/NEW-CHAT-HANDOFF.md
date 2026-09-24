@@ -1742,3 +1742,21 @@ Verified from `research/results/EXP-038-development-summary-v0.2.json`:
 Protected Jul-Aug and Sep were not loaded/labeled.
 
 Do not create another Engine-Q temporal/threshold/cohort rescue. Retain the non-chasing entry lesson and move to a genuinely different information source/family.
+
+
+## Engine R v0.1 / EXP-039 authoritative current state
+
+Current primary path: **Engine R v0.1 — Dynamic Peer-Residual Reversion**.
+
+Different information source from P/Q/O:
+
+- causally select strongest peer from prior-48 M5 return correlation;
+- normalize current 15m moves by each market's own prior-48 15m scale;
+- compare candidate to sign-adjusted peer expectation;
+- trade large residual back toward relationship only with current-bar rejection confirmation.
+
+Frozen: |rho|>=0.60, peer |NM15|>=1.00, |residual|>=1.50, 35% body, outer-40% close, 50% limit, structural stop, T40, unchanged costs/safety/gates.
+
+No outcomes exist. Jun30 source seal and Jul-Aug/Sep protection remain intact.
+
+**Exact next action:** implement and run EXP-039 zero-outcome preflight only.
