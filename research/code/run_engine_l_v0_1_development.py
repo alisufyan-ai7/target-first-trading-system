@@ -91,7 +91,8 @@ def pf(seq):
     losses=[float(x) for x in seq if x<0]
     if losses:
         return float(sum(wins)/abs(sum(losses)))
-    return float("inf") if wins else None
+    # Finite JSON-safe representation of an effectively infinite no-loss PF.
+    return 1_000_000_000.0 if wins else None
 
 
 def stress_be(gross:float,risk:float,stress_cost:float)->float:
@@ -317,7 +318,9 @@ def choose_arms_for_fold(
                     **outcome,
                     "wait_active_m1_bars":int(micro["wait_active_m1_bars"]),
                     "pullback_depth_v5":float(micro["pullback_depth_v5"]),
+                    "entry_directional_displacement_native":float(micro["entry_directional_displacement_from_decision"]),
                     "entry_directional_displacement_v5":float(micro["entry_directional_displacement_v5"]),
+                    "entry_price_improvement_native":float(-micro["entry_directional_displacement_from_decision"]),
                     "entry_price_improvement_v5":float(-micro["entry_directional_displacement_v5"]),
                     "fresh_stop_distance_native":float(micro["fresh_stop_distance_native"]),
                     "old_stop_distance_native":abs(float(chosen["entry"])-float(chosen["stop"])),
@@ -514,6 +517,7 @@ def main():
         raise RuntimeError("no T40 forecast rows")
 
     fold_results=[]
+    pooled_entry_records=[]
     for fold in FOLDS:
         fit_start,fit_end=ts(fold["fit_start"]),ts(fold["fit_end"])
         eval_start,eval_end=ts(fold["eval_start"]),ts(fold["eval_end"])
@@ -542,8 +546,11 @@ def main():
         ctrl=portfolio_sim(control_candidates,eval_start,eval_end)
 
         micro_entries=[a["micro_candidate"] for a in arms if a["micro_candidate"] is not None]
+        pooled_entry_records.extend(micro_entries)
         entry_diag={
+            "admissible_micro_entries":len(micro_entries),
             "median_wait_active_m1_bars":statistics.median([x["wait_active_m1_bars"] for x in micro_entries]) if micro_entries else None,
+            "median_entry_price_improvement_native":statistics.median([x["entry_price_improvement_native"] for x in micro_entries]) if micro_entries else None,
             "median_entry_price_improvement_v5":statistics.median([x["entry_price_improvement_v5"] for x in micro_entries]) if micro_entries else None,
             "median_fresh_stop_distance_native":statistics.median([x["fresh_stop_distance_native"] for x in micro_entries]) if micro_entries else None,
             "median_old_stop_distance_native":statistics.median([x["old_stop_distance_native"] for x in micro_entries]) if micro_entries else None,
@@ -569,6 +576,27 @@ def main():
 
     pooled_engine=aggregate_fold_sims(fold_results,"engine_l")
     pooled_control=aggregate_fold_sims(fold_results,"immediate_control")
+
+    pooled_status=Counter()
+    for fr in fold_results:
+        pooled_status.update(fr["arm_diagnostics"]["micro_status_counts"])
+    pooled_arm_diagnostics={
+        "forecast_arms":sum(fr["arm_diagnostics"]["forecast_arms"] for fr in fold_results),
+        "blocked_decisions_due_pending_arm":sum(fr["arm_diagnostics"]["blocked_decisions_due_pending_arm"] for fr in fold_results),
+        "arms_with_required_pullback":sum(fr["arm_diagnostics"]["arms_with_required_pullback"] for fr in fold_results),
+        "arms_with_m1_resumption":sum(fr["arm_diagnostics"]["arms_with_m1_resumption"] for fr in fold_results),
+        "micro_admissible_entries":sum(fr["arm_diagnostics"]["micro_admissible_entries"] for fr in fold_results),
+        "control_candidates":sum(fr["arm_diagnostics"]["control_candidates"] for fr in fold_results),
+        "micro_status_counts":dict(sorted(pooled_status.items())),
+    }
+    pooled_entry_diagnostics={
+        "admissible_micro_entries":len(pooled_entry_records),
+        "median_wait_active_m1_bars":statistics.median([x["wait_active_m1_bars"] for x in pooled_entry_records]) if pooled_entry_records else None,
+        "median_entry_price_improvement_native":statistics.median([x["entry_price_improvement_native"] for x in pooled_entry_records]) if pooled_entry_records else None,
+        "median_entry_price_improvement_v5":statistics.median([x["entry_price_improvement_v5"] for x in pooled_entry_records]) if pooled_entry_records else None,
+        "median_fresh_stop_distance_native":statistics.median([x["fresh_stop_distance_native"] for x in pooled_entry_records]) if pooled_entry_records else None,
+        "median_old_stop_distance_native":statistics.median([x["old_stop_distance_native"] for x in pooled_entry_records]) if pooled_entry_records else None,
+    }
     improvement=(
         pooled_engine["stress_expectancy_usd"]-pooled_control["stress_expectancy_usd"]
         if pooled_engine["stress_expectancy_usd"] is not None and pooled_control["stress_expectancy_usd"] is not None
@@ -623,6 +651,8 @@ def main():
         "fixed_model_params":M2_PARAMS,
         "development_t40_rows":len(rows),
         "folds":fold_results,
+        "pooled_arm_diagnostics":pooled_arm_diagnostics,
+        "pooled_entry_diagnostics":pooled_entry_diagnostics,
         "pooled_engine_l":pooled_engine,
         "pooled_immediate_control":pooled_control,
         "pooled_stress_expectancy_improvement_vs_control_usd":improvement,
