@@ -963,3 +963,39 @@ Mandatory gross-edge hurdle remains **>+0.20R**. Post-cost primary/stress expect
 Jul-Aug and Sep remain sealed.
 
 **Exact next action:** run EXP-031 development only.
+
+
+## Engine M family — CLOSED
+
+Engine M v0.5 / EXP-031 failed development at durable result `d10e0e9`.
+
+Key result:
+
+- 329 signals;
+- gross -0.0099R;
+- primary -0.2063R;
+- stress -0.4027R;
+- 0/6 positive-stress folds;
+- safe-account primary/stress expectancy -USD1.29 / -USD3.05;
+- stress MDD USD856.89;
+- no >=USD100 or >=USD150 final-P&L weekdays.
+
+H1_1 fallback added frequency but worsened edge versus H1_0.
+
+### Engine-M family conclusion
+
+The family has been tested sufficiently.
+
+Useful retained insight:
+
+**non-chasing retracement/limit execution is preferable to chase-style confirmation when a setup is otherwise valid.**
+
+Rejected thesis:
+
+**H4/H1 close-direction + H1/midpoint/range sweep-reclaim location is not a strong enough standalone predictor of the required move across the eight-market universe.**
+
+Do not create Engine M v0.6 by another small location/lookback/filter change.
+
+Jul-Aug and Sep remain sealed.
+
+**Next:** open a genuinely different engine family prospectively.
