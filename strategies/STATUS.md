@@ -384,3 +384,20 @@ v0.4 uses one coherent H1 range setup:
 **Status:** prospectively frozen, zero outcomes.
 
 **Next:** EXP-030 zero-outcome preflight only.
+
+
+## Engine M v0.5 / EXP-031 — current primary path
+
+v0.4 closed at zero-outcome preflight with 237 signals; 7/8 markets passed but total and GBPUSD frequency gates failed.
+
+v0.5 preserves the H1-range architecture and adds deterministic H1_1 fallback only when H1_0 does not qualify.
+
+The preflight gate remains unchanged:
+
+- >=25 signals per market;
+- both directions;
+- >=300 total.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-031 zero-outcome preflight only.
