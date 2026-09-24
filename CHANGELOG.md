@@ -402,3 +402,9 @@
 - Reference-account: 251 trades; primary/stress expectancy -USD1.53 / -USD3.89; PF 0.836 / 0.640; stress MDD USD1,102.23.
 - Matched immediate entry was worse, preserving non-chasing entry as an architectural lesson but not validating the spillover predictor.
 - Prohibited post-hoc peer-shock/lag/trigger/time/market/direction rescue; Jul-Aug and Sep remain sealed.
+
+- Opened EXP-039 / Engine R v0.1 after closing Engine Q.
+- Changed information source to dynamic candidate-peer co-movement and normalized relative-value residual displacement.
+- Frozen prior-48 Pearson peer selection, |rho|>=0.60, peer |NM15|>=1.00, |residual|>=1.50, same-bar rejection confirmation, 50% limit, structural stop and T40.
+- Preserved Jun30 hard source seal, 10%/20% costs, USD500 safety caps and unchanged preflight/development gates.
+- Jul-Aug and Sep remain sealed; Engine-R outcomes are zero at freeze.
