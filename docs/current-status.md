@@ -1146,3 +1146,23 @@ Durable checkpoint: `2b8c781`.
 The rolling hourly scanner solved the v0.1 opportunity-density failure without lowering the gate.
 
 **Next permitted stage:** six-slice EXP-033 development using the already frozen >+0.20R gross-edge and post-cost economic gates.
+
+
+### EXP-033 development launch checkpoint
+
+Engine N v0.2 passed zero-outcome preflight and its six-slice development runner is frozen.
+
+Development will test:
+
+1. pooled normalized-R signal edge;
+2. hourly-anchor cohorts descriptively;
+3. safe-lot USD500 one-open portfolio;
+4. matched immediate-entry control on the same qualified drives.
+
+Mandatory gross hurdle remains **>+0.20R** and all post-cost economic gates remain unchanged.
+
+Outcome horizon is frozen at T40/stop first within 120 active M1 bars and before 20:00 UTC.
+
+Jul-Aug and Sep remain sealed.
+
+**Exact next action:** run EXP-033 development only.
