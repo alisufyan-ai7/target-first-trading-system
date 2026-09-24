@@ -684,3 +684,16 @@ It also reports the matched immediate-entry control on the same MTF arms.
 Six fixed development slices only; Jul-Aug and Sep remain sealed.
 
 **Exact next action:** run EXP-028 development. Do not open secondary evidence on a failed gate.
+
+
+### EXP-028 development attempt 1 runtime note
+
+Run `35999223397` failed during pooled reporting after verification passed.
+
+Cause: a pandas `Timestamp` was sliced as a string when counting distinct trade weekdays.
+
+No durable development JSON or inspected metrics resulted. Jul-Aug and Sep remain sealed.
+
+Reporting-only fix: `57be12953b917c66b269800cb00889e7f707405b`.
+
+**Next remains:** rerun the identical frozen EXP-028 development logic.
