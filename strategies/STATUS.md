@@ -366,3 +366,21 @@ v0.3 preserves the successful execution insight and strengthens setup selection:
 **Status:** prospectively frozen, zero v0.3 outcomes.
 
 **Next:** zero-outcome EXP-029 selective preflight only.
+
+
+## Engine M v0.4 / EXP-030 — current primary path
+
+v0.3 closed at zero-outcome preflight for insufficient frequency.
+
+v0.4 uses one coherent H1 range setup:
+
+- H4/H1 aligned direction;
+- M15 sweep/reclaim of latest completed H1 low/high;
+- unchanged M5 arm;
+- unchanged 50% retracement limit;
+- T40 must fit before opposite H1 boundary;
+- unchanged signal-first sizing and safety rules.
+
+**Status:** prospectively frozen, zero outcomes.
+
+**Next:** EXP-030 zero-outcome preflight only.
