@@ -1549,3 +1549,30 @@ Implementation:
 - `.github/workflows/exp036-engine-p-v0.1-preflight.yml`.
 
 **Next:** trigger EXP-036 zero-outcome preflight with unchanged >=25-per-market / >=300-total gate.
+
+
+### EXP-036 development launch checkpoint
+
+Engine P v0.1 zero-outcome preflight PASS:
+
+- 6,063 filled valid signals;
+- all 8 markets >=25 and both directions;
+- 6,059 safely deployable;
+- GE40 105 / GE30 1,253 / LT30 4,701;
+- outcomes NO;
+- Jul-Aug/Sep unopened.
+
+Development runner/workflow frozen:
+
+- six fixed slices;
+- normalized-R signal edge;
+- safe-lot USD500 one-open portfolio;
+- own-MOM / USD_SCORE / EURJPY-leg / time diagnostics descriptive only;
+- matched immediate control on same non-suppressed qualified arms;
+- T40 vs trigger structural stop;
+- stop first on same bar;
+- max 120 active M1;
+- 20:00 UTC cutoff;
+- >+0.20R gross hurdle and all post-cost gates unchanged.
+
+**Next:** trigger EXP-036 development and stop before secondary on any mandatory failure.
