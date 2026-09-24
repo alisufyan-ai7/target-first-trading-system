@@ -1168,3 +1168,30 @@ Outcome state:
 - Sep: unopened.
 
 **Next:** trigger EXP-030 zero-outcome preflight. Require >=25 signals per market, both directions, >=300 total.
+
+
+## Engine M v0.5 / EXP-031 authoritative current state
+
+EXP-030 / v0.4 closed before outcomes:
+
+- 237 filled valid signals;
+- 7/8 markets passed per-market frequency;
+- total >=300 failed;
+- GBPUSD 19 <25;
+- target/P&L outcomes NO;
+- Jul-Aug/Sep unopened.
+
+Current frozen version:
+
+**Engine M v0.5 — Recent-H1 Range Sweep/Reclaim Limit Entry**
+
+At each M15 decision:
+
+- try H1_0 first;
+- if H1_0 fails, try H1_1;
+- first qualifying range only;
+- same selected range supplies sweep boundary + opposite target-room boundary.
+
+Execution and economics remain unchanged.
+
+**Next:** trigger EXP-031 zero-outcome preflight with the same >=25-per-market / >=300-total gate.
