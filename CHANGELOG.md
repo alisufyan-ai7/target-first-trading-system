@@ -351,3 +351,9 @@
 - Added EURJPY EURUSD+USDJPY leg confirmation.
 - Preserved continuous M5 scanning, non-chasing 50% entry, frozen T40 and reference-account safety caps.
 - Kept the same >=300 total / >=25-per-market zero-outcome preflight gate.
+
+- EXP-036 cross-market zero-outcome preflight passed with 6,063 filled signals across all eight markets.
+- Frozen EXP-036 development runner before outcomes using audited target/portfolio machinery.
+- Froze T40/trigger-stop outcome convention, 120-active-M1 maximum horizon, 20:00 UTC cutoff and matched immediate-entry control.
+- Cross-market factor/time/market diagnostics are descriptive only; no post-outcome threshold or whitelist rescue is allowed.
+- Jul-Aug and Sep remain sealed.
