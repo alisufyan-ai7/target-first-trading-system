@@ -766,3 +766,29 @@ Files:
 - `.github/workflows/exp024-engine-k-v0.3-june-gate.yml`.
 
 **Next:** trigger June gate only.
+
+
+### EXP-024 v0.3 June outcome — FAIL
+
+Durable result/model commit:
+
+`db53f3a96fbbb6ed7b1b01f25e931e4140bec215`
+
+June:
+
+- 39 trades;
+- 19 distinct trade weekdays;
+- hit rate 38.46%;
+- mean stress break-even 46.79%;
+- primary expectancy -USD0.22/trade;
+- stress expectancy -USD3.89/trade;
+- primary PF 0.983;
+- stress PF 0.742;
+- MDD USD212.34;
+- calibrated June AUC T30/T40/T50 ~0.672/0.708/0.740.
+
+Trade density passed; economics failed.
+
+Jul-Aug and Sep remain sealed.
+
+Current methodological conclusion: the scanner has broad economic coverage and measurable rank signal, but manual threshold/calibration versions are not converting it into reliable positive expectancy. Next work should use bounded chronological model/configuration selection on Mar-Jun development only, then freeze one configuration before opening Jul-Aug.
