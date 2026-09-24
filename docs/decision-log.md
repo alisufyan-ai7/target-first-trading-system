@@ -568,3 +568,18 @@ Frozen Engine-K split:
 **Protection:** July-August and September remain sealed.
 
 **Interpretation:** v0.1 failed both its multi-market economic admission design and its XAU qualification-frequency requirement. Do not lower the probability floor or tune the inspected XAU model. Non-Gold target economics may be prospectively redesigned in a new version because their target outcomes were never inspected.
+
+
+## 2026-09-24 — Freeze Engine K v0.2 / EXP-023 after v0.1 economic-admission failure
+
+**Decision:** Stop EXP-022 v0.1 before July-August and freeze Engine K v0.2 prospectively using only inspected training/June-calibration facts.
+
+**v0.1 evidence used:** all 7,098 executable labeled rungs were XAUUSD; all seven FX markets had zero economic admission; zero trades qualified under the 60% floor; June raw HGB discrimination was non-zero but modest; protected later periods remain unopened.
+
+**v0.2 design:** preserve candidate clock, structural stop, features, primary HGB, Platt calibration, risk/notional/margin rules and evidence split. Keep Gold +3/+4/+5. For non-Gold define target first as 1.5R/2.0R/2.5R from unchanged structural stop, then calculate downward-rounded USD30/USD40/USD50-equivalent size. Qualification becomes max(50%, break-even +10pp) plus positive primary EV.
+
+**Methodology:** this preserves `docs/PNL-EQUIVALENT-SIZING.md` because native target is still defined before lot size.
+
+**Outcome status:** zero v0.2 target/model outcomes at freeze.
+
+**Next:** zero-outcome preflight through June. Require >=200 economically admissible states in every execution market before labels.
