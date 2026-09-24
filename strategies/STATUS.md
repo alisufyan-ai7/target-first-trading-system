@@ -319,3 +319,15 @@ v0.2:
 - Jul-Aug / Sep sealed.
 
 **Next:** EXP-028 zero-outcome preflight only.
+
+
+Engine M v0.2 preflight: **PASS** at `68e52188de8abb2c708cacb611e347afb22a086d`.
+
+- 1,581 valid filled signals;
+- all 8 markets pass;
+- all 1,581 safe-lot deployable;
+- GE40 66 / GE30 160 / LT30 1,355;
+- zero target/P&L outcomes at checkpoint;
+- Jul-Aug / Sep sealed.
+
+**Next:** six-slice development.
