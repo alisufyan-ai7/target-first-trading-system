@@ -294,3 +294,8 @@
 - Added separate H1_0/H1_1 cohort diagnostics without allowing post-outcome cohort selection.
 - Preserved >+0.20R gross-edge gate and all post-cost economic gates.
 - Jul-Aug and Sep remain sealed.
+
+- Closed Engine M family after EXP-031 development failed: gross -0.0099R, primary -0.2063R, stress -0.4027R, 0/6 positive-stress folds.
+- H1_1 fallback added frequency but reduced edge versus H1_0.
+- Safe-account portfolio remained negative; Jul-Aug and Sep remain unopened.
+- Preserved non-chasing execution as an architectural lesson; prohibited Engine M v0.6 minor-filter rescue.
