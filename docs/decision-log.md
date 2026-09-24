@@ -1105,3 +1105,24 @@ Matched immediate-entry control and hour cohorts are descriptive only. No post-o
 Outcome convention: T40 vs trigger-extreme stop, stop-first on same bar, max 120 active M1 bars, hard 20:00 UTC cutoff.
 
 No v0.2 development outcome existed at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Close Engine O family after EXP-035
+
+**Decision:** stop the isolated-symbol statistical-stretch mean-reversion family before secondary testing.
+
+EXP-035:
+
+- gross -0.0719R;
+- primary -0.2611R;
+- stress -0.4504R;
+- 0/6 positive-stress folds;
+- safe-account economics negative.
+
+The matched immediate-entry control was also negative, so the failure is not solely the 50% pullback entry.
+
+Do not rescue retrospective EURJPY or time-of-day cohorts.
+
+Protected Jul-Aug and Sep remain sealed.
+
+**Next:** prospectively test a cross-market relative-strength family using information unavailable to the prior single-symbol engines.
