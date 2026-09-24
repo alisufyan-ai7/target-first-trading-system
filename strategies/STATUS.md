@@ -614,3 +614,16 @@ Key frozen rules: >=4 shocked peers at VR>=1.75; candidate VR<=1.00 inside fixed
 Jul-Aug and Sep remain sealed.
 
 **Next:** implement and run EXP-037 zero-outcome preflight only.
+
+
+## Engine Q v0.1 — closed before outcomes
+
+EXP-037 zero-outcome preflight failed opportunity density at `b05efb3`:
+
+- 56 total fills;
+- 56 safely deployable;
+- all 8 markets failed >=25 + both directions;
+- target/P&L outcomes remained zero;
+- Jul-Aug/Sep sealed.
+
+Same-bar four-peer VR>=1.75 synchronization was the dominant bottleneck. The opportunity gate is not lowered.
