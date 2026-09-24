@@ -1414,3 +1414,27 @@ No post-outcome factor-threshold, hour, symbol or direction whitelist is permitt
 Jul-Aug and Sep remain sealed.
 
 **Exact next action:** run EXP-036 development only.
+
+
+## Engine P family — CLOSED after EXP-036 development
+
+Engine P v0.1 / EXP-036 failed its frozen development gate at durable result commit `52e9003f351eb7f5abdf9b38f74c279c88d33906`.
+
+Authoritative development result:
+
+- 4,804 pooled signals;
+- gross expectancy **-0.0406469R**;
+- primary expectancy **-0.2356814R**;
+- stress expectancy **-0.4307159R**;
+- **0/6** positive-stress folds;
+- 836 reference-account trades;
+- reference primary/stress expectancy **-USD2.02 / -USD4.15 per trade**;
+- primary/stress PF **0.761 / 0.580**;
+- stress MDD **USD3,526.25**;
+- final disposition **FAIL_STOP_BEFORE_SECONDARY**.
+
+The durable result confirms Jul-Aug secondary and Sep final holdout were not loaded or labeled.
+
+Do not rescue Engine P by changing MOM/USD_SCORE thresholds, hours, symbols, directions, target, costs or entry rules from inspected development diagnostics.
+
+**Exact next strategy action:** open a genuinely different prospectively frozen engine family. Protected Jul-Aug and Sep remain sealed.
