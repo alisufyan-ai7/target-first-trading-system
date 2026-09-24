@@ -620,3 +620,38 @@ The final September holdout is an initial OOS test only. Live promotion addition
 BTCUSD/BTCUSDT, GBPJPY and additional liquid markets are desired expansion candidates, but they are not admitted to Engine-K v0.1 until pinned data and exact executable contract/cost/margin conventions are frozen.
 
 **Next:** final zero-outcome cleanup preflight. Only after it passes may the primary eight-market training period be labeled/fitted.
+
+
+## Engine K v0.2 / EXP-023 authoritative current state
+
+EXP-022 Engine K v0.1 is closed before secondary testing.
+
+v0.1 durable training/calibration result:
+
+- run `35901103493`;
+- result/model commit `d24e05ca513777d63a5d0f6762dfdb35bc42cfc3`;
+- 7,098 executable labeled rungs, all XAUUSD;
+- seven FX execution markets: zero executable rungs;
+- zero qualified trades under frozen v0.1 threshold;
+- July-August and Sep final holdout unopened.
+
+EXP-023 Engine K v0.2 is now the current path and is prospectively frozen with zero v0.2 outcomes.
+
+v0.2 keeps the dense scanner, structural stops, feature contract, HGB/Platt model, risk framework and protected evidence split.
+
+Prospective economic redesign:
+
+- Gold: unchanged +3/+4/+5 XAU, 0.10 lot;
+- non-Gold T30/T40/T50 target distance: 1.5R / 2.0R / 2.5R from unchanged structural stop;
+- define target first, then downward P&L-equivalent size;
+- p_required = max(0.50, p_break-even +0.10);
+- positive primary EV and all USD20/notional/margin gates still required.
+
+Files to read:
+
+- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.2.md`;
+- `research/experiments/EXP-023-engine-k-v0.2-risk-normalized-target-scanner.md`;
+- `research/code/engine_k_v0_2.py`;
+- `research/code/run_engine_k_v0_2_preflight.py`.
+
+**Next action:** run zero-outcome EXP-023 preflight through June only. Require >=200 economically admissible states in every execution market. Do not calculate v0.2 target labels until that passes.
