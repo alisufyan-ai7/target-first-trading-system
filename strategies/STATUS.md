@@ -268,3 +268,18 @@ Engine L mechanics preflight: **PASS** at `b19d4ef6c3a689117fc5b8237167322bd64a2
 - Jul-Aug / Sep sealed.
 
 Multi-timeframe top-down guidance is preserved separately as future design guidance; it is not silently added to v0.1.
+
+
+Engine L v0.1 development: **FAIL** at `7cacd739f80ab37a2f6465924937bd6489b1b966`.
+
+- 303 trades;
+- primary expectancy -USD5.82/trade;
+- stress expectancy -USD9.77/trade;
+- stress PF 0.469;
+- 0/6 positive-stress folds;
+- stress MDD USD3,141.88;
+- stress expectancy ~USD1.28/trade worse than matched immediate control.
+
+Key lesson: the frozen pullback/resumption/next-open confirmation **chased price**; median executed entry was ~0.516 V5 worse than decision close.
+
+Jul-Aug and Sep remain sealed. Do not tune v0.1 in place.
