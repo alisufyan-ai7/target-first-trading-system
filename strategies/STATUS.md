@@ -599,3 +599,18 @@ Engine P v0.1 / EXP-036 development: **FAIL** at `52e9003f351eb7f5abdf9b38f74c27
 Jul-Aug and Sep remain sealed. No Engine-P threshold/hour/symbol/direction rescue is permitted.
 
 Next family must use a genuinely different information source and be prospectively frozen before outcomes.
+
+
+## Engine Q v0.1 / EXP-037 — current primary path
+
+New family after Engine P closure:
+
+`peer volatility spillover -> lagging candidate -> first local breakout -> 50% retracement limit`.
+
+**Status:** prospectively frozen, zero outcomes.
+
+Key frozen rules: >=4 shocked peers at VR>=1.75; candidate VR<=1.00 inside fixed prior-six-M5 box; first breakout within six M5 bars with VR>=1.25/body>=50%/outer-25% close; unchanged T40, costs and safe-lot overlay.
+
+Jul-Aug and Sep remain sealed.
+
+**Next:** implement and run EXP-037 zero-outcome preflight only.
