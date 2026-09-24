@@ -280,3 +280,8 @@
 - Replaced rolling prior-4-M15 sweep + H1 midpoint conjunction with sweep/reclaim of the latest completed H1 boundary.
 - Added opposite H1 boundary T40 room check.
 - Frozen zero-outcome preflight at >=25 signals per market, both directions, >=300 total.
+
+- Closed EXP-030 at zero-outcome preflight with 237 filled signals; no P&L outcomes were calculated.
+- Opened EXP-031 / Engine M v0.5 with deterministic H1_0 -> H1_1 recent-range fallback.
+- Kept the same >=300 total / >=25-per-market frequency gate rather than lowering it post hoc.
+- Preserved non-chasing limit entry, structural stop, T40, sizing, safety and cost assumptions.
