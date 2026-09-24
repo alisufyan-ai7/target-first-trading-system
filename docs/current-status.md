@@ -478,3 +478,44 @@ The development test uses:
 - Jul-Aug and Sep sealed.
 
 **Exact next action:** run EXP-026 development. Do not open secondary evidence on a failed gate.
+
+
+## Engine L v0.1 / EXP-026 outcome
+
+**Engine L v0.1 is CLOSED before secondary testing.**
+
+Durable result commit:
+
+`7cacd739f80ab37a2f6465924937bd6489b1b966`
+
+Pooled six-fold development:
+
+- 303 trades / 57 trade weekdays;
+- hit rate 26.40% vs stress break-even 46.42%;
+- primary expectancy -USD5.82/trade;
+- stress expectancy -USD9.77/trade;
+- primary/stress PF 0.628 / 0.469;
+- stress MDD USD3,141.88;
+- positive stress folds 0/6.
+
+Matched immediate-entry control:
+
+- stress expectancy -USD8.49/trade.
+
+Engine L therefore **lost about USD1.28/trade more under stress cost** than the immediate-entry control.
+
+The important execution diagnostic is that the median Engine-L entry was about **0.516 recent-5m-median-range worse than the original decision close** after waiting for the pullback/resumption sequence. The frozen confirmation rule improved hit rate but chased price and did not improve economics.
+
+Simple forecast-score thresholding is also not supported: the highest raw-score quartile remained strongly negative.
+
+Jul-Aug and Sep remain unopened.
+
+### Current next research direction
+
+Do not tune Engine L v0.1 or add a probability threshold.
+
+The next prospectively frozen architecture should implement the user-supplied multi-timeframe hierarchy as an actual causal trading design:
+
+`4H/1H context -> 15m setup/location -> 5m tactical decision -> lower-timeframe execution`.
+
+The lower-timeframe entry should be designed to **preserve favorable pullback price**, not wait for a full breakout/resumption that creates a chase entry.
