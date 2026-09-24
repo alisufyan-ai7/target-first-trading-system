@@ -1464,3 +1464,30 @@ Outcome state:
 - Sep: unopened.
 
 **Next:** trigger EXP-035 zero-outcome preflight with unchanged >=25-per-market / >=300-total gate.
+
+
+### EXP-035 development launch checkpoint
+
+Engine O v0.2 zero-outcome preflight PASS:
+
+- 574 filled valid signals;
+- all 8 markets >=25 and both directions;
+- all 574 safely deployable;
+- GE40 7 / GE30 140 / LT30 427;
+- outcomes NO;
+- Jul-Aug/Sep unopened.
+
+Development runner/workflow frozen:
+
+- six fixed slices;
+- normalized-R signal edge;
+- safe-lot USD500 one-open portfolio;
+- hour cohorts descriptive only;
+- matched immediate control on same non-suppressed qualified arms;
+- T40 vs trigger-extreme stop;
+- stop first on same bar;
+- max 120 active M1;
+- 20:00 UTC cutoff;
+- >+0.20R gross hurdle and all post-cost gates unchanged.
+
+**Next:** trigger EXP-035 development and stop before secondary on any mandatory failure.
