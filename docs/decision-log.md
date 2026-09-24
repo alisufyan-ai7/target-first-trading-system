@@ -583,3 +583,16 @@ Frozen Engine-K split:
 **Outcome status:** zero v0.2 target/model outcomes at freeze.
 
 **Next:** zero-outcome preflight through June. Require >=200 economically admissible states in every execution market before labels.
+
+
+## 2026-09-24 — Adopt asynchronous long-running pipeline discipline
+
+**Decision:** Treat efficient handling of long GitHub Actions runs as a formal project operating rule.
+
+After a long-running pipeline is triggered, confirm the intended run once. While it executes, do only independent work that cannot alter the running experiment. If no independent work remains, end the turn rather than repeatedly polling GitHub.
+
+When the user returns, resume by reading the durable GitHub result and applying the frozen gate.
+
+**Repository safety:** do not mutate frozen inputs of a running experiment. Result-committing workflows should rebase from current `main` before pushing so safe unrelated commits do not create avoidable push races.
+
+**Policy:** `docs/PIPELINE-WORKFLOW-POLICY.md`.
