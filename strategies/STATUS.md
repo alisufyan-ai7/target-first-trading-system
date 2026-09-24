@@ -668,3 +668,19 @@ Engine Q v0.2 / EXP-038 development: **FAIL** at `6f25b08`.
 The non-chasing limit entry improved the matched immediate control, but raw predictor edge remained insufficient. No post-hoc cohort rescue. Jul-Aug/Sep sealed.
 
 Next family must use a genuinely different information source.
+
+
+## Engine R v0.1 / EXP-039 — current primary path
+
+New family after Engine Q closure: dynamic cross-market relative-value residual reversion.
+
+- prior 48 M5 returns select strongest causal peer by absolute Pearson correlation;
+- |rho|>=0.60;
+- peer |NM15|>=1.00;
+- candidate residual >=1.50 absolute;
+- trade residual reversion only when current candidate M5 rejects in that direction;
+- 50% non-chasing limit, structural stop, T40.
+
+**Status:** prospectively frozen, zero outcomes. Jul-Aug/Sep sealed.
+
+**Next:** EXP-039 zero-outcome preflight only.
