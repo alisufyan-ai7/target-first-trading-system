@@ -1256,3 +1256,30 @@ Keep the same scanner gate:
 - Jul-Aug and Sep unloaded.
 
 **Exact next action:** run EXP-035 zero-outcome preflight only.
+
+
+### EXP-035 zero-outcome preflight PASS
+
+Durable checkpoint: `6b637af`.
+
+- 574 filled valid signals;
+- all eight markets pass >=25 and both directions;
+- all 574 safely deployable;
+- GE40 7 / GE30 140 / LT30 427;
+- parsed source max timestamp 2026-06-30 23:59 UTC;
+- zero target/P&L outcomes;
+- Jul-Aug and Sep sealed.
+
+Continuous M5 scanning solved the v0.1 opportunity-density failure without changing any statistical threshold.
+
+Development outcome convention is frozen:
+
+- T40 vs trigger-extreme stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- 20:00 UTC cutoff;
+- same six slices;
+- matched immediate-entry control;
+- >+0.20R gross hurdle and all post-cost gates unchanged.
+
+**Next:** implement and trigger EXP-035 development only.
