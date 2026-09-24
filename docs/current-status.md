@@ -279,55 +279,28 @@ Key result:
 
 Do not reopen v0.1 by lowering its threshold or tuning the inspected XAU model.
 
-## Engine K v0.2 / EXP-023 — CURRENT PRIMARY PATH
+## Engine K v0.2 / EXP-023 outcome
 
-Engine K v0.2 is prospectively frozen with **zero v0.2 target/model outcomes**.
+**Engine K v0.2 is CLOSED before secondary testing.**
 
-It preserves dense five-minute multi-market scanning, structural stops, the 29 causal features, HGB model, June calibration, one-open portfolio logic, risk/notional/margin controls, and the protected July-September evidence.
+Durable result/model commit:
 
-The prospective changes are:
+`763aefadbe56ee7012b475dcb677f6f78d8036ec`
 
-- XAUUSD remains fixed at +3/+4/+5 XAU with the 0.10-lot anchor;
-- non-Gold native target distance is defined **before size** as 1.5R / 2.0R / 2.5R from the unchanged structural stop;
-- equivalent lot is then rounded down toward USD30/USD40/USD50 gross;
-- all USD20 stop-risk, USD50k notional, USD100 research-margin gates remain;
-- qualification becomes `p_required = max(0.50, p_break_even + 0.10)`;
-- primary-cost EV must remain positive.
+Training/calibration facts:
 
-Files:
+- 281,955 labeled rungs across all 8 execution markets;
+- T30 June AUC about 0.674;
+- T40 June AUC about 0.710;
+- T50 June AUC about 0.743;
+- only 2 qualified combined trades;
+- 0 qualified June trades;
+- frozen >=100 combined / >=20 June frequency gates failed;
+- June expectancy/PF/hit-rate gates unavailable/failed;
+- June DD gate passed;
+- causality/provenance passed.
 
-- `strategies/engine-k-direct-target-move-scanner/SPEC-v0.2.md`;
-- `research/experiments/EXP-023-engine-k-v0.2-risk-normalized-target-scanner.md`;
-- `research/code/engine_k_v0_2.py`;
-- `research/code/run_engine_k_v0_2_preflight.py`;
-- `.github/workflows/exp023-engine-k-v0.2-preflight.yml`.
+July-August secondary-test and Sep final-holdout outcomes remain unopened.
 
-The zero-outcome economic coverage preflight **PASSED**.
+Interpretation: the v0.2 target/economic redesign solved market admission, but the fixed `max(0.50, break-even+0.10)` qualification rule did not yield a testable trading stream. Do not lower that threshold inside v0.2.
 
-Durable result commit: `02a2ab0b1ea7f21092b06165a0ca8f0638d4c41b`.
-
-All 8 execution markets exceeded the frozen >=200-state threshold. Combined through June: 94,238 unique admissible states and 281,955 admissible rungs. No v0.2 target/model outcomes, July-August outcomes, or September outcomes were inspected.
-
-## Exact next action
-
-Run EXP-023 Engine K v0.2 **training Mar23-May31 + June calibration only**.
-
-The sealed runner/workflow are:
-
-- `research/code/run_engine_k_v0_2_training_calibration.py`;
-- `.github/workflows/exp023-engine-k-v0.2-training-calibration.yml`.
-
-Mandatory pre-secondary gate remains frozen:
-
-- >=200 labeled admissible states per market;
-- >=100 qualified one-open trades combined train+cal;
-- >=20 qualified June trades;
-- June hit rate > June mean break-even;
-- June primary expectancy >0;
-- June PF >=1.10;
-- June max drawdown <=USD100;
-- causality/provenance pass;
-- market contribution reported;
-- July-August and September sealed.
-
-Stop before July-August if any mandatory gate fails.
