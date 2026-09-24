@@ -322,3 +322,9 @@
 - Froze T40/stop-first outcome handling, 120-active-M1 maximum horizon, 20:00 UTC cutoff and matched immediate-entry control.
 - Hourly-anchor cohorts are diagnostic only; no post-outcome hour whitelist is allowed.
 - Jul-Aug and Sep remain sealed.
+
+- Closed Engine N family after EXP-033 development failed: gross +0.0411R, primary -0.1450R, stress -0.3312R, 1/6 positive-stress folds.
+- Continuous hourly scanning solved opportunity density but the opening-drive continuation thesis failed economics.
+- Opened EXP-034 / Engine O v0.1 as a rolling statistical-stretch mean-reversion family.
+- Frozen 24xM5 robust center/MAD baseline, 2.50-MAD stretch, 1.25x range expansion, 50% body, outer-35% rejection close, 50% limit entry and center-room T40 gate.
+- Jul-Aug and Sep remain sealed.
