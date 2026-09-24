@@ -1514,3 +1514,34 @@ Durable result: `b05efb3038d6f3531a0def07ff6df09f0a25622b`.
 Main bottleneck: simultaneous same-M5 >=4 peer shocks at VR>=1.75 was too sparse, especially for FX.
 
 Do not lower the frequency gate. Any next version must alter the zero-outcome sampling architecture prospectively rather than relax the failed gate.
+
+
+## Engine Q v0.2 / EXP-038 — CURRENT PRIMARY PATH
+
+EXP-037 / Engine Q v0.1 is closed before outcomes after the same-bar four-peer shock condition produced only 56 fills.
+
+v0.2 preserves the volatility-spillover thesis but changes the temporal sampling architecture:
+
+- peer shock threshold stays VR>=1.75;
+- breadth stays >=4 unique peers;
+- candidate remains excluded;
+- a peer may contribute if it shocked on t, t-5m or t-10m;
+- each peer counts once at most.
+
+Everything downstream remains unchanged:
+
+- candidate VR<=1.00 inside fixed prior-six-M5 box;
+- next-six-M5 first breakout;
+- breakout VR>=1.25, body>=50%, outer-25% close;
+- 50% retracement limit;
+- trigger-extreme stop;
+- T40;
+- 10%/20% cost stresses;
+- USD500 safe-lot caps;
+- unchanged >=25-per-market / both-directions / >=300-total preflight gate.
+
+Jun30 remains the hard source seal. Jul-Aug and Sep remain sealed.
+
+No Engine-Q v0.2 outcomes exist.
+
+**Exact next action:** implement and run EXP-038 zero-outcome preflight only.
