@@ -1247,3 +1247,16 @@ Safety passed and all protected-period seals held.
 The dominant zero-outcome bottleneck was the requirement that at least four peers be simultaneously shocked on the same completed M5 bar at VR>=1.75.
 
 Because no outcome was inspected, a new prospectively frozen version may change the **temporal sampling architecture** of peer shock evidence. The failed frequency gate itself must remain unchanged.
+
+
+## 2026-09-24 — Freeze Engine Q v0.2 rolling 15-minute peer-shock memory
+
+**Decision:** preserve shock severity and breadth from v0.1 but remove the requirement that all peer shocks occur on the exact same M5 bar.
+
+For each candidate at t, a peer counts as shocked if VR>=1.75 at t, t-5m or t-10m. Each peer counts once. Require >=4 unique shocked peers and >=6 valid peers.
+
+This is a temporal-sampling redesign made with zero target/P&L outcomes, not a threshold relaxation.
+
+All candidate-lag, breakout, entry, T40, cost, safety, opportunity-density and development gates remain unchanged.
+
+Protection: Jun30 hard source seal; Jul-Aug and Sep sealed.
