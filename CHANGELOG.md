@@ -257,3 +257,6 @@
 - EXP-028 signal-first preflight passed at `68e52188de8abb2c708cacb611e347afb22a086d`: 1,581 filled valid signals, all eight markets passing, all safely deployable under unchanged caps.
 - Reference-account utility: 66 GE40, 160 GE30, 1,355 LT30.
 - No target/P&L outcomes yet; Jul-Aug and Sep remain sealed.
+
+- Frozen EXP-028 development runner before outcomes: normalized-R signal edge, safe-lot USD500 portfolio, matched immediate-entry control, per-market diagnostics and daily-target reporting.
+- Jul-Aug and Sep remain sealed at launch checkpoint.
