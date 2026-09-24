@@ -1,6 +1,6 @@
 # EXP-033 — Engine N v0.2 Rolling Intraday Drive Pullback
 
-**Status:** DEVELOPMENT RUNNER FROZEN — DEVELOPMENT OUTCOMES NEXT  
+**Status:** CLOSED — DEVELOPMENT GATE FAILED; SECONDARY SEALED  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-n-rolling-drive-pullback/SPEC-v0.2.md`
 
@@ -123,3 +123,95 @@ At this checkpoint:
 ### Next
 
 Trigger EXP-033 development only. Any failed mandatory gate stops before secondary testing.
+
+
+## Development outcome — FAIL
+
+**Workflow run:** `36013791262`  
+**Trigger SHA:** `4af7b9ff257dfed3f2ffa4dad6df5f2d33ca67b7`  
+**Durable result commit:** `78fc698522916ce24a48d718cf948399c902e945`
+
+Protection:
+
+- development source parsed only through 2026-06-30;
+- Jul-Aug secondary loaded/labeled: **NO**;
+- Sep final holdout loaded/labeled: **NO**.
+
+### Pooled signal layer
+
+- 505 Engine-N development signals;
+- target hit rate: **30.69%**;
+- gross normalized expectancy: **+0.0411R**;
+- primary expectancy: **-0.1450R**;
+- stress expectancy: **-0.3312R**;
+- primary PF: **0.780**;
+- stress PF: **0.574**;
+- positive stress folds: **1/6**.
+
+The frozen >+0.20R gross hurdle failed decisively.
+
+### Matched immediate-entry control
+
+- 975 qualified-drive controls;
+- gross normalized expectancy: **+0.0462R**;
+- primary expectancy: **-0.1370R**;
+- stress expectancy: **-0.3201R**.
+
+The 50% pullback entry did **not** create better pooled normalized edge than immediate entry, though the safe-account pullback portfolio was modestly less negative than the immediate control.
+
+### Reference USD500 portfolio
+
+Engine N pullback:
+
+- 194 trades;
+- 57 distinct trade weekdays;
+- primary net P&L **-USD547.20**;
+- stress net P&L **-USD1,177.43**;
+- primary expectancy **-USD2.82/trade**;
+- stress expectancy **-USD6.07/trade**;
+- primary PF **0.762**;
+- stress PF **0.564**;
+- primary MDD **USD688.83**;
+- stress MDD **USD1,244.00**;
+- final-day >=USD100: **1**;
+- final-day >=USD150: **0**.
+
+Matched immediate-control account:
+
+- primary expectancy about **-USD2.94/trade**;
+- stress expectancy about **-USD6.69/trade**;
+- stress MDD about **USD1,501.19**.
+
+### Hour-of-day diagnostics
+
+Some later-hour cohorts looked positive retrospectively, especially H14/H15, and XAUUSD was positive under stress.
+
+These are inspected development diagnostics only.
+
+**Do not create a post-hoc hour whitelist or XAU-only rescue from EXP-033.**
+
+### Failed mandatory gates
+
+- pooled gross normalized expectancy >+0.20R;
+- pooled primary expectancy >0;
+- pooled stress expectancy >0;
+- >=4/6 positive-stress folds;
+- reference primary expectancy >0;
+- reference stress expectancy >0;
+- primary PF >=1.10;
+- stress PF >=1.05;
+- stress MDD <=USD150.
+
+Frequency, fold count, weekday count, diversification, provenance and protected-period gates passed.
+
+### Final disposition
+
+**FAIL.** Do not open Jul-Aug.
+
+### Family-level conclusion
+
+Engine N proved that continuous hourly scanning solves the opportunity-density problem, but a strong 30-minute directional drive followed by a 50% pullback is **not a robust continuation predictor** across the eight-market universe.
+
+Do not create Engine N v0.3 by selecting hours, symbols or small threshold changes from inspected development diagnostics.
+
+Preserve only the continuous-scanning architecture and move to a genuinely different market-behavior family.
