@@ -1291,3 +1291,23 @@ Trade-decision/fold membership is the candidate's breakout completion time. The 
 No peer-shock-age, lag-VR, breakout-VR, hour, symbol or direction cohort may be selected post hoc inside v0.2.
 
 No development outcome exists at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-25 — Close Engine Q family after EXP-038 development failure
+
+**Decision:** stop the cross-market volatility-spillover/lag-breakout family before secondary testing.
+
+Durable result `6f25b089d6d7eea01d37d293c48bd51bf1e84d9e`:
+
+- gross +0.09479R, below frozen >+0.20R hurdle;
+- primary -0.09022R;
+- stress -0.27524R;
+- 1/6 positive-stress folds;
+- reference primary/stress -USD1.53 / -USD3.89 per trade;
+- stress MDD USD1,102.23.
+
+Matched immediate entry was worse (gross -0.0190R), so preserve the non-chasing execution lesson. Do not infer that peer-shock age, lag VR, trigger VR, hour, market or direction cohorts should be selected after seeing outcomes.
+
+**Protection:** Jul-Aug secondary and Sep final holdout remain sealed.
+
+**Next:** prospectively freeze a genuinely different information-source family before any new outcomes.
