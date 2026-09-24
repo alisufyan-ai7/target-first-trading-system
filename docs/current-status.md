@@ -1193,3 +1193,16 @@ Genuinely different family:
 Every 15 minutes from 06:15 through 17:45 UTC, compare the latest completed M5 rejection bar to the prior 24-M5 robust center/MAD state, then use a non-chasing 50% limit with T40 required to fit before the recent center.
 
 **Next:** zero-outcome EXP-034 preflight only.
+
+
+### EXP-034 preflight attempt 1 verification note
+
+Run `36014965193` failed before the real market preflight because the baseline-exclusion synthetic fixture changed the trigger close to a value that violated the already-frozen outer-35% rejection-location rule.
+
+No market preflight or target/P&L outcome resulted. Jul-Aug and Sep remain sealed.
+
+Fixture-only correction:
+
+- `99344d6656070d79aa8d562c56869f8e24ca8f7a`.
+
+**Next remains:** rerun the identical frozen EXP-034 zero-outcome preflight.
