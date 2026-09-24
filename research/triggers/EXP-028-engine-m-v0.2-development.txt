@@ -1,1 +1,2 @@
 Trigger EXP-028 Engine M v0.2 six-slice development. Evaluate size-invariant normalized-R signal edge and separate maximum-safe-lot USD500 reference-account portfolio on Mar-Jun development slices only, with matched immediate-entry control. Preserve all frozen Engine-M mechanics and safety caps. Do not load or label Jul-Aug secondary or Sep final holdout. 2026-09-24.
+Retry after reporting-only Timestamp fix 57be12953b917c66b269800cb00889e7f707405b. Strategy mechanics/gates unchanged. 2026-09-24.
