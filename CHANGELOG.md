@@ -180,3 +180,7 @@
 - Added a formal long-running pipeline workflow policy at `docs/PIPELINE-WORKFLOW-POLICY.md`.
 - Project default is now: confirm a long GitHub Actions run once, avoid repeated polling, use runtime only for independent non-contaminating work, otherwise end the turn and resume from the durable result later.
 - Added explicit protection against mid-run experiment mutation, duplicate triggers, and result-commit races; result-committing workflows should rebase from current `main` before push.
+
+- EXP-023 first preflight attempt failed before data preflight because binary floating-point tick rounding turned an exact EURUSD 1.5R boundary into one extra tick.
+- No v0.2 target/model outcomes or protected-period evidence were inspected.
+- Replaced v0.2 structural-distance/tick rounding with Decimal-based exact arithmetic and added an exact-boundary self-test; correction commit `d4983a061b86230d2f92b7fae80608a48c000a48`.
