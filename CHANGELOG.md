@@ -397,3 +397,8 @@
 - Development fold membership and matched immediate control are keyed to breakout completion time, the first directional candidate decision.
 - Preserved T40/stop-first/120-active-M1/20:00 UTC outcome convention, >+0.20R gross hurdle, all post-cost gates and protected-period seals.
 - Jul-Aug and Sep remain sealed at launch checkpoint.
+
+- Closed Engine Q v0.2 / EXP-038 after frozen development failed at `6f25b08`: 363 signals, gross +0.09479R, primary -0.09022R, stress -0.27524R, 1/6 positive-stress folds.
+- Reference-account: 251 trades; primary/stress expectancy -USD1.53 / -USD3.89; PF 0.836 / 0.640; stress MDD USD1,102.23.
+- Matched immediate entry was worse, preserving non-chasing entry as an architectural lesson but not validating the spillover predictor.
+- Prohibited post-hoc peer-shock/lag/trigger/time/market/direction rescue; Jul-Aug and Sep remain sealed.
