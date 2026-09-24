@@ -1704,3 +1704,19 @@ Durable result `3d9ca37`:
 - Jul-Aug/Sep sealed.
 
 **Exact next action:** implement/freeze the six-slice EXP-038 development runner and then run development only. Stop before secondary on any failed mandatory gate.
+
+
+### EXP-038 development launch checkpoint
+
+Engine Q v0.2 preflight passed and development is now frozen before outcomes.
+
+- development runner commit: `9f13100`;
+- workflow commit: `be6c986`;
+- fold assignment: breakout completion time;
+- immediate control: first active M1 open after same breakout completion;
+- T40 / breakout stop / stop-first / 120 active M1 / 20:00 UTC;
+- diagnostics descriptive only;
+- >+0.20R gross and all post-cost gates unchanged;
+- Jul-Aug/Sep sealed.
+
+**Exact next action:** trigger one EXP-038 development run, confirm it starts once, then do not poll repeatedly.
