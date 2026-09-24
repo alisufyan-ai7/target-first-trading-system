@@ -697,3 +697,45 @@ No durable development JSON or inspected metrics resulted. Jul-Aug and Sep remai
 Reporting-only fix: `57be12953b917c66b269800cb00889e7f707405b`.
 
 **Next remains:** rerun the identical frozen EXP-028 development logic.
+
+
+## Engine M v0.2 / EXP-028 outcome
+
+**Engine M v0.2 is CLOSED before secondary testing.**
+
+Durable result commit:
+
+`bd0ae3f18509c8e4e19fbe570766c961b1f4e3fb`
+
+Signal layer:
+
+- 1,249 development signals;
+- hit rate 35.07%;
+- gross expectancy **+0.0367R**;
+- primary expectancy **-0.1625R**;
+- stress expectancy **-0.3616R**;
+- stress-positive folds: 0/6.
+
+Matched immediate-entry control gross expectancy was -0.0146R, so the MTF limit entry improved raw edge but not enough to survive frozen costs.
+
+Reference USD500 portfolio:
+
+- 593 trades / 57 weekdays;
+- primary expectancy -USD1.69/trade;
+- stress expectancy -USD3.42/trade;
+- primary/stress PF 0.756 / 0.575;
+- stress MDD USD2,065.82;
+- >=USD100 final-day P&L on 1/57 weekdays;
+- >=USD150 on 0/57.
+
+Jul-Aug and Sep remain unopened.
+
+### Current blocker
+
+The problem is now narrower:
+
+**MTF context + non-chasing limit entry creates a small pre-cost edge, but signal selectivity is not strong enough to cover costs.**
+
+Do not weaken cost assumptions or reuse protected periods.
+
+A future engine/version must improve pre-cost signal quality/selectivity while preserving the non-chasing execution insight.
