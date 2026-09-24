@@ -626,3 +626,25 @@ When the user returns, resume by reading the durable GitHub result and applying 
 **Protection:** July-August secondary test and September final holdout remain sealed.
 
 **Next:** new prospectively frozen version only; no threshold relaxation inside v0.2.
+
+
+## 2026-09-24 — Freeze Engine K v0.3 / EXP-024
+
+**Decision:** After v0.2 failed trade-density gates, freeze a new version rather than lowering the v0.2 threshold.
+
+**Why:** v0.2 showed meaningful June rank discrimination (AUC about 0.674/0.710/0.743) but only 2 combined qualified trades and 0 June trades. July-Aug and September remained sealed.
+
+**v0.3 changes prospectively:**
+
+- fit HGB on Mar23-Apr30;
+- calibrate on May only;
+- gate on June only;
+- use market-direction-aware Platt calibration;
+- qualify by positive primary EV and positive stress EV;
+- no universal probability floor.
+
+**What stays unchanged:** target ladders, equivalent sizing, costs, structural stop, 29 causal features, HGB hyperparameters, one-open logic, daily budget rules.
+
+**Protection:** Mar-Jun is reusable inspected development data. Jul-Aug and Sep remain pristine for later stages.
+
+**Next:** run the June gate only. Fail -> stop before secondary.
