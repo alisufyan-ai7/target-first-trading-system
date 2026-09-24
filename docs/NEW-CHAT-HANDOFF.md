@@ -1512,3 +1512,40 @@ Do not post-hoc select EURJPY or favorable time cohorts.
 Jul-Aug and Sep remain unopened.
 
 **Next:** genuinely different cross-market relative-strength / factor-divergence family.
+
+
+## Engine P v0.1 / EXP-036 authoritative current state
+
+Engine O family is CLOSED after EXP-035 development failure.
+
+Current prospectively frozen family:
+
+**Engine P v0.1 — Cross-Market Relative-Strength Pullback**
+
+Mechanics:
+
+- decisions every completed M5 from 06:05-17:55 UTC;
+- own 30m MOM normalized by prior-24-M5 median range;
+- |own MOM| >=1.50;
+- USD_SCORE from other USD-linked FX majors, self-excluded, threshold 0.50;
+- EURJPY requires EURUSD and USDJPY leg agreement;
+- >=35% trigger body;
+- favorable outer-40% close;
+- 50% non-chasing limit;
+- trigger-extreme stop;
+- 10-M1 / 30m order life;
+- unchanged T40 + safe-lot overlay.
+
+Outcome state:
+
+- Engine-P outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Implementation:
+
+- `research/code/engine_p_v0_1.py`;
+- `research/code/run_engine_p_v0_1_preflight.py`;
+- `.github/workflows/exp036-engine-p-v0.1-preflight.yml`.
+
+**Next:** trigger EXP-036 zero-outcome preflight with unchanged >=25-per-market / >=300-total gate.
