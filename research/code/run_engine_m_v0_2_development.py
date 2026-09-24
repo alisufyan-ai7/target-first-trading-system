@@ -295,6 +295,25 @@ def signal_metrics(rows:list[dict])->dict:
     gross=[float(r["normalized"]["gross_r"]) for r in rows]
     markets=Counter(r["symbol"] for r in rows)
     directions=Counter(r["direction"] for r in rows)
+
+    per_market={}
+    for symbol in sorted(markets):
+        rr=[r for r in rows if r["symbol"]==symbol]
+        pg=[float(r["normalized"]["gross_r"]) for r in rr]
+        pp=[float(r["normalized"]["primary_r"]) for r in rr]
+        ps=[float(r["normalized"]["stress_r"]) for r in rr]
+        per_market[symbol]={
+            "signals":len(rr),
+            "target_hit_rate":float(np.mean([r["normalized"]["label"] for r in rr])) if rr else None,
+            "gross_r_expectancy":float(np.mean(pg)) if pg else None,
+            "primary_r_expectancy":float(np.mean(pp)) if pp else None,
+            "stress_r_expectancy":float(np.mean(ps)) if ps else None,
+            "primary_r_profit_factor":pf(pp),
+            "stress_r_profit_factor":pf(ps),
+            "long":int(sum(r["direction"]=="long" for r in rr)),
+            "short":int(sum(r["direction"]=="short" for r in rr)),
+        }
+
     return {
         "signals":len(rows),
         "target_hits":int(sum(r["normalized"]["label"] for r in rows)),
@@ -305,6 +324,7 @@ def signal_metrics(rows:list[dict])->dict:
         "primary_r_profit_factor":pf(primary),
         "stress_r_profit_factor":pf(stress),
         "market_counts":dict(sorted(markets.items())),
+        "per_market":per_market,
         "direction_counts":dict(sorted(directions.items())),
         "max_market_share":float(max(markets.values())/len(rows)) if rows else None,
         "median_wait_active_m1_bars":statistics.median([r.get("wait_active_m1_bars",0) for r in rows]) if rows and "wait_active_m1_bars" in rows[0] else None,
