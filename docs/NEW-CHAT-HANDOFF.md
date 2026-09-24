@@ -1028,3 +1028,20 @@ Utility bands:
 - LT30.
 
 **Next:** run zero-outcome EXP-028 preflight. Require >=50 filled valid signals per market, both directions, >=600 total, and no safety-cap violation.
+
+
+### EXP-028 zero-outcome preflight PASS
+
+Durable result:
+
+`68e52188de8abb2c708cacb611e347afb22a086d`
+
+- 1,581 filled valid signals;
+- all eight markets >=50;
+- both directions every market;
+- all 1,581 safe-lot deployable;
+- GE40 66 / GE30 160 / LT30 1,355;
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: unopened.
+
+**Next:** Engine M v0.2 development: report normalized-R signal edge separately from safe-lot USD500 portfolio economics.
