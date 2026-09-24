@@ -328,3 +328,9 @@
 - Opened EXP-034 / Engine O v0.1 as a rolling statistical-stretch mean-reversion family.
 - Frozen 24xM5 robust center/MAD baseline, 2.50-MAD stretch, 1.25x range expansion, 50% body, outer-35% rejection close, 50% limit entry and center-room T40 gate.
 - Jul-Aug and Sep remain sealed.
+
+- Closed EXP-034 at zero-outcome preflight with 209 filled signals; no P&L outcomes were calculated.
+- Opened EXP-035 / Engine O v0.2 with continuous five-minute decision sampling from 06:05 through 17:55 UTC.
+- Kept the same >=300 total / >=25-per-market opportunity-density gate.
+- Preserved all statistical-stretch, rejection, 50% limit, stop, T40-to-center, safety and cost rules.
+- Tightened v0.2-local synthetic and pending-order suppression verification before launch.
