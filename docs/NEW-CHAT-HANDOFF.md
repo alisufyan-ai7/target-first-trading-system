@@ -1209,3 +1209,25 @@ Durable result: `e0c7566`.
 - Jul-Aug/Sep: unopened.
 
 **Next:** EXP-031 six-slice development. Report H1_0 and H1_1 outcome cohorts separately without post-outcome tuning.
+
+
+### EXP-031 development launch checkpoint
+
+v0.5 zero-outcome preflight passed.
+
+Development runner/workflow are frozen:
+
+- six fixed slices;
+- normalized-R signal layer;
+- H1_0/H1_1 cohort diagnostics;
+- safe-lot USD500 portfolio;
+- >+0.20R pooled gross hurdle;
+- all post-cost gates unchanged.
+
+At launch:
+
+- target/P&L outcomes: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+**Next:** trigger EXP-031 development and stop before secondary on any failed mandatory gate.
