@@ -1,0 +1,1 @@
+Trigger EXP-025 Engine K v0.4 bounded walk-forward development selection only. Evaluate exactly 12 frozen configurations across 6 chronological Mar-Jun folds. Do not load or label Jul-Aug secondary test or Sep final holdout. 2026-09-24.
