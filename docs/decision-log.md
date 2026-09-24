@@ -749,3 +749,14 @@ All eight execution markets passed the frozen zero-outcome entry-mechanics gate.
 No Engine-L target or P&L outcomes were calculated. Jul-Aug and Sep remain sealed.
 
 **Next permitted stage:** Engine-L development against the matched immediate-entry control.
+
+
+## 2026-09-24 — Freeze Engine L development comparison before outcomes
+
+**Decision:** EXP-026 will isolate entry quality on the same forecastable T40 decisions.
+
+Forecast/control domain stays the old Engine-K pre-probability T40 economic domain. Engine L changes only pending-arm timing, pullback/resumption entry and fresh execution stop. The matched control enters immediately using the old 5m pivot stop.
+
+Development uses six fixed forward folds and the already frozen gate. Jul-Aug and Sep remain sealed.
+
+No EXP-026 development P&L outcome existed at this checkpoint.
