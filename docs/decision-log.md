@@ -1260,3 +1260,10 @@ This is a temporal-sampling redesign made with zero target/P&L outcomes, not a t
 All candidate-lag, breakout, entry, T40, cost, safety, opportunity-density and development gates remain unchanged.
 
 Protection: Jun30 hard source seal; Jul-Aug and Sep sealed.
+
+
+## 2026-09-24 — Freeze EXP-038 implementation before preflight
+
+**Decision:** Engine Q v0.2 rolling-spillover mechanics and zero-outcome preflight are frozen at repository SHA `850fe44fa426b2ee4f235d3af140fa981ff26ae2`.
+
+No outcome exists and protected periods remain sealed. The only permitted next computation is one EXP-038 zero-outcome preflight.
