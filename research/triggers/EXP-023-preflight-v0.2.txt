@@ -1,0 +1,1 @@
+Trigger EXP-023 Engine K v0.2 zero-outcome economic-coverage preflight only. Parse execution markets through 2026-06-30. No v0.2 target labels, model fitting, July-August states/outcomes, or September holdout outcomes. 2026-09-24.
