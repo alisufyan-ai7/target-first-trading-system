@@ -1,6 +1,6 @@
 # EXP-036 — Engine P v0.1 Cross-Market Relative-Strength Pullback
 
-**Status:** FROZEN PROSPECTIVELY — ZERO OUTCOMES  
+**Status:** ZERO-OUTCOME PREFLIGHT PASSED — DEVELOPMENT NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-p-cross-market-relative-strength-pullback/SPEC-v0.1.md`
 
@@ -42,3 +42,67 @@ No Engine-P outcomes exist at freeze.
 ## Next
 
 Implement Engine P v0.1 and run zero-outcome preflight only.
+
+
+## Zero-outcome preflight — PASS
+
+**Durable result commit:** `12c6f5d`  
+**Result file blob:** `b2816dce94507e9d75153d62002196a42a1284df`
+
+Protection:
+
+- target outcomes: **NO**;
+- P&L outcomes: **NO**;
+- parsed source max timestamp: **2026-06-30 23:59:00 UTC**;
+- Jul-Aug secondary: unopened;
+- Sep final holdout: unopened.
+
+Frozen-gate result:
+
+- filled valid signals: **6,063**;
+- safely deployable: **6,059**;
+- every market >=25: PASS;
+- LONG + SHORT every market: PASS;
+- total >=300: PASS;
+- safety overlay: PASS.
+
+Per-market filled signals:
+
+- XAUUSD 576;
+- EURUSD 943;
+- GBPUSD 913;
+- USDJPY 773;
+- EURJPY 227;
+- AUDUSD 878;
+- USDCAD 800;
+- USDCHF 953.
+
+Utility:
+
+- GE40 105;
+- GE30 1,253;
+- LT30 4,701;
+- NONDEPLOYABLE 4.
+
+**Disposition:** PASS. Engine P may proceed to development while Jul-Aug and Sep remain sealed.
+
+## Development outcome convention freeze
+
+Before any development label:
+
+- same six chronological slices as EXP-028/031/033/035;
+- same audited target-first labeler;
+- T40 vs trigger-bar structural stop;
+- same-bar stop first;
+- max 120 active M1 bars;
+- 20:00 UTC hard cutoff;
+- same normalized-R signal metrics;
+- same safe-lot USD500 one-open portfolio;
+- same >+0.20R pooled gross hurdle;
+- same post-cost expectancy / PF / drawdown / weekday / concentration gates;
+- matched immediate-entry control on the same non-suppressed qualified arm;
+- MOM/USD_SCORE/EURJPY-leg/time-of-day diagnostics descriptive only;
+- no post-outcome threshold/hour/symbol rescue;
+- Jul1 hard source seal.
+
+No Engine-P development outcome existed at this freeze.
