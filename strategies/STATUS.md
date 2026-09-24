@@ -302,3 +302,20 @@ Engine M is a new **multi-timeframe, non-chasing limit-entry** family:
 **Status:** prospectively frozen, zero Engine-M target/P&L outcomes.
 
 **Next:** zero-outcome EXP-027 MTF/limit mechanics preflight through Jun30 only. Jul-Aug and Sep remain sealed.
+
+
+## Engine M v0.2 / EXP-028 — current primary path
+
+v0.1 closed before outcomes after the preflight showed a research-ordering problem, not an MTF-signal scarcity problem.
+
+v0.2:
+
+- trading mechanics unchanged;
+- every causal filled valid MTF signal retained for signal research;
+- separate safe-lot overlay under unchanged account gates;
+- XAUUSD remains capped at 0.10 lot;
+- utility bands GE40 / GE30 / LT30 reported;
+- zero target/P&L outcomes at freeze;
+- Jul-Aug / Sep sealed.
+
+**Next:** EXP-028 zero-outcome preflight only.
