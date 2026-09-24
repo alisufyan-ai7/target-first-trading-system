@@ -539,3 +539,19 @@ Preflight gate unchanged:
 **Status:** prospectively frozen, zero outcomes.
 
 **Next:** EXP-035 zero-outcome preflight only.
+
+
+## Engine O family — closed
+
+Latest: v0.2 / EXP-035 development FAIL at `f37a757`.
+
+- 430 signals;
+- gross -0.0719R;
+- primary -0.2611R;
+- stress -0.4504R;
+- 0/6 stress-positive folds;
+- reference primary/stress -USD3.11 / -USD5.38 per trade.
+
+Do not create a minor-threshold v0.3.
+
+Next family must use a genuinely different information source.
