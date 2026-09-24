@@ -12,6 +12,7 @@ No future target labels are calculated in this module.
 from __future__ import annotations
 
 import math
+from decimal import Decimal, ROUND_CEILING
 from typing import Dict, Optional
 
 from engine_k_v0_1 import (
@@ -48,7 +49,14 @@ def research_tick(symbol: str) -> float:
 def round_up_to_tick(x: float, tick: float) -> float:
     if not math.isfinite(x) or not math.isfinite(tick) or x <= 0 or tick <= 0:
         raise ValueError("invalid round_up_to_tick input")
-    return math.ceil((x / tick) - 1e-12) * tick
+    xd=Decimal(str(x))
+    td=Decimal(str(tick))
+    ticks=(xd/td).to_integral_value(rounding=ROUND_CEILING)
+    return float(ticks*td)
+
+
+def structural_distance_decimal(entry: float, stop: float) -> Decimal:
+    return abs(Decimal(str(entry)) - Decimal(str(stop)))
 
 
 def research_costs_v02(actual_gross_target_usd: float) -> dict:
@@ -77,14 +85,16 @@ def qualification_probability_floor_v02(
 def native_target_distances_v02(symbol: str, entry: float, stop: float) -> Dict[str,float]:
     if symbol == "XAUUSD":
         return {"T30":3.0,"T40":4.0,"T50":5.0}
-    r = abs(entry-stop)
-    if not math.isfinite(r) or r <= 0:
+    r_dec=structural_distance_decimal(entry,stop)
+    if r_dec <= 0:
         return {}
-    tick = research_tick(symbol)
-    return {
-        rung: round_up_to_tick(r * NON_GOLD_R_MULTIPLE[rung], tick)
-        for rung in RUNG_ORDER
-    }
+    tick=Decimal(str(research_tick(symbol)))
+    out={}
+    for rung in RUNG_ORDER:
+        raw=r_dec*Decimal(str(NON_GOLD_R_MULTIPLE[rung]))
+        ticks=(raw/tick).to_integral_value(rounding=ROUND_CEILING)
+        out[rung]=float(ticks*tick)
+    return out
 
 
 def candidate_economics_v02(
@@ -155,9 +165,10 @@ def candidate_economics_v02(
 def self_tests_v02() -> list[str]:
     passed=[]
 
-    # Tick-up rounding never weakens target distance.
+    # Tick-up rounding never weakens target distance and exact boundaries stay exact.
     x=round_up_to_tick(0.001234,0.00001)
     assert x >= 0.001234 and abs(x/0.00001-round(x/0.00001)) < 1e-9
+    assert abs(round_up_to_tick(0.00150,0.00001)-0.00150) < 1e-12
     passed.append("target_tick_round_up")
 
     # Gold anchor remains unchanged.
