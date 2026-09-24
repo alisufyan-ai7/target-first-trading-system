@@ -67,7 +67,7 @@ def synthetic_h1_range_tests()->list[str]:
     h4s=h4.copy(); h4s.loc[1,"close"]=1.02
     h1s=h1.copy()
     h1s.loc[0,["open","high","low","close"]]=[1.20,1.32,0.92,1.18]
-    h1s.loc[1,["open","high","low","close"]]=[1.16,1.30,0.90,1.02]
+    h1s.loc[1,["open","high","low","close"]]=[1.16,1.30,0.80,1.02]
     m15s=m15.copy()
     m15s.loc[0,["open","high","low","close"]]=[1.15,1.31,1.00,1.05]
     m5s=m5.copy()
