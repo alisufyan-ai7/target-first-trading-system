@@ -1770,3 +1770,28 @@ Engine R v0.1 implementation is frozen before outcomes at main SHA `db879da22f4e
 - Jul-Aug/Sep: sealed.
 
 **Exact next action:** trigger exactly one EXP-039 zero-outcome preflight, confirm it starts once, then follow the long-running pipeline policy.
+
+
+## Root-cause / edge-source audit checkpoint — 2026-09-25
+
+Strategy iteration is paused.
+
+Read first:
+
+- `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md` (commit `b170bef2`).
+
+Authoritative conclusions:
+
+- recent M/N/O/P/Q families do not contain enough reproducible raw edge to survive costs;
+- Q proves non-chasing execution is useful but not sufficient;
+- do not increase risk to force the USD150-200 objective;
+- next research must establish incremental information content from microstructure/order flow, macro surprise, rates/cross-asset context and execution-grade data before another strategy is promoted;
+- final system should support specialized engines feeding the common cross-market ranker rather than requiring every engine to work universally;
+- restore target-ladder/path modeling beyond T40 for final architecture;
+- account for project-level data-snooping from the growing number of tried strategy families.
+
+Engine R / EXP-039 remains prospectively frozen but is **PAUSED BEFORE DEVELOPMENT**. Do not use a frequency preflight alone as justification to launch target/P&L development.
+
+Jul-Aug and Sep remain sealed.
+
+**Exact next action:** economic-feasibility frontier + edge-source data/information-content study, not another OHLC strategy family.
