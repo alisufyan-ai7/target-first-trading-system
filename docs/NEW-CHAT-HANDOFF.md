@@ -993,3 +993,38 @@ Current outcome state:
 - matched-control outcomes: NO.
 
 **Next:** trigger EXP-027 zero-outcome mechanics preflight. Development is forbidden unless every market has >=50 admissible filled paths, both directions, and >=600 total.
+
+
+## Engine M v0.2 / EXP-028 authoritative current state
+
+EXP-027 v0.1 is closed before outcomes.
+
+Audited v0.1 preflight:
+
+- 1,581 mechanical MTF retracement-limit fills;
+- 126 old USD40-equivalent admissions;
+- FX rejects mostly notional+margin;
+- target/P&L outcomes: NO;
+- Jul-Aug/Sep: unopened.
+
+Conclusion: the preflight conflated signal validity with whether the USD500 reference account could size each trade to ~USD40 gross.
+
+EXP-028 / v0.2 fixes research ordering without changing trade mechanics:
+
+`signal validity first -> separate safe-lot/account utility overlay`.
+
+Frozen safety overlay:
+
+- stop risk <=USD20;
+- notional <=USD50k;
+- margin <=USD100 at 1:500;
+- 0.01 lot step;
+- Gold <=0.10 lot.
+
+Utility bands:
+
+- GE40;
+- GE30;
+- LT30.
+
+**Next:** run zero-outcome EXP-028 preflight. Require >=50 filled valid signals per market, both directions, >=600 total, and no safety-cap violation.
