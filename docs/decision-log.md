@@ -1199,3 +1199,29 @@ No post-hoc MOM/USD_SCORE threshold, hour, symbol, direction, target or cost cha
 **Protection:** Jul-Aug secondary and Sep final holdout remain sealed.
 
 **Next:** freeze a genuinely different information-source family before any new outcomes.
+
+
+## 2026-09-24 — Freeze Engine Q v0.1 cross-market volatility-spillover family
+
+**Decision:** after Engine P's directional factor-consensus family failed development, change the information source rather than retune factor thresholds.
+
+Engine Q uses **directionless peer volatility breadth** to arm a candidate that has not yet expanded, then lets the candidate's own later breakout determine direction.
+
+Frozen center:
+
+- candidate-excluded peer range-vol breadth;
+- >=4 peers at VR>=1.75;
+- candidate lag VR<=1.00 inside a fixed six-M5 box;
+- first breakout within next six completed M5 bars;
+- breakout VR>=1.25, body>=50%, outer-25% close;
+- non-chasing 50% retracement limit;
+- breakout-extreme stop;
+- T40;
+- unchanged safe-lot caps;
+- primary/stress costs 10%/20% of gross target.
+
+The same six development slices are frozen and source is hard-sealed at Jun30. Jul-Aug and Sep remain protected.
+
+No Engine-Q outcome exists at freeze.
+
+**Next:** zero-outcome implementation/preflight only; require >=25 fills per market, both directions, >=300 total before any target/P&L labeling.
