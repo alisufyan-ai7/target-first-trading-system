@@ -1,0 +1,84 @@
+name: EXP-035 Engine O v0.2 Continuous M5 Preflight
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-035-engine-o-v0.2-preflight.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy joblib scikit-learn==1.5.2
+
+      - name: Verify zero-outcome Engine O v0.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile research/code/engine_o_v0_2.py
+          python -m py_compile research/code/run_engine_o_v0_2_preflight.py
+          PYTHONPATH=research/code python - <<'PY'
+          import engine_o_v0_2 as o
+          import run_engine_o_v0_2_preflight as r
+          print(o.self_tests_engine_o_v02())
+          print(r.synthetic_engine_o_tests())
+          print(r.continuous_grid_tests())
+          print("ZERO_OUTCOME_CONTINUOUS_M5_REVERSION_PREFLIGHT=YES")
+          PY
+
+      - name: Run continuous-M5 reversion preflight through June only
+        run: PYTHONPATH=research/code python research/code/run_engine_o_v0_2_preflight.py
+
+      - name: Upload EXP-035 preflight result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp035-engine-o-v02-preflight
+          path: research/results/EXP-035-continuous-m5-reversion-preflight-v0.2.json
+          if-no-files-found: warn
+
+      - name: Commit durable EXP-035 preflight
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f research/results/EXP-035-continuous-m5-reversion-preflight-v0.2.json ]; then
+            echo "No result file to checkpoint"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-035-continuous-m5-reversion-preflight-v0.2.json
+          git commit -m "Checkpoint EXP-035 Engine O v0.2 preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce EXP-035 frozen preflight gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-035-continuous-m5-reversion-preflight-v0.2.json")
+          if not p.exists():
+              raise SystemExit("EXP-035 preflight result missing")
+          x=json.loads(p.read_text())
+          if not x["preflight_pass"]:
+              raise SystemExit("EXP-035 frozen preflight research gate FAILED")
+          print("EXP-035 frozen preflight research gate PASSED")
+          PY
