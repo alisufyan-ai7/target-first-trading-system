@@ -283,3 +283,22 @@ Engine L v0.1 development: **FAIL** at `7cacd739f80ab37a2f6465924937bd6489b1b966
 Key lesson: the frozen pullback/resumption/next-open confirmation **chased price**; median executed entry was ~0.516 V5 worse than decision close.
 
 Jul-Aug and Sep remain sealed. Do not tune v0.1 in place.
+
+
+## Engine M v0.1 / EXP-027 — current primary path
+
+Engine L v0.1 is closed before secondary testing.
+
+Engine M is a new **multi-timeframe, non-chasing limit-entry** family:
+
+- H4/H1 direction;
+- M15 H1-midpoint reclaim;
+- M5 rejection arm;
+- 50% M5-range retracement limit;
+- M5 structural stop;
+- T40 only;
+- no ML probability threshold/model in v0.1.
+
+**Status:** prospectively frozen, zero Engine-M target/P&L outcomes.
+
+**Next:** zero-outcome EXP-027 MTF/limit mechanics preflight through Jun30 only. Jul-Aug and Sep remain sealed.
