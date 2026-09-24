@@ -1,0 +1,802 @@
+{
+  "experiment": "EXP-024",
+  "engine": "Engine K v0.3",
+  "stage": "mar_apr_fit_may_calibration_june_gate",
+  "tested_repository_sha": "85b01583cd2ab74fb242e7d0d55fabbbf9b4378d",
+  "engine_v01_sha256": "565bfe4ca5e29465e74ec3b1fb8409780e1e67f999ef4bee20e713b39cb1ac51",
+  "engine_v02_sha256": "0344477df2f8646b37324ee5e0d01526433ca5566b99959d880e877a9ed22d84",
+  "runner_sha256": "a7c12fb3d6a8ec8c379729866e42e6667ecb153937b7f6da849d16e3bc410ef4",
+  "sklearn_version": "1.5.2",
+  "scope": {
+    "fit": [
+      "2026-03-23",
+      "2026-04-30"
+    ],
+    "calibration": [
+      "2026-05-01",
+      "2026-05-31"
+    ],
+    "june_gate": [
+      "2026-06-01",
+      "2026-06-30"
+    ],
+    "secondary_test_loaded_or_labeled": false,
+    "final_holdout_loaded_or_labeled": false,
+    "parsed_market_data_max_timestamp": "2026-06-30 23:59:00+00:00",
+    "forecast_only_markets_loaded": false
+  },
+  "tests": {
+    "v01": [
+      "git_blob_sha",
+      "lot_floor",
+      "usd_quote_value",
+      "xau_value",
+      "jpy_quote_value",
+      "universe_separation",
+      "research_cost_schedule",
+      "probability_floor",
+      "notional_margin_gate",
+      "rounded_lot_actual_reward",
+      "feature_contract_29",
+      "entry_gap_reject"
+    ],
+    "v02": [
+      "target_tick_round_up",
+      "gold_anchor_unchanged",
+      "non_gold_r_multiple_targets",
+      "lot_round_down_actual_reward",
+      "risk_normalized_target_ladder",
+      "v02_probability_gate",
+      "forecast_only_isolation"
+    ],
+    "v03": [
+      "clean_internal_chronology",
+      "v02_economics_preserved",
+      "stress_ev_stricter_than_primary"
+    ],
+    "labels": [
+      "same_bar_stop_first",
+      "later_target",
+      "horizon_120_includes_entry",
+      "session_cutoff_2000"
+    ]
+  },
+  "counts": {
+    "fit_labeled_rungs": 119429,
+    "calibration_labeled_rungs": 80859,
+    "june_labeled_rungs": 81667,
+    "june_by_market": {
+      "XAUUSD": {
+        "labeled_rungs": 2421,
+        "unique_states": 807
+      },
+      "EURUSD": {
+        "labeled_rungs": 11548,
+        "unique_states": 3880
+      },
+      "GBPUSD": {
+        "labeled_rungs": 12795,
+        "unique_states": 4299
+      },
+      "USDJPY": {
+        "labeled_rungs": 6062,
+        "unique_states": 2026
+      },
+      "EURJPY": {
+        "labeled_rungs": 9763,
+        "unique_states": 3258
+      },
+      "AUDUSD": {
+        "labeled_rungs": 16020,
+        "unique_states": 5340
+      },
+      "USDCAD": {
+        "labeled_rungs": 8831,
+        "unique_states": 2948
+      },
+      "USDCHF": {
+        "labeled_rungs": 14227,
+        "unique_states": 4760
+      }
+    }
+  },
+  "rung_metrics": {
+    "T30": {
+      "raw": {
+        "fit": {
+          "n": 39887,
+          "positive_rate": 0.23471306440694964,
+          "brier": 0.15211406654208554,
+          "log_loss": 0.46230561672388915,
+          "roc_auc": 0.7723484940340313,
+          "probability_quantiles": {
+            "0": 0.008491404745003123,
+            "0.1": 0.05974969422068598,
+            "0.25": 0.12372415641701129,
+            "0.5": 0.2378577214819302,
+            "0.75": 0.339536757551435,
+            "0.9": 0.40162949110979246,
+            "1": 0.6643774858468567
+          }
+        },
+        "calibration": {
+          "n": 27005,
+          "positive_rate": 0.20699870394371414,
+          "brier": 0.15222977176083416,
+          "log_loss": 0.46945140695451615,
+          "roc_auc": 0.6972401978617466,
+          "probability_quantiles": {
+            "0": 0.009182206942732033,
+            "0.1": 0.06207283929320686,
+            "0.25": 0.12229402912851213,
+            "0.5": 0.22780074486385965,
+            "0.75": 0.3266676195264209,
+            "0.9": 0.3899685720786185,
+            "1": 0.680686472106036
+          }
+        },
+        "june_gate": {
+          "n": 27295,
+          "positive_rate": 0.21927092874152776,
+          "brier": 0.1613672279209769,
+          "log_loss": 0.4959527221810286,
+          "roc_auc": 0.671539971467853,
+          "probability_quantiles": {
+            "0": 0.00828584739159961,
+            "0.1": 0.058094719650405365,
+            "0.25": 0.11852662968505065,
+            "0.5": 0.22347800496233625,
+            "0.75": 0.32806954081676376,
+            "0.9": 0.38931212903755913,
+            "1": 0.6689658348962705
+          }
+        }
+      },
+      "market_direction_calibrated": {
+        "fit": {
+          "n": 39887,
+          "positive_rate": 0.23471306440694964,
+          "brier": 0.15372177272529008,
+          "log_loss": 0.4646860707916649,
+          "roc_auc": 0.769640747154099,
+          "probability_quantiles": {
+            "0": 0.007034809894991393,
+            "0.1": 0.05253381322932464,
+            "0.25": 0.1094810819650934,
+            "0.5": 0.212581063527973,
+            "0.75": 0.3093530655869564,
+            "0.9": 0.36998208294158674,
+            "1": 0.6367631263884735
+          }
+        },
+        "calibration": {
+          "n": 27005,
+          "positive_rate": 0.20699870394371414,
+          "brier": 0.1515296081053721,
+          "log_loss": 0.4674952380791765,
+          "roc_auc": 0.6987993928653323,
+          "probability_quantiles": {
+            "0": 0.007571227085440243,
+            "0.1": 0.0547389698961057,
+            "0.25": 0.1092050671577003,
+            "0.5": 0.20403657336636438,
+            "0.75": 0.29927937295292645,
+            "0.9": 0.360878409526237,
+            "1": 0.6311992844232625
+          }
+        },
+        "june_gate": {
+          "n": 27295,
+          "positive_rate": 0.21927092874152776,
+          "brier": 0.1611817869905616,
+          "log_loss": 0.496323362374162,
+          "roc_auc": 0.671861501085735,
+          "probability_quantiles": {
+            "0": 0.006494406929831055,
+            "0.1": 0.051428873153607634,
+            "0.25": 0.1053942893356031,
+            "0.5": 0.20160960757026616,
+            "0.75": 0.3011537568739536,
+            "0.9": 0.36061968971931235,
+            "1": 0.6196319443731264
+          }
+        }
+      },
+      "calibrator_coef": [
+        0.9911537203032403,
+        0.11732538786729217,
+        -0.0863902682128894,
+        0.07345864807770809,
+        -0.15707675175635663,
+        0.1102635290260845,
+        0.04062811067030164,
+        -0.10528472385202434,
+        -0.07863757292226928,
+        -0.04495041532246707,
+        -0.0407632257796602
+      ],
+      "calibrator_intercept": -0.0857136428887491
+    },
+    "T40": {
+      "raw": {
+        "fit": {
+          "n": 39780,
+          "positive_rate": 0.1536701860231272,
+          "brier": 0.10844353855324065,
+          "log_loss": 0.34609391659338445,
+          "roc_auc": 0.8180671044435257,
+          "probability_quantiles": {
+            "0": 0.004695116341867638,
+            "0.1": 0.0231708852004098,
+            "0.25": 0.05283265392019171,
+            "0.5": 0.13588598121770978,
+            "0.75": 0.23712689275703863,
+            "0.9": 0.3113527572126215,
+            "1": 0.6292885846280628
+          }
+        },
+        "calibration": {
+          "n": 26931,
+          "positive_rate": 0.1307415246370354,
+          "brier": 0.1056007817821029,
+          "log_loss": 0.3496976420503498,
+          "roc_auc": 0.7321255902675119,
+          "probability_quantiles": {
+            "0": 0.004793588425726925,
+            "0.1": 0.02455186676168261,
+            "0.25": 0.05481714165771924,
+            "0.5": 0.13133177808448826,
+            "0.75": 0.22555329740279434,
+            "0.9": 0.300078775601613,
+            "1": 0.5567240858761163
+          }
+        },
+        "june_gate": {
+          "n": 27184,
+          "positive_rate": 0.1368452030606239,
+          "brier": 0.11102978993542868,
+          "log_loss": 0.3684663328650879,
+          "roc_auc": 0.7088818973197101,
+          "probability_quantiles": {
+            "0": 0.003724732026161401,
+            "0.1": 0.02294330482724319,
+            "0.25": 0.05082906425010329,
+            "0.5": 0.12521524019304603,
+            "0.75": 0.22391286320094297,
+            "0.9": 0.29738881098341924,
+            "1": 0.5722654700635301
+          }
+        }
+      },
+      "market_direction_calibrated": {
+        "fit": {
+          "n": 39780,
+          "positive_rate": 0.1536701860231272,
+          "brier": 0.11046032873438097,
+          "log_loss": 0.34990300261548424,
+          "roc_auc": 0.811933164109871,
+          "probability_quantiles": {
+            "0": 0.003732633684616361,
+            "0.1": 0.02048821561162387,
+            "0.25": 0.04556649470472553,
+            "0.5": 0.11544550456552366,
+            "0.75": 0.20641956103497236,
+            "0.9": 0.2788594039073171,
+            "1": 0.5769141105402581
+          }
+        },
+        "calibration": {
+          "n": 26931,
+          "positive_rate": 0.1307415246370354,
+          "brier": 0.1047459210678705,
+          "log_loss": 0.34698528306795984,
+          "roc_auc": 0.7357161115809567,
+          "probability_quantiles": {
+            "0": 0.00428947076859939,
+            "0.1": 0.02210520968954393,
+            "0.25": 0.04772189601314371,
+            "0.5": 0.11142625981381654,
+            "0.75": 0.19738698446573638,
+            "0.9": 0.27137582209534133,
+            "1": 0.5591097945884017
+          }
+        },
+        "june_gate": {
+          "n": 27184,
+          "positive_rate": 0.1368452030606239,
+          "brier": 0.11080776088362727,
+          "log_loss": 0.36879597560089006,
+          "roc_auc": 0.7079330747812251,
+          "probability_quantiles": {
+            "0": 0.003517799176169656,
+            "0.1": 0.020329691580528983,
+            "0.25": 0.04472490357014173,
+            "0.5": 0.10748212357909864,
+            "0.75": 0.19587116206085875,
+            "0.9": 0.2675283754739862,
+            "1": 0.5637892479787596
+          }
+        }
+      },
+      "calibrator_coef": [
+        0.9668204560146374,
+        0.053260752052206393,
+        -0.21187695442302998,
+        0.24149651031986388,
+        -0.17404833047266527,
+        0.10399044885350371,
+        0.09703726486206075,
+        -0.21093938703034906,
+        -0.04564536598317397,
+        -0.05043802816658178,
+        -0.09628703365506883
+      ],
+      "calibrator_intercept": -0.14672506373460595
+    },
+    "T50": {
+      "raw": {
+        "fit": {
+          "n": 39762,
+          "positive_rate": 0.10369196720486897,
+          "brier": 0.07677712638459915,
+          "log_loss": 0.25660953320957297,
+          "roc_auc": 0.8553974188455137,
+          "probability_quantiles": {
+            "0": 0.0029319671116068815,
+            "0.1": 0.012286336395797388,
+            "0.25": 0.026287914094639694,
+            "0.5": 0.07542049496240151,
+            "0.75": 0.16198557982607137,
+            "0.9": 0.24015677453879639,
+            "1": 0.6002589269817293
+          }
+        },
+        "calibration": {
+          "n": 26923,
+          "positive_rate": 0.08357166734762099,
+          "brier": 0.07208192609292655,
+          "log_loss": 0.2561088926501479,
+          "roc_auc": 0.7573479061682361,
+          "probability_quantiles": {
+            "0": 0.0029903210302022745,
+            "0.1": 0.013500439333832746,
+            "0.25": 0.027731577528755255,
+            "0.5": 0.07183681938477589,
+            "0.75": 0.1497669705200148,
+            "0.9": 0.22754745269935767,
+            "1": 0.5650996914068231
+          }
+        },
+        "june_gate": {
+          "n": 27188,
+          "positive_rate": 0.0858099161394733,
+          "brier": 0.07413966633054224,
+          "log_loss": 0.26459959254393367,
+          "roc_auc": 0.7413625431273354,
+          "probability_quantiles": {
+            "0": 0.0025941417612568365,
+            "0.1": 0.012462253978965884,
+            "0.25": 0.024891117728113903,
+            "0.5": 0.06718473575520277,
+            "0.75": 0.14909857301013063,
+            "0.9": 0.22549002456782133,
+            "1": 0.5854089100174034
+          }
+        }
+      },
+      "market_direction_calibrated": {
+        "fit": {
+          "n": 39762,
+          "positive_rate": 0.10369196720486897,
+          "brier": 0.07871019820562788,
+          "log_loss": 0.26066599058996986,
+          "roc_auc": 0.8485465221467838,
+          "probability_quantiles": {
+            "0": 0.0027965448326464576,
+            "0.1": 0.010444552173660679,
+            "0.25": 0.022088411588159336,
+            "0.5": 0.06109446817154804,
+            "0.75": 0.13434304650369663,
+            "0.9": 0.20351594428541267,
+            "1": 0.5798714519156338
+          }
+        },
+        "calibration": {
+          "n": 26923,
+          "positive_rate": 0.08357166734762099,
+          "brier": 0.07140937982042082,
+          "log_loss": 0.25362099244926617,
+          "roc_auc": 0.761103662573123,
+          "probability_quantiles": {
+            "0": 0.002633760888750215,
+            "0.1": 0.011720298898057039,
+            "0.25": 0.02347191320779926,
+            "0.5": 0.05943809902077254,
+            "0.75": 0.12575316565113326,
+            "0.9": 0.19462862418638674,
+            "1": 0.5143383510678107
+          }
+        },
+        "june_gate": {
+          "n": 27188,
+          "positive_rate": 0.0858099161394733,
+          "brier": 0.07383311931556968,
+          "log_loss": 0.26425149052965746,
+          "roc_auc": 0.7402566691353356,
+          "probability_quantiles": {
+            "0": 0.0020021670098927667,
+            "0.1": 0.010620328514425665,
+            "0.25": 0.02142092960977216,
+            "0.5": 0.055675830370943355,
+            "0.75": 0.12555742305263196,
+            "0.9": 0.19374087485950592,
+            "1": 0.49874626256926213
+          }
+        }
+      },
+      "calibrator_coef": [
+        0.9588391427999363,
+        0.09425631617510713,
+        -0.1850561089828549,
+        0.2863324421293228,
+        -0.223979713541626,
+        0.09339459123008026,
+        0.0868878765502896,
+        -0.2650953208947333,
+        -0.07682235858889107,
+        -0.09054236993771923,
+        -0.09953990598560097
+      ],
+      "calibrator_intercept": -0.19008227963966756
+    }
+  },
+  "june_one_open_simulation": {
+    "qualified_candidate_rungs_before_one_open": 106,
+    "actual_trades": 39,
+    "distinct_trade_weekdays": 19,
+    "target_hits": 15,
+    "target_hit_rate": 0.38461538461538464,
+    "mean_stress_break_even_probability": 0.46790008874247885,
+    "mean_calibrated_probability": 0.49517023704390967,
+    "primary_net_pnl_usd": -8.500636661610937,
+    "primary_expectancy_usd": -0.21796504260540908,
+    "stress_net_pnl_usd": -151.70192344875983,
+    "stress_expectancy_usd": -3.88979290894256,
+    "primary_profit_factor": 0.9829983298509294,
+    "stress_profit_factor": 0.7415360720941095,
+    "max_drawdown_usd": 212.33763666160144,
+    "longest_losing_trade_run": 5,
+    "market_trade_count": {
+      "AUDUSD": 10,
+      "EURJPY": 1,
+      "GBPUSD": 22,
+      "USDCHF": 4,
+      "XAUUSD": 2
+    },
+    "eligible_weekdays": 22,
+    "zero_trade_days": 3,
+    "mean_daily_pnl_usd": -0.38639257552777034,
+    "median_daily_pnl_usd": -11.403066826852548,
+    "pct_days_ge_100": 0.0,
+    "pct_days_ge_150": 0.0,
+    "losing_day_pct": 0.5,
+    "trade_examples": [
+      {
+        "entry_ts": "2026-06-01 14:10:00+00:00",
+        "exit_ts": "2026-06-01 14:50:00+00:00",
+        "symbol": "USDCHF",
+        "direction": "short",
+        "rung": "T30",
+        "p": 0.5383428453801216,
+        "stress_be": 0.5189189189188762,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.806133653705096,
+        "stress_net_pnl_usd": -25.795450141452
+      },
+      {
+        "entry_ts": "2026-06-03 13:00:00+00:00",
+        "exit_ts": "2026-06-03 13:17:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.5681654404161656,
+        "stress_be": 0.5179487179487381,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.491000000002046,
+        "stress_net_pnl_usd": -25.452000000002048
+      },
+      {
+        "entry_ts": "2026-06-03 13:40:00+00:00",
+        "exit_ts": "2026-06-03 13:43:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.5283472488197745,
+        "stress_be": 0.5178082191780904,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.71200000000085,
+        "stress_net_pnl_usd": -25.70400000000085
+      },
+      {
+        "entry_ts": "2026-06-04 12:00:00+00:00",
+        "exit_ts": "2026-06-04 12:05:00+00:00",
+        "symbol": "USDCHF",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.6196319443731264,
+        "stress_be": 0.517948717948738,
+        "outcome": "target",
+        "primary_net_pnl_usd": 26.795687247905672,
+        "stress_net_pnl_usd": 23.818388664805042
+      },
+      {
+        "entry_ts": "2026-06-04 12:15:00+00:00",
+        "exit_ts": "2026-06-04 14:14:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "short",
+        "rung": "T40",
+        "p": 0.5001171472077168,
+        "stress_be": 0.4666666666666703,
+        "outcome": "timeout",
+        "primary_net_pnl_usd": 20.7060000000005,
+        "stress_net_pnl_usd": 16.762000000000498
+      },
+      {
+        "entry_ts": "2026-06-05 11:20:00+00:00",
+        "exit_ts": "2026-06-05 11:21:00+00:00",
+        "symbol": "XAUUSD",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.20598203846094795,
+        "stress_be": 0.20292261707085232,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -3.11000000000422,
+        "stress_net_pnl_usd": -6.11000000000422
+      },
+      {
+        "entry_ts": "2026-06-05 11:35:00+00:00",
+        "exit_ts": "2026-06-05 12:02:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T40",
+        "p": 0.4769872519044034,
+        "stress_be": 0.4666666666666665,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -23.42399999999998,
+        "stress_net_pnl_usd": -27.32799999999998
+      },
+      {
+        "entry_ts": "2026-06-05 12:35:00+00:00",
+        "exit_ts": "2026-06-05 13:01:00+00:00",
+        "symbol": "EURJPY",
+        "direction": "short",
+        "rung": "T40",
+        "p": 0.4713954649368166,
+        "stress_be": 0.4663303909205616,
+        "outcome": "target",
+        "primary_net_pnl_usd": 35.6380058885174,
+        "stress_net_pnl_usd": 31.67822745645991
+      },
+      {
+        "entry_ts": "2026-06-05 13:30:00+00:00",
+        "exit_ts": "2026-06-05 13:37:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T50",
+        "p": 0.45880746879661505,
+        "stress_be": 0.4280193236715226,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -24.354000000002987,
+        "stress_net_pnl_usd": -29.238000000002987
+      },
+      {
+        "entry_ts": "2026-06-05 14:05:00+00:00",
+        "exit_ts": "2026-06-05 14:07:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T40",
+        "p": 0.4869646958736735,
+        "stress_be": 0.46528497409331854,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -23.839000000006074,
+        "stress_net_pnl_usd": -27.838000000006076
+      },
+      {
+        "entry_ts": "2026-06-08 11:45:00+00:00",
+        "exit_ts": "2026-06-08 12:05:00+00:00",
+        "symbol": "USDCHF",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.5453108598960227,
+        "stress_be": 0.5199999999999789,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.79382616590362,
+        "stress_net_pnl_usd": -25.766933926673943
+      },
+      {
+        "entry_ts": "2026-06-08 12:10:00+00:00",
+        "exit_ts": "2026-06-08 12:53:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "short",
+        "rung": "T50",
+        "p": 0.43763441401243214,
+        "stress_be": 0.4280991735537903,
+        "outcome": "target",
+        "primary_net_pnl_usd": 43.596000000000004,
+        "stress_net_pnl_usd": 38.752
+      },
+      {
+        "entry_ts": "2026-06-09 00:45:00+00:00",
+        "exit_ts": "2026-06-09 01:14:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.546657009602144,
+        "stress_be": 0.519999999999989,
+        "outcome": "target",
+        "primary_net_pnl_usd": 26.649,
+        "stress_net_pnl_usd": 23.688000000000002
+      },
+      {
+        "entry_ts": "2026-06-09 12:10:00+00:00",
+        "exit_ts": "2026-06-09 12:10:00+00:00",
+        "symbol": "XAUUSD",
+        "direction": "short",
+        "rung": "T30",
+        "p": 0.23553320977240053,
+        "stress_be": 0.20818211811305834,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -3.3100000000085856,
+        "stress_net_pnl_usd": -6.310000000008586
+      },
+      {
+        "entry_ts": "2026-06-09 14:25:00+00:00",
+        "exit_ts": "2026-06-09 14:27:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.5260910402830579,
+        "stress_be": 0.5178082191780904,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.71200000000085,
+        "stress_net_pnl_usd": -25.70400000000085
+      },
+      {
+        "entry_ts": "2026-06-09 14:35:00+00:00",
+        "exit_ts": "2026-06-09 14:44:00+00:00",
+        "symbol": "USDCHF",
+        "direction": "short",
+        "rung": "T30",
+        "p": 0.5360017914007956,
+        "stress_be": 0.5180722891565925,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.342369978395528,
+        "stress_net_pnl_usd": -25.282155501869077
+      },
+      {
+        "entry_ts": "2026-06-09 17:50:00+00:00",
+        "exit_ts": "2026-06-09 17:58:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "short",
+        "rung": "T40",
+        "p": 0.4908209806881555,
+        "stress_be": 0.46666666666665946,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -23.80799999999919,
+        "stress_net_pnl_usd": -27.77599999999919
+      },
+      {
+        "entry_ts": "2026-06-10 11:55:00+00:00",
+        "exit_ts": "2026-06-10 12:30:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T30",
+        "p": 0.5531964959650958,
+        "stress_be": 0.5189873417721916,
+        "outcome": "target",
+        "primary_net_pnl_usd": 26.505,
+        "stress_net_pnl_usd": 23.56
+      },
+      {
+        "entry_ts": "2026-06-10 13:30:00+00:00",
+        "exit_ts": "2026-06-10 13:35:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "short",
+        "rung": "T30",
+        "p": 0.5400208157447688,
+        "stress_be": 0.518796992481214,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -22.570000000001126,
+        "stress_net_pnl_usd": -25.530000000001127
+      },
+      {
+        "entry_ts": "2026-06-11 13:15:00+00:00",
+        "exit_ts": "2026-06-11 13:20:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T40",
+        "p": 0.5037527591010224,
+        "stress_be": 0.4666666666666471,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -23.75999999999782,
+        "stress_net_pnl_usd": -27.719999999997817
+      },
+      {
+        "entry_ts": "2026-06-12 11:05:00+00:00",
+        "exit_ts": "2026-06-12 11:22:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "short",
+        "rung": "T50",
+        "p": 0.49641117383008826,
+        "stress_be": 0.42857142857139763,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -24.49999999999629,
+        "stress_net_pnl_usd": -29.39999999999629
+      },
+      {
+        "entry_ts": "2026-06-15 00:10:00+00:00",
+        "exit_ts": "2026-06-15 00:52:00+00:00",
+        "symbol": "AUDUSD",
+        "direction": "long",
+        "rung": "T50",
+        "p": 0.47489630789542586,
+        "stress_be": 0.4277777777777421,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -24.623999999995704,
+        "stress_net_pnl_usd": -29.567999999995703
+      },
+      {
+        "entry_ts": "2026-06-16 12:40:00+00:00",
+        "exit_ts": "2026-06-16 13:20:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T40",
+        "p": 0.5497589532532207,
+        "stress_be": 0.4666666666666665,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -23.42399999999998,
+        "stress_net_pnl_usd": -27.32799999999998
+      },
+      {
+        "entry_ts": "2026-06-17 12:00:00+00:00",
+        "exit_ts": "2026-06-17 12:53:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T40",
+        "p": 0.4972393103731006,
+        "stress_be": 0.46666666666658857,
+        "outcome": "target",
+        "primary_net_pnl_usd": 35.964,
+        "stress_net_pnl_usd": 31.968
+      },
+      {
+        "entry_ts": "2026-06-18 11:40:00+00:00",
+        "exit_ts": "2026-06-18 11:51:00+00:00",
+        "symbol": "GBPUSD",
+        "direction": "long",
+        "rung": "T40",
+        "p": 0.5159035618994083,
+        "stress_be": 0.46558704453442223,
+        "outcome": "stop",
+        "primary_net_pnl_usd": -23.64000000000103,
+        "stress_net_pnl_usd": -27.60000000000103
+      }
+    ]
+  },
+  "june_gate": {
+    "june_states_ge_200_each": true,
+    "june_trades_ge_30": true,
+    "june_trade_weekdays_ge_10": true,
+    "june_hit_rate_above_mean_stress_break_even": false,
+    "june_primary_expectancy_gt_0": false,
+    "june_stress_expectancy_gt_0": false,
+    "june_primary_pf_ge_1_10": false,
+    "june_stress_pf_ge_1_00": false,
+    "june_max_drawdown_le_100": false,
+    "causality_same_bar_provenance_integrity": true,
+    "market_contribution_reported": true,
+    "secondary_and_final_holdout_sealed": true,
+    "final_june_development_gate": false
+  },
+  "disposition": "FAIL_STOP_BEFORE_SECONDARY"
+}
