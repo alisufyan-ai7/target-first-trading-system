@@ -878,3 +878,27 @@ Current outcome status:
 - Sep: unopened.
 
 **Next:** run zero-outcome EXP-026 mechanics preflight. Do not run development unless every market has >=100 admissible trigger paths and both directions.
+
+
+### Engine L mechanics preflight PASS + MTF guidance
+
+Durable preflight result:
+
+`b19d4ef6c3a689117fc5b8237167322bd64a2aa7`
+
+- 12,532 admissible Engine-L entry paths;
+- all 8 markets >=100;
+- both directions on every market;
+- Engine-L target/P&L outcomes at checkpoint: NO;
+- Jul-Aug: unopened;
+- Sep: unopened.
+
+Also read:
+
+`research/notes/MULTI-TIMEFRAME-INTRADAY-GUIDANCE.md`
+
+Guidance only:
+
+`4H/1H context -> 15m setup/location -> 5m arm -> 1m execution`.
+
+Do not silently add MTF gates to Engine L v0.1. First run the frozen Engine-L development experiment versus its matched immediate-entry control.
