@@ -1,6 +1,6 @@
 # EXP-026 — Engine L v0.1 Forecast-Armed Micro Pullback Entry
 
-**Status:** FROZEN PROSPECTIVELY — ZERO ENGINE-L OUTCOMES  
+**Status:** ZERO-OUTCOME ENTRY-MECHANICS PREFLIGHT PASSED — DEVELOPMENT NEXT  
 **Date:** 2026-09-24  
 **Strategy:** `strategies/engine-l-forecast-armed-micro-entry/SPEC-v0.1.md`
 
@@ -88,3 +88,41 @@ At freeze:
 ## Next
 
 Implement exact causal entry engine + six-fold development runner. Preflight it before outcomes, then run development only if entry mechanics pass.
+
+
+## Zero-outcome mechanics preflight — PASS
+
+**Workflow run:** `35986445374`  
+**Durable result commit:** `b19d4ef6c3a689117fc5b8237167322bd64a2aa7`  
+**Result:** `research/results/EXP-026-entry-mechanics-preflight-v0.1.json`
+
+Protection at checkpoint:
+
+- Engine-L target outcomes calculated: **NO**;
+- Engine-L P&L outcomes calculated: **NO**;
+- forecast model fitted: **NO**;
+- Jul-Aug secondary loaded/inspected: **NO**;
+- Sep final holdout loaded/inspected: **NO**.
+
+Mechanics result:
+
+- total examined decision-direction paths: 274,666;
+- total admissible micro-entry paths: 12,532;
+- every execution market exceeded the frozen >=100-path minimum;
+- every market produced both long and short admissible triggers;
+- median wait-to-entry was about 6-7 active M1 bars across markets.
+
+Per-market admissible paths:
+
+- XAUUSD 1,748;
+- EURUSD 1,129;
+- GBPUSD 1,665;
+- USDJPY 906;
+- EURJPY 705;
+- AUDUSD 3,938;
+- USDCAD 435;
+- USDCHF 2,006.
+
+**Disposition:** PASS. Engine-L mechanics are sufficiently abundant and balanced to justify the prospectively frozen development test.
+
+No profitability conclusion is implied by this preflight.
