@@ -1078,3 +1078,17 @@ Frozen v0.1:
 - unchanged signal-first safe-lot overlay.
 
 No outcomes exist at freeze. Jul-Aug and Sep remain sealed.
+
+
+## 2026-09-24 — Freeze Engine O v0.2 continuous M5 scanner
+
+**Decision:** EXP-034 produced 209 zero-outcome signals and failed only the unchanged opportunity-density gate. Do not lower the gate.
+
+Because no Engine-O outcome was inspected, broaden only sampling frequency:
+
+- evaluate every completed M5 bar from 06:05 through 17:55 UTC;
+- preserve all statistical-stretch, rejection, entry, room, cost and safety rules;
+- preserve one-pending-order suppression;
+- keep the same >=25-per-market / >=300-total preflight gate.
+
+No v0.2 outcomes exist at freeze. Jul-Aug and Sep remain sealed.
