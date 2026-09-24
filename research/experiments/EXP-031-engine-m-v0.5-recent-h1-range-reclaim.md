@@ -39,3 +39,43 @@ Keep the **same** frozen v0.4 gate:
 ## Next
 
 Implement and run zero-outcome preflight only.
+
+
+## Preflight attempt 1 — verification implementation failure
+
+**Workflow run:** `36009869842`  
+**Trigger SHA:** `6df0eb309b60d43a429d26c2bd752ec887f9d656`
+
+The workflow failed in the deterministic verification step before the market preflight ran.
+
+Root cause:
+
+- the v0.5 helper returned an M5 geometry dictionary containing `status="ok"`;
+- the qualifying return path set `status="armed"` **before** unpacking that helper dictionary;
+- Python therefore overwrote `armed` with `ok`;
+- the non-qualifying path had the same collision and could overwrite `no_recent_h1_range_qualified` with `ok`.
+
+This was an implementation-field collision, not a strategy/preflight research failure.
+
+Evidence status from attempt 1:
+
+- market preflight executed: **NO**;
+- EXP-031 target outcomes: **NO**;
+- EXP-031 P&L outcomes: **NO**;
+- Jul-Aug loaded/inspected: **NO**;
+- Sep loaded/inspected: **NO**.
+
+Corrections:
+
+- qualifying return now unpacks geometry first and sets `status="armed"` afterward;
+- non-qualifying return now unpacks geometry first and sets `status="no_recent_h1_range_qualified"` afterward;
+- no strategy mechanics, recency order, target-room rule, frequency gate, sizing, cost or safety rule changed.
+
+Fix commits:
+
+- `5335a440edc0ad3a58995dfa0bb16b08fb91713b`;
+- `a50cf398e57fd13fb1ac1e8b26fbe701df1e1cf9`.
+
+### Next
+
+Rerun the identical frozen EXP-031 zero-outcome preflight.
