@@ -722,3 +722,30 @@ Frozen flow:
 **Protection:** Mar-Jun development reusable; Jul-Aug and Sep sealed.
 
 **Next:** zero-outcome mechanics preflight. Require >=100 admissible trigger paths per market and both directions before any Engine-L target/P&L outcome.
+
+
+## 2026-09-24 — Treat multi-timeframe top-down analysis as design guidance
+
+**Decision:** preserve the user-supplied discretionary principle that different timeframes should have different jobs, without adopting social-media claims such as “15m is best” as evidence.
+
+Research guidance:
+
+- 4H / 1H: context, direction, major location;
+- 15m: intraday setup/location;
+- 5m: tactical forecast/arm;
+- 1m: execution and fresh stop.
+
+**Current experiment discipline:** do not mutate Engine L v0.1 with new MTF gates after its zero-outcome preflight. First test whether its entry redesign materially beats the matched immediate-entry control. If execution helps but economics remain insufficient, a future prospective version may add the explicit MTF context layer.
+
+Guidance file: `research/notes/MULTI-TIMEFRAME-INTRADAY-GUIDANCE.md`.
+
+
+## 2026-09-24 — Engine L v0.1 mechanics preflight passed
+
+**Result commit:** `b19d4ef6c3a689117fc5b8237167322bd64a2aa7`.
+
+All eight execution markets passed the frozen zero-outcome entry-mechanics gate. Total admissible micro-entry paths through Jun30: 12,532. Both directions were represented on every market.
+
+No Engine-L target or P&L outcomes were calculated. Jul-Aug and Sep remain sealed.
+
+**Next permitted stage:** Engine-L development against the matched immediate-entry control.
