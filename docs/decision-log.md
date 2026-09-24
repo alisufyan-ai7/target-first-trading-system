@@ -1337,3 +1337,25 @@ This is prospectively frozen with zero outcomes. Jun30 source seal and Jul-Aug/S
 **Decision:** Engine-R dynamic peer-residual mechanics and zero-outcome preflight are frozen at repository SHA `db879da22f4ec6ab3a7ca497f110f847b7ff373f`.
 
 No target/P&L outcome exists and protected periods remain sealed. The only permitted next computation is one EXP-039 zero-outcome preflight.
+
+
+## 2026-09-25 — Pause strategy iteration for root-cause / edge-source audit
+
+**Decision:** stop the pattern of advancing from one OHLC-derived strategy family to the next after each failure.
+
+The repository evidence from Engines M/N/O/P/Q shows that opportunity density and execution can be improved without producing enough raw predictive edge. Engine Q's non-chasing entry improved its matched immediate control, but the actual signal still achieved only +0.09479R gross versus the frozen >+0.20R hurdle and remained negative after costs.
+
+The project will now test the **information source** before the next strategy:
+
+- execution-grade bid/ask/spread/tick data;
+- order flow / order-book imbalance and depth where available;
+- macro actual-versus-consensus surprise;
+- rates and cross-asset reaction;
+- session/liquidity/structural context;
+- target-ladder/MFE/MAE/path information.
+
+The audit also records that the USD150-200 strong-day zone cannot be turned into a quota by raising risk. On USD500 equity, that is a 30%-40% daily return; risk sufficient to force it would conflict with the current daily-loss framework unless a much stronger validated edge exists.
+
+**Engine R consequence:** preserve the prospective EXP-039 artifact, but pause before target/P&L development while the root-cause program is active. Do not consume Jul-Aug or Sep.
+
+Authoritative research checkpoint: `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md` at `b170bef2`.
