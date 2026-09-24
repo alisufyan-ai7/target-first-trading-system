@@ -373,3 +373,8 @@
 - Implemented Engine Q v0.1 and EXP-037 zero-outcome preflight/workflow before any outcomes.
 - Frozen implementation checkpoint at main SHA `c51c8f9566a6ccfddaf8117c2b0a80c45fbeb10b`; engine/runner/workflow commits `9a2a2c7` / `2bfb0c5` / `c51c8f9`.
 - Protected Jul-Aug and Sep remain sealed; next computation is one zero-outcome EXP-037 preflight only.
+
+- Closed Engine Q v0.1 / EXP-037 at zero-outcome preflight result `b05efb3`: only 56 filled signals, all safely deployable, but all eight markets and total >=300 frequency gates failed.
+- No target/P&L outcomes were calculated; Jun30 hard source seal held and Jul-Aug/Sep remained unopened.
+- Same-bar >=4-peer VR>=1.75 synchronization was identified as the dominant frequency bottleneck.
+- Frequency gate remains unchanged; any next version must redesign peer-shock sampling prospectively rather than lower the gate.
