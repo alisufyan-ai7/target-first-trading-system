@@ -1829,3 +1829,22 @@ Implementation checkpoint:
 Jul-Aug and Sep 2026 remain sealed. Engine R remains paused.
 
 **Exact next action:** trigger one EXP-041 extended-market-history acquisition/audit. If it passes, continue the macro Gate-A work by acquiring enough point-in-time event history; do not run Gate B until sample-independence requirements pass.
+
+
+### EXP-041 extended-history attempt 1 — operational failure only
+
+Run `36153466140` completed **failure**, but this was not a data/scientific gate result.
+
+Verified job sequence:
+
+- setup/install: PASS;
+- acquisition code verification: PASS;
+- full frozen 12-month Dukascopy download: **PASS for all 8 markets**;
+- downloaded normalized-row counts ranged from 338,380 to 368,988 per market;
+- audit crashed immediately on an unnecessary import dependency: `ModuleNotFoundError: joblib`;
+- no audit JSON was produced;
+- no target labels, P&L, strategy outcomes, Jul-Aug data, or Sep data were computed.
+
+Operational fix commit: `105eb2e290c06a76fcd0cee9d0faeee656113f3f` removes the modeling-module dependency and locally parses only the overlap rows needed for source sanity. Frozen acquisition interval, source, integrity thresholds and scientific rules are unchanged.
+
+**Next:** rerun the same EXP-041 acquisition/audit once.
