@@ -1399,3 +1399,18 @@ Run `36135418584` failed on two attempts before GitHub executed a single workflo
 **Decision:** preserve the frozen EXP-040 experiment unchanged. The red check is an operational Actions-startup block only. Do not tune code, features, model, target ladder or gates without an actual workflow/code failure trace.
 
 Resolve the Actions/account/runner startup condition first, then rerun the same frozen experiment. Protected Jul-Aug/Sep remain sealed.
+
+
+## 2026-09-25 — EXP-040 finds no stable generic MTF information advantage
+
+**Decision:** do not turn generic multi-timeframe OHLC context into a new strategy family.
+
+EXP-040 used 123,724 development candidates and six purged chronological folds. None of the nested context sets (+15M, +1H, +4H/prior-day, +session location) passed the frozen information-advantage gate on both T40eq and T50eq.
+
+The local-M5 baseline remained better on pooled log loss/Brier than every richer set. The failure was not due to protected-period leakage or sample scarcity; integrity passed and Jul-Aug/Sep remained sealed.
+
+This narrows the root-cause hypothesis:
+
+> the missing edge is unlikely to be recovered by simply adding more generic OHLC timeframes.
+
+The next information family must be genuinely new rather than another price transform. Proceed to macro/catalyst information-content research before any strategy build.
