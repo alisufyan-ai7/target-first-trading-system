@@ -395,7 +395,13 @@ def main():
         "feature_sets_exactly_nested":True,
         "engine_r_outcomes_used":False,
     }
-    integrity["integrity_pass"]=bool(all(integrity.values()))
+    integrity["integrity_pass"]=bool(
+        integrity["each_market_direction_ge_500"]
+        and integrity["primary_rungs_both_classes_all_folds"]
+        and integrity["protected_periods_sealed"]
+        and integrity["feature_sets_exactly_nested"]
+        and not integrity["engine_r_outcomes_used"]
+    )
 
     if not integrity["integrity_pass"]:
         disposition="INTEGRITY_FAIL_DO_NOT_INTERPRET"
