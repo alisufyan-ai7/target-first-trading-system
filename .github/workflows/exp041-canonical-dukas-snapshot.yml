@@ -1,0 +1,126 @@
+name: EXP-041 Canonical Dukascopy Snapshot
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-canonical-dukas-snapshot.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      EXP041_DATA_DIR: /tmp/exp041-dukas-m1
+      SNAPSHOT_TAG: exp041-data-dukas-m1-2025-07-01_2026-06-30-v1
+      SNAPSHOT_ARCHIVE: /tmp/exp041-dukas-m1-2025-07-01_2026-06-30-v1.tar.gz
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned Dukascopy transport
+        run: npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+
+      - name: Verify frozen code
+        run: |
+          node --check research/code/download_exp041_dukas_m1.js
+          python -m py_compile research/code/build_exp041_dukas_snapshot_manifest.py
+
+      - name: Reproduce already-audited Dukascopy bytes
+        run: node research/code/download_exp041_dukas_m1.js
+
+      - name: Verify exact v0.1 hashes before freezing
+        run: python research/code/build_exp041_dukas_snapshot_manifest.py
+
+      - name: Build deterministic immutable archive and record hash
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar --sort=name --mtime='UTC 2026-07-01' --owner=0 --group=0 --numeric-owner             -C "$EXP041_DATA_DIR" -cf - . | gzip -n > "$SNAPSHOT_ARCHIVE"
+          ARCHIVE_SHA="$(sha256sum "$SNAPSHOT_ARCHIVE" | awk '{print $1}')"
+          python - "$ARCHIVE_SHA" <<'PY'
+          import json, pathlib, sys
+          p=pathlib.Path("research/results/EXP-041-canonical-dukas-snapshot-v1.json")
+          x=json.loads(p.read_text())
+          x["release"]["archive_sha256"]=sys.argv[1]
+          p.write_text(json.dumps(x,indent=2)+"\n")
+          PY
+
+      - name: Refuse to overwrite an existing immutable snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$SNAPSHOT_TAG" >/dev/null 2>&1; then
+            echo "Immutable snapshot release already exists: $SNAPSHOT_TAG"
+            exit 1
+          fi
+
+      - name: Create immutable GitHub Release snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create "$SNAPSHOT_TAG"             "$SNAPSHOT_ARCHIVE"             "research/results/EXP-041-canonical-dukas-snapshot-v1.json"             --target "$GITHUB_SHA"             --title "EXP-041 frozen Dukascopy M1 development snapshot v1"             --notes "Immutable EXP-041 development-data snapshot. Download interval Jul 1 2025 to Jul 1 2026 exclusive; effective common modeling cutoff Jun 30 2026 00:00 UTC. No protected Jul-Aug/Sep 2026 data."
+
+      - name: Mark release creation in durable manifest
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-canonical-dukas-snapshot-v1.json")
+          x=json.loads(p.read_text())
+          x["release"]["created"]=True
+          p.write_text(json.dumps(x,indent=2)+"\n")
+          PY
+
+      - name: Upload backup workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-canonical-dukas-snapshot-manifest
+          path: research/results/EXP-041-canonical-dukas-snapshot-v1.json
+
+      - name: Commit durable snapshot manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          P=research/results/EXP-041-canonical-dukas-snapshot-v1.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$P"
+          git commit -m "Checkpoint EXP-041 canonical Dukascopy snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce snapshot-only integrity
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-canonical-dukas-snapshot-v1.json")
+          if not p.exists():
+              raise SystemExit("snapshot manifest missing")
+          x=json.loads(p.read_text())
+          if not x["snapshot_eligible"] or not x["all_expected_hashes_and_rows_match"]:
+              raise SystemExit("snapshot does not reproduce frozen audited bytes")
+          if not x["release"]["created"] or not x["release"]["archive_sha256"]:
+              raise SystemExit("immutable release was not durably checkpointed")
+          if x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_outcomes_calculated"]:
+              raise SystemExit("unexpected scientific outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          print("EXP-041 canonical Dukascopy snapshot frozen successfully")
+          PY
