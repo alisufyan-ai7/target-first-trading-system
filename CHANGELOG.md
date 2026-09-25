@@ -448,3 +448,7 @@
 - EXP-041 extended-history run `36153466140` downloaded all eight 12-month Dukascopy feeds successfully but failed before audit output because the audit imported a modeling module that required missing `joblib`.
 - Fixed the audit operational dependency at `105eb2e` by using a local overlap-only parser; no frozen data range, source, integrity threshold or scientific rule changed.
 - No labels/P&L/protected-period computation occurred in the failed attempt.
+
+- EXP-041 extended-market-history audit produced durable result `1cf168d`: acquisition integrity largely passed, but the frozen cross-feed sanity gate failed for 7/8 markets; USDCHF also ended one day early.
+- Market-history gate remains FAIL. No macro model, target labels or P&L were run.
+- Next action changed to a zero-outcome cross-feed diagnostic before any acquisition-v0.2 redesign; frozen v0.1 thresholds will not be relaxed post hoc.
