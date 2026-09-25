@@ -1,0 +1,502 @@
+{
+  "dataset": "EXP-041 macro/catalyst seed v0.1",
+  "status": "PLUMBING_SEED_NOT_FOR_FINAL_MODEL_PROMOTION",
+  "timezone": "UTC",
+  "development_only": true,
+  "protected_periods_used": false,
+  "provenance_note": "Curated from public historical economic-calendar pages and cross-checked against official BLS/Census/BEA/Federal Reserve release schedules. This seed is for schema/plumbing only. Before Gate B, reacquire point-in-time consensus and actual-as-released values from a frozen historical calendar source.",
+  "event_count": 17,
+  "events": [
+    {
+      "id": "2026-04-03_EMPLOYMENT",
+      "ts": "2026-04-03T12:30:00Z",
+      "family": "EMPLOYMENT",
+      "components": [
+        {
+          "name": "nonfarm_payrolls_k",
+          "actual": 178,
+          "consensus": 60,
+          "unit": "K",
+          "scale": 50
+        },
+        {
+          "name": "unemployment_rate_pct",
+          "actual": 4.3,
+          "consensus": 4.4,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "avg_hourly_earnings_mom_pct",
+          "actual": 0.2,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "avg_hourly_earnings_yoy_pct",
+          "actual": 3.5,
+          "consensus": 3.7,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-04-10_CPI",
+      "ts": "2026-04-10T12:30:00Z",
+      "family": "CPI",
+      "components": [
+        {
+          "name": "core_cpi_mom_pct",
+          "actual": 0.2,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "core_cpi_yoy_pct",
+          "actual": 2.6,
+          "consensus": 2.7,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "cpi_mom_pct",
+          "actual": 0.9,
+          "consensus": 0.9,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "cpi_yoy_pct",
+          "actual": 3.3,
+          "consensus": 3.3,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-04-14_PPI",
+      "ts": "2026-04-14T12:30:00Z",
+      "family": "PPI",
+      "components": [
+        {
+          "name": "ppi_mom_pct",
+          "actual": 0.5,
+          "consensus": 1.1,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "core_ppi_mom_pct",
+          "actual": 0.1,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-04-21_RETAIL",
+      "ts": "2026-04-21T12:30:00Z",
+      "family": "RETAIL",
+      "components": [
+        {
+          "name": "retail_sales_mom_pct",
+          "actual": 1.7,
+          "consensus": 1.4,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "retail_control_group_mom_pct",
+          "actual": 0.7,
+          "consensus": 0.2,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "retail_ex_auto_mom_pct",
+          "actual": 1.9,
+          "consensus": 1.4,
+          "unit": "pct",
+          "scale": 0.5
+        }
+      ]
+    },
+    {
+      "id": "2026-04-29_FOMC",
+      "ts": "2026-04-29T18:00:00Z",
+      "family": "FOMC",
+      "timing_only": true,
+      "components": []
+    },
+    {
+      "id": "2026-04-30_GDP_PCE",
+      "ts": "2026-04-30T12:30:00Z",
+      "family": "GDP_PCE",
+      "components": [
+        {
+          "name": "core_pce_mom_pct",
+          "actual": 0.3,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "gdp_annualized_pct",
+          "actual": 2,
+          "consensus": 2.3,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "pce_mom_pct",
+          "actual": 0.7,
+          "consensus": 0.7,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "gdp_price_index_pct",
+          "actual": 4.5,
+          "consensus": 3.8,
+          "unit": "pct",
+          "scale": 0.5
+        }
+      ]
+    },
+    {
+      "id": "2026-05-08_EMPLOYMENT",
+      "ts": "2026-05-08T12:30:00Z",
+      "family": "EMPLOYMENT",
+      "components": [
+        {
+          "name": "nonfarm_payrolls_k",
+          "actual": 115,
+          "consensus": 62,
+          "unit": "K",
+          "scale": 50
+        },
+        {
+          "name": "unemployment_rate_pct",
+          "actual": 4.3,
+          "consensus": 4.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "avg_hourly_earnings_mom_pct",
+          "actual": 0.2,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "avg_hourly_earnings_yoy_pct",
+          "actual": 3.6,
+          "consensus": 3.8,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-05-12_CPI",
+      "ts": "2026-05-12T12:30:00Z",
+      "family": "CPI",
+      "components": [
+        {
+          "name": "core_cpi_mom_pct",
+          "actual": 0.4,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "core_cpi_yoy_pct",
+          "actual": 2.8,
+          "consensus": 2.7,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "cpi_mom_pct",
+          "actual": 0.6,
+          "consensus": 0.6,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "cpi_yoy_pct",
+          "actual": 3.8,
+          "consensus": 3.7,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-05-13_PPI",
+      "ts": "2026-05-13T12:30:00Z",
+      "family": "PPI",
+      "components": [
+        {
+          "name": "ppi_mom_pct",
+          "actual": 1.4,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "core_ppi_mom_pct",
+          "actual": 1,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-05-14_RETAIL",
+      "ts": "2026-05-14T12:30:00Z",
+      "family": "RETAIL",
+      "components": [
+        {
+          "name": "retail_sales_mom_pct",
+          "actual": 0.5,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "retail_control_group_mom_pct",
+          "actual": 0.5,
+          "consensus": 0.4,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "retail_ex_auto_mom_pct",
+          "actual": 0.7,
+          "consensus": 0.6,
+          "unit": "pct",
+          "scale": 0.5
+        }
+      ]
+    },
+    {
+      "id": "2026-05-28_GDP_PCE",
+      "ts": "2026-05-28T12:30:00Z",
+      "family": "GDP_PCE",
+      "components": [
+        {
+          "name": "core_pce_mom_pct",
+          "actual": 0.2,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "gdp_annualized_pct",
+          "actual": 1.6,
+          "consensus": 2,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "pce_mom_pct",
+          "actual": 0.4,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "gdp_price_index_pct",
+          "actual": 3.5,
+          "consensus": 4.5,
+          "unit": "pct",
+          "scale": 0.5
+        }
+      ]
+    },
+    {
+      "id": "2026-06-05_EMPLOYMENT",
+      "ts": "2026-06-05T12:30:00Z",
+      "family": "EMPLOYMENT",
+      "components": [
+        {
+          "name": "nonfarm_payrolls_k",
+          "actual": 172,
+          "consensus": 85,
+          "unit": "K",
+          "scale": 50
+        },
+        {
+          "name": "unemployment_rate_pct",
+          "actual": 4.3,
+          "consensus": 4.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "avg_hourly_earnings_mom_pct",
+          "actual": 0.3,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "avg_hourly_earnings_yoy_pct",
+          "actual": 3.4,
+          "consensus": 3.4,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-06-10_CPI",
+      "ts": "2026-06-10T12:30:00Z",
+      "family": "CPI",
+      "components": [
+        {
+          "name": "core_cpi_mom_pct",
+          "actual": 0.2,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "core_cpi_yoy_pct",
+          "actual": 2.9,
+          "consensus": 2.9,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "cpi_mom_pct",
+          "actual": 0.5,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "cpi_yoy_pct",
+          "actual": 4.2,
+          "consensus": 4.2,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-06-11_PPI",
+      "ts": "2026-06-11T12:30:00Z",
+      "family": "PPI",
+      "components": [
+        {
+          "name": "ppi_mom_pct",
+          "actual": 1.1,
+          "consensus": 0.7,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "core_ppi_mom_pct",
+          "actual": 0.4,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.1
+        }
+      ]
+    },
+    {
+      "id": "2026-06-17_RETAIL",
+      "ts": "2026-06-17T12:30:00Z",
+      "family": "RETAIL",
+      "components": [
+        {
+          "name": "retail_sales_mom_pct",
+          "actual": 0.9,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "retail_control_group_mom_pct",
+          "actual": 0.7,
+          "consensus": 0.4,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "retail_ex_auto_mom_pct",
+          "actual": 0.8,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.5
+        }
+      ]
+    },
+    {
+      "id": "2026-06-17_FOMC",
+      "ts": "2026-06-17T18:00:00Z",
+      "family": "FOMC",
+      "timing_only": true,
+      "components": []
+    },
+    {
+      "id": "2026-06-25_GDP_PCE",
+      "ts": "2026-06-25T12:30:00Z",
+      "family": "GDP_PCE",
+      "components": [
+        {
+          "name": "core_pce_mom_pct",
+          "actual": 0.3,
+          "consensus": 0.3,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "gdp_annualized_pct",
+          "actual": 2.1,
+          "consensus": 1.6,
+          "unit": "pct",
+          "scale": 0.5
+        },
+        {
+          "name": "pce_mom_pct",
+          "actual": 0.4,
+          "consensus": 0.5,
+          "unit": "pct",
+          "scale": 0.1
+        },
+        {
+          "name": "gdp_price_index_pct",
+          "actual": 3.6,
+          "consensus": 3.5,
+          "unit": "pct",
+          "scale": 0.5
+        }
+      ]
+    }
+  ],
+  "source_classes": {
+    "release_time_authorities": [
+      "https://www.bls.gov/schedule/2026/home.htm",
+      "https://www.census.gov/economic-indicators/calendar-listview.html",
+      "https://www.bea.gov/news/schedule",
+      "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+    ],
+    "historical_consensus_seed": [
+      "https://tradingeconomics.com/calendar"
+    ],
+    "future_required_point_in_time": [
+      "https://docs.tradingeconomics.com/economic_calendar/point-in-time/",
+      "https://www.econoday.com/enterprise/global-economic-data/"
+    ]
+  }
+}
