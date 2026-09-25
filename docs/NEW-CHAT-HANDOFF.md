@@ -1912,3 +1912,12 @@ The current action is **data acquisition, not strategy fitting**:
 After market-history adequacy, acquire enough point-in-time macro consensus/actual-as-released history to satisfy the independent-event gate. Only then may EXP-041 information-content modeling proceed.
 
 Engine R remains paused.
+
+
+### EXP-041 acquisition attempt-1 operational note
+
+Run `36153466140` is **not** a failed market-history gate. All eight Dukascopy files downloaded successfully; the Python audit crashed before evaluation due to an unnecessary `joblib` import dependency. No durable result exists from attempt 1.
+
+Fix: `105eb2e` removes that modeling dependency without changing frozen research mechanics.
+
+**Exact next action:** rerun the unchanged EXP-041 extended-market-history acquisition/audit once, then inspect the durable audit result.
