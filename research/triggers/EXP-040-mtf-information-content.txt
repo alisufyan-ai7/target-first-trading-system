@@ -1,2 +1,4 @@
-Trigger EXP-040 Multi-Timeframe Structural Context Information-Content Study v0.1.
-Frozen inputs are checkpointed. Development data only. Jul-Aug and September remain sealed. Engine R remains paused.
+Rerun EXP-040 after integrity-boolean-only correction.
+Correction commit: d91e950bfb48130418347851b086f486e1cd1308.
+No features, models, folds, targets, gates, data, or protected-period rules changed.
+Development data only. Jul-Aug and September remain sealed. Engine R remains paused.
