@@ -1,2 +1,2 @@
-Trigger EXP-041 extended development market-history acquisition/audit.
-Acquire only 2025-07-01 <= timestamp < 2026-07-01. No target labels, no P&L, no Jul-Aug/Sep 2026. Frozen inputs are checkpointed.
+Retry EXP-041 extended development market-history acquisition/audit after operational dependency fix 105eb2e.
+Acquire only 2025-07-01 <= timestamp < 2026-07-01. Frozen source/gates unchanged. No target labels, no P&L, no Jul-Aug/Sep 2026.
