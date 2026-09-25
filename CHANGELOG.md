@@ -456,3 +456,11 @@
 - EXP-041 cross-feed diagnostic completed successfully at `bdd3b7f`: zero lag is best for all markets, so timezone alignment does not explain the feed disagreement.
 - All eight markets classified `MATERIAL_PATH_MISMATCH`; USDCHF also has a source-coverage gap.
 - No thresholds were relaxed. Next step is prospectively frozen three-feed adjudication before any macro outcome modeling.
+
+- EXP-041 third-source feed adjudication completed successfully at durable result `3e5ed20`.
+- Frozen feed-selection gate failed: CURRENT_PINNED 2/8 supported markets, DUKASCOPY 2/8, HISTDATA 0/8; six markets had no two-source consensus and no source was eligible.
+- XAUUSD and USDCAD were the only passing CURRENT_PINNED↔Dukascopy pairs; HistData was the outlier there.
+- No target labels/P&L/protected-period data were used.
+- No feed was selected and no threshold was relaxed.
+- Authorized one zero-outcome HistData timestamp-semantics diagnostic before moving to an intended-broker/institutional fourth source, because HistData's daily-vs-intraday correlation pattern may indicate a common mechanical timestamp issue.
+
