@@ -1390,3 +1390,12 @@ The study uses a normalized structural-risk target ladder for information testin
 The scientific result may validly be either “stable information advantage found” or “no stable information advantage.” No outcome-dependent strategy rule is introduced by this experiment.
 
 Jul-Aug and Sep remain sealed. Engine R remains paused before development.
+
+
+## 2026-09-25 — Do not treat EXP-040 pre-run Actions failure as research evidence
+
+Run `36135418584` failed on two attempts before GitHub executed a single workflow step. GitHub returned no step summaries and no job logs, and no durable EXP-040 result exists.
+
+**Decision:** preserve the frozen EXP-040 experiment unchanged. The red check is an operational Actions-startup block only. Do not tune code, features, model, target ladder or gates without an actual workflow/code failure trace.
+
+Resolve the Actions/account/runner startup condition first, then rerun the same frozen experiment. Protected Jul-Aug/Sep remain sealed.
