@@ -113,6 +113,18 @@ def add_state_columns(x:pd.DataFrame,fast:int,slow:int,med_window:int)->pd.DataF
 def build_augmented_bars(df1:pd.DataFrame)->dict[str,pd.DataFrame]:
     bars=build_mtf_bars(df1)
     bars["m5"]=add_state_columns(bars["m5"],10,30,20)
+    bars["m5"]["pivot_high_raw"]=(
+        (bars["m5"]["high"]>bars["m5"]["high"].shift(1))
+        & (bars["m5"]["high"]>bars["m5"]["high"].shift(2))
+        & (bars["m5"]["high"]>bars["m5"]["high"].shift(-1))
+        & (bars["m5"]["high"]>bars["m5"]["high"].shift(-2))
+    )
+    bars["m5"]["pivot_low_raw"]=(
+        (bars["m5"]["low"]<bars["m5"]["low"].shift(1))
+        & (bars["m5"]["low"]<bars["m5"]["low"].shift(2))
+        & (bars["m5"]["low"]<bars["m5"]["low"].shift(-1))
+        & (bars["m5"]["low"]<bars["m5"]["low"].shift(-2))
+    )
     bars["m15"]=add_state_columns(bars["m15"],5,12,20)
     bars["h1"]=add_state_columns(bars["h1"],3,8,20)
     bars["h4"]=add_state_columns(bars["h4"],3,6,6)
@@ -128,7 +140,7 @@ def build_daily_table(df1:pd.DataFrame)->pd.DataFrame:
         close=("close","last"),
         n=("close","count"),
     ).dropna(subset=["open","high","low","close"]).reset_index()
-    d=d[d["n"]>=60].copy()
+    d=d[d["n"]>=600].copy()
     d["available_ts"]=d["datetime"]+pd.Timedelta(days=1)
     return d.reset_index(drop=True)
 
