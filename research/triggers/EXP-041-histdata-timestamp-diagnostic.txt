@@ -1,0 +1,3 @@
+Trigger frozen EXP-041 HistData timestamp-semantics diagnostic v0.1.
+Frozen implementation checkpoint: 2791376846eff374c708f0346da29432ab77f1bd
+Scientific rules: common whole-hour shifts -6..+6 only; original pairwise/feed-selection gates unchanged; no outcomes/protected periods.
