@@ -16,7 +16,6 @@ import numpy as np
 import pandas as pd
 
 from engine_k_v0_1 import EXECUTION_MARKETS, download_pinned
-from run_engine_k_v0_2_training_calibration import load_scoped_csv
 
 ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/"research/results"
@@ -43,6 +42,35 @@ def sha256(path:Path)->str:
         for chunk in iter(lambda:fh.read(1024*1024),b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def load_current_scoped(path:Path,symbol:str,cutoff:pd.Timestamp)->pd.DataFrame:
+    """Parse only the existing pinned-source rows needed for overlap sanity.
+
+    Local implementation avoids importing modeling dependencies. This is an
+    acquisition audit only; no target labels or model code are used.
+    """
+    required=["datetime","open","high","low","close","volume"]
+    parts=[]
+    for chunk in pd.read_csv(path,chunksize=50000):
+        if list(chunk.columns[:6])!=required:
+            raise RuntimeError(f"{symbol}: unexpected current-source columns {list(chunk.columns)}")
+        chunk=chunk[required].copy()
+        chunk["datetime"]=pd.to_datetime(chunk["datetime"],utc=True,errors="raise")
+        mask=(chunk["datetime"]>=OVERLAP_START)&(chunk["datetime"]<cutoff)
+        if mask.any():
+            z=chunk.loc[mask].copy()
+            for col in required[1:]:
+                z[col]=pd.to_numeric(z[col],errors="raise")
+            parts.append(z)
+        if (chunk["datetime"]>=cutoff).any():
+            break
+    if not parts:
+        raise RuntimeError(f"{symbol}: no current-source overlap rows")
+    x=pd.concat(parts,ignore_index=True)
+    if x["datetime"].duplicated().any() or not x["datetime"].is_monotonic_increasing:
+        raise RuntimeError(f"{symbol}: current-source timestamp integrity failed")
+    return x
 
 
 def load_duka(path:Path,symbol:str)->pd.DataFrame:
@@ -151,7 +179,7 @@ def main():
         integ=integrity(symbol,duka)
 
         current_path=download_pinned(symbol,CURRENT_CACHE)
-        current=load_scoped_csv(current_path,symbol,SEALED_START)
+        current=load_current_scoped(current_path,symbol,SEALED_START)
         ov=overlap_audit(symbol,duka,current)
 
         markets[symbol]={
