@@ -1991,3 +1991,34 @@ Per-market fitted shifts are not allowed. No target labels/P&L/protected-period 
 
 **Exact next action:** trigger one `EXP-041 HistData Timestamp Semantics Diagnostic` workflow, confirm it starts once, and later inspect the durable bot checkpoint. If no common shift restores the original frozen gate, stop HistData remediation and require intended-broker/another institutional-quality source before macro modeling.
 
+
+
+## EXP-041 canonical Dukascopy snapshot checkpoint
+
+HistData remediation is complete and closed.
+
+Durable timestamp diagnostic `f98eba568e1aad440873443eaec4e7ed7480b20e`:
+
+- no common HistData hour shift from -6h..+6h restored the frozen feed-selection gate;
+- no passing common shifts;
+- no target labels/P&L/protected-period use;
+- disposition: `TIMESTAMP_SHIFT_DOES_NOT_EXPLAIN_FAILURE_REQUIRE_FOURTH_OR_BROKER_SOURCE`.
+
+The project then made a **prospective data-governance change**, documented in `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.2.md`:
+
+- do not keep looping over inconsistent public feeds;
+- Dukascopy becomes the canonical EXP-041 development market-history source;
+- this does not retroactively pass or weaken the failed v0.1 consensus gate;
+- freeze the exact already-audited normalized bytes as an immutable GitHub Release;
+- verify all eight pre-existing SHA-256 hashes before creating the snapshot;
+- use effective common modeling interval 2025-07-01 <= t < 2026-06-30 00:00 UTC because USDCHF lacks Jun30;
+- later EXP-041 workflows must consume the immutable snapshot, not live Dukascopy;
+- intended-broker/institutional execution data is still required before deployment.
+
+Frozen snapshot implementation:
+
+- governance: `4e4e499f90e897bfb7d12a63c7372b8afb510969`;
+- verifier: `3cd2b1914a14aaeb5449ab78c39c62707b2bcb93`;
+- workflow: `ddd2537af351ec67d4ab7ba2c3356d40bd31ca10`.
+
+**Exact next action:** trigger one canonical Dukascopy snapshot workflow. If it reproduces the frozen hashes, use that immutable snapshot and move immediately to the remaining Gate-A blocker: enough point-in-time macro timestamps, pre-release consensus and actual-as-released history. Do not resume OHLC strategy research.
