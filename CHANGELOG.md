@@ -444,3 +444,7 @@
 - Added a 17-event macro plumbing seed, explicitly not valid for final promotion.
 - Frozen a separate twelve-month Dukascopy M1 development feed (Jul2025-Jun2026) with hash/coverage/cross-feed audit and no labels/P&L; added downloader, audit runner and CI workflow.
 - Jul-Aug/Sep 2026 remain sealed; Engine R remains paused.
+
+- EXP-041 extended-history run `36153466140` downloaded all eight 12-month Dukascopy feeds successfully but failed before audit output because the audit imported a modeling module that required missing `joblib`.
+- Fixed the audit operational dependency at `105eb2e` by using a local overlap-only parser; no frozen data range, source, integrity threshold or scientific rule changed.
+- No labels/P&L/protected-period computation occurred in the failed attempt.
