@@ -1939,3 +1939,43 @@ No per-market shift fitting, target labels, P&L, Jul-Aug or Sep data are authori
 
 **Exact next action:** trigger exactly one EXP-041 HistData timestamp-semantics diagnostic workflow. Confirm launch once, then resume from the durable bot result rather than polling.
 
+
+
+## 2026-09-25 — EXP-041 HISTDATA TIMESTAMP DIAGNOSTIC COMPLETE / PUBLIC-FEED REMEDIATION CLOSED
+
+Durable result commit: `f98eba568e1aad440873443eaec4e7ed7480b20e`.
+
+Frozen result:
+
+- tested one common HistData shift from -6h through +6h;
+- no common shift restored the original third-source feed-selection gate;
+- passing common shifts: none;
+- best descriptive shift: -1h, but still no eligible consensus source and five markets without two-source consensus;
+- target labels/P&L: none;
+- Jul-Aug/Sep: not loaded;
+- disposition: `TIMESTAMP_SHIFT_DOES_NOT_EXPLAIN_FAILURE_REQUIRE_FOURTH_OR_BROKER_SOURCE`.
+
+Do not continue HistData timestamp fitting or relax the old gate.
+
+### Prospective v0.2 data-governance decision
+
+The project is closing the public-feed-consensus loop rather than spending additional cycles forcing free feeds to agree.
+
+For EXP-041 development, Dukascopy is now the **canonical research market-history source** under `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.2.md`.
+
+This does not rewrite the v0.1 failure and does not claim Dukascopy equals broker execution truth. The old consensus gate remains failed and documented.
+
+Before macro Gate B:
+
+- freeze the exact already-audited Dukascopy normalized bytes as an immutable GitHub Release snapshot;
+- require exact reproduction of the v0.1 SHA-256 hashes;
+- fail closed if Dukascopy history has drifted;
+- use common modeling interval 2025-07-01 through 2026-06-30 00:00 UTC exclusive because USDCHF stops at Jun29 23:59;
+- after snapshot creation, all EXP-041 development workflows consume the immutable release, not live Dukascopy;
+- intended-broker/institutional bid/ask/tick/spread validation remains mandatory before deployment.
+
+Snapshot governance commit: `4e4e499f90e897bfb7d12a63c7372b8afb510969`.  
+Snapshot verifier commit: `3cd2b1914a14aaeb5449ab78c39c62707b2bcb93`.  
+Snapshot workflow commit: `ddd2537af351ec67d4ab7ba2c3356d40bd31ca10`.
+
+**Exact next action:** trigger exactly one canonical Dukascopy snapshot workflow. If exact hashes reproduce, checkpoint the immutable release and move to point-in-time macro consensus/actual history acquisition. If hashes drift, stop for source-drift investigation.
