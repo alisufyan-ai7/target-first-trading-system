@@ -1453,3 +1453,12 @@ This is exactly the kind of data-quality issue that can create false “alpha.�
 Do not lower the v0.1 overlap/correlation/basis thresholds after seeing the result. A future acquisition version may change methodology only after a separate zero-outcome diagnostic identifies the cause.
 
 Protected Jul-Aug/Sep remain sealed. No strategy outcome was computed.
+
+
+## 2026-09-25 — Cross-feed mismatch is not a clock-shift artifact; require third-source adjudication
+
+Diagnostic `bdd3b7f` found zero-lag alignment as the best lag at both 5m and 1h for every market, yet material return-path disagreement remains.
+
+**Decision:** neither the existing pinned source nor Dukascopy is accepted as the twelve-month EXP-041 macro-development feed solely by assertion. Use a third independent source to adjudicate.
+
+Frozen adjudication logic will compare HistData.com M1 bid bars against both feeds. If two sources agree strongly and the third does not, the third is treated as the likely outlier for this research purpose. If no two-source consensus emerges, stop and require intended-broker/another institutional feed before macro modeling.
