@@ -1440,3 +1440,16 @@ Use Dukascopy M1 as a separate, internally consistent twelve-month research feed
 - record normalized-file SHA-256 hashes before any later outcome study.
 
 This acquisition contains no labels/P&L and cannot by itself authorize a strategy.
+
+
+## 2026-09-25 — EXP-041 extended-history gate fails on cross-feed consistency
+
+**Decision:** do not accept the new 12-month feed for macro modeling yet.
+
+Durable audit `1cf168d` shows strong timestamp coverage but material price-path disagreement with the existing pinned research source for most markets. Seven of eight markets failed the frozen cross-feed sanity gate; USDCHF also lacked Jun30 coverage.
+
+This is exactly the kind of data-quality issue that can create false “alpha.” The project will diagnose the feed discrepancy before fitting any macro model.
+
+Do not lower the v0.1 overlap/correlation/basis thresholds after seeing the result. A future acquisition version may change methodology only after a separate zero-outcome diagnostic identifies the cause.
+
+Protected Jul-Aug/Sep remain sealed. No strategy outcome was computed.
