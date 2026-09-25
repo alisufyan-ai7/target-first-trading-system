@@ -1,0 +1,91 @@
+name: EXP-040 MTF Structural Context Information Content
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-040-mtf-information-content.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  information-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scikit-learn==1.5.2
+
+      - name: Verify frozen EXP-040 mechanics
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile research/code/mtf_information_v0_1.py
+          python -m py_compile research/code/run_exp040_mtf_information_content.py
+          PYTHONPATH=research/code python - <<'PY'
+          import mtf_information_v0_1 as m
+          import run_exp040_mtf_information_content as r
+          print(m.self_tests_mtf_information())
+          print(r.self_tests_runner())
+          assert r.SEALED_START.isoformat()=="2026-07-01T00:00:00+00:00"
+          assert r.PURGE.total_seconds()==7200
+          print("EXP040_FROZEN_INFORMATION_CONTENT_MECHANICS=YES")
+          print("JULY_AUGUST_AND_SEPTEMBER_SEALED=YES")
+          PY
+
+      - name: Run EXP-040 development-only information study
+        run: PYTHONPATH=research/code python research/code/run_exp040_mtf_information_content.py
+
+      - name: Upload EXP-040 durable result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp040-mtf-information-content
+          path: research/results/EXP-040-mtf-structural-context-information-content-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit EXP-040 result
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          P=research/results/EXP-040-mtf-structural-context-information-content-v0.1.json
+          if [ ! -f "$P" ]; then
+            echo "EXP-040 result missing"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$P"
+          git commit -m "Checkpoint EXP-040 MTF information-content result"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce EXP-040 integrity only
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-040-mtf-structural-context-information-content-v0.1.json")
+          if not p.exists():
+              raise SystemExit("EXP-040 result missing")
+          x=json.loads(p.read_text())
+          if not x["integrity"]["integrity_pass"]:
+              raise SystemExit("EXP-040 integrity gate FAILED")
+          if x["scope"]["secondary_test_loaded_or_labeled"] or x["scope"]["final_holdout_loaded_or_labeled"]:
+              raise SystemExit("protected-period seal failed")
+          print("EXP-040 integrity gate PASSED")
+          print("Scientific disposition:",x["disposition"])
+          PY
