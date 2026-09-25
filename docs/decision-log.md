@@ -1496,3 +1496,21 @@ If no common shift restores the frozen gate, HistData remediation ends and the p
 
 Protected Jul-Aug/Sep remain sealed and Engine R remains paused before target/P&L development.
 
+
+
+## 2026-09-25 — Close HistData remediation; adopt immutable Dukascopy development snapshot
+
+HistData timestamp-semantics diagnostic `f98eba5` found no common -6h..+6h shift that restores the already-frozen feed-selection gate. The prior three-source failure therefore stands; no public feed passed the original consensus-selection rule.
+
+**Decision:** stop the public-feed adjudication loop. Prospectively supersede the v0.1 development-feed selection mechanism with `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.2.md`.
+
+For EXP-041 development only:
+
+- Dukascopy is the canonical market-history source;
+- the exact normalized files already acquired/audited must be frozen as an immutable GitHub Release and verified by their pre-existing SHA-256 hashes;
+- later EXP-041 workflows consume that immutable snapshot rather than re-downloading live history;
+- the v0.1 consensus gate remains recorded as failed; it is not retrospectively relaxed or passed;
+- USDCHF's Jun30 gap is handled prospectively by a common model cutoff at 2026-06-30 00:00 UTC across all eight markets;
+- intended-broker or institutional-quality bid/ask/tick/spread data remains required for independent execution validation before deployment.
+
+This changes data governance, not strategy rules, and uses no target labels/P&L/protected periods.
