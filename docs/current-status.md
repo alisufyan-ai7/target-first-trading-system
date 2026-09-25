@@ -1695,3 +1695,38 @@ The economic frontier confirms that increasing risk is not a valid substitute fo
 The edge-source matrix prioritizes **macro surprise + execution-grade microstructure/order flow + rates/cross-asset interpretation**, especially COMEX Gold and representative/centralized FX flow, before another OHLC-derived strategy family.
 
 No new strategy outcome was calculated. Engine R remains paused before development. Jul-Aug and Sep remain sealed.
+
+
+## EXP-040 — ACTIVE INFORMATION-ADVANTAGE STUDY
+
+The agreed immediate project action is now frozen and implemented:
+
+**Multi-Timeframe Structural Context Information-Content Study v0.1**.
+
+This is not a strategy engine. It compares the same broad structural candidate universe under nested information sets:
+
+`LOCAL_M5 -> +15M -> +1H -> +4H/prior-day -> +session location`.
+
+Primary question:
+
+> Does higher-timeframe structural/location information improve out-of-sample T40eq/T50eq target-before-stop probability beyond local M5 state?
+
+Frozen details:
+
+- development source only through Jun30;
+- six chronological folds;
+- 120-minute purge before calibration/evaluation boundaries;
+- fixed logistic learner + Platt calibration;
+- diagnostic structural-risk ladder 1.5R / 2R / 2.5R / 3.5R / 5R;
+- no hyperparameter search;
+- smallest passing nested feature set selected by a predeclared parsimony rule;
+- Jul-Aug and Sep remain sealed;
+- Engine R remains paused.
+
+Governance addition:
+
+- `docs/BRAINSTORMING-AND-KNOWLEDGE-CAPTURE-POLICY.md` is now governing;
+- material brainstorming must be synthesized into GitHub rather than left only in chat;
+- current brainstorming synthesis is `research/BRAINSTORMING-SYNTHESIS-2026-09-25.md`.
+
+**Exact next action:** run one EXP-040 information-content workflow and resume from its durable bot result.
