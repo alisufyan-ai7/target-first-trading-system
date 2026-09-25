@@ -1923,3 +1923,19 @@ A data-engineering anomaly remains worth one zero-outcome check: HistData has po
 
 **Exact next action:** prospectively freeze and run one HistData timestamp-semantics diagnostic on the same Mar23-Jun30 overlap only. Test common mechanical hour shifts across all markets; no per-market shift fitting, no target labels/P&L, no protected data, no threshold relaxation. If no common correction restores broad agreement under the original pairwise gates, require an intended-broker or another institutional-quality fourth source before EXP-041 macro modeling.
 
+### EXP-041 HistData timestamp diagnostic — implementation frozen
+
+The zero-outcome timestamp-semantics diagnostic is prospectively frozen at main SHA `2791376846eff374c708f0346da29432ab77f1bd`.
+
+Frozen artifacts:
+
+- `research/EXP-041-HISTDATA-TIMESTAMP-SEMANTICS-DIAGNOSTIC-v0.1.md`;
+- `research/code/run_exp041_histdata_timestamp_diagnostic.py`;
+- `.github/workflows/exp041-histdata-timestamp-diagnostic.yml`.
+
+It tests only one common whole-hour HistData shift from -6h through +6h across all eight markets and replays the original third-source pairwise/feed-selection gates unchanged.
+
+No per-market shift fitting, target labels, P&L, Jul-Aug or Sep data are authorized.
+
+**Exact next action:** trigger exactly one EXP-041 HistData timestamp-semantics diagnostic workflow. Confirm launch once, then resume from the durable bot result rather than polling.
+
