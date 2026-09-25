@@ -1,0 +1,1160 @@
+{
+  "stage": "EXP-041 HistData timestamp-semantics diagnostic v0.1",
+  "tested_repository_sha": "5433c227370452b3899be00292dfb1ef3d085ff6",
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "interval": [
+    "2026-03-23 00:00:00+00:00",
+    "2026-07-01 00:00:00+00:00"
+  ],
+  "histdata_v01_timestamp_assumption": "fixed EST (UTC-5) converted to UTC before this diagnostic",
+  "common_shift_grid_hours": [
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "pairwise_gate_unchanged": {
+    "m1_overlap_ratio": 0.7,
+    "corr_5m": 0.9,
+    "corr_1h": 0.95,
+    "corr_1d": 0.95,
+    "sign_agreement_1h": 0.95
+  },
+  "shift_summaries": [
+    {
+      "shift_hours": -6,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.0019368937815309839,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": -5,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.028042736747985502,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": -4,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.01221541883376476,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": -3,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": -0.02138576790854197,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": -2,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": -0.03881668640842911,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": -1,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 3,
+        "HISTDATA": 1
+      },
+      "no_two_source_consensus_markets": 5,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.8382674924738692,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "CURRENT_PINNED_OUTLIER",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 0,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.11409742532484908,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 1,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": -0.012350332490064345,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 2,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": -0.01279762098753967,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 3,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.011010136101065682,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 4,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": 0.004130962972528204,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 5,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": -9.455992531042889e-05,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    },
+    {
+      "shift_hours": 6,
+      "supported_markets_by_source": {
+        "CURRENT_PINNED": 2,
+        "DUKASCOPY": 2,
+        "HISTDATA": 0
+      },
+      "no_two_source_consensus_markets": 6,
+      "eligible_consensus_sources": [],
+      "feed_selection_gate_pass": false,
+      "median_histdata_anchor_1h_correlation": -0.0006768655740901542,
+      "adjudication": {
+        "XAUUSD": "HISTDATA_OUTLIER",
+        "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "EURJPY": "NO_TWO_SOURCE_CONSENSUS",
+        "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+        "USDCAD": "HISTDATA_OUTLIER",
+        "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+      }
+    }
+  ],
+  "passing_common_shifts_hours": [],
+  "best_descriptive_shift": {
+    "shift_hours": -1,
+    "supported_markets_by_source": {
+      "CURRENT_PINNED": 2,
+      "DUKASCOPY": 3,
+      "HISTDATA": 1
+    },
+    "no_two_source_consensus_markets": 5,
+    "eligible_consensus_sources": [],
+    "feed_selection_gate_pass": false,
+    "median_histdata_anchor_1h_correlation": 0.8382674924738692,
+    "adjudication": {
+      "XAUUSD": "HISTDATA_OUTLIER",
+      "EURUSD": "NO_TWO_SOURCE_CONSENSUS",
+      "GBPUSD": "NO_TWO_SOURCE_CONSENSUS",
+      "USDJPY": "NO_TWO_SOURCE_CONSENSUS",
+      "EURJPY": "CURRENT_PINNED_OUTLIER",
+      "AUDUSD": "NO_TWO_SOURCE_CONSENSUS",
+      "USDCAD": "HISTDATA_OUTLIER",
+      "USDCHF": "NO_TWO_SOURCE_CONSENSUS"
+    }
+  },
+  "best_shift_market_details": {
+    "XAUUSD": {
+      "adjudication": "HISTDATA_OUTLIER",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9967401347549392,
+          "common_m1_rows": 96009,
+          "median_price_ratio_a_over_b": 1.0087076243839963,
+          "p05_price_ratio": 0.9932674049820183,
+          "p95_price_ratio": 1.0201243152109243,
+          "returns": {
+            "5m": {
+              "correlation": 0.9743840672308176,
+              "common_rows": 19203,
+              "sign_agreement": 0.9803155756912982
+            },
+            "1h": {
+              "correlation": 0.9678197541293908,
+              "common_rows": 1603,
+              "sign_agreement": 0.9812850904553961
+            },
+            "1d": {
+              "correlation": 0.9645695928226087,
+              "common_rows": 83,
+              "sign_agreement": 0.9518072289156626
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": true,
+            "corr_1h_ge_0_95": true,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": true
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9943118813914329,
+          "common_m1_rows": 96842,
+          "median_price_ratio_a_over_b": 1.0087025717582168,
+          "p05_price_ratio": 0.9932745642008985,
+          "p95_price_ratio": 1.0207990926099184,
+          "returns": {
+            "5m": {
+              "correlation": 0.7134832275979374,
+              "common_rows": 19371,
+              "sign_agreement": 0.9481699447627897
+            },
+            "1h": {
+              "correlation": 0.7596704266564697,
+              "common_rows": 1617,
+              "sign_agreement": 0.9474335188620903
+            },
+            "1d": {
+              "correlation": 0.962087535072884,
+              "common_rows": 84,
+              "sign_agreement": 0.9523809523809523
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9955669985361751,
+          "common_m1_rows": 95896,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.6979861252665183,
+              "common_rows": 19181,
+              "sign_agreement": 0.9661644335540378
+            },
+            "1h": {
+              "correlation": 0.7564199734765081,
+              "common_rows": 1598,
+              "sign_agreement": 0.9637046307884856
+            },
+            "1d": {
+              "correlation": 0.9676412025506755,
+              "common_rows": 83,
+              "sign_agreement": 1.0
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    },
+    "EURUSD": {
+      "adjudication": "NO_TWO_SOURCE_CONSENSUS",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9985563554272316,
+          "common_m1_rows": 103062,
+          "median_price_ratio_a_over_b": 1.0096225498057363,
+          "p05_price_ratio": 1.000034103838516,
+          "p95_price_ratio": 1.012318839956773,
+          "returns": {
+            "5m": {
+              "correlation": 0.9143919830819226,
+              "common_rows": 20706,
+              "sign_agreement": 0.933787308026659
+            },
+            "1h": {
+              "correlation": 0.9140351904633454,
+              "common_rows": 1725,
+              "sign_agreement": 0.9715942028985507
+            },
+            "1d": {
+              "correlation": 0.9113547526503756,
+              "common_rows": 85,
+              "sign_agreement": 0.9058823529411765
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": true,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9985459442579436,
+          "common_m1_rows": 102323,
+          "median_price_ratio_a_over_b": 1.0096350643493945,
+          "p05_price_ratio": 1.0000260661036389,
+          "p95_price_ratio": 1.0123196984770928,
+          "returns": {
+            "5m": {
+              "correlation": 0.735315169423002,
+              "common_rows": 20559,
+              "sign_agreement": 0.9023298798579698
+            },
+            "1h": {
+              "correlation": 0.7723501526340641,
+              "common_rows": 1713,
+              "sign_agreement": 0.9346176298890835
+            },
+            "1d": {
+              "correlation": 0.9092107935042513,
+              "common_rows": 85,
+              "sign_agreement": 0.8941176470588236
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.999941447419783,
+          "common_m1_rows": 102466,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.815929887854697,
+              "common_rows": 20588,
+              "sign_agreement": 0.9646881678647756
+            },
+            "1h": {
+              "correlation": 0.8518667673333805,
+              "common_rows": 1715,
+              "sign_agreement": 0.9615160349854227
+            },
+            "1d": {
+              "correlation": 0.995270610375767,
+              "common_rows": 85,
+              "sign_agreement": 0.9882352941176471
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    },
+    "GBPUSD": {
+      "adjudication": "NO_TWO_SOURCE_CONSENSUS",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9983999689690951,
+          "common_m1_rows": 102958,
+          "median_price_ratio_a_over_b": 1.0019693819726176,
+          "p05_price_ratio": 0.9971683599997863,
+          "p95_price_ratio": 1.0139041143264496,
+          "returns": {
+            "5m": {
+              "correlation": 0.8609327937473262,
+              "common_rows": 20705,
+              "sign_agreement": 0.9272639459067858
+            },
+            "1h": {
+              "correlation": 0.8700418148045387,
+              "common_rows": 1725,
+              "sign_agreement": 0.9634782608695652
+            },
+            "1d": {
+              "correlation": 0.8860219089877331,
+              "common_rows": 85,
+              "sign_agreement": 0.9058823529411765
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9983864974281746,
+          "common_m1_rows": 102097,
+          "median_price_ratio_a_over_b": 1.0019776772521631,
+          "p05_price_ratio": 0.997166779512212,
+          "p95_price_ratio": 1.0139048027380844,
+          "returns": {
+            "5m": {
+              "correlation": 0.6979143243772797,
+              "common_rows": 20534,
+              "sign_agreement": 0.8959774033310607
+            },
+            "1h": {
+              "correlation": 0.747618667967619,
+              "common_rows": 1711,
+              "sign_agreement": 0.9292811221507891
+            },
+            "1d": {
+              "correlation": 0.8819560715310613,
+              "common_rows": 85,
+              "sign_agreement": 0.8823529411764706
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9998826543584127,
+          "common_m1_rows": 102250,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.8051507367446931,
+              "common_rows": 20563,
+              "sign_agreement": 0.9637212468997715
+            },
+            "1h": {
+              "correlation": 0.8459292099432175,
+              "common_rows": 1713,
+              "sign_agreement": 0.9632224168126094
+            },
+            "1d": {
+              "correlation": 0.9960338704313607,
+              "common_rows": 85,
+              "sign_agreement": 0.9764705882352941
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    },
+    "USDJPY": {
+      "adjudication": "NO_TWO_SOURCE_CONSENSUS",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9985545067375509,
+          "common_m1_rows": 102930,
+          "median_price_ratio_a_over_b": 1.0017890374540797,
+          "p05_price_ratio": 0.9943222238522219,
+          "p95_price_ratio": 1.0095719273611716,
+          "returns": {
+            "5m": {
+              "correlation": 0.9378383016194227,
+              "common_rows": 20705,
+              "sign_agreement": 0.9164453030668921
+            },
+            "1h": {
+              "correlation": 0.9405743064238513,
+              "common_rows": 1725,
+              "sign_agreement": 0.9617391304347827
+            },
+            "1d": {
+              "correlation": 0.9213951586466057,
+              "common_rows": 85,
+              "sign_agreement": 0.9176470588235294
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": true,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9985482535197545,
+          "common_m1_rows": 102486,
+          "median_price_ratio_a_over_b": 1.0017885172191683,
+          "p05_price_ratio": 0.9943218584945304,
+          "p95_price_ratio": 1.0096086729506366,
+          "returns": {
+            "5m": {
+              "correlation": 0.8193754705378546,
+              "common_rows": 20618,
+              "sign_agreement": 0.886700940925405
+            },
+            "1h": {
+              "correlation": 0.8732781720628632,
+              "common_rows": 1718,
+              "sign_agreement": 0.9289871944121071
+            },
+            "1d": {
+              "correlation": 0.9182765473703607,
+              "common_rows": 85,
+              "sign_agreement": 0.9176470588235294
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9997369318458615,
+          "common_m1_rows": 102608,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.873178159726797,
+              "common_rows": 20647,
+              "sign_agreement": 0.9652249721509178
+            },
+            "1h": {
+              "correlation": 0.9284353098146519,
+              "common_rows": 1720,
+              "sign_agreement": 0.963953488372093
+            },
+            "1d": {
+              "correlation": 0.9952861852239583,
+              "common_rows": 85,
+              "sign_agreement": 1.0
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    },
+    "EURJPY": {
+      "adjudication": "CURRENT_PINNED_OUTLIER",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9984516079084126,
+          "common_m1_rows": 103173,
+          "median_price_ratio_a_over_b": 1.0024682256022306,
+          "p05_price_ratio": 0.9991043458590656,
+          "p95_price_ratio": 1.0158074486136532,
+          "returns": {
+            "5m": {
+              "correlation": 0.9324610645188313,
+              "common_rows": 20696,
+              "sign_agreement": 0.935204870506378
+            },
+            "1h": {
+              "correlation": 0.8320533068671595,
+              "common_rows": 1725,
+              "sign_agreement": 0.951304347826087
+            },
+            "1d": {
+              "correlation": 0.804574698322506,
+              "common_rows": 85,
+              "sign_agreement": 0.8823529411764706
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": true,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9984364244271806,
+          "common_m1_rows": 101531,
+          "median_price_ratio_a_over_b": 1.0024543879537138,
+          "p05_price_ratio": 0.999103550695053,
+          "p95_price_ratio": 1.0158239769001494,
+          "returns": {
+            "5m": {
+              "correlation": 0.8828041883987234,
+              "common_rows": 20369,
+              "sign_agreement": 0.9108449113849477
+            },
+            "1h": {
+              "correlation": 0.7895651341947048,
+              "common_rows": 1698,
+              "sign_agreement": 0.9263839811542992
+            },
+            "1d": {
+              "correlation": 0.8035878773033038,
+              "common_rows": 85,
+              "sign_agreement": 0.8823529411764706
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9999114957222932,
+          "common_m1_rows": 101681,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.947774145484245,
+              "common_rows": 20398,
+              "sign_agreement": 0.9722031571722718
+            },
+            "1h": {
+              "correlation": 0.9505583217308737,
+              "common_rows": 1700,
+              "sign_agreement": 0.9688235294117648
+            },
+            "1d": {
+              "correlation": 0.9960829670375718,
+              "common_rows": 85,
+              "sign_agreement": 1.0
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": true,
+            "corr_1h_ge_0_95": true,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": true
+        }
+      }
+    },
+    "AUDUSD": {
+      "adjudication": "NO_TWO_SOURCE_CONSENSUS",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9985559076943952,
+          "common_m1_rows": 103030,
+          "median_price_ratio_a_over_b": 1.0156546419669041,
+          "p05_price_ratio": 1.0020838856140057,
+          "p95_price_ratio": 1.0369746079720383,
+          "returns": {
+            "5m": {
+              "correlation": 0.7832331584833685,
+              "common_rows": 20706,
+              "sign_agreement": 0.9377475127982228
+            },
+            "1h": {
+              "correlation": 0.7798938516488763,
+              "common_rows": 1725,
+              "sign_agreement": 0.9681159420289855
+            },
+            "1d": {
+              "correlation": 0.7928581062376999,
+              "common_rows": 85,
+              "sign_agreement": 0.8941176470588236
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9985464549108363,
+          "common_m1_rows": 102359,
+          "median_price_ratio_a_over_b": 1.0156487963001788,
+          "p05_price_ratio": 1.0020818551454072,
+          "p95_price_ratio": 1.0370607866855182,
+          "returns": {
+            "5m": {
+              "correlation": 0.5988792916815721,
+              "common_rows": 20571,
+              "sign_agreement": 0.9065188858101211
+            },
+            "1h": {
+              "correlation": 0.6429578685882564,
+              "common_rows": 1714,
+              "sign_agreement": 0.9340723453908985
+            },
+            "1d": {
+              "correlation": 0.790226105793585,
+              "common_rows": 85,
+              "sign_agreement": 0.8823529411764706
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9999317126468178,
+          "common_m1_rows": 102501,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.7815998716903271,
+              "common_rows": 20600,
+              "sign_agreement": 0.9653883495145631
+            },
+            "1h": {
+              "correlation": 0.8306057750045209,
+              "common_rows": 1716,
+              "sign_agreement": 0.9615384615384616
+            },
+            "1d": {
+              "correlation": 0.9970547259516678,
+              "common_rows": 85,
+              "sign_agreement": 0.9882352941176471
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    },
+    "USDCAD": {
+      "adjudication": "HISTDATA_OUTLIER",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9985647788983708,
+          "common_m1_rows": 102972,
+          "median_price_ratio_a_over_b": 0.9988292839973947,
+          "p05_price_ratio": 0.9969879738866183,
+          "p95_price_ratio": 1.0001737405619062,
+          "returns": {
+            "5m": {
+              "correlation": 0.9537491354753235,
+              "common_rows": 20706,
+              "sign_agreement": 0.9147590070510963
+            },
+            "1h": {
+              "correlation": 0.9740102544390894,
+              "common_rows": 1725,
+              "sign_agreement": 0.96
+            },
+            "1d": {
+              "correlation": 0.98135346880292,
+              "common_rows": 85,
+              "sign_agreement": 0.9529411764705882
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": true,
+            "corr_1h_ge_0_95": true,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": true
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9985619340044308,
+          "common_m1_rows": 102768,
+          "median_price_ratio_a_over_b": 0.998830939194163,
+          "p05_price_ratio": 0.9969726433022501,
+          "p95_price_ratio": 1.0001737795606276,
+          "returns": {
+            "5m": {
+              "correlation": 0.8188308135515052,
+              "common_rows": 20667,
+              "sign_agreement": 0.8855663618328736
+            },
+            "1h": {
+              "correlation": 0.8927791544268258,
+              "common_rows": 1722,
+              "sign_agreement": 0.9274099883855982
+            },
+            "1d": {
+              "correlation": 0.9795185514242563,
+              "common_rows": 85,
+              "sign_agreement": 0.9529411764705882
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9998834000544133,
+          "common_m1_rows": 102904,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.8632922850389319,
+              "common_rows": 20696,
+              "sign_agreement": 0.9654522613065326
+            },
+            "1h": {
+              "correlation": 0.9157022821607587,
+              "common_rows": 1724,
+              "sign_agreement": 0.9634570765661253
+            },
+            "1d": {
+              "correlation": 0.9974528432949936,
+              "common_rows": 85,
+              "sign_agreement": 1.0
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    },
+    "USDCHF": {
+      "adjudication": "NO_TWO_SOURCE_CONSENSUS",
+      "pairwise": {
+        "CURRENT_PINNED__DUKASCOPY": {
+          "m1_overlap_ratio_smaller": 0.9985436186222633,
+          "common_m1_rows": 102845,
+          "median_price_ratio_a_over_b": 0.9834813158735224,
+          "p05_price_ratio": 0.9811284396598233,
+          "p95_price_ratio": 0.9982244002910149,
+          "returns": {
+            "5m": {
+              "correlation": 0.8811296325259141,
+              "common_rows": 20695,
+              "sign_agreement": 0.920173955061609
+            },
+            "1h": {
+              "correlation": 0.9287156950734411,
+              "common_rows": 1725,
+              "sign_agreement": 0.9518840579710145
+            },
+            "1d": {
+              "correlation": 0.9412182255724503,
+              "common_rows": 85,
+              "sign_agreement": 0.9764705882352941
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        },
+        "CURRENT_PINNED__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9985407282738761,
+          "common_m1_rows": 102641,
+          "median_price_ratio_a_over_b": 0.9834793778376936,
+          "p05_price_ratio": 0.9811277152981047,
+          "p95_price_ratio": 0.9987558083437018,
+          "returns": {
+            "5m": {
+              "correlation": 0.7641212483702449,
+              "common_rows": 20656,
+              "sign_agreement": 0.8900561580170411
+            },
+            "1h": {
+              "correlation": 0.8196020375457137,
+              "common_rows": 1722,
+              "sign_agreement": 0.9146341463414634
+            },
+            "1d": {
+              "correlation": 0.9367095679755755,
+              "common_rows": 85,
+              "sign_agreement": 0.9647058823529412
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": false,
+            "sign_agreement_1h_ge_0_95": false
+          },
+          "pair_agreement_pass": false
+        },
+        "DUKASCOPY__HISTDATA": {
+          "m1_overlap_ratio_smaller": 0.9998054304365168,
+          "common_m1_rows": 102771,
+          "median_price_ratio_a_over_b": 1.0,
+          "p05_price_ratio": 1.0,
+          "p95_price_ratio": 1.0,
+          "returns": {
+            "5m": {
+              "correlation": 0.8758103193857338,
+              "common_rows": 20685,
+              "sign_agreement": 0.9653372008701958
+            },
+            "1h": {
+              "correlation": 0.8797636230408067,
+              "common_rows": 1724,
+              "sign_agreement": 0.9593967517401392
+            },
+            "1d": {
+              "correlation": 0.996343191766519,
+              "common_rows": 85,
+              "sign_agreement": 0.9882352941176471
+            }
+          },
+          "checks": {
+            "m1_overlap_ge_70pct": true,
+            "corr_5m_ge_0_90": false,
+            "corr_1h_ge_0_95": false,
+            "corr_1d_ge_0_95": true,
+            "sign_agreement_1h_ge_0_95": true
+          },
+          "pair_agreement_pass": false
+        }
+      }
+    }
+  },
+  "feed_selection_gate_restorable_by_common_shift": false,
+  "disposition": "TIMESTAMP_SHIFT_DOES_NOT_EXPLAIN_FAILURE_REQUIRE_FOURTH_OR_BROKER_SOURCE"
+}
