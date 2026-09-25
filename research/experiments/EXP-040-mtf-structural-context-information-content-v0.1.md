@@ -295,3 +295,49 @@ At this checkpoint:
 - Engine R target/P&L development: **PAUSED**.
 
 **Next:** trigger exactly one EXP-040 development-only information-content run.
+
+
+## Final EXP-040 result — NO STABLE MTF INFORMATION ADVANTAGE
+
+**Durable result commit:** `46049f7d94131db50e7d9cbb13a3fa82dcafb810`  
+**Tested repository SHA:** `cea178f42cb94a1311a65c2d56ea8667ca05e340`  
+**Result file:** `research/results/EXP-040-mtf-structural-context-information-content-v0.1.json`
+
+Operational note:
+
+- the original workflow run encountered an integrity-boolean implementation issue after producing a result;
+- the integrity logic was corrected prospectively without changing the frozen scientific feature sets, targets, folds, model, or gates;
+- rerun workflow `36149076144` completed **SUCCESS** and produced the durable result above.
+
+Scientific result:
+
+- candidate rows: **123,724**;
+- pooled evaluation predictions per primary rung: **99,622**;
+- integrity gate: **PASS**;
+- Jun30 source seal: **PASS**;
+- Jul-Aug loaded/labeled: **NO**;
+- Sep loaded/labeled: **NO**;
+- Engine-R target/P&L development used: **NO**;
+- passing enriched feature sets: **NONE**;
+- disposition: `NO_STABLE_MTF_INFORMATION_ADVANTAGE`.
+
+Primary pooled baseline:
+
+- LOCAL_M5 T40eq log loss **0.493874**, Brier **0.161613**, AUC **0.6634**;
+- LOCAL_M5 T50eq log loss **0.412801**, Brier **0.129229**, AUC **0.6929**.
+
+Every richer nested context set failed the frozen T40eq/T50eq information-advantage gate:
+
+- +15M slightly worsened pooled log loss/Brier and won only 1/6 folds on T40eq and 2/6 on T50eq;
+- +1H worsened pooled log loss/Brier and won only 2/6 and 3/6 folds;
+- +4H/prior-day worsened pooled metrics further;
+- +session context worsened pooled metrics most and was not non-worse in any of 8 markets on the primary pooled market comparison.
+
+Interpretation:
+
+- generic higher-timeframe OHLC context, as frozen here, does **not** provide stable incremental predictive information beyond the local-M5 baseline for the broad structural candidate universe;
+- this does not prove that all discretionary higher-timeframe context is useless;
+- it does show that simply adding generic 15M/1H/4H/prior-day/session OHLC features is not the missing information advantage we are seeking;
+- therefore do not build/promote another MTF-OHLC strategy from this result.
+
+**Next research action:** proceed to the next genuinely new information family: macro/catalyst information-content research. Protected periods remain sealed.
