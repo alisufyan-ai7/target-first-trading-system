@@ -1,0 +1,93 @@
+name: EXP-041 Third Source Feed Adjudication
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-third-source-adjudication.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install frozen transports and diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+          python -m pip install --upgrade pip
+          pip install pandas numpy histdata-fetcher==0.1.0
+          python - <<'PY'
+          import importlib.metadata
+          assert importlib.metadata.version("histdata-fetcher")=="0.1.0"
+          print("histdata-fetcher=0.1.0")
+          PY
+      - name: Verify code
+        run: |
+          node --check research/code/download_exp041_cross_feed_overlap.js
+          python -m py_compile research/code/download_exp041_histdata_overlap.py
+          python -m py_compile research/code/run_exp041_third_source_adjudication.py
+      - name: Download Dukascopy overlap
+        env:
+          EXP041_DIAG_DIR: /tmp/exp041-cross-feed
+        run: node research/code/download_exp041_cross_feed_overlap.js
+      - name: Download HistData overlap
+        env:
+          EXP041_HISTDATA_DIR: /tmp/exp041-histdata
+        run: PYTHONPATH=research/code python research/code/download_exp041_histdata_overlap.py
+      - name: Run three-feed adjudication
+        env:
+          EXP041_DIAG_DIR: /tmp/exp041-cross-feed
+          EXP041_HISTDATA_DIR: /tmp/exp041-histdata
+        run: PYTHONPATH=research/code python research/code/run_exp041_third_source_adjudication.py
+      - name: Upload durable result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-third-source-adjudication
+          path: research/results/EXP-041-third-source-feed-adjudication-v0.1.json
+          if-no-files-found: warn
+      - name: Commit durable result
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          P=research/results/EXP-041-third-source-feed-adjudication-v0.1.json
+          if [ ! -f "$P" ]; then
+            echo "third-source result missing"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$P"
+          git commit -m "Checkpoint EXP-041 third-source feed adjudication"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Enforce protection only
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("research/results/EXP-041-third-source-feed-adjudication-v0.1.json")
+          if not p.exists(): raise SystemExit("result missing")
+          x=json.loads(p.read_text())
+          if x["target_labels_calculated"] or x["pnl_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          print("EXP-041 third-source protection PASSED")
+          print("Scientific disposition:",x["disposition"])
+          PY
