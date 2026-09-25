@@ -431,3 +431,9 @@
 
 - Recorded EXP-040 run `36135418584` as an operational GitHub Actions startup block after two attempts failed before any step/log/result existed.
 - Explicitly preserved frozen EXP-040 research mechanics; no scientific conclusion or protected-period computation occurred.
+
+- EXP-040 completed at durable result `46049f7` after correcting a non-scientific integrity-boolean implementation issue and rerunning the unchanged frozen study.
+- 123,724 development candidates; 99,622 pooled evaluation predictions per primary rung; integrity passed; Jun30 source seal held; Jul-Aug/Sep remained sealed.
+- No MTF context set (+15M / +1H / +4H-prior-day / +session) passed the frozen T40eq/T50eq incremental-information gate versus LOCAL_M5.
+- Scientific disposition: `NO_STABLE_MTF_INFORMATION_ADVANTAGE`.
+- Next research family is macro/catalyst information content, not another MTF-OHLC strategy.
