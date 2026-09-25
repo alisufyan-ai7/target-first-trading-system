@@ -1854,3 +1854,12 @@ Implementation checkpoint:
 - workflow commit `d5e41a0`.
 
 **Exact next action:** run exactly one EXP-040 workflow, confirm start once, then wait for the durable bot result. Do not mutate EXP-040 while it runs.
+
+
+### EXP-040 operational block
+
+Run `36135418584`, trigger `8b94aa5`, has failed twice **before any workflow step executed**. No logs/steps and no EXP-040 result were produced.
+
+This is not a scientific result and does not authorize any research redesign. Preserve EXP-040 frozen mechanics.
+
+**Exact next action:** inspect GitHub Actions **Details** for the pre-run/account/runner message, resolve that operational condition, then rerun the same frozen EXP-040 workflow. Jul-Aug/Sep remain sealed; Engine R remains paused.
