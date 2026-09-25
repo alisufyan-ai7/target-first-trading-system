@@ -1848,3 +1848,37 @@ Verified job sequence:
 Operational fix commit: `105eb2e290c06a76fcd0cee9d0faeee656113f3f` removes the modeling-module dependency and locally parses only the overlap rows needed for source sanity. Frozen acquisition interval, source, integrity thresholds and scientific rules are unchanged.
 
 **Next:** rerun the same EXP-041 acquisition/audit once.
+
+
+## EXP-041 extended-history acquisition v0.1 — DURABLE GATE FAIL / DIAGNOSTIC REQUIRED
+
+Durable audit commit: `1cf168d6b3b639cfcc856ffae7aeb66db880dc47`.
+
+The second run completed acquisition and produced a valid audit result. This is now a genuine data-quality checkpoint, not an operational error.
+
+What passed:
+
+- all 8 Dukascopy M1 feeds downloaded for the frozen Jul2025-Jun2026 interval;
+- 338,380 to 368,988 normalized rows per market;
+- all files begin 2025-07-01;
+- Jun30 hard source seal held;
+- no duplicate timestamps;
+- OHLC geometry/positivity/monotonicity passed;
+- exact-M1 overlap versus the existing pinned source was ~99.66%-99.86% for all markets;
+- no target labels / no P&L / no Jul-Aug / no Sep.
+
+What failed:
+
+- cross-feed sanity failed for 7/8 markets;
+- only USDCAD passed all frozen cross-feed checks;
+- hourly-return correlation versus the existing pinned source ranged from ~0.779 to 0.974, with several markets below the frozen 0.95 threshold;
+- median absolute relative close difference exceeded 0.5% for XAUUSD, EURUSD, AUDUSD and USDCHF;
+- USDCHF Dukascopy coverage ended 2026-06-29 23:59 UTC, failing the frozen final-day coverage check.
+
+Therefore:
+
+`market_history_gate_pass = FALSE`.
+
+Do **not** weaken the frozen v0.1 sanity thresholds post hoc and do not proceed to macro outcome modeling yet.
+
+**Exact next action:** run a zero-outcome cross-feed diagnostic on the Mar23-Jun30 overlap to determine whether the discrepancy is a time alignment, stable price-basis, symbol/feed-construction, or material path mismatch. Only after that diagnosis may a prospectively frozen acquisition v0.2 be considered.
