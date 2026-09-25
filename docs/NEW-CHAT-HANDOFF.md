@@ -1805,3 +1805,52 @@ In addition to `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md`, read:
 - `research/EDGE-SOURCE-RESEARCH-MATRIX-v0.1.md` — commit `fac6c1b`.
 
 Current research conclusion: do not increase risk and do not advance another price-only engine. First establish incremental predictive information from macro/catalyst + order-flow/book + rates/cross-asset + execution-grade data versus the frozen OHLC baseline. Engine R is paused before development; Jul-Aug/Sep remain sealed.
+
+
+## 2026-09-25 — Brainstorming capture + EXP-040 launch state
+
+New governing knowledge rule:
+
+- `docs/BRAINSTORMING-AND-KNOWLEDGE-CAPTURE-POLICY.md`;
+- material brainstorming must be synthesized into GitHub, not left only in chat.
+
+Read the current synthesis:
+
+- `research/BRAINSTORMING-SYNTHESIS-2026-09-25.md`.
+
+It preserves the agreed lessons about:
+
+- information-first research;
+- higher-timeframe context vs lower-timeframe execution;
+- specialized engines rather than universal engines;
+- economic-calendar/macro context;
+- lot-size screenshots being non-governing;
+- equity-adaptive compounding only after positive edge;
+- target-ladder/path modeling;
+- non-chasing execution;
+- project-level meta-overfitting risk.
+
+### EXP-040 current state
+
+The immediate active research is **EXP-040 Multi-Timeframe Structural Context Information-Content Study v0.1**.
+
+Frozen before outcomes:
+
+- candidate universe: broad M5 structural candidates, both directions, eight markets;
+- target diagnostics: 1.5R/2R/2.5R/3.5R/5R;
+- nested information sets from LOCAL_M5 through +session context;
+- six chronological evaluation folds with 120-minute purge;
+- fixed logistic learner + Platt calibration;
+- primary evidence rungs: T40eq/T50eq;
+- predeclared incremental-information gate and smallest-passing-set parsimony rule;
+- source hard-sealed at Jun30;
+- Jul-Aug/Sep sealed;
+- Engine R paused before development.
+
+Implementation checkpoint:
+
+- feature module commit `3e44de1`;
+- runner commit `107cf30`;
+- workflow commit `d5e41a0`.
+
+**Exact next action:** run exactly one EXP-040 workflow, confirm start once, then wait for the durable bot result. Do not mutate EXP-040 while it runs.
