@@ -1,0 +1,612 @@
+{
+  "stage": "EXP-041 cross-feed diagnostic v0.1",
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "interval": [
+    "2026-03-23 00:00:00+00:00",
+    "2026-07-01 00:00:00+00:00"
+  ],
+  "markets": {
+    "XAUUSD": {
+      "coverage": {
+        "duka_rows": 97583,
+        "current_rows": 97462,
+        "exact_overlap_rows": 97254,
+        "exact_overlap_ratio_smaller": 0.9978658348894954,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 0.9912578432419874,
+        "p05": 0.9802908955451591,
+        "p95": 1.006765821685595,
+        "daily_median_std": 0.007814722453809262
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.9501122008907286,
+          "common_rows": 97253
+        },
+        "5m": {
+          "correlation": 0.985554056246174,
+          "common_rows": 19452
+        },
+        "15m": {
+          "correlation": 0.9863594161051854,
+          "common_rows": 6484
+        },
+        "1h": {
+          "correlation": 0.9794723415186287,
+          "common_rows": 1624
+        },
+        "4h": {
+          "correlation": 0.9801970864867595,
+          "common_rows": 438
+        },
+        "1d": {
+          "correlation": 0.9777600215129969,
+          "common_rows": 84
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.9803105079169238,
+          "n": 19452
+        },
+        "1h": {
+          "fraction": 0.9809113300492611,
+          "n": 1624
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.985554056246174,
+          "common_rows": 19452
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.9794723415186287,
+          "common_rows": 1624
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.9918823943241792,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "EURUSD": {
+      "coverage": {
+        "duka_rows": 103211,
+        "current_rows": 103531,
+        "exact_overlap_rows": 103062,
+        "exact_overlap_ratio_smaller": 0.9985563554272316,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 0.990469161165638,
+        "p05": 0.9878310671790925,
+        "p95": 0.9999658973245161,
+        "daily_median_std": 0.003196771469538471
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.9098773945872302,
+          "common_rows": 103061
+        },
+        "5m": {
+          "correlation": 0.9143919830819222,
+          "common_rows": 20706
+        },
+        "15m": {
+          "correlation": 0.9193988348496663,
+          "common_rows": 6902
+        },
+        "1h": {
+          "correlation": 0.9140351904633456,
+          "common_rows": 1725
+        },
+        "4h": {
+          "correlation": 0.914307104897872,
+          "common_rows": 445
+        },
+        "1d": {
+          "correlation": 0.9113547526503756,
+          "common_rows": 85
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.9331578177563259,
+          "n": 20511
+        },
+        "1h": {
+          "fraction": 0.971561230412072,
+          "n": 1723
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.9143919830819222,
+          "common_rows": 20706
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.9140351904633456,
+          "common_rows": 1725
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.9875486933632068,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "GBPUSD": {
+      "coverage": {
+        "duka_rows": 95984,
+        "current_rows": 103511,
+        "exact_overlap_rows": 95819,
+        "exact_overlap_ratio_smaller": 0.9982809634939157,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 0.9980499897964601,
+        "p05": 0.9862801007044975,
+        "p95": 1.0028486611292695,
+        "daily_median_std": 0.005144641498824578
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.8260083983743335,
+          "common_rows": 95818
+        },
+        "5m": {
+          "correlation": 0.8332311676510953,
+          "common_rows": 19266
+        },
+        "15m": {
+          "correlation": 0.8397826245941116,
+          "common_rows": 6422
+        },
+        "1h": {
+          "correlation": 0.8420555904047371,
+          "common_rows": 1605
+        },
+        "4h": {
+          "correlation": 0.834967857225284,
+          "common_rows": 415
+        },
+        "1d": {
+          "correlation": 0.8610258815298477,
+          "common_rows": 80
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.926953981008035,
+          "n": 19166
+        },
+        "1h": {
+          "fraction": 0.9601246105919004,
+          "n": 1605
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.8332311676510953,
+          "common_rows": 19266
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.8420555904047371,
+          "common_rows": 1605
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.9343938453733706,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "USDJPY": {
+      "coverage": {
+        "duka_rows": 103079,
+        "current_rows": 103530,
+        "exact_overlap_rows": 102930,
+        "exact_overlap_ratio_smaller": 0.9985545067375509,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 0.9982141574850667,
+        "p05": 0.9905188257500475,
+        "p95": 1.005710197370206,
+        "daily_median_std": 0.004285182324313354
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.9294980870189288,
+          "common_rows": 102929
+        },
+        "5m": {
+          "correlation": 0.9378383016194228,
+          "common_rows": 20705
+        },
+        "15m": {
+          "correlation": 0.9430376843172984,
+          "common_rows": 6902
+        },
+        "1h": {
+          "correlation": 0.9405743064238519,
+          "common_rows": 1725
+        },
+        "4h": {
+          "correlation": 0.9475862129759595,
+          "common_rows": 445
+        },
+        "1d": {
+          "correlation": 0.9213951586466058,
+          "common_rows": 85
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.9158355631233277,
+          "n": 20555
+        },
+        "1h": {
+          "fraction": 0.9616947185142194,
+          "n": 1723
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.9378383016194228,
+          "common_rows": 20705
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.9405743064238519,
+          "common_rows": 1725
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.9624381968070489,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "EURJPY": {
+      "coverage": {
+        "duka_rows": 97766,
+        "current_rows": 103519,
+        "exact_overlap_rows": 97607,
+        "exact_overlap_ratio_smaller": 0.9983736677372501,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 0.9975698794660216,
+        "p05": 0.9843996241095384,
+        "p95": 1.0008982280410463,
+        "daily_median_std": 0.00460211771837877
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.8697675382803246,
+          "common_rows": 97606
+        },
+        "5m": {
+          "correlation": 0.8951705332386721,
+          "common_rows": 19580
+        },
+        "15m": {
+          "correlation": 0.7872520218525012,
+          "common_rows": 6530
+        },
+        "1h": {
+          "correlation": 0.7977455015468221,
+          "common_rows": 1632
+        },
+        "4h": {
+          "correlation": 0.8287035464147413,
+          "common_rows": 421
+        },
+        "1d": {
+          "correlation": 0.7494225500530874,
+          "common_rows": 81
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.934667963749936,
+          "n": 19531
+        },
+        "1h": {
+          "fraction": 0.9496932515337423,
+          "n": 1630
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.8951705332386721,
+          "common_rows": 19580
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.7977455015468221,
+          "common_rows": 1632
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.8870540082114533,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "AUDUSD": {
+      "coverage": {
+        "duka_rows": 103179,
+        "current_rows": 103531,
+        "exact_overlap_rows": 103030,
+        "exact_overlap_ratio_smaller": 0.9985559076943952,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 0.9845866485318435,
+        "p05": 0.9643437672554512,
+        "p95": 0.9979204479346344,
+        "daily_median_std": 0.00823280454119813
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.7726781657354302,
+          "common_rows": 103029
+        },
+        "5m": {
+          "correlation": 0.7832331584833692,
+          "common_rows": 20706
+        },
+        "15m": {
+          "correlation": 0.7901155759637628,
+          "common_rows": 6902
+        },
+        "1h": {
+          "correlation": 0.7798938516488764,
+          "common_rows": 1725
+        },
+        "4h": {
+          "correlation": 0.7597273269515517,
+          "common_rows": 445
+        },
+        "1d": {
+          "correlation": 0.7928581062377,
+          "common_rows": 85
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.9371924182624373,
+          "n": 20523
+        },
+        "1h": {
+          "fraction": 0.9680789320951828,
+          "n": 1723
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.7832331584833692,
+          "common_rows": 20706
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.7798938516488764,
+          "common_rows": 1725
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.8436415886051435,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "USDCAD": {
+      "coverage": {
+        "duka_rows": 103120,
+        "current_rows": 103532,
+        "exact_overlap_rows": 102972,
+        "exact_overlap_ratio_smaller": 0.9985647788983708,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-30 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": false
+      },
+      "price_ratio_duka_over_current": {
+        "median": 1.001172088185,
+        "p05": 0.999826289618633,
+        "p95": 1.003021125823253,
+        "daily_median_std": 0.0010097100362103507
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.9168484792901955,
+          "common_rows": 102971
+        },
+        "5m": {
+          "correlation": 0.9537491354753233,
+          "common_rows": 20706
+        },
+        "15m": {
+          "correlation": 0.965722427320462,
+          "common_rows": 6902
+        },
+        "1h": {
+          "correlation": 0.9740102544390893,
+          "common_rows": 1725
+        },
+        "4h": {
+          "correlation": 0.9807164498200668,
+          "common_rows": 445
+        },
+        "1d": {
+          "correlation": 0.98135346880292,
+          "common_rows": 85
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.9140952010123625,
+          "n": 20546
+        },
+        "1h": {
+          "fraction": 0.9599535693557748,
+          "n": 1723
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.9537491354753233,
+          "common_rows": 20706
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.9740102544390893,
+          "common_rows": 1725
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.9879881170979764,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH"
+      ]
+    },
+    "USDCHF": {
+      "coverage": {
+        "duka_rows": 98353,
+        "current_rows": 103529,
+        "exact_overlap_rows": 98203,
+        "exact_overlap_ratio_smaller": 0.9984748812949275,
+        "duka_first": "2026-03-23 00:00:00+00:00",
+        "duka_last": "2026-06-29 23:59:00+00:00",
+        "current_first": "2026-03-23 02:28:00+00:00",
+        "current_last": "2026-06-30 23:59:00+00:00",
+        "missing_final_day_flag": true
+      },
+      "price_ratio_duka_over_current": {
+        "median": 1.016606479504006,
+        "p05": 1.0017742180767482,
+        "p95": 1.019259191292353,
+        "daily_median_std": 0.006945031410936443
+      },
+      "return_correlations": {
+        "1m": {
+          "correlation": 0.8432923584612748,
+          "common_rows": 98202
+        },
+        "5m": {
+          "correlation": 0.8810368625762088,
+          "common_rows": 19759
+        },
+        "15m": {
+          "correlation": 0.9154081330101954,
+          "common_rows": 6589
+        },
+        "1h": {
+          "correlation": 0.9220030444738043,
+          "common_rows": 1647
+        },
+        "4h": {
+          "correlation": 0.9404647397439247,
+          "common_rows": 425
+        },
+        "1d": {
+          "correlation": 0.9307479681810215,
+          "common_rows": 80
+        }
+      },
+      "direction_agreement": {
+        "5m": {
+          "fraction": 0.9193161520796121,
+          "n": 19595
+        },
+        "1h": {
+          "fraction": 0.9524390243902439,
+          "n": 1640
+        }
+      },
+      "best_lag": {
+        "5m": {
+          "lag_steps": 0,
+          "correlation": 0.8810368625762088,
+          "common_rows": 19759
+        },
+        "1h": {
+          "lag_steps": 0,
+          "correlation": 0.9220030444738043,
+          "common_rows": 1647
+        }
+      },
+      "hourly_return_volatility_ratio_duka_over_current": 0.9355681500986107,
+      "diagnostic_tags": [
+        "MATERIAL_PATH_MISMATCH",
+        "SOURCE_COVERAGE_GAP"
+      ]
+    }
+  },
+  "summary_tags": {
+    "XAUUSD": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "EURUSD": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "GBPUSD": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "USDJPY": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "EURJPY": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "AUDUSD": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "USDCAD": [
+      "MATERIAL_PATH_MISMATCH"
+    ],
+    "USDCHF": [
+      "MATERIAL_PATH_MISMATCH",
+      "SOURCE_COVERAGE_GAP"
+    ]
+  },
+  "scientific_disposition": "DIAGNOSTIC_ONLY_DO_NOT_CHANGE_ACQUISITION_V01"
+}
