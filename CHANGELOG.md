@@ -437,3 +437,10 @@
 - No MTF context set (+15M / +1H / +4H-prior-day / +session) passed the frozen T40eq/T50eq incremental-information gate versus LOCAL_M5.
 - Scientific disposition: `NO_STABLE_MTF_INFORMATION_ADVANTAGE`.
 - Next research family is macro/catalyst information content, not another MTF-OHLC strategy.
+
+- Added `research/HUMAN-TRADER-EDGE-DECOMPOSITION-v0.1.md`, formalizing the expert-trader research sequence and anti-loop rule.
+- Frozen EXP-041 macro/catalyst information-content study with a data-adequacy gate before any outcome model.
+- Added EXP-041 data-adequacy audit: current source has only 17 independent primary macro blocks, so disposition is `DATA_INSUFFICIENT_EXTEND_EARLIER_HISTORY` rather than fitting a pseudo-replicated model.
+- Added a 17-event macro plumbing seed, explicitly not valid for final promotion.
+- Frozen a separate twelve-month Dukascopy M1 development feed (Jul2025-Jun2026) with hash/coverage/cross-feed audit and no labels/P&L; added downloader, audit runner and CI workflow.
+- Jul-Aug/Sep 2026 remain sealed; Engine R remains paused.
