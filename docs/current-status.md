@@ -1766,3 +1766,66 @@ Result:
 **Interpretation:** generic multi-timeframe OHLC context is not the information advantage the project needs.
 
 **Exact next research action:** macro/catalyst information-content study, beginning with historical event timestamps + actual/consensus surprise and testing incremental value over the price-only baseline before any strategy rules are built.
+
+
+## EXP-041 — MACRO/CATALYST INFORMATION RESEARCH / DATA-ADEQUACY PHASE
+
+The project is deliberately **not** fitting another news/price model yet.
+
+A new governing expert-process decomposition is frozen in:
+
+- `research/HUMAN-TRADER-EDGE-DECOMPOSITION-v0.1.md`.
+
+Working sequence:
+
+`catalyst/regime -> structural location -> participation/market interpretation -> trigger -> non-chasing execution -> structural stop -> target path -> EV/ranking -> equity-adaptive sizing`.
+
+### EXP-041 Gate A finding
+
+The current Mar-Jun development window contains only **17 independent primary macro event blocks**:
+
+- 3 Employment;
+- 3 CPI;
+- 3 PPI;
+- 3 Retail Sales;
+- 3 GDP/PCE;
+- 2 FOMC.
+
+This is **not enough independent event history** for a trustworthy macro-surprise model. Hundreds of candidate rows around one CPI release are still one economic event.
+
+Therefore Gate A disposition is:
+
+`DATA_INSUFFICIENT_EXTEND_EARLIER_HISTORY`.
+
+No macro outcome model has been run. No protected period has been used.
+
+Durable artifacts:
+
+- `research/experiments/EXP-041-macro-catalyst-information-content-v0.1.md`;
+- `research/EXP-041-DATA-ADEQUACY-AUDIT-v0.1.md`;
+- `research/provenance/EXP-041-macro-catalyst-source-manifest.md`;
+- `research/data/EXP-041-macro-catalyst-seed-v0.1.json` (17-event plumbing seed only; not final promotion data).
+
+### Extended development market history
+
+The market-history half of Gate A is now prospectively frozen:
+
+- source authority: Dukascopy Bank historical data;
+- transport helper: exact `dukascopy-node@1.50.0`;
+- interval: **2025-07-01 through 2026-06-30 only**;
+- eight existing execution markets;
+- use one consistent Dukascopy M1 feed for the full expanded EXP-041 development interval;
+- do **not** splice the old and new feeds;
+- existing pinned source is overlap sanity only;
+- raw files are not committed; hashes/coverage/overlap are durably checkpointed;
+- zero target labels / zero P&L in this acquisition stage.
+
+Implementation checkpoint:
+
+- downloader commit `df925e3`, blob `93032b2`;
+- acquisition-audit commit `208de49`, blob `16f20f0`;
+- workflow commit `2ad8174`, blob `2caabe6`.
+
+Jul-Aug and Sep 2026 remain sealed. Engine R remains paused.
+
+**Exact next action:** trigger one EXP-041 extended-market-history acquisition/audit. If it passes, continue the macro Gate-A work by acquiring enough point-in-time event history; do not run Gate B until sample-independence requirements pass.
