@@ -1484,3 +1484,15 @@ No source is selected by preference. No macro outcome model is authorized. Jul-A
 
 If that mechanical hypothesis fails, the next source must be intended-broker or another institutional-quality fourth feed before macro Gate B.
 
+## 2026-09-25 — Freeze HistData timestamp-semantics diagnostic before result
+
+**Decision:** freeze one zero-outcome mechanical timestamp diagnostic at repository SHA `2791376846eff374c708f0346da29432ab77f1bd`.
+
+The test applies the same integer-hour shift (-6h..+6h) to HistData for every market and replays the original pairwise and feed-selection gates without threshold changes.
+
+Per-market custom shifts are prohibited. A common shift may only justify a separately frozen corrected adjudication v0.2; it cannot itself select a feed or authorize macro modeling.
+
+If no common shift restores the frozen gate, HistData remediation ends and the project requires an intended-broker or another institutional-quality fourth source.
+
+Protected Jul-Aug/Sep remain sealed and Engine R remains paused before target/P&L development.
+
