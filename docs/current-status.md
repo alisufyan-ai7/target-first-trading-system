@@ -1730,3 +1730,19 @@ Governance addition:
 - current brainstorming synthesis is `research/BRAINSTORMING-SYNTHESIS-2026-09-25.md`.
 
 **Exact next action:** run one EXP-040 information-content workflow and resume from its durable bot result.
+
+
+### 2026-09-25 — EXP-040 operational startup block (no scientific result)
+
+GitHub Actions run `36135418584` failed twice before any workflow step started:
+
+- trigger SHA: `8b94aa585a737ac18f3876c3b7f8352fa164a7cb`;
+- attempt 1: completed failure in ~3-4 seconds;
+- attempt 2: completed failure in ~4-7 seconds;
+- both attempts exposed zero job steps and no downloadable job log;
+- no EXP-040 durable result file was created;
+- no model, target/path label, development outcome or protected-period computation ran.
+
+**Interpretation:** operational GitHub Actions startup/account/runner block, not an EXP-040 scientific failure and not evidence against the frozen code/mechanics.
+
+Do not modify EXP-040 research mechanics in response to this red check. Exact next action is to resolve the GitHub Actions pre-run failure from the workflow Details/account Actions status, then rerun the same frozen experiment. Jul-Aug and Sep remain sealed; Engine R remains paused.
