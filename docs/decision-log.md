@@ -1462,3 +1462,25 @@ Diagnostic `bdd3b7f` found zero-lag alignment as the best lag at both 5m and 1h 
 **Decision:** neither the existing pinned source nor Dukascopy is accepted as the twelve-month EXP-041 macro-development feed solely by assertion. Use a third independent source to adjudicate.
 
 Frozen adjudication logic will compare HistData.com M1 bid bars against both feeds. If two sources agree strongly and the third does not, the third is treated as the likely outlier for this research purpose. If no two-source consensus emerges, stop and require intended-broker/another institutional feed before macro modeling.
+
+## 2026-09-25 — EXP-041 third-source adjudication fails; no feed is accepted
+
+**Decision:** apply the frozen three-feed gate without relaxation.
+
+Durable result `3e5ed20a733bf80fc72c155c756edf7c115c566e` found:
+
+- CURRENT_PINNED support in 2/8 markets;
+- DUKASCOPY support in 2/8 markets;
+- HISTDATA support in 0/8 markets;
+- XAUUSD and USDCAD classified `HISTDATA_OUTLIER`;
+- six markets classified `NO_TWO_SOURCE_CONSENSUS`;
+- no eligible consensus source;
+- `feed_selection_gate_pass = false`;
+- disposition `NO_CLEAR_CONSENSUS_REQUIRE_FOURTH_OR_BROKER_SOURCE`.
+
+No source is selected by preference. No macro outcome model is authorized. Jul-Aug and Sep remain sealed.
+
+**Data-integrity follow-up:** permit one prospectively frozen, zero-outcome HistData timestamp-semantics diagnostic because the third feed shows weak intraday but stronger daily agreement, a pattern compatible with a common mechanical timestamp error. This diagnostic may test only a single common hour-shift mechanism across markets and may not relax the existing pairwise gates or fit per-market shifts.
+
+If that mechanical hypothesis fails, the next source must be intended-broker or another institutional-quality fourth feed before macro Gate B.
+
