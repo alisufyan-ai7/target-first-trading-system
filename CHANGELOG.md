@@ -422,3 +422,9 @@
 - Added `research/ECONOMIC-FEASIBILITY-FRONTIER-v0.1.md` (`73e75b5`) with exact simplified daily-state arithmetic under current cost/loss-gate conventions.
 - Added `research/EDGE-SOURCE-RESEARCH-MATRIX-v0.1.md` (`fac6c1b`) prioritizing Gold/FX macro + microstructure/order-flow + rates/execution data over another OHLC-only family.
 - Confirmed that risk scaling is deferred until positive post-cost edge exists; Engine R remains paused before development and protected periods remain sealed.
+
+- Added governing `docs/BRAINSTORMING-AND-KNOWLEDGE-CAPTURE-POLICY.md` so material brainstorming is durably synthesized into the repository.
+- Added `research/BRAINSTORMING-SYNTHESIS-2026-09-25.md` covering information advantage, human multi-timeframe process, specialization, lot-size caution, compounding, target ladder, non-chasing execution and meta-overfitting lessons.
+- Frozen EXP-040 Multi-Timeframe Structural Context Information-Content Study plus source manifest.
+- Implemented nested LOCAL_M5 / +15M / +1H / +4H-prior-day / +session feature sets, structural-risk target ladder, six purged chronological folds and fixed logistic+Platt comparison.
+- Frozen EXP-040 implementation at workflow SHA `d5e41a0`; no protected-period data authorized and Engine R remains paused.
