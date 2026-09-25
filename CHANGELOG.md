@@ -464,3 +464,8 @@
 - No feed was selected and no threshold was relaxed.
 - Authorized one zero-outcome HistData timestamp-semantics diagnostic before moving to an intended-broker/institutional fourth source, because HistData's daily-vs-intraday correlation pattern may indicate a common mechanical timestamp issue.
 
+- Frozen EXP-041 HistData timestamp-semantics diagnostic at main SHA `2791376846eff374c708f0346da29432ab77f1bd`.
+- Added a zero-outcome common whole-hour shift test (-6h..+6h) that replays the original third-source pairwise/feed-selection gates unchanged.
+- Prohibited per-market shift fitting and preserved Jul-Aug/Sep protection.
+- Next step is one workflow run only; failure to restore the frozen gate requires a fourth/intended-broker source.
+
