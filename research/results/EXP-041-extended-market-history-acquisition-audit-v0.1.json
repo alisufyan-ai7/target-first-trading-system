@@ -1,0 +1,354 @@
+{
+  "stage": "EXP-041 extended market-history acquisition audit",
+  "scientific_outcomes_calculated": false,
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "source": {
+    "authority": "Dukascopy Bank historical data",
+    "transport_helper": "dukascopy-node",
+    "transport_version": "1.50.0",
+    "transport_metadata": {
+      "version": "1.50.0",
+      "dist_integrity": "sha512-o2Co/asUD/TXFNhblJUYkRseHMt/uvFrnhzOKWezLuiFJqbl4Zn2oJGL4/W+PY1b2YsI11+9+TO40qNQBAj8/w=="
+    },
+    "timeframe": "m1",
+    "interval": [
+      "2025-07-01 00:00:00+00:00",
+      "2026-07-01 00:00:00+00:00"
+    ],
+    "normalized_schema": [
+      "datetime",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "raw_files_committed_to_repo": false
+  },
+  "markets": {
+    "XAUUSD": {
+      "normalized_file_sha256": "1afa576b5492b4965b6ca19fe613ae8e5a7e520b2dc8f8b16fff32eb37b6b197",
+      "file_bytes": 23728127,
+      "integrity": {
+        "rows": 344537,
+        "distinct_utc_dates": 301,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 92183,
+        "current_overlap_rows": 97462,
+        "exact_timestamp_overlap_rows": 91869,
+        "exact_overlap_ratio_of_smaller_feed": 0.9965937320330213,
+        "median_abs_relative_close_difference": 0.008562158423128907,
+        "p95_abs_relative_close_difference": 0.019793600973911828,
+        "hourly_return_common_rows": 1534,
+        "hourly_return_correlation": 0.9659664236033616,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": true,
+          "median_relative_close_diff_le_0_5pct": false
+        },
+        "sanity_pass": false
+      }
+    },
+    "EURUSD": {
+      "normalized_file_sha256": "22d3efa1d303f4e4a80bf41f89fd296e9128e699718798624195d13ca87b7b0f",
+      "file_bytes": 22912556,
+      "integrity": {
+        "rows": 367667,
+        "distinct_utc_dates": 310,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 101951,
+        "current_overlap_rows": 103531,
+        "exact_timestamp_overlap_rows": 101802,
+        "exact_overlap_ratio_of_smaller_feed": 0.9985385135996704,
+        "median_abs_relative_close_difference": 0.009540493426419605,
+        "p95_abs_relative_close_difference": 0.012170058090158465,
+        "hourly_return_common_rows": 1704,
+        "hourly_return_correlation": 0.9099427589310756,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": false,
+          "median_relative_close_diff_le_0_5pct": false
+        },
+        "sanity_pass": false
+      }
+    },
+    "GBPUSD": {
+      "normalized_file_sha256": "3b4a5bdd8fb02508596ec64dca1ffdd92adfde72cc0039cb1c22de913dda68b2",
+      "file_bytes": 21085113,
+      "integrity": {
+        "rows": 338380,
+        "distinct_utc_dates": 289,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 92937,
+        "current_overlap_rows": 103511,
+        "exact_timestamp_overlap_rows": 92772,
+        "exact_overlap_ratio_of_smaller_feed": 0.99822460376384,
+        "median_abs_relative_close_difference": 0.002965946004401976,
+        "p95_abs_relative_close_difference": 0.013698431565823954,
+        "hourly_return_common_rows": 1554,
+        "hourly_return_correlation": 0.7848383021375482,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": false,
+          "median_relative_close_diff_le_0_5pct": true
+        },
+        "sanity_pass": false
+      }
+    },
+    "USDJPY": {
+      "normalized_file_sha256": "05296feddaacc8c5c0d9778be9a7612693bbbe3f9f66f0f716838ad0f51fe5f4",
+      "file_bytes": 23049775,
+      "integrity": {
+        "rows": 368988,
+        "distinct_utc_dates": 311,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 103079,
+        "current_overlap_rows": 103530,
+        "exact_timestamp_overlap_rows": 102930,
+        "exact_overlap_ratio_of_smaller_feed": 0.9985545067375509,
+        "median_abs_relative_close_difference": 0.0029394455725267332,
+        "p95_abs_relative_close_difference": 0.00948117424995254,
+        "hourly_return_common_rows": 1725,
+        "hourly_return_correlation": 0.9405743064238519,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": false,
+          "median_relative_close_diff_le_0_5pct": true
+        },
+        "sanity_pass": false
+      }
+    },
+    "EURJPY": {
+      "normalized_file_sha256": "4514cdbe82e4aa2c73d5c30c8ecf1b14c95d49bbd09e568ebd510b8fe49a36d3",
+      "file_bytes": 22167988,
+      "integrity": {
+        "rows": 353514,
+        "distinct_utc_dates": 297,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 97766,
+        "current_overlap_rows": 103519,
+        "exact_timestamp_overlap_rows": 97607,
+        "exact_overlap_ratio_of_smaller_feed": 0.9983736677372501,
+        "median_abs_relative_close_difference": 0.002430120533978397,
+        "p95_abs_relative_close_difference": 0.015600375890461649,
+        "hourly_return_common_rows": 1632,
+        "hourly_return_correlation": 0.7977455015468221,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": false,
+          "median_relative_close_diff_le_0_5pct": true
+        },
+        "sanity_pass": false
+      }
+    },
+    "AUDUSD": {
+      "normalized_file_sha256": "f275920579feb1fe5f3c9d14bffed7cf61bc140d5181a14480e9d3b03a31d4ab",
+      "file_bytes": 22684752,
+      "integrity": {
+        "rows": 364256,
+        "distinct_utc_dates": 308,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 101790,
+        "current_overlap_rows": 103531,
+        "exact_timestamp_overlap_rows": 101641,
+        "exact_overlap_ratio_of_smaller_feed": 0.9985362019844779,
+        "median_abs_relative_close_difference": 0.015430864486949192,
+        "p95_abs_relative_close_difference": 0.03565926216420878,
+        "hourly_return_common_rows": 1701,
+        "hourly_return_correlation": 0.778994742859361,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": false,
+          "median_relative_close_diff_le_0_5pct": false
+        },
+        "sanity_pass": false
+      }
+    },
+    "USDCAD": {
+      "normalized_file_sha256": "00ddb2cde3a7a96539a750747f8c76993aa755f5a4fc94169875959b1e62a568",
+      "file_bytes": 22713075,
+      "integrity": {
+        "rows": 364120,
+        "distinct_utc_dates": 305,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-30 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 103120,
+        "current_overlap_rows": 103532,
+        "exact_timestamp_overlap_rows": 102972,
+        "exact_overlap_ratio_of_smaller_feed": 0.9985647788983708,
+        "median_abs_relative_close_difference": 0.0011720881849999198,
+        "p95_abs_relative_close_difference": 0.00302112582325319,
+        "hourly_return_common_rows": 1725,
+        "hourly_return_correlation": 0.9740102544390893,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": true,
+          "median_relative_close_diff_le_0_5pct": true
+        },
+        "sanity_pass": true
+      }
+    },
+    "USDCHF": {
+      "normalized_file_sha256": "1b066ffe16a9cbfe18f1c25ece76390a3d6ca3ef3b6f1fd74bd816f7c14b98da",
+      "file_bytes": 22036510,
+      "integrity": {
+        "rows": 354708,
+        "distinct_utc_dates": 296,
+        "first_timestamp": "2025-07-01 00:00:00+00:00",
+        "last_timestamp": "2026-06-29 23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_after_jun30_18utc": false,
+          "all_rows_inside_frozen_interval": true,
+          "no_duplicates": true,
+          "timestamps_monotonic": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": false
+      },
+      "overlap_sanity_vs_existing_pinned_source": {
+        "duka_overlap_rows": 98353,
+        "current_overlap_rows": 103529,
+        "exact_timestamp_overlap_rows": 98203,
+        "exact_overlap_ratio_of_smaller_feed": 0.9984748812949275,
+        "median_abs_relative_close_difference": 0.016606479504005955,
+        "p95_abs_relative_close_difference": 0.019259191292352935,
+        "hourly_return_common_rows": 1647,
+        "hourly_return_correlation": 0.9220030444738043,
+        "checks": {
+          "exact_m1_overlap_ge_70pct": true,
+          "hourly_return_corr_ge_0_95": false,
+          "median_relative_close_diff_le_0_5pct": false
+        },
+        "sanity_pass": false
+      }
+    }
+  },
+  "parsed_market_data_max_timestamp": "2026-06-30 23:59:00+00:00",
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "gate": {
+    "all_market_integrity_pass": false,
+    "all_cross_feed_sanity_pass": false,
+    "hard_source_seal_pass": true
+  },
+  "market_history_gate_pass": false
+}
