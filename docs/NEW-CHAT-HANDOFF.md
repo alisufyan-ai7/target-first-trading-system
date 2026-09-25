@@ -1921,3 +1921,22 @@ Run `36153466140` is **not** a failed market-history gate. All eight Dukascopy f
 Fix: `105eb2e` removes that modeling dependency without changing frozen research mechanics.
 
 **Exact next action:** rerun the unchanged EXP-041 extended-market-history acquisition/audit once, then inspect the durable audit result.
+
+
+### EXP-041 extended-history durable result
+
+Result commit: `1cf168d`.
+
+The second acquisition run is a real data-quality result:
+
+- Dukascopy twelve-month files acquired for all eight markets;
+- timestamp overlap with existing pinned feed ~99.7%+;
+- but cross-feed hourly-return/price-basis sanity failed for 7/8 markets;
+- only USDCAD passed all cross-feed checks;
+- USDCHF lacked Jun30 data;
+- market-history gate = FAIL;
+- no labels/P&L/protected-period use.
+
+Do not proceed to EXP-041 macro outcomes and do not relax thresholds.
+
+**Exact next action:** zero-outcome Mar23-Jun30 cross-feed diagnostic to identify time shift vs price basis vs material path/feed mismatch, then decide prospectively whether a new acquisition version is justified.
