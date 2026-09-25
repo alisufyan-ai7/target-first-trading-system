@@ -1414,3 +1414,29 @@ This narrows the root-cause hypothesis:
 > the missing edge is unlikely to be recovered by simply adding more generic OHLC timeframes.
 
 The next information family must be genuinely new rather than another price transform. Proceed to macro/catalyst information-content research before any strategy build.
+
+
+## 2026-09-25 — Macro research must be event-independent, not row-count driven
+
+**Decision:** EXP-041 will not fit a macro/catalyst outcome model on the current 17-event Mar-Jun sample.
+
+Reason: candidate rows around the same release are correlated observations of one catalyst. Treating three CPI releases as thousands of independent training examples would create pseudo-replication and almost guarantee misleading confidence.
+
+Frozen Gate-A requirements therefore include at least 12 months of earlier development history, >=40 independent event blocks, >=8 recurring releases per primary numeric family, and point-in-time pre-release consensus provenance before the full surprise layer is evaluated.
+
+The project will expand evidence **backward** rather than consume Jul-Aug/Sep 2026.
+
+A 17-event seed is retained only to validate schema/plumbing. It is explicitly barred from final model promotion.
+
+### Market-history acquisition decision
+
+Use Dukascopy M1 as a separate, internally consistent twelve-month research feed for EXP-041:
+
+- 2025-07-01 <= timestamp < 2026-07-01;
+- eight existing markets;
+- exact transport helper version `dukascopy-node@1.50.0`;
+- existing pinned March-Jun feed is overlap sanity only;
+- do not splice feeds;
+- record normalized-file SHA-256 hashes before any later outcome study.
+
+This acquisition contains no labels/P&L and cannot by itself authorize a strategy.
