@@ -452,3 +452,7 @@
 - EXP-041 extended-market-history audit produced durable result `1cf168d`: acquisition integrity largely passed, but the frozen cross-feed sanity gate failed for 7/8 markets; USDCHF also ended one day early.
 - Market-history gate remains FAIL. No macro model, target labels or P&L were run.
 - Next action changed to a zero-outcome cross-feed diagnostic before any acquisition-v0.2 redesign; frozen v0.1 thresholds will not be relaxed post hoc.
+
+- EXP-041 cross-feed diagnostic completed successfully at `bdd3b7f`: zero lag is best for all markets, so timezone alignment does not explain the feed disagreement.
+- All eight markets classified `MATERIAL_PATH_MISMATCH`; USDCHF also has a source-coverage gap.
+- No thresholds were relaxed. Next step is prospectively frozen three-feed adjudication before any macro outcome modeling.
