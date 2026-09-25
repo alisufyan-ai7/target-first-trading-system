@@ -1898,3 +1898,28 @@ Frozen diagnostic classification:
 No target labels or P&L were calculated; Jul-Aug/Sep remain sealed.
 
 **Exact next action:** third-source adjudication using HistData.com M1 bid bars on the same Mar23-Jun30 overlap. Do not choose a feed or run macro outcomes until the three-feed comparison is complete.
+
+## 2026-09-25 — EXP-041 THIRD-SOURCE ADJUDICATION COMPLETE / NO SOURCE SELECTED
+
+Durable result commit: `3e5ed20a733bf80fc72c155c756edf7c115c566e`.  
+Workflow run `36156982409` completed successfully.
+
+Frozen three-feed result:
+
+- CURRENT_PINNED supported in 2/8 markets;
+- DUKASCOPY supported in 2/8 markets;
+- HISTDATA supported in 0/8 markets;
+- XAUUSD and USDCAD = `HISTDATA_OUTLIER`;
+- six markets = `NO_TWO_SOURCE_CONSENSUS`;
+- eligible consensus sources = none;
+- feed-selection gate = FAIL;
+- disposition = `NO_CLEAR_CONSENSUS_REQUIRE_FOURTH_OR_BROKER_SOURCE`.
+
+No target labels or P&L were calculated. Jul-Aug and Sep remain sealed.
+
+Do not accept CURRENT_PINNED, Dukascopy, or HistData by preference and do not relax the frozen adjudication criteria.
+
+A data-engineering anomaly remains worth one zero-outcome check: HistData has poor intraday correlation but materially stronger daily correlation versus Dukascopy on several markets. This can be consistent with a timestamp-semantics problem even though minute-grid overlap is high.
+
+**Exact next action:** prospectively freeze and run one HistData timestamp-semantics diagnostic on the same Mar23-Jun30 overlap only. Test common mechanical hour shifts across all markets; no per-market shift fitting, no target labels/P&L, no protected data, no threshold relaxation. If no common correction restores broad agreement under the original pairwise gates, require an intended-broker or another institutional-quality fourth source before EXP-041 macro modeling.
+
