@@ -74,3 +74,31 @@ After the result:
 - P&L: NO;
 - Jul-Aug: NO;
 - Sep: NO.
+
+
+## Durable diagnostic result — MATERIAL PATH MISMATCH
+
+**Result commit:** `bdd3b7f6786e6cc9752436b808ac2ae1af6f99cf`  
+**Workflow:** PASS  
+**Target labels / P&L:** NONE
+
+Key findings on Mar23-Jun30 overlap:
+
+- exact-M1 timestamp overlap: ~99.79%-99.86% across markets;
+- best 5m lag: **0** for all 8 markets;
+- best 1h lag: **0** for all 8 markets;
+- therefore no evidence that a simple timezone/clock shift explains the disagreement;
+- XAUUSD was relatively close in returns (5m 0.9856, 1h 0.9795, 1d 0.9778) but failed the frozen stable-basis criterion because daily-median price ratio varied too much;
+- EURUSD 1h correlation 0.9140;
+- GBPUSD 1h 0.8421;
+- USDJPY 1h 0.9406;
+- EURJPY 1h 0.7977;
+- AUDUSD 1h 0.7799;
+- USDCAD 1h 0.9740 but narrowly missed the frozen daily-ratio-stability criterion;
+- USDCHF 1h 0.9220 and also had a Jun30 source-coverage gap.
+
+All eight markets were therefore tagged `MATERIAL_PATH_MISMATCH`; USDCHF additionally `SOURCE_COVERAGE_GAP`.
+
+**Interpretation:** do not weaken the acquisition-v0.1 thresholds. The disagreement is not explained by a simple lag and needs independent adjudication.
+
+**Next:** compare both feeds to a third independent M1 source before choosing an expanded macro-development feed.
