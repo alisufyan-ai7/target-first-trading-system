@@ -1373,3 +1373,20 @@ Two follow-up research checkpoints are now frozen:
 **Information-source decision:** next alpha research should first test whether macro/catalyst, order-flow/book, rates/cross-asset and execution-feed information adds incremental out-of-sample value over the existing price-only baseline. Another OHLC momentum/reversion/correlation family is not the next default action.
 
 Engine R remains preserved but paused before target/P&L development. Protected periods remain sealed.
+
+
+## 2026-09-25 — Adopt durable brainstorming capture and freeze EXP-040 MTF information study
+
+**Knowledge-governance decision:** material brainstorming is now repository knowledge, not ephemeral chat context. The governing policy is `docs/BRAINSTORMING-AND-KNOWLEDGE-CAPTURE-POLICY.md`. Important reasoning must be synthesized into decision/status/research/handoff files before it can be safely relied on by future chats.
+
+The current human-process/timeframe/compounding discussion is preserved in `research/BRAINSTORMING-SYNTHESIS-2026-09-25.md`.
+
+**Research decision:** begin information-first research with EXP-040 before any new strategy development.
+
+EXP-040 tests incremental predictive information from 15M, 1H, 4H, prior-day and session-location context against a local-M5 baseline on the same broad structural candidate universe.
+
+The study uses a normalized structural-risk target ladder for information testing only; it does not override engine-conditioned P&L-equivalent sizing.
+
+The scientific result may validly be either “stable information advantage found” or “no stable information advantage.” No outcome-dependent strategy rule is introduced by this experiment.
+
+Jul-Aug and Sep remain sealed. Engine R remains paused before development.
