@@ -1,0 +1,2 @@
+Trigger EXP-040 Multi-Timeframe Structural Context Information-Content Study v0.1.
+Frozen inputs are checkpointed. Development data only. Jul-Aug and September remain sealed. Engine R remains paused.
