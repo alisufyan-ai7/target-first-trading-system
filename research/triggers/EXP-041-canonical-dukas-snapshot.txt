@@ -1,0 +1,6 @@
+Trigger EXP-041 canonical Dukascopy immutable snapshot v1.
+
+Frozen data-governance rule: Dukascopy is the canonical EXP-041 development market-history source.
+Snapshot must reproduce the pre-existing normalized SHA-256 hashes from audit 1cf168d6b3b639cfcc856ffae7aeb66db880dc47 exactly.
+Do not load Jul-Aug or Sep 2026. No target labels, P&L, or strategy outcomes.
+If hashes drift, fail closed and investigate source drift.
