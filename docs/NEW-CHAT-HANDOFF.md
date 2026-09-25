@@ -1981,3 +1981,13 @@ A final zero-outcome data-integrity question is allowed before procuring a fourt
 
 Engine R remains paused before target/P&L development. The information-first path remains: catalyst/regime -> structural location -> participation/market interpretation -> trigger -> non-chasing execution -> target path -> EV/ranking -> equity-adaptive sizing.
 
+### EXP-041 HistData timestamp diagnostic launch checkpoint
+
+Frozen implementation SHA: `2791376846eff374c708f0346da29432ab77f1bd`.
+
+The diagnostic tests whether the failed HistData adjudication is explained by one common whole-hour timestamp-basis error. It tries only -6h..+6h, applies the same shift to all markets, and reuses the original pairwise/feed-selection thresholds exactly.
+
+Per-market fitted shifts are not allowed. No target labels/P&L/protected-period data are used.
+
+**Exact next action:** trigger one `EXP-041 HistData Timestamp Semantics Diagnostic` workflow, confirm it starts once, and later inspect the durable bot checkpoint. If no common shift restores the original frozen gate, stop HistData remediation and require intended-broker/another institutional-quality source before macro modeling.
+
