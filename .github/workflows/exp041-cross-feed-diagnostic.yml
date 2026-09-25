@@ -1,0 +1,79 @@
+name: EXP-041 Cross Feed Diagnostic
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-cross-feed-diagnostic.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install fixed dependencies
+        run: |
+          npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+          python -m pip install --upgrade pip
+          pip install pandas numpy
+      - name: Verify diagnostic code
+        run: |
+          node --check research/code/download_exp041_cross_feed_overlap.js
+          python -m py_compile research/code/run_exp041_cross_feed_diagnostic.py
+      - name: Download development-overlap Dukascopy data only
+        env:
+          EXP041_DIAG_DIR: /tmp/exp041-cross-feed
+        run: node research/code/download_exp041_cross_feed_overlap.js
+      - name: Run zero-outcome cross-feed diagnostic
+        env:
+          EXP041_DIAG_DIR: /tmp/exp041-cross-feed
+        run: PYTHONPATH=research/code python research/code/run_exp041_cross_feed_diagnostic.py
+      - name: Upload diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-cross-feed-diagnostic
+          path: research/results/EXP-041-cross-feed-diagnostic-v0.1.json
+          if-no-files-found: warn
+      - name: Commit durable diagnostic
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          P=research/results/EXP-041-cross-feed-diagnostic-v0.1.json
+          if [ ! -f "$P" ]; then
+            echo "EXP-041 cross-feed diagnostic missing"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$P"
+          git commit -m "Checkpoint EXP-041 cross-feed diagnostic"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Enforce protection only
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("research/results/EXP-041-cross-feed-diagnostic-v0.1.json")
+          if not p.exists(): raise SystemExit("diagnostic missing")
+          x=json.loads(p.read_text())
+          if x["target_labels_calculated"] or x["pnl_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          print("EXP-041 diagnostic protection PASSED")
+          PY
