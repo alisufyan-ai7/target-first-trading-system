@@ -1882,3 +1882,19 @@ Therefore:
 Do **not** weaken the frozen v0.1 sanity thresholds post hoc and do not proceed to macro outcome modeling yet.
 
 **Exact next action:** run a zero-outcome cross-feed diagnostic on the Mar23-Jun30 overlap to determine whether the discrepancy is a time alignment, stable price-basis, symbol/feed-construction, or material path mismatch. Only after that diagnosis may a prospectively frozen acquisition v0.2 be considered.
+
+
+## EXP-041 cross-feed diagnostic — COMPLETE / THIRD SOURCE REQUIRED
+
+Durable diagnostic: `bdd3b7f`.
+
+The discrepancy between the existing pinned feed and Dukascopy is **not** a simple timestamp alignment problem. Best 5m and 1h lag is zero across all eight markets, while several FX markets still have materially sub-0.95 1h return correlation.
+
+Frozen diagnostic classification:
+
+- all 8 markets: `MATERIAL_PATH_MISMATCH`;
+- USDCHF also: `SOURCE_COVERAGE_GAP`.
+
+No target labels or P&L were calculated; Jul-Aug/Sep remain sealed.
+
+**Exact next action:** third-source adjudication using HistData.com M1 bid bars on the same Mar23-Jun30 overlap. Do not choose a feed or run macro outcomes until the three-feed comparison is complete.
