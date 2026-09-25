@@ -1863,3 +1863,25 @@ Run `36135418584`, trigger `8b94aa5`, has failed twice **before any workflow ste
 This is not a scientific result and does not authorize any research redesign. Preserve EXP-040 frozen mechanics.
 
 **Exact next action:** inspect GitHub Actions **Details** for the pre-run/account/runner message, resolve that operational condition, then rerun the same frozen EXP-040 workflow. Jul-Aug/Sep remain sealed; Engine R remains paused.
+
+
+## EXP-040 final checkpoint
+
+EXP-040 is complete.
+
+Durable result: `research/results/EXP-040-mtf-structural-context-information-content-v0.1.json` at commit `46049f7`.
+
+Key result:
+
+- 123,724 candidates;
+- 99,622 pooled evaluation predictions per primary rung;
+- LOCAL_M5 remained better than all nested +15M/+1H/+4H-prior-day/+session sets on the frozen primary evidence gate;
+- no feature set passed;
+- disposition `NO_STABLE_MTF_INFORMATION_ADVANTAGE`;
+- integrity PASS;
+- Jul-Aug/Sep sealed;
+- Engine R target/P&L development not used.
+
+Do not build a generic MTF-OHLC strategy from this result.
+
+**Exact next action:** freeze a macro/catalyst information-content study that tests historical scheduled-event information and actual-vs-consensus surprise incrementally against the price-only baseline, still using development data only. External data provenance must be frozen before outcomes.
