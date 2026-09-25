@@ -469,3 +469,10 @@
 - Prohibited per-market shift fitting and preserved Jul-Aug/Sep protection.
 - Next step is one workflow run only; failure to restore the frozen gate requires a fourth/intended-broker source.
 
+
+
+- EXP-041 HistData timestamp-semantics diagnostic completed at durable result `f98eba5`; no common -6h..+6h shift restored the frozen three-feed selection gate, so HistData remediation is closed.
+- Added `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.2.md`: prospectively adopts Dukascopy as the canonical EXP-041 development price feed without pretending the earlier consensus gate passed.
+- Frozen exact normalized SHA-256 values from audit `1cf168d`; future EXP-041 development data will be an immutable GitHub Release snapshot rather than repeated live downloads.
+- Added snapshot verifier and snapshot workflow; common eight-market modeling cutoff is 2026-06-30 00:00 UTC because USDCHF ends Jun29 23:59.
+- Broker/institutional execution-feed validation remains required before deployment; Jul-Aug/Sep remain sealed and no strategy outcomes were computed.
