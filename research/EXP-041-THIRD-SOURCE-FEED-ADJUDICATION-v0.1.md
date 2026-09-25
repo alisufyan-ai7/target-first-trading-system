@@ -76,3 +76,35 @@ If not, require intended-broker/another institutional source.
 - strategy selection: NO;
 - Jul-Aug: NO;
 - Sep: NO.
+
+## Durable result — NO CLEAR CONSENSUS
+
+**Result commit:** `3e5ed20a733bf80fc72c155c756edf7c115c566e`  
+**Workflow run:** `36156982409` — completed successfully
+
+Frozen feed-selection gate result:
+
+- CURRENT_PINNED supported by a passing pair in **2/8** markets;
+- DUKASCOPY supported by a passing pair in **2/8** markets;
+- HISTDATA supported by a passing pair in **0/8** markets;
+- XAUUSD and USDCAD: `HISTDATA_OUTLIER` because CURRENT_PINNED↔DUKASCOPY passed while both HistData pairs failed;
+- the other **6/8** markets: `NO_TWO_SOURCE_CONSENSUS`;
+- eligible consensus sources: **none**;
+- `feed_selection_gate_pass = false`;
+- disposition: `NO_CLEAR_CONSENSUS_REQUIRE_FOURTH_OR_BROKER_SOURCE`.
+
+Protection held:
+
+- target labels: NO;
+- P&L: NO;
+- Jul-Aug 2026: not loaded;
+- Sep 2026: not loaded.
+
+### Follow-up data-integrity note
+
+The failed adjudication is not to be weakened or reinterpreted. However, HistData shows a distinctive scale pattern: very weak 5m/1h agreement with both other feeds while daily-return agreement is materially higher for several markets. That pattern can be caused by timestamp semantics even when exact minute-grid overlap is high.
+
+One **zero-outcome timestamp-semantics diagnostic** is therefore permitted before procuring a fourth feed. It may test only common mechanical timestamp shifts on the same Mar23-Jun30 overlap and may not relax any pairwise threshold, calculate labels/P&L, inspect protected periods, or select per-market custom shifts.
+
+If no single common mechanical correction restores broad agreement under the already-frozen pairwise criteria, the next required source remains an intended-broker or another institutional-quality feed.
+
