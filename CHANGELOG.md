@@ -428,3 +428,6 @@
 - Frozen EXP-040 Multi-Timeframe Structural Context Information-Content Study plus source manifest.
 - Implemented nested LOCAL_M5 / +15M / +1H / +4H-prior-day / +session feature sets, structural-risk target ladder, six purged chronological folds and fixed logistic+Platt comparison.
 - Frozen EXP-040 implementation at workflow SHA `d5e41a0`; no protected-period data authorized and Engine R remains paused.
+
+- Recorded EXP-040 run `36135418584` as an operational GitHub Actions startup block after two attempts failed before any step/log/result existed.
+- Explicitly preserved frozen EXP-040 research mechanics; no scientific conclusion or protected-period computation occurred.
