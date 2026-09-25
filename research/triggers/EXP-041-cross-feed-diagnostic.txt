@@ -1,0 +1,1 @@
+Trigger EXP-041 zero-outcome cross-feed diagnostic on 2026-03-23 <= t < 2026-07-01 only. No labels, no P&L, no Jul-Aug/Sep 2026.
