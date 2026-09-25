@@ -1,8 +1,8 @@
 {
   "experiment": "EXP-040",
   "stage": "development_only_mtf_structural_context_information_content",
-  "tested_repository_sha": "8b94aa585a737ac18f3876c3b7f8352fa164a7cb",
-  "runner_sha256": "64041166348b304a623a377f98724733311b52dc8829ec6920ddc293d2f045aa",
+  "tested_repository_sha": "cea178f42cb94a1311a65c2d56ea8667ca05e340",
+  "runner_sha256": "68b86bdde866fdd87f34b3c084044b5f33396bafc4b6e19551786ff368f2d38b",
   "feature_module_sha256": "c880050b095481bf189b92535ba1c0441d1795d498f28ef2015d9279cf913fdf",
   "sklearn_version": "1.5.2",
   "scope": {
@@ -30316,7 +30316,7 @@
     "protected_periods_sealed": true,
     "feature_sets_exactly_nested": true,
     "engine_r_outcomes_used": false,
-    "integrity_pass": false
+    "integrity_pass": true
   },
-  "disposition": "INTEGRITY_FAIL_DO_NOT_INTERPRET"
+  "disposition": "NO_STABLE_MTF_INFORMATION_ADVANTAGE"
 }
