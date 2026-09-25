@@ -1746,3 +1746,23 @@ GitHub Actions run `36135418584` failed twice before any workflow step started:
 **Interpretation:** operational GitHub Actions startup/account/runner block, not an EXP-040 scientific failure and not evidence against the frozen code/mechanics.
 
 Do not modify EXP-040 research mechanics in response to this red check. Exact next action is to resolve the GitHub Actions pre-run failure from the workflow Details/account Actions status, then rerun the same frozen experiment. Jul-Aug and Sep remain sealed; Engine R remains paused.
+
+
+## EXP-040 result — COMPLETE / NO STABLE MTF INFORMATION ADVANTAGE
+
+Durable result: `46049f7d94131db50e7d9cbb13a3fa82dcafb810`.
+
+The corrected rerun completed successfully and passed integrity.
+
+Result:
+
+- 123,724 labeled development candidates;
+- 99,622 pooled evaluation predictions per primary rung;
+- no enriched MTF feature set passed the frozen T40eq/T50eq gate;
+- +15M, +1H, +4H/prior-day and +session context all failed to improve stable out-of-sample prediction versus LOCAL_M5;
+- Jul-Aug and Sep remained sealed;
+- Engine R remained paused and its target/P&L outcomes were not used.
+
+**Interpretation:** generic multi-timeframe OHLC context is not the information advantage the project needs.
+
+**Exact next research action:** macro/catalyst information-content study, beginning with historical event timestamps + actual/consensus surprise and testing incremental value over the price-only baseline before any strategy rules are built.
