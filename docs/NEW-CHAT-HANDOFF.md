@@ -1956,3 +1956,28 @@ Durable result `bdd3b7f`:
 Do not relax the old acquisition gate or select a feed yet.
 
 **Exact next action:** third-source Mar23-Jun30 M1 adjudication (HistData.com vs Dukascopy vs existing pinned feed), then prospectively decide the twelve-month source.
+
+## EXP-041 third-source adjudication final checkpoint
+
+Durable result: `3e5ed20a733bf80fc72c155c756edf7c115c566e`.  
+Actions run `36156982409`: completed successfully.
+
+Frozen result:
+
+- CURRENT_PINNED supported by a passing pair in 2/8 markets;
+- DUKASCOPY supported in 2/8;
+- HISTDATA supported in 0/8;
+- XAUUSD and USDCAD = `HISTDATA_OUTLIER`;
+- six markets = `NO_TWO_SOURCE_CONSENSUS`;
+- no eligible source;
+- feed-selection gate = FAIL;
+- disposition = `NO_CLEAR_CONSENSUS_REQUIRE_FOURTH_OR_BROKER_SOURCE`.
+
+No target labels/P&L were computed. Jul-Aug and Sep remain sealed. Do not select a feed by preference or weaken the pairwise criteria.
+
+A final zero-outcome data-integrity question is allowed before procuring a fourth feed: HistData's intraday agreement collapses while daily agreement is much stronger on several markets, which can indicate timestamp semantics rather than a true daily path disagreement.
+
+**Exact next action:** freeze/run one common-hour-shift HistData timestamp-semantics diagnostic on Mar23-Jun30 only. No per-market shift fitting, no outcomes, no protected periods, no gate relaxation. If it does not restore broad agreement under the already-frozen pairwise criteria, require intended-broker/another institutional-quality source before EXP-041 macro modeling.
+
+Engine R remains paused before target/P&L development. The information-first path remains: catalyst/regime -> structural location -> participation/market interpretation -> trigger -> non-chasing execution -> target path -> EV/ranking -> equity-adaptive sizing.
+
