@@ -1885,3 +1885,30 @@ Key result:
 Do not build a generic MTF-OHLC strategy from this result.
 
 **Exact next action:** freeze a macro/catalyst information-content study that tests historical scheduled-event information and actual-vs-consensus surprise incrementally against the price-only baseline, still using development data only. External data provenance must be frozen before outcomes.
+
+
+## EXP-041 macro/catalyst research checkpoint
+
+Do not jump directly to a “news strategy.”
+
+Read:
+
+- `research/HUMAN-TRADER-EDGE-DECOMPOSITION-v0.1.md`;
+- `research/experiments/EXP-041-macro-catalyst-information-content-v0.1.md`;
+- `research/EXP-041-DATA-ADEQUACY-AUDIT-v0.1.md`;
+- `research/provenance/EXP-041-macro-catalyst-source-manifest.md`;
+- `research/provenance/EXP-041-extended-market-history-manifest.md`.
+
+Current key fact: Mar-Jun contains only 17 independent primary macro event blocks. Gate A therefore fails for a serious surprise-conditioned model. Do not mistake candidate-row count for independent economic events.
+
+The current action is **data acquisition, not strategy fitting**:
+
+- acquire one consistent Dukascopy M1 feed for 2025-07-01..2026-06-30;
+- audit all eight markets and overlap against existing source;
+- record hashes, no raw-data commit;
+- no labels/P&L;
+- no Jul-Aug/Sep 2026.
+
+After market-history adequacy, acquire enough point-in-time macro consensus/actual-as-released history to satisfy the independent-event gate. Only then may EXP-041 information-content modeling proceed.
+
+Engine R remains paused.
