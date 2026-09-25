@@ -1940,3 +1940,19 @@ The second acquisition run is a real data-quality result:
 Do not proceed to EXP-041 macro outcomes and do not relax thresholds.
 
 **Exact next action:** zero-outcome Mar23-Jun30 cross-feed diagnostic to identify time shift vs price basis vs material path/feed mismatch, then decide prospectively whether a new acquisition version is justified.
+
+
+### EXP-041 cross-feed diagnostic final
+
+Durable result `bdd3b7f`:
+
+- operational PASS;
+- no labels/P&L;
+- ~99.8% timestamp overlap;
+- best 5m/1h lag = 0 across all 8 markets;
+- all markets tagged `MATERIAL_PATH_MISMATCH`;
+- USDCHF also `SOURCE_COVERAGE_GAP`.
+
+Do not relax the old acquisition gate or select a feed yet.
+
+**Exact next action:** third-source Mar23-Jun30 M1 adjudication (HistData.com vs Dukascopy vs existing pinned feed), then prospectively decide the twelve-month source.
