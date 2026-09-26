@@ -1,0 +1,143 @@
+{
+  "stage": "EXP-041 canonical Dukascopy immutable snapshot v1",
+  "governance_version": "v0.2",
+  "tested_repository_sha": "3309ba396c70184f545303b488803b683c63da50",
+  "github_run_id": "36264975005",
+  "github_run_attempt": "1",
+  "source": {
+    "authority": "Dukascopy Bank historical data",
+    "transport_helper": "dukascopy-node",
+    "transport_version": "1.50.0",
+    "download_interval": [
+      "2025-07-01T00:00:00Z",
+      "2026-07-01T00:00:00Z"
+    ],
+    "effective_common_model_interval": [
+      "2025-07-01T00:00:00Z",
+      "2026-06-30T00:00:00Z"
+    ]
+  },
+  "release": {
+    "tag": "exp041-data-dukas-m1-2025-07-01_2026-06-30-v1",
+    "archive_asset": "exp041-dukas-m1-2025-07-01_2026-06-30-v1.tar.gz",
+    "archive_sha256": null,
+    "created_or_verified_existing": false
+  },
+  "frozen_reference_audit_commit": "1cf168d6b3b639cfcc856ffae7aeb66db880dc47",
+  "markets": {
+    "XAUUSD": {
+      "file": "XAUUSD.csv",
+      "expected_sha256": "1afa576b5492b4965b6ca19fe613ae8e5a7e520b2dc8f8b16fff32eb37b6b197",
+      "observed_sha256": "918043a0bbd6d0955e7d69c52e49b9f9b15405c06824a38db19ece23318f6e2d",
+      "hash_match": false,
+      "expected_rows": 344537,
+      "observed_rows": 354376,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 24405708,
+      "snapshot_match": false
+    },
+    "EURUSD": {
+      "file": "EURUSD.csv",
+      "expected_sha256": "22d3efa1d303f4e4a80bf41f89fd296e9128e699718798624195d13ca87b7b0f",
+      "observed_sha256": "dcf0f0466218cc60fbc8615c1ceb662d93030b179be991b255b7495d5dceddef",
+      "hash_match": false,
+      "expected_rows": 367667,
+      "observed_rows": 371798,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 23170054,
+      "snapshot_match": false
+    },
+    "GBPUSD": {
+      "file": "GBPUSD.csv",
+      "expected_sha256": "3b4a5bdd8fb02508596ec64dca1ffdd92adfde72cc0039cb1c22de913dda68b2",
+      "observed_sha256": "c9e444ecd1fab2b4b0a87c9dd50d9572a1a38bc848946d423d888c3878b2bccd",
+      "hash_match": false,
+      "expected_rows": 338380,
+      "observed_rows": 371147,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 23128794,
+      "snapshot_match": false
+    },
+    "USDJPY": {
+      "file": "USDJPY.csv",
+      "expected_sha256": "05296feddaacc8c5c0d9778be9a7612693bbbe3f9f66f0f716838ad0f51fe5f4",
+      "observed_sha256": "4edd4d7b334a77e1448388d1bda6c3c81f80d3c474d948b3ce9cd4e574d58d2a",
+      "hash_match": false,
+      "expected_rows": 368988,
+      "observed_rows": 369609,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 23088913,
+      "snapshot_match": false
+    },
+    "EURJPY": {
+      "file": "EURJPY.csv",
+      "expected_sha256": "4514cdbe82e4aa2c73d5c30c8ecf1b14c95d49bbd09e568ebd510b8fe49a36d3",
+      "observed_sha256": "0fc617700383081678f8a61e93a85936960baa17f461f407db72ae83c0679d9f",
+      "hash_match": false,
+      "expected_rows": 353514,
+      "observed_rows": 360413,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 22600179,
+      "snapshot_match": false
+    },
+    "AUDUSD": {
+      "file": "AUDUSD.csv",
+      "expected_sha256": "f275920579feb1fe5f3c9d14bffed7cf61bc140d5181a14480e9d3b03a31d4ab",
+      "observed_sha256": "63c251a996290cd631029fc04c4de1309fbfb00cc085dfcc68530c99c2a0dbc2",
+      "hash_match": false,
+      "expected_rows": 364256,
+      "observed_rows": 353023,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 21982554,
+      "snapshot_match": false
+    },
+    "USDCAD": {
+      "file": "USDCAD.csv",
+      "expected_sha256": "00ddb2cde3a7a96539a750747f8c76993aa755f5a4fc94169875959b1e62a568",
+      "observed_sha256": "f8bea666c8d353de67dcd344c11850810fab69e996a2e523633fe0bd78e79465",
+      "hash_match": false,
+      "expected_rows": 364120,
+      "observed_rows": 367471,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 22921927,
+      "snapshot_match": false
+    },
+    "USDCHF": {
+      "file": "USDCHF.csv",
+      "expected_sha256": "1b066ffe16a9cbfe18f1c25ece76390a3d6ca3ef3b6f1fd74bd816f7c14b98da",
+      "observed_sha256": "86b4a4f9a64ec64a11a2ae3d6cb1972759a51454f765123c90b14239e7e29c5b",
+      "hash_match": false,
+      "expected_rows": 354708,
+      "observed_rows": 346319,
+      "rows_match": false,
+      "first_timestamp": "2025-07-01T00:00:00.000Z",
+      "last_timestamp": "2026-06-30T23:59:00.000Z",
+      "bytes": 21513272,
+      "snapshot_match": false
+    }
+  },
+  "all_expected_hashes_and_rows_match": false,
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "scientific_outcomes_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "snapshot_eligible": false,
+  "disposition": "LIVE_DUKASCOPY_NO_LONGER_REPRODUCES_FROZEN_AUDITED_BYTES_STOP_FOR_SOURCE_DRIFT"
+}
