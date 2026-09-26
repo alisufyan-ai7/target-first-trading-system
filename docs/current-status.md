@@ -1979,3 +1979,32 @@ Snapshot verifier commit: `3cd2b1914a14aaeb5449ab78c39c62707b2bcb93`.
 Snapshot workflow commit: `ddd2537af351ec67d4ab7ba2c3356d40bd31ca10`.
 
 **Exact next action:** trigger exactly one canonical Dukascopy snapshot workflow. If exact hashes reproduce, checkpoint the immutable release and move to point-in-time macro consensus/actual history acquisition. If hashes drift, stop for source-drift investigation.
+
+
+### EXP-041 canonical Dukascopy snapshot — attempt 1 red check / diagnostic hardening
+
+Trigger commit `0e685e11dc709ac62d1caa931f500a6486fa508d` finished with a red 0/1 check and produced no durable snapshot result commit.
+
+The connector did not expose the push-run/job logs for that attempt, so the red check alone is **not classified as source drift or a scientific gate result**.
+
+A reproducibility/observability weakness was identified in the first snapshot workflow:
+
+- exact-hash mismatch could terminate before the JSON diagnostic was committed;
+- the archive-internal manifest contained run-specific metadata, so otherwise identical data could produce different archive hashes on rerun.
+
+Operational hardening only:
+
+- snapshot verifier commit `a20206c36fecd3cb7358c0bec024914fc741fe7a`;
+- workflow commit `3aaed8391b28966eebe8483954107b88d1e5c06b`.
+
+The frozen source, eight expected SHA-256 hashes, transport version, development interval, common modeling cutoff, protected-period rules, and no-label/no-P&L boundary are unchanged.
+
+The hardened workflow now:
+
+- always writes a durable exact-hash diagnostic after a successful download;
+- creates a release only when all eight frozen hashes/row counts match;
+- commits the diagnostic even when hash reproduction fails;
+- keeps run-specific metadata outside the archive-internal manifest;
+- treats an already-existing matching release as idempotent recovery rather than overwriting it.
+
+**Exact next action:** update the snapshot trigger once and inspect the next durable bot checkpoint. Do not infer source drift unless the durable diagnostic says so.
