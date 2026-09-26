@@ -495,3 +495,9 @@
 - Immutable snapshot v2 was created/verified under tag `exp041-data-dukas-m1-2025-07-01_2026-06-30-v2`, archive SHA-256 `90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272`.
 - Added EXP-041 data-source governance v0.3: downstream EXP-041 modeling must consume the frozen v2 release rather than re-download live Dukascopy.
 - Price-data acquisition blocker is closed; next blocker is point-in-time macro consensus/actual-as-released history sufficient for Gate A.
+
+
+- Frozen EXP-041 Trading Economics macro point-in-time access/provenance preflight at spec `5bf095c`, runner `12075b8`, workflow `57c42fa`.
+- The preflight queries only Mar1-Jun29 2026 development history, verifies consensus/actual/schema/provenance coverage across the macro families, and computes no trading outcomes.
+- Added secure credential convention `TRADING_ECONOMICS_API_KEY`; the workflow never commits the secret or raw licensed vendor payload.
+- A missing credential or insufficient historical/PIT entitlement will now produce a durable explicit diagnostic rather than being bypassed with revised web data.
