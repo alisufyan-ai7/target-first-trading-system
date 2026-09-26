@@ -81,3 +81,29 @@ Preflight artifacts:
 The preflight queries only 2026-03-01 through 2026-06-29 development dates and commits no raw licensed vendor payload or secret. It stores only schema/coverage metadata and a response SHA-256.
 
 If credentials/entitlement are unavailable, fail closed with a durable diagnostic and do not substitute post-hoc web calendar pages for missing point-in-time consensus.
+
+
+## 2026-09-27 — Free-source architecture replaces paid-credential dependency for next attempt
+
+Trading Economics access preflight completed at durable result `6eeb4e93f937fb51e6b2db39d7d57aeb11cf4023` with disposition `CREDENTIAL_REQUIRED`.
+
+No paid credential will be treated as mandatory while a defensible free-source architecture can be tested.
+
+Prospectively frozen free-source hierarchy:
+
+1. Forex Factory historical calendar `Forecast` = primary public consensus proxy (`PUBLIC_CALENDAR_CONSENSUS_FF`);
+2. official U.S. agency archives = authoritative release time and actual-as-released:
+   - BLS Employment/CPI/PPI;
+   - Census Monthly Retail Trade;
+   - BEA GDP/PCE;
+   - Federal Reserve FOMC.
+
+Forex Factory timing/actual fields are diagnostic only because its own calendar notes that times are approximate and calendar data can change. Official agency records override those fields.
+
+Frozen preflight artifacts:
+
+- `research/EXP-041-FREE-MACRO-SOURCE-PREFLIGHT-v0.1.md`;
+- `research/code/run_exp041_free_macro_source_preflight.py`;
+- `.github/workflows/exp041-free-macro-source-preflight.yml`.
+
+Only Jun 2026 development weeks are queried. No Jul-Aug-Sep pages, prices, labels, P&L or strategy outcomes are loaded.
