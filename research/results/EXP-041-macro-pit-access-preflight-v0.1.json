@@ -1,0 +1,30 @@
+{
+  "credential_present": false,
+  "disposition": "CREDENTIAL_REQUIRED",
+  "families": {},
+  "gate": {
+    "credential_present": false
+  },
+  "github_run_id": "36266920114",
+  "http_success": false,
+  "market_data_loaded": false,
+  "pnl_calculated": false,
+  "preflight_pass": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "query_scope": {
+    "country": "United States",
+    "end": "2026-06-29",
+    "start": "2026-03-01"
+  },
+  "raw_vendor_payload_committed": false,
+  "response_rows": 0,
+  "response_sha256": null,
+  "scientific_outcomes_calculated": false,
+  "source": "Trading Economics Economic Calendar API",
+  "stage": "EXP-041 macro PIT access/provenance preflight v0.1",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "c77278e7c2c3ed22a18f6b29f3e530506465143f"
+}
