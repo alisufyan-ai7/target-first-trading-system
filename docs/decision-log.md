@@ -1550,3 +1550,25 @@ Two independent downloads of the exact frozen Dukascopy request matched byte-for
 The unrecoverable Sep25 observation is not treated as canonical because no outcome modeling used it and its raw bytes were never frozen.
 
 Active data governance is v0.3. The remaining Gate-A blocker is macro-event data provenance/sample adequacy, not market-history acquisition.
+
+
+## 2026-09-27 — Require a causal macro-data access preflight before full-year acquisition
+
+**Decision:** do not bulk-acquire or model macro data until the preferred source proves it can provide the causal fields EXP-041 requires.
+
+Freeze a Trading Economics point-in-time access/provenance preflight on known Mar-Jun 2026 development history only.
+
+The preflight requires:
+
+- successful historical U.S. calendar access;
+- all five recurring numeric families represented;
+- at least one Actual + survey Forecast consensus row per numeric family;
+- FOMC timing row present;
+- source provenance;
+- no protected dates;
+- no market labels/P&L;
+- no raw licensed vendor payload committed.
+
+GitHub secret `TRADING_ECONOMICS_API_KEY` is the only authorized credential path.
+
+If the secret is missing or historical/PIT entitlement is unavailable, checkpoint that operational blocker explicitly. Do not replace point-in-time consensus with revised/post-hoc public calendar pages merely to advance the experiment.
