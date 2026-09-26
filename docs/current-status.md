@@ -2040,3 +2040,28 @@ If repeatability FAILS: fix acquisition transport before any snapshot/modeling.
 If repeatability PASSES: freeze copy A immediately as immutable snapshot v2 in the same workflow run. Because no EXP-041 outcomes were ever computed on the unrecoverable Sep25 bytes, adopting the prospectively validated repeatable current snapshot does not contaminate outcome research.
 
 **Exact next action:** trigger the repeatability/snapshot-recovery workflow once, then resume from its durable bot result.
+
+
+## 2026-09-27 — EXP-041 DUKASCOPY SNAPSHOT V2 FROZEN / PRICE-DATA BLOCKER CLOSED
+
+Durable result commit: `b69e6cb9376c4f57622d042d19de41041a60dca7`.  
+Workflow run: `36265569383`.
+
+Result:
+
+- two independent same-run Dukascopy downloads completed;
+- all 8 markets matched byte-for-byte between A/B;
+- all 8 passed schema, coverage, monotonicity, duplicate, positivity and OHLC-geometry checks;
+- repeatability gate = PASS;
+- immutable release v2 created/verified;
+- release tag: `exp041-data-dukas-m1-2025-07-01_2026-06-30-v2`;
+- archive SHA-256: `90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272`;
+- no labels/P&L/scientific outcomes;
+- Jul-Aug/Sep remained sealed;
+- disposition: `CURRENT_DUKASCOPY_REPEATABLE_IMMUTABLE_SNAPSHOT_V2_FROZEN`.
+
+Active governance is now `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.3.md`.
+
+**Price-data acquisition is no longer the EXP-041 blocker.** Do not re-download live Dukascopy for EXP-041 modeling. Downstream work must consume and verify the exact immutable v2 release.
+
+**Exact next action:** acquire enough point-in-time macro event history (official release timestamps + pre-release consensus + actual-as-released) to pass EXP-041 Gate A. Preferred consensus source remains Trading Economics historical point-in-time data; Econoday is an acceptable alternative.
