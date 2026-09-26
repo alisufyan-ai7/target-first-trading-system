@@ -1,0 +1,12 @@
+Trigger EXP-041 macro point-in-time access/provenance preflight v0.1.
+
+Frozen implementation:
+- spec 5bf095c9ae0ce0af94d1a98c906a65331758bb31
+- runner 12075b89367e3af2ef98a6ae0cb373656f3306e5
+- workflow 57c42fac9c872ddf733c6c00f3e84246f06b1cc7
+
+Query only United States 2026-03-01 through 2026-06-29 development calendar history.
+Use GitHub secret TRADING_ECONOMICS_API_KEY only.
+Verify macro family coverage, Actual + survey Forecast consensus, FOMC timing, schema and source provenance.
+Commit no raw licensed vendor payload and no secret.
+No market data, target labels, P&L, Jul-Aug or Sep 2026 data.
