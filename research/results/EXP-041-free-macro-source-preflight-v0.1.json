@@ -1,0 +1,204 @@
+{
+  "disposition": "FREE_MACRO_SOURCE_ARCHITECTURE_PREFLIGHT_PASS",
+  "families": {
+    "CPI": {
+      "detected": true,
+      "matched_patterns": [
+        "\\bcpi\\b"
+      ]
+    },
+    "EMPLOYMENT": {
+      "detected": true,
+      "matched_patterns": [
+        "non.?farm",
+        "nonfarm",
+        "unemployment rate",
+        "average hourly earnings"
+      ]
+    },
+    "FOMC": {
+      "detected": true,
+      "matched_patterns": [
+        "\\bfomc\\b",
+        "federal funds"
+      ]
+    },
+    "GDP_PCE": {
+      "detected": true,
+      "matched_patterns": [
+        "\\bgdp\\b",
+        "pce price",
+        "personal income",
+        "personal spending"
+      ]
+    },
+    "PPI": {
+      "detected": true,
+      "matched_patterns": [
+        "\\bppi\\b"
+      ]
+    },
+    "RETAIL": {
+      "detected": true,
+      "matched_patterns": [
+        "retail sales"
+      ]
+    }
+  },
+  "forex_factory": {
+    "cpi_ppi": {
+      "bytes": 382278,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "contains_only_requested_development_week": true,
+      "content_type": "text/html; charset=ISO-8859-1",
+      "http_status": 200,
+      "sha256": "badf8c1cb77245702b5e84fcb930a9bdc22851efcefd3f5df7196a9cb665fe0c",
+      "usd_mentions": 23
+    },
+    "employment": {
+      "bytes": 549415,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "contains_only_requested_development_week": true,
+      "content_type": "text/html; charset=ISO-8859-1",
+      "http_status": 200,
+      "sha256": "411388bbb871757e06da4d9c5dc974a7de6823bd18cd5031fc24888c49076ee3",
+      "usd_mentions": 39
+    },
+    "gdp_pce": {
+      "bytes": 445927,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "contains_only_requested_development_week": true,
+      "content_type": "text/html; charset=ISO-8859-1",
+      "http_status": 200,
+      "sha256": "e872ef08a61074204751b4a1990f1b9de00a5699b324f191ae5ef23e07316776",
+      "usd_mentions": 33
+    },
+    "retail_fomc": {
+      "bytes": 485929,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "contains_only_requested_development_week": true,
+      "content_type": "text/html; charset=ISO-8859-1",
+      "http_status": 200,
+      "sha256": "5efd0736909c82bd89a4effea6ffa3ee5d1df927026f631e4589aedf04479bd4",
+      "usd_mentions": 26
+    }
+  },
+  "gate": {
+    "all_forex_factory_week_pages_http_200": true,
+    "all_official_pages_http_200": true,
+    "all_six_target_families_detected": true,
+    "forecast_field_visible_on_development_pages": true,
+    "forex_factory_actual_forecast_previous_columns_present": true,
+    "no_market_data_or_outcomes_loaded": true,
+    "no_protected_period_page_requested": true,
+    "official_release_date_time_markers_verified": true,
+    "usd_rows_detectable": true
+  },
+  "github_run_id": "36267284853",
+  "market_data_loaded": false,
+  "official_sources": {
+    "bea_gdp": {
+      "bytes": 68727,
+      "content_type": "text/html; charset=UTF-8",
+      "http_status": 200,
+      "marker_checks": {
+        "8:30 a\\.m\\. EDT": true,
+        "June 25, 2026": true
+      },
+      "page_pass": true,
+      "sha256": "54e7bc73c0ced6e9909db509a9f4c1db0d83d64a4b888db2c8821ab0b9b0a91a"
+    },
+    "bea_pce": {
+      "bytes": 53912,
+      "content_type": "text/html; charset=UTF-8",
+      "http_status": 200,
+      "marker_checks": {
+        "8:30 a\\.m\\. EDT": true,
+        "June 25, 2026": true
+      },
+      "page_pass": true,
+      "sha256": "4310b85398c3d7765dd06c059f58fe022c96f1ee1b9d46623816de1441a4401b"
+    },
+    "bls_cpi": {
+      "bytes": 1378756,
+      "content_type": "text/html",
+      "http_status": 200,
+      "marker_checks": {
+        "8:30 a\\.m\\. \\(ET\\)": true,
+        "June 10, 2026": true
+      },
+      "page_pass": true,
+      "sha256": "ba198a462a41b85b997df781558b90d3ab4663d9640efc8cdccca9e81e046a2f"
+    },
+    "bls_employment": {
+      "bytes": 1064626,
+      "content_type": "text/html",
+      "http_status": 200,
+      "marker_checks": {
+        "8:30 a\\.m\\. \\(ET\\)": true,
+        "June 5, 2026": true
+      },
+      "page_pass": true,
+      "sha256": "5c872de512f133555f2ab7ac98b80ff89005e348611d1cae91a449ed992225e8"
+    },
+    "bls_ppi": {
+      "bytes": 1607069,
+      "content_type": "text/html",
+      "http_status": 200,
+      "marker_checks": {
+        "8:30 a\\.m\\. \\(ET\\)": true,
+        "June 11, 2026": true
+      },
+      "page_pass": true,
+      "sha256": "d11359f4ca0a4687eb4a9e6059eaa80da5d56cdfa447c057d8fed393c3106be0"
+    },
+    "census_retail_archive": {
+      "bytes": 1411852,
+      "content_type": "text/html; charset=utf-8",
+      "http_status": 200,
+      "marker_checks": {
+        "2025 Press Releases": true,
+        "May 2026": true
+      },
+      "page_pass": true,
+      "sha256": "679f57b4edd46a84cfff325410751734bea630710fa7a18d0373ad5a018a65fb"
+    },
+    "fed_fomc": {
+      "bytes": 83188,
+      "content_type": "text/html",
+      "http_status": 200,
+      "marker_checks": {
+        "2:00 p\\.m\\. EDT": true,
+        "June 17, 2026": true
+      },
+      "page_pass": true,
+      "sha256": "5823cd2ecd4761e3fce3b4588c101709d73302608241f29600ddb131abbc5482"
+    }
+  },
+  "pnl_calculated": false,
+  "preflight_pass": true,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "scientific_outcomes_calculated": false,
+  "stage": "EXP-041 free macro consensus / official-release source preflight v0.1",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "7184090e9176d6ebf27451c4a7e2767a7f28d87b"
+}
