@@ -42,10 +42,25 @@ jobs:
       - name: Reproduce already-audited Dukascopy bytes
         run: node research/code/download_exp041_dukas_m1.js
 
-      - name: Verify exact v0.1 hashes before freezing
+      - name: Write durable exact-hash diagnostic
         run: python research/code/build_exp041_dukas_snapshot_manifest.py
 
+      - name: Read snapshot eligibility
+        id: gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          ELIGIBLE="$(python - <<'PY'
+          import json
+          x=json.load(open("research/results/EXP-041-canonical-dukas-snapshot-v1.json"))
+          print("true" if x["snapshot_eligible"] else "false")
+          PY
+          )"
+          echo "eligible=$ELIGIBLE" >> "$GITHUB_OUTPUT"
+          echo "snapshot_eligible=$ELIGIBLE"
+
       - name: Build deterministic immutable archive and record hash
+        if: steps.gate.outputs.eligible == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -59,45 +74,56 @@ jobs:
           p.write_text(json.dumps(x,indent=2)+"\n")
           PY
 
-      - name: Refuse to overwrite an existing immutable snapshot
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          if gh release view "$SNAPSHOT_TAG" >/dev/null 2>&1; then
-            echo "Immutable snapshot release already exists: $SNAPSHOT_TAG"
-            exit 1
-          fi
-
-      - name: Create immutable GitHub Release snapshot
+      - name: Create or verify immutable GitHub Release snapshot
+        if: steps.gate.outputs.eligible == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          gh release create "$SNAPSHOT_TAG"             "$SNAPSHOT_ARCHIVE"             "research/results/EXP-041-canonical-dukas-snapshot-v1.json"             --target "$GITHUB_SHA"             --title "EXP-041 frozen Dukascopy M1 development snapshot v1"             --notes "Immutable EXP-041 development-data snapshot. Download interval Jul 1 2025 to Jul 1 2026 exclusive; effective common modeling cutoff Jun 30 2026 00:00 UTC. No protected Jul-Aug/Sep 2026 data."
+          ASSET_NAME="$(basename "$SNAPSHOT_ARCHIVE")"
+          if gh release view "$SNAPSHOT_TAG" >/dev/null 2>&1; then
+            echo "Release tag already exists; verify immutable archive asset instead of overwriting."
+            rm -rf /tmp/exp041-existing-release
+            mkdir -p /tmp/exp041-existing-release
+            gh release download "$SNAPSHOT_TAG" --pattern "$ASSET_NAME" --dir /tmp/exp041-existing-release
+            CURRENT_SHA="$(sha256sum "$SNAPSHOT_ARCHIVE" | awk '{print $1}')"
+            EXISTING_SHA="$(sha256sum "/tmp/exp041-existing-release/$ASSET_NAME" | awk '{print $1}')"
+            test "$CURRENT_SHA" = "$EXISTING_SHA"
+          else
+            gh release create "$SNAPSHOT_TAG"               "$SNAPSHOT_ARCHIVE"               "research/results/EXP-041-canonical-dukas-snapshot-v1.json"               --target "$GITHUB_SHA"               --title "EXP-041 frozen Dukascopy M1 development snapshot v1"               --notes "Immutable EXP-041 development-data snapshot. Download interval Jul 1 2025 to Jul 1 2026 exclusive; effective common modeling cutoff Jun 30 2026 00:00 UTC. No protected Jul-Aug/Sep 2026 data."
+          fi
 
-      - name: Mark release creation in durable manifest
+      - name: Mark immutable release as created or verified
+        if: steps.gate.outputs.eligible == 'true' && success()
         run: |
           python - <<'PY'
           import json, pathlib
           p=pathlib.Path("research/results/EXP-041-canonical-dukas-snapshot-v1.json")
           x=json.loads(p.read_text())
-          x["release"]["created"]=True
+          x["release"]["created_or_verified_existing"]=True
+          x["disposition"]="IMMUTABLE_DUKASCOPY_SNAPSHOT_CREATED_OR_VERIFIED"
           p.write_text(json.dumps(x,indent=2)+"\n")
           PY
 
-      - name: Upload backup workflow artifact
+      - name: Upload durable snapshot diagnostic
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: exp041-canonical-dukas-snapshot-manifest
+          name: exp041-canonical-dukas-snapshot-diagnostic
           path: research/results/EXP-041-canonical-dukas-snapshot-v1.json
+          if-no-files-found: warn
 
-      - name: Commit durable snapshot manifest
+      - name: Commit durable snapshot diagnostic
+        if: always()
         shell: bash
         run: |
           set -euo pipefail
           P=research/results/EXP-041-canonical-dukas-snapshot-v1.json
+          if [ ! -f "$P" ]; then
+            echo "snapshot diagnostic missing"
+            exit 1
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "$P"
@@ -112,15 +138,15 @@ jobs:
           import json, pathlib
           p=pathlib.Path("research/results/EXP-041-canonical-dukas-snapshot-v1.json")
           if not p.exists():
-              raise SystemExit("snapshot manifest missing")
+              raise SystemExit("snapshot diagnostic missing")
           x=json.loads(p.read_text())
-          if not x["snapshot_eligible"] or not x["all_expected_hashes_and_rows_match"]:
-              raise SystemExit("snapshot does not reproduce frozen audited bytes")
-          if not x["release"]["created"] or not x["release"]["archive_sha256"]:
-              raise SystemExit("immutable release was not durably checkpointed")
           if x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_outcomes_calculated"]:
               raise SystemExit("unexpected scientific outcome computation")
           if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
               raise SystemExit("protected-period leak")
+          if not x["snapshot_eligible"] or not x["all_expected_hashes_and_rows_match"]:
+              raise SystemExit("frozen audited Dukascopy bytes did not reproduce; source-drift branch required")
+          if not x["release"]["created_or_verified_existing"] or not x["release"]["archive_sha256"]:
+              raise SystemExit("immutable release was not created/verified")
           print("EXP-041 canonical Dukascopy snapshot frozen successfully")
           PY
