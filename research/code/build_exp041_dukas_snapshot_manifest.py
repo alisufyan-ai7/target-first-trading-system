@@ -2,6 +2,14 @@
 """Verify and manifest the frozen EXP-041 Dukascopy development snapshot.
 
 Data infrastructure only: no labels, no P&L, no protected periods.
+
+Operational rule:
+- always write a durable result, even when live Dukascopy no longer reproduces
+  the frozen audited hashes;
+- never authorize archive creation unless every frozen hash and row count
+  matches exactly;
+- keep run-specific metadata OUT of the internal archive manifest so the
+  archive is deterministic across reruns.
 """
 
 from __future__ import annotations
@@ -28,6 +36,16 @@ EXPECTED = {
 }
 HEADER = "datetime,open,high,low,close,volume"
 TAG = "exp041-data-dukas-m1-2025-07-01_2026-06-30-v1"
+ARCHIVE_ASSET = "exp041-dukas-m1-2025-07-01_2026-06-30-v1.tar.gz"
+REFERENCE_AUDIT = "1cf168d6b3b639cfcc856ffae7aeb66db880dc47"
+
+SOURCE = {
+    "authority": "Dukascopy Bank historical data",
+    "transport_helper": "dukascopy-node",
+    "transport_version": "1.50.0",
+    "download_interval": ["2025-07-01T00:00:00Z", "2026-07-01T00:00:00Z"],
+    "effective_common_model_interval": ["2025-07-01T00:00:00Z", "2026-06-30T00:00:00Z"],
+}
 
 
 def sha256(path: Path) -> str:
@@ -66,6 +84,7 @@ def main() -> None:
         path = DATA / f"{symbol}.csv"
         if not path.exists():
             raise RuntimeError(f"{symbol}: normalized file missing")
+
         observed_hash = sha256(path)
         observed_rows = line_count(path)
         first, last = first_last(path)
@@ -73,6 +92,7 @@ def main() -> None:
         rows_match = observed_rows == exp["rows"]
         match = hash_match and rows_match
         all_match = all_match and match
+
         markets[symbol] = {
             "file": path.name,
             "expected_sha256": exp["sha256"],
@@ -87,46 +107,77 @@ def main() -> None:
             "snapshot_match": match,
         }
 
+    stable_market_manifest = {
+        s: {
+            "file": v["file"],
+            "sha256": v["observed_sha256"],
+            "rows": v["observed_rows"],
+            "first_timestamp": v["first_timestamp"],
+            "last_timestamp": v["last_timestamp"],
+            "bytes": v["bytes"],
+        }
+        for s, v in markets.items()
+    }
+
+    internal = {
+        "snapshot_id": "EXP-041 canonical Dukascopy immutable snapshot v1",
+        "governance_version": "v0.2",
+        "release_tag": TAG,
+        "source": SOURCE,
+        "frozen_reference_audit_commit": REFERENCE_AUDIT,
+        "markets": stable_market_manifest,
+        "all_expected_hashes_and_rows_match": all_match,
+        "protected_periods": {
+            "jul_aug_2026_loaded": False,
+            "sep_2026_loaded": False,
+        },
+    }
+    (DATA / "SNAPSHOT-MANIFEST.json").write_text(
+        json.dumps(internal, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
     result = {
         "stage": "EXP-041 canonical Dukascopy immutable snapshot v1",
         "governance_version": "v0.2",
         "tested_repository_sha": os.environ.get("GITHUB_SHA"),
-        "source": {
-            "authority": "Dukascopy Bank historical data",
-            "transport_helper": "dukascopy-node",
-            "transport_version": "1.50.0",
-            "download_interval": ["2025-07-01T00:00:00Z", "2026-07-01T00:00:00Z"],
-            "effective_common_model_interval": ["2025-07-01T00:00:00Z", "2026-06-30T00:00:00Z"],
-        },
+        "github_run_id": os.environ.get("GITHUB_RUN_ID"),
+        "github_run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+        "source": SOURCE,
         "release": {
             "tag": TAG,
-            "archive_asset": "exp041-dukas-m1-2025-07-01_2026-06-30-v1.tar.gz",
+            "archive_asset": ARCHIVE_ASSET,
             "archive_sha256": None,
-            "created": False,
+            "created_or_verified_existing": False,
         },
-        "frozen_reference_audit_commit": "1cf168d6b3b639cfcc856ffae7aeb66db880dc47",
+        "frozen_reference_audit_commit": REFERENCE_AUDIT,
         "markets": markets,
         "all_expected_hashes_and_rows_match": all_match,
         "target_labels_calculated": False,
         "pnl_calculated": False,
         "scientific_outcomes_calculated": False,
-        "protected_periods": {"jul_aug_2026_loaded": False, "sep_2026_loaded": False},
+        "protected_periods": {
+            "jul_aug_2026_loaded": False,
+            "sep_2026_loaded": False,
+        },
         "snapshot_eligible": all_match,
+        "disposition": (
+            "FROZEN_BYTES_REPRODUCED_ELIGIBLE_TO_CREATE_IMMUTABLE_SNAPSHOT"
+            if all_match
+            else "LIVE_DUKASCOPY_NO_LONGER_REPRODUCES_FROZEN_AUDITED_BYTES_STOP_FOR_SOURCE_DRIFT"
+        ),
     }
 
     out = OUT / "EXP-041-canonical-dukas-snapshot-v1.json"
     out.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    (DATA / "SNAPSHOT-MANIFEST.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
 
     print(json.dumps({
         "snapshot_eligible": all_match,
         "hash_match": {s: v["hash_match"] for s, v in markets.items()},
         "rows_match": {s: v["rows_match"] for s, v in markets.items()},
+        "disposition": result["disposition"],
         "protected_periods": result["protected_periods"],
     }, indent=2))
-
-    if not all_match:
-        raise SystemExit("Frozen Dukascopy bytes no longer reproduce the audited hashes; investigate source drift.")
 
 
 if __name__ == "__main__":
