@@ -2036,3 +2036,32 @@ The snapshot infrastructure was operationally hardened without changing any froz
 The next run will always commit the exact-hash diagnostic after successful download, even when hashes fail, and the internal archive manifest is deterministic across reruns.
 
 **Exact next action:** rerun the canonical snapshot once via the existing trigger path, then resume from the durable JSON checkpoint rather than the check icon.
+
+
+## EXP-041 Dukascopy repeatability/snapshot-recovery checkpoint
+
+Snapshot v1 exact-hash reproduction did not pass.
+
+Durable result `2dc6a9c0cc1c588fa01179bcc644d5fb6e9fd578`, run `36264975005`:
+
+- download + durable diagnostic succeeded;
+- every market's current SHA-256 and row count differed from the Sep25 reference;
+- release creation was skipped;
+- final integrity failed closed;
+- no labels/P&L/protected data.
+
+Do not infer “Dukascopy definitely revised history” yet. Large row-count changes could also reflect transport/acquisition nondeterminism.
+
+Frozen next test:
+
+- `research/EXP-041-DUKASCOPY-REPEATABILITY-SNAPSHOT-RECOVERY-v0.1.md`;
+- runner `31460148e3cafd2528f707b513663f3e5adffcdc`;
+- workflow `743411b0105d097afb48e47e6dea1be0eb85ec8d`.
+
+Two independent downloads of the identical request must match byte-for-byte and pass integrity for all eight markets.
+
+Pass => freeze the same current dataset immediately as immutable snapshot v2 and move to macro Gate-A data acquisition.
+
+Fail => stop snapshot work and fix acquisition transport deterministically.
+
+**Exact next action:** trigger one repeatability/snapshot-recovery workflow and resume from its durable JSON result.
