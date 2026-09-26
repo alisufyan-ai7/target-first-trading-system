@@ -1,0 +1,412 @@
+{
+  "stage": "EXP-041 Dukascopy same-run repeatability + immutable snapshot recovery v0.1",
+  "tested_repository_sha": "2b2d897aeb01ebee7dcb8bc5c51e5d87f2757331",
+  "github_run_id": "36265569383",
+  "github_run_attempt": "1",
+  "source": {
+    "authority": "Dukascopy Bank historical data",
+    "transport_helper": "dukascopy-node",
+    "transport_version": "1.50.0",
+    "download_interval": [
+      "2025-07-01T00:00:00Z",
+      "2026-07-01T00:00:00Z"
+    ],
+    "effective_common_model_interval": [
+      "2025-07-01T00:00:00Z",
+      "2026-06-30T00:00:00Z"
+    ]
+  },
+  "markets": {
+    "XAUUSD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "918043a0bbd6d0955e7d69c52e49b9f9b15405c06824a38db19ece23318f6e2d",
+        "bytes": 24405708,
+        "rows": 354376,
+        "distinct_utc_dates": 312,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "918043a0bbd6d0955e7d69c52e49b9f9b15405c06824a38db19ece23318f6e2d",
+        "bytes": 24405708,
+        "rows": 354376,
+        "distinct_utc_dates": 312,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "EURUSD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "dcf0f0466218cc60fbc8615c1ceb662d93030b179be991b255b7495d5dceddef",
+        "bytes": 23170054,
+        "rows": 371798,
+        "distinct_utc_dates": 313,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "dcf0f0466218cc60fbc8615c1ceb662d93030b179be991b255b7495d5dceddef",
+        "bytes": 23170054,
+        "rows": 371798,
+        "distinct_utc_dates": 313,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "GBPUSD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "c9e444ecd1fab2b4b0a87c9dd50d9572a1a38bc848946d423d888c3878b2bccd",
+        "bytes": 23128794,
+        "rows": 371147,
+        "distinct_utc_dates": 313,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "c9e444ecd1fab2b4b0a87c9dd50d9572a1a38bc848946d423d888c3878b2bccd",
+        "bytes": 23128794,
+        "rows": 371147,
+        "distinct_utc_dates": 313,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "USDJPY": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "3e25eafbfc5534f9c2565d4e36b0201e9b523c2e2d70fc0fc0df9bdd25ed128e",
+        "bytes": 23099249,
+        "rows": 369777,
+        "distinct_utc_dates": 309,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "3e25eafbfc5534f9c2565d4e36b0201e9b523c2e2d70fc0fc0df9bdd25ed128e",
+        "bytes": 23099249,
+        "rows": 369777,
+        "distinct_utc_dates": 309,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "EURJPY": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "fa0fe202e1816cc95b705b11b08208c3abebeb3330599b6c8c7662fb11395161",
+        "bytes": 23338601,
+        "rows": 372182,
+        "distinct_utc_dates": 313,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "fa0fe202e1816cc95b705b11b08208c3abebeb3330599b6c8c7662fb11395161",
+        "bytes": 23338601,
+        "rows": 372182,
+        "distinct_utc_dates": 313,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "AUDUSD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "159a6a46a1acfded2741537d5e09377fb001ff9e9759c00d00954bf9a31d16ba",
+        "bytes": 22153670,
+        "rows": 355773,
+        "distinct_utc_dates": 301,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "159a6a46a1acfded2741537d5e09377fb001ff9e9759c00d00954bf9a31d16ba",
+        "bytes": 22153670,
+        "rows": 355773,
+        "distinct_utc_dates": 301,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "USDCAD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "f8bea666c8d353de67dcd344c11850810fab69e996a2e523633fe0bd78e79465",
+        "bytes": 22921927,
+        "rows": 367471,
+        "distinct_utc_dates": 309,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "f8bea666c8d353de67dcd344c11850810fab69e996a2e523633fe0bd78e79465",
+        "bytes": 22921927,
+        "rows": 367471,
+        "distinct_utc_dates": 309,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "USDCHF": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "b52e7c0d7259a444c72f5da8fd9bffe43365ef429bda69d2e8d5cc1d88dd2e2f",
+        "bytes": 21861894,
+        "rows": 351937,
+        "distinct_utc_dates": 298,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "b52e7c0d7259a444c72f5da8fd9bffe43365ef429bda69d2e8d5cc1d88dd2e2f",
+        "bytes": 21861894,
+        "rows": 351937,
+        "distinct_utc_dates": 298,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-30T23:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_ge_300k": true,
+          "distinct_dates_ge_240": true,
+          "first_timestamp_by_july2": true,
+          "last_timestamp_at_least_jun29_23utc": true,
+          "all_rows_inside_frozen_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    }
+  },
+  "repeatability_gate_pass": true,
+  "release": {
+    "tag": "exp041-data-dukas-m1-2025-07-01_2026-06-30-v2",
+    "archive_asset": "exp041-dukas-m1-2025-07-01_2026-06-30-v2.tar.gz",
+    "archive_sha256": "90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272",
+    "created_or_verified_existing": true
+  },
+  "scientific_outcomes_calculated": false,
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "disposition": "CURRENT_DUKASCOPY_REPEATABLE_IMMUTABLE_SNAPSHOT_V2_FROZEN"
+}
