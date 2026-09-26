@@ -53,3 +53,31 @@ Before model promotion, use point-in-time/API or licensed historical archives ra
 - current Jul-Aug secondary remains sealed;
 - Sep final holdout remains sealed;
 - no future macro rows are used to extend sample size.
+
+
+## 2026-09-27 — Point-in-time access preflight
+
+The preferred Trading Economics path is now prospectively frozen as a zero-outcome access/provenance preflight before full-year acquisition.
+
+Frozen public API contract:
+
+- historical U.S. calendar endpoint by date range;
+- `Forecast` = survey consensus;
+- `Actual` = released value;
+- `Previous` and `Revised` available for prior-value revision state;
+- `CalendarId`, `Date`, `Category`, `Event`, `Source`, `SourceURL`, `LastUpdate` retained for provenance;
+- point-in-time/historical calendar access is required for causal backtesting.
+
+Credential secret name:
+
+`TRADING_ECONOMICS_API_KEY`
+
+Preflight artifacts:
+
+- `research/EXP-041-MACRO-PIT-ACCESS-PREFLIGHT-v0.1.md`;
+- `research/code/run_exp041_macro_pit_access_preflight.py`;
+- `.github/workflows/exp041-macro-pit-access-preflight.yml`.
+
+The preflight queries only 2026-03-01 through 2026-06-29 development dates and commits no raw licensed vendor payload or secret. It stores only schema/coverage metadata and a response SHA-256.
+
+If credentials/entitlement are unavailable, fail closed with a durable diagnostic and do not substitute post-hoc web calendar pages for missing point-in-time consensus.
