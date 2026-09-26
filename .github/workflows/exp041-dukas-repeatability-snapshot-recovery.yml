@@ -1,0 +1,162 @@
+name: EXP-041 Dukascopy Repeatability Snapshot Recovery
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-dukas-repeatability-snapshot-recovery.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  repeatability-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      EXP041_DATA_A: /tmp/exp041-dukas-repeat-a
+      EXP041_DATA_B: /tmp/exp041-dukas-repeat-b
+      SNAPSHOT_TAG: exp041-data-dukas-m1-2025-07-01_2026-06-30-v2
+      SNAPSHOT_ARCHIVE: /tmp/exp041-dukas-m1-2025-07-01_2026-06-30-v2.tar.gz
+      RESULT: research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned Dukascopy transport
+        run: npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+
+      - name: Verify frozen code
+        run: |
+          node --check research/code/download_exp041_dukas_m1.js
+          python -m py_compile research/code/run_exp041_dukas_repeatability_snapshot.py
+
+      - name: Independent Dukascopy download A
+        env:
+          EXP041_DATA_DIR: /tmp/exp041-dukas-repeat-a
+        run: node research/code/download_exp041_dukas_m1.js
+
+      - name: Independent Dukascopy download B
+        env:
+          EXP041_DATA_DIR: /tmp/exp041-dukas-repeat-b
+        run: node research/code/download_exp041_dukas_m1.js
+
+      - name: Evaluate exact same-run repeatability and integrity
+        id: gate
+        run: |
+          python research/code/run_exp041_dukas_repeatability_snapshot.py
+          PASS="$(python - <<'PY'
+          import json
+          x=json.load(open("research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json"))
+          print("true" if x["repeatability_gate_pass"] else "false")
+          PY
+          )"
+          echo "pass=$PASS" >> "$GITHUB_OUTPUT"
+          echo "repeatability_gate_pass=$PASS"
+
+      - name: Build deterministic immutable snapshot v2
+        if: steps.gate.outputs.pass == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar --sort=name --mtime='UTC 2026-07-01' --owner=0 --group=0 --numeric-owner \
+            -C "$EXP041_DATA_A" -cf - . | gzip -n > "$SNAPSHOT_ARCHIVE"
+          ARCHIVE_SHA="$(sha256sum "$SNAPSHOT_ARCHIVE" | awk '{print $1}')"
+          python - "$ARCHIVE_SHA" <<'PY'
+          import json, pathlib, sys
+          p=pathlib.Path("research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json")
+          x=json.loads(p.read_text())
+          x["release"]["archive_sha256"]=sys.argv[1]
+          p.write_text(json.dumps(x,indent=2)+"\n")
+          PY
+
+      - name: Create or verify immutable GitHub Release v2
+        if: steps.gate.outputs.pass == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          ASSET_NAME="$(basename "$SNAPSHOT_ARCHIVE")"
+          if gh release view "$SNAPSHOT_TAG" >/dev/null 2>&1; then
+            echo "Snapshot v2 release already exists; verifying archive equality."
+            rm -rf /tmp/exp041-release-v2
+            mkdir -p /tmp/exp041-release-v2
+            gh release download "$SNAPSHOT_TAG" --pattern "$ASSET_NAME" --dir /tmp/exp041-release-v2
+            CURRENT_SHA="$(sha256sum "$SNAPSHOT_ARCHIVE" | awk '{print $1}')"
+            EXISTING_SHA="$(sha256sum "/tmp/exp041-release-v2/$ASSET_NAME" | awk '{print $1}')"
+            test "$CURRENT_SHA" = "$EXISTING_SHA"
+          else
+            gh release create "$SNAPSHOT_TAG" \
+              "$SNAPSHOT_ARCHIVE" \
+              "$RESULT" \
+              --target "$GITHUB_SHA" \
+              --title "EXP-041 frozen Dukascopy M1 development snapshot v2" \
+              --notes "Immutable snapshot frozen only after two independent same-run Dukascopy downloads matched byte-for-byte across all eight markets and passed integrity. No protected Jul-Aug/Sep 2026 data; no labels/P&L."
+          fi
+
+      - name: Mark snapshot v2 created or verified
+        if: steps.gate.outputs.pass == 'true' && success()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json")
+          x=json.loads(p.read_text())
+          x["release"]["created_or_verified_existing"]=True
+          x["disposition"]="CURRENT_DUKASCOPY_REPEATABLE_IMMUTABLE_SNAPSHOT_V2_FROZEN"
+          p.write_text(json.dumps(x,indent=2)+"\n")
+          PY
+
+      - name: Upload durable repeatability diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-dukas-repeatability-snapshot-recovery
+          path: research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable repeatability diagnostic
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "$RESULT" ]; then
+            echo "repeatability result missing"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-041 Dukascopy repeatability snapshot recovery"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce frozen repeatability/snapshot decision
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json")
+          if not p.exists():
+              raise SystemExit("repeatability result missing")
+          x=json.loads(p.read_text())
+          if x["scientific_outcomes_calculated"] or x["target_labels_calculated"] or x["pnl_calculated"]:
+              raise SystemExit("unexpected scientific outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["repeatability_gate_pass"]:
+              raise SystemExit("Dukascopy same-run repeatability failed; acquisition engineering required")
+          if not x["release"]["created_or_verified_existing"] or not x["release"]["archive_sha256"]:
+              raise SystemExit("repeatability passed but immutable snapshot v2 was not created/verified")
+          print("EXP-041 Dukascopy repeatability passed and snapshot v2 is frozen")
+          PY
