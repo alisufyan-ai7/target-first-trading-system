@@ -1514,3 +1514,23 @@ For EXP-041 development only:
 - intended-broker or institutional-quality bid/ask/tick/spread data remains required for independent execution validation before deployment.
 
 This changes data governance, not strategy rules, and uses no target labels/P&L/protected periods.
+
+
+## 2026-09-27 — Distinguish Dukascopy source revision from acquisition nondeterminism before freezing v2
+
+Canonical snapshot run `36264975005` produced durable result `2dc6a9c`: all eight current Dukascopy normalized files differ from the Sep25 hashes and row counts. Archive creation was correctly skipped.
+
+**Decision:** do not assume the discrepancy is definitely an upstream Dukascopy historical revision. First test same-run reproducibility of the exact same frozen request.
+
+Freeze `EXP-041-DUKASCOPY-REPEATABILITY-SNAPSHOT-RECOVERY-v0.1`:
+
+- two independent downloads A/B;
+- exact same transport/version/range/symbols;
+- per-copy schema/coverage/monotonicity/OHLC integrity;
+- exact A/B SHA-256 equality required for all eight markets.
+
+If A/B differ, acquisition transport is not trustworthy enough to freeze and must be engineered.
+
+If A/B match exactly and pass integrity, freeze A immediately as canonical immutable snapshot v2. This conditional action is frozen before seeing results. No prior EXP-041 macro/target/P&L outcome used the old bytes, so this prospective replacement does not rewrite outcome evidence.
+
+Protected Jul-Aug/Sep remain sealed; Engine R remains paused.
