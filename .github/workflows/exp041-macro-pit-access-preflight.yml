@@ -1,0 +1,81 @@
+name: EXP-041 Macro PIT Access Preflight
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-macro-pit-access-preflight.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  macro-pit-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      RESULT: research/results/EXP-041-macro-pit-access-preflight-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify frozen preflight code
+        run: python -m py_compile research/code/run_exp041_macro_pit_access_preflight.py
+
+      - name: Run Trading Economics PIT access/provenance preflight
+        continue-on-error: true
+        env:
+          TRADING_ECONOMICS_API_KEY: ${{ secrets.TRADING_ECONOMICS_API_KEY }}
+        run: python research/code/run_exp041_macro_pit_access_preflight.py
+
+      - name: Upload durable preflight diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-macro-pit-access-preflight
+          path: research/results/EXP-041-macro-pit-access-preflight-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable preflight diagnostic
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "$RESULT" ]; then
+            echo "macro PIT preflight result missing"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-041 macro PIT access preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce access/provenance gate only
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-macro-pit-access-preflight-v0.1.json")
+          if not p.exists():
+              raise SystemExit("macro PIT preflight result missing")
+          x=json.loads(p.read_text())
+          if x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_outcomes_calculated"]:
+              raise SystemExit("unexpected market outcome computation")
+          if x["market_data_loaded"]:
+              raise SystemExit("market data should not be loaded in access preflight")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if x["raw_vendor_payload_committed"]:
+              raise SystemExit("licensed raw vendor payload must not be committed by preflight")
+          if not x["preflight_pass"]:
+              raise SystemExit("EXP-041 macro PIT access/provenance preflight did not pass: "+str(x["disposition"]))
+          print("EXP-041 macro PIT access/provenance preflight PASSED")
+          PY
