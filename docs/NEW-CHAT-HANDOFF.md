@@ -2065,3 +2065,29 @@ Pass => freeze the same current dataset immediately as immutable snapshot v2 and
 Fail => stop snapshot work and fix acquisition transport deterministically.
 
 **Exact next action:** trigger one repeatability/snapshot-recovery workflow and resume from its durable JSON result.
+
+
+## EXP-041 canonical market-data final checkpoint
+
+The Dukascopy acquisition issue is CLOSED.
+
+Durable result: `b69e6cb9376c4f57622d042d19de41041a60dca7`.  
+Run: `36265569383`.
+
+Two independent copies of the same Dukascopy M1 request matched byte-for-byte for all eight markets and passed every integrity check.
+
+Canonical immutable release:
+
+- tag: `exp041-data-dukas-m1-2025-07-01_2026-06-30-v2`;
+- archive: `exp041-dukas-m1-2025-07-01_2026-06-30-v2.tar.gz`;
+- archive SHA-256: `90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272`;
+- effective model interval: 2025-07-01 <= t < 2026-06-30 00:00 UTC;
+- no target labels/P&L/protected-period use.
+
+Active governance: `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.3.md`.
+
+Do not re-download live Dukascopy for EXP-041 modeling. Consume the immutable v2 release and verify its hash.
+
+**Exact next action:** acquire enough point-in-time macro event history to pass EXP-041 Gate A: official release timestamps, pre-release consensus, actual-as-released values, >=40 independent blocks, >=30 surprise-bearing blocks, >=8 releases per recurring numeric family, and >=6 FOMC events or keep FOMC timing-only. Preferred consensus source is Trading Economics historical point-in-time data; Econoday is acceptable alternative.
+
+Engine R remains paused; Jul-Aug and Sep remain sealed.
