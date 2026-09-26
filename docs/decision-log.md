@@ -1534,3 +1534,19 @@ If A/B differ, acquisition transport is not trustworthy enough to freeze and mus
 If A/B match exactly and pass integrity, freeze A immediately as canonical immutable snapshot v2. This conditional action is frozen before seeing results. No prior EXP-041 macro/target/P&L outcome used the old bytes, so this prospective replacement does not rewrite outcome evidence.
 
 Protected Jul-Aug/Sep remain sealed; Engine R remains paused.
+
+
+## 2026-09-27 — Freeze repeatable Dukascopy snapshot v2; close market-history acquisition
+
+Run `36265569383` produced durable result `b69e6cb`.
+
+Two independent downloads of the exact frozen Dukascopy request matched byte-for-byte on all eight markets and passed all integrity checks. The workflow created/verified immutable release:
+
+- tag `exp041-data-dukas-m1-2025-07-01_2026-06-30-v2`;
+- archive SHA-256 `90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272`.
+
+**Decision:** this v2 release is the canonical EXP-041 development market dataset. Live Dukascopy is no longer queried for EXP-041 outcome modeling; future historical changes upstream are irrelevant to this frozen experiment unless a separately versioned future study is authorized.
+
+The unrecoverable Sep25 observation is not treated as canonical because no outcome modeling used it and its raw bytes were never frozen.
+
+Active data governance is v0.3. The remaining Gate-A blocker is macro-event data provenance/sample adequacy, not market-history acquisition.
