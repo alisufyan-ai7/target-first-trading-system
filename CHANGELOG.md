@@ -481,3 +481,10 @@
 - Recorded EXP-041 canonical Dukascopy snapshot attempt 1 trigger `0e685e1` as a red Actions check with no durable result; this is not yet a scientific/data-drift conclusion.
 - Hardened the snapshot verifier/workflow at `a20206c` / `3aaed83`: failed hash reproduction is now durably checkpointed, and run-specific metadata was removed from the archive-internal manifest so identical data yield a deterministic archive.
 - Frozen data hashes/date boundaries/protected-period rules were unchanged.
+
+
+- EXP-041 snapshot v1 retrigger produced durable result `2dc6a9c` from run `36264975005`: all eight live Dukascopy files differed from Sep25 hashes/row counts; release creation was skipped and final integrity failed closed.
+- The failure does not yet distinguish upstream history revision from acquisition nondeterminism.
+- Frozen `EXP-041-DUKASCOPY-REPEATABILITY-SNAPSHOT-RECOVERY-v0.1` with two independent same-run downloads, exact byte/hash equality, and integrity checks across all eight markets.
+- If repeatable, the same workflow freezes the current copy as immutable snapshot v2; if not, no release is created and acquisition engineering becomes the blocker.
+- No labels/P&L/protected-period data are involved.
