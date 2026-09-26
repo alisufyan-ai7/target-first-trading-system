@@ -2022,3 +2022,17 @@ Frozen snapshot implementation:
 - workflow: `ddd2537af351ec67d4ab7ba2c3356d40bd31ca10`.
 
 **Exact next action:** trigger one canonical Dukascopy snapshot workflow. If it reproduces the frozen hashes, use that immutable snapshot and move immediately to the remaining Gate-A blocker: enough point-in-time macro timestamps, pre-release consensus and actual-as-released history. Do not resume OHLC strategy research.
+
+
+### EXP-041 snapshot attempt-1 operational note
+
+Trigger `0e685e11dc709ac62d1caa931f500a6486fa508d` shows a red 0/1 check but produced no durable snapshot result. Do not interpret the red icon as Dukascopy source drift by itself.
+
+The snapshot infrastructure was operationally hardened without changing any frozen research/data rule:
+
+- verifier: `a20206c36fecd3cb7358c0bec024914fc741fe7a`;
+- workflow: `3aaed8391b28966eebe8483954107b88d1e5c06b`.
+
+The next run will always commit the exact-hash diagnostic after successful download, even when hashes fail, and the internal archive manifest is deterministic across reruns.
+
+**Exact next action:** rerun the canonical snapshot once via the existing trigger path, then resume from the durable JSON checkpoint rather than the check icon.
