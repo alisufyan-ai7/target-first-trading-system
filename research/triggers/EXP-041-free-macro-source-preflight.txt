@@ -1,0 +1,10 @@
+Trigger EXP-041 free macro consensus / official-release source preflight v0.1.
+
+Frozen implementation:
+- spec 9c63a1f2f8cbc7eee2b83d2e404d23725cccbf9d
+- runner afc31da851cd0b9932d7bbdba966188162439d36
+- workflow c33598dc663273762e0f1563fff516aade1f3412
+
+Use only Jun 2026 development weeks from Forex Factory historical calendar.
+Use official BLS/Census/BEA/Federal Reserve pages for release-time and actual-as-released provenance checks.
+No Jul-Aug-Sep 2026 pages, no market data, target labels, P&L or strategy outcomes.
