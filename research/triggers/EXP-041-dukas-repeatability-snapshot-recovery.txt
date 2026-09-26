@@ -1,0 +1,13 @@
+Trigger EXP-041 Dukascopy same-run repeatability + immutable snapshot recovery v0.1.
+
+Frozen implementation:
+- spec 21f60ab4217c9386a6426774a7d2041fd980203c
+- runner 31460148e3cafd2528f707b513663f3e5adffcdc
+- workflow 743411b0105d097afb48e47e6dea1be0eb85ec8d
+
+Run two independent downloads of the identical frozen Dukascopy request.
+Require exact A/B SHA-256 equality plus integrity for all eight markets.
+PASS => freeze copy A immediately as immutable snapshot v2 in the same run.
+FAIL => create no release and checkpoint acquisition nondeterminism.
+
+No Jul-Aug/Sep 2026 data. No target labels, P&L, strategy outcomes, or macro outcome model.
