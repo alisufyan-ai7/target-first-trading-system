@@ -2008,3 +2008,35 @@ The hardened workflow now:
 - treats an already-existing matching release as idempotent recovery rather than overwriting it.
 
 **Exact next action:** update the snapshot trigger once and inspect the next durable bot checkpoint. Do not infer source drift unless the durable diagnostic says so.
+
+
+## 2026-09-27 — EXP-041 canonical snapshot v1 hash reproduction FAILED / SAME-RUN REPEATABILITY NEXT
+
+Durable result commit: `2dc6a9c0cc1c588fa01179bcc644d5fb6e9fd578`.  
+Workflow run: `36264975005`.
+
+Observed:
+
+- live Dukascopy download completed successfully;
+- all eight markets differed from Sep25 frozen reference hashes and row counts;
+- release/archive creation was correctly skipped;
+- final integrity step failed by design;
+- no labels/P&L/scientific outcomes;
+- Jul-Aug/Sep remained sealed;
+- disposition: `LIVE_DUKASCOPY_NO_LONGER_REPRODUCES_FROZEN_AUDITED_BYTES_STOP_FOR_SOURCE_DRIFT`.
+
+This proves current acquisition output differs from the earlier observed output, but it does not yet distinguish genuine upstream revision from nondeterministic/incomplete transport.
+
+Prospectively frozen next diagnostic:
+
+- spec: `research/EXP-041-DUKASCOPY-REPEATABILITY-SNAPSHOT-RECOVERY-v0.1.md`;
+- runner commit: `31460148e3cafd2528f707b513663f3e5adffcdc`;
+- workflow commit: `743411b0105d097afb48e47e6dea1be0eb85ec8d`.
+
+It performs two independent same-run Dukascopy downloads with identical frozen request semantics and requires exact SHA-256 equality plus integrity across all eight markets.
+
+If repeatability FAILS: fix acquisition transport before any snapshot/modeling.
+
+If repeatability PASSES: freeze copy A immediately as immutable snapshot v2 in the same workflow run. Because no EXP-041 outcomes were ever computed on the unrecoverable Sep25 bytes, adopting the prospectively validated repeatable current snapshot does not contaminate outcome research.
+
+**Exact next action:** trigger the repeatability/snapshot-recovery workflow once, then resume from its durable bot result.
