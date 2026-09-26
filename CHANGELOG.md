@@ -476,3 +476,8 @@
 - Frozen exact normalized SHA-256 values from audit `1cf168d`; future EXP-041 development data will be an immutable GitHub Release snapshot rather than repeated live downloads.
 - Added snapshot verifier and snapshot workflow; common eight-market modeling cutoff is 2026-06-30 00:00 UTC because USDCHF ends Jun29 23:59.
 - Broker/institutional execution-feed validation remains required before deployment; Jul-Aug/Sep remain sealed and no strategy outcomes were computed.
+
+
+- Recorded EXP-041 canonical Dukascopy snapshot attempt 1 trigger `0e685e1` as a red Actions check with no durable result; this is not yet a scientific/data-drift conclusion.
+- Hardened the snapshot verifier/workflow at `a20206c` / `3aaed83`: failed hash reproduction is now durably checkpointed, and run-specific metadata was removed from the archive-internal manifest so identical data yield a deterministic archive.
+- Frozen data hashes/date boundaries/protected-period rules were unchanged.
