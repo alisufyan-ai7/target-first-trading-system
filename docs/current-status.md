@@ -2093,3 +2093,35 @@ PASS => freeze separate full-history acquisition/audit for 2025-07-01..2026-06-2
 CREDENTIAL/PIT ACCESS FAIL => obtain the required Trading Economics entitlement or move to Econoday historical point-in-time data; do not weaken causality requirements.
 
 **Exact next action:** trigger one macro PIT access/provenance preflight and resume from its durable diagnostic.
+
+
+## 2026-09-27 — TRADING ECONOMICS CREDENTIAL BLOCKER BYPASSED PROSPECTIVELY WITH FREE-SOURCE PREFLIGHT
+
+Trading Economics preflight durable result: `6eeb4e93f937fb51e6b2db39d7d57aeb11cf4023`.
+
+Result:
+
+- credential present = false;
+- disposition = `CREDENTIAL_REQUIRED`;
+- no market data/outcomes/protected periods used.
+
+The project will not require a paid API before testing a free, causally defensible alternative.
+
+Frozen free-source architecture:
+
+- Forex Factory historical calendar = public historical `Forecast` consensus proxy;
+- BLS/Census/BEA/Federal Reserve archives = official release-time and actual-as-released authority.
+
+Implementation:
+
+- spec commit: `9c63a1f2f8cbc7eee2b83d2e404d23725cccbf9d`;
+- runner commit: `afc31da851cd0b9932d7bbdba966188162439d36`;
+- workflow commit: `c33598dc663273762e0f1563fff516aade1f3412`.
+
+The preflight queries only four Jun-2026 development weeks plus official Jun-2026 release pages. It computes no labels/P&L and touches no Jul-Aug/Sep data.
+
+PASS => freeze full Jul2025-Jun29 2026 public-calendar consensus + official-release acquisition/audit.
+
+FAIL => repair only public-source access/parser mechanics or choose another free consensus archive; do not return to paid API by default and do not weaken causality.
+
+**Exact next action:** trigger one free macro source preflight and resume from its durable checkpoint.
