@@ -1572,3 +1572,21 @@ The preflight requires:
 GitHub secret `TRADING_ECONOMICS_API_KEY` is the only authorized credential path.
 
 If the secret is missing or historical/PIT entitlement is unavailable, checkpoint that operational blocker explicitly. Do not replace point-in-time consensus with revised/post-hoc public calendar pages merely to advance the experiment.
+
+
+## 2026-09-27 — Use free consensus proxy + first-party actual/timing instead of making a paid API mandatory
+
+Trading Economics preflight `6eeb4e9` failed only because no API credential is configured.
+
+**Decision:** prospectively test a free-source architecture before considering a paid entitlement.
+
+Freeze:
+
+- Forex Factory historical `Forecast` as the single primary public consensus proxy;
+- official BLS/Census/BEA/Federal Reserve archives as authority for release time and actual-as-released.
+
+This deliberately separates the two information roles. Forex Factory is not authoritative for time or actual values; official agencies do not provide market consensus.
+
+No event-specific vendor shopping is allowed after outcomes. Missing public Forecast means no surprise feature for that component.
+
+A zero-outcome free-source preflight must pass before full-year acquisition.
