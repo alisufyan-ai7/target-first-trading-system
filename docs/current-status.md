@@ -2065,3 +2065,31 @@ Active governance is now `research/EXP-041-DATA-SOURCE-GOVERNANCE-v0.3.md`.
 **Price-data acquisition is no longer the EXP-041 blocker.** Do not re-download live Dukascopy for EXP-041 modeling. Downstream work must consume and verify the exact immutable v2 release.
 
 **Exact next action:** acquire enough point-in-time macro event history (official release timestamps + pre-release consensus + actual-as-released) to pass EXP-041 Gate A. Preferred consensus source remains Trading Economics historical point-in-time data; Econoday is an acceptable alternative.
+
+
+## 2026-09-27 — EXP-041 MACRO PIT ACCESS/PROVENANCE PREFLIGHT FROZEN
+
+Price-data acquisition is closed via canonical Dukascopy snapshot v2. The remaining Gate-A blocker is now point-in-time macro consensus/actual-as-released history.
+
+Frozen preflight:
+
+- spec commit: `5bf095c9ae0ce0af94d1a98c906a65331758bb31`;
+- runner commit: `12075b89367e3af2ef98a6ae0cb373656f3306e5`;
+- workflow commit: `57c42fac9c872ddf733c6c00f3e84246f06b1cc7`.
+
+The preflight uses Trading Economics only on 2026-03-01..2026-06-29 development dates and verifies technical access to Date/CalendarId/Event/Category, Actual, survey Forecast consensus, Previous/Revised and source provenance across the frozen macro families.
+
+Security/licensing boundary:
+
+- API key is read only from GitHub secret `TRADING_ECONOMICS_API_KEY`;
+- secret is never printed/committed;
+- raw vendor payload is not committed;
+- only response hash, schema/coverage counts and non-value sample identifiers/timestamps are checkpointed.
+
+No market data, target labels, P&L, Jul-Aug or Sep are loaded.
+
+PASS => freeze separate full-history acquisition/audit for 2025-07-01..2026-06-29.
+
+CREDENTIAL/PIT ACCESS FAIL => obtain the required Trading Economics entitlement or move to Econoday historical point-in-time data; do not weaken causality requirements.
+
+**Exact next action:** trigger one macro PIT access/provenance preflight and resume from its durable diagnostic.
