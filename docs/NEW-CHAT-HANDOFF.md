@@ -2122,3 +2122,25 @@ PASS => freeze full allowed-history macro acquisition/audit.
 Credential/entitlement failure => configure suitable Trading Economics historical/PIT access or use the frozen Econoday alternative; do not use post-hoc calendar pages as a causal substitute.
 
 **Exact next action:** trigger one macro PIT access preflight, then inspect its durable result.
+
+
+## EXP-041 free macro-source preflight checkpoint
+
+Trading Economics access attempt completed at durable result `6eeb4e93f937fb51e6b2db39d7d57aeb11cf4023` with `CREDENTIAL_REQUIRED`. No scientific result was affected.
+
+The active next path is now free/public:
+
+- Forex Factory historical calendar `Forecast` = frozen consensus proxy;
+- official BLS/Census/BEA/Federal Reserve archives = release time + actual-as-released authority.
+
+Frozen implementation:
+
+- spec `9c63a1f2f8cbc7eee2b83d2e404d23725cccbf9d`;
+- runner `afc31da851cd0b9932d7bbdba966188162439d36`;
+- workflow `c33598dc663273762e0f1563fff516aade1f3412`.
+
+The preflight queries only Jun 2026 development weeks and official pages. No market data, labels/P&L, Jul-Aug or Sep.
+
+PASS => freeze full allowed-history free macro acquisition/audit.
+
+**Exact next action:** trigger one free macro source preflight and inspect its durable JSON result.
