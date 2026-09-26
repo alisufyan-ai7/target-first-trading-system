@@ -501,3 +501,9 @@
 - The preflight queries only Mar1-Jun29 2026 development history, verifies consensus/actual/schema/provenance coverage across the macro families, and computes no trading outcomes.
 - Added secure credential convention `TRADING_ECONOMICS_API_KEY`; the workflow never commits the secret or raw licensed vendor payload.
 - A missing credential or insufficient historical/PIT entitlement will now produce a durable explicit diagnostic rather than being bypassed with revised web data.
+
+
+- Trading Economics macro PIT preflight checkpointed `CREDENTIAL_REQUIRED` at `6eeb4e9`; no outcomes or protected-period data were used.
+- Frozen a free EXP-041 macro-data architecture: Forex Factory historical Forecast as public consensus proxy plus official BLS/Census/BEA/Fed archives for actual-as-released and release timing.
+- Added free-source preflight spec/runner/workflow at `9c63a1f` / `afc31da` / `c33598d`.
+- The preflight is development-only and zero-outcome; paid API access is no longer the default next blocker.
