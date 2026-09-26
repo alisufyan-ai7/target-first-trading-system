@@ -2091,3 +2091,34 @@ Do not re-download live Dukascopy for EXP-041 modeling. Consume the immutable v2
 **Exact next action:** acquire enough point-in-time macro event history to pass EXP-041 Gate A: official release timestamps, pre-release consensus, actual-as-released values, >=40 independent blocks, >=30 surprise-bearing blocks, >=8 releases per recurring numeric family, and >=6 FOMC events or keep FOMC timing-only. Preferred consensus source is Trading Economics historical point-in-time data; Econoday is acceptable alternative.
 
 Engine R remains paused; Jul-Aug and Sep remain sealed.
+
+
+## EXP-041 macro PIT access preflight checkpoint
+
+Canonical price data is already frozen; do not return to Dukascopy acquisition.
+
+The active next stage is a zero-outcome Trading Economics point-in-time access/provenance preflight.
+
+Frozen artifacts:
+
+- spec `5bf095c9ae0ce0af94d1a98c906a65331758bb31`;
+- runner `12075b89367e3af2ef98a6ae0cb373656f3306e5`;
+- workflow `57c42fac9c872ddf733c6c00f3e84246f06b1cc7`.
+
+It queries only United States 2026-03-01..2026-06-29 calendar data and checks:
+
+- EMPLOYMENT/CPI/PPI/RETAIL/GDP_PCE family presence;
+- Actual + Forecast consensus availability;
+- FOMC timing row;
+- required schema/source provenance;
+- no protected-period access.
+
+Secret: `TRADING_ECONOMICS_API_KEY`.
+
+No raw vendor payload is committed. No market data/labels/P&L are loaded.
+
+PASS => freeze full allowed-history macro acquisition/audit.
+
+Credential/entitlement failure => configure suitable Trading Economics historical/PIT access or use the frozen Econoday alternative; do not use post-hoc calendar pages as a causal substitute.
+
+**Exact next action:** trigger one macro PIT access preflight, then inspect its durable result.
