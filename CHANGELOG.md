@@ -536,3 +536,9 @@
 - Frozen v0.2 repair at spec `949382b`, runner `2f7aa1d`, workflow `f3bea53`.
 - v0.2 uses direct Census historical PDFs, parses BEA official schedule rows, splits same-day GDP vs PCE releases when their official times differ, and uses correct Fed statement URLs.
 - Frozen Forex Factory consensus values and all Gate-A thresholds remain unchanged; no market outcomes or protected periods are involved.
+
+
+- EXP-041 official release-time v0.2 checkpointed at `83b12d3`; BLS, all 12 Retail blocks and all 8 FOMC policy dates resolved, leaving only 14 BEA 2026 GDP/PCE sub-blocks unresolved.
+- Official BEA schedule evidence confirms those 2026 rows exist; failure isolated to schedule HTML parsing.
+- Frozen v0.3 BEA row/link parser at spec `cc7efa0`, runner `232ee1f`, workflow `8a002c2`.
+- No event set, consensus value, threshold, market outcome or protected period changed.
