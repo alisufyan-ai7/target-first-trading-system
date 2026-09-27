@@ -201,11 +201,15 @@ function simulateSignal(c,plan,rows){
     }
   }
   if(outcome===null){
-    if(!last){last=rows[Math.max(0,lowerBound(rows,c.fillSignalTs)-1)];}
-    const pnlTicks=sign*(last.c-c.entry);
-    if(tp1Hit)gross+=0.5*pnlTicks*0.01;else gross=pnlTicks*0.01;
-    outcome=tp1Hit?"TP1_THEN_TIMEOUT":"TIMEOUT";
-    exitTs=Math.min(last.ts+MIN,cutoff);exitPrice=last.c;
+    if(!last){
+      outcome=tp1Hit?"TP1_THEN_TIMEOUT":"TIMEOUT";
+      exitTs=Math.min(c.fillSignalTs,cutoff);exitPrice=c.entry;
+    }else{
+      const pnlTicks=sign*(last.c-c.entry);
+      if(tp1Hit)gross+=0.5*pnlTicks*0.01;else gross=pnlTicks*0.01;
+      outcome=tp1Hit?"TP1_THEN_TIMEOUT":"TIMEOUT";
+      exitTs=Math.min(last.ts+MIN,cutoff);exitPrice=last.c;
+    }
   }
   const risk=c.grossStopUSD;
   return{
