@@ -2359,3 +2359,34 @@ v0.3 changes BEA parsing only:
 - keep all BLS/Census/Fed mappings and frozen consensus values unchanged.
 
 **Exact next action:** trigger one official release-time v0.3 reconciliation. PASS => freeze Phase B official actual-as-released reconciliation.
+
+
+## 2026-09-27 — OFFICIAL RELEASE-TIME v0.3 FAILED ON BEA HTML LAYOUT / v0.4 DIRECT-PAGE REPAIR FROZEN
+
+Durable v0.3 result: `b340e2878cf442196e5c5d6d640451c2f93a99e5`.
+
+v0.3 confirmed the remaining issue is BEA schedule-layout parsing:
+
+- 2026 BEA schedule rows parsed as 0;
+- 2025 BEA parser produced duplicate matches;
+- all non-BEA mappings remain resolved;
+- no market data/outcomes/protected periods used.
+
+To avoid further brittle schedule scraping, v0.4 prospectively switches the unresolved 2026 BEA blocks to direct first-party BEA news-release pages.
+
+Frozen v0.4:
+
+- spec commit: `8f2415adddbaa602285636b17cfda195690328d8`;
+- runner commit: `3c25b1a43f0fb10ef7e2ac5b31952f19e5d08fe9`;
+- workflow commit: `d4e2ff11887832b67bc7d9e14c50f5f24b80db22`.
+
+Recovery base:
+
+- exact v0.2 official-time map SHA-256: `691c09da1829695821ead84647bb87b2b1b4c1a4cdc4d727cb33042e991edd1a`;
+- 75 official blocks total;
+- preserve every resolved non-BEA and 2025-BEA block unchanged;
+- replace only the 14 unresolved 2026 BEA GDP/PCE blocks.
+
+Each direct BEA page must verify exact date, embargo marker, local time, EST/EDT consistency, release identity and source hash. No BEA full-year 2026 schedule page is fetched in v0.4.
+
+**Exact next action:** trigger exactly one official release-time v0.4 repair. PASS => freeze Phase B official actual-as-released reconciliation.
