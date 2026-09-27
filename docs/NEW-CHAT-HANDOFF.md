@@ -2701,3 +2701,19 @@ Frozen implementation:
 - workflow `47fd28a697b25f08781e267cb22321afa1bf584c`.
 
 **Exact next action:** trigger one zero-outcome v0.2 preflight. Do not inspect profitability because none is computed.
+
+
+## EXP-045 final density confirmation
+
+Engine-S v0.2 zero-outcome result `fa21229d80ba5ae0b4b57dbfa3f392722cacb040` produced 57 fills and 55 signal days but failed total/acceptance sample thresholds.
+
+Final zero-outcome extension is frozen with no setup-rule changes:
+
+- spec checkpoint `0e6b8d50a5e94e7c8103ee7d0aee628a239d12c3`;
+- engine remains `262e3ca7b1322adce2a35b7bcba14d0369d31e51`;
+- runner `6e7ab5f3d1887a23fa74a71d07fe2987a873285f`;
+- workflow `780f081c480dbe0bc06f9e5a2e9990b627407cb8`.
+
+Warm-up Dec-2021; development Jan-2022 through Feb-2025. Validation/holdout remain sealed.
+
+**Exact next action:** trigger one final extended zero-outcome confirmation. PASS => freeze target logic. FAIL => close Engine S.
