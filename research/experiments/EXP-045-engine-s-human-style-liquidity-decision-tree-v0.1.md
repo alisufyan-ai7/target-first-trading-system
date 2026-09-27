@@ -296,3 +296,75 @@ Static code audit before trigger confirmed:
 The workflow downloads no validation or holdout file.
 
 **Exact next action:** trigger exactly one EXP-045 zero-outcome preflight and resume from its durable checkpoint.
+
+
+## Zero-outcome preflight result — 2026-09-27
+
+Durable result commit:
+
+`5d7005938547eb7f023d0b36a0ff484188f3cdf4`
+
+Disposition:
+
+`EXP045_ZERO_OUTCOME_PREFLIGHT_FAIL`.
+
+Integrity / governance:
+
+- source manifest verified;
+- causality passed for all accepted candidates;
+- validation/holdout files were not loaded;
+- target labels were not calculated;
+- MFE/MAE were not calculated;
+- P&L, win rate and post-entry path were not calculated.
+
+Opportunity funnel:
+
+- 947 setup attacks in the frozen window;
+- 446 rejection setups created;
+- 465 acceptance setups created;
+- 181 MSS close-through observations;
+- 127 qualifying displacement observations;
+- 62 directional FVG observations;
+- 56 qualifying same-bar triggers;
+- 22 filled midpoint candidates;
+- 21 active signal days.
+
+Accepted candidates:
+
+- rejection: 18;
+- acceptance: 4;
+- long: 8;
+- short: 14.
+
+The frozen adequacy gate failed:
+
+- total accepted >=100: FAIL;
+- rejection >=25: FAIL;
+- acceptance >=25: FAIL;
+- active signal days >=50: FAIL.
+
+### Zero-outcome diagnosis
+
+The level-selection thesis itself was not starved: 944 setups existed.
+
+The dominant bottleneck was lower-timeframe trigger compression.
+
+Rejection branch:
+- 479 setups;
+- 141 saw an MSS close-through;
+- 99 saw qualifying displacement;
+- 47 saw directional FVG;
+- only 18 filled.
+
+399 rejection setups terminated at `trigger_timeout_10`; among those, 94 had already seen an MSS but could not satisfy the v0.1 same-bar MSS + displacement + FVG trigger.
+
+Acceptance branch:
+- 465 setups;
+- 133 failed the next-5m hold;
+- 122 timed out waiting for a pullback within 30 active M1 bars;
+- 68 timed out at the trigger stage;
+- only 4 filled.
+
+**Decision:** close v0.1. Do not loosen v0.1 itself.
+
+A separate zero-outcome v0.2 may alter only the temporal sequencing/timeboxes of human confirmation. No target/P&L outcome is available to tune against.
