@@ -566,3 +566,9 @@
 - Frozen Gate-B macro information-content study at spec `5980e34`, runner `015eb7b`, workflow `55ebbed`.
 - Gate B consumes immutable Dukascopy v2, reuses EXP-040 structural candidate/target mechanics, and compares LOCAL_M5 vs timing vs surprise magnitude on the six frozen event folds.
 - Engine R/EXP-015 remain paused; no protected-period data or production P&L rules are involved.
+
+
+- EXP-041 Gate-B integrity corrigendum passed at `57a622a`; exactly 63 events are geometrically eligible and both ineligible events are the expected 19:00 UTC FOMC timestamps.
+- Recovered scientific disposition: `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+- EXP-041 is closed; no macro threshold/feature retuning is authorized.
+- Next information family: rates/USD market interpretation, then execution-grade order flow.
