@@ -593,3 +593,8 @@
 - Study A DXY reaction failed both T40eq/T50eq and generally worsened log loss/Brier.
 - Study B DXY+T-Bond also failed versus both DXY-only and control.
 - EXP-042 closed; next information family is execution-grade bid/ask/tick/quote data, with true order flow only if genuinely sourced.
+
+
+- Closed EXP-042 after both DXY and DXY+T-Bond interpretation studies failed frozen information-advantage gates.
+- Frozen EXP-043 Dukascopy tick/quote microstructure source preflight at spec `afd3362`, downloader `aa9c055`, verifier `62ce3de`, workflow `eb3e9b6`.
+- EXP-043 is zero-outcome and requires exact repeatability on 48 symbol/date pairs before any large tick acquisition or predictive model.
