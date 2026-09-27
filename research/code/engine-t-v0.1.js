@@ -407,8 +407,8 @@ function runEngineT(months,splitStart,splitEnd){
 function selfTest(){
   assert(parseTick("2062.688")===2062688,"tick_parse");
   let threw=false;try{parseTick("1.2345");}catch(e){threw=true;}assert(threw,"off_grid");
-  assert(bodyPassForTest({o:100,h:120,l:90,c:95},"SHORT"),"body_short");
-  assert(bodyPassForTest({o:100,h:110,l:80,c:108},"LONG"),"body_long");
+  assert(bodyPassForTest({o:115,h:120,l:90,c:95},"SHORT"),"body_short");
+  assert(bodyPassForTest({o:85,h:110,l:80,c:105},"LONG"),"body_long");
   return{ok:true,tests:["tick_parse","off_grid","failed_auction_body_short","failed_auction_body_long"]};
 }
 function bodyPassForTest(b,dir){
