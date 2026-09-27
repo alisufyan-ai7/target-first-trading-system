@@ -2467,3 +2467,25 @@ Both enriched layers worsened pooled log loss/Brier and failed fold/event/market
 EXP-042 is closed. Do not tune proxy variants.
 
 **Next family:** execution-grade bid/ask/tick/quote information, and true order flow only if a source genuinely provides it. Engine R/EXP-015 remain paused; Jul-Aug/Sep remain sealed.
+
+
+## EXP-043 tick/quote microstructure preflight
+
+EXP-042 is closed negative.
+
+Frozen next step:
+
+- spec `afd3362ba22e1672ec2a76585004869ac05ea3d6`;
+- downloader `aa9c05510172cfeec8f0ef8dea701b502d7be233`;
+- verifier `62ce3de6548ab5059cd273521dcdbd987560893a`;
+- workflow `eb3e9b60493d283af4e3d75f5c82ac6a8ea32cea`.
+
+EXP-043 downloads raw Dukascopy tick/quote records for all eight target markets on six frozen development dates, twice independently.
+
+Canonical fields: timestamp_ms, ask_price, bid_price, ask_volume, bid_volume.
+
+Scientific role: broker quote/tick microstructure proxy only, not centralized order flow.
+
+PASS requires all 48 symbol/date pairs to match byte-for-byte and pass semantic integrity.
+
+**Exact next action:** trigger one EXP-043 source preflight and resume from its durable result.
