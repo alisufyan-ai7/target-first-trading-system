@@ -1,0 +1,12 @@
+Trigger EXP-041 official release-time reconciliation v0.3.
+
+Frozen implementation:
+- spec cc7efa0fdbd6ec75fd6d9b84c3ef64ebf3b95c0a
+- runner 232ee1f809c4a2002f2a830c645d8fff11abd9ce
+- workflow 8a002c2dc82dc9786932511cf921c90150a5cd21
+
+Use exact frozen free-consensus v0.3 input.
+Preserve all working BLS/Census/Fed mappings.
+Repair BEA schedule parsing only by reading official schedule rows/links and exact displayed times.
+Keep GDP and PCE as separate official blocks when they share a date.
+No market data, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
