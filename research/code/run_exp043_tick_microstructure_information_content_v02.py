@@ -386,7 +386,7 @@ def pooled_summary(preds:list[dict]):
     p=np.asarray([x["p"] for x in preds],dtype=float)
     per_market={}
     all_market_classes=True
-    for s in EXECUTION_MARKETS:
+    for s in ACTIVE_MARKETS:
         mask=np.asarray([x["symbol"]==s for x in preds],dtype=bool)
         ys=y[mask];ps=p[mask]
         if len(ys)==0 or len(np.unique(ys))!=2:
@@ -424,7 +424,7 @@ def compare(base,enriched,base_folds,enr_folds):
         fold_wins+=int(delta>0)
 
     market_nonworse=0;market_details={}
-    for s in EXECUTION_MARKETS:
+    for s in ACTIVE_MARKETS:
         b=base["per_market"][s];e=enriched["per_market"][s]
         if "log_loss" in b and "log_loss" in e:
             delta=b["log_loss"]-e["log_loss"]
@@ -487,7 +487,7 @@ def main():
     target_file_integrity={}
     micro_file_integrity={}
 
-    for s in EXECUTION_MARKETS:
+    for s in ACTIVE_MARKETS:
         target_sha=target_audit["markets"][s]["copy_a"]["sha256"]
         df=load_target(s,target_sha)
         target_file_integrity[s]={"sha256":target_sha,"rows":int(len(df))}
