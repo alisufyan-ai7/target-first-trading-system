@@ -2508,3 +2508,19 @@ Design intent:
 - freeze as immutable release before information-content modeling.
 
 Engine R/EXP-015 remain paused; Jul-Aug/Sep remain sealed.
+
+
+## EXP-043 full development snapshot checkpoint
+
+Source preflight passed at `babcfa8178ebf9288cefc420dab916674a59b55b`.
+
+Full development microstructure snapshot frozen:
+
+- spec `8b0d5e506643c730891d15e42e332048ba7c97fd`;
+- acquisition `3910048bccc142afcf61184d34492538c897d4f1`;
+- verifier `372607f7b6fb0acdb57b3c5ba50742f401634e72`;
+- workflow `fe9111c402a02f34e834e74c0d66762766c5c969`.
+
+It acquires development-only weekday ticks 05:00-18:00 UTC, records per-day raw hashes, and freezes minute-level spread/activity/freshness/quote-imbalance aggregates only.
+
+**Exact next action:** trigger one snapshot workflow. Do not poll; resume from durable bot result.
