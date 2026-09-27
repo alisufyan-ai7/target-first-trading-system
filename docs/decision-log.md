@@ -2025,3 +2025,25 @@ Reasoning:
 - this represents a trapped-breakout / failed-auction decision process rather than a threshold variant of prior engines.
 
 The first run is zero-outcome only. If density/causality fails, close v0.1 without widening the frozen windows or thresholds.
+
+## 2026-09-28 — EXP-046 preflight passes; freeze unchanged Gold economics for development
+
+Engine T v0.1 passed every zero-outcome adequacy gate at `3f257487ac32b73bcf605e9cc442678bce9ef662`.
+
+**Decision:** authorize development outcomes only after prospectively freezing the target/management protocol at `2f2aca9b1a67799f315de286da1f3913493ff865`.
+
+To avoid changing multiple variables at once, Engine T reuses the established Gold structural-target economics:
+
+- nearest fresh external liquidity TP1;
+- >=1.50R room;
+- optional 50% runner only to a next fresh level at >=3R;
+- conservative same-bar ordering;
+- 120 active M1 / 20:00 UTC exit;
+- USD5 / USD10 primary/stress friction at 0.10 lot;
+- max 0.10 lot and size down for <=USD40 structural stop plus stress friction;
+- one open Gold trade;
+- daily loss / strong-day state gates.
+
+This isolates the scientific test to the new failed-auction selection process.
+
+No protected data is authorized unless the frozen development gate passes.
