@@ -120,7 +120,10 @@ def add_exp042_features(row,event,proxy):
         b=strict_asof(proxy[sym],event["ts"])
         c=strict_asof(proxy[sym],row["decision_ts"])
         if b is None or c is None:
-            q[prefix+"_available"]=0.0; causal=False; continue
+            q[prefix+"_available"]=0.0
+            q[prefix+"_log_return_bps"]=0.0
+            q[prefix+"_abs_log_return_bps"]=0.0
+            continue
         bt,bp,bs=b; ct,cp,cs=c
         ok=(0<bs<=5 and 0<cs<=5 and bt<event["ts"] and ct<row["decision_ts"])
         q[prefix+"_available"]=1.0 if ok else 0.0
