@@ -542,3 +542,9 @@
 - Official BEA schedule evidence confirms those 2026 rows exist; failure isolated to schedule HTML parsing.
 - Frozen v0.3 BEA row/link parser at spec `cc7efa0`, runner `232ee1f`, workflow `8a002c2`.
 - No event set, consensus value, threshold, market outcome or protected period changed.
+
+
+- EXP-041 official release-time v0.3 checkpointed failure at `b340e28`; issue isolated to BEA schedule HTML representation (2026 parsed zero rows; 2025 produced duplicate matches).
+- Frozen v0.4 direct-page repair at spec `8f2415a`, runner `3c25b1a`, workflow `d4e2ff1`.
+- v0.4 starts from the exact v0.2 official-time map and replaces only the 14 unresolved 2026 BEA blocks using direct first-party BEA release pages/embargo timestamps.
+- No market outcomes, thresholds, consensus values or protected-period data changed.
