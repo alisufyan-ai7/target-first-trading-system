@@ -259,3 +259,6 @@ No target, MFE/MAE, trade P&L or post-entry path is inspected by these clarifica
 12. **Pre-entry invalidation:** after a valid trigger/FVG exists but before midpoint fill, touching/breaching the frozen structural stop cancels the setup. For the acceptance branch, any completed active 5m close back through the attacked level before entry also cancels the setup, as already required by Section 6.
 
 13. **No post-entry inspection:** once a midpoint fill is registered as an accepted preflight candidate, Engine-S preflight immediately stops evaluating that candidate. No later bar is read for that candidate's MFE, MAE, stop, target, timeout, P&L, or win/loss status.
+
+
+14. **Liquidity freshness across the day:** level attack/consumption is tracked from the moment a level becomes causally known, even outside the 06:00-17:00 setup-creation window. Thus a PDH/PDL attacked before 06:00 is no longer fresh for a later Engine-S setup. Asia levels begin consumption eligibility at 06:00; opening-range levels at 09:00. Only attacks whose completed 5m close satisfies the frozen setup window may create a setup.
