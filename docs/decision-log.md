@@ -1781,3 +1781,17 @@ Recovered disposition: `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
 Do not iterate event windows, surprise scales, thresholds, folds or macro feature variants on this same development sample.
 
 Proceed to the next orthogonal mechanism from the research matrix: rates/USD market interpretation. Execution-grade order flow remains the layer after that.
+
+
+## 2026-09-27 — Move from failed macro layer to rates/USD interpretation proxy
+
+After EXP-041 closed negative, the next test must use genuinely new market-interpretation information rather than macro retuning or another generic OHLC family.
+
+**Decision:** prospectively preflight two new cross-asset proxy instruments:
+
+- DXY-style USD index: `dollaridxusd`;
+- US T-Bond price proxy: `ustbondtrusd`.
+
+Both must pass two-download byte-for-byte repeatability before any EXP-042 outcome model is permitted.
+
+The T-Bond proxy is explicitly not a substitute for short-rate futures/order flow; a negative proxy result will not reject richer institutional rates information.
