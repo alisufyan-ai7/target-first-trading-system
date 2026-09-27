@@ -2524,3 +2524,24 @@ Full development microstructure snapshot frozen:
 It acquires development-only weekday ticks 05:00-18:00 UTC, records per-day raw hashes, and freezes minute-level spread/activity/freshness/quote-imbalance aggregates only.
 
 **Exact next action:** trigger one snapshot workflow. Do not poll; resume from durable bot result.
+
+
+## EXP-043 information-content study ready to run
+
+Immutable microstructure snapshot PASS: `ba908a721a131b6062ebcc107ddab5a3e4c01285`.
+
+Final frozen study:
+
+- spec `a88f089dc3275c8909942f192eae2b4ae9c0fb46`;
+- runner `a56df2ede62667dc829d1226de07fc7349ccfd17`;
+- workflow `38a32707761d8367ef6de808b38f55c560985062`.
+
+Model scope is 2026-03-23 through 2026-06-29, matching EXP-040's development start and original six folds.
+
+Nested comparison:
+
+`LOCAL_M5 -> +execution-cost -> +participation -> +quote-imbalance`.
+
+All new features use only completed broker quote/tick minutes before the decision; no mid-price return/OHLC feature is introduced.
+
+**Exact next action:** trigger one EXP-043 information-content run. Interpret only if integrity passes. Jul-Aug/Sep remain sealed; Engine R/EXP-015 remain paused.
