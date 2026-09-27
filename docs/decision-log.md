@@ -1688,3 +1688,20 @@ Official-time v0.2 `83b12d3` resolved every BLS, Census Retail and FOMC block an
 The parser must use the exact displayed schedule date/time, keep GDP and Personal Income & Outlays as separate official blocks, and save the linked first-party BEA release URL when available.
 
 No outcome information is involved.
+
+
+## 2026-09-27 — Stop BEA schedule scraping; use direct archived release pages for remaining 2026 blocks
+
+Official release-time v0.3 `b340e28` still failed because the BEA 2026 schedule layout was not represented in CI HTML as expected, while overlapping parser strategies duplicated 2025 rows.
+
+**Decision:** stop tuning schedule-layout parsers.
+
+Freeze v0.4 as a targeted repair of the exact v0.2 official-time map:
+
+- keep all already-resolved BLS/Census/Fed/2025-BEA mappings unchanged;
+- replace only the 14 unresolved 2026 BEA GDP/PCE blocks;
+- use explicit first-party BEA release pages whose embargo headers contain the authoritative date/time;
+- verify source hashes and America/New_York timezone consistency;
+- do not fetch later 2026 schedule pages.
+
+This is a data-provenance implementation repair made before any market outcome modeling.
