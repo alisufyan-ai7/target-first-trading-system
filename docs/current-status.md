@@ -2970,3 +2970,29 @@ Participation and quote-imbalance layers were negative on both primary rungs. Qu
 **Decision:** EXP-043 is closed. Do not tune microstructure windows, signs, markets, hours, availability thresholds or model parameters on this development sample.
 
 Next information class must be materially richer: true signed trade/order-flow and/or order-book/depth data, especially COMEX Gold and representative/centralized FX flow.
+
+
+## 2026-09-27 — EXP-044 TRUE ORDER-FLOW SOURCE GATE FROZEN
+
+EXP-043 is closed negative after a valid integrity-passing v0.2.
+
+Frozen next source gate:
+
+`research/EXP-044-TRUE-ORDER-FLOW-SOURCE-FEASIBILITY-v0.1.md`
+
+commit:
+
+`cbd510ffdadd03cc62b66d29a477e8ad4448df62`.
+
+Priority:
+
+1. COMEX Gold executed trades + depth/order-book events;
+2. representative institutional FX signed flow / order-book state.
+
+A valid EXP-044 source must contain actual transaction and/or true book-event semantics unavailable in broker quote snapshots.
+
+Current disposition:
+
+`NO_REPRODUCIBLE_TRUE_FLOW_SOURCE_ATTACHED_YET`.
+
+No predictive EXP-044 model is authorized until a source-specific zero-outcome provenance/reproducibility preflight passes.
