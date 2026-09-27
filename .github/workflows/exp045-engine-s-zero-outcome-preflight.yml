@@ -1,0 +1,119 @@
+name: EXP-045 Engine S Zero-Outcome Preflight
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-045-engine-s-preflight-v0.1.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify frozen Engine-S code
+        run: |
+          node --check research/code/engine-s-v0.1.js
+          node --check research/code/run-exp045-engine-s-preflight.js
+
+      - name: Download frozen warm-up and development data only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/engine-s
+          BASE="https://raw.githubusercontent.com/kevingtlin/Market-Data-Lab/922f83a60cc574e7395fb27397077288055a1ef6/xauusd/bid/m1"
+          for F in \
+            xauusd_bid_m1_2023_12.csv \
+            xauusd_bid_m1_2024_01.csv xauusd_bid_m1_2024_02.csv xauusd_bid_m1_2024_03.csv \
+            xauusd_bid_m1_2024_04.csv xauusd_bid_m1_2024_05.csv xauusd_bid_m1_2024_06.csv \
+            xauusd_bid_m1_2024_07.csv xauusd_bid_m1_2024_08.csv xauusd_bid_m1_2024_09.csv \
+            xauusd_bid_m1_2024_10.csv xauusd_bid_m1_2024_11.csv xauusd_bid_m1_2024_12.csv \
+            xauusd_bid_m1_2025_01.csv xauusd_bid_m1_2025_02.csv
+          do
+            curl --fail --location --silent --show-error "$BASE/$F" -o "data/engine-s/$F"
+          done
+
+      - name: Run frozen zero-outcome Engine-S preflight
+        run: node research/code/run-exp045-engine-s-preflight.js
+
+      - name: Upload zero-outcome artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp045-engine-s-zero-outcome-preflight
+          path: |
+            research/results/EXP-045-zero-outcome-preflight-v0.1.json
+            research/results/EXP-045-zero-outcome-candidates-v0.1.jsonl
+            research/results/EXP-045-zero-outcome-setups-v0.1.jsonl
+          if-no-files-found: warn
+
+      - name: Commit durable zero-outcome checkpoint
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f research/results/EXP-045-zero-outcome-preflight-v0.1.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-045-zero-outcome-preflight-v0.1.json \
+                  research/results/EXP-045-zero-outcome-candidates-v0.1.jsonl \
+                  research/results/EXP-045-zero-outcome-setups-v0.1.jsonl
+          git commit -m "Checkpoint EXP-045 Engine S zero-outcome preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce zero-outcome adequacy gate
+        if: always()
+        run: |
+          node - <<'NODE'
+          const fs=require("fs");
+          const p="research/results/EXP-045-zero-outcome-preflight-v0.1.json";
+          if(!fs.existsSync(p))throw new Error("EXP-045 preflight result missing");
+          const x=JSON.parse(fs.readFileSync(p,"utf8"));
+
+          if(x.validation_or_holdout_loaded)throw new Error("validation/holdout leak");
+          if(x.execution_metadata.validation_or_holdout_files_downloaded)throw new Error("validation/holdout files downloaded");
+          if(x.target_labels_calculated)throw new Error("target labels unexpectedly calculated");
+          if(x.mfe_mae_calculated)throw new Error("MFE/MAE unexpectedly calculated");
+          if(x.pnl_calculated)throw new Error("P&L unexpectedly calculated");
+          if(x.win_rate_calculated)throw new Error("win rate unexpectedly calculated");
+          if(x.post_entry_path_evaluated)throw new Error("post-entry path unexpectedly evaluated");
+          if(!x.causality_all_candidates_pass)throw new Error("candidate causality failure");
+
+          const expectedFiles=[
+            "xauusd_bid_m1_2023_12.csv",
+            "xauusd_bid_m1_2024_01.csv","xauusd_bid_m1_2024_02.csv","xauusd_bid_m1_2024_03.csv",
+            "xauusd_bid_m1_2024_04.csv","xauusd_bid_m1_2024_05.csv","xauusd_bid_m1_2024_06.csv",
+            "xauusd_bid_m1_2024_07.csv","xauusd_bid_m1_2024_08.csv","xauusd_bid_m1_2024_09.csv",
+            "xauusd_bid_m1_2024_10.csv","xauusd_bid_m1_2024_11.csv","xauusd_bid_m1_2024_12.csv",
+            "xauusd_bid_m1_2025_01.csv","xauusd_bid_m1_2025_02.csv"
+          ];
+          const got=x.execution_metadata.downloaded_files.map(z=>z.name);
+          if(JSON.stringify(got)!==JSON.stringify(expectedFiles))throw new Error("source-file set changed");
+
+          if(!x.preflight_pass){
+            console.error("EXP-045 ZERO-OUTCOME PREFLIGHT FAIL");
+            console.error(JSON.stringify(x.preflight_gates,null,2));
+            process.exit(1);
+          }
+          console.log("EXP-045 ZERO-OUTCOME PREFLIGHT PASS");
+          console.log(JSON.stringify({
+            accepted:x.accepted_filled_candidates,
+            branches:x.accepted_by_branch,
+            branch_direction:x.accepted_by_branch_direction,
+            signal_days:x.accepted_signal_days,
+            median_per_active_day:x.accepted_candidates_per_active_day.distribution.median
+          },null,2));
+          NODE
