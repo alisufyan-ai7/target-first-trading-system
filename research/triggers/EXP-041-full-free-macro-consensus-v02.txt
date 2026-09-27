@@ -1,0 +1,14 @@
+Trigger EXP-041 corrected free macro consensus acquisition v0.2.
+
+Frozen implementation:
+- spec 3489490742d4a5d7bae9cca3d6585d1451aba8a4
+- runner 977ac996086ef3686177bb11f1426c0ab8c324da
+- workflow 3e30ce61e387af3e3588c3fb01c2a6e5e966cce4
+
+Mechanical scope correction only:
+- include Non-Farm Employment Change / NFP aliases;
+- restrict FOMC to Statement, Federal Funds Rate, Economic Projections;
+- provisional independent block key = event_date + family.
+
+No market data, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
+Only a passing v0.2 normalized dataset may feed official reconciliation.
