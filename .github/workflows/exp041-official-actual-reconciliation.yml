@@ -1,0 +1,79 @@
+name: EXP-041 Official Actual Reconciliation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-official-actual-reconciliation.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile-actuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      RESULT: research/results/EXP-041-official-actual-reconciliation-v0.1.json
+      DATA: research/data/EXP-041-official-macro-surprise-layer-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install source parsers
+        run: pip install beautifulsoup4 pypdf
+
+      - name: Verify frozen Phase-B code
+        run: python -m py_compile research/code/run_exp041_official_actual_reconciliation.py
+
+      - name: Reconcile canonical official actuals
+        continue-on-error: true
+        run: python research/code/run_exp041_official_actual_reconciliation.py
+
+      - name: Upload Phase-B artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-official-actual-reconciliation
+          path: |
+            research/results/EXP-041-official-actual-reconciliation-v0.1.json
+            research/data/EXP-041-official-macro-surprise-layer-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit Phase-B result
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          test -f "$DATA"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT" "$DATA"
+          git commit -m "Checkpoint EXP-041 official actual reconciliation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce Phase-B gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-official-actual-reconciliation-v0.1.json")
+          if not p.exists():
+              raise SystemExit("Phase-B result missing")
+          x=json.loads(p.read_text())
+          if x["market_data_loaded"] or x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_market_outcomes_calculated"]:
+              raise SystemExit("unexpected market outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["official_actual_reconciliation_pass"]:
+              raise SystemExit("official actual reconciliation failed")
+          print("EXP-041 official actual reconciliation PASS; final Gate-A audit required")
+          PY
