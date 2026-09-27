@@ -1,0 +1,11 @@
+Trigger EXP-041 official actual-as-released reconciliation Phase B v0.1.
+
+Frozen implementation:
+- spec 0040f86ee3bfe4acd59af5852da7209a253d00c3
+- runner 5b6247322cc017c9efdd13564f148b82d61749c4
+- workflow 0e5d45c4c657f64efa76ff127be1f5da91dbab5c
+
+Use exact frozen free-consensus v0.3 and official-time map v0.4 inputs.
+Reconcile one deterministic canonical forecast-bearing component for each of 67 numeric official blocks against first-party release context.
+Keep all 8 FOMC blocks timing-only.
+No market data, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
