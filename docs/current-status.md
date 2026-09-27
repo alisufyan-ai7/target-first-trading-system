@@ -3035,3 +3035,29 @@ Free Gold data only. Development preflight uses 2024-01-01 through 2025-02-28. V
 First stage is zero-outcome only: opportunity density, causality, branch balance, entry/stop geometry. No target labels, MFE/MAE, P&L or win rate.
 
 **Exact next action:** implement Engine-S preflight and run zero-outcome development candidate-density only.
+
+
+## 2026-09-27 — EXP-045 ENGINE-S ZERO-OUTCOME PREFLIGHT IMPLEMENTED
+
+Frozen before any Engine-S target/path/P&L outcome:
+
+- final pre-run spec/clarifications: `f23b0d83dcc7b74797a606676f9ad9f1b04770a7`;
+- Engine-S state machine: `0bcac83dbc4e7d23abe3bd9daab9bb85f5a631b1`;
+- source-verifying runner: `7e01b47d727ac9e2922c4c7484cbb26f860ef1d8`;
+- workflow: `1f329041c52106a125b0a6c91d85a3465e50defe`;
+- experiment checkpoint: `eeb6e415dbda2a57ffdfad2ec57e1dd94e9aef15`.
+
+The source manifest exactly matches the already-verified Engine-H Dec-2023 through Feb-2025 XAUUSD BID M1 manifest.
+
+The first run is strictly zero-outcome:
+
+- no target-first labels;
+- no MFE/MAE;
+- no win rate;
+- no P&L/profit factor;
+- no post-entry path evaluation;
+- no validation/holdout files.
+
+Preflight tests only selective opportunity density, branch balance, causality, level freshness, non-chasing fill geometry and structural-stop feasibility.
+
+**Exact next action:** trigger one EXP-045 zero-outcome preflight and resume from the durable result.
