@@ -1974,3 +1974,14 @@ Engine-S v0.1 produced 944 setups but only 22 filled candidates, so it failed th
 **Decision:** do not loosen v0.1. Freeze a separate v0.2 that changes only the human confirmation sequence/timeboxes: MSS, then displacement, then FVG, then non-chasing midpoint fill.
 
 Keep the liquidity map, rejection/acceptance definitions, pivot semantics, 1.50x displacement, FVG requirement, structural stop, USD40 risk ceiling and zero-outcome governance unchanged.
+
+
+## 2026-09-28 — Final Engine-S sample-size confirmation without rule changes
+
+**Decision:** do not weaken Engine-S v0.2 again.
+
+Instead, use the exact same rules on a longer earlier zero-outcome Gold development sample from Jan-2022 through Feb-2025, using the same pinned free source and unchanged adequacy gate.
+
+This is for statistical sample adequacy only, not to claim higher daily trade frequency.
+
+If the extended preflight fails, Engine S is closed.
