@@ -572,3 +572,8 @@
 - Recovered scientific disposition: `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
 - EXP-041 is closed; no macro threshold/feature retuning is authorized.
 - Next information family: rates/USD market interpretation, then execution-grade order flow.
+
+
+- Closed EXP-041 with recovered disposition `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+- Frozen EXP-042 zero-outcome rates/USD proxy preflight using Dukascopy `dollaridxusd` and `ustbondtrusd`.
+- EXP-042 requires two independent full-year M1 downloads to match byte-for-byte before an immutable snapshot is released; no model/outcome computation is authorized yet.
