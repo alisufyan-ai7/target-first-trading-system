@@ -530,3 +530,9 @@
 - EXP-041 free consensus v0.3 passed at `81e6f6f`: ADP removed, 203 records, 68 independent surprise-bearing blocks, family counts Employment 11 / CPI 11 / PPI 11 / Retail 12 / GDP-PCE 15 / FOMC 8.
 - Frozen official reconciliation Phase A at `3ff0aef` / runner `ad4dc21` / workflow `87cf69d`.
 - Phase A maps every cleaned block to first-party BLS/Census/BEA/Fed provenance and authoritative UTC release time; component actual-as-released reconciliation remains a separately frozen Phase B.
+
+
+- EXP-041 official release-time reconciliation v0.1 checkpointed failure at `a8bceb6`: BLS families fully resolved, but Retail 9/12, GDP/PCE 0/15 and FOMC 1/8 due source-mapping/parser issues.
+- Frozen v0.2 repair at spec `949382b`, runner `2f7aa1d`, workflow `f3bea53`.
+- v0.2 uses direct Census historical PDFs, parses BEA official schedule rows, splits same-day GDP vs PCE releases when their official times differ, and uses correct Fed statement URLs.
+- Frozen Forex Factory consensus values and all Gate-A thresholds remain unchanged; no market outcomes or protected periods are involved.
