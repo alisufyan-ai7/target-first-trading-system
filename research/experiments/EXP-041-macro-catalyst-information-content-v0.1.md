@@ -160,3 +160,32 @@ Do **not** run Gate B on the current 17-event / ~3-month source.
 The next project action is to acquire and pin **earlier development market history plus matching macro calendar/consensus history**, while leaving July-September 2026 sealed.
 
 This is not a delay; it is the anti-overfitting/data-sufficiency gate required to make the macro research meaningful.
+
+
+## Gate-A final result and Gate-B implementation checkpoint — 2026-09-27
+
+Final Gate-A durable result:
+
+- commit: `4208af07c148a5d37c61cbbbeb004b83fec14af5`;
+- disposition: `EXP041_GATE_A_PASS_AUTHORIZE_GATE_B_INFORMATION_CONTENT`;
+- independent event timestamps: 65;
+- surprise-bearing independent timestamps: 57;
+- family counts: EMPLOYMENT 11, CPI 11, PPI 11, RETAIL 12, GDP_PCE 16, FOMC 8;
+- all six frozen folds passed >=4 blocks and >=2 families;
+- canonical Dukascopy v2, consensus provenance, official Actual/timestamp provenance and protected-period seal all passed.
+
+Gate B is now prospectively implemented before market outcomes:
+
+- spec commit: `5980e34433de38b17a64e31a260b5beeefa1a054`;
+- runner commit: `015eb7b5cf50a86159614b43f331120991322fae`;
+- workflow commit: `55ebbedde6bdcdc083d71d6f6a6676d68bbb4b0a`.
+
+Gate B reuses the exact EXP-040 structural candidate/target mechanics on the immutable Dukascopy v2 snapshot and compares:
+
+`LOCAL_M5 -> PLUS_CATALYST_TIMING -> PLUS_SURPRISE_MAGNITUDE`.
+
+The six Gate-A event folds are fixed outer holdouts. Calibration is built from inner fold-wise out-of-fold probabilities; no event timestamp can leak into its own outer fit/calibration.
+
+The original T40eq/T50eq information-advantage thresholds remain unchanged, with the additional already-frozen event-block win requirement from this EXP-041 spec.
+
+No protected-period rows, Engine R outcomes, EXP-015 outcomes, position sizing or P&L are used.
