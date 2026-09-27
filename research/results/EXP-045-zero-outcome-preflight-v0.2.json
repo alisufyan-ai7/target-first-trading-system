@@ -1,0 +1,359 @@
+{
+  "experiment": "EXP-045",
+  "engine": "Engine S v0.2",
+  "stage": "zero_outcome_development_preflight",
+  "split": {
+    "start": "2024-01-01T00:00:00.000Z",
+    "end_exclusive": "2025-03-01T00:00:00.000Z"
+  },
+  "source_rows": 656640,
+  "market_active_m1": 440969,
+  "counts": {
+    "market_active_5m": 82724,
+    "level_attacks_all_hours": 1236,
+    "attacks_consumed_outside_setup_window": 289,
+    "dual_sided_attack_ambiguous": 1,
+    "attack_close_on_level": 2,
+    "setup_attacks_in_window": 947,
+    "rejection_setups_created": 446,
+    "acceptance_setups_created": 465,
+    "pending_pipeline_overlap_events": 69,
+    "max_simultaneous_pending": 3,
+    "mss_close_through_seen": 216,
+    "displacement_pass_seen": 137,
+    "directional_fvg_pass_seen": 117,
+    "qualifying_triggers": 96,
+    "midpoint_fills": 57
+  },
+  "attacks_by_level": {
+    "ASIA_HIGH": 242,
+    "OPEN_HIGH": 260,
+    "ASIA_LOW": 205,
+    "OPEN_LOW": 228,
+    "PDH": 215,
+    "PDL": 156
+  },
+  "attacks_by_side": {
+    "HIGH": 717,
+    "LOW": 589
+  },
+  "setup_count": 944,
+  "terminal_reasons": {
+    "displacement_timeout_mss_plus_2": 78,
+    "acceptance_5m_close_back_before_entry": 165,
+    "pullback_timeout_60": 88,
+    "no_internal_pivot_at_rejection_anchor": 33,
+    "acceptance_failed_next_active5": 133,
+    "mss_timeout_15": 307,
+    "fvg_timeout_displacement_plus_2": 20,
+    "structural_risk_above_40": 21,
+    "entry_timeout_15": 38,
+    "no_internal_pivot_at_pullback_touch": 3,
+    "preentry_invalidation_same_bar": 1
+  },
+  "accepted_filled_candidates": 57,
+  "accepted_by_branch": {
+    "ACCEPTANCE": 12,
+    "REJECTION": 45
+  },
+  "accepted_by_direction": {
+    "SHORT": 31,
+    "LONG": 26
+  },
+  "accepted_by_level": {
+    "OPEN_LOW": 10,
+    "ASIA_LOW": 15,
+    "OPEN_HIGH": 15,
+    "ASIA_HIGH": 11,
+    "PDH": 3,
+    "PDL": 3
+  },
+  "accepted_by_branch_direction": {
+    "ACCEPTANCE:SHORT": 7,
+    "REJECTION:LONG": 21,
+    "REJECTION:SHORT": 24,
+    "ACCEPTANCE:LONG": 5
+  },
+  "accepted_signal_days": 55,
+  "accepted_candidates_per_active_day": {
+    "distribution": {
+      "n": 55,
+      "mean": 1.0363636363636364,
+      "median": 1,
+      "p10": 1,
+      "p90": 1,
+      "min": 1,
+      "max": 2
+    },
+    "by_date": {
+      "2024-01-03": 1,
+      "2024-01-08": 1,
+      "2024-01-10": 1,
+      "2024-01-11": 1,
+      "2024-02-01": 1,
+      "2024-02-02": 1,
+      "2024-02-06": 1,
+      "2024-02-26": 1,
+      "2024-02-27": 1,
+      "2024-02-28": 1,
+      "2024-03-11": 2,
+      "2024-03-25": 1,
+      "2024-04-04": 1,
+      "2024-05-02": 1,
+      "2024-05-03": 1,
+      "2024-05-09": 1,
+      "2024-05-24": 1,
+      "2024-06-18": 1,
+      "2024-06-21": 1,
+      "2024-06-25": 1,
+      "2024-07-03": 1,
+      "2024-07-04": 1,
+      "2024-07-09": 1,
+      "2024-07-12": 1,
+      "2024-07-15": 1,
+      "2024-07-26": 1,
+      "2024-08-06": 1,
+      "2024-08-28": 1,
+      "2024-09-06": 1,
+      "2024-09-09": 1,
+      "2024-09-16": 1,
+      "2024-09-27": 1,
+      "2024-10-03": 1,
+      "2024-10-17": 1,
+      "2024-10-29": 1,
+      "2024-11-05": 1,
+      "2024-11-11": 1,
+      "2024-11-14": 1,
+      "2024-11-15": 1,
+      "2024-11-18": 1,
+      "2024-12-06": 2,
+      "2024-12-11": 1,
+      "2024-12-16": 1,
+      "2024-12-19": 1,
+      "2024-12-23": 1,
+      "2025-01-02": 1,
+      "2025-01-06": 1,
+      "2025-01-07": 1,
+      "2025-01-08": 1,
+      "2025-01-09": 1,
+      "2025-01-10": 1,
+      "2025-01-13": 1,
+      "2025-01-17": 1,
+      "2025-01-21": 1,
+      "2025-02-24": 1
+    }
+  },
+  "stop_distance_ticks": {
+    "n": 57,
+    "mean": 1933.3684210526317,
+    "median": 1818,
+    "p10": 865,
+    "p90": 3289,
+    "min": 621,
+    "max": 3981
+  },
+  "gross_stop_usd": {
+    "n": 57,
+    "mean": 19.333684210526318,
+    "median": 18.18,
+    "p10": 8.65,
+    "p90": 32.89,
+    "min": 6.21,
+    "max": 39.81
+  },
+  "time_to_mss_active_m1_bars": {
+    "n": 57,
+    "mean": 5.754385964912281,
+    "median": 5,
+    "p10": 1,
+    "p90": 11,
+    "min": 1,
+    "max": 15
+  },
+  "mss_to_displacement_active_m1_bars": {
+    "n": 57,
+    "mean": 0.07017543859649122,
+    "median": 0,
+    "p10": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 2
+  },
+  "displacement_to_fvg_active_m1_bars": {
+    "n": 57,
+    "mean": 0.5964912280701754,
+    "median": 1,
+    "p10": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 2
+  },
+  "fvg_to_fill_active_m1_bars": {
+    "n": 57,
+    "mean": 5.017543859649122,
+    "median": 3,
+    "p10": 1,
+    "p90": 11.399999999999999,
+    "min": 1,
+    "max": 15
+  },
+  "acceptance_pullback_wait_active_m1_bars": {
+    "n": 12,
+    "mean": 8.583333333333334,
+    "median": 4.5,
+    "p10": 1,
+    "p90": 22.1,
+    "min": 1,
+    "max": 36
+  },
+  "causality_all_candidates_pass": true,
+  "preflight_gates": {
+    "accepted_candidates_ge_100": false,
+    "rejection_candidates_ge_25": true,
+    "acceptance_candidates_ge_25": false,
+    "both_directions_rejection": true,
+    "both_directions_acceptance": true,
+    "active_signal_days_ge_50": true,
+    "median_candidates_per_active_day_le_4": true,
+    "causal_integrity": true,
+    "validation_or_holdout_loaded": false,
+    "target_or_pnl_outcomes_calculated": false
+  },
+  "preflight_pass": false,
+  "disposition": "EXP045_ZERO_OUTCOME_PREFLIGHT_FAIL",
+  "validation_or_holdout_loaded": false,
+  "target_labels_calculated": false,
+  "mfe_mae_calculated": false,
+  "pnl_calculated": false,
+  "win_rate_calculated": false,
+  "post_entry_path_evaluated": false,
+  "self_tests": {
+    "ok": true,
+    "tests": [
+      "tick_parse",
+      "off_grid",
+      "displacement_1_50_exact",
+      "midpoint_rounding",
+      "pivot_2l2r"
+    ]
+  },
+  "execution_metadata": {
+    "tested_repository_sha": "68f12d570fe4f51ae6460c30dcd96a3eb9cf3504",
+    "engine_implementation": "research/code/engine-s-v0.2.js",
+    "engine_sha256": "2d3f57f45a30201772f92c65682ed95d1174694820afd63e237e2aaa9ff7b1bd",
+    "runner": "research/code/run-exp045-engine-s-v02-preflight.js",
+    "runner_sha256": "e812fb36c21777011e76a4478c54e50b413a2bf424169b2594a312f516a5bfeb",
+    "data_source_repo": "kevingtlin/Market-Data-Lab",
+    "data_source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "downloaded_files": [
+      {
+        "name": "xauusd_bid_m1_2023_12.csv",
+        "git_blob_sha": "56dbf8a5316c48f4ec3300126c0decda03f8325f",
+        "bytes": 2231969,
+        "expected_rows": 44640,
+        "sha256": "0773c7fd02c64941517ccd564ec30a746cd933f3e6a67455da9681097e8232ed"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_01.csv",
+        "git_blob_sha": "f439cc6e17e39addc1a464eb0ccf8fe2eb71de99",
+        "bytes": 2231993,
+        "expected_rows": 44640,
+        "sha256": "7414d1cf6a02cf4fff5347e79602e9109549622cb73b152e5462188cc797135d"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_02.csv",
+        "git_blob_sha": "b3ad49d5e784fb8c879f8e12095640f454f8f5fb",
+        "bytes": 2087847,
+        "expected_rows": 41760,
+        "sha256": "45060c59ccfc0ef3d5f78b49d793b7e3f97757a7659c604b887850068346621f"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_03.csv",
+        "git_blob_sha": "cdd53e37cc41773cc0d5c9210daefbf5ef6c3535",
+        "bytes": 2231983,
+        "expected_rows": 44640,
+        "sha256": "28c82e54e1bd7f586f5d22c0c39d9217618f62e8dfdd7eab94602c2c2bb81a14"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_04.csv",
+        "git_blob_sha": "f2e7801f91829e9aeeebbd88f9177350cc6ba043",
+        "bytes": 2159936,
+        "expected_rows": 43200,
+        "sha256": "ce55b0d9acdf20c694c37e3c53233455cc8b772269eb39f60357808abe37b9c9"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_05.csv",
+        "git_blob_sha": "b49cd640075396bf656578c52e7dac0d9e472a22",
+        "bytes": 2232006,
+        "expected_rows": 44640,
+        "sha256": "18084ecf8e9d5cef352cc290a55de29f27f006653b5da24a6520f8a02488f4f6"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_06.csv",
+        "git_blob_sha": "6c4dc31818a7e04d90f165df0930489cdf5e7121",
+        "bytes": 2159852,
+        "expected_rows": 43200,
+        "sha256": "f7cad6452e9666b37f6f7830bb69a61439095919bb1609daa80839fdb3a8fd39"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_07.csv",
+        "git_blob_sha": "1a9877d863a7cadcfb47388a2d7b6657b57873ed",
+        "bytes": 2231718,
+        "expected_rows": 44640,
+        "sha256": "a1c432b64a36118f1934c9c838cee83c1f05181fbfd602452fd3d46acdd4fd52"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_08.csv",
+        "git_blob_sha": "29c3275f68b15d33325a7a989e322565fca4a64e",
+        "bytes": 2231775,
+        "expected_rows": 44640,
+        "sha256": "69a43d059dbdb9bce3bed1be13db378437ed4131cd109d04690fadf2aa17a476"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_09.csv",
+        "git_blob_sha": "075fc0b3c4f01bfebdbdb21af82c66595c2fd6cc",
+        "bytes": 2159940,
+        "expected_rows": 43200,
+        "sha256": "b9548afce3bc91d47831654ff5745b2165241e5729fc40cdb82d2df76b3c0668"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_10.csv",
+        "git_blob_sha": "ab734d9cea86c2441b2592e6aa0537829bd093f5",
+        "bytes": 2231815,
+        "expected_rows": 44640,
+        "sha256": "7eaccb67908ef0ce451a230ee9e723cd2ed3e618f8e1ca9eb8148fc4457cd6d7"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_11.csv",
+        "git_blob_sha": "4fe07a39a96512d4264202d4817fafedb3b97e79",
+        "bytes": 2159626,
+        "expected_rows": 43200,
+        "sha256": "8bdd99624cdebcc843d41420bbced1e57f91d9bebeb42279b85e6c9450232f8f"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_12.csv",
+        "git_blob_sha": "a5a219ccee1e3808593f349a56274d6242fe31dd",
+        "bytes": 2231444,
+        "expected_rows": 44640,
+        "sha256": "c086505bd4ae2f98095bae1c80e6b80ade803ae8f56de6e558e37a0153f967cd"
+      },
+      {
+        "name": "xauusd_bid_m1_2025_01.csv",
+        "git_blob_sha": "f0211e901b6f8b26996ba1a48aeba73f599bd5fe",
+        "bytes": 2231746,
+        "expected_rows": 44640,
+        "sha256": "4596e50b3fb203e12a9eee24942e0d22db8a2e409b71f9546a1e6ee6f80233a0"
+      },
+      {
+        "name": "xauusd_bid_m1_2025_02.csv",
+        "git_blob_sha": "e3beb3def6e2502975046d07f43db777604110b2",
+        "bytes": 2015844,
+        "expected_rows": 40320,
+        "sha256": "59c6380fcccc11883f74d09bbc3fc7cddf093d0e8c00e8d6826cf19fe7350e58"
+      }
+    ],
+    "warmup": "2023-12-01 through 2023-12-31",
+    "development": "2024-01-01 through 2025-02-28",
+    "validation_or_holdout_files_downloaded": false
+  }
+}
