@@ -36,7 +36,7 @@ EXPECTED_TARGET_ARCHIVE="90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045b
 EXPECTED_MICRO_ARCHIVE="f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5"
 EXPECTED_MICRO_AUDIT_BLOB="f1bc941e88ee809bf9810fe34d780e41e4530fe7"
 
-DEV_START=pd.Timestamp("2025-07-01T00:00:00Z")
+DEV_START=pd.Timestamp("2026-03-23T00:00:00Z")
 DATA_END=pd.Timestamp("2026-06-30T00:00:00Z")
 PURGE=pd.Timedelta(minutes=120)
 PRIMARY_RUNGS=("T40eq","T50eq")
@@ -639,7 +639,7 @@ def main():
         "tested_repository_sha":repo_sha(),
         "sklearn_version":sklearn.__version__,
         "scope":{
-            "development_interval":["2025-07-01T00:00:00Z","2026-06-30T00:00:00Z"],
+            "development_interval":["2026-03-23T00:00:00Z","2026-06-30T00:00:00Z"],
             "secondary_test_loaded_or_labeled":False,
             "final_holdout_loaded_or_labeled":False,
             "engine_r_or_exp015_outcomes_used":False,
