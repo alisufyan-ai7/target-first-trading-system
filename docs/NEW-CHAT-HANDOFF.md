@@ -2319,3 +2319,26 @@ It reconciles one canonical forecast-bearing component for each of 67 numeric of
 PASS => run the final Gate-A adequacy/provenance audit. Only after final Gate-A PASS may EXP-041 load the canonical Dukascopy snapshot and begin macro information-content modeling.
 
 **Exact next action:** trigger one Phase-B official actual reconciliation and resume from its durable result.
+
+
+## EXP-041 final Gate-A checkpoint
+
+Phase B PASSED at `fe8e180551741d205b2eb620bfa46330aee73c4e`.
+
+- 67 numeric blocks reconciled;
+- 8 FOMC timing-only blocks;
+- zero errors;
+- surprise-layer SHA `ec267643940733db4647d5d1dc5537099e3fc149ee7e0e9257b1b8786017c362`;
+- no market outcomes/protected periods.
+
+Final Gate-A frozen:
+
+- spec `d9b6dce6366a200fd92f942e1319a44f708fe503`;
+- runner `02200aa0a1b472055208ab3022d44cfff682f99a`;
+- workflow `1520b4120312a134be7425ef6a58c2a3387742c0`.
+
+The audit collapses exact same official timestamps into one independent event block and freezes six contiguous chronological evaluation folds before outcomes.
+
+PASS => authorize EXP-041 Gate B information-content study only. Engine R/EXP-015 remain paused and Jul-Aug/Sep remain sealed.
+
+**Exact next action:** trigger one final Gate-A audit and resume from its durable result.
