@@ -189,3 +189,28 @@ The six Gate-A event folds are fixed outer holdouts. Calibration is built from i
 The original T40eq/T50eq information-advantage thresholds remain unchanged, with the additional already-frozen event-block win requirement from this EXP-041 spec.
 
 No protected-period rows, Engine R outcomes, EXP-015 outcomes, position sizing or P&L are used.
+
+
+## Final scientific disposition — 2026-09-27
+
+Gate-B integrity corrigendum durable result:
+
+- commit: `57a622a1bcd9abf812e3d8baf07f444be7824ff0`;
+- corrected integrity: PASS;
+- geometrically eligible Gate-A events: 63/65;
+- only ineligible events: 2025-12-10 19:00 UTC FOMC and 2026-01-28 19:00 UTC FOMC;
+- no model, metric, threshold, feature, fold, candidate grid or event window was changed;
+- recovered scientific disposition: `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+
+Decisive frozen Gate-B comparisons:
+
+- +CATALYST_TIMING T40eq: relative log-loss improvement +0.219%, fold wins 3/6, event-block win rate 60.3%, markets non-worse 5/8 — FAIL;
+- +CATALYST_TIMING T50eq: relative log-loss improvement +0.347%, fold wins 4/6, event-block win rate 63.5%, markets non-worse 4/8 — FAIL;
+- +SURPRISE_MAGNITUDE T40eq: relative log-loss improvement +0.073%, Brier worsened, fold wins 3/6, event-block win rate 55.6%, markets non-worse 4/8 — FAIL;
+- +SURPRISE_MAGNITUDE T50eq: relative log-loss improvement +0.178%, Brier worsened, fold wins 3/6, event-block win rate 57.1%, markets non-worse 4/8 — FAIL.
+
+No enriched macro feature set passed both T40eq and T50eq.
+
+**Decision:** close EXP-041. Do not tune macro thresholds or add macro variants on the same development sample. Move to the next orthogonal information family: rates/USD market interpretation, followed by execution-grade order flow.
+
+Engine R and EXP-015 remain paused. Jul-Aug/Sep remain sealed.
