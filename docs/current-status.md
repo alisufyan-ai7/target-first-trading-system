@@ -3157,3 +3157,75 @@ Key frozen mechanics:
 - REJECTION and ACCEPTANCE evaluated as separate specialized branches.
 
 **Exact next action:** trigger one EXP-045 structural-target development run. Validation/holdout remain sealed.
+
+## 2026-09-28 — EXP-045 ENGINE-S DEVELOPMENT FAIL / ENGINE S CLOSED
+
+Durable development result commit:
+
+`855a75bd72818a11e0fc50cd2ec376ed362acae1`.
+
+Authoritative summary:
+
+`research/results/EXP-045-engine-s-v0.2-development-summary.json`
+
+Result disposition:
+
+`ENGINE_S_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+Integrity / protection:
+
+- frozen target/management protocol commit `85600a74e2e6dc3f4efaf64d5cde385f89bc4758`;
+- zero-outcome candidate source remains pinned to `835af4eb6a1b76026cf0f04c46ce06840d2ff287`;
+- development only: 2022-01-01 through 2025-02-28;
+- validation / holdout loaded: false.
+
+Observed development result:
+
+- 160 pre-target candidates;
+- 133 target-admitted;
+- 27 rejected for no fresh structural target or <1.50R room;
+- REJECTION branch: 116 signals, primary expectancy -0.581R, stress expectancy -0.989R, primary PF 0.479, branch FAIL;
+- ACCEPTANCE branch: 17 signals, gross +0.748R and primary +0.152R, but stress -0.443R, stress PF 0.632, only 17 reference trades, branch FAIL;
+- combined reference account: 131 trades, primary expectancy -USD7.20/trade, stress expectancy -USD12.15/trade;
+- passing branches: none.
+
+**Decision:** close Engine S before validation. Do not create another Engine-S density, threshold, target, hour, level, or branch-rescue version from these outcomes.
+
+The acceptance branch is recorded only as an observed clue, not promoted evidence: it is too small and fails stress-cost robustness.
+
+## 2026-09-28 — EXP-046 / ENGINE T v0.1 FAILED-AUCTION TRAP PREFLIGHT FROZEN
+
+New decision-process hypothesis:
+
+`established breakout acceptance -> later failed auction back inside -> boundary retest -> reversal`.
+
+This is not an Engine-S repair. Engine T waits for apparent acceptance to become established first and then trades only a later causal failure of that acceptance.
+
+Frozen artifacts:
+
+- spec: `abb44dde8dfc8c7f04aa0843ae83a5c9e64995d6`;
+- engine implementation: `1547a6985bfbd2e7489520458ebe6dd287aad530`;
+- self-test fixture correction: `decc5aa992796d3f23ebcec1782eb7e7f3050bcf`;
+- source-verifying runner: `2a19c1e02a82d454692a8145e531958bff09b337`;
+- workflow: `4ce75a81dcebec563c6a7fb08dc85be94801f48e`.
+
+Zero-outcome only:
+
+- warm-up Dec-2021;
+- development Jan-2022 through Feb-2025;
+- validation Mar-Aug 2025 sealed;
+- fresh holdout Sep-2025 through Feb-2026 sealed;
+- no target labels, MFE/MAE, win rate, P&L or post-entry path.
+
+Frozen adequacy gate:
+
+- >=100 filled candidates;
+- >=25 LONG;
+- >=25 SHORT;
+- >=50 active signal days;
+- median <=4 candidates per active day;
+- causal integrity;
+- protected periods not loaded;
+- zero outcome computation.
+
+**Exact next action:** trigger exactly one EXP-046 zero-outcome preflight and resume only from its durable GitHub checkpoint.
