@@ -1,0 +1,12 @@
+Trigger EXP-041 full free macro consensus acquisition / Gate-A coverage audit v0.1.
+
+Frozen implementation:
+- spec f51f6cece8ba7703854806e3a952398f75bd375e
+- runner 78e388ba705b101a407e9dd61eba5740f3bcdb24
+- workflow cdd373db282345c03b578a0e1dad37595f20e179
+
+Acquire only development-period Forex Factory history.
+Retain only USD target-family rows dated 2025-07-01 through 2026-06-29.
+Freeze Forecast as PUBLIC_CALENDAR_CONSENSUS_FF.
+Actual and displayed time remain diagnostic pending official BLS/Census/BEA/Fed reconciliation.
+No raw HTML commit. No market data, target labels, P&L, Jul-Aug or Sep 2026 data.
