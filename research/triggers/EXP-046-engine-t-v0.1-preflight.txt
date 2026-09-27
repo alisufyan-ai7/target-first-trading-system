@@ -1,0 +1,6 @@
+EXP-046 Engine T v0.1 zero-outcome preflight trigger
+Frozen design commit: abb44dde8dfc8c7f04aa0843ae83a5c9e64995d6
+Engine self-test correction: decc5aa992796d3f23ebcec1782eb7e7f3050bcf
+Runner: 2a19c1e02a82d454692a8145e531958bff09b337
+Workflow: 4ce75a81dcebec563c6a7fb08dc85be94801f48e
+No target/P&L outcomes. Protected periods sealed.
