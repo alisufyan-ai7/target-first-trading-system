@@ -1820,3 +1820,16 @@ Availability v0.3 passed both outcome-blind event universes: 53 DXY-complete eve
 2. on the 51-event common universe, test DXY+T-Bond interpretation and require the full layer to beat both DXY-only and control.
 
 No macro surprise feature is reused from failed EXP-041. No proxy volume is treated as centralized volume. No threshold or hyperparameter search is authorized.
+
+
+## 2026-09-27 — Close EXP-042 negative; move to execution-grade information
+
+EXP-042 completed with full integrity and both studies failed their frozen information-advantage gates.
+
+**Decision:** close the free DXY/T-Bond proxy layer.
+
+Do not retune event windows, return scales, feature signs, model parameters or proxy combinations on the same development sample.
+
+The next research family is execution-grade information: bid/ask spread, tick activity, quote dynamics and—where reproducibly obtainable—true order-flow/book information.
+
+A future source must be labeled honestly. Dukascopy/broker tick data may support quote/spread/tick-participation features, but it must not be called centralized order flow unless the source truly contains traded aggressor/book information.
