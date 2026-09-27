@@ -616,3 +616,8 @@
 - EXP-043 source-only availability diagnostic at `2005a61` showed exactly AUDUSD and USDCHF below 90% theoretical microstructure coverage; no target outcomes were loaded.
 - Frozen EXP-043 v0.2 availability-defined six-market rerun at spec `c09d1da`, runner `bcb8308`, workflow `a79831f`.
 - No feature/window/fold/learner/threshold changes from v0.1; market stability remains >=5 markets non-worse.
+
+
+- EXP-043 v0.2 passed integrity at `d8ac5bf` but returned `NO_STABLE_TICK_MICROSTRUCTURE_INFORMATION_ADVANTAGE`.
+- Closed Dukascopy quote/tick microstructure family; no v0.3 tuning authorized.
+- Next first-tier information source is true signed trade/order-flow or order-book/depth data.
