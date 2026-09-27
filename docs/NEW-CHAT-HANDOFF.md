@@ -2405,3 +2405,25 @@ It downloads `dollaridxusd` and `ustbondtrusd` M1 twice for 2025-07-01 <= t < 20
 No scientific outcomes or protected periods are touched.
 
 **Exact next action:** trigger one EXP-042 rates/USD proxy snapshot workflow and resume from its durable result.
+
+
+## EXP-042 proxy event-coverage checkpoint
+
+Proxy snapshot PASSED at `16766ebbff9b9636a87f0236c209fb4028233773`.
+
+Immutable release:
+
+- tag `exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1`;
+- archive SHA `86cef306c36f08a12510c563e307a3158dc45d3236a424251db4d1c1bbaedcb4`;
+- DXY 273,175 M1 rows;
+- US T-Bond proxy 144,445 M1 rows.
+
+Zero-outcome event-coverage preflight frozen:
+
+- spec `9ea69bdd6f2cfd90cb7403ee70b098c3be69cc0b`;
+- runner `9eb3c32fe81d8e77851642c6e9c63b0579262cd3`;
+- workflow `03763015b3d45cd85df1670e5298dcee97681bb9`.
+
+Exact geometry before outcomes: 57 post-release eligible events, 8 ineligible events, all eight FOMC.
+
+**Exact next action:** trigger one proxy coverage audit. PASS => freeze EXP-042 information-content design.
