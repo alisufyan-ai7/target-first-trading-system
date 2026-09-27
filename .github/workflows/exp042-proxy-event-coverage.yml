@@ -1,0 +1,70 @@
+name: EXP-042 Proxy Event Coverage Preflight
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-042-proxy-event-coverage.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TAG: exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1
+      ASSET: exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1.tar.gz
+      SHA: 86cef306c36f08a12510c563e307a3158dc45d3236a424251db4d1c1bbaedcb4
+      EXP042_PROXY_DIR: /tmp/exp042-proxy
+      RESULT: research/results/EXP-042-proxy-event-coverage-preflight-v0.1.json
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Install dependency
+        run: pip install pandas
+      - name: Verify runner
+        run: python -m py_compile research/code/run_exp042_proxy_event_coverage_preflight.py
+      - name: Download immutable proxy snapshot
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/exp042-release "$EXP042_PROXY_DIR"
+          gh release download "$TAG" --pattern "$ASSET" --dir /tmp/exp042-release
+          test "$(sha256sum "/tmp/exp042-release/$ASSET" | awk '{print $1}')" = "$SHA"
+          tar -xzf "/tmp/exp042-release/$ASSET" -C "$EXP042_PROXY_DIR"
+      - name: Run zero-outcome coverage audit
+        continue-on-error: true
+        run: python research/code/run_exp042_proxy_event_coverage_preflight.py
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp042-proxy-event-coverage
+          path: research/results/EXP-042-proxy-event-coverage-preflight-v0.1.json
+          if-no-files-found: warn
+      - name: Commit result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-042 proxy event coverage preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Enforce coverage gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          x=json.loads(pathlib.Path("research/results/EXP-042-proxy-event-coverage-preflight-v0.1.json").read_text())
+          if not x["coverage_preflight_pass"]: raise SystemExit("EXP-042 proxy coverage failed")
+          if x["target_market_data_loaded"] or x["target_labels_calculated"] or x["pnl_calculated"]: raise SystemExit("unexpected outcomes")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]: raise SystemExit("protected leak")
+          print("EXP-042 proxy event coverage PASS")
+          PY
