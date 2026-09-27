@@ -2237,3 +2237,51 @@ Frozen deterministic v0.3:
 v0.3 uses no network. It consumes the exact frozen v0.2 dataset SHA `17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811`, removes ADP from the primary EMPLOYMENT family, retains only BLS-style NFP/Unemployment/Average-Hourly-Earnings components, rebuilds date+family blocks, and reruns the same coverage gate.
 
 **Exact next action:** trigger one v0.3 deterministic scope correction. PASS => freeze official BLS/Census/BEA/Fed reconciliation.
+
+
+## 2026-09-27 — FREE CONSENSUS v0.3 PASSED / OFFICIAL RELEASE-TIME RECONCILIATION FROZEN
+
+Durable v0.3 result: `81e6f6f44a6acf906e46af056c58362b03bf0709`.
+
+Result:
+
+- v0.2 source SHA verified exactly;
+- 12 ADP rows removed;
+- no ADP rows remain;
+- 203 normalized rows;
+- 68 provisional independent event blocks;
+- 68 surprise-bearing blocks;
+- family block counts:
+  - EMPLOYMENT 11;
+  - CPI 11;
+  - PPI 11;
+  - RETAIL 12;
+  - GDP_PCE 15;
+  - FOMC 8;
+- every required numeric family remains >=8;
+- no network, market data, target labels, P&L or protected-period use;
+- disposition: `FREE_CONSENSUS_V03_BLS_EMPLOYMENT_SCOPE_PASS_OFFICIAL_RECONCILIATION_REQUIRED`.
+
+Official reconciliation is now split prospectively into two zero-outcome phases:
+
+1. **Phase A:** first-party source identity + official release timestamp UTC for all 68 blocks;
+2. **Phase B:** component-level official actual-as-released numeric reconciliation.
+
+This prevents timestamp/source failures from being mixed with component parsing failures.
+
+Frozen Phase-A implementation:
+
+- spec commit: `3ff0aef8c0c36697370dce1253bbcffb1872a5bb`;
+- runner commit: `ad4dc21b80a13076a3f7c3009ca104f6d700eec5`;
+- workflow commit: `87cf69dcdfe91779d572d971ae294892d4cb6f23`.
+
+Authorities:
+
+- BLS archived Employment/CPI/PPI pages;
+- Census Monthly Retail Trade official release schedule;
+- BEA 2025/2026 official release schedules;
+- Federal Reserve archived FOMC statement pages.
+
+Release times are converted with `America/New_York` -> UTC using `zoneinfo`.
+
+**Exact next action:** trigger one official release-time reconciliation. PASS => freeze component-level official actual-as-released reconciliation.
