@@ -2489,3 +2489,22 @@ Scientific role: broker quote/tick microstructure proxy only, not centralized or
 PASS requires all 48 symbol/date pairs to match byte-for-byte and pass semantic integrity.
 
 **Exact next action:** trigger one EXP-043 source preflight and resume from its durable result.
+
+
+## EXP-043 source preflight PASS
+
+Durable source-preflight result: `babcfa8178ebf9288cefc420dab916674a59b55b`.
+
+All 48 frozen symbol/date pairs passed semantic integrity and exact independent-download SHA equality.
+
+The next step is a deterministic full-development microstructure snapshot, not a predictive model yet.
+
+Design intent:
+
+- acquire only development interval;
+- preserve per-day raw canonical hashes/counts;
+- store compact minute-level spread/activity/freshness/quote-imbalance aggregates;
+- exclude generic mid-price OHLC/return features;
+- freeze as immutable release before information-content modeling.
+
+Engine R/EXP-015 remain paused; Jul-Aug/Sep remain sealed.
