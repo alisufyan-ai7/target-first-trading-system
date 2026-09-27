@@ -1914,3 +1914,14 @@ The source-only diagnostic proves the v0.1 coverage failure is inherent to Dukas
 Freeze a separate v0.2 on exactly the six markets with source-only theoretical decision coverage >=90%.
 
 No feature, window, threshold, fold, learner parameter or target definition may change from v0.1. Keep the absolute market-stability gate at >=5 markets non-worse.
+
+
+## 2026-09-27 — Close EXP-043 after valid negative v0.2 result
+
+EXP-043 v0.2 passed all integrity gates but no execution-cost, participation or quote-imbalance layer passed the frozen information-content gate on T40eq and T50eq.
+
+**Decision:** close the free Dukascopy quote/tick microstructure layer.
+
+Do not create a v0.3 by tuning windows, thresholds, signs, hours or markets from these outcomes.
+
+The next source family must contain information absent from broker quotes: actual signed trades, order-book/depth changes, additions/cancellations, aggressive flow and liquidity depletion where available.
