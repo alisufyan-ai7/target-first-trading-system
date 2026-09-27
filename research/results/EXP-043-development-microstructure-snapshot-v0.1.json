@@ -1,0 +1,354 @@
+{
+  "disposition": "EXP043_DEVELOPMENT_MICROSTRUCTURE_SNAPSHOT_FROZEN",
+  "experiment": "EXP-043",
+  "github_run_id": "36323733423",
+  "global_checks": {
+    "manifest_interval_exact": true,
+    "manifest_market_set_exact": true,
+    "manifest_requested_weekdays_exact": true,
+    "manifest_session_exact": true
+  },
+  "markets": {
+    "AUDUSD": {
+      "aggregate": {
+        "bytes": 33723345,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 179741,
+        "sha256": "81ad0767fb8658138e773ff6b35aff2cad8c60be5bb9416aa2129d5ca9f416ae"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 11127526
+    },
+    "EURJPY": {
+      "aggregate": {
+        "bytes": 39119595,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 201311,
+        "sha256": "8e4bac3486f1597d5d1449c156500e279a70be5475aa6411ba85dc0b63df548f"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 26988036
+    },
+    "EURUSD": {
+      "aggregate": {
+        "bytes": 36969841,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 194690,
+        "sha256": "4c2c85c17c41c433b752139ef37caffd1e5fa7b03b86c683a0199ad69f22e279"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 12832874
+    },
+    "GBPUSD": {
+      "aggregate": {
+        "bytes": 38476246,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 201041,
+        "sha256": "4418c67c71444f80c5d8a9ab787fec5aff55e3255ccf22b8454d683b797eb83a"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 15999021
+    },
+    "USDCAD": {
+      "aggregate": {
+        "bytes": 39424715,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 201095,
+        "sha256": "e3d762991df570496b10d48e5bf065304b08473c79f43a2e33e9a35df8454a27"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 13357837
+    },
+    "USDCHF": {
+      "aggregate": {
+        "bytes": 33703578,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 176987,
+        "sha256": "61818b5dd4fca638ca3f9d2c63be755e58afaa0b8f5fe139ed5a46540bb9d8d5"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 9128435
+    },
+    "USDJPY": {
+      "aggregate": {
+        "bytes": 37692174,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 259,
+        "rows": 195845,
+        "sha256": "7e10d9335fdbc1fe9781d0445c66ee81db1358562e5905b40bfa0ae896b711c7"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 259,
+      "source_total_ticks": 15600414
+    },
+    "XAUUSD": {
+      "aggregate": {
+        "bytes": 38309520,
+        "checks": {
+          "aggregate_rows_ge_120k": true,
+          "all_rows_session_05_18": true,
+          "all_weekdays": true,
+          "distinct_timestamp_count_valid": true,
+          "heavy_fractions_valid": true,
+          "imbalance_values_valid": true,
+          "interarrival_values_valid": true,
+          "last_quote_age_valid": true,
+          "protected_period_absent": true,
+          "quote_volumes_nonnegative": true,
+          "represented_dates_ge_230": true,
+          "spread_metrics_nonnegative": true,
+          "tick_count_valid": true,
+          "timestamps_strictly_increasing": true,
+          "update_counts_valid": true
+        },
+        "exists": true,
+        "first_timestamp": "2025-07-01T05:00:00+00:00",
+        "integrity_pass": true,
+        "last_timestamp": "2026-06-29T17:59:00+00:00",
+        "represented_dates": 257,
+        "rows": 197694,
+        "sha256": "5d30f6ffa6abe4105e2d18e69c4777c62d484115392c1c1b2edf3efcd27484dc"
+      },
+      "market_pass": true,
+      "source_day_checks": {
+        "manifest_aggregate_rows_match": true,
+        "manifest_day_set_exact": true,
+        "manifest_tick_sum_matches": true,
+        "positive_source_days_ge_230": true,
+        "raw_day_hashes_present": true,
+        "total_source_ticks_ge_2m": true
+      },
+      "source_positive_days": 257,
+      "source_total_ticks": 55433273
+    }
+  },
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "release": {
+    "archive_asset": "exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1.tar.gz",
+    "archive_sha256": "f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5",
+    "created_or_verified_existing": true,
+    "tag": "exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1"
+  },
+  "scientific_outcomes_calculated": false,
+  "snapshot_integrity_pass": true,
+  "source_manifest": {
+    "path": "SOURCE-MANIFEST.json",
+    "requested_weekdays": 260,
+    "sha256": "887a41cb90b5350764eed5cb69399bc9e146d13fb12a3f9d194d4ad3abfbc2ef"
+  },
+  "stage": "development_microstructure_snapshot_v0.1",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "c4333efa4d73c1463afec1b7df970a23b9166175"
+}
