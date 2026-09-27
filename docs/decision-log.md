@@ -1892,3 +1892,14 @@ The final study deliberately reuses EXP-040's model start (2026-03-23), folds, c
 Nested sets are execution cost, participation/activity, then direction-aligned quote imbalance. All paired models use identical microstructure-eligible candidate rows.
 
 A day-level win-rate gate is added prospectively because intraday candidates within one UTC day are not independent evidence.
+
+
+## 2026-09-27 — Do not interpret EXP-043 v0.1 after market-coverage integrity failure
+
+EXP-043 v0.1 failed only the predeclared >=90% microstructure coverage requirement in every market; AUDUSD and USDCHF were below threshold.
+
+**Decision:** preserve the failed integrity gate and do not interpret visible model metrics.
+
+Freeze a microstructure-only diagnostic using no target OHLC, labels, predictions or P&L to determine whether the shortfall is already implied by source availability.
+
+Any later v0.2 must be separately frozen and outcome-blind in its availability rule; v0.1 cannot be repaired by post-hoc threshold relaxation.
