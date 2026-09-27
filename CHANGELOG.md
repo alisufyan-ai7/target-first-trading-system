@@ -507,3 +507,9 @@
 - Frozen a free EXP-041 macro-data architecture: Forex Factory historical Forecast as public consensus proxy plus official BLS/Census/BEA/Fed archives for actual-as-released and release timing.
 - Added free-source preflight spec/runner/workflow at `9c63a1f` / `afc31da` / `c33598d`.
 - The preflight is development-only and zero-outcome; paid API access is no longer the default next blocker.
+
+
+- EXP-041 free macro-source preflight passed at durable result `bdaaa02`; Forex Factory historical pages and official BLS/Census/BEA/Fed sources were reachable with the required development-only provenance markers.
+- Frozen full free macro consensus acquisition at `f51f6ce` / runner `78e388b` / workflow `cdd373d`.
+- Full acquisition retains only 2025-07-01..2026-06-29 USD target-family rows, freezes Forex Factory Forecast as the public consensus proxy, commits no raw HTML, and computes no market outcomes.
+- Coverage gate is >=40 provisional independent blocks, >=30 surprise-bearing blocks and >=8 blocks per recurring numeric family; official release reconciliation remains mandatory afterward.
