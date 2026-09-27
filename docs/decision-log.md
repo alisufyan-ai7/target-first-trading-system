@@ -1903,3 +1903,14 @@ EXP-043 v0.1 failed only the predeclared >=90% microstructure coverage requireme
 Freeze a microstructure-only diagnostic using no target OHLC, labels, predictions or P&L to determine whether the shortfall is already implied by source availability.
 
 Any later v0.2 must be separately frozen and outcome-blind in its availability rule; v0.1 cannot be repaired by post-hoc threshold relaxation.
+
+
+## 2026-09-27 — Authorize EXP-043 v0.2 using outcome-blind source-availability market universe
+
+The source-only diagnostic proves the v0.1 coverage failure is inherent to Dukascopy microstructure availability for AUDUSD and USDCHF.
+
+**Decision:** do not repair or reinterpret v0.1.
+
+Freeze a separate v0.2 on exactly the six markets with source-only theoretical decision coverage >=90%.
+
+No feature, window, threshold, fold, learner parameter or target definition may change from v0.1. Keep the absolute market-stability gate at >=5 markets non-worse.
