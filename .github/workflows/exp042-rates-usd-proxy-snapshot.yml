@@ -1,0 +1,128 @@
+name: EXP-042 Rates USD Proxy Repeatability Snapshot
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-042-rates-usd-proxy-snapshot.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      EXP042_DATA_A: /tmp/exp042-rates-usd-a
+      EXP042_DATA_B: /tmp/exp042-rates-usd-b
+      SNAPSHOT_TAG: exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1
+      SNAPSHOT_ARCHIVE: /tmp/exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1.tar.gz
+      RESULT: research/results/EXP-042-rates-usd-proxy-repeatability-snapshot-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned transport
+        run: npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+      - name: Verify frozen code
+        run: |
+          node --check research/code/download_exp042_rates_usd_proxy_m1.js
+          python -m py_compile research/code/run_exp042_rates_usd_repeatability_snapshot.py
+      - name: Independent download A
+        env:
+          EXP042_DATA_DIR: /tmp/exp042-rates-usd-a
+        run: node research/code/download_exp042_rates_usd_proxy_m1.js
+      - name: Independent download B
+        env:
+          EXP042_DATA_DIR: /tmp/exp042-rates-usd-b
+        run: node research/code/download_exp042_rates_usd_proxy_m1.js
+      - name: Evaluate repeatability and integrity
+        id: gate
+        run: |
+          python research/code/run_exp042_rates_usd_repeatability_snapshot.py
+          PASS="$(python - <<'PY'
+          import json
+          x=json.load(open("research/results/EXP-042-rates-usd-proxy-repeatability-snapshot-v0.1.json"))
+          print("true" if x["repeatability_gate_pass"] else "false")
+          PY
+          )"
+          echo "pass=$PASS" >> "$GITHUB_OUTPUT"
+      - name: Build deterministic snapshot
+        if: steps.gate.outputs.pass == 'true'
+        run: |
+          set -euo pipefail
+          tar --sort=name --mtime='UTC 2026-06-30' --owner=0 --group=0 --numeric-owner             -C "$EXP042_DATA_A" -cf - . | gzip -n > "$SNAPSHOT_ARCHIVE"
+          SHA="$(sha256sum "$SNAPSHOT_ARCHIVE" | awk '{print $1}')"
+          python - "$SHA" <<'PY'
+          import json,pathlib,sys
+          p=pathlib.Path("research/results/EXP-042-rates-usd-proxy-repeatability-snapshot-v0.1.json")
+          x=json.loads(p.read_text()); x["release"]["archive_sha256"]=sys.argv[1]
+          p.write_text(json.dumps(x,indent=2)+"\n")
+          PY
+      - name: Create or verify immutable release
+        if: steps.gate.outputs.pass == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          NAME="$(basename "$SNAPSHOT_ARCHIVE")"
+          if gh release view "$SNAPSHOT_TAG" >/dev/null 2>&1; then
+            rm -rf /tmp/exp042-release && mkdir -p /tmp/exp042-release
+            gh release download "$SNAPSHOT_TAG" --pattern "$NAME" --dir /tmp/exp042-release
+            test "$(sha256sum "$SNAPSHOT_ARCHIVE" | awk '{print $1}')" = "$(sha256sum "/tmp/exp042-release/$NAME" | awk '{print $1}')"
+          else
+            gh release create "$SNAPSHOT_TAG" "$SNAPSHOT_ARCHIVE" "$RESULT"               --target "$GITHUB_SHA"               --title "EXP-042 frozen rates/USD proxy M1 snapshot v1"               --notes "Zero-outcome immutable DXY + US T-Bond proxy snapshot. Two independent downloads matched byte-for-byte before release. No protected Jul-Aug/Sep 2026 data."
+          fi
+      - name: Mark release frozen
+        if: steps.gate.outputs.pass == 'true' && success()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("research/results/EXP-042-rates-usd-proxy-repeatability-snapshot-v0.1.json")
+          x=json.loads(p.read_text())
+          x["release"]["created_or_verified_existing"]=True
+          x["disposition"]="EXP042_RATES_USD_PROXY_REPEATABLE_SNAPSHOT_FROZEN"
+          p.write_text(json.dumps(x,indent=2)+"\n")
+          PY
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp042-rates-usd-proxy-repeatability
+          path: research/results/EXP-042-rates-usd-proxy-repeatability-snapshot-v0.1.json
+          if-no-files-found: warn
+      - name: Commit durable result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-042 rates USD proxy snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Enforce zero-outcome snapshot gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          x=json.loads(pathlib.Path("research/results/EXP-042-rates-usd-proxy-repeatability-snapshot-v0.1.json").read_text())
+          if x["scientific_outcomes_calculated"] or x["target_labels_calculated"] or x["pnl_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["repeatability_gate_pass"]:
+              raise SystemExit("EXP-042 rates/USD proxy repeatability failed")
+          if not x["release"]["created_or_verified_existing"] or not x["release"]["archive_sha256"]:
+              raise SystemExit("snapshot not frozen")
+          print("EXP-042 rates/USD proxy snapshot PASS")
+          PY
