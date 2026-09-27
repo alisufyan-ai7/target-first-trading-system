@@ -1768,3 +1768,16 @@ Gate-B v0.1 produced a complete model result, but integrity failed solely becaus
 Run a deterministic integrity-only corrigendum against the frozen original result blob. Correct coverage criterion: every geometrically eligible Gate-A timestamp must be covered. Expected eligible count = 63; expected ineligible set = the two 19:00 UTC FOMC events only.
 
 Scientific disposition may be recovered only from the unchanged original information-advantage gates after corrected integrity passes.
+
+
+## 2026-09-27 — Close EXP-041 after corrected integrity; do not tune macro variants
+
+Gate-B integrity corrigendum `57a622a` passed without changing any scientific output.
+
+Recovered disposition: `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+
+**Decision:** EXP-041 is closed. Macro timing/surprise may remain descriptive context, but they are not admitted as a validated predictive information layer.
+
+Do not iterate event windows, surprise scales, thresholds, folds or macro feature variants on this same development sample.
+
+Proceed to the next orthogonal mechanism from the research matrix: rates/USD market interpretation. Execution-grade order flow remains the layer after that.
