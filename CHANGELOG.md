@@ -626,3 +626,8 @@
 - Frozen EXP-044 true-order-flow source feasibility gate at `cbd510f`.
 - Current EXP-044 disposition: no reproducible true trade/depth source attached yet.
 - Gold-first priority is COMEX trades + depth/order-book state; predictive modeling remains blocked until source preflight PASS.
+
+
+- User no-paid-data constraint made governing; EXP-044 paid true-flow path paused.
+- Added free-data human-trader reassessment at `a6df6d8`.
+- Frozen EXP-045 / Engine S human-style liquidity decision-tree preflight at `a9cd26a`: rejection/reclaim and acceptance/hold branches with non-chasing execution; zero outcomes first.
