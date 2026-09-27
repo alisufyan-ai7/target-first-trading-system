@@ -2779,3 +2779,41 @@ The six-date pilot contained ~4.99 million ticks per copy. XAUUSD alone ranged f
 **Decision:** do not store a full year of raw tick CSVs. Freeze a deterministic minute-level microstructure snapshot while retaining per-day raw canonical hashes and tick counts for provenance.
 
 The snapshot must preserve execution/participation observables unavailable in OHLC: spread state, quote-update intensity, inter-arrival activity, quote freshness and quote-side imbalance. It must not introduce another generic price-return feature family.
+
+
+## 2026-09-27 — EXP-043 FULL DEVELOPMENT MICROSTRUCTURE SNAPSHOT FROZEN
+
+Following the exact source-repeatability PASS, the full development snapshot is frozen:
+
+- snapshot spec: `8b0d5e506643c730891d15e42e332048ba7c97fd`;
+- acquisition/aggregation code: `3910048bccc142afcf61184d34492538c897d4f1`;
+- integrity verifier: `372607f7b6fb0acdb57b3c5ba50742f401634e72`;
+- workflow: `fe9111c402a02f34e834e74c0d66762766c5c969`.
+
+Frozen acquisition:
+
+- all 8 target markets;
+- weekdays only;
+- 2025-07-01 <= date < 2026-06-30;
+- 05:00-18:00 UTC tick window;
+- pinned `dukascopy-node@1.50.0`.
+
+Raw ticks remain transient. Every source day retains canonical raw tick SHA/count/timestamps in the manifest.
+
+Frozen minute-level data deliberately excludes mid-price OHLC/return fields and preserves only genuinely new execution/participation observables:
+
+- spread bps state;
+- tick count and distinct update timestamps;
+- inter-arrival timing;
+- quote freshness;
+- bid/ask price update counts;
+- bid/ask quote-side volume medians;
+- signed quote-side imbalance and persistence fractions.
+
+PASS freezes immutable release tag:
+
+`exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1`.
+
+No EXP-043 target/path outcomes are computed during acquisition.
+
+**Exact next action:** trigger exactly one EXP-043 development microstructure snapshot acquisition and resume from its durable checkpoint.
