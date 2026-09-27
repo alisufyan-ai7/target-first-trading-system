@@ -1,0 +1,1772 @@
+{
+  "authorizations": {
+    "DXY_COMPLETE": "EXP042_DXY_SUBSET_ADEQUATE",
+    "DXY_TBOND_COMPLETE": "EXP042_DXY_TBOND_SUBSET_ADEQUATE"
+  },
+  "disposition": "EXP042_AVAILABILITY_SUBSETS_FROZEN_AUTHORIZE_NESTED_STUDIES",
+  "event_details": [
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-07-03T12:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-07-15T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-07-16T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-07-17T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-07-30T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-07-31T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 2.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": false,
+      "DXY_TBOND_COMPLETE": false,
+      "event_ts": "2025-08-01T12:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": false,
+          "baseline_staleness_minutes": 931.0,
+          "coverage_ratio": 0.0,
+          "covered_decision_times": 0,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1111.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-08-12T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": false,
+      "event_ts": "2025-08-14T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": false,
+          "baseline_staleness_minutes": 2196.0,
+          "coverage_ratio": 0.0,
+          "covered_decision_times": 0,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2376.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-08-15T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 1,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-08-28T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 0.972972972972973,
+          "covered_decision_times": 36,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 7.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-08-29T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-09-05T12:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-09-10T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-09-11T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-09-16T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-09-25T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-09-26T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-10-24T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 2,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-11-20T13:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-11-25T13:30:00+00:00",
+      "families": [
+        "PPI",
+        "RETAIL"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-12-05T15:00:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 36,
+          "legal_decision_times": 36,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 36,
+          "legal_decision_times": 36,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-12-16T13:30:00+00:00",
+      "families": [
+        "EMPLOYMENT",
+        "RETAIL"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-12-18T13:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2025-12-23T13:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-01-09T13:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-01-13T13:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-01-14T13:30:00+00:00",
+      "families": [
+        "PPI",
+        "RETAIL"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 2.0,
+          "coverage_ratio": 0.972972972972973,
+          "covered_decision_times": 36,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 6.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-01-22T13:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 3,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 0.972972972972973,
+          "covered_decision_times": 36,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 6.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-01-22T15:00:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 36,
+          "legal_decision_times": 36,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 0.9722222222222222,
+          "covered_decision_times": 35,
+          "legal_decision_times": 36,
+          "max_observed_staleness_minutes": 6.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-01-30T13:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 3.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-02-10T13:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-02-11T13:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-02-13T13:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": false,
+      "DXY_TBOND_COMPLETE": false,
+      "event_ts": "2026-02-20T13:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": false,
+          "baseline_staleness_minutes": 931.0,
+          "coverage_ratio": 0.0,
+          "covered_decision_times": 0,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1111.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-02-27T13:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 2.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-03-06T13:30:00+00:00",
+      "families": [
+        "EMPLOYMENT",
+        "RETAIL"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-03-11T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-03-13T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 4,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-03-18T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-04-01T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": false,
+      "event_ts": "2026-04-03T12:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 0.9459459459459459,
+          "covered_decision_times": 35,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 15.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": false,
+          "baseline_staleness_minutes": 943.0,
+          "coverage_ratio": 0.0,
+          "covered_decision_times": 0,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1123.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": false,
+      "DXY_TBOND_COMPLETE": false,
+      "event_ts": "2026-04-09T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": false,
+          "baseline_staleness_minutes": 931.0,
+          "coverage_ratio": 0.0,
+          "covered_decision_times": 0,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1111.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": false,
+      "DXY_TBOND_COMPLETE": false,
+      "event_ts": "2026-04-10T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": false,
+          "baseline_staleness_minutes": 2371.0,
+          "coverage_ratio": 0.0,
+          "covered_decision_times": 0,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 2551.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-04-14T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 2.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-04-21T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-04-30T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-05-08T12:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 5,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-05-12T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-05-13T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 0.972972972972973,
+          "covered_decision_times": 36,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 6.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-05-14T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 5.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-05-28T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 2.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-06-05T12:30:00+00:00",
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 0.972972972972973,
+          "covered_decision_times": 36,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 8.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-06-10T12:30:00+00:00",
+      "families": [
+        "CPI"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-06-11T12:30:00+00:00",
+      "families": [
+        "PPI"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 2.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-06-17T12:30:00+00:00",
+      "families": [
+        "RETAIL"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 3.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    },
+    {
+      "DXY_COMPLETE": true,
+      "DXY_TBOND_COMPLETE": true,
+      "event_ts": "2026-06-25T12:30:00+00:00",
+      "families": [
+        "GDP_PCE"
+      ],
+      "fold": 6,
+      "proxy_availability": {
+        "DOLLARIDXUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 1.0
+        },
+        "USTBONDTRUSD": {
+          "availability_pass": true,
+          "baseline_staleness_minutes": 1.0,
+          "coverage_ratio": 1.0,
+          "covered_decision_times": 37,
+          "legal_decision_times": 37,
+          "max_observed_staleness_minutes": 4.0
+        }
+      }
+    }
+  ],
+  "experiment": "EXP-042",
+  "integrity": {
+    "all_structurally_ineligible_are_fomc": true,
+    "gate_a_events_65_exact": true,
+    "no_target_market_data_or_outcomes_loaded": true,
+    "protected_periods_sealed": true,
+    "proxy_file_shas_exact": true,
+    "snapshot_archive_sha_exact": true,
+    "structurally_eligible_57_exact": true,
+    "structurally_ineligible_8_exact": true,
+    "v01_ineligible_geometry_reproduced": true
+  },
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "proxy_archive_sha256": "86cef306c36f08a12510c563e307a3158dc45d3236a424251db4d1c1bbaedcb4",
+  "proxy_snapshot_tag": "exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1",
+  "stage": "proxy_availability_stratified_preflight_v0.3",
+  "structurally_eligible_event_count": 57,
+  "structurally_ineligible_events": [
+    "2025-07-30T18:00:00+00:00",
+    "2025-09-17T18:00:00+00:00",
+    "2025-10-29T18:00:00+00:00",
+    "2025-12-10T19:00:00+00:00",
+    "2026-01-28T19:00:00+00:00",
+    "2026-03-18T18:00:00+00:00",
+    "2026-04-29T18:00:00+00:00",
+    "2026-06-17T18:00:00+00:00"
+  ],
+  "subsets": {
+    "DXY_COMPLETE": {
+      "checks": {
+        "all_6_folds_ge_2_families": true,
+        "all_6_folds_ge_4_events": true,
+        "events_ge_40": true,
+        "numeric_families_ge_8": true,
+        "subset_adequate": true
+      },
+      "event_count": 53,
+      "event_timestamps": [
+        "2025-07-03T12:30:00+00:00",
+        "2025-07-15T12:30:00+00:00",
+        "2025-07-16T12:30:00+00:00",
+        "2025-07-17T12:30:00+00:00",
+        "2025-07-30T12:30:00+00:00",
+        "2025-07-31T12:30:00+00:00",
+        "2025-08-12T12:30:00+00:00",
+        "2025-08-14T12:30:00+00:00",
+        "2025-08-15T12:30:00+00:00",
+        "2025-08-28T12:30:00+00:00",
+        "2025-08-29T12:30:00+00:00",
+        "2025-09-05T12:30:00+00:00",
+        "2025-09-10T12:30:00+00:00",
+        "2025-09-11T12:30:00+00:00",
+        "2025-09-16T12:30:00+00:00",
+        "2025-09-25T12:30:00+00:00",
+        "2025-09-26T12:30:00+00:00",
+        "2025-10-24T12:30:00+00:00",
+        "2025-11-20T13:30:00+00:00",
+        "2025-11-25T13:30:00+00:00",
+        "2025-12-05T15:00:00+00:00",
+        "2025-12-16T13:30:00+00:00",
+        "2025-12-18T13:30:00+00:00",
+        "2025-12-23T13:30:00+00:00",
+        "2026-01-09T13:30:00+00:00",
+        "2026-01-13T13:30:00+00:00",
+        "2026-01-14T13:30:00+00:00",
+        "2026-01-22T13:30:00+00:00",
+        "2026-01-22T15:00:00+00:00",
+        "2026-01-30T13:30:00+00:00",
+        "2026-02-10T13:30:00+00:00",
+        "2026-02-11T13:30:00+00:00",
+        "2026-02-13T13:30:00+00:00",
+        "2026-02-27T13:30:00+00:00",
+        "2026-03-06T13:30:00+00:00",
+        "2026-03-11T12:30:00+00:00",
+        "2026-03-13T12:30:00+00:00",
+        "2026-03-18T12:30:00+00:00",
+        "2026-04-01T12:30:00+00:00",
+        "2026-04-03T12:30:00+00:00",
+        "2026-04-14T12:30:00+00:00",
+        "2026-04-21T12:30:00+00:00",
+        "2026-04-30T12:30:00+00:00",
+        "2026-05-08T12:30:00+00:00",
+        "2026-05-12T12:30:00+00:00",
+        "2026-05-13T12:30:00+00:00",
+        "2026-05-14T12:30:00+00:00",
+        "2026-05-28T12:30:00+00:00",
+        "2026-06-05T12:30:00+00:00",
+        "2026-06-10T12:30:00+00:00",
+        "2026-06-11T12:30:00+00:00",
+        "2026-06-17T12:30:00+00:00",
+        "2026-06-25T12:30:00+00:00"
+      ],
+      "family_timestamp_counts": {
+        "CPI": 10,
+        "EMPLOYMENT": 10,
+        "GDP_PCE": 14,
+        "PPI": 11,
+        "RETAIL": 12
+      },
+      "fold_event_counts": {
+        "1": 9,
+        "2": 9,
+        "3": 10,
+        "4": 9,
+        "5": 7,
+        "6": 9
+      },
+      "fold_family_counts": {
+        "1": 5,
+        "2": 5,
+        "3": 5,
+        "4": 5,
+        "5": 4,
+        "6": 5
+      },
+      "name": "DXY_COMPLETE",
+      "required_proxies": [
+        "DOLLARIDXUSD"
+      ]
+    },
+    "DXY_TBOND_COMPLETE": {
+      "checks": {
+        "all_6_folds_ge_2_families": true,
+        "all_6_folds_ge_4_events": true,
+        "events_ge_40": true,
+        "numeric_families_ge_8": true,
+        "subset_adequate": true
+      },
+      "event_count": 51,
+      "event_timestamps": [
+        "2025-07-03T12:30:00+00:00",
+        "2025-07-15T12:30:00+00:00",
+        "2025-07-16T12:30:00+00:00",
+        "2025-07-17T12:30:00+00:00",
+        "2025-07-30T12:30:00+00:00",
+        "2025-07-31T12:30:00+00:00",
+        "2025-08-12T12:30:00+00:00",
+        "2025-08-15T12:30:00+00:00",
+        "2025-08-28T12:30:00+00:00",
+        "2025-08-29T12:30:00+00:00",
+        "2025-09-05T12:30:00+00:00",
+        "2025-09-10T12:30:00+00:00",
+        "2025-09-11T12:30:00+00:00",
+        "2025-09-16T12:30:00+00:00",
+        "2025-09-25T12:30:00+00:00",
+        "2025-09-26T12:30:00+00:00",
+        "2025-10-24T12:30:00+00:00",
+        "2025-11-20T13:30:00+00:00",
+        "2025-11-25T13:30:00+00:00",
+        "2025-12-05T15:00:00+00:00",
+        "2025-12-16T13:30:00+00:00",
+        "2025-12-18T13:30:00+00:00",
+        "2025-12-23T13:30:00+00:00",
+        "2026-01-09T13:30:00+00:00",
+        "2026-01-13T13:30:00+00:00",
+        "2026-01-14T13:30:00+00:00",
+        "2026-01-22T13:30:00+00:00",
+        "2026-01-22T15:00:00+00:00",
+        "2026-01-30T13:30:00+00:00",
+        "2026-02-10T13:30:00+00:00",
+        "2026-02-11T13:30:00+00:00",
+        "2026-02-13T13:30:00+00:00",
+        "2026-02-27T13:30:00+00:00",
+        "2026-03-06T13:30:00+00:00",
+        "2026-03-11T12:30:00+00:00",
+        "2026-03-13T12:30:00+00:00",
+        "2026-03-18T12:30:00+00:00",
+        "2026-04-01T12:30:00+00:00",
+        "2026-04-14T12:30:00+00:00",
+        "2026-04-21T12:30:00+00:00",
+        "2026-04-30T12:30:00+00:00",
+        "2026-05-08T12:30:00+00:00",
+        "2026-05-12T12:30:00+00:00",
+        "2026-05-13T12:30:00+00:00",
+        "2026-05-14T12:30:00+00:00",
+        "2026-05-28T12:30:00+00:00",
+        "2026-06-05T12:30:00+00:00",
+        "2026-06-10T12:30:00+00:00",
+        "2026-06-11T12:30:00+00:00",
+        "2026-06-17T12:30:00+00:00",
+        "2026-06-25T12:30:00+00:00"
+      ],
+      "family_timestamp_counts": {
+        "CPI": 10,
+        "EMPLOYMENT": 9,
+        "GDP_PCE": 14,
+        "PPI": 10,
+        "RETAIL": 12
+      },
+      "fold_event_counts": {
+        "1": 8,
+        "2": 9,
+        "3": 10,
+        "4": 9,
+        "5": 6,
+        "6": 9
+      },
+      "fold_family_counts": {
+        "1": 5,
+        "2": 5,
+        "3": 5,
+        "4": 5,
+        "5": 4,
+        "6": 5
+      },
+      "name": "DXY_TBOND_COMPLETE",
+      "required_proxies": [
+        "DOLLARIDXUSD",
+        "USTBONDTRUSD"
+      ]
+    }
+  },
+  "supersedes_unexecuted_v02": true,
+  "target_labels_calculated": false,
+  "target_market_data_loaded": false,
+  "tested_repository_sha": "37d55cad836a1c56f103921d101d3e75e2fe9775"
+}
