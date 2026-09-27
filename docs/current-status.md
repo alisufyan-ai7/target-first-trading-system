@@ -2527,3 +2527,28 @@ Frozen integrity-only corrigendum:
 The corrigendum does not rerun or alter Gate-B metrics. It only replaces the impossible 65/65 coverage assertion with coverage of every geometrically eligible frozen event, while requiring the two ineligible FOMC timestamps to match exactly.
 
 **Exact next action:** trigger one Gate-B integrity corrigendum and resume from its durable result.
+
+
+## 2026-09-27 — EXP-041 CLOSED: NO STABLE MACRO INFORMATION ADVANTAGE
+
+Integrity corrigendum durable result: `57a622a1bcd9abf812e3d8baf07f444be7824ff0`.
+
+Corrected integrity PASS:
+
+- 63 geometrically eligible frozen events;
+- exactly two ineligible events, both 19:00 UTC FOMC releases outside the unchanged EXP-040 decision grid;
+- all 63 eligible events covered;
+- all other original integrity checks passed;
+- no scientific metric or model was recomputed.
+
+Recovered scientific disposition:
+
+`NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+
+Timing produced small pooled improvements but failed the predeclared stability gates. Surprise magnitude did not improve robustness and worsened Brier on both primary rungs.
+
+EXP-041 is CLOSED. No macro-threshold tuning is authorized.
+
+The governing next information family is **rates/USD market interpretation**, followed by execution-grade order flow.
+
+A free source-feasibility path is now allowed for a prospectively frozen next experiment using new cross-asset instruments only; protected target-market periods remain sealed and Engine R/EXP-015 remain paused.
