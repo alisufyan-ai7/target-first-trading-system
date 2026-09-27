@@ -2638,3 +2638,30 @@ Current disposition:
 Preferred next source is COMEX Gold actual trades + depth/order-book events. FX institutional signed flow/book is second.
 
 Do not start EXP-044 modeling until a source-specific zero-outcome provenance/repeatability preflight passes.
+
+
+## No-paid-data pivot / EXP-045 checkpoint
+
+User explicitly does not authorize paid market-data purchases before the system has demonstrated robust profitability.
+
+EXP-044 remains documented but paused.
+
+Free-data reassessment:
+
+- commit `a6df6d89a98df9e214526cb1af51c706db6cbbd4`.
+
+Frozen next experiment:
+
+- EXP-045 / Engine S human-style liquidity decision tree;
+- commit `a9cd26a260377c5e4e001b41290616aeefc97497`.
+
+Engine S uses meaningful liquidity and branches on:
+
+- rejection/reclaim -> reversal;
+- acceptance/hold -> continuation.
+
+Both require causal lower-timeframe confirmation and non-chasing FVG retracement entry.
+
+The first run is zero-outcome development preflight only. Validation/holdout remain sealed.
+
+**Exact next action:** implement and run Engine-S opportunity-density/causality preflight only.
