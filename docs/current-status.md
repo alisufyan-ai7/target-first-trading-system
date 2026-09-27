@@ -2728,3 +2728,31 @@ DXY+T-Bond versus control was also negative on both primary rungs.
 **Decision:** close EXP-042. Do not tune DXY/T-Bond reaction thresholds or windows on this development sample.
 
 Next governing information family: execution-grade information / order-flow-like observables. Any next step must distinguish true bid/ask/tick participation information from another OHLC transform.
+
+
+## 2026-09-27 — EXP-043 TICK/QUOTE MICROSTRUCTURE SOURCE PREFLIGHT FROZEN
+
+EXP-042 is closed with no stable DXY or DXY+T-Bond information advantage.
+
+The next orthogonal information family is execution-grade broker quote/tick microstructure.
+
+Frozen EXP-043 zero-outcome source preflight:
+
+- spec `afd3362ba22e1672ec2a76585004869ac05ea3d6`;
+- downloader `aa9c05510172cfeec8f0ef8dea701b502d7be233`;
+- verifier `62ce3de6548ab5059cd273521dcdbd987560893a`;
+- workflow `eb3e9b60493d283af4e3d75f5c82ac6a8ea32cea`.
+
+The pinned Dukascopy tick transport exposes timestamp, ask price, bid price, ask volume and bid volume. EXP-043 treats these only as broker quote/tick microstructure:
+
+- spread;
+- quote-update intensity;
+- quote-side size/imbalance.
+
+It does **not** label them centralized trade aggressor flow or exchange order-book depth.
+
+The pilot uses six fixed development dates spanning Jul-2025 to May-2026 across all eight target markets, performs two independent downloads, and requires exact canonical SHA equality for all 48 symbol/date pairs.
+
+No target labels, models, P&L or protected Jul-Aug/Sep 2026 data are used.
+
+**Exact next action:** trigger one EXP-043 tick microstructure source preflight. PASS => freeze a development-only acquisition design before any predictive study.
