@@ -1,0 +1,13 @@
+Trigger EXP-041 Gate-B macro/catalyst information-content study v0.1.
+
+Frozen implementation:
+- spec 5980e34433de38b17a64e31a260b5beeefa1a054
+- runner 015eb7b5cf50a86159614b43f331120991322fae
+- workflow 55ebbedde6bdcdc083d71d6f6a6676d68bbb4b0a
+
+Use immutable Dukascopy v2 only.
+Reuse EXP-040 structural candidate/target mechanics.
+Use the exact 65 Gate-A event timestamps and six frozen outer folds.
+Compare LOCAL_M5 vs PLUS_CATALYST_TIMING vs PLUS_SURPRISE_MAGNITUDE.
+Primary promotion rungs: T40eq and T50eq only.
+No live Dukascopy, no protected Jul-Aug/Sep 2026 data, no Engine R or EXP-015 outcomes, no position sizing or P&L strategy promotion.
