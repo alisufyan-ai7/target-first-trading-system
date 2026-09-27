@@ -1645,3 +1645,17 @@ Freeze a deterministic v0.3 transform of the already-frozen v0.2 bytes:
 - rebuild provisional blocks and reapply the existing sample-size gate.
 
 This is a source-identity correction made before outcomes, not post-hoc feature tuning.
+
+
+## 2026-09-27 — Split official macro reconciliation into timestamp provenance then actual values
+
+Free consensus v0.3 passed at `81e6f6f` with 68 cleaned independent surprise-bearing blocks and all required families above the frozen sample minimum.
+
+**Decision:** do not combine first-party timing/source verification and component-value parsing in one opaque step.
+
+Freeze official reconciliation as:
+
+- Phase A: resolve every block to BLS/Census/BEA/Fed and assign authoritative UTC release time;
+- Phase B: reconcile each component's actual-as-released value against the frozen Forex Factory Forecast consensus.
+
+Phase A verifies the exact v0.3 input SHA and computes no market outcomes. Only after all 68 blocks resolve may Phase B begin.
