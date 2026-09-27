@@ -254,3 +254,8 @@ These rules are frozen before any Engine-S outcome or preflight result exists.
 11. **Active-bar convention:** market-active M1 follows the already audited Engine-G/H convention: an M1 row identical OHLC to the previous close is carry-forward/inactive. A 5m bar is active if at least one constituent M1 row is active.
 
 No target, MFE/MAE, trade P&L or post-entry path is inspected by these clarifications.
+
+
+12. **Pre-entry invalidation:** after a valid trigger/FVG exists but before midpoint fill, touching/breaching the frozen structural stop cancels the setup. For the acceptance branch, any completed active 5m close back through the attacked level before entry also cancels the setup, as already required by Section 6.
+
+13. **No post-entry inspection:** once a midpoint fill is registered as an accepted preflight candidate, Engine-S preflight immediately stops evaluating that candidate. No later bar is read for that candidate's MFE, MAE, stop, target, timeout, P&L, or win/loss status.
