@@ -370,6 +370,14 @@ function runEngineS(months,splitStart,splitEnd){
       if(s.state==="done")continue;
       if(minsUTC(ct)>=18*60){reject(s,"entry_window_closed_1800",ct);continue;}
 
+      if(s.branch==="ACCEPTANCE"&&s.state!=="accept_confirm"&&s.acceptanceConfirmTs!=null){
+        const b5now=bar5ByClose.get(ct);
+        if(b5now&&b5now.active&&b5now.closeTs>s.acceptanceConfirmTs){
+          const back=s.dir==="LONG"?b5now.c<s.levelPrice:b5now.c>s.levelPrice;
+          if(back){reject(s,"acceptance_5m_close_back_before_entry",ct);continue;}
+        }
+      }
+
       if(s.state==="wait_pullback"){
         if(m.activeOrd<=s.acceptanceConfirmOrd)continue;
         s.pullbackSeen++;
