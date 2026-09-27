@@ -1,0 +1,13 @@
+Trigger EXP-041 free macro consensus v0.3 deterministic Employment-source correction.
+
+Frozen implementation:
+- spec 7a85aeafba0427b12912d183e3686e07804ddc9e
+- runner 64f35f7281c14425d2f0500c6ff79fc0b213a356
+- workflow 59aebbb56fe827414a5d37435402bea0e51b4091
+
+Consume the frozen v0.2 normalized dataset only.
+Verify its SHA-256 from the durable v0.2 audit.
+Remove ADP Non-Farm Employment Change from primary EMPLOYMENT.
+Retain Non-Farm Employment Change, Unemployment Rate, Average Hourly Earnings m/m.
+Rebuild provisional date+family blocks and reapply the existing coverage gate.
+No network, market data, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
