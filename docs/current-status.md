@@ -2938,3 +2938,35 @@ Nothing else changes from v0.1: same features, windows, folds, learner, T40/T50 
 The market stability requirement remains **at least 5 markets non-worse**, now out of 6, so it is not weakened.
 
 **Exact next action:** trigger one EXP-043 v0.2 information-content run and resume from its durable result.
+
+
+## 2026-09-27 — EXP-043 v0.2 INTEGRITY PASS / MICROSTRUCTURE FAMILY CLOSED
+
+Durable result: `d8ac5bf493ac8a6a6311c29e56275d745eb17b48`.
+
+Integrity PASS:
+
+- exact six-market availability-defined universe;
+- immutable target/microstructure hashes verified;
+- source-diagnostic blob unchanged;
+- >=90% candidate microstructure coverage in every active market;
+- same eligible rows across feature sets;
+- strict causal minute usage;
+- both primary classes across folds/markets;
+- 56 paired evaluation days;
+- protected Jul-Aug/Sep sealed;
+- Engine R/EXP-015 outcomes unused.
+
+Scientific disposition:
+
+`NO_STABLE_TICK_MICROSTRUCTURE_INFORMATION_ADVANTAGE`.
+
+No enriched feature family passed T40eq and T50eq.
+
+Execution-cost state was essentially flat on T40 (+0.0043% relative log-loss improvement) and negative on T50 (-0.0306%), with only 3/6 and 2/6 markets non-worse.
+
+Participation and quote-imbalance layers were negative on both primary rungs. Quote imbalance had 0/6 markets non-worse on T50.
+
+**Decision:** EXP-043 is closed. Do not tune microstructure windows, signs, markets, hours, availability thresholds or model parameters on this development sample.
+
+Next information class must be materially richer: true signed trade/order-flow and/or order-book/depth data, especially COMEX Gold and representative/centralized FX flow.
