@@ -2342,3 +2342,29 @@ The audit collapses exact same official timestamps into one independent event bl
 PASS => authorize EXP-041 Gate B information-content study only. Engine R/EXP-015 remain paused and Jul-Aug/Sep remain sealed.
 
 **Exact next action:** trigger one final Gate-A audit and resume from its durable result.
+
+
+## EXP-041 Gate-B macro information-content checkpoint
+
+Final Gate A PASSED at `4208af07c148a5d37c61cbbbeb004b83fec14af5`.
+
+Evidence:
+
+- 65 independent event timestamps;
+- 57 surprise-bearing;
+- Employment 11, CPI 11, PPI 11, Retail 12, GDP/PCE 16, FOMC 8;
+- six frozen folds all pass;
+- canonical Dukascopy v2 and macro provenance pass;
+- Jul-Aug/Sep remain sealed.
+
+Gate B frozen before outcomes:
+
+- spec `5980e34433de38b17a64e31a260b5beeefa1a054`;
+- runner `015eb7b5cf50a86159614b43f331120991322fae`;
+- workflow `55ebbedde6bdcdc083d71d6f6a6676d68bbb4b0a`.
+
+It reuses EXP-040 structural candidate/target mechanics on immutable Dukascopy v2 and evaluates LOCAL_M5, +CATALYST_TIMING and +SURPRISE_MAGNITUDE on candidates within [-60,+180] minutes of frozen macro events.
+
+Six Gate-A folds are immutable outer holdouts; no event fold is used in its own model/calibration fit.
+
+**Exact next action:** trigger one Gate-B run. Interpret only if integrity passes. Engine R/EXP-015 remain paused.
