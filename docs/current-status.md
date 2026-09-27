@@ -2285,3 +2285,43 @@ Authorities:
 Release times are converted with `America/New_York` -> UTC using `zoneinfo`.
 
 **Exact next action:** trigger one official release-time reconciliation. PASS => freeze component-level official actual-as-released reconciliation.
+
+
+## 2026-09-27 — OFFICIAL RELEASE-TIME RECONCILIATION v0.1 FAILED ON SOURCE MAPPING / v0.2 FROZEN
+
+Durable v0.1 result: `a8bceb64027d48de9d2533d852a41d86f9c11e54`.
+
+The failure was operational/source-mapping, not a macro-information result:
+
+- EMPLOYMENT resolved 11/11;
+- CPI resolved 11/11;
+- PPI resolved 11/11;
+- RETAIL resolved 9/12;
+- FOMC resolved 1/8;
+- GDP_PCE resolved 0/15;
+- input v0.3 SHA verified;
+- no market data/outcomes/protected periods used.
+
+Root causes:
+
+1. Fed runner used an incorrect FOMC statement URL pattern for most meetings.
+2. Retail used a generic schedule page instead of direct historical MARTS release PDFs.
+3. BEA schedule parsing assumed one 8:30 release per GDP_PCE date and did not parse the actual schedule structure.
+4. Official BEA schedules show that GDP and Personal Income & Outlays can occur on the same date at different times; those provisional same-date GDP_PCE blocks must be split by official release identity.
+
+Frozen v0.2:
+
+- spec commit: `949382b7d5bdf5d712c13b69fad6d91cc305f303`;
+- runner commit: `2f7aa1d5521bc4b9efb41616b1598db295f56cae`;
+- workflow commit: `f3bea537c8fd9c8b387a4a011fef726436f9f9d1`.
+
+v0.2:
+
+- keeps working BLS direct archive mappings;
+- maps all 12 Retail dates to direct official Census MARTS historical PDFs;
+- parses official BEA 2025/2026 schedule rows and splits GDP vs PCE sub-blocks when required;
+- uses the correct Fed press-release URL `/newsevents/pressreleases/monetaryYYYYMMDDa.htm`;
+- preserves the exact frozen v0.3 Forex Factory consensus records unchanged;
+- computes no market outcomes.
+
+**Exact next action:** trigger exactly one official release-time reconciliation v0.2. PASS => freeze Phase B official actual-as-released reconciliation.
