@@ -1,0 +1,796 @@
+{
+  "allowed_interval": [
+    "2025-07-01",
+    "2026-06-29"
+  ],
+  "consensus_layer_gate_pass": true,
+  "disposition": "FREE_CONSENSUS_V02_SCOPE_CORRECTED_GATE_PASS_OFFICIAL_RECONCILIATION_REQUIRED",
+  "family_block_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 23,
+    "FOMC": 8,
+    "GDP_PCE": 15,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "fomc_policy_event_dates": 8,
+  "fomc_timing_only_if_lt_6": false,
+  "gate": {
+    "all_numeric_families_present": true,
+    "all_pages_show_actual_forecast_previous_columns": true,
+    "all_requested_pages_http_200": true,
+    "each_numeric_family_blocks_ge_8": true,
+    "nfp_component_present": true,
+    "no_market_data_or_outcomes_loaded": true,
+    "no_retained_rows_after_2026_06_29": true,
+    "protected_periods_sealed": true,
+    "provisional_blocks_ge_40": true,
+    "surprise_bearing_blocks_ge_30": true
+  },
+  "github_run_id": "36308030312",
+  "market_data_loaded": false,
+  "nfp_component_rows": 24,
+  "normalized_dataset": {
+    "path": "research/data/EXP-041-free-macro-consensus-v0.2.json",
+    "records": 215,
+    "sha256": "17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811"
+  },
+  "official_reconciliation_complete": false,
+  "page_errors": [],
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "provisional_independent_event_blocks": 80,
+  "requested_pages": [
+    {
+      "bytes": 524528,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-06-30",
+      "sha256": "e995aa23471036753c1f5d1a8cd96ab8e5da3e57f86cb93d17aa433769eda480",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=jun30.2025"
+    },
+    {
+      "bytes": 368483,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-07-07",
+      "sha256": "74a8d474979a89e74c47301029617bf9793d6e1b5c92900e9ba58fc1131b9ca9",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=jul07.2025"
+    },
+    {
+      "bytes": 491927,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-07-14",
+      "sha256": "2658ecf82710e416c0c8c58c97a166741c5900063fa7acdeb7d3f8481aa6739d",
+      "targeted_rows": 8,
+      "url": "https://www.forexfactory.com/calendar?week=jul14.2025"
+    },
+    {
+      "bytes": 306716,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-07-21",
+      "sha256": "497f1ba2e4458d08dc395fd88b067d7428d6b1d5e3ac4cc8ed2ea68a8b13c197",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=jul21.2025"
+    },
+    {
+      "bytes": 493281,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-07-28",
+      "sha256": "e17889f0cc8437b6fc9876f701c819ddd3c08190cad1d821ef97760850166276",
+      "targeted_rows": 11,
+      "url": "https://www.forexfactory.com/calendar?week=jul28.2025"
+    },
+    {
+      "bytes": 434058,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-08-04",
+      "sha256": "a5eed1a2379f629477750ddfd2f0344925a354eb640a90050bc1be4299477d69",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=aug04.2025"
+    },
+    {
+      "bytes": 468630,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-08-11",
+      "sha256": "132d915e58bddbfe85b90f3a15057b547169670282fd9fdedf7117a604255359",
+      "targeted_rows": 8,
+      "url": "https://www.forexfactory.com/calendar?week=aug11.2025"
+    },
+    {
+      "bytes": 444918,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-08-18",
+      "sha256": "f695e7100c5dc10a2a323a8a3f25bdcfa36fcab8eec7a3fb8dc248118a73a4a5",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=aug18.2025"
+    },
+    {
+      "bytes": 409149,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-08-25",
+      "sha256": "89d659f509fe16320933a242ce11f9877baa8779c514faf47756c4c2fb3ae51f",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=aug25.2025"
+    },
+    {
+      "bytes": 496330,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-09-01",
+      "sha256": "932b5c9578d14c2b88bf48348f0849c2ed684a3aba92e28985c3da2b5a03901f",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=sep01.2025"
+    },
+    {
+      "bytes": 381072,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-09-08",
+      "sha256": "80e3ac38cbe56241ce6b411f99379d8408ce63a6e26e18ccc7a313df08d99a1f",
+      "targeted_rows": 6,
+      "url": "https://www.forexfactory.com/calendar?week=sep08.2025"
+    },
+    {
+      "bytes": 464682,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-09-15",
+      "sha256": "f7d923530f0f2c0daa8f09e11f7c5eaba9f932095f95d13a113879d02a37b0a5",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=sep15.2025"
+    },
+    {
+      "bytes": 428129,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-09-22",
+      "sha256": "56bd4b563f06ee58be9be37fc8290ba4ce598957aca407ceaeaf574e5022b6ca",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=sep22.2025"
+    },
+    {
+      "bytes": 606472,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-09-29",
+      "sha256": "98c7be39ac05a4f051cf4b675aa88c5446ed16efd414936641f2ffba77a4da1a",
+      "targeted_rows": 1,
+      "url": "https://www.forexfactory.com/calendar?week=sep29.2025"
+    },
+    {
+      "bytes": 413909,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-10-06",
+      "sha256": "d3d1f648f156e321834acde20f6b3e7f2d65de8915b43f0af265fd52cc6cd82e",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=oct06.2025"
+    },
+    {
+      "bytes": 525787,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-10-13",
+      "sha256": "e92918579cdbd6297e00628ab70bce450c00be0556d2b758ccbf2e5ffb0ab3b4",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=oct13.2025"
+    },
+    {
+      "bytes": 449843,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-10-20",
+      "sha256": "0e6e3f82108a716d78dd55a573405b95d511aaa09c506f818de7b5dcb91d2614",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=oct20.2025"
+    },
+    {
+      "bytes": 448310,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-10-27",
+      "sha256": "63e8e06fdb4498c10b6c7a6b3cb55b1157dcc73b5d69fdef6f0ad92d8fe828a1",
+      "targeted_rows": 2,
+      "url": "https://www.forexfactory.com/calendar?week=oct27.2025"
+    },
+    {
+      "bytes": 533584,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-11-03",
+      "sha256": "72aeaaec19f42210fced2a095980278a287cb248056a910c4915581cabe50c17",
+      "targeted_rows": 1,
+      "url": "https://www.forexfactory.com/calendar?week=nov03.2025"
+    },
+    {
+      "bytes": 484648,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-11-10",
+      "sha256": "fc96a9a9e4b0986df471686d3744e79277faff48e9c8e9c1578001d34d3bda0d",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=nov10.2025"
+    },
+    {
+      "bytes": 575360,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-11-17",
+      "sha256": "7ec9c7c486a74c327ff4ce574b81d720646f4964b7eb0200f62c90f8053d6898",
+      "targeted_rows": 3,
+      "url": "https://www.forexfactory.com/calendar?week=nov17.2025"
+    },
+    {
+      "bytes": 441903,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-11-24",
+      "sha256": "88e4138621af10acf17279aff8ef71403ebc618d269ff593444b998dc6c5f0dc",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=nov24.2025"
+    },
+    {
+      "bytes": 500523,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-12-01",
+      "sha256": "4ece864c24aa869f499a1fcb36a7fd2d64045741202845c11bbcfc78c5f363ee",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=dec01.2025"
+    },
+    {
+      "bytes": 465066,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-12-08",
+      "sha256": "fcc8a7f0d960308efb8c8c0b68c97ea72b4ded6b02983b7db7c5ef6838f9e19d",
+      "targeted_rows": 3,
+      "url": "https://www.forexfactory.com/calendar?week=dec08.2025"
+    },
+    {
+      "bytes": 569995,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-12-15",
+      "sha256": "0d26cd76144e6027c4cccc2bb4748867e8574f5e72f3f9516b9b0e50573bdde3",
+      "targeted_rows": 9,
+      "url": "https://www.forexfactory.com/calendar?week=dec15.2025"
+    },
+    {
+      "bytes": 282601,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-12-22",
+      "sha256": "f9e700878b6a3004638b4e10085a29d447d43a8d98e4b56347d92796075d4cda",
+      "targeted_rows": 2,
+      "url": "https://www.forexfactory.com/calendar?week=dec22.2025"
+    },
+    {
+      "bytes": 268499,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2025-12-29",
+      "sha256": "ec96d45e376f92dc517c041d9e281b7a1445cc5212e016af157996eb24612e0c",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=dec29.2025"
+    },
+    {
+      "bytes": 468862,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-01-05",
+      "sha256": "b129685efa0dbba6c7ac3e97f36e0f30b76692c5944a7ea84c2eaaae612ddb3e",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=jan05.2026"
+    },
+    {
+      "bytes": 533862,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-01-12",
+      "sha256": "fb643cad0616680109477bb7040a17681e1d84c9decc595cde93bc0ea5fb27c4",
+      "targeted_rows": 10,
+      "url": "https://www.forexfactory.com/calendar?week=jan12.2026"
+    },
+    {
+      "bytes": 494977,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-01-19",
+      "sha256": "a4560c01ee6c24d733174ac0667bcfe6c72ac831811c1af373f268f47f8e301b",
+      "targeted_rows": 8,
+      "url": "https://www.forexfactory.com/calendar?week=jan19.2026"
+    },
+    {
+      "bytes": 447619,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-01-26",
+      "sha256": "8d75cef8d6a6120657623db60b3b1bdf29a16ad788d1446162dadfb8086ba347",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=jan26.2026"
+    },
+    {
+      "bytes": 489207,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-02-02",
+      "sha256": "f42e0af75e085cf31933fb57321c893e3abe046c9f95d5a44dc1f141b9372570",
+      "targeted_rows": 1,
+      "url": "https://www.forexfactory.com/calendar?week=feb02.2026"
+    },
+    {
+      "bytes": 441380,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-02-09",
+      "sha256": "82d1579bbd7e30818df5b2b87ef2548b0c165730b18d5b125b8301a531701fd3",
+      "targeted_rows": 9,
+      "url": "https://www.forexfactory.com/calendar?week=feb09.2026"
+    },
+    {
+      "bytes": 607368,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-02-16",
+      "sha256": "2df3854d728809fcd5c27dc1c595d5de64da0c7c8b75961a041bbeb7c46776c8",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=feb16.2026"
+    },
+    {
+      "bytes": 424610,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-02-23",
+      "sha256": "09d0174ebfb9134d478cd7e8eac18dec2b8f3053301c66af5114f4cd994f6727",
+      "targeted_rows": 2,
+      "url": "https://www.forexfactory.com/calendar?week=feb23.2026"
+    },
+    {
+      "bytes": 566382,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-03-02",
+      "sha256": "4ebb3b4e8bfe35084cf12a78b7e63a3fb80cacfb8f43a35dd7726824a34b67cd",
+      "targeted_rows": 6,
+      "url": "https://www.forexfactory.com/calendar?week=mar02.2026"
+    },
+    {
+      "bytes": 460165,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-03-09",
+      "sha256": "223e55f13369ed6e991c4e9403143065af606cab07cccc2c58613d55feb5a7c9",
+      "targeted_rows": 9,
+      "url": "https://www.forexfactory.com/calendar?week=mar09.2026"
+    },
+    {
+      "bytes": 452542,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-03-16",
+      "sha256": "0d9a8606c67c7bddac864ab737361c3d2af56b88f819240db937ab462be97912",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=mar16.2026"
+    },
+    {
+      "bytes": 431220,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-03-23",
+      "sha256": "94be56c0cd6918ae332846081200a906dd68d99a7d85d9f8ef46a54366a5a890",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=mar23.2026"
+    },
+    {
+      "bytes": 502419,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-03-30",
+      "sha256": "dc12da7226febd73c3dbf3324cc8f413808c96df655020fc04bf794ec71904a5",
+      "targeted_rows": 6,
+      "url": "https://www.forexfactory.com/calendar?week=mar30.2026"
+    },
+    {
+      "bytes": 438418,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-04-06",
+      "sha256": "334dd675dc6e44aa9f5700c8f7f5487e92a8a62a444b4f196d423c1aa19c3f49",
+      "targeted_rows": 9,
+      "url": "https://www.forexfactory.com/calendar?week=apr06.2026"
+    },
+    {
+      "bytes": 518337,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-04-13",
+      "sha256": "466bb8dd877803a6375418b79cd42edad79b77021e554446320f0a2118be7e1b",
+      "targeted_rows": 2,
+      "url": "https://www.forexfactory.com/calendar?week=apr13.2026"
+    },
+    {
+      "bytes": 403495,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-04-20",
+      "sha256": "43a26322f38cba16413312194e3a7f8d06b00a3dcb7ce640d1cd8978d13960d8",
+      "targeted_rows": 2,
+      "url": "https://www.forexfactory.com/calendar?week=apr20.2026"
+    },
+    {
+      "bytes": 558311,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-04-27",
+      "sha256": "1ea5216643d364137558ea90e1ef687cc75fafd3d9f5ef19ace4084b530ab49a",
+      "targeted_rows": 7,
+      "url": "https://www.forexfactory.com/calendar?week=apr27.2026"
+    },
+    {
+      "bytes": 535640,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-05-04",
+      "sha256": "e273516b1ca8dc2ffa8e3217679f6f60c75467d4de53d57489300bf841890ea8",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=may04.2026"
+    },
+    {
+      "bytes": 484717,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-05-11",
+      "sha256": "bba15f1489fffd6e12c9b9ec3cab15c06d1245609efed4d6a4ab0dc8d40963e6",
+      "targeted_rows": 8,
+      "url": "https://www.forexfactory.com/calendar?week=may11.2026"
+    },
+    {
+      "bytes": 511954,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-05-18",
+      "sha256": "599b5ec2a3e2b6d8556e9baf0fee13335814e06259f410bc1e80955828d9d617",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?week=may18.2026"
+    },
+    {
+      "bytes": 497939,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-05-25",
+      "sha256": "3be2e7d8f66d000159247bceb3ffacb36af9f11a38e319fc903b61ed56a60d47",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=may25.2026"
+    },
+    {
+      "bytes": 541883,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-06-01",
+      "sha256": "60ec4758ee0e0dd924c63008f51a15d99af8a8beb9d585e4cc4aad2125b93467",
+      "targeted_rows": 4,
+      "url": "https://www.forexfactory.com/calendar?week=jun01.2026"
+    },
+    {
+      "bytes": 374519,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-06-08",
+      "sha256": "91df27ac460ce3cf6449ff72d53b3327730cc5bb7d8645d3c48e3dc700c24c99",
+      "targeted_rows": 6,
+      "url": "https://www.forexfactory.com/calendar?week=jun08.2026"
+    },
+    {
+      "bytes": 489552,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-06-15",
+      "sha256": "2433baf4ecde3204e72e8ecdbd9de8208494d4e9a1364e9f2bd75ff937cfd3c1",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=jun15.2026"
+    },
+    {
+      "bytes": 441796,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "week",
+      "label": "2026-06-22",
+      "sha256": "993afebfbec625d9e52d0063309b8646d10d78aa43ee9bc2586fc43613268265",
+      "targeted_rows": 5,
+      "url": "https://www.forexfactory.com/calendar?week=jun22.2026"
+    },
+    {
+      "bytes": 142679,
+      "columns_present": {
+        "Actual": true,
+        "Forecast": true,
+        "Previous": true
+      },
+      "http_status": 200,
+      "kind": "day",
+      "label": "2026-06-29",
+      "sha256": "4bbce70553e570ac98be2ca42723ee857d24f383dffbb126a328f921886ecf9a",
+      "targeted_rows": 0,
+      "url": "https://www.forexfactory.com/calendar?day=jun29.2026"
+    }
+  ],
+  "scientific_outcomes_calculated": false,
+  "source": "Forex Factory historical calendar",
+  "stage": "EXP-041 full free macro consensus acquisition / Gate-A coverage audit v0.2",
+  "surprise_bearing_provisional_blocks": 80,
+  "target_labels_calculated": false,
+  "tested_repository_sha": "80e910bbf2c8a6aa580b1faa549be959876b5f5a"
+}
