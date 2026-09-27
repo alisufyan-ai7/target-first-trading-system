@@ -2545,3 +2545,27 @@ Nested comparison:
 All new features use only completed broker quote/tick minutes before the decision; no mid-price return/OHLC feature is introduced.
 
 **Exact next action:** trigger one EXP-043 information-content run. Interpret only if integrity passes. Jul-Aug/Sep remain sealed; Engine R/EXP-015 remain paused.
+
+
+## EXP-043 v0.1 integrity-fail checkpoint
+
+Information-content result commit: `2550e5a9f4263dd5be7c3daa869387ffe80b017c`.
+
+Disposition: `INTEGRITY_FAIL_DO_NOT_INTERPRET`.
+
+Only failed integrity condition: microstructure eligibility >=90% in every market.
+
+Failing markets:
+
+- AUDUSD 81.44%;
+- USDCHF 86.64%.
+
+All other markets exceed 95%.
+
+Frozen zero-outcome source diagnostic:
+
+- spec `916feb93aa9e419c883a20b6b1e8118449da00ed`;
+- runner `8cd34801de824fcd56c7ce52002eb213ab0f4e3b`;
+- workflow `dc96a417fa895ddc17eb7b771e6de76077f8b05a`.
+
+**Exact next action:** trigger one source-only availability diagnostic. Do not reinterpret v0.1.
