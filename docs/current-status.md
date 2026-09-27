@@ -2756,3 +2756,26 @@ The pilot uses six fixed development dates spanning Jul-2025 to May-2026 across 
 No target labels, models, P&L or protected Jul-Aug/Sep 2026 data are used.
 
 **Exact next action:** trigger one EXP-043 tick microstructure source preflight. PASS => freeze a development-only acquisition design before any predictive study.
+
+
+## 2026-09-27 — EXP-043 TICK SOURCE PREFLIGHT PASSED
+
+Durable preflight result: `babcfa8178ebf9288cefc420dab916674a59b55b`.
+
+Result:
+
+- 48/48 symbol/date pairs passed semantic integrity;
+- 48/48 independent copy pairs had identical row counts;
+- 48/48 independent copy pairs had identical canonical SHA-256;
+- all bid/ask prices positive;
+- ask >= bid throughout;
+- quote-side volumes nonnegative with positive observations;
+- millisecond timestamps valid and nondecreasing;
+- no target labels/P&L/protected periods used;
+- disposition: `EXP043_DUKASCOPY_TICK_MICROSTRUCTURE_SOURCE_REPEATABLE`.
+
+The six-date pilot contained ~4.99 million ticks per copy. XAUUSD alone ranged from ~164k to ~401k ticks/day in the frozen pilot.
+
+**Decision:** do not store a full year of raw tick CSVs. Freeze a deterministic minute-level microstructure snapshot while retaining per-day raw canonical hashes and tick counts for provenance.
+
+The snapshot must preserve execution/participation observables unavailable in OHLC: spread state, quote-update intensity, inter-arrival activity, quote freshness and quote-side imbalance. It must not introduce another generic price-return feature family.
