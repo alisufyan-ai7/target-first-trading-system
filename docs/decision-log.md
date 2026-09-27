@@ -1833,3 +1833,14 @@ Do not retune event windows, return scales, feature signs, model parameters or p
 The next research family is execution-grade information: bid/ask spread, tick activity, quote dynamics and—where reproducibly obtainable—true order-flow/book information.
 
 A future source must be labeled honestly. Dukascopy/broker tick data may support quote/spread/tick-participation features, but it must not be called centralized order flow unless the source truly contains traded aggressor/book information.
+
+
+## 2026-09-27 — Move to broker tick/quote microstructure, with honest source semantics
+
+After EXP-042 failed, the next information family must be materially different from OHLC, macro and cross-asset return transforms.
+
+**Decision:** preflight Dukascopy tick data because it exposes bid/ask quotes, millisecond quote updates and quote-side volumes.
+
+These fields may support execution/microstructure features such as spread, update intensity and quote-side imbalance. They are not to be described as centralized traded order flow.
+
+Before any model, require exact two-download repeatability across a prospectively frozen six-date x eight-market pilot. No tolerance-based reconciliation is allowed.
