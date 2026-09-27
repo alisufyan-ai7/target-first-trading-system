@@ -1965,3 +1965,12 @@ Engine-S implementation is frozen before outcomes.
 Do not compute target/path/P&L outcomes.
 
 The preflight must pass the already frozen adequacy gate naturally; rules may not be loosened after seeing density.
+
+
+## 2026-09-27 — Close Engine-S v0.1 density preflight; authorize sequential zero-outcome v0.2
+
+Engine-S v0.1 produced 944 setups but only 22 filled candidates, so it failed the frozen opportunity-density gate without any profitability outcome being exposed.
+
+**Decision:** do not loosen v0.1. Freeze a separate v0.2 that changes only the human confirmation sequence/timeboxes: MSS, then displacement, then FVG, then non-chasing midpoint fill.
+
+Keep the liquidity map, rejection/acceptance definitions, pivot semantics, 1.50x displacement, FVG requirement, structural stop, USD40 risk ceiling and zero-outcome governance unchanged.
