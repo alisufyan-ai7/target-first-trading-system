@@ -2681,3 +2681,23 @@ No Engine-S profitability outcome exists yet.
 The run downloads only Dec-2023 warm-up and Jan-2024 through Feb-2025 development XAUUSD files and measures zero-outcome setup density/causality.
 
 **Exact next action:** trigger one EXP-045 preflight; do not poll; resume from the durable bot checkpoint.
+
+
+## EXP-045 Engine-S v0.2 ready
+
+v0.1 zero-outcome result `5d7005938547eb7f023d0b36a0ff484188f3cdf4` failed density, not integrity.
+
+No target/P&L outcome has been exposed.
+
+v0.2 replaces the same-bar trigger with a human sequence:
+
+`MSS -> displacement +2 -> FVG +2 -> midpoint fill`.
+
+Frozen implementation:
+
+- spec `a83afb25c543c1772a3ded5fb00ad281a6a3d6db`;
+- engine `262e3ca7b1322adce2a35b7bcba14d0369d31e51`;
+- runner `b109793b390538e5051f2e2058d936f85d9139f3`;
+- workflow `47fd28a697b25f08781e267cb22321afa1bf584c`.
+
+**Exact next action:** trigger one zero-outcome v0.2 preflight. Do not inspect profitability because none is computed.
