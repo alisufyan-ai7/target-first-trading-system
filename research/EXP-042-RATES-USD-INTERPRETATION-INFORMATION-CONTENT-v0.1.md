@@ -259,3 +259,41 @@ Possible independent study results:
 No result by itself authorizes strategy construction.
 
 If neither study passes, close this free rates/USD proxy layer and proceed to execution-grade order flow or a higher-quality institutional rates source rather than tuning proxy thresholds.
+
+
+## Final result — 2026-09-27
+
+Durable result commit:
+
+`1e4520b65af1de5cf2bccf6ee807700a349c9a40`
+
+Integrity: PASS.
+
+Study A:
+
+`NO_STABLE_DXY_REACTION_INFORMATION_ADVANTAGE`.
+
+- T40eq relative log-loss change: -0.3606%;
+- T50eq relative log-loss change: -0.2793%;
+- Brier worsened on both;
+- fold wins 0/6 and 1/6;
+- event-block win fractions 32.1% and 35.8%;
+- only 1/8 markets non-worse on both.
+
+Study B:
+
+`NO_STABLE_DXY_TBOND_INTERPRETATION_ADVANTAGE`.
+
+Versus DXY-only:
+
+- T40eq relative log-loss change: -0.1346%;
+- T50eq relative log-loss change: -0.1446%;
+- Brier worsened on both;
+- fold wins 1/6 and 1/6;
+- event-block win fractions 33.3% and 43.1%.
+
+Versus control the full DXY+T-Bond layer was also negative on both primary rungs.
+
+**Disposition:** EXP-042 is closed. Do not tune DXY/T-Bond return windows, scales, signs or model parameters on this development sample.
+
+Next information family: execution-grade broker quote/tick microstructure. True centralized order flow remains a separate, higher-quality source class and must not be conflated with Dukascopy quote/tick data.
