@@ -1881,3 +1881,14 @@ The study must remain nested and minimal:
 Do not add mid-price returns, generic OHLC features, threshold searches, or market-specific hand tuning.
 
 Primary promotion rungs remain T40eq/T50eq under the existing information-advantage gates.
+
+
+## 2026-09-27 — Freeze EXP-043 paired microstructure information-content study
+
+After the immutable tick/quote snapshot passed, freeze one outcome-blind study using execution/participation features only.
+
+The final study deliberately reuses EXP-040's model start (2026-03-23), folds, calibration schedule, purge, learner and target mechanics so the tested change is the information layer rather than a longer training history.
+
+Nested sets are execution cost, participation/activity, then direction-aligned quote imbalance. All paired models use identical microstructure-eligible candidate rows.
+
+A day-level win-rate gate is added prospectively because intraday candidates within one UTC day are not independent evidence.
