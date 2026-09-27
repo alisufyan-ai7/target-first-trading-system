@@ -1,0 +1,13 @@
+Trigger EXP-041 official release-time reconciliation v0.2.
+
+Frozen implementation:
+- spec 949382b7d5bdf5d712c13b69fad6d91cc305f303
+- runner 2f7aa1d5521bc4b9efb41616b1598db295f56cae
+- workflow f3bea537c8fd9c8b387a4a011fef726436f9f9d1
+
+Use exact frozen free-consensus v0.3 input.
+Keep BLS mappings unchanged.
+Use direct official Census MARTS historical PDFs for Retail.
+Parse official BEA schedule rows and split GDP vs PCE when same-date release times differ.
+Use correct Federal Reserve press-release statement URLs.
+No market data, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
