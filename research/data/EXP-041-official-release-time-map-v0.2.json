@@ -1,0 +1,2104 @@
+{
+  "family_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 11,
+    "FOMC": 8,
+    "GDP_PCE": 22,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "input_consensus_dataset": "research/data/EXP-041-free-macro-consensus-v0.3.json",
+  "input_consensus_sha256": "911bbc204cdc9a7ed8ecafa7dd166aaaa1141a78675405ac4319d164bd6fb0c3",
+  "official_block_count": 75,
+  "official_blocks": [
+    {
+      "component_event_ids": [
+        "142595",
+        "142571",
+        "142583"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2025-07-03|EMPLOYMENT|Average Hourly Earnings m/m|142595",
+        "2025-07-03|EMPLOYMENT|Non-Farm Employment Change|142571",
+        "2025-07-03|EMPLOYMENT|Unemployment Rate|142583"
+      ],
+      "event_date": "2025-07-03",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-07-03|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-03T12:30:00Z",
+      "official_source_sha256": "cdebd2b9d549e47842226ce3ecb40f108c0d10390d60a1ff37f43c9abac25a9d",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_07032025.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142637",
+        "142649",
+        "142661",
+        "153043"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2025-07-15|CPI|CPI m/m|142637",
+        "2025-07-15|CPI|CPI y/y|142649",
+        "2025-07-15|CPI|Core CPI m/m|142661",
+        "2025-07-15|CPI|Core CPI y/y|153043"
+      ],
+      "event_date": "2025-07-15",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-07-15|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-15T12:30:00Z",
+      "official_source_sha256": "a0905a0de50db59be573b829d999a98d32512dc9d4e6f22ed789c64eed4fbcb2",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_07152025.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142625",
+        "142613"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2025-07-16|PPI|Core PPI m/m|142625",
+        "2025-07-16|PPI|PPI m/m|142613"
+      ],
+      "event_date": "2025-07-16",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-07-16|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-16T12:30:00Z",
+      "official_source_sha256": "907af94fe33c833c51b00cc31dbbdb38aa89c72c1b99efa4096314bf7973e8db",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_07162025.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142353",
+        "142339"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2025-07-17|RETAIL|Core Retail Sales m/m|142353",
+        "2025-07-17|RETAIL|Retail Sales m/m|142339"
+      ],
+      "event_date": "2025-07-17",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2025-07-17|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-17T12:30:00Z",
+      "official_source_sha256": "d90dbe4a3e2ec531af675830b6fca9bcca90f404fcbacf39d8e53675c91fa4d2",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2506.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "141219",
+        "141211"
+      ],
+      "component_names": [
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2025-07-30|FOMC|FOMC Statement|141219",
+        "2025-07-30|FOMC|Federal Funds Rate|141211"
+      ],
+      "event_date": "2025-07-30",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2025-07-30|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-30T18:00:00Z",
+      "official_source_sha256": "72722e0e27d8e19349d06ca0210f6d9e7163a54897aee3ed2d5a5d39a576ded9",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142547",
+        "142543"
+      ],
+      "component_names": [
+        "Advance GDP Price Index q/q",
+        "Advance GDP q/q"
+      ],
+      "component_record_keys": [
+        "2025-07-30|GDP_PCE|Advance GDP Price Index q/q|142547",
+        "2025-07-30|GDP_PCE|Advance GDP q/q|142543"
+      ],
+      "event_date": "2025-07-30",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-07-30|GDP_PCE|GDP",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-30T12:30:00Z",
+      "official_schedule_title": "Gross Domestic Product, 2nd Quarter 2025 (Advance Estimate) View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "GDP",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142511",
+        "142523",
+        "142535"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2025-07-31|GDP_PCE|Core PCE Price Index m/m|142511",
+        "2025-07-31|GDP_PCE|Personal Income m/m|142523",
+        "2025-07-31|GDP_PCE|Personal Spending m/m|142535"
+      ],
+      "event_date": "2025-07-31",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-07-31|GDP_PCE|PCE",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-07-31T12:30:00Z",
+      "official_schedule_title": "Personal Income and Outlays, June 2025 View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "PCE",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142596",
+        "142572",
+        "142584"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2025-08-01|EMPLOYMENT|Average Hourly Earnings m/m|142596",
+        "2025-08-01|EMPLOYMENT|Non-Farm Employment Change|142572",
+        "2025-08-01|EMPLOYMENT|Unemployment Rate|142584"
+      ],
+      "event_date": "2025-08-01",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-08-01|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-08-01T12:30:00Z",
+      "official_source_sha256": "3dd179efacf0239bb6c2c8a9780dc30231411bfc5a2385275ff1bfa46e8ef153",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_08012025.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142638",
+        "142650",
+        "142662",
+        "153044"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2025-08-12|CPI|CPI m/m|142638",
+        "2025-08-12|CPI|CPI y/y|142650",
+        "2025-08-12|CPI|Core CPI m/m|142662",
+        "2025-08-12|CPI|Core CPI y/y|153044"
+      ],
+      "event_date": "2025-08-12",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-08-12|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-08-12T12:30:00Z",
+      "official_source_sha256": "a7651ec9f9870e9efab3f1659639d06aa80c43c2862d009a76ade1d16f941913",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_08122025.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142626",
+        "142614"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2025-08-14|PPI|Core PPI m/m|142626",
+        "2025-08-14|PPI|PPI m/m|142614"
+      ],
+      "event_date": "2025-08-14",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-08-14|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-08-14T12:30:00Z",
+      "official_source_sha256": "06de511966a5185a15dd0b42a721d77006abb22b05c1fb5a7014be9ebbe20abf",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_08142025.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142352",
+        "142340"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2025-08-15|RETAIL|Core Retail Sales m/m|142352",
+        "2025-08-15|RETAIL|Retail Sales m/m|142340"
+      ],
+      "event_date": "2025-08-15",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2025-08-15|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-08-15T12:30:00Z",
+      "official_source_sha256": "b38c2622498a6373ea768ae707810c1c146cd4b49423ca26875c9d220e776864",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2507.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142563",
+        "142559"
+      ],
+      "component_names": [
+        "Prelim GDP Price Index q/q",
+        "Prelim GDP q/q"
+      ],
+      "component_record_keys": [
+        "2025-08-28|GDP_PCE|Prelim GDP Price Index q/q|142563",
+        "2025-08-28|GDP_PCE|Prelim GDP q/q|142559"
+      ],
+      "event_date": "2025-08-28",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-08-28|GDP_PCE|GDP",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-08-28T12:30:00Z",
+      "official_schedule_title": "Gross Domestic Product, 2nd Quarter 2025 (Second Estimate) and Corporate Profits (Preliminary) View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "GDP",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142512",
+        "142524",
+        "142536"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2025-08-29|GDP_PCE|Core PCE Price Index m/m|142512",
+        "2025-08-29|GDP_PCE|Personal Income m/m|142524",
+        "2025-08-29|GDP_PCE|Personal Spending m/m|142536"
+      ],
+      "event_date": "2025-08-29",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-08-29|GDP_PCE|PCE",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-08-29T12:30:00Z",
+      "official_schedule_title": "Personal Income and Outlays, July 2025 View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "PCE",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142597",
+        "142573",
+        "142585"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2025-09-05|EMPLOYMENT|Average Hourly Earnings m/m|142597",
+        "2025-09-05|EMPLOYMENT|Non-Farm Employment Change|142573",
+        "2025-09-05|EMPLOYMENT|Unemployment Rate|142585"
+      ],
+      "event_date": "2025-09-05",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-09-05|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-05T12:30:00Z",
+      "official_source_sha256": "ca6186dccc99238b7a30b671c931cef474d4ed4484d6bb8e0d425e2f9a04713a",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_09052025.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142627",
+        "142615"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2025-09-10|PPI|Core PPI m/m|142627",
+        "2025-09-10|PPI|PPI m/m|142615"
+      ],
+      "event_date": "2025-09-10",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-09-10|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-10T12:30:00Z",
+      "official_source_sha256": "cac91092039b8d9a8044b0079ee1e316a275478bb6f3032e82f388224548f1f9",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_09102025.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142639",
+        "142651",
+        "142663",
+        "153045"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2025-09-11|CPI|CPI m/m|142639",
+        "2025-09-11|CPI|CPI y/y|142651",
+        "2025-09-11|CPI|Core CPI m/m|142663",
+        "2025-09-11|CPI|Core CPI y/y|153045"
+      ],
+      "event_date": "2025-09-11",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-09-11|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-11T12:30:00Z",
+      "official_source_sha256": "f376b178ee4e16a7cc2ae6810e2164cad96aa8da156900623b2ff780a78f26bf",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_09112025.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142351",
+        "142341"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2025-09-16|RETAIL|Core Retail Sales m/m|142351",
+        "2025-09-16|RETAIL|Retail Sales m/m|142341"
+      ],
+      "event_date": "2025-09-16",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2025-09-16|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-16T12:30:00Z",
+      "official_source_sha256": "a5bee0d078b699334395cb5f9ef8a7895cf998369291b36f2e213e47e1c62cf9",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2508.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "141233",
+        "141220",
+        "141212"
+      ],
+      "component_names": [
+        "FOMC Economic Projections",
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2025-09-17|FOMC|FOMC Economic Projections|141233",
+        "2025-09-17|FOMC|FOMC Statement|141220",
+        "2025-09-17|FOMC|Federal Funds Rate|141212"
+      ],
+      "event_date": "2025-09-17",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2025-09-17|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-17T18:00:00Z",
+      "official_source_sha256": "2a05653f6d72e7816c8575173f1515dbe71d0b98a1c1efb31bcc3d0d054db497",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142555",
+        "142551"
+      ],
+      "component_names": [
+        "Final GDP Price Index q/q",
+        "Final GDP q/q"
+      ],
+      "component_record_keys": [
+        "2025-09-25|GDP_PCE|Final GDP Price Index q/q|142555",
+        "2025-09-25|GDP_PCE|Final GDP q/q|142551"
+      ],
+      "event_date": "2025-09-25",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-09-25|GDP_PCE|GDP",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-25T12:30:00Z",
+      "official_schedule_title": "Gross Domestic Product, 2nd Quarter 2025 (Third Estimate), GDP by Industry, Corporate Profits (Revised), and Annual Update View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "GDP",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142513",
+        "142525",
+        "142537"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2025-09-26|GDP_PCE|Core PCE Price Index m/m|142513",
+        "2025-09-26|GDP_PCE|Personal Income m/m|142525",
+        "2025-09-26|GDP_PCE|Personal Spending m/m|142537"
+      ],
+      "event_date": "2025-09-26",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-09-26|GDP_PCE|PCE",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-09-26T12:30:00Z",
+      "official_schedule_title": "Personal Income and Outlays, August 2025 View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "PCE",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142640",
+        "142652",
+        "142664",
+        "153046"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2025-10-24|CPI|CPI m/m|142640",
+        "2025-10-24|CPI|CPI y/y|142652",
+        "2025-10-24|CPI|Core CPI m/m|142664",
+        "2025-10-24|CPI|Core CPI y/y|153046"
+      ],
+      "event_date": "2025-10-24",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-10-24|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-10-24T12:30:00Z",
+      "official_source_sha256": "ab7e0e431246f6f983575529cf4eae509706963fa893b6156576a2c320556397",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_10242025.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "141221",
+        "141213"
+      ],
+      "component_names": [
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2025-10-29|FOMC|FOMC Statement|141221",
+        "2025-10-29|FOMC|Federal Funds Rate|141213"
+      ],
+      "event_date": "2025-10-29",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2025-10-29|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-10-29T18:00:00Z",
+      "official_source_sha256": "7f3e5caf8b2e4d28fafddd2f81c60989f14dff5f77977fb79028c8bed335c6c9",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "150886",
+        "150885",
+        "150884"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2025-11-20|EMPLOYMENT|Average Hourly Earnings m/m|150886",
+        "2025-11-20|EMPLOYMENT|Non-Farm Employment Change|150885",
+        "2025-11-20|EMPLOYMENT|Unemployment Rate|150884"
+      ],
+      "event_date": "2025-11-20",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-11-20|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-11-20T13:30:00Z",
+      "official_source_sha256": "32423903015128e72093392cfaf331a097db1aeb2e8e7d300bec15eef9b6dd8e",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_11202025.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "150946",
+        "150945"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2025-11-25|PPI|Core PPI m/m|150946",
+        "2025-11-25|PPI|PPI m/m|150945"
+      ],
+      "event_date": "2025-11-25",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-11-25|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-11-25T13:30:00Z",
+      "official_source_sha256": "d0259c1f33c32d2f243340a36db875b8b1551ff7e2af4a712c8dfda5cc1f23f0",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_11252025.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "150950",
+        "150951"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2025-11-25|RETAIL|Core Retail Sales m/m|150950",
+        "2025-11-25|RETAIL|Retail Sales m/m|150951"
+      ],
+      "event_date": "2025-11-25",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2025-11-25|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-11-25T13:30:00Z",
+      "official_source_sha256": "824de3bae3137b0b18dbee9478597a13ecbc120fcd0d885f0e4c3b14ccbb7448",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2509.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "150985",
+        "150984",
+        "150983"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2025-12-05|GDP_PCE|Core PCE Price Index m/m|150985",
+        "2025-12-05|GDP_PCE|Personal Income m/m|150984",
+        "2025-12-05|GDP_PCE|Personal Spending m/m|150983"
+      ],
+      "event_date": "2025-12-05",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-12-05|GDP_PCE|PCE",
+      "official_local_release_time": "10:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-12-05T15:00:00Z",
+      "official_schedule_title": "Personal Income and Outlays, September 2025 View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "PCE",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "141234",
+        "141222",
+        "141214"
+      ],
+      "component_names": [
+        "FOMC Economic Projections",
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2025-12-10|FOMC|FOMC Economic Projections|141234",
+        "2025-12-10|FOMC|FOMC Statement|141222",
+        "2025-12-10|FOMC|Federal Funds Rate|141214"
+      ],
+      "event_date": "2025-12-10",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2025-12-10|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-12-10T19:00:00Z",
+      "official_source_sha256": "f4aaa1ecc564e801b3db68e0a147dfd3dffb31bd700b404846e49fb87f79ad28",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "151491",
+        "142600",
+        "151490",
+        "142576",
+        "142588"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2025-12-16|EMPLOYMENT|Average Hourly Earnings m/m|151491",
+        "2025-12-16|EMPLOYMENT|Average Hourly Earnings m/m|142600",
+        "2025-12-16|EMPLOYMENT|Non-Farm Employment Change|151490",
+        "2025-12-16|EMPLOYMENT|Non-Farm Employment Change|142576",
+        "2025-12-16|EMPLOYMENT|Unemployment Rate|142588"
+      ],
+      "event_date": "2025-12-16",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-12-16|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-12-16T13:30:00Z",
+      "official_source_sha256": "69c3fa7418e51c61aebe003969fc72878c19f3ea9c25e14155e244a2591e7947",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_12162025.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142354",
+        "142344"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2025-12-16|RETAIL|Core Retail Sales m/m|142354",
+        "2025-12-16|RETAIL|Retail Sales m/m|142344"
+      ],
+      "event_date": "2025-12-16",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2025-12-16|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-12-16T13:30:00Z",
+      "official_source_sha256": "a2ff4417a8ae73ed7483d3725006e609526973b4a02ae10ab94e7bc77aca4065",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2510.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142654",
+        "153047"
+      ],
+      "component_names": [
+        "CPI y/y",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2025-12-18|CPI|CPI y/y|142654",
+        "2025-12-18|CPI|Core CPI y/y|153047"
+      ],
+      "event_date": "2025-12-18",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2025-12-18|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-12-18T13:30:00Z",
+      "official_source_sha256": "85627e2f11db4d58fbdebc5877b27e71022c0ef17db77ddfb04497c4e33105b5",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_12182025.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "150986",
+        "150987"
+      ],
+      "component_names": [
+        "Prelim GDP Price Index q/q",
+        "Prelim GDP q/q"
+      ],
+      "component_record_keys": [
+        "2025-12-23|GDP_PCE|Prelim GDP Price Index q/q|150986",
+        "2025-12-23|GDP_PCE|Prelim GDP q/q|150987"
+      ],
+      "event_date": "2025-12-23",
+      "family": "GDP_PCE",
+      "official_authority": "U.S. Bureau of Economic Analysis",
+      "official_block_id": "2025-12-23|GDP_PCE|GDP",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2025-12-23T13:30:00Z",
+      "official_schedule_title": "Gross Domestic Product, 3rd Quarter 2025 (Initial Estimate) and Corporate Profits (Preliminary) View",
+      "official_source_sha256": "8fd734b8e02428681d26e782927364497a42337663fba578f9f9f73b30e58f23",
+      "official_source_url": "https://www.bea.gov/news/schedule/full-2025",
+      "release_kind": "GDP",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "146927",
+        "146903",
+        "146915"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2026-01-09|EMPLOYMENT|Average Hourly Earnings m/m|146927",
+        "2026-01-09|EMPLOYMENT|Non-Farm Employment Change|146903",
+        "2026-01-09|EMPLOYMENT|Unemployment Rate|146915"
+      ],
+      "event_date": "2026-01-09",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-01-09|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-01-09T13:30:00Z",
+      "official_source_sha256": "7cc113005b6baba66c5cf85feb83d4467479924b5661d59a6ef1237ff135df27",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_01092026.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148326",
+        "148343",
+        "148356",
+        "153048"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2026-01-13|CPI|CPI m/m|148326",
+        "2026-01-13|CPI|CPI y/y|148343",
+        "2026-01-13|CPI|Core CPI m/m|148356",
+        "2026-01-13|CPI|Core CPI y/y|153048"
+      ],
+      "event_date": "2026-01-13",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-01-13|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-01-13T13:30:00Z",
+      "official_source_sha256": "bbdb2ecf47afdc9e0daad8555b1a3bf38b8a8981eacaf42d08d3d4953ba632fd",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_01132026.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "151101",
+        "148395",
+        "151102",
+        "148371"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "Core PPI m/m",
+        "PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-01-14|PPI|Core PPI m/m|151101",
+        "2026-01-14|PPI|Core PPI m/m|148395",
+        "2026-01-14|PPI|PPI m/m|151102",
+        "2026-01-14|PPI|PPI m/m|148371"
+      ],
+      "event_date": "2026-01-14",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-01-14|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-01-14T13:30:00Z",
+      "official_source_sha256": "9cebf1f7c67bd4c3252660f491f8f4e8e359b216c2d8e33c362c4de7c55c82ec",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_01142026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148037",
+        "148025"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-01-14|RETAIL|Core Retail Sales m/m|148037",
+        "2026-01-14|RETAIL|Retail Sales m/m|148025"
+      ],
+      "event_date": "2026-01-14",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-01-14|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-01-14T13:30:00Z",
+      "official_source_sha256": "b003b8bab03822265de3546da540702d7ac55875482318850ba7edf02842ad1c",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2511.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "142556",
+        "142552"
+      ],
+      "component_names": [
+        "Final GDP Price Index q/q",
+        "Final GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-01-22|GDP_PCE|Final GDP Price Index q/q|142556",
+        "2026-01-22|GDP_PCE|Final GDP q/q|142552"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-01-22",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-01-22|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "152037",
+        "148227",
+        "152035",
+        "148239",
+        "152036",
+        "148251"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-01-22|GDP_PCE|Core PCE Price Index m/m|152037",
+        "2026-01-22|GDP_PCE|Core PCE Price Index m/m|148227",
+        "2026-01-22|GDP_PCE|Personal Income m/m|152035",
+        "2026-01-22|GDP_PCE|Personal Income m/m|148239",
+        "2026-01-22|GDP_PCE|Personal Spending m/m|152036",
+        "2026-01-22|GDP_PCE|Personal Spending m/m|148251"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-01-22",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-01-22|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "146502",
+        "146494"
+      ],
+      "component_names": [
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2026-01-28|FOMC|FOMC Statement|146502",
+        "2026-01-28|FOMC|Federal Funds Rate|146494"
+      ],
+      "event_date": "2026-01-28",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2026-01-28|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-01-28T19:00:00Z",
+      "official_source_sha256": "62ead52557df1b9aec2ae0e9f5ebf42f7d929c855be99836d60cd094e5fb8fd8",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260128a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "151479",
+        "151480"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-01-30|PPI|Core PPI m/m|151479",
+        "2026-01-30|PPI|PPI m/m|151480"
+      ],
+      "event_date": "2026-01-30",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-01-30|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-01-30T13:30:00Z",
+      "official_source_sha256": "28cea967ed73dcba67c7453a4b159bb163867b7680e9c1f097efb6e1ee1c6034",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_01302026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148038",
+        "148026"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-02-10|RETAIL|Core Retail Sales m/m|148038",
+        "2026-02-10|RETAIL|Retail Sales m/m|148026"
+      ],
+      "event_date": "2026-02-10",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-02-10|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-02-10T13:30:00Z",
+      "official_source_sha256": "b3ea505560841c8705ff851cad4ce860ff4a1f897a67660a8bbe1e2e2545bb82",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2512.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "152624",
+        "152625",
+        "152623"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2026-02-11|EMPLOYMENT|Average Hourly Earnings m/m|152624",
+        "2026-02-11|EMPLOYMENT|Non-Farm Employment Change|152625",
+        "2026-02-11|EMPLOYMENT|Unemployment Rate|152623"
+      ],
+      "event_date": "2026-02-11",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-02-11|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-02-11T13:30:00Z",
+      "official_source_sha256": "cd282f892c07c124d465f184ad9fab298893d4616b64d99fff467feae60a939f",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_02112026.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148327",
+        "148344",
+        "148357",
+        "153049"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2026-02-13|CPI|CPI m/m|148327",
+        "2026-02-13|CPI|CPI y/y|148344",
+        "2026-02-13|CPI|Core CPI m/m|148357",
+        "2026-02-13|CPI|Core CPI y/y|153049"
+      ],
+      "event_date": "2026-02-13",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-02-13|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-02-13T13:30:00Z",
+      "official_source_sha256": "e187d5e926bb71670d6b82fad7540c4a4804a9e25ec132a27d8fb701b0d371fc",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_02132026.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "152039",
+        "152038"
+      ],
+      "component_names": [
+        "Advance GDP Price Index q/q",
+        "Advance GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-02-20|GDP_PCE|Advance GDP Price Index q/q|152039",
+        "2026-02-20|GDP_PCE|Advance GDP q/q|152038"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-02-20",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-02-20|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "152042",
+        "152040",
+        "152041"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-02-20|GDP_PCE|Core PCE Price Index m/m|152042",
+        "2026-02-20|GDP_PCE|Personal Income m/m|152040",
+        "2026-02-20|GDP_PCE|Personal Spending m/m|152041"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-02-20",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-02-20|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "148396",
+        "148375"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-02-27|PPI|Core PPI m/m|148396",
+        "2026-02-27|PPI|PPI m/m|148375"
+      ],
+      "event_date": "2026-02-27",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-02-27|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-02-27T13:30:00Z",
+      "official_source_sha256": "613f268d70d54e76983fd414d7b01e754a5b71670b4b1e5a682f126f8cac252e",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_02272026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "146929",
+        "146905",
+        "146917"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2026-03-06|EMPLOYMENT|Average Hourly Earnings m/m|146929",
+        "2026-03-06|EMPLOYMENT|Non-Farm Employment Change|146905",
+        "2026-03-06|EMPLOYMENT|Unemployment Rate|146917"
+      ],
+      "event_date": "2026-03-06",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-03-06|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-03-06T13:30:00Z",
+      "official_source_sha256": "596a68af690cac8805340128de322b5b4ff3f3b7773cc77151c061340b7d1435",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_03062026.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148039",
+        "148027"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-03-06|RETAIL|Core Retail Sales m/m|148039",
+        "2026-03-06|RETAIL|Retail Sales m/m|148027"
+      ],
+      "event_date": "2026-03-06",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-03-06|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-03-06T13:30:00Z",
+      "official_source_sha256": "f7bbacf6e56043ef8cc3ab830c502f157f3c6160813d2737709a5b8f8cf12866",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2601.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148328",
+        "148345",
+        "148359",
+        "153050"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2026-03-11|CPI|CPI m/m|148328",
+        "2026-03-11|CPI|CPI y/y|148345",
+        "2026-03-11|CPI|Core CPI m/m|148359",
+        "2026-03-11|CPI|Core CPI y/y|153050"
+      ],
+      "event_date": "2026-03-11",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-03-11|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-03-11T12:30:00Z",
+      "official_source_sha256": "11f673e859eccffabc53987c0fb6cb02760c0601a4d24c1f03d62d162774f168",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_03112026.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "152089",
+        "152090"
+      ],
+      "component_names": [
+        "Prelim GDP Price Index q/q",
+        "Prelim GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-03-13|GDP_PCE|Prelim GDP Price Index q/q|152089",
+        "2026-03-13|GDP_PCE|Prelim GDP q/q|152090"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-03-13",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-03-13|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "152086",
+        "152087",
+        "152088"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-03-13|GDP_PCE|Core PCE Price Index m/m|152086",
+        "2026-03-13|GDP_PCE|Personal Income m/m|152087",
+        "2026-03-13|GDP_PCE|Personal Spending m/m|152088"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-03-13",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-03-13|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "146510",
+        "146503",
+        "146495"
+      ],
+      "component_names": [
+        "FOMC Economic Projections",
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2026-03-18|FOMC|FOMC Economic Projections|146510",
+        "2026-03-18|FOMC|FOMC Statement|146503",
+        "2026-03-18|FOMC|Federal Funds Rate|146495"
+      ],
+      "event_date": "2026-03-18",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2026-03-18|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-03-18T18:00:00Z",
+      "official_source_sha256": "0455928d0b288233ffc2971bcf0d2c0dc9baefa19f0ee29ab28b415563ca021d",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148397",
+        "148377"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-03-18|PPI|Core PPI m/m|148397",
+        "2026-03-18|PPI|PPI m/m|148377"
+      ],
+      "event_date": "2026-03-18",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-03-18|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-03-18T12:30:00Z",
+      "official_source_sha256": "f22bec6f6785bafccba6e1d75fd9479c0f21c2fa0882036eb139caaacd601124",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_03182026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148040",
+        "148028"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-04-01|RETAIL|Core Retail Sales m/m|148040",
+        "2026-04-01|RETAIL|Retail Sales m/m|148028"
+      ],
+      "event_date": "2026-04-01",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-04-01|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-04-01T12:30:00Z",
+      "official_source_sha256": "fe81c4981160da66b00389e4c1d2ad7613754fcb47e6cde6a4f253fddbecc291",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2602.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "146930",
+        "146906",
+        "146918"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2026-04-03|EMPLOYMENT|Average Hourly Earnings m/m|146930",
+        "2026-04-03|EMPLOYMENT|Non-Farm Employment Change|146906",
+        "2026-04-03|EMPLOYMENT|Unemployment Rate|146918"
+      ],
+      "event_date": "2026-04-03",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-04-03|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-04-03T12:30:00Z",
+      "official_source_sha256": "532760a4d2854a7ee19f238ffbdcbcfc2397f5914c33ea8bd423917b1bd0d818",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_04032026.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148314",
+        "148307"
+      ],
+      "component_names": [
+        "Final GDP Price Index q/q",
+        "Final GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-04-09|GDP_PCE|Final GDP Price Index q/q|148314",
+        "2026-04-09|GDP_PCE|Final GDP q/q|148307"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-04-09",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-04-09|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "148229",
+        "148241",
+        "148253"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-04-09|GDP_PCE|Core PCE Price Index m/m|148229",
+        "2026-04-09|GDP_PCE|Personal Income m/m|148241",
+        "2026-04-09|GDP_PCE|Personal Spending m/m|148253"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-04-09",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-04-09|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "148329",
+        "148346",
+        "148360",
+        "153051"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2026-04-10|CPI|CPI m/m|148329",
+        "2026-04-10|CPI|CPI y/y|148346",
+        "2026-04-10|CPI|Core CPI m/m|148360",
+        "2026-04-10|CPI|Core CPI y/y|153051"
+      ],
+      "event_date": "2026-04-10",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-04-10|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-04-10T12:30:00Z",
+      "official_source_sha256": "2f00ec5a10c8d2f0e6e879d8ae8762af555cb7ef26805b37b627ad47c93012f0",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_04102026.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148398",
+        "148379"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-04-14|PPI|Core PPI m/m|148398",
+        "2026-04-14|PPI|PPI m/m|148379"
+      ],
+      "event_date": "2026-04-14",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-04-14|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-04-14T12:30:00Z",
+      "official_source_sha256": "3e1e49241869570e2393f7bfb431e09791d877c919b989a8a06ff3c04d61b8fb",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_04142026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "152774",
+        "152773"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-04-21|RETAIL|Core Retail Sales m/m|152774",
+        "2026-04-21|RETAIL|Retail Sales m/m|152773"
+      ],
+      "event_date": "2026-04-21",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-04-21|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-04-21T12:30:00Z",
+      "official_source_sha256": "5891370e244910ac38ab6f24ca173b4aaf179608176b77a88914d0ad4801eec3",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2603.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "146504",
+        "146496"
+      ],
+      "component_names": [
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2026-04-29|FOMC|FOMC Statement|146504",
+        "2026-04-29|FOMC|Federal Funds Rate|146496"
+      ],
+      "event_date": "2026-04-29",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2026-04-29|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-04-29T18:00:00Z",
+      "official_source_sha256": "bf4826169974aec1c5854401671d766b4325e4de209b1cd906a67d4f0825b6a8",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148284",
+        "148272"
+      ],
+      "component_names": [
+        "Advance GDP Price Index q/q",
+        "Advance GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-04-30|GDP_PCE|Advance GDP Price Index q/q|148284",
+        "2026-04-30|GDP_PCE|Advance GDP q/q|148272"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-04-30",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-04-30|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "148230",
+        "148242",
+        "148254"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-04-30|GDP_PCE|Core PCE Price Index m/m|148230",
+        "2026-04-30|GDP_PCE|Personal Income m/m|148242",
+        "2026-04-30|GDP_PCE|Personal Spending m/m|148254"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-04-30",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-04-30|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "146931",
+        "146907",
+        "146919"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2026-05-08|EMPLOYMENT|Average Hourly Earnings m/m|146931",
+        "2026-05-08|EMPLOYMENT|Non-Farm Employment Change|146907",
+        "2026-05-08|EMPLOYMENT|Unemployment Rate|146919"
+      ],
+      "event_date": "2026-05-08",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-05-08|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-05-08T12:30:00Z",
+      "official_source_sha256": "1fbf18cc3628258342ab2488beb30dbce1a47a79ce83ec8bb5ed4b018cdb321b",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_05082026.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148330",
+        "148347",
+        "148361",
+        "153052"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2026-05-12|CPI|CPI m/m|148330",
+        "2026-05-12|CPI|CPI y/y|148347",
+        "2026-05-12|CPI|Core CPI m/m|148361",
+        "2026-05-12|CPI|Core CPI y/y|153052"
+      ],
+      "event_date": "2026-05-12",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-05-12|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-05-12T12:30:00Z",
+      "official_source_sha256": "bfee220ac431aefa8dcd000040996fce59d17c06ea2fe2b297db0f3a6d5b659f",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_05122026.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148399",
+        "148381"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-05-13|PPI|Core PPI m/m|148399",
+        "2026-05-13|PPI|PPI m/m|148381"
+      ],
+      "event_date": "2026-05-13",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-05-13|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-05-13T12:30:00Z",
+      "official_source_sha256": "eeae23b5089da2a2dacbeb98f20a7d5f4ef7a395ce3856fef40c6fb570c492c1",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_05132026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148041",
+        "148029"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-05-14|RETAIL|Core Retail Sales m/m|148041",
+        "2026-05-14|RETAIL|Retail Sales m/m|148029"
+      ],
+      "event_date": "2026-05-14",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-05-14|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-05-14T12:30:00Z",
+      "official_source_sha256": "23e7f0b629724e3cbafbb0e0b6e300210cf65e4ce5b8c1c8935631ef07a19794",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2604.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148297",
+        "148289"
+      ],
+      "component_names": [
+        "Prelim GDP Price Index q/q",
+        "Prelim GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-05-28|GDP_PCE|Prelim GDP Price Index q/q|148297",
+        "2026-05-28|GDP_PCE|Prelim GDP q/q|148289"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-05-28",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-05-28|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "148231",
+        "148243",
+        "148255"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-05-28|GDP_PCE|Core PCE Price Index m/m|148231",
+        "2026-05-28|GDP_PCE|Personal Income m/m|148243",
+        "2026-05-28|GDP_PCE|Personal Spending m/m|148255"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-05-28",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-05-28|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "146932",
+        "146908",
+        "146920"
+      ],
+      "component_names": [
+        "Average Hourly Earnings m/m",
+        "Non-Farm Employment Change",
+        "Unemployment Rate"
+      ],
+      "component_record_keys": [
+        "2026-06-05|EMPLOYMENT|Average Hourly Earnings m/m|146932",
+        "2026-06-05|EMPLOYMENT|Non-Farm Employment Change|146908",
+        "2026-06-05|EMPLOYMENT|Unemployment Rate|146920"
+      ],
+      "event_date": "2026-06-05",
+      "family": "EMPLOYMENT",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-06-05|EMPLOYMENT|EMPLOYMENT",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-06-05T12:30:00Z",
+      "official_source_sha256": "5c872de512f133555f2ab7ac98b80ff89005e348611d1cae91a449ed992225e8",
+      "official_source_url": "https://www.bls.gov/news.release/archives/empsit_06052026.htm",
+      "release_kind": "EMPLOYMENT",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148331",
+        "148348",
+        "148363",
+        "153053"
+      ],
+      "component_names": [
+        "CPI m/m",
+        "CPI y/y",
+        "Core CPI m/m",
+        "Core CPI y/y"
+      ],
+      "component_record_keys": [
+        "2026-06-10|CPI|CPI m/m|148331",
+        "2026-06-10|CPI|CPI y/y|148348",
+        "2026-06-10|CPI|Core CPI m/m|148363",
+        "2026-06-10|CPI|Core CPI y/y|153053"
+      ],
+      "event_date": "2026-06-10",
+      "family": "CPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-06-10|CPI|CPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-06-10T12:30:00Z",
+      "official_source_sha256": "ba198a462a41b85b997df781558b90d3ab4663d9640efc8cdccca9e81e046a2f",
+      "official_source_url": "https://www.bls.gov/news.release/archives/cpi_06102026.htm",
+      "release_kind": "CPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148400",
+        "148383"
+      ],
+      "component_names": [
+        "Core PPI m/m",
+        "PPI m/m"
+      ],
+      "component_record_keys": [
+        "2026-06-11|PPI|Core PPI m/m|148400",
+        "2026-06-11|PPI|PPI m/m|148383"
+      ],
+      "event_date": "2026-06-11",
+      "family": "PPI",
+      "official_authority": "U.S. Bureau of Labor Statistics",
+      "official_block_id": "2026-06-11|PPI|PPI",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-06-11T12:30:00Z",
+      "official_source_sha256": "d11359f4ca0a4687eb4a9e6059eaa80da5d56cdfa447c057d8fed393c3106be0",
+      "official_source_url": "https://www.bls.gov/news.release/archives/ppi_06112026.htm",
+      "release_kind": "PPI",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "146511",
+        "146505",
+        "146497"
+      ],
+      "component_names": [
+        "FOMC Economic Projections",
+        "FOMC Statement",
+        "Federal Funds Rate"
+      ],
+      "component_record_keys": [
+        "2026-06-17|FOMC|FOMC Economic Projections|146511",
+        "2026-06-17|FOMC|FOMC Statement|146505",
+        "2026-06-17|FOMC|Federal Funds Rate|146497"
+      ],
+      "event_date": "2026-06-17",
+      "family": "FOMC",
+      "official_authority": "Federal Reserve Board",
+      "official_block_id": "2026-06-17|FOMC|FOMC",
+      "official_local_release_time": "14:00",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-06-17T18:00:00Z",
+      "official_source_sha256": "63c2161a30bb2f27b43dcd2179ed759d74f352cecfdd1e3c37ef7c073950f48b",
+      "official_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+      "release_kind": "FOMC",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148042",
+        "148030"
+      ],
+      "component_names": [
+        "Core Retail Sales m/m",
+        "Retail Sales m/m"
+      ],
+      "component_record_keys": [
+        "2026-06-17|RETAIL|Core Retail Sales m/m|148042",
+        "2026-06-17|RETAIL|Retail Sales m/m|148030"
+      ],
+      "event_date": "2026-06-17",
+      "family": "RETAIL",
+      "official_authority": "U.S. Census Bureau",
+      "official_block_id": "2026-06-17|RETAIL|RETAIL",
+      "official_local_release_time": "08:30",
+      "official_local_timezone": "America/New_York",
+      "official_release_timestamp_utc": "2026-06-17T12:30:00Z",
+      "official_source_sha256": "44dc232db43c1d2d6f7244e832b6293c7817a0855b45d1d0ca17a3536cda9382",
+      "official_source_url": "https://www2.census.gov/retail/releases/historical/marts/adv2605.pdf",
+      "release_kind": "RETAIL",
+      "source_date_verified": true,
+      "source_time_verified": true
+    },
+    {
+      "component_event_ids": [
+        "148315",
+        "148308"
+      ],
+      "component_names": [
+        "Final GDP Price Index q/q",
+        "Final GDP q/q"
+      ],
+      "component_record_keys": [
+        "2026-06-25|GDP_PCE|Final GDP Price Index q/q|148315",
+        "2026-06-25|GDP_PCE|Final GDP q/q|148308"
+      ],
+      "error_detail": "BEA GDP schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-06-25",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-06-25|GDP_PCE|GDP",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "GDP",
+      "source_date_verified": false,
+      "source_time_verified": false
+    },
+    {
+      "component_event_ids": [
+        "148232",
+        "148244",
+        "148256"
+      ],
+      "component_names": [
+        "Core PCE Price Index m/m",
+        "Personal Income m/m",
+        "Personal Spending m/m"
+      ],
+      "component_record_keys": [
+        "2026-06-25|GDP_PCE|Core PCE Price Index m/m|148232",
+        "2026-06-25|GDP_PCE|Personal Income m/m|148244",
+        "2026-06-25|GDP_PCE|Personal Spending m/m|148256"
+      ],
+      "error_detail": "BEA PCE schedule match count=0",
+      "error_type": "RuntimeError",
+      "event_date": "2026-06-25",
+      "family": "GDP_PCE",
+      "official_block_id": "2026-06-25|GDP_PCE|PCE",
+      "official_local_timezone": "America/New_York",
+      "release_kind": "PCE",
+      "source_date_verified": false,
+      "source_time_verified": false
+    }
+  ],
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "release_kind_counts": {
+    "CPI:CPI": 11,
+    "EMPLOYMENT:EMPLOYMENT": 11,
+    "FOMC:FOMC": 8,
+    "GDP_PCE:GDP": 11,
+    "GDP_PCE:PCE": 11,
+    "PPI:PPI": 11,
+    "RETAIL:RETAIL": 12
+  },
+  "stage": "EXP-041 official release-time map v0.2"
+}
