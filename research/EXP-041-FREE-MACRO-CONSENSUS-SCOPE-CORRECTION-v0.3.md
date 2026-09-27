@@ -2,8 +2,8 @@
 
 **Frozen:** 2026-09-27  
 **Input:** frozen v0.2 dataset `research/data/EXP-041-free-macro-consensus-v0.2.json`  
-**Input SHA-256:** `17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811` is v0.2 audit's source dataset predecessor?  
-**Authoritative v0.2 normalized SHA-256:** read and verify from `research/results/EXP-041-free-macro-consensus-acquisition-audit-v0.2.json` at runtime.  
+**Input SHA-256:** `17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811` (from the durable v0.2 audit).  
+The runner also reads and verifies that value from `research/results/EXP-041-free-macro-consensus-acquisition-audit-v0.2.json` at runtime.  
 **Type:** zero-outcome deterministic scope correction  
 **Protected periods:** Jul-Aug and Sep 2026 remain sealed
 
