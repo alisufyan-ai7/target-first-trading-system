@@ -2325,3 +2325,37 @@ v0.2:
 - computes no market outcomes.
 
 **Exact next action:** trigger exactly one official release-time reconciliation v0.2. PASS => freeze Phase B official actual-as-released reconciliation.
+
+
+## 2026-09-27 — OFFICIAL RELEASE-TIME v0.2 ISOLATED TO 2026 BEA PARSER / v0.3 FROZEN
+
+Durable v0.2 result: `83b12d3673fb770854f12e93b3c479d7a3f79743`.
+
+v0.2 successfully resolved:
+
+- EMPLOYMENT 11/11;
+- CPI 11/11;
+- PPI 11/11;
+- RETAIL 12/12;
+- FOMC 8/8;
+- 2025 BEA GDP/PCE blocks.
+
+Only 14 BEA 2026 sub-blocks remained unresolved: GDP + PCE on Jan22, Feb20, Mar13, Apr9, Apr30, May28 and Jun25.
+
+The official BEA 2026 release schedule contains these rows, including Jan22 GDP at 8:30 AM and Personal Income and Outlays at 10:00 AM, and later 2026 paired GDP/PCE releases. The remaining failure is therefore the HTML schedule-row parser.
+
+Frozen v0.3:
+
+- spec commit: `cc7efa0fdbd6ec75fd6d9b84c3ef64ebf3b95c0a`;
+- runner commit: `232ee1f809c4a2002f2a830c645d8fff11abd9ce`;
+- workflow commit: `8a002c2dc82dc9786932511cf921c90150a5cd21`.
+
+v0.3 changes BEA parsing only:
+
+- parse schedule rows/containers rather than relying on one flattened-text regex;
+- retain linked first-party BEA release URL when exposed;
+- classify exact date + GDP/PCE release identity;
+- preserve each row's actual official local time;
+- keep all BLS/Census/Fed mappings and frozen consensus values unchanged.
+
+**Exact next action:** trigger one official release-time v0.3 reconciliation. PASS => freeze Phase B official actual-as-released reconciliation.
