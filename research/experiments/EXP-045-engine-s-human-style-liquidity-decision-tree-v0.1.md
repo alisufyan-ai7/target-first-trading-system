@@ -262,3 +262,6 @@ No target, MFE/MAE, trade P&L or post-entry path is inspected by these clarifica
 
 
 14. **Liquidity freshness across the day:** level attack/consumption is tracked from the moment a level becomes causally known, even outside the 06:00-17:00 setup-creation window. Thus a PDH/PDL attacked before 06:00 is no longer fresh for a later Engine-S setup. Asia levels begin consumption eligibility at 06:00; opening-range levels at 09:00. Only attacks whose completed 5m close satisfies the frozen setup window may create a setup.
+
+
+15. **Pending-entry same-bar ambiguity:** during midpoint-entry search, structural invalidation is evaluated before midpoint fill on the same M1 bar. If one bar touches both the frozen stop and the entry midpoint, the setup is cancelled as `preentry_invalidation_same_bar` and is not counted as an accepted candidate.
