@@ -1,0 +1,6 @@
+EXP-046 Engine T v0.1 structural-target development trigger
+Zero-outcome PASS: 3f257487ac32b73bcf605e9cc442678bce9ef662
+Frozen protocol: 2f2aca9b1a67799f315de286da1f3913493ff865
+Evaluator: 17b3bc55e8b267b7c4bf70630863e66b493523f7
+Workflow: 4201b50ca1147014e1adff6034e90a37d9d22cdb
+Development only through 2025-02-28. Protected periods sealed.
