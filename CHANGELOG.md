@@ -641,3 +641,8 @@
 - EXP-045 Engine-S v0.1 zero-outcome preflight failed density at `5d70059`: 22 filled candidates from 944 setups; no target/P&L outcomes computed.
 - Frozen Engine-S v0.2 sequential confirmation at spec `a83afb2`, engine `262e3ca`, runner `b109793`, workflow `47fd28a`.
 - v0.2 preserves the same structural criteria and unchanged adequacy gate while separating MSS, displacement, FVG and midpoint-fill timing.
+
+
+- Frozen final EXP-045 Engine-S v0.2 extended zero-outcome confirmation: spec `0e6b8d5`, runner `6e7ab5f`, workflow `780f081`.
+- No strategy rules or adequacy thresholds changed; only earlier zero-outcome sample length is extended to Jan-2022 through Feb-2025.
+- This is the final Engine-S density attempt.
