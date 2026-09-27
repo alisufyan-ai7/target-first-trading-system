@@ -1,0 +1,250 @@
+{
+  "chronological_folds": [
+    {
+      "block_timestamps": [
+        "2025-07-03T12:30:00Z",
+        "2025-07-15T12:30:00Z",
+        "2025-07-16T12:30:00Z",
+        "2025-07-17T12:30:00Z",
+        "2025-07-30T12:30:00Z",
+        "2025-07-30T18:00:00Z",
+        "2025-07-31T12:30:00Z",
+        "2025-08-01T12:30:00Z",
+        "2025-08-12T12:30:00Z",
+        "2025-08-14T12:30:00Z",
+        "2025-08-15T12:30:00Z"
+      ],
+      "end_timestamp_utc": "2025-08-15T12:30:00Z",
+      "families": [
+        "CPI",
+        "EMPLOYMENT",
+        "FOMC",
+        "GDP_PCE",
+        "PPI",
+        "RETAIL"
+      ],
+      "family_count": 6,
+      "fold": 1,
+      "independent_blocks": 11,
+      "pass": true,
+      "start_timestamp_utc": "2025-07-03T12:30:00Z"
+    },
+    {
+      "block_timestamps": [
+        "2025-08-28T12:30:00Z",
+        "2025-08-29T12:30:00Z",
+        "2025-09-05T12:30:00Z",
+        "2025-09-10T12:30:00Z",
+        "2025-09-11T12:30:00Z",
+        "2025-09-16T12:30:00Z",
+        "2025-09-17T18:00:00Z",
+        "2025-09-25T12:30:00Z",
+        "2025-09-26T12:30:00Z",
+        "2025-10-24T12:30:00Z",
+        "2025-10-29T18:00:00Z"
+      ],
+      "end_timestamp_utc": "2025-10-29T18:00:00Z",
+      "families": [
+        "CPI",
+        "EMPLOYMENT",
+        "FOMC",
+        "GDP_PCE",
+        "PPI",
+        "RETAIL"
+      ],
+      "family_count": 6,
+      "fold": 2,
+      "independent_blocks": 11,
+      "pass": true,
+      "start_timestamp_utc": "2025-08-28T12:30:00Z"
+    },
+    {
+      "block_timestamps": [
+        "2025-11-20T13:30:00Z",
+        "2025-11-25T13:30:00Z",
+        "2025-12-05T15:00:00Z",
+        "2025-12-10T19:00:00Z",
+        "2025-12-16T13:30:00Z",
+        "2025-12-18T13:30:00Z",
+        "2025-12-23T13:30:00Z",
+        "2026-01-09T13:30:00Z",
+        "2026-01-13T13:30:00Z",
+        "2026-01-14T13:30:00Z",
+        "2026-01-22T13:30:00Z"
+      ],
+      "end_timestamp_utc": "2026-01-22T13:30:00Z",
+      "families": [
+        "CPI",
+        "EMPLOYMENT",
+        "FOMC",
+        "GDP_PCE",
+        "PPI",
+        "RETAIL"
+      ],
+      "family_count": 6,
+      "fold": 3,
+      "independent_blocks": 11,
+      "pass": true,
+      "start_timestamp_utc": "2025-11-20T13:30:00Z"
+    },
+    {
+      "block_timestamps": [
+        "2026-01-22T15:00:00Z",
+        "2026-01-28T19:00:00Z",
+        "2026-01-30T13:30:00Z",
+        "2026-02-10T13:30:00Z",
+        "2026-02-11T13:30:00Z",
+        "2026-02-13T13:30:00Z",
+        "2026-02-20T13:30:00Z",
+        "2026-02-27T13:30:00Z",
+        "2026-03-06T13:30:00Z",
+        "2026-03-11T12:30:00Z",
+        "2026-03-13T12:30:00Z"
+      ],
+      "end_timestamp_utc": "2026-03-13T12:30:00Z",
+      "families": [
+        "CPI",
+        "EMPLOYMENT",
+        "FOMC",
+        "GDP_PCE",
+        "PPI",
+        "RETAIL"
+      ],
+      "family_count": 6,
+      "fold": 4,
+      "independent_blocks": 11,
+      "pass": true,
+      "start_timestamp_utc": "2026-01-22T15:00:00Z"
+    },
+    {
+      "block_timestamps": [
+        "2026-03-18T12:30:00Z",
+        "2026-03-18T18:00:00Z",
+        "2026-04-01T12:30:00Z",
+        "2026-04-03T12:30:00Z",
+        "2026-04-09T12:30:00Z",
+        "2026-04-10T12:30:00Z",
+        "2026-04-14T12:30:00Z",
+        "2026-04-21T12:30:00Z",
+        "2026-04-29T18:00:00Z",
+        "2026-04-30T12:30:00Z",
+        "2026-05-08T12:30:00Z"
+      ],
+      "end_timestamp_utc": "2026-05-08T12:30:00Z",
+      "families": [
+        "CPI",
+        "EMPLOYMENT",
+        "FOMC",
+        "GDP_PCE",
+        "PPI",
+        "RETAIL"
+      ],
+      "family_count": 6,
+      "fold": 5,
+      "independent_blocks": 11,
+      "pass": true,
+      "start_timestamp_utc": "2026-03-18T12:30:00Z"
+    },
+    {
+      "block_timestamps": [
+        "2026-05-12T12:30:00Z",
+        "2026-05-13T12:30:00Z",
+        "2026-05-14T12:30:00Z",
+        "2026-05-28T12:30:00Z",
+        "2026-06-05T12:30:00Z",
+        "2026-06-10T12:30:00Z",
+        "2026-06-11T12:30:00Z",
+        "2026-06-17T12:30:00Z",
+        "2026-06-17T18:00:00Z",
+        "2026-06-25T12:30:00Z"
+      ],
+      "end_timestamp_utc": "2026-06-25T12:30:00Z",
+      "families": [
+        "CPI",
+        "EMPLOYMENT",
+        "FOMC",
+        "GDP_PCE",
+        "PPI",
+        "RETAIL"
+      ],
+      "family_count": 6,
+      "fold": 6,
+      "independent_blocks": 10,
+      "pass": true,
+      "start_timestamp_utc": "2026-05-12T12:30:00Z"
+    }
+  ],
+  "disposition": "EXP041_GATE_A_PASS_AUTHORIZE_GATE_B_INFORMATION_CONTENT",
+  "family_independent_timestamp_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 11,
+    "FOMC": 8,
+    "GDP_PCE": 16,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "gate": {
+    "all_6_folds_ge_2_families": true,
+    "all_6_folds_ge_4_blocks": true,
+    "consensus_pre_release_provenance_frozen": true,
+    "fomc_events_ge_6_or_timing_only": true,
+    "fomc_first_party_sources_present": true,
+    "independent_blocks_ge_40": true,
+    "macro_record_counts_exact": true,
+    "market_history_12m_frozen_interval": true,
+    "no_market_outcomes_calculated": true,
+    "numeric_families_ge_8": true,
+    "official_actuals_have_source_hashes": true,
+    "official_release_provenance_complete": true,
+    "protected_periods_unloaded_unlabeled": true,
+    "surprise_bearing_blocks_ge_30": true
+  },
+  "gate_a_pass": true,
+  "github_run_id": "36312329023",
+  "independent_event_block_rule": "collapse exact official_release_timestamp_utc",
+  "independent_event_blocks": 65,
+  "input_integrity": {
+    "all_8_market_integrity_pass": true,
+    "consensus_v03_gate_pass": true,
+    "consensus_v03_sha_matches_audit": true,
+    "dukas_archive_sha_exact": true,
+    "dukas_effective_interval_exact": true,
+    "dukas_release_created_or_verified": true,
+    "dukas_release_tag_exact": true,
+    "dukas_repeatability_pass": true,
+    "official_actual_reconciliation_pass": true,
+    "official_actual_sha_matches_audit": true
+  },
+  "inputs": {
+    "consensus_v03_sha256": "911bbc204cdc9a7ed8ecafa7dd166aaaa1141a78675405ac4319d164bd6fb0c3",
+    "dukas_archive_sha256": "90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272",
+    "dukas_snapshot_tag": "exp041-data-dukas-m1-2025-07-01_2026-06-30-v2",
+    "official_surprise_layer_sha256": "ec267643940733db4647d5d1dc5537099e3fc149ee7e0e9257b1b8786017c362"
+  },
+  "market_data_loaded": false,
+  "official_records": 75,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "provenance": {
+    "all_fomc_have_source_url": true,
+    "all_fomc_have_utc_timestamp": true,
+    "all_fomc_timing_only": true,
+    "all_numeric_have_forecast": true,
+    "all_numeric_have_official_actual": true,
+    "all_numeric_have_source_sha": true,
+    "all_numeric_have_utc_timestamp": true,
+    "all_numeric_official_context_verified": true,
+    "consensus_source_role_frozen": true,
+    "fomc_records_8": true,
+    "numeric_records_67": true,
+    "protected_periods_sealed": true
+  },
+  "scientific_market_outcomes_calculated": false,
+  "stage": "EXP-041 final Gate-A adequacy/provenance audit v0.1",
+  "surprise_bearing_independent_blocks": 57,
+  "target_labels_calculated": false,
+  "tested_repository_sha": "08ea3d992aa0b18bce225124eb5b37a98d8171c9"
+}
