@@ -2426,3 +2426,35 @@ Phase B does not parse every secondary statistic. It verifies one canonical surp
 PASS => one final zero-outcome Gate-A audit.
 
 **Exact next action:** trigger exactly one official actual-as-released reconciliation Phase B.
+
+
+## 2026-09-27 — PHASE B PASSED / FINAL GATE-A AUDIT FROZEN
+
+Official actual-as-released reconciliation durable result: `fe8e180551741d205b2eb620bfa46330aee73c4e`.
+
+Result:
+
+- 67/67 numeric official blocks reconciled;
+- 8/8 FOMC blocks retained timing-only;
+- zero reconciliation errors;
+- all numeric records have frozen Forecast, first-party-verified Actual, official source hash and UTC timestamp;
+- surprise layer SHA-256: `ec267643940733db4647d5d1dc5537099e3fc149ee7e0e9257b1b8786017c362`;
+- no market data, target labels, P&L or protected-period use;
+- disposition: `OFFICIAL_ACTUAL_RECONCILIATION_PASS_FINAL_GATE_A_REQUIRED`.
+
+Final Gate-A is prospectively frozen:
+
+- spec commit: `d9b6dce6366a200fd92f942e1319a44f708fe503`;
+- runner commit: `02200aa0a1b472055208ab3022d44cfff682f99a`;
+- workflow commit: `1520b4120312a134be7425ef6a58c2a3387742c0`.
+
+Important anti-pseudoreplication rule:
+
+- exact same `official_release_timestamp_utc` records collapse to one independent event block;
+- a simultaneous timestamp can contain multiple families but counts once toward total independent blocks.
+
+Six chronological evaluation folds are frozen before outcomes by sorting independent timestamps and splitting them contiguously/as evenly as possible. These fold boundaries become the default Gate-B folds and cannot be redrawn after seeing market outcomes.
+
+The audit checks the original frozen Gate-A requirements unchanged, including >=40 independent blocks, >=30 surprise-bearing blocks, >=8 timestamps per recurring numeric family, >=6 FOMC events or timing-only, >=4 blocks/fold, >=2 families/fold, point-in-time Forecast provenance, official release timestamps, 12-month canonical market history, and protected-period seal.
+
+**Exact next action:** trigger one final Gate-A adequacy/provenance audit. PASS => Gate B information-content study becomes authorized.
