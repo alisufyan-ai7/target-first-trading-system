@@ -2898,3 +2898,43 @@ Frozen source-only diagnostic:
 The diagnostic loads only the immutable microstructure snapshot and tests the theoretical 06:05-17:55 decision grid under the already-frozen 4/24/48 minute-availability rule.
 
 **Exact next action:** trigger one source-only microstructure availability diagnostic. EXP-043 v0.1 remains `INTEGRITY_FAIL_DO_NOT_INTERPRET` regardless of diagnostic outcome.
+
+
+## 2026-09-27 — EXP-043 SOURCE DIAGNOSTIC EXPLAINS COVERAGE FAILURE / v0.2 FROZEN
+
+Source-only availability diagnostic durable result: `2005a6187a3dec895d68e066d19a018ac25cd290`.
+
+Disposition:
+
+`SOURCE_AVAILABILITY_EXPLAINS_EXP043_COVERAGE_FAILURE`.
+
+The diagnostic loaded no target OHLC, labels, model predictions or P&L.
+
+Source-only theoretical decision coverage under the frozen 4/24/48 rule:
+
+- AUDUSD 82.37%;
+- USDCHF 87.30%;
+
+These are the only two markets below 90%.
+
+Therefore EXP-043 v0.1 remains `INTEGRITY_FAIL_DO_NOT_INTERPRET`, but a separate outcome-blind v0.2 is authorized using exactly the six markets with >=90% source-only availability:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- USDCAD.
+
+Frozen v0.2:
+
+- spec `c09d1da2a8e2864dfe5f945b30ef6ed3fcb0c470`;
+- final runner `bcb8308f1cad4d74c556b69d87cd55db7e29de36`;
+- workflow `a79831fc92a3825cb7772a2a733ddec7236e50b0`;
+- source diagnostic blob `c0f5a33d5a73495922280b241b037e0f81641f33`.
+
+Nothing else changes from v0.1: same features, windows, folds, learner, T40/T50 rungs and scientific thresholds.
+
+The market stability requirement remains **at least 5 markets non-worse**, now out of 6, so it is not weakened.
+
+**Exact next action:** trigger one EXP-043 v0.2 information-content run and resume from its durable result.
