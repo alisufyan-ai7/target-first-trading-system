@@ -577,3 +577,8 @@
 - Closed EXP-041 with recovered disposition `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
 - Frozen EXP-042 zero-outcome rates/USD proxy preflight using Dukascopy `dollaridxusd` and `ustbondtrusd`.
 - EXP-042 requires two independent full-year M1 downloads to match byte-for-byte before an immutable snapshot is released; no model/outcome computation is authorized yet.
+
+
+- EXP-042 DXY/US-TBond proxy snapshot passed at `16766eb`; immutable archive SHA `86cef306...`.
+- Frozen zero-outcome event-coverage preflight at spec `9ea69bd`, runner `9eb3c32`, workflow `0376301`.
+- Post-release geometry is frozen before outcomes: 57 eligible Gate-A events and 8 ineligible late FOMC events.
