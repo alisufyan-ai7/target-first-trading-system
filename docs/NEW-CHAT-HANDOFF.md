@@ -2242,3 +2242,31 @@ It verifies all 68 event dates/times against BLS/Census/BEA/Fed official sources
 PASS => freeze Phase B component-level official actual-as-released reconciliation against the exact v0.3 Forecast consensus.
 
 **Exact next action:** trigger one official release-time reconciliation and resume from the durable JSON checkpoint.
+
+
+## EXP-041 official release-time reconciliation v0.2 checkpoint
+
+v0.1 durable result: `a8bceb64027d48de9d2533d852a41d86f9c11e54`.
+
+It failed on source mapping, not macro evidence:
+
+- Employment/CPI/PPI 11/11 each resolved;
+- Retail 9/12;
+- GDP/PCE 0/15;
+- FOMC 1/8.
+
+Frozen v0.2 repair:
+
+- spec `949382b7d5bdf5d712c13b69fad6d91cc305f303`;
+- runner `2f7aa1d5521bc4b9efb41616b1598db295f56cae`;
+- workflow `f3bea537c8fd9c8b387a4a011fef726436f9f9d1`.
+
+Key corrections:
+
+- direct Census MARTS historical PDFs for Retail;
+- official BEA schedule row parsing;
+- same-date GDP and PCE split into separate official blocks when required;
+- correct Federal Reserve `newsevents/pressreleases/monetaryYYYYMMDDa.htm` FOMC URL;
+- unchanged frozen consensus v0.3 input.
+
+**Exact next action:** trigger one official release-time v0.2 reconciliation. PASS => Phase B official actual-as-released reconciliation.
