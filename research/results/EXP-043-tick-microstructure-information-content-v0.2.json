@@ -1,0 +1,5759 @@
+{
+  "experiment": "EXP-043",
+  "stage": "development_tick_microstructure_information_content_v0.2",
+  "tested_repository_sha": "5c97b67d0117a0c9127307104b257bb2927a6791",
+  "sklearn_version": "1.5.2",
+  "scope": {
+    "development_interval": [
+      "2026-03-23T00:00:00Z",
+      "2026-06-30T00:00:00Z"
+    ],
+    "secondary_test_loaded_or_labeled": false,
+    "final_holdout_loaded_or_labeled": false,
+    "engine_r_or_exp015_outcomes_used": false
+  },
+  "inputs": {
+    "target_release_tag": "exp041-data-dukas-m1-2025-07-01_2026-06-30-v2",
+    "target_archive_sha256": "90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272",
+    "micro_release_tag": "exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1",
+    "micro_archive_sha256": "f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5",
+    "micro_snapshot_result_blob": "f1bc941e88ee809bf9810fe34d780e41e4530fe7",
+    "source_availability_diagnostic_blob": "c0f5a33d5a73495922280b241b037e0f81641f33"
+  },
+  "self_tests": [
+    "nested_feature_sets_exact",
+    "six_original_exp040_folds",
+    "primary_rungs_t40_t50",
+    "availability_defined_six_market_universe_exact"
+  ],
+  "active_markets": [
+    "XAUUSD",
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY",
+    "EURJPY",
+    "USDCAD"
+  ],
+  "excluded_source_markets": [
+    "AUDUSD",
+    "USDCHF"
+  ],
+  "v01_reinterpreted": false,
+  "primary_rungs": [
+    "T40eq",
+    "T50eq"
+  ],
+  "feature_sets": {
+    "LOCAL_M5": [
+      "m5_signed_move_5m",
+      "m5_signed_move_15m",
+      "m5_signed_move_30m",
+      "m5_ema10_minus_ema30_dir",
+      "m5_ema10_slope_15m_dir",
+      "m5_tr_over_med20",
+      "m5_compression_ratio",
+      "m5_body_over_range",
+      "m5_dir_close_location",
+      "m5_prior3_body_balance_dir",
+      "stop_distance_over_m5_medtr",
+      "utc_hour_sin",
+      "utc_hour_cos",
+      "weekday"
+    ],
+    "PLUS_EXECUTION_COST_STATE": [
+      "m5_signed_move_5m",
+      "m5_signed_move_15m",
+      "m5_signed_move_30m",
+      "m5_ema10_minus_ema30_dir",
+      "m5_ema10_slope_15m_dir",
+      "m5_tr_over_med20",
+      "m5_compression_ratio",
+      "m5_body_over_range",
+      "m5_dir_close_location",
+      "m5_prior3_body_balance_dir",
+      "stop_distance_over_m5_medtr",
+      "utc_hour_sin",
+      "utc_hour_cos",
+      "weekday",
+      "spread_bps_recent",
+      "spread_bps_p90_recent",
+      "log_spread_ratio_5_to_60",
+      "quote_age_recent_fraction"
+    ],
+    "PLUS_PARTICIPATION_STATE": [
+      "m5_signed_move_5m",
+      "m5_signed_move_15m",
+      "m5_signed_move_30m",
+      "m5_ema10_minus_ema30_dir",
+      "m5_ema10_slope_15m_dir",
+      "m5_tr_over_med20",
+      "m5_compression_ratio",
+      "m5_body_over_range",
+      "m5_dir_close_location",
+      "m5_prior3_body_balance_dir",
+      "stop_distance_over_m5_medtr",
+      "utc_hour_sin",
+      "utc_hour_cos",
+      "weekday",
+      "spread_bps_recent",
+      "spread_bps_p90_recent",
+      "log_spread_ratio_5_to_60",
+      "quote_age_recent_fraction",
+      "log_tick_activity_ratio_5_to_60",
+      "log_interarrival_ratio_5_to_60",
+      "price_update_fraction_recent",
+      "log_quote_size_ratio_5_to_60",
+      "distinct_timestamp_fraction_recent"
+    ],
+    "PLUS_QUOTE_IMBALANCE_STATE": [
+      "m5_signed_move_5m",
+      "m5_signed_move_15m",
+      "m5_signed_move_30m",
+      "m5_ema10_minus_ema30_dir",
+      "m5_ema10_slope_15m_dir",
+      "m5_tr_over_med20",
+      "m5_compression_ratio",
+      "m5_body_over_range",
+      "m5_dir_close_location",
+      "m5_prior3_body_balance_dir",
+      "stop_distance_over_m5_medtr",
+      "utc_hour_sin",
+      "utc_hour_cos",
+      "weekday",
+      "spread_bps_recent",
+      "spread_bps_p90_recent",
+      "log_spread_ratio_5_to_60",
+      "quote_age_recent_fraction",
+      "log_tick_activity_ratio_5_to_60",
+      "log_interarrival_ratio_5_to_60",
+      "price_update_fraction_recent",
+      "log_quote_size_ratio_5_to_60",
+      "distinct_timestamp_fraction_recent",
+      "directional_imbalance_recent",
+      "directional_imbalance_medium",
+      "directional_heavy_balance_recent",
+      "directional_imbalance_change_5_vs_30"
+    ]
+  },
+  "micro_windows_minutes": {
+    "recent": 5,
+    "medium": 30,
+    "baseline": 60
+  },
+  "micro_window_min_observed_minutes": {
+    "recent": 4,
+    "medium": 24,
+    "baseline": 48
+  },
+  "model": {
+    "type": "StandardScaler + LogisticRegression + Platt calibration",
+    "base_params": {
+      "C": 0.25,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "random_state": 20260925
+    },
+    "platt_params": {
+      "C": 1000000.0,
+      "solver": "lbfgs",
+      "max_iter": 1000
+    }
+  },
+  "folds": [
+    {
+      "id": "WF1",
+      "cal_start": "2026-04-06",
+      "eval_start": "2026-04-13",
+      "eval_end": "2026-04-27"
+    },
+    {
+      "id": "WF2",
+      "cal_start": "2026-04-20",
+      "eval_start": "2026-04-27",
+      "eval_end": "2026-05-11"
+    },
+    {
+      "id": "WF3",
+      "cal_start": "2026-05-04",
+      "eval_start": "2026-05-11",
+      "eval_end": "2026-05-25"
+    },
+    {
+      "id": "WF4",
+      "cal_start": "2026-05-18",
+      "eval_start": "2026-05-25",
+      "eval_end": "2026-06-08"
+    },
+    {
+      "id": "WF5",
+      "cal_start": "2026-06-01",
+      "eval_start": "2026-06-08",
+      "eval_end": "2026-06-22"
+    },
+    {
+      "id": "WF6",
+      "cal_start": "2026-06-15",
+      "eval_start": "2026-06-22",
+      "eval_end": "2026-07-01"
+    }
+  ],
+  "purge_minutes": 120,
+  "broad_candidate_rows": 91452,
+  "microstructure_eligible_candidate_rows": 89797,
+  "broad_candidates_by_market": {
+    "XAUUSD": 15564,
+    "EURUSD": 15293,
+    "GBPUSD": 15110,
+    "USDJPY": 15305,
+    "EURJPY": 15312,
+    "USDCAD": 14868
+  },
+  "eligible_candidates_by_market": {
+    "XAUUSD": 14998,
+    "EURUSD": 14992,
+    "GBPUSD": 15017,
+    "USDJPY": 14612,
+    "EURJPY": 15312,
+    "USDCAD": 14866
+  },
+  "microstructure_coverage_by_market": {
+    "XAUUSD": 0.9636340272423541,
+    "EURUSD": 0.9803177924540639,
+    "GBPUSD": 0.9938451356717406,
+    "USDJPY": 0.9547206795164979,
+    "EURJPY": 1.0,
+    "USDCAD": 0.9998654829163304
+  },
+  "market_direction_eligible_counts": {
+    "XAUUSD_long": 7505,
+    "XAUUSD_short": 7493,
+    "EURUSD_long": 7411,
+    "EURUSD_short": 7581,
+    "GBPUSD_long": 7501,
+    "GBPUSD_short": 7516,
+    "USDJPY_long": 7605,
+    "USDJPY_short": 7007,
+    "EURJPY_long": 7805,
+    "EURJPY_short": 7507,
+    "USDCAD_long": 7540,
+    "USDCAD_short": 7326
+  },
+  "evaluation_days": [
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-22",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-01",
+    "2026-05-04",
+    "2026-05-05",
+    "2026-05-06",
+    "2026-05-07",
+    "2026-05-08",
+    "2026-05-11",
+    "2026-05-12",
+    "2026-05-13",
+    "2026-05-14",
+    "2026-05-15",
+    "2026-05-18",
+    "2026-05-19",
+    "2026-05-20",
+    "2026-05-21",
+    "2026-05-22",
+    "2026-05-25",
+    "2026-05-26",
+    "2026-05-27",
+    "2026-05-28",
+    "2026-05-29",
+    "2026-06-01",
+    "2026-06-02",
+    "2026-06-03",
+    "2026-06-04",
+    "2026-06-05",
+    "2026-06-08",
+    "2026-06-09",
+    "2026-06-10",
+    "2026-06-11",
+    "2026-06-12",
+    "2026-06-15",
+    "2026-06-16",
+    "2026-06-17",
+    "2026-06-18",
+    "2026-06-19",
+    "2026-06-22",
+    "2026-06-23",
+    "2026-06-24",
+    "2026-06-25",
+    "2026-06-26",
+    "2026-06-29"
+  ],
+  "fold_results": {
+    "LOCAL_M5": {
+      "T40eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.22795417851925887,
+            "brier": 0.16743613022893214,
+            "log_loss": 0.5081988502360332,
+            "roc_auc": 0.654183525315093,
+            "ece_10bin": 0.0185129434573268
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.22484976196050885,
+            "brier": 0.16614806974567775,
+            "log_loss": 0.5072842546226365,
+            "roc_auc": 0.6546787156482198,
+            "ece_10bin": 0.01982914333807008
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.21655608702360746,
+            "brier": 0.15895156447166392,
+            "log_loss": 0.4851847505279029,
+            "roc_auc": 0.6821223301035588,
+            "ece_10bin": 0.021282020372940868
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.2223624034064028,
+            "brier": 0.16637168070980743,
+            "log_loss": 0.5055766473266963,
+            "roc_auc": 0.6446993330658117,
+            "ece_10bin": 0.02854336504978529
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.219258089976322,
+            "brier": 0.16052933649812398,
+            "log_loss": 0.4913087023514452,
+            "roc_auc": 0.6818513596955106,
+            "ece_10bin": 0.025913026762538618
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.21715235173824132,
+            "brier": 0.16179359894105516,
+            "log_loss": 0.49481049052197307,
+            "roc_auc": 0.6603733768963735,
+            "ece_10bin": 0.0208707784155649
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ],
+      "T50eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.17052356423464288,
+            "brier": 0.13392229803837127,
+            "log_loss": 0.42592200486337517,
+            "roc_auc": 0.6817902480743628,
+            "ece_10bin": 0.01188277877841817
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.1699055646608913,
+            "brier": 0.13368316771698524,
+            "log_loss": 0.42736659025174856,
+            "roc_auc": 0.682689924046102,
+            "ece_10bin": 0.013315881389108941
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.16424934423700047,
+            "brier": 0.1281265856411887,
+            "log_loss": 0.4071663701540967,
+            "roc_auc": 0.7101777066638362,
+            "ece_10bin": 0.025196291040771184
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.16424854123955213,
+            "brier": 0.13172750607027728,
+            "log_loss": 0.4201980329497553,
+            "roc_auc": 0.6746217011478133,
+            "ece_10bin": 0.01706552319641692
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.1653512233622731,
+            "brier": 0.12866694117973884,
+            "log_loss": 0.4102399302620822,
+            "roc_auc": 0.7120334016035026,
+            "ece_10bin": 0.027961127433150563
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.1605316973415133,
+            "brier": 0.1272281776573773,
+            "log_loss": 0.4080458204156424,
+            "roc_auc": 0.6943767358821383,
+            "ece_10bin": 0.014560363312867036
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ]
+    },
+    "PLUS_EXECUTION_COST_STATE": {
+      "T40eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.22795417851925887,
+            "brier": 0.16738364134006575,
+            "log_loss": 0.5080460230121581,
+            "roc_auc": 0.6547121314761308,
+            "ece_10bin": 0.0183381802262298
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.22484976196050885,
+            "brier": 0.16611989019441212,
+            "log_loss": 0.5072079158734776,
+            "roc_auc": 0.6549637150813661,
+            "ece_10bin": 0.019331380428194295
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.21655608702360746,
+            "brier": 0.1588943752967981,
+            "log_loss": 0.48489168096937063,
+            "roc_auc": 0.6822644100166689,
+            "ece_10bin": 0.020888751736767863
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.2223624034064028,
+            "brier": 0.16652538204040665,
+            "log_loss": 0.5059501284984059,
+            "roc_auc": 0.6438375827555011,
+            "ece_10bin": 0.030343062878846937
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.219258089976322,
+            "brier": 0.16054770048465516,
+            "log_loss": 0.49138440612376666,
+            "roc_auc": 0.6817683174104664,
+            "ece_10bin": 0.02495565126939697
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.21715235173824132,
+            "brier": 0.16178871190064611,
+            "log_loss": 0.4947492835456822,
+            "roc_auc": 0.6604341088995928,
+            "ece_10bin": 0.02250083589858384
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ],
+      "T50eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.17052356423464288,
+            "brier": 0.13406269460939474,
+            "log_loss": 0.426303640302634,
+            "roc_auc": 0.6808083425985505,
+            "ece_10bin": 0.01498406196818375
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.1699055646608913,
+            "brier": 0.13371868680690288,
+            "log_loss": 0.42748658598130906,
+            "roc_auc": 0.682223968553597,
+            "ece_10bin": 0.013428002924788629
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.16424934423700047,
+            "brier": 0.12810004984284573,
+            "log_loss": 0.407020672860736,
+            "roc_auc": 0.7101151835130354,
+            "ece_10bin": 0.02493678472585822
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.16424854123955213,
+            "brier": 0.13183474665303327,
+            "log_loss": 0.42050020296779256,
+            "roc_auc": 0.6739477184167185,
+            "ece_10bin": 0.017755772275237554
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.1653512233622731,
+            "brier": 0.12869604062781453,
+            "log_loss": 0.4103614588833998,
+            "roc_auc": 0.711753866292027,
+            "ece_10bin": 0.026087441233980484
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.1605316973415133,
+            "brier": 0.12722886537841224,
+            "log_loss": 0.40794307417931075,
+            "roc_auc": 0.6944361340838033,
+            "ece_10bin": 0.014187093234383885
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ]
+    },
+    "PLUS_PARTICIPATION_STATE": {
+      "T40eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.22795417851925887,
+            "brier": 0.1674625916372457,
+            "log_loss": 0.5083689505957604,
+            "roc_auc": 0.6539951764142037,
+            "ece_10bin": 0.016606300413345387
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.22484976196050885,
+            "brier": 0.1660755292764017,
+            "log_loss": 0.5071217692068979,
+            "roc_auc": 0.6550048137120689,
+            "ece_10bin": 0.02008608573942081
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.21655608702360746,
+            "brier": 0.15890075864907113,
+            "log_loss": 0.48496969938857526,
+            "roc_auc": 0.682268198814352,
+            "ece_10bin": 0.021750192739532978
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.2223624034064028,
+            "brier": 0.16657532828910004,
+            "log_loss": 0.5060838876324109,
+            "roc_auc": 0.6435243955234721,
+            "ece_10bin": 0.030004997110149256
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.219258089976322,
+            "brier": 0.16055574033640846,
+            "log_loss": 0.4914191599706356,
+            "roc_auc": 0.6818192272074765,
+            "ece_10bin": 0.026003527554474232
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.21715235173824132,
+            "brier": 0.16177632600793984,
+            "log_loss": 0.49472899475875265,
+            "roc_auc": 0.6603058221522865,
+            "ece_10bin": 0.021944360552007346
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ],
+      "T50eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.17052356423464288,
+            "brier": 0.1340955496995976,
+            "log_loss": 0.42642713427627765,
+            "roc_auc": 0.6802827262613684,
+            "ece_10bin": 0.014841550004083562
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.1699055646608913,
+            "brier": 0.13369763872308688,
+            "log_loss": 0.4274731610652285,
+            "roc_auc": 0.6821212674542203,
+            "ece_10bin": 0.013494150115126412
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.16424934423700047,
+            "brier": 0.1280790489822475,
+            "log_loss": 0.4069677103278729,
+            "roc_auc": 0.7103498404423934,
+            "ece_10bin": 0.02405423037029261
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.16424854123955213,
+            "brier": 0.13187599970638406,
+            "log_loss": 0.4206669538534752,
+            "roc_auc": 0.6736236359946094,
+            "ece_10bin": 0.018374406445773275
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.1653512233622731,
+            "brier": 0.128708612031202,
+            "log_loss": 0.41043314613501397,
+            "roc_auc": 0.7115721886513539,
+            "ece_10bin": 0.025895535405683717
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.1605316973415133,
+            "brier": 0.12725336279109903,
+            "log_loss": 0.40801112242935567,
+            "roc_auc": 0.6942210883496125,
+            "ece_10bin": 0.01363621444372013
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ]
+    },
+    "PLUS_QUOTE_IMBALANCE_STATE": {
+      "T40eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.22795417851925887,
+            "brier": 0.1675672281466421,
+            "log_loss": 0.5087327054696696,
+            "roc_auc": 0.6527648295371916,
+            "ece_10bin": 0.014128357374550825
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.22484976196050885,
+            "brier": 0.1664971780092788,
+            "log_loss": 0.508231699973431,
+            "roc_auc": 0.6516602029517484,
+            "ece_10bin": 0.021444573465363635
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.21655608702360746,
+            "brier": 0.1588109267966768,
+            "log_loss": 0.48481038923034075,
+            "roc_auc": 0.6825794415277134,
+            "ece_10bin": 0.021350852028185114
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.2223624034064028,
+            "brier": 0.16664407424979974,
+            "log_loss": 0.5063819024083069,
+            "roc_auc": 0.6429302746698768,
+            "ece_10bin": 0.03159910956388059
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.219258089976322,
+            "brier": 0.1605578641922481,
+            "log_loss": 0.49143205668767886,
+            "roc_auc": 0.6816695181975414,
+            "ece_10bin": 0.025592113580900494
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.21715235173824132,
+            "brier": 0.161843256277162,
+            "log_loss": 0.4948699809704122,
+            "roc_auc": 0.6598192934619405,
+            "ece_10bin": 0.021222284689787214
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ],
+      "T50eq": [
+        {
+          "status": "ok",
+          "fit_n": 11234,
+          "calibration_n": 6605,
+          "evaluation_n": 13007,
+          "evaluation_metrics": {
+            "n": 13007,
+            "positive_rate": 0.17052356423464288,
+            "brier": 0.13427872673306143,
+            "log_loss": 0.4272138490361977,
+            "roc_auc": 0.6775812220993547,
+            "ece_10bin": 0.013249699268701091
+          },
+          "fold": "WF1",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-05 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-06 00:00:00+00:00",
+            "2026-04-12 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-13 00:00:00+00:00",
+            "2026-04-27 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 24330,
+          "calibration_n": 6516,
+          "evaluation_n": 12813,
+          "evaluation_metrics": {
+            "n": 12813,
+            "positive_rate": 0.1699055646608913,
+            "brier": 0.13392331073435307,
+            "log_loss": 0.4282171722748309,
+            "roc_auc": 0.679884948855889,
+            "ece_10bin": 0.014749135141053568
+          },
+          "fold": "WF2",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-04-19 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-04-20 00:00:00+00:00",
+            "2026-04-26 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-04-27 00:00:00+00:00",
+            "2026-05-11 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 37260,
+          "calibration_n": 6399,
+          "evaluation_n": 12962,
+          "evaluation_metrics": {
+            "n": 12962,
+            "positive_rate": 0.16424934423700047,
+            "brier": 0.1280100456036474,
+            "log_loss": 0.4068174904566906,
+            "roc_auc": 0.7106638870313327,
+            "ece_10bin": 0.022806950630256402
+          },
+          "fold": "WF3",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-03 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-04 00:00:00+00:00",
+            "2026-05-10 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-11 00:00:00+00:00",
+            "2026-05-25 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 50050,
+          "calibration_n": 6571,
+          "evaluation_n": 12682,
+          "evaluation_metrics": {
+            "n": 12682,
+            "positive_rate": 0.16424854123955213,
+            "brier": 0.13196778416282953,
+            "log_loss": 0.4210209279668027,
+            "roc_auc": 0.6726170101736515,
+            "ece_10bin": 0.019097090380866644
+          },
+          "fold": "WF4",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-17 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-05-18 00:00:00+00:00",
+            "2026-05-24 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-05-25 00:00:00+00:00",
+            "2026-06-08 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 63028,
+          "calibration_n": 6275,
+          "evaluation_n": 12670,
+          "evaluation_metrics": {
+            "n": 12670,
+            "positive_rate": 0.1653512233622731,
+            "brier": 0.12870313057509739,
+            "log_loss": 0.4104638585921744,
+            "roc_auc": 0.7115354468875008,
+            "ece_10bin": 0.02604255908483691
+          },
+          "fold": "WF5",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-05-31 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-01 00:00:00+00:00",
+            "2026-06-07 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-08 00:00:00+00:00",
+            "2026-06-22 00:00:00+00:00"
+          ]
+        },
+        {
+          "status": "ok",
+          "fit_n": 75674,
+          "calibration_n": 6299,
+          "evaluation_n": 7824,
+          "evaluation_metrics": {
+            "n": 7824,
+            "positive_rate": 0.1605316973415133,
+            "brier": 0.12733087461507295,
+            "log_loss": 0.4082970733979074,
+            "roc_auc": 0.6933063560439732,
+            "ece_10bin": 0.013123293326845883
+          },
+          "fold": "WF6",
+          "fit_interval": [
+            "2026-03-23 00:00:00+00:00",
+            "2026-06-14 22:00:00+00:00"
+          ],
+          "calibration_interval": [
+            "2026-06-15 00:00:00+00:00",
+            "2026-06-21 22:00:00+00:00"
+          ],
+          "evaluation_interval": [
+            "2026-06-22 00:00:00+00:00",
+            "2026-06-30 00:00:00+00:00"
+          ]
+        }
+      ]
+    }
+  },
+  "pooled_metrics": {
+    "LOCAL_M5": {
+      "T40eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.22165707773979265,
+          "brier": 0.16366119970717113,
+          "log_loss": 0.49899860910359506,
+          "roc_auc": 0.6613468496887367,
+          "ece_10bin": 0.01844280046459895
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.2192355117139334,
+            "brier": 0.16304680433946125,
+            "log_loss": 0.49895180971578496,
+            "roc_auc": 0.6572612962230007,
+            "ece_10bin": 0.01878299132578837
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.21683929168058805,
+            "brier": 0.16087589003987846,
+            "log_loss": 0.4923416343261451,
+            "roc_auc": 0.6660596983676647,
+            "ece_10bin": 0.021590665570882694
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.2183438853715428,
+            "brier": 0.16184550815171322,
+            "log_loss": 0.493311572053282,
+            "roc_auc": 0.6624930675969426,
+            "ece_10bin": 0.02028584486553569
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.22412025965152033,
+            "brier": 0.163214726202149,
+            "log_loss": 0.49640947354552767,
+            "roc_auc": 0.675489133936914,
+            "ece_10bin": 0.021192712647606686
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.2237229862475442,
+            "brier": 0.16635252970522157,
+            "log_loss": 0.5084438587960377,
+            "roc_auc": 0.6488156691047925,
+            "ece_10bin": 0.02257604861209198
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.22778104767510302,
+            "brier": 0.16660120079666496,
+            "log_loss": 0.5043348773463657,
+            "roc_auc": 0.6609832626565468,
+            "ece_10bin": 0.02462969404608302
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.49737821956635114
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.5038349736976219
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.5151967092815133
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.463198926639886
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5965757499147005
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.4694474814385339
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.535011941550355
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.49084723703063343
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.5396869794552536
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.4773629332043922
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.49876815877248837
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.4999637026470484
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.5099709035980012
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.6012608495128055
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.5685071809775317
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.48884302596934226
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.48257549879501477
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.45936682681801044
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.48583643290732176
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.4790253660073855
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.5169505728924035
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.47175768871060075
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.49706789923538414
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.4724582027809738
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.4881746202810724
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.4906401167396555
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.4877800374895109
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.41858345143623427
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.549986440618047
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.4599314160588655
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.45041885902876067
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.5235673343113708
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.45533555947474214
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.47190431171514413
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.5229828551682427
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.5033139015168333
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.5197318629772605
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.4636672210224469
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.5634827477287904
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5882334096569717
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.504655627987869
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.5139284380339267
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.5322441350673547
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.5079101271060426
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.4199532192884991
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.4514157073884226
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.48842348003947367
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.5163793745452977
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.4957089044365599
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.4800275736727816
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.4877857942331114
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.4511473419838608
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.5118430568376481
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.5364301945381481
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.4800777390112361
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.5052076204266588
+          }
+        }
+      },
+      "T50eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.16618027182523137,
+          "brier": 0.1307957169508016,
+          "log_loss": 0.4170870229482801,
+          "roc_auc": 0.6907470326699001,
+          "ece_10bin": 0.014966872039750594
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.16720098643649814,
+            "brier": 0.1320367352368688,
+            "log_loss": 0.4226843253208418,
+            "roc_auc": 0.6823124444409504,
+            "ece_10bin": 0.01086835878024151
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.15987303708653525,
+            "brier": 0.12622102055331838,
+            "log_loss": 0.4041121802941206,
+            "roc_auc": 0.7019539024753608,
+            "ece_10bin": 0.016034109070736567
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.16361212929023658,
+            "brier": 0.1294295371476864,
+            "log_loss": 0.41222502835539837,
+            "roc_auc": 0.69085876453453,
+            "ece_10bin": 0.017169238020975534
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.17099419200546634,
+            "brier": 0.133219145712123,
+            "log_loss": 0.4236649978516122,
+            "roc_auc": 0.6947774047506172,
+            "ece_10bin": 0.0161267197189169
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.1673215455140799,
+            "brier": 0.1327791981270742,
+            "log_loss": 0.42477558842230073,
+            "roc_auc": 0.6764196909054669,
+            "ece_10bin": 0.017395977624505253
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.16816614815437653,
+            "brier": 0.13108724896041735,
+            "log_loss": 0.414957078442057,
+            "roc_auc": 0.7008178510057617,
+            "ece_10bin": 0.021732151530339045
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.42273343554897724
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.4128951161374422
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.42129810431725473
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.3636140699787595
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5399793288712575
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.3827400220026555
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.44838599929426687
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.4067277088305136
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.462918210376655
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.4076485335160516
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.42134630481295915
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.4152489591763534
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.41843071483033684
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.5340327592777193
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.4684226600737306
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.42418890536575987
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.40497495683547924
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.3793005541231185
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.4066737405089265
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.40026146987767663
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.42610716635354445
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.3863991034419164
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.39686767275808593
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.3977733567741691
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.4161324665050453
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.41537514921756996
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.4216883921240643
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.3438415138694781
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.4982766939069768
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.3687072172443973
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.3478623964311151
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.44094947979453264
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.3768776364882677
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.3970218916882281
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.4465282344091163
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.41739585482933594
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.43856021329164097
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.3914649312154398
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.44878615959138907
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5029625987358015
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.4243499197929749
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.4326292784199363
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.45794041767685406
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.4244292074465097
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.33678295635271077
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.3582673618835225
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.40113598150288876
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.4434609550491663
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.41686037157560124
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.40332913909891327
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.4090649707084272
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.35881229103964896
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.4389806908567715
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.4367950270622038
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.4007428611116105
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.40713666018239386
+          }
+        }
+      }
+    },
+    "PLUS_EXECUTION_COST_STATE": {
+      "T40eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.22165707773979265,
+          "brier": 0.16366618319931078,
+          "log_loss": 0.4989770972761515,
+          "roc_auc": 0.661375373379262,
+          "ece_10bin": 0.01870973474875172
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.2192355117139334,
+            "brier": 0.16308070933827443,
+            "log_loss": 0.49897804494278997,
+            "roc_auc": 0.6573743585273571,
+            "ece_10bin": 0.018374639650415903
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.21683929168058805,
+            "brier": 0.16079083057040022,
+            "log_loss": 0.49211105438375957,
+            "roc_auc": 0.6667922345088533,
+            "ece_10bin": 0.023020134340044025
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.2183438853715428,
+            "brier": 0.16189379303235565,
+            "log_loss": 0.49342187975149343,
+            "roc_auc": 0.6622722716523666,
+            "ece_10bin": 0.020099343458362194
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.22412025965152033,
+            "brier": 0.16323930206789952,
+            "log_loss": 0.4964565471638645,
+            "roc_auc": 0.6751760415659803,
+            "ece_10bin": 0.019055944454987286
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.2237229862475442,
+            "brier": 0.16636043662565705,
+            "log_loss": 0.508426360758956,
+            "roc_auc": 0.6487792451907798,
+            "ece_10bin": 0.021971797104242335
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.22778104767510302,
+            "brier": 0.166601246445529,
+            "log_loss": 0.5042702921233537,
+            "roc_auc": 0.6610107552190853,
+            "ece_10bin": 0.02473850617567325
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.49739305885423796
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.5038594459034662
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.51516164510631
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.4630299067747916
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5966746348519334
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.4694166225171587
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.5347209591891546
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.49033746742572515
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.5400336528642932
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.47642280053985836
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.4990493300464926
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.5001411918600079
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.509113087657853
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.6022259005842691
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.567727576974808
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.4891256401558346
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.4823598276453123
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.4587791939217075
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.4856020190191489
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.47916501971455094
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.516748147832757
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.4705432712825851
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.4969444289386508
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.4725624471817067
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.48865601809113035
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.4900912349866573
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.4877018625341453
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.4181901190676757
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.5492242971100906
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.4597962557439769
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.45325502070121576
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.5220276664033721
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.45415118192438036
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.4730745225305337
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.5243823448349579
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.5039881171255878
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.5193000672124465
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.4634349512019814
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.5647685276121094
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5879755985055312
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.5049049328438623
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.5140779012318094
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.5323307506278016
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.5082083047363942
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.41964679598925964
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.4515887456176973
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.4892001824317913
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.5158634165569566
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.4956806958615977
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.4799557973184923
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.48739326982498377
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.4517252769605666
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.5122310693187541
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.5359695420209113
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.4802551189710448
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.50451359130522
+          }
+        }
+      },
+      "T50eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.16618027182523137,
+          "brier": 0.13084673814493294,
+          "log_loss": 0.4172146100181339,
+          "roc_auc": 0.6902533645537158,
+          "ece_10bin": 0.01499626220528355
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.16720098643649814,
+            "brier": 0.1322582903675856,
+            "log_loss": 0.4232526872533814,
+            "roc_auc": 0.6815488487247732,
+            "ece_10bin": 0.01509174129558471
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.15987303708653525,
+            "brier": 0.12617952810232744,
+            "log_loss": 0.4039556740511382,
+            "roc_auc": 0.7024567331836893,
+            "ece_10bin": 0.015991869175126135
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.16361212929023658,
+            "brier": 0.12946809066506104,
+            "log_loss": 0.41233396722990817,
+            "roc_auc": 0.6904206493780478,
+            "ece_10bin": 0.01715065068221855
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.17099419200546634,
+            "brier": 0.1332720309070562,
+            "log_loss": 0.4238484858550827,
+            "roc_auc": 0.6942272645961086,
+            "ece_10bin": 0.016933437168583292
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.1673215455140799,
+            "brier": 0.13280275659566323,
+            "log_loss": 0.4248480886104605,
+            "roc_auc": 0.6761012445045029,
+            "ece_10bin": 0.017828060165483404
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.16816614815437653,
+            "brier": 0.1310959217938715,
+            "log_loss": 0.41494016413207413,
+            "roc_auc": 0.7006737086829071,
+            "ece_10bin": 0.022987317660741673
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.4231461620617851
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.4124323159866322
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.4223244711479115
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.36406537782459814
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5401427900321787
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.38295381728876654
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.4486718269964883
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.4073442465328303
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.46283512575980984
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.40878324184801956
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.4220862531638071
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.41615385505645136
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.4171474351736251
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.5353072083789538
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.46696959705106333
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.4249250230638436
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.40474470679710145
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.3794175117996346
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.4064616307086568
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.4007205440766339
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.42607850056297897
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.3856195455253114
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.3970098392580017
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.39823423154231313
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.4163896207591125
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.41534271330690997
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.4215067214130335
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.343924962122677
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.4974411854238927
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.368155456399174
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.35032230259103897
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.4401186949546377
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.3760930869447385
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.39741097177653856
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.44711557525766493
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.4179209028183699
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.43805220327097116
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.3918382604075203
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.45004507335461386
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5024469637982499
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.4246616652672712
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.4330135199523281
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.4582942760918334
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.42438302664489663
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.3367949784121113
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.35840953068155096
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.4018926692270418
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.4430700089876766
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.41684820469993117
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.40305227958789686
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.40868333220693737
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.35920898628695497
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.4395467347769115
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.43619541275580553
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.40117334756844364
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.4060596126733522
+          }
+        }
+      }
+    },
+    "PLUS_PARTICIPATION_STATE": {
+      "T40eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.22165707773979265,
+          "brier": 0.16368257647188963,
+          "log_loss": 0.4990616705230332,
+          "roc_auc": 0.6612101294082933,
+          "ece_10bin": 0.018508705346552273
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.2192355117139334,
+            "brier": 0.16307473580943355,
+            "log_loss": 0.49894070725030637,
+            "roc_auc": 0.6573502380427336,
+            "ece_10bin": 0.018842960055740217
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.21683929168058805,
+            "brier": 0.1608439398568457,
+            "log_loss": 0.49233784599426256,
+            "roc_auc": 0.6664003708120132,
+            "ece_10bin": 0.024291761642149
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.2183438853715428,
+            "brier": 0.1618806800559323,
+            "log_loss": 0.4934148497036312,
+            "roc_auc": 0.6625045343476554,
+            "ece_10bin": 0.019639376007186037
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.22412025965152033,
+            "brier": 0.1632440947287081,
+            "log_loss": 0.4964414512046126,
+            "roc_auc": 0.6750714117424365,
+            "ece_10bin": 0.018086971180319447
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.2237229862475442,
+            "brier": 0.16634797741093388,
+            "log_loss": 0.5083608031774901,
+            "roc_auc": 0.6490289264911783,
+            "ece_10bin": 0.022187938065350594
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.22778104767510302,
+            "brier": 0.166674396043826,
+            "log_loss": 0.5046811866972941,
+            "roc_auc": 0.6601764122173732,
+            "ece_10bin": 0.026014225714996193
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.49794617025706545
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.5047696586117525
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.5151263379968465
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.46250933906383357
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5970039146669098
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.46935292528079686
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.5355746893821748
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.4915599306224681
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.5409290137831939
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.4756056359995472
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.4990336493328961
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.49975849447970067
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.508909005420755
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.6018513298923893
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.5680578327169324
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.4889847759751011
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.48255569509674956
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.4589759771295271
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.48542823300491855
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.4788807769679241
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.5169610239520775
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.4707690516525354
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.4970990299024724
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.4727224383172006
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.4891549897673617
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.49035286174495096
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.48720060694628126
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.4186184641545068
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.5487473098017678
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.4596475586165229
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.45323443202731883
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.5217302963909217
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.4545941621482627
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.4732626053628287
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.5247268925562291
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.5045771692786136
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.5191109465933738
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.4634045545254164
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.5647864131146438
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5883152623676984
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.5047610284379153
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.5142678740782695
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.5321285150962634
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.5082572144519876
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.4198041491744367
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.4514556942220909
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.48920763924009536
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.5160509182302516
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.4957255200258251
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.4801538517823011
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.4873014216489342
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.4517888542299772
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.5124803032885655
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.5354755501501094
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.4805327714144347
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.5043750045998089
+          }
+        }
+      },
+      "T50eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.16618027182523137,
+          "brier": 0.13085729378246644,
+          "log_loss": 0.4172744114861152,
+          "roc_auc": 0.690082097061939,
+          "ece_10bin": 0.014705336804719549
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.16720098643649814,
+            "brier": 0.1322692533145958,
+            "log_loss": 0.42326967151068245,
+            "roc_auc": 0.6815097347656224,
+            "ece_10bin": 0.015277835766442266
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.15987303708653525,
+            "brier": 0.12621526078038556,
+            "log_loss": 0.4040930392546985,
+            "roc_auc": 0.7022040711418184,
+            "ece_10bin": 0.015446232307207234
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.16361212929023658,
+            "brier": 0.12942526920979486,
+            "log_loss": 0.41220725296014454,
+            "roc_auc": 0.6908768185912156,
+            "ece_10bin": 0.016721019956959952
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.17099419200546634,
+            "brier": 0.13328396702395245,
+            "log_loss": 0.42388096674751047,
+            "roc_auc": 0.6940332488447056,
+            "ece_10bin": 0.016540261919289895
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.1673215455140799,
+            "brier": 0.1328021140850205,
+            "log_loss": 0.4248342047566458,
+            "roc_auc": 0.6762216779417503,
+            "ece_10bin": 0.017339912256651838
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.16816614815437653,
+            "brier": 0.13114473507024843,
+            "log_loss": 0.4152565217617561,
+            "roc_auc": 0.6997753967451733,
+            "ece_10bin": 0.022370769533589362
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.42314394794745963
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.4130164832966925
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.422093733009398
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.363639578668101
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5406871748634667
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.38258826817682323
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.4489317045010242
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.40830602569585783
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.46284816909068843
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.408747286414018
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.4222298157992897
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.4158855372401069
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.41695594743400993
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.5352359132525089
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.467150710215343
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.42503744233634755
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.40477443679815744
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.37972972317057047
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.4063964758275605
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.4003781769689304
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.4260337782572398
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.38566695412479113
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.39704275302639547
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.3983694138612417
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.4166310172242725
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.41527768162127887
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.42124043415352186
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.3441235216361037
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.4968228505344492
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.3679819919805869
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.35046002593638026
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.43998768669808125
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.3763117250365467
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.39739315271541187
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.4475268168988094
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.41831369197843477
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.4380746320536795
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.3920023301304961
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.45018328390248574
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5028044192293223
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.42464042031543564
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.43293596860195444
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.4583748040037397
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.4242006830145598
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.3369119890201703
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.3582132061317068
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.40188938677486163
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.4436657745317508
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.41701098042417695
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.40326819549153986
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.40859125244651345
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.35922137220784545
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.4398010683993398
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.43610369371167657
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.4014511107378079
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.40611002941555985
+          }
+        }
+      }
+    },
+    "PLUS_QUOTE_IMBALANCE_STATE": {
+      "T40eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.22165707773979265,
+          "brier": 0.1637801556121494,
+          "log_loss": 0.49936648479244544,
+          "roc_auc": 0.6602588501687399,
+          "ece_10bin": 0.018188072094569588
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.2192355117139334,
+            "brier": 0.16302715779131985,
+            "log_loss": 0.49884656968579927,
+            "roc_auc": 0.6576190768320733,
+            "ece_10bin": 0.018557632998901754
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.21683929168058805,
+            "brier": 0.16076996707377492,
+            "log_loss": 0.4921805905392331,
+            "roc_auc": 0.6670757173677541,
+            "ece_10bin": 0.021226964458013798
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.2183438853715428,
+            "brier": 0.16220052417077527,
+            "log_loss": 0.49438139601724157,
+            "roc_auc": 0.6596364234911758,
+            "ece_10bin": 0.019578689002471377
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.22412025965152033,
+            "brier": 0.16323529681706325,
+            "log_loss": 0.496447735232871,
+            "roc_auc": 0.675243417466787,
+            "ece_10bin": 0.017394161600544605
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.2237229862475442,
+            "brier": 0.1664849076192417,
+            "log_loss": 0.5087627108724635,
+            "roc_auc": 0.6477374209299142,
+            "ece_10bin": 0.023095769396643186
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.22778104767510302,
+            "brier": 0.16693310673871925,
+            "log_loss": 0.5053854641062729,
+            "roc_auc": 0.6578076707143437,
+            "ece_10bin": 0.02800436302206369
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.499082785235619
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.5048395743775277
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.5150373758101067
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.4625050386336091
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5964843785500404
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.46958059356981363
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.5354936398769523
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.4931161986965801
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.5416124372748002
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.47633780584381125
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.5006452293175729
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.5022325910147125
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.5079618498044882
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.6031717976368413
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.568439203182585
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.4938709553143131
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.4826683757836865
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.4605749828184107
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.4841712085393272
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.47959754443290464
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.5170938246911497
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.4707961794051069
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.4968152702368715
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.46992774612406846
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.49090242173583626
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.48942466875688595
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.4866151075514262
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.41876170762529197
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.5490260703397497
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.4605896448363401
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.4532670311069889
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.5221309836962884
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.4552786879699607
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.47413184162865096
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.5254632397472814
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.5036600955219388
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.518956177646454
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.46494806981197523
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.5648282959177816
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5879151912522113
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.5046162981858479
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.51420509228175
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.5321443637513622
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.5081587498085067
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.41971192273968794
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.45146354161394986
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.48921715581698605
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.516528926340744
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.4955375170035103
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.4803422517834551
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.48746696486527114
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.45202311750976404
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.5134587112295539
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.5350091727064572
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.4809789992818237
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.5038429624596679
+          }
+        }
+      },
+      "T50eq": {
+        "metrics": {
+          "n": 71958,
+          "positive_rate": 0.16618027182523137,
+          "brier": 0.13094179738595418,
+          "log_loss": 0.4176209215538776,
+          "roc_auc": 0.6889771338573898,
+          "ece_10bin": 0.015180701076305661
+        },
+        "per_market": {
+          "XAUUSD": {
+            "n": 12165,
+            "positive_rate": 0.16720098643649814,
+            "brier": 0.13220361262956024,
+            "log_loss": 0.42312468064626024,
+            "roc_auc": 0.6819272738531337,
+            "ece_10bin": 0.015022097674941028
+          },
+          "EURUSD": {
+            "n": 11972,
+            "positive_rate": 0.15987303708653525,
+            "brier": 0.12620303430403565,
+            "log_loss": 0.40411852881067706,
+            "roc_auc": 0.7024073331833152,
+            "ece_10bin": 0.016092406000861648
+          },
+          "GBPUSD": {
+            "n": 12004,
+            "positive_rate": 0.16361212929023658,
+            "brier": 0.1296427410940324,
+            "log_loss": 0.41306435135051345,
+            "roc_auc": 0.6881963997371005,
+            "ece_10bin": 0.016071951899539742
+          },
+          "USDJPY": {
+            "n": 11708,
+            "positive_rate": 0.17099419200546634,
+            "brier": 0.13324483959453043,
+            "log_loss": 0.42379690302332,
+            "roc_auc": 0.6944563266941177,
+            "ece_10bin": 0.01727147478565118
+          },
+          "EURJPY": {
+            "n": 12216,
+            "positive_rate": 0.1673215455140799,
+            "brier": 0.13288769139482787,
+            "log_loss": 0.4252041292308228,
+            "roc_auc": 0.6749937763231709,
+            "ece_10bin": 0.01781278282436636
+          },
+          "USDCAD": {
+            "n": 11893,
+            "positive_rate": 0.16816614815437653,
+            "brier": 0.13146658520366875,
+            "log_loss": 0.4163133985788628,
+            "roc_auc": 0.696245122814111,
+            "ece_10bin": 0.024531035386385028
+          }
+        },
+        "all_markets_both_classes": true,
+        "per_day": {
+          "2026-04-13": {
+            "n": 1232,
+            "log_loss": 0.42414733707681773
+          },
+          "2026-04-14": {
+            "n": 1339,
+            "log_loss": 0.4147641911035527
+          },
+          "2026-04-15": {
+            "n": 1397,
+            "log_loss": 0.4227317076137656
+          },
+          "2026-04-16": {
+            "n": 1304,
+            "log_loss": 0.3638603144061844
+          },
+          "2026-04-17": {
+            "n": 1219,
+            "log_loss": 0.5401586814882198
+          },
+          "2026-04-20": {
+            "n": 1334,
+            "log_loss": 0.3833078018298155
+          },
+          "2026-04-21": {
+            "n": 1325,
+            "log_loss": 0.44875251354105605
+          },
+          "2026-04-22": {
+            "n": 1264,
+            "log_loss": 0.41119699962457695
+          },
+          "2026-04-23": {
+            "n": 1258,
+            "log_loss": 0.4644063258646175
+          },
+          "2026-04-24": {
+            "n": 1335,
+            "log_loss": 0.4085860909702353
+          },
+          "2026-04-27": {
+            "n": 1327,
+            "log_loss": 0.42276036833222685
+          },
+          "2026-04-28": {
+            "n": 1266,
+            "log_loss": 0.4170699935603691
+          },
+          "2026-04-29": {
+            "n": 1294,
+            "log_loss": 0.41661932514574196
+          },
+          "2026-04-30": {
+            "n": 1330,
+            "log_loss": 0.5367376852266807
+          },
+          "2026-05-01": {
+            "n": 1197,
+            "log_loss": 0.4677322987255547
+          },
+          "2026-05-04": {
+            "n": 1305,
+            "log_loss": 0.4288099736217543
+          },
+          "2026-05-05": {
+            "n": 1292,
+            "log_loss": 0.40489468648773974
+          },
+          "2026-05-06": {
+            "n": 1335,
+            "log_loss": 0.3805218264517093
+          },
+          "2026-05-07": {
+            "n": 1247,
+            "log_loss": 0.40542170718745446
+          },
+          "2026-05-08": {
+            "n": 1220,
+            "log_loss": 0.40050201670017643
+          },
+          "2026-05-11": {
+            "n": 1288,
+            "log_loss": 0.4258334883388402
+          },
+          "2026-05-12": {
+            "n": 1293,
+            "log_loss": 0.3855573797560296
+          },
+          "2026-05-13": {
+            "n": 1281,
+            "log_loss": 0.3961658347600017
+          },
+          "2026-05-14": {
+            "n": 1324,
+            "log_loss": 0.39613022987741753
+          },
+          "2026-05-15": {
+            "n": 1205,
+            "log_loss": 0.41796949516113274
+          },
+          "2026-05-18": {
+            "n": 1315,
+            "log_loss": 0.41503471458910624
+          },
+          "2026-05-19": {
+            "n": 1367,
+            "log_loss": 0.4206649897001487
+          },
+          "2026-05-20": {
+            "n": 1359,
+            "log_loss": 0.34386277260112247
+          },
+          "2026-05-21": {
+            "n": 1312,
+            "log_loss": 0.49770728829883093
+          },
+          "2026-05-22": {
+            "n": 1218,
+            "log_loss": 0.3689900042056266
+          },
+          "2026-05-25": {
+            "n": 1267,
+            "log_loss": 0.35057816661938745
+          },
+          "2026-05-26": {
+            "n": 1317,
+            "log_loss": 0.44069502131120214
+          },
+          "2026-05-27": {
+            "n": 1252,
+            "log_loss": 0.3765311439785924
+          },
+          "2026-05-28": {
+            "n": 1269,
+            "log_loss": 0.3982332846821064
+          },
+          "2026-05-29": {
+            "n": 1302,
+            "log_loss": 0.44872650346002807
+          },
+          "2026-06-01": {
+            "n": 1252,
+            "log_loss": 0.4174869872376645
+          },
+          "2026-06-02": {
+            "n": 1264,
+            "log_loss": 0.43815149731359365
+          },
+          "2026-06-03": {
+            "n": 1323,
+            "log_loss": 0.394227300698129
+          },
+          "2026-06-04": {
+            "n": 1285,
+            "log_loss": 0.45032472364669807
+          },
+          "2026-06-05": {
+            "n": 1151,
+            "log_loss": 0.5013426593727688
+          },
+          "2026-06-08": {
+            "n": 1321,
+            "log_loss": 0.42455462137777694
+          },
+          "2026-06-09": {
+            "n": 1286,
+            "log_loss": 0.4330993504507389
+          },
+          "2026-06-10": {
+            "n": 1293,
+            "log_loss": 0.4581890080966809
+          },
+          "2026-06-11": {
+            "n": 1210,
+            "log_loss": 0.4240418205125155
+          },
+          "2026-06-12": {
+            "n": 1261,
+            "log_loss": 0.3366966853528199
+          },
+          "2026-06-15": {
+            "n": 1273,
+            "log_loss": 0.3585848842288364
+          },
+          "2026-06-16": {
+            "n": 1205,
+            "log_loss": 0.40203995242266294
+          },
+          "2026-06-17": {
+            "n": 1318,
+            "log_loss": 0.44414868976236965
+          },
+          "2026-06-18": {
+            "n": 1256,
+            "log_loss": 0.4168276568136859
+          },
+          "2026-06-19": {
+            "n": 1247,
+            "log_loss": 0.40321647792035875
+          },
+          "2026-06-22": {
+            "n": 1334,
+            "log_loss": 0.40881096939933054
+          },
+          "2026-06-23": {
+            "n": 1349,
+            "log_loss": 0.35946669621337407
+          },
+          "2026-06-24": {
+            "n": 1262,
+            "log_loss": 0.4407398530454777
+          },
+          "2026-06-25": {
+            "n": 1285,
+            "log_loss": 0.43623781758588825
+          },
+          "2026-06-26": {
+            "n": 1340,
+            "log_loss": 0.40206396033882225
+          },
+          "2026-06-29": {
+            "n": 1254,
+            "log_loss": 0.40565940901068404
+          }
+        }
+      }
+    }
+  },
+  "comparisons_vs_local_m5": {
+    "PLUS_EXECUTION_COST_STATE": {
+      "T40eq": {
+        "relative_log_loss_improvement": 4.310999479973743e-05,
+        "absolute_brier_improvement": -4.983492139648549e-06,
+        "ece_change_enriched_minus_baseline": 0.0002669342841527707,
+        "fold_log_loss_wins": 4,
+        "fold_log_loss_differences": [
+          {
+            "fold": "WF1",
+            "baseline_minus_enriched": 0.00015282722387510717
+          },
+          {
+            "fold": "WF2",
+            "baseline_minus_enriched": 7.63387491589107e-05
+          },
+          {
+            "fold": "WF3",
+            "baseline_minus_enriched": 0.00029306955853225514
+          },
+          {
+            "fold": "WF4",
+            "baseline_minus_enriched": -0.00037348117170965534
+          },
+          {
+            "fold": "WF5",
+            "baseline_minus_enriched": -7.570377232146708e-05
+          },
+          {
+            "fold": "WF6",
+            "baseline_minus_enriched": 6.12069762908618e-05
+          }
+        ],
+        "market_log_loss_nonworse_count": 3,
+        "market_details": {
+          "XAUUSD": {
+            "baseline_minus_enriched_log_loss": -2.6235227005011463e-05,
+            "nonworse": false
+          },
+          "EURUSD": {
+            "baseline_minus_enriched_log_loss": 0.0002305799423855115,
+            "nonworse": true
+          },
+          "GBPUSD": {
+            "baseline_minus_enriched_log_loss": -0.00011030769821140929,
+            "nonworse": false
+          },
+          "USDJPY": {
+            "baseline_minus_enriched_log_loss": -4.7073618336834766e-05,
+            "nonworse": false
+          },
+          "EURJPY": {
+            "baseline_minus_enriched_log_loss": 1.7498037081731255e-05,
+            "nonworse": true
+          },
+          "USDCAD": {
+            "baseline_minus_enriched_log_loss": 6.458522301200365e-05,
+            "nonworse": true
+          }
+        },
+        "paired_evaluation_days": 56,
+        "day_log_loss_wins": 31,
+        "day_log_loss_win_fraction": 0.5535714285714286,
+        "day_log_loss_differences": [
+          {
+            "date": "2026-04-13",
+            "baseline_minus_enriched": -1.4839287886814212e-05
+          },
+          {
+            "date": "2026-04-14",
+            "baseline_minus_enriched": -2.447220584433918e-05
+          },
+          {
+            "date": "2026-04-15",
+            "baseline_minus_enriched": 3.5064175203269876e-05
+          },
+          {
+            "date": "2026-04-16",
+            "baseline_minus_enriched": 0.0001690198650943775
+          },
+          {
+            "date": "2026-04-17",
+            "baseline_minus_enriched": -9.888493723286818e-05
+          },
+          {
+            "date": "2026-04-20",
+            "baseline_minus_enriched": 3.085892137516533e-05
+          },
+          {
+            "date": "2026-04-21",
+            "baseline_minus_enriched": 0.0002909823612003981
+          },
+          {
+            "date": "2026-04-22",
+            "baseline_minus_enriched": 0.0005097696049082834
+          },
+          {
+            "date": "2026-04-23",
+            "baseline_minus_enriched": -0.00034667340903959953
+          },
+          {
+            "date": "2026-04-24",
+            "baseline_minus_enriched": 0.0009401326645338548
+          },
+          {
+            "date": "2026-04-27",
+            "baseline_minus_enriched": -0.0002811712740042327
+          },
+          {
+            "date": "2026-04-28",
+            "baseline_minus_enriched": -0.00017748921295951403
+          },
+          {
+            "date": "2026-04-29",
+            "baseline_minus_enriched": 0.000857815940148221
+          },
+          {
+            "date": "2026-04-30",
+            "baseline_minus_enriched": -0.0009650510714636074
+          },
+          {
+            "date": "2026-05-01",
+            "baseline_minus_enriched": 0.0007796040027236995
+          },
+          {
+            "date": "2026-05-04",
+            "baseline_minus_enriched": -0.00028261418649233594
+          },
+          {
+            "date": "2026-05-05",
+            "baseline_minus_enriched": 0.0002156711497024455
+          },
+          {
+            "date": "2026-05-06",
+            "baseline_minus_enriched": 0.0005876328963029254
+          },
+          {
+            "date": "2026-05-07",
+            "baseline_minus_enriched": 0.00023441388817285747
+          },
+          {
+            "date": "2026-05-08",
+            "baseline_minus_enriched": -0.00013965370716545467
+          },
+          {
+            "date": "2026-05-11",
+            "baseline_minus_enriched": 0.00020242505964651603
+          },
+          {
+            "date": "2026-05-12",
+            "baseline_minus_enriched": 0.0012144174280156461
+          },
+          {
+            "date": "2026-05-13",
+            "baseline_minus_enriched": 0.000123470296733319
+          },
+          {
+            "date": "2026-05-14",
+            "baseline_minus_enriched": -0.0001042444007329224
+          },
+          {
+            "date": "2026-05-15",
+            "baseline_minus_enriched": -0.0004813978100579597
+          },
+          {
+            "date": "2026-05-18",
+            "baseline_minus_enriched": 0.0005488817529982204
+          },
+          {
+            "date": "2026-05-19",
+            "baseline_minus_enriched": 7.817495536555086e-05
+          },
+          {
+            "date": "2026-05-20",
+            "baseline_minus_enriched": 0.00039333236855854103
+          },
+          {
+            "date": "2026-05-21",
+            "baseline_minus_enriched": 0.0007621435079564476
+          },
+          {
+            "date": "2026-05-22",
+            "baseline_minus_enriched": 0.0001351603148885827
+          },
+          {
+            "date": "2026-05-25",
+            "baseline_minus_enriched": -0.0028361616724550953
+          },
+          {
+            "date": "2026-05-26",
+            "baseline_minus_enriched": 0.001539667907998754
+          },
+          {
+            "date": "2026-05-27",
+            "baseline_minus_enriched": 0.0011843775503617704
+          },
+          {
+            "date": "2026-05-28",
+            "baseline_minus_enriched": -0.001170210815389594
+          },
+          {
+            "date": "2026-05-29",
+            "baseline_minus_enriched": -0.0013994896667152146
+          },
+          {
+            "date": "2026-06-01",
+            "baseline_minus_enriched": -0.0006742156087544693
+          },
+          {
+            "date": "2026-06-02",
+            "baseline_minus_enriched": 0.0004317957648140025
+          },
+          {
+            "date": "2026-06-03",
+            "baseline_minus_enriched": 0.0002322698204654805
+          },
+          {
+            "date": "2026-06-04",
+            "baseline_minus_enriched": -0.001285779883319016
+          },
+          {
+            "date": "2026-06-05",
+            "baseline_minus_enriched": 0.00025781115144052347
+          },
+          {
+            "date": "2026-06-08",
+            "baseline_minus_enriched": -0.000249304855993282
+          },
+          {
+            "date": "2026-06-09",
+            "baseline_minus_enriched": -0.00014946319788267104
+          },
+          {
+            "date": "2026-06-10",
+            "baseline_minus_enriched": -8.661556044686769e-05
+          },
+          {
+            "date": "2026-06-11",
+            "baseline_minus_enriched": -0.00029817763035167033
+          },
+          {
+            "date": "2026-06-12",
+            "baseline_minus_enriched": 0.00030642329923946665
+          },
+          {
+            "date": "2026-06-15",
+            "baseline_minus_enriched": -0.00017303822927466905
+          },
+          {
+            "date": "2026-06-16",
+            "baseline_minus_enriched": -0.0007767023923176408
+          },
+          {
+            "date": "2026-06-17",
+            "baseline_minus_enriched": 0.0005159579883411425
+          },
+          {
+            "date": "2026-06-18",
+            "baseline_minus_enriched": 2.8208574962218513e-05
+          },
+          {
+            "date": "2026-06-19",
+            "baseline_minus_enriched": 7.177635428928797e-05
+          },
+          {
+            "date": "2026-06-22",
+            "baseline_minus_enriched": 0.000392524408127648
+          },
+          {
+            "date": "2026-06-23",
+            "baseline_minus_enriched": -0.000577934976705774
+          },
+          {
+            "date": "2026-06-24",
+            "baseline_minus_enriched": -0.0003880124811059815
+          },
+          {
+            "date": "2026-06-25",
+            "baseline_minus_enriched": 0.0004606525172368148
+          },
+          {
+            "date": "2026-06-26",
+            "baseline_minus_enriched": -0.0001773799598086545
+          },
+          {
+            "date": "2026-06-29",
+            "baseline_minus_enriched": 0.0006940291214387884
+          }
+        ]
+      },
+      "T50eq": {
+        "relative_log_loss_improvement": -0.000305900358519787,
+        "absolute_brier_improvement": -5.1021194131334324e-05,
+        "ece_change_enriched_minus_baseline": 2.9390165532956064e-05,
+        "fold_log_loss_wins": 2,
+        "fold_log_loss_differences": [
+          {
+            "fold": "WF1",
+            "baseline_minus_enriched": -0.0003816354392588428
+          },
+          {
+            "fold": "WF2",
+            "baseline_minus_enriched": -0.00011999572956050697
+          },
+          {
+            "fold": "WF3",
+            "baseline_minus_enriched": 0.00014569729336066928
+          },
+          {
+            "fold": "WF4",
+            "baseline_minus_enriched": -0.0003021700180372844
+          },
+          {
+            "fold": "WF5",
+            "baseline_minus_enriched": -0.00012152862131759035
+          },
+          {
+            "fold": "WF6",
+            "baseline_minus_enriched": 0.00010274623633166335
+          }
+        ],
+        "market_log_loss_nonworse_count": 2,
+        "market_details": {
+          "XAUUSD": {
+            "baseline_minus_enriched_log_loss": -0.0005683619325395628,
+            "nonworse": false
+          },
+          "EURUSD": {
+            "baseline_minus_enriched_log_loss": 0.00015650624298241267,
+            "nonworse": true
+          },
+          "GBPUSD": {
+            "baseline_minus_enriched_log_loss": -0.00010893887450980078,
+            "nonworse": false
+          },
+          "USDJPY": {
+            "baseline_minus_enriched_log_loss": -0.00018348800347051109,
+            "nonworse": false
+          },
+          "EURJPY": {
+            "baseline_minus_enriched_log_loss": -7.250018815974091e-05,
+            "nonworse": false
+          },
+          "USDCAD": {
+            "baseline_minus_enriched_log_loss": 1.6914309982851705e-05,
+            "nonworse": true
+          }
+        },
+        "paired_evaluation_days": 56,
+        "day_log_loss_wins": 23,
+        "day_log_loss_win_fraction": 0.4107142857142857,
+        "day_log_loss_differences": [
+          {
+            "date": "2026-04-13",
+            "baseline_minus_enriched": -0.00041272651280788164
+          },
+          {
+            "date": "2026-04-14",
+            "baseline_minus_enriched": 0.00046280015080996106
+          },
+          {
+            "date": "2026-04-15",
+            "baseline_minus_enriched": -0.0010263668306567664
+          },
+          {
+            "date": "2026-04-16",
+            "baseline_minus_enriched": -0.00045130784583863326
+          },
+          {
+            "date": "2026-04-17",
+            "baseline_minus_enriched": -0.00016346116092114116
+          },
+          {
+            "date": "2026-04-20",
+            "baseline_minus_enriched": -0.00021379528611104037
+          },
+          {
+            "date": "2026-04-21",
+            "baseline_minus_enriched": -0.0002858277022214084
+          },
+          {
+            "date": "2026-04-22",
+            "baseline_minus_enriched": -0.0006165377023166774
+          },
+          {
+            "date": "2026-04-23",
+            "baseline_minus_enriched": 8.308461684514157e-05
+          },
+          {
+            "date": "2026-04-24",
+            "baseline_minus_enriched": -0.0011347083319679374
+          },
+          {
+            "date": "2026-04-27",
+            "baseline_minus_enriched": -0.0007399483508479521
+          },
+          {
+            "date": "2026-04-28",
+            "baseline_minus_enriched": -0.0009048958800979556
+          },
+          {
+            "date": "2026-04-29",
+            "baseline_minus_enriched": 0.001283279656711711
+          },
+          {
+            "date": "2026-04-30",
+            "baseline_minus_enriched": -0.0012744491012345316
+          },
+          {
+            "date": "2026-05-01",
+            "baseline_minus_enriched": 0.0014530630226672892
+          },
+          {
+            "date": "2026-05-04",
+            "baseline_minus_enriched": -0.0007361176980837381
+          },
+          {
+            "date": "2026-05-05",
+            "baseline_minus_enriched": 0.00023025003837778835
+          },
+          {
+            "date": "2026-05-06",
+            "baseline_minus_enriched": -0.00011695767651609401
+          },
+          {
+            "date": "2026-05-07",
+            "baseline_minus_enriched": 0.00021210980026969972
+          },
+          {
+            "date": "2026-05-08",
+            "baseline_minus_enriched": -0.00045907419895724333
+          },
+          {
+            "date": "2026-05-11",
+            "baseline_minus_enriched": 2.866579056548524e-05
+          },
+          {
+            "date": "2026-05-12",
+            "baseline_minus_enriched": 0.0007795579166050004
+          },
+          {
+            "date": "2026-05-13",
+            "baseline_minus_enriched": -0.00014216649991577457
+          },
+          {
+            "date": "2026-05-14",
+            "baseline_minus_enriched": -0.0004608747681440484
+          },
+          {
+            "date": "2026-05-15",
+            "baseline_minus_enriched": -0.0002571542540671934
+          },
+          {
+            "date": "2026-05-18",
+            "baseline_minus_enriched": 3.243591065998919e-05
+          },
+          {
+            "date": "2026-05-19",
+            "baseline_minus_enriched": 0.00018167071103075694
+          },
+          {
+            "date": "2026-05-20",
+            "baseline_minus_enriched": -8.344825319889226e-05
+          },
+          {
+            "date": "2026-05-21",
+            "baseline_minus_enriched": 0.0008355084830841131
+          },
+          {
+            "date": "2026-05-22",
+            "baseline_minus_enriched": 0.0005517608452232925
+          },
+          {
+            "date": "2026-05-25",
+            "baseline_minus_enriched": -0.0024599061599238636
+          },
+          {
+            "date": "2026-05-26",
+            "baseline_minus_enriched": 0.0008307848398949602
+          },
+          {
+            "date": "2026-05-27",
+            "baseline_minus_enriched": 0.0007845495435292449
+          },
+          {
+            "date": "2026-05-28",
+            "baseline_minus_enriched": -0.00038908008831045615
+          },
+          {
+            "date": "2026-05-29",
+            "baseline_minus_enriched": -0.000587340848548612
+          },
+          {
+            "date": "2026-06-01",
+            "baseline_minus_enriched": -0.0005250479890339665
+          },
+          {
+            "date": "2026-06-02",
+            "baseline_minus_enriched": 0.0005080100206698024
+          },
+          {
+            "date": "2026-06-03",
+            "baseline_minus_enriched": -0.000373329192080496
+          },
+          {
+            "date": "2026-06-04",
+            "baseline_minus_enriched": -0.0012589137632247893
+          },
+          {
+            "date": "2026-06-05",
+            "baseline_minus_enriched": 0.000515634937551579
+          },
+          {
+            "date": "2026-06-08",
+            "baseline_minus_enriched": -0.00031174547429635435
+          },
+          {
+            "date": "2026-06-09",
+            "baseline_minus_enriched": -0.0003842415323918047
+          },
+          {
+            "date": "2026-06-10",
+            "baseline_minus_enriched": -0.00035385841497931336
+          },
+          {
+            "date": "2026-06-11",
+            "baseline_minus_enriched": 4.6180801613060485e-05
+          },
+          {
+            "date": "2026-06-12",
+            "baseline_minus_enriched": -1.2022059400540464e-05
+          },
+          {
+            "date": "2026-06-15",
+            "baseline_minus_enriched": -0.0001421687980284747
+          },
+          {
+            "date": "2026-06-16",
+            "baseline_minus_enriched": -0.000756687724153049
+          },
+          {
+            "date": "2026-06-17",
+            "baseline_minus_enriched": 0.00039094606148970534
+          },
+          {
+            "date": "2026-06-18",
+            "baseline_minus_enriched": 1.216687567007213e-05
+          },
+          {
+            "date": "2026-06-19",
+            "baseline_minus_enriched": 0.00027685951101641404
+          },
+          {
+            "date": "2026-06-22",
+            "baseline_minus_enriched": 0.0003816385014898116
+          },
+          {
+            "date": "2026-06-23",
+            "baseline_minus_enriched": -0.00039669524730601147
+          },
+          {
+            "date": "2026-06-24",
+            "baseline_minus_enriched": -0.0005660439201399803
+          },
+          {
+            "date": "2026-06-25",
+            "baseline_minus_enriched": 0.0005996143063982662
+          },
+          {
+            "date": "2026-06-26",
+            "baseline_minus_enriched": -0.0004304864568331346
+          },
+          {
+            "date": "2026-06-29",
+            "baseline_minus_enriched": 0.0010770475090416398
+          }
+        ]
+      }
+    },
+    "PLUS_PARTICIPATION_STATE": {
+      "T40eq": {
+        "relative_log_loss_improvement": -0.00012637594231256532,
+        "absolute_brier_improvement": -2.1376764718500363e-05,
+        "ece_change_enriched_minus_baseline": 6.590488195332492e-05,
+        "fold_log_loss_wins": 3,
+        "fold_log_loss_differences": [
+          {
+            "fold": "WF1",
+            "baseline_minus_enriched": -0.00017010035972719884
+          },
+          {
+            "fold": "WF2",
+            "baseline_minus_enriched": 0.0001624854157386002
+          },
+          {
+            "fold": "WF3",
+            "baseline_minus_enriched": 0.00021505113932762665
+          },
+          {
+            "fold": "WF4",
+            "baseline_minus_enriched": -0.0005072403057145847
+          },
+          {
+            "fold": "WF5",
+            "baseline_minus_enriched": -0.0001104576191904294
+          },
+          {
+            "fold": "WF6",
+            "baseline_minus_enriched": 8.14957632204183e-05
+          }
+        ],
+        "market_log_loss_nonworse_count": 3,
+        "market_details": {
+          "XAUUSD": {
+            "baseline_minus_enriched_log_loss": 1.1102465478585177e-05,
+            "nonworse": true
+          },
+          "EURUSD": {
+            "baseline_minus_enriched_log_loss": 3.7883318825260304e-06,
+            "nonworse": true
+          },
+          "GBPUSD": {
+            "baseline_minus_enriched_log_loss": -0.00010327765034917613,
+            "nonworse": false
+          },
+          "USDJPY": {
+            "baseline_minus_enriched_log_loss": -3.197765908491412e-05,
+            "nonworse": false
+          },
+          "EURJPY": {
+            "baseline_minus_enriched_log_loss": 8.305561854760057e-05,
+            "nonworse": true
+          },
+          "USDCAD": {
+            "baseline_minus_enriched_log_loss": -0.00034630935092838655,
+            "nonworse": false
+          }
+        },
+        "paired_evaluation_days": 56,
+        "day_log_loss_wins": 26,
+        "day_log_loss_win_fraction": 0.4642857142857143,
+        "day_log_loss_differences": [
+          {
+            "date": "2026-04-13",
+            "baseline_minus_enriched": -0.0005679506907143028
+          },
+          {
+            "date": "2026-04-14",
+            "baseline_minus_enriched": -0.0009346849141306235
+          },
+          {
+            "date": "2026-04-15",
+            "baseline_minus_enriched": 7.037128466680365e-05
+          },
+          {
+            "date": "2026-04-16",
+            "baseline_minus_enriched": 0.0006895875760524195
+          },
+          {
+            "date": "2026-04-17",
+            "baseline_minus_enriched": -0.0004281647522093035
+          },
+          {
+            "date": "2026-04-20",
+            "baseline_minus_enriched": 9.455615773701354e-05
+          },
+          {
+            "date": "2026-04-21",
+            "baseline_minus_enriched": -0.0005627478318197543
+          },
+          {
+            "date": "2026-04-22",
+            "baseline_minus_enriched": -0.0007126935918346788
+          },
+          {
+            "date": "2026-04-23",
+            "baseline_minus_enriched": -0.0012420343279403445
+          },
+          {
+            "date": "2026-04-24",
+            "baseline_minus_enriched": 0.0017572972048450208
+          },
+          {
+            "date": "2026-04-27",
+            "baseline_minus_enriched": -0.0002654905604077551
+          },
+          {
+            "date": "2026-04-28",
+            "baseline_minus_enriched": 0.00020520816734775904
+          },
+          {
+            "date": "2026-04-29",
+            "baseline_minus_enriched": 0.0010618981772462233
+          },
+          {
+            "date": "2026-04-30",
+            "baseline_minus_enriched": -0.0005904803795838687
+          },
+          {
+            "date": "2026-05-01",
+            "baseline_minus_enriched": 0.00044934826059928046
+          },
+          {
+            "date": "2026-05-04",
+            "baseline_minus_enriched": -0.0001417500057588339
+          },
+          {
+            "date": "2026-05-05",
+            "baseline_minus_enriched": 1.9803698265208336e-05
+          },
+          {
+            "date": "2026-05-06",
+            "baseline_minus_enriched": 0.00039084968848335233
+          },
+          {
+            "date": "2026-05-07",
+            "baseline_minus_enriched": 0.0004081999024032057
+          },
+          {
+            "date": "2026-05-08",
+            "baseline_minus_enriched": 0.0001445890394614069
+          },
+          {
+            "date": "2026-05-11",
+            "baseline_minus_enriched": -1.0451059674010388e-05
+          },
+          {
+            "date": "2026-05-12",
+            "baseline_minus_enriched": 0.0009886370580653447
+          },
+          {
+            "date": "2026-05-13",
+            "baseline_minus_enriched": -3.113066708826384e-05
+          },
+          {
+            "date": "2026-05-14",
+            "baseline_minus_enriched": -0.00026423553622684226
+          },
+          {
+            "date": "2026-05-15",
+            "baseline_minus_enriched": -0.000980369486289323
+          },
+          {
+            "date": "2026-05-18",
+            "baseline_minus_enriched": 0.0002872549947045555
+          },
+          {
+            "date": "2026-05-19",
+            "baseline_minus_enriched": 0.0005794305432296198
+          },
+          {
+            "date": "2026-05-20",
+            "baseline_minus_enriched": -3.501271827255348e-05
+          },
+          {
+            "date": "2026-05-21",
+            "baseline_minus_enriched": 0.0012391308162792436
+          },
+          {
+            "date": "2026-05-22",
+            "baseline_minus_enriched": 0.00028385744234260546
+          },
+          {
+            "date": "2026-05-25",
+            "baseline_minus_enriched": -0.002815572998558169
+          },
+          {
+            "date": "2026-05-26",
+            "baseline_minus_enriched": 0.0018370379204490916
+          },
+          {
+            "date": "2026-05-27",
+            "baseline_minus_enriched": 0.0007413973264794316
+          },
+          {
+            "date": "2026-05-28",
+            "baseline_minus_enriched": -0.001358293647684583
+          },
+          {
+            "date": "2026-05-29",
+            "baseline_minus_enriched": -0.0017440373879863413
+          },
+          {
+            "date": "2026-06-01",
+            "baseline_minus_enriched": -0.0012632677617803179
+          },
+          {
+            "date": "2026-06-02",
+            "baseline_minus_enriched": 0.0006209163838867271
+          },
+          {
+            "date": "2026-06-03",
+            "baseline_minus_enriched": 0.00026266649703049483
+          },
+          {
+            "date": "2026-06-04",
+            "baseline_minus_enriched": -0.0013036653858534697
+          },
+          {
+            "date": "2026-06-05",
+            "baseline_minus_enriched": -8.185271072669309e-05
+          },
+          {
+            "date": "2026-06-08",
+            "baseline_minus_enriched": -0.00010540045004625576
+          },
+          {
+            "date": "2026-06-09",
+            "baseline_minus_enriched": -0.00033943604434272245
+          },
+          {
+            "date": "2026-06-10",
+            "baseline_minus_enriched": 0.00011561997109132971
+          },
+          {
+            "date": "2026-06-11",
+            "baseline_minus_enriched": -0.00034708734594501855
+          },
+          {
+            "date": "2026-06-12",
+            "baseline_minus_enriched": 0.00014907011406239956
+          },
+          {
+            "date": "2026-06-15",
+            "baseline_minus_enriched": -3.998683366829292e-05
+          },
+          {
+            "date": "2026-06-16",
+            "baseline_minus_enriched": -0.0007841592006216924
+          },
+          {
+            "date": "2026-06-17",
+            "baseline_minus_enriched": 0.0003284563150460773
+          },
+          {
+            "date": "2026-06-18",
+            "baseline_minus_enriched": -1.66155892651898e-05
+          },
+          {
+            "date": "2026-06-19",
+            "baseline_minus_enriched": -0.00012627810951948426
+          },
+          {
+            "date": "2026-06-22",
+            "baseline_minus_enriched": 0.0004843725841772173
+          },
+          {
+            "date": "2026-06-23",
+            "baseline_minus_enriched": -0.0006415122461164158
+          },
+          {
+            "date": "2026-06-24",
+            "baseline_minus_enriched": -0.0006372464509174502
+          },
+          {
+            "date": "2026-06-25",
+            "baseline_minus_enriched": 0.0009546443880387168
+          },
+          {
+            "date": "2026-06-26",
+            "baseline_minus_enriched": -0.000455032403198552
+          },
+          {
+            "date": "2026-06-29",
+            "baseline_minus_enriched": 0.0008326158268499029
+          }
+        ]
+      },
+      "T50eq": {
+        "relative_log_loss_improvement": -0.00044927923316942183,
+        "absolute_brier_improvement": -6.157683166482797e-05,
+        "ece_change_enriched_minus_baseline": -0.0002615352350310452,
+        "fold_log_loss_wins": 2,
+        "fold_log_loss_differences": [
+          {
+            "fold": "WF1",
+            "baseline_minus_enriched": -0.000505129412902483
+          },
+          {
+            "fold": "WF2",
+            "baseline_minus_enriched": -0.00010657081347992259
+          },
+          {
+            "fold": "WF3",
+            "baseline_minus_enriched": 0.00019865982622380152
+          },
+          {
+            "fold": "WF4",
+            "baseline_minus_enriched": -0.000468920903719916
+          },
+          {
+            "fold": "WF5",
+            "baseline_minus_enriched": -0.00019321587293175124
+          },
+          {
+            "fold": "WF6",
+            "baseline_minus_enriched": 3.469798628674692e-05
+          }
+        ],
+        "market_log_loss_nonworse_count": 2,
+        "market_details": {
+          "XAUUSD": {
+            "baseline_minus_enriched_log_loss": -0.0005853461898406298,
+            "nonworse": false
+          },
+          "EURUSD": {
+            "baseline_minus_enriched_log_loss": 1.914103942207701e-05,
+            "nonworse": true
+          },
+          "GBPUSD": {
+            "baseline_minus_enriched_log_loss": 1.777539525382732e-05,
+            "nonworse": true
+          },
+          "USDJPY": {
+            "baseline_minus_enriched_log_loss": -0.0002159688958982553,
+            "nonworse": false
+          },
+          "EURJPY": {
+            "baseline_minus_enriched_log_loss": -5.861633434506297e-05,
+            "nonworse": false
+          },
+          "USDCAD": {
+            "baseline_minus_enriched_log_loss": -0.00029944331969911087,
+            "nonworse": false
+          }
+        },
+        "paired_evaluation_days": 56,
+        "day_log_loss_wins": 22,
+        "day_log_loss_win_fraction": 0.39285714285714285,
+        "day_log_loss_differences": [
+          {
+            "date": "2026-04-13",
+            "baseline_minus_enriched": -0.00041051239848238774
+          },
+          {
+            "date": "2026-04-14",
+            "baseline_minus_enriched": -0.00012136715925031849
+          },
+          {
+            "date": "2026-04-15",
+            "baseline_minus_enriched": -0.0007956286921432798
+          },
+          {
+            "date": "2026-04-16",
+            "baseline_minus_enriched": -2.5508689341480206e-05
+          },
+          {
+            "date": "2026-04-17",
+            "baseline_minus_enriched": -0.0007078459922091884
+          },
+          {
+            "date": "2026-04-20",
+            "baseline_minus_enriched": 0.00015175382583226815
+          },
+          {
+            "date": "2026-04-21",
+            "baseline_minus_enriched": -0.0005457052067573409
+          },
+          {
+            "date": "2026-04-22",
+            "baseline_minus_enriched": -0.0015783168653442092
+          },
+          {
+            "date": "2026-04-23",
+            "baseline_minus_enriched": 7.00412859665489e-05
+          },
+          {
+            "date": "2026-04-24",
+            "baseline_minus_enriched": -0.0010987528979663486
+          },
+          {
+            "date": "2026-04-27",
+            "baseline_minus_enriched": -0.000883510986330549
+          },
+          {
+            "date": "2026-04-28",
+            "baseline_minus_enriched": -0.0006365780637535012
+          },
+          {
+            "date": "2026-04-29",
+            "baseline_minus_enriched": 0.0014747673963269037
+          },
+          {
+            "date": "2026-04-30",
+            "baseline_minus_enriched": -0.0012031539747895392
+          },
+          {
+            "date": "2026-05-01",
+            "baseline_minus_enriched": 0.0012719498583876332
+          },
+          {
+            "date": "2026-05-04",
+            "baseline_minus_enriched": -0.0008485369705876766
+          },
+          {
+            "date": "2026-05-05",
+            "baseline_minus_enriched": 0.00020052003732179413
+          },
+          {
+            "date": "2026-05-06",
+            "baseline_minus_enriched": -0.0004291690474519383
+          },
+          {
+            "date": "2026-05-07",
+            "baseline_minus_enriched": 0.00027726468136601845
+          },
+          {
+            "date": "2026-05-08",
+            "baseline_minus_enriched": -0.00011670709125377599
+          },
+          {
+            "date": "2026-05-11",
+            "baseline_minus_enriched": 7.33880963046385e-05
+          },
+          {
+            "date": "2026-05-12",
+            "baseline_minus_enriched": 0.0007321493171252857
+          },
+          {
+            "date": "2026-05-13",
+            "baseline_minus_enriched": -0.00017508026830953538
+          },
+          {
+            "date": "2026-05-14",
+            "baseline_minus_enriched": -0.0005960570870726101
+          },
+          {
+            "date": "2026-05-15",
+            "baseline_minus_enriched": -0.0004985507192271643
+          },
+          {
+            "date": "2026-05-18",
+            "baseline_minus_enriched": 9.746759629108981e-05
+          },
+          {
+            "date": "2026-05-19",
+            "baseline_minus_enriched": 0.00044795797054242303
+          },
+          {
+            "date": "2026-05-20",
+            "baseline_minus_enriched": -0.0002820077666256249
+          },
+          {
+            "date": "2026-05-21",
+            "baseline_minus_enriched": 0.00145384337252763
+          },
+          {
+            "date": "2026-05-22",
+            "baseline_minus_enriched": 0.000725225263810414
+          },
+          {
+            "date": "2026-05-25",
+            "baseline_minus_enriched": -0.0025976295052651532
+          },
+          {
+            "date": "2026-05-26",
+            "baseline_minus_enriched": 0.000961793096451391
+          },
+          {
+            "date": "2026-05-27",
+            "baseline_minus_enriched": 0.000565911451721024
+          },
+          {
+            "date": "2026-05-28",
+            "baseline_minus_enriched": -0.00037126102718376686
+          },
+          {
+            "date": "2026-05-29",
+            "baseline_minus_enriched": -0.0009985824896930895
+          },
+          {
+            "date": "2026-06-01",
+            "baseline_minus_enriched": -0.0009178371490988213
+          },
+          {
+            "date": "2026-06-02",
+            "baseline_minus_enriched": 0.00048558123796144104
+          },
+          {
+            "date": "2026-06-03",
+            "baseline_minus_enriched": -0.0005373989150563308
+          },
+          {
+            "date": "2026-06-04",
+            "baseline_minus_enriched": -0.0013971243110966758
+          },
+          {
+            "date": "2026-06-05",
+            "baseline_minus_enriched": 0.00015817950647922796
+          },
+          {
+            "date": "2026-06-08",
+            "baseline_minus_enriched": -0.0002905005224607682
+          },
+          {
+            "date": "2026-06-09",
+            "baseline_minus_enriched": -0.00030669018201812115
+          },
+          {
+            "date": "2026-06-10",
+            "baseline_minus_enriched": -0.0004343863268856385
+          },
+          {
+            "date": "2026-06-11",
+            "baseline_minus_enriched": 0.00022852443194987249
+          },
+          {
+            "date": "2026-06-12",
+            "baseline_minus_enriched": -0.00012903266745950548
+          },
+          {
+            "date": "2026-06-15",
+            "baseline_minus_enriched": 5.4155751815665454e-05
+          },
+          {
+            "date": "2026-06-16",
+            "baseline_minus_enriched": -0.0007534052719728734
+          },
+          {
+            "date": "2026-06-17",
+            "baseline_minus_enriched": -0.00020481948258449512
+          },
+          {
+            "date": "2026-06-18",
+            "baseline_minus_enriched": -0.00015060884857570622
+          },
+          {
+            "date": "2026-06-19",
+            "baseline_minus_enriched": 6.0943607373409314e-05
+          },
+          {
+            "date": "2026-06-22",
+            "baseline_minus_enriched": 0.0004737182619137248
+          },
+          {
+            "date": "2026-06-23",
+            "baseline_minus_enriched": -0.0004090811681964901
+          },
+          {
+            "date": "2026-06-24",
+            "baseline_minus_enriched": -0.0008203775425683069
+          },
+          {
+            "date": "2026-06-25",
+            "baseline_minus_enriched": 0.0006913333505272345
+          },
+          {
+            "date": "2026-06-26",
+            "baseline_minus_enriched": -0.0007082496261974214
+          },
+          {
+            "date": "2026-06-29",
+            "baseline_minus_enriched": 0.0010266307668340136
+          }
+        ]
+      }
+    },
+    "PLUS_QUOTE_IMBALANCE_STATE": {
+      "T40eq": {
+        "relative_log_loss_improvement": -0.0007372278842845631,
+        "absolute_brier_improvement": -0.00011895590497826292,
+        "ece_change_enriched_minus_baseline": -0.0002547283700293605,
+        "fold_log_loss_wins": 1,
+        "fold_log_loss_differences": [
+          {
+            "fold": "WF1",
+            "baseline_minus_enriched": -0.000533855233636471
+          },
+          {
+            "fold": "WF2",
+            "baseline_minus_enriched": -0.0009474453507944958
+          },
+          {
+            "fold": "WF3",
+            "baseline_minus_enriched": 0.0003743612975621313
+          },
+          {
+            "fold": "WF4",
+            "baseline_minus_enriched": -0.0008052550816106674
+          },
+          {
+            "fold": "WF5",
+            "baseline_minus_enriched": -0.00012335433623367198
+          },
+          {
+            "fold": "WF6",
+            "baseline_minus_enriched": -5.949044843911455e-05
+          }
+        ],
+        "market_log_loss_nonworse_count": 2,
+        "market_details": {
+          "XAUUSD": {
+            "baseline_minus_enriched_log_loss": 0.00010524002998568704,
+            "nonworse": true
+          },
+          "EURUSD": {
+            "baseline_minus_enriched_log_loss": 0.00016104378691200738,
+            "nonworse": true
+          },
+          "GBPUSD": {
+            "baseline_minus_enriched_log_loss": -0.0010698239639595486,
+            "nonworse": false
+          },
+          "USDJPY": {
+            "baseline_minus_enriched_log_loss": -3.8261687343332795e-05,
+            "nonworse": false
+          },
+          "EURJPY": {
+            "baseline_minus_enriched_log_loss": -0.0003188520764257907,
+            "nonworse": false
+          },
+          "USDCAD": {
+            "baseline_minus_enriched_log_loss": -0.0010505867599072127,
+            "nonworse": false
+          }
+        },
+        "paired_evaluation_days": 56,
+        "day_log_loss_wins": 24,
+        "day_log_loss_win_fraction": 0.42857142857142855,
+        "day_log_loss_differences": [
+          {
+            "date": "2026-04-13",
+            "baseline_minus_enriched": -0.0017045656692678546
+          },
+          {
+            "date": "2026-04-14",
+            "baseline_minus_enriched": -0.0010046006799058205
+          },
+          {
+            "date": "2026-04-15",
+            "baseline_minus_enriched": 0.0001593334714066197
+          },
+          {
+            "date": "2026-04-16",
+            "baseline_minus_enriched": 0.0006938880062768993
+          },
+          {
+            "date": "2026-04-17",
+            "baseline_minus_enriched": 9.137136466008666e-05
+          },
+          {
+            "date": "2026-04-20",
+            "baseline_minus_enriched": -0.00013311213127975563
+          },
+          {
+            "date": "2026-04-21",
+            "baseline_minus_enriched": -0.0004816983265972796
+          },
+          {
+            "date": "2026-04-22",
+            "baseline_minus_enriched": -0.002268961665946645
+          },
+          {
+            "date": "2026-04-23",
+            "baseline_minus_enriched": -0.001925457819546672
+          },
+          {
+            "date": "2026-04-24",
+            "baseline_minus_enriched": 0.0010251273605809685
+          },
+          {
+            "date": "2026-04-27",
+            "baseline_minus_enriched": -0.0018770705450845693
+          },
+          {
+            "date": "2026-04-28",
+            "baseline_minus_enriched": -0.0022688883676640903
+          },
+          {
+            "date": "2026-04-29",
+            "baseline_minus_enriched": 0.002009053793513016
+          },
+          {
+            "date": "2026-04-30",
+            "baseline_minus_enriched": -0.001910948124035805
+          },
+          {
+            "date": "2026-05-01",
+            "baseline_minus_enriched": 6.797779494671641e-05
+          },
+          {
+            "date": "2026-05-04",
+            "baseline_minus_enriched": -0.005027929344970816
+          },
+          {
+            "date": "2026-05-05",
+            "baseline_minus_enriched": -9.287698867171956e-05
+          },
+          {
+            "date": "2026-05-06",
+            "baseline_minus_enriched": -0.0012081560004002512
+          },
+          {
+            "date": "2026-05-07",
+            "baseline_minus_enriched": 0.0016652243679945444
+          },
+          {
+            "date": "2026-05-08",
+            "baseline_minus_enriched": -0.0005721784255191542
+          },
+          {
+            "date": "2026-05-11",
+            "baseline_minus_enriched": -0.0001432517987461912
+          },
+          {
+            "date": "2026-05-12",
+            "baseline_minus_enriched": 0.0009615093054938795
+          },
+          {
+            "date": "2026-05-13",
+            "baseline_minus_enriched": 0.0002526289985126384
+          },
+          {
+            "date": "2026-05-14",
+            "baseline_minus_enriched": 0.002530456656905322
+          },
+          {
+            "date": "2026-05-15",
+            "baseline_minus_enriched": -0.0027278014547638674
+          },
+          {
+            "date": "2026-05-18",
+            "baseline_minus_enriched": 0.0012154479827695686
+          },
+          {
+            "date": "2026-05-19",
+            "baseline_minus_enriched": 0.0011649299380847022
+          },
+          {
+            "date": "2026-05-20",
+            "baseline_minus_enriched": -0.00017825618905770169
+          },
+          {
+            "date": "2026-05-21",
+            "baseline_minus_enriched": 0.0009603702782973178
+          },
+          {
+            "date": "2026-05-22",
+            "baseline_minus_enriched": -0.0006582287774745677
+          },
+          {
+            "date": "2026-05-25",
+            "baseline_minus_enriched": -0.0028481720782282394
+          },
+          {
+            "date": "2026-05-26",
+            "baseline_minus_enriched": 0.0014363506150824046
+          },
+          {
+            "date": "2026-05-27",
+            "baseline_minus_enriched": 5.687150478145275e-05
+          },
+          {
+            "date": "2026-05-28",
+            "baseline_minus_enriched": -0.0022275299135068316
+          },
+          {
+            "date": "2026-05-29",
+            "baseline_minus_enriched": -0.0024803845790386525
+          },
+          {
+            "date": "2026-06-01",
+            "baseline_minus_enriched": -0.0003461940051054935
+          },
+          {
+            "date": "2026-06-02",
+            "baseline_minus_enriched": 0.0007756853308065192
+          },
+          {
+            "date": "2026-06-03",
+            "baseline_minus_enriched": -0.0012808487895283327
+          },
+          {
+            "date": "2026-06-04",
+            "baseline_minus_enriched": -0.0013455481889912413
+          },
+          {
+            "date": "2026-06-05",
+            "baseline_minus_enriched": 0.0003182184047604286
+          },
+          {
+            "date": "2026-06-08",
+            "baseline_minus_enriched": 3.932980202114855e-05
+          },
+          {
+            "date": "2026-06-09",
+            "baseline_minus_enriched": -0.0002766542478233047
+          },
+          {
+            "date": "2026-06-10",
+            "baseline_minus_enriched": 9.977131599248068e-05
+          },
+          {
+            "date": "2026-06-11",
+            "baseline_minus_enriched": -0.00024862270246417406
+          },
+          {
+            "date": "2026-06-12",
+            "baseline_minus_enriched": 0.00024129654881116513
+          },
+          {
+            "date": "2026-06-15",
+            "baseline_minus_enriched": -4.783422552723238e-05
+          },
+          {
+            "date": "2026-06-16",
+            "baseline_minus_enriched": -0.0007936757775123815
+          },
+          {
+            "date": "2026-06-17",
+            "baseline_minus_enriched": -0.00014955179544628994
+          },
+          {
+            "date": "2026-06-18",
+            "baseline_minus_enriched": 0.000171387433049619
+          },
+          {
+            "date": "2026-06-19",
+            "baseline_minus_enriched": -0.00031467811067348306
+          },
+          {
+            "date": "2026-06-22",
+            "baseline_minus_enriched": 0.0003188293678402787
+          },
+          {
+            "date": "2026-06-23",
+            "baseline_minus_enriched": -0.0008757755259032329
+          },
+          {
+            "date": "2026-06-24",
+            "baseline_minus_enriched": -0.0016156543919058075
+          },
+          {
+            "date": "2026-06-25",
+            "baseline_minus_enriched": 0.0014210218316909051
+          },
+          {
+            "date": "2026-06-26",
+            "baseline_minus_enriched": -0.0009012602705875672
+          },
+          {
+            "date": "2026-06-29",
+            "baseline_minus_enriched": 0.0013646579669909231
+          }
+        ]
+      },
+      "T50eq": {
+        "relative_log_loss_improvement": -0.0012800652531059413,
+        "absolute_brier_improvement": -0.00014608043515257352,
+        "ece_change_enriched_minus_baseline": 0.00021382903655506671,
+        "fold_log_loss_wins": 1,
+        "fold_log_loss_differences": [
+          {
+            "fold": "WF1",
+            "baseline_minus_enriched": -0.0012918441728225205
+          },
+          {
+            "fold": "WF2",
+            "baseline_minus_enriched": -0.000850582023082358
+          },
+          {
+            "fold": "WF3",
+            "baseline_minus_enriched": 0.0003488796974061015
+          },
+          {
+            "fold": "WF4",
+            "baseline_minus_enriched": -0.0008228950170474092
+          },
+          {
+            "fold": "WF5",
+            "baseline_minus_enriched": -0.00022392833009216018
+          },
+          {
+            "fold": "WF6",
+            "baseline_minus_enriched": -0.00025125298226497117
+          }
+        ],
+        "market_log_loss_nonworse_count": 0,
+        "market_details": {
+          "XAUUSD": {
+            "baseline_minus_enriched_log_loss": -0.0004403553254184178,
+            "nonworse": false
+          },
+          "EURUSD": {
+            "baseline_minus_enriched_log_loss": -6.348516556453632e-06,
+            "nonworse": false
+          },
+          "GBPUSD": {
+            "baseline_minus_enriched_log_loss": -0.0008393229951150771,
+            "nonworse": false
+          },
+          "USDJPY": {
+            "baseline_minus_enriched_log_loss": -0.00013190517170780236,
+            "nonworse": false
+          },
+          "EURJPY": {
+            "baseline_minus_enriched_log_loss": -0.0004285408085220599,
+            "nonworse": false
+          },
+          "USDCAD": {
+            "baseline_minus_enriched_log_loss": -0.0013563201368058109,
+            "nonworse": false
+          }
+        },
+        "paired_evaluation_days": 56,
+        "day_log_loss_wins": 22,
+        "day_log_loss_win_fraction": 0.39285714285714285,
+        "day_log_loss_differences": [
+          {
+            "date": "2026-04-13",
+            "baseline_minus_enriched": -0.0014139015278404887
+          },
+          {
+            "date": "2026-04-14",
+            "baseline_minus_enriched": -0.001869074966110551
+          },
+          {
+            "date": "2026-04-15",
+            "baseline_minus_enriched": -0.001433603296510877
+          },
+          {
+            "date": "2026-04-16",
+            "baseline_minus_enriched": -0.00024624442742487984
+          },
+          {
+            "date": "2026-04-17",
+            "baseline_minus_enriched": -0.00017935261696222504
+          },
+          {
+            "date": "2026-04-20",
+            "baseline_minus_enriched": -0.0005677798271599976
+          },
+          {
+            "date": "2026-04-21",
+            "baseline_minus_enriched": -0.00036651424678918465
+          },
+          {
+            "date": "2026-04-22",
+            "baseline_minus_enriched": -0.00446929079406333
+          },
+          {
+            "date": "2026-04-23",
+            "baseline_minus_enriched": -0.0014881154879625158
+          },
+          {
+            "date": "2026-04-24",
+            "baseline_minus_enriched": -0.0009375574541836684
+          },
+          {
+            "date": "2026-04-27",
+            "baseline_minus_enriched": -0.0014140635192677053
+          },
+          {
+            "date": "2026-04-28",
+            "baseline_minus_enriched": -0.0018210343840157073
+          },
+          {
+            "date": "2026-04-29",
+            "baseline_minus_enriched": 0.0018113896845948774
+          },
+          {
+            "date": "2026-04-30",
+            "baseline_minus_enriched": -0.002704925948961434
+          },
+          {
+            "date": "2026-05-01",
+            "baseline_minus_enriched": 0.0006903613481759052
+          },
+          {
+            "date": "2026-05-04",
+            "baseline_minus_enriched": -0.004621068255994454
+          },
+          {
+            "date": "2026-05-05",
+            "baseline_minus_enriched": 8.027034773949726e-05
+          },
+          {
+            "date": "2026-05-06",
+            "baseline_minus_enriched": -0.0012212723285907612
+          },
+          {
+            "date": "2026-05-07",
+            "baseline_minus_enriched": 0.001252033321472057
+          },
+          {
+            "date": "2026-05-08",
+            "baseline_minus_enriched": -0.00024054682249979864
+          },
+          {
+            "date": "2026-05-11",
+            "baseline_minus_enriched": 0.00027367801470423725
+          },
+          {
+            "date": "2026-05-12",
+            "baseline_minus_enriched": 0.0008417236858868082
+          },
+          {
+            "date": "2026-05-13",
+            "baseline_minus_enriched": 0.0007018379980842093
+          },
+          {
+            "date": "2026-05-14",
+            "baseline_minus_enriched": 0.0016431268967515567
+          },
+          {
+            "date": "2026-05-15",
+            "baseline_minus_enriched": -0.001837028656087425
+          },
+          {
+            "date": "2026-05-18",
+            "baseline_minus_enriched": 0.0003404346284637261
+          },
+          {
+            "date": "2026-05-19",
+            "baseline_minus_enriched": 0.001023402423915576
+          },
+          {
+            "date": "2026-05-20",
+            "baseline_minus_enriched": -2.125873164438019e-05
+          },
+          {
+            "date": "2026-05-21",
+            "baseline_minus_enriched": 0.0005694056081458898
+          },
+          {
+            "date": "2026-05-22",
+            "baseline_minus_enriched": -0.0002827869612292977
+          },
+          {
+            "date": "2026-05-25",
+            "baseline_minus_enriched": -0.0027157701882723484
+          },
+          {
+            "date": "2026-05-26",
+            "baseline_minus_enriched": 0.0002544584833304997
+          },
+          {
+            "date": "2026-05-27",
+            "baseline_minus_enriched": 0.0003464925096753335
+          },
+          {
+            "date": "2026-05-28",
+            "baseline_minus_enriched": -0.0012113929938782908
+          },
+          {
+            "date": "2026-05-29",
+            "baseline_minus_enriched": -0.0021982690509117497
+          },
+          {
+            "date": "2026-06-01",
+            "baseline_minus_enriched": -9.113240832853142e-05
+          },
+          {
+            "date": "2026-06-02",
+            "baseline_minus_enriched": 0.00040871597804731374
+          },
+          {
+            "date": "2026-06-03",
+            "baseline_minus_enriched": -0.0027623694826892087
+          },
+          {
+            "date": "2026-06-04",
+            "baseline_minus_enriched": -0.0015385640553089996
+          },
+          {
+            "date": "2026-06-05",
+            "baseline_minus_enriched": 0.0016199393630327297
+          },
+          {
+            "date": "2026-06-08",
+            "baseline_minus_enriched": -0.00020470158480206946
+          },
+          {
+            "date": "2026-06-09",
+            "baseline_minus_enriched": -0.00047007203080257076
+          },
+          {
+            "date": "2026-06-10",
+            "baseline_minus_enriched": -0.00024859041982683294
+          },
+          {
+            "date": "2026-06-11",
+            "baseline_minus_enriched": 0.0003873869339942049
+          },
+          {
+            "date": "2026-06-12",
+            "baseline_minus_enriched": 8.627099989089171e-05
+          },
+          {
+            "date": "2026-06-15",
+            "baseline_minus_enriched": -0.0003175223453139031
+          },
+          {
+            "date": "2026-06-16",
+            "baseline_minus_enriched": -0.0009039709197741774
+          },
+          {
+            "date": "2026-06-17",
+            "baseline_minus_enriched": -0.0006877347132033251
+          },
+          {
+            "date": "2026-06-18",
+            "baseline_minus_enriched": 3.2714761915353385e-05
+          },
+          {
+            "date": "2026-06-19",
+            "baseline_minus_enriched": 0.0001126611785545184
+          },
+          {
+            "date": "2026-06-22",
+            "baseline_minus_enriched": 0.00025400130909664087
+          },
+          {
+            "date": "2026-06-23",
+            "baseline_minus_enriched": -0.0006544051737251144
+          },
+          {
+            "date": "2026-06-24",
+            "baseline_minus_enriched": -0.0017591621887061981
+          },
+          {
+            "date": "2026-06-25",
+            "baseline_minus_enriched": 0.0005572094763155455
+          },
+          {
+            "date": "2026-06-26",
+            "baseline_minus_enriched": -0.0013210992272117417
+          },
+          {
+            "date": "2026-06-29",
+            "baseline_minus_enriched": 0.0014772511717098258
+          }
+        ]
+      }
+    }
+  },
+  "information_advantage_gates": {
+    "PLUS_EXECUTION_COST_STATE": {
+      "rungs": {
+        "T40eq": {
+          "relative_logloss_improvement_ge_1pct": false,
+          "brier_improves": false,
+          "fold_logloss_wins_ge_4_of_6": true,
+          "ece_not_worse_by_more_than_0_01": true,
+          "market_logloss_nonworse_ge_5_markets": false,
+          "day_logloss_win_fraction_ge_55pct": true,
+          "rung_pass": false
+        },
+        "T50eq": {
+          "relative_logloss_improvement_ge_1pct": false,
+          "brier_improves": false,
+          "fold_logloss_wins_ge_4_of_6": false,
+          "ece_not_worse_by_more_than_0_01": true,
+          "market_logloss_nonworse_ge_5_markets": false,
+          "day_logloss_win_fraction_ge_55pct": false,
+          "rung_pass": false
+        }
+      },
+      "feature_set_pass": false
+    },
+    "PLUS_PARTICIPATION_STATE": {
+      "rungs": {
+        "T40eq": {
+          "relative_logloss_improvement_ge_1pct": false,
+          "brier_improves": false,
+          "fold_logloss_wins_ge_4_of_6": false,
+          "ece_not_worse_by_more_than_0_01": true,
+          "market_logloss_nonworse_ge_5_markets": false,
+          "day_logloss_win_fraction_ge_55pct": false,
+          "rung_pass": false
+        },
+        "T50eq": {
+          "relative_logloss_improvement_ge_1pct": false,
+          "brier_improves": false,
+          "fold_logloss_wins_ge_4_of_6": false,
+          "ece_not_worse_by_more_than_0_01": true,
+          "market_logloss_nonworse_ge_5_markets": false,
+          "day_logloss_win_fraction_ge_55pct": false,
+          "rung_pass": false
+        }
+      },
+      "feature_set_pass": false
+    },
+    "PLUS_QUOTE_IMBALANCE_STATE": {
+      "rungs": {
+        "T40eq": {
+          "relative_logloss_improvement_ge_1pct": false,
+          "brier_improves": false,
+          "fold_logloss_wins_ge_4_of_6": false,
+          "ece_not_worse_by_more_than_0_01": true,
+          "market_logloss_nonworse_ge_5_markets": false,
+          "day_logloss_win_fraction_ge_55pct": false,
+          "rung_pass": false
+        },
+        "T50eq": {
+          "relative_logloss_improvement_ge_1pct": false,
+          "brier_improves": false,
+          "fold_logloss_wins_ge_4_of_6": false,
+          "ece_not_worse_by_more_than_0_01": true,
+          "market_logloss_nonworse_ge_5_markets": false,
+          "day_logloss_win_fraction_ge_55pct": false,
+          "rung_pass": false
+        }
+      },
+      "feature_set_pass": false
+    }
+  },
+  "passing_feature_sets": [],
+  "selected_smallest_passing_feature_set": null,
+  "integrity": {
+    "target_archive_sha_verified": true,
+    "all_6_active_target_file_shas_verified": true,
+    "micro_archive_sha_verified": true,
+    "micro_snapshot_result_blob_unchanged": true,
+    "all_6_active_micro_file_shas_verified": true,
+    "micro_minutes_strictly_causal": true,
+    "same_eligible_rows_all_feature_sets": true,
+    "source_diagnostic_blob_unchanged": true,
+    "source_diagnostic_exact_excluded_markets": true,
+    "active_market_universe_exact": true,
+    "micro_eligible_coverage_ge_90pct_each_active_market": true,
+    "each_market_direction_ge_500": true,
+    "primary_rungs_both_classes_all_folds": true,
+    "all_markets_both_classes_pooled": true,
+    "paired_evaluation_days_ge_45": true,
+    "candidate_rows_before_2026_06_30": true,
+    "protected_periods_sealed": true,
+    "engine_r_or_exp015_outcomes_used": false,
+    "integrity_pass": true
+  },
+  "disposition": "NO_STABLE_TICK_MICROSTRUCTURE_INFORMATION_ADVANTAGE"
+}
