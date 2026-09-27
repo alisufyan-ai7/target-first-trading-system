@@ -2817,3 +2817,22 @@ PASS freezes immutable release tag:
 No EXP-043 target/path outcomes are computed during acquisition.
 
 **Exact next action:** trigger exactly one EXP-043 development microstructure snapshot acquisition and resume from its durable checkpoint.
+
+
+## 2026-09-27 — EXP-043 DEVELOPMENT MICROSTRUCTURE SNAPSHOT PASSED
+
+Durable snapshot result: `ba908a721a131b6062ebcc107ddab5a3e4c01285`.
+
+Snapshot PASS:
+
+- immutable release tag: `exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1`;
+- archive SHA-256: `f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5`;
+- manifest SHA-256: `887a41cb90b5350764eed5cb69399bc9e146d13fb12a3f9d194d4ad3abfbc2ef`;
+- all 8 market aggregate files passed integrity;
+- requested weekdays: 260;
+- 257-259 positive source days per market;
+- no target labels, scientific outcomes, P&L or protected periods were used.
+
+The stored minute layer contains only execution/participation observables: spread, tick/update intensity, inter-arrival timing, quote freshness and quote-side imbalance. No mid-price OHLC/return fields were stored.
+
+The project is now authorized to freeze one development-only EXP-043 information-content study on the immutable microstructure snapshot.
