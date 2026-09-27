@@ -1,0 +1,83 @@
+name: EXP-041 Full Free Macro Consensus Acquisition v0.2
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-full-free-macro-consensus-v02.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  acquire-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      RESULT: research/results/EXP-041-free-macro-consensus-acquisition-audit-v0.2.json
+      DATASET: research/data/EXP-041-free-macro-consensus-v0.2.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install parser dependency
+        run: pip install beautifulsoup4
+
+      - name: Verify frozen v0.2 acquisition code
+        run: python -m py_compile research/code/run_exp041_full_free_macro_consensus_acquisition_v02.py
+
+      - name: Acquire corrected full consensus layer
+        continue-on-error: true
+        run: python research/code/run_exp041_full_free_macro_consensus_acquisition_v02.py
+
+      - name: Upload durable corrected consensus artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-full-free-macro-consensus-v02
+          path: |
+            research/results/EXP-041-free-macro-consensus-acquisition-audit-v0.2.json
+            research/data/EXP-041-free-macro-consensus-v0.2.json
+          if-no-files-found: warn
+
+      - name: Commit corrected normalized consensus layer and audit
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "$RESULT" ] || [ ! -f "$DATASET" ]; then
+            echo "corrected macro consensus outputs missing"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT" "$DATASET"
+          git commit -m "Checkpoint EXP-041 corrected free macro consensus v0.2"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce corrected coverage gate only
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-free-macro-consensus-acquisition-audit-v0.2.json")
+          if not p.exists():
+              raise SystemExit("corrected macro consensus audit missing")
+          x=json.loads(p.read_text())
+          if x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_outcomes_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["market_data_loaded"]:
+              raise SystemExit("market data must not be loaded")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["consensus_layer_gate_pass"]:
+              raise SystemExit("corrected free consensus layer gate failed: "+str(x["disposition"]))
+          print("EXP-041 corrected consensus v0.2 PASS; official reconciliation required next")
+          PY
