@@ -1985,3 +1985,14 @@ Instead, use the exact same rules on a longer earlier zero-outcome Gold developm
 This is for statistical sample adequacy only, not to claim higher daily trade frequency.
 
 If the extended preflight fails, Engine S is closed.
+
+
+## 2026-09-28 — Authorize Engine-S post-entry development under frozen structural target management
+
+Engine-S v0.2 passed the final zero-outcome sample-adequacy gate without strategy-rule changes.
+
+**Decision:** expose development post-entry outcomes only under the prospectively frozen structural target/management protocol.
+
+The same liquidity map now serves both setup location and target path. Branches are evaluated independently; one branch cannot rescue another.
+
+No validation/holdout data may be loaded unless a branch passes its frozen development gate.
