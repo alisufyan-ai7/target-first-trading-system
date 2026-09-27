@@ -2189,3 +2189,28 @@ Frozen v0.2:
 v0.2 adds NFP aliases, permits only FOMC Statement/Federal Funds Rate/Economic Projections, and groups provisional blocks by date+family.
 
 **Exact next action:** trigger exactly one v0.2 corrected consensus acquisition. PASS => freeze official BLS/Census/BEA/Fed reconciliation.
+
+
+## EXP-041 free consensus v0.3 Employment-source checkpoint
+
+Corrected v0.2 durable result: `308ee5c6e1d5f0edb17ab3d6420e97384516f44c`.
+
+It passed coverage with:
+
+- 215 normalized rows;
+- 80 provisional blocks;
+- 80 surprise-bearing blocks;
+- CPI 11, PPI 11, Retail 12, GDP/PCE 15, FOMC 8;
+- EMPLOYMENT 23.
+
+One remaining identity issue was found before outcomes: EMPLOYMENT includes private `ADP Non-Farm Employment Change` dates in addition to BLS Employment Situation components.
+
+Frozen v0.3:
+
+- spec `7a85aeafba0427b12912d183e3686e07804ddc9e`;
+- runner `64f35f7281c14425d2f0500c6ff79fc0b213a356`;
+- workflow `59aebbb56fe827414a5d37435402bea0e51b4091`.
+
+It uses no network and verifies frozen v0.2 SHA `17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811` before removing ADP and recalculating the gate.
+
+**Exact next action:** trigger one v0.3 scope correction. PASS => official BLS/Census/BEA/Fed reconciliation.
