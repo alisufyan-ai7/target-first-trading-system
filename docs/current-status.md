@@ -2458,3 +2458,44 @@ Six chronological evaluation folds are frozen before outcomes by sorting indepen
 The audit checks the original frozen Gate-A requirements unchanged, including >=40 independent blocks, >=30 surprise-bearing blocks, >=8 timestamps per recurring numeric family, >=6 FOMC events or timing-only, >=4 blocks/fold, >=2 families/fold, point-in-time Forecast provenance, official release timestamps, 12-month canonical market history, and protected-period seal.
 
 **Exact next action:** trigger one final Gate-A adequacy/provenance audit. PASS => Gate B information-content study becomes authorized.
+
+
+## 2026-09-27 — EXP-041 GATE A PASSED / GATE B FROZEN
+
+Final Gate-A durable result: `4208af07c148a5d37c61cbbbeb004b83fec14af5`.
+
+Gate A PASS:
+
+- 65 independent macro timestamps after exact-time collapse;
+- 57 surprise-bearing independent blocks;
+- EMPLOYMENT 11, CPI 11, PPI 11, RETAIL 12, GDP_PCE 16, FOMC 8;
+- all six frozen chronological folds passed;
+- 12-month canonical Dukascopy v2 history verified;
+- point-in-time Forecast provenance verified;
+- official Actual and release-time provenance verified;
+- Jul-Aug/Sep protected periods sealed.
+
+Disposition:
+
+`EXP041_GATE_A_PASS_AUTHORIZE_GATE_B_INFORMATION_CONTENT`.
+
+Gate-B implementation is frozen before outcomes:
+
+- spec: `research/EXP-041-GATE-B-MACRO-INFORMATION-CONTENT-v0.1.md`;
+- spec commit: `5980e34433de38b17a64e31a260b5beeefa1a054`;
+- runner commit: `015eb7b5cf50a86159614b43f331120991322fae`;
+- workflow commit: `55ebbedde6bdcdc083d71d6f6a6676d68bbb4b0a`.
+
+Gate B:
+
+- consumes immutable Dukascopy snapshot v2, never live Dukascopy;
+- reuses EXP-040 broad structural candidate and target-path mechanics;
+- evaluates only [-60m,+180m] around frozen macro timestamps;
+- compares LOCAL_M5 vs +CATALYST_TIMING vs +SURPRISE_MAGNITUDE;
+- uses the six frozen event folds as grouped outer holdouts with inner fold OOF Platt calibration;
+- tests T40eq/T50eq only for promotion;
+- preserves original >=1% pooled log-loss / Brier / 4-of-6 fold / >=60% event-block / >=5-of-8 market / ECE gates.
+
+Engine R and EXP-015 remain paused.
+
+**Exact next action:** trigger exactly one EXP-041 Gate-B macro information-content run and resume from its durable result.
