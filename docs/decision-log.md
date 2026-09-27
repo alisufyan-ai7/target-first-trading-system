@@ -1726,3 +1726,14 @@ There are exactly 67 numeric blocks and every block has one unique forecast-bear
 The frozen Forex Factory Actual is only a candidate value. It is accepted as official actual-as-released only when the exact first-party release source verifies that value in component-specific context.
 
 This is the final macro provenance stage before the final Gate-A audit.
+
+
+## 2026-09-27 — Freeze final Gate-A with exact-timestamp independence and six outcome-blind folds
+
+Phase B `fe8e180` passed all 67 numeric blocks plus 8 FOMC timing-only blocks.
+
+**Decision:** final Gate-A must respect the original anti-pseudoreplication definition. Multiple records sharing one exact official UTC timestamp are one independent macro event block, even if sourced from separate releases.
+
+The final audit freezes six contiguous chronological event folds before any market labels/outcomes are loaded. These folds will be reused by Gate B and cannot be reselected after results.
+
+No original Gate-A threshold is changed.
