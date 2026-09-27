@@ -2166,3 +2166,36 @@ Scope:
 Coverage gate requires >=40 provisional blocks, >=30 surprise-bearing blocks and >=8 blocks in each recurring numeric family. FOMC is reported separately and may remain timing-only.
 
 **Exact next action:** trigger one full free macro consensus acquisition/audit. PASS => freeze official-release reconciliation. FAIL => repair only public parser/access or free-source coverage.
+
+
+## 2026-09-27 — FREE CONSENSUS v0.1 COVERAGE PASSED / ZERO-OUTCOME SCOPE CORRECTION REQUIRED
+
+Durable v0.1 acquisition result: `48291dc19916616ade0852faa067194ebfb6172e`.
+
+Coverage evidence:
+
+- 597 normalized target-family rows;
+- 483 provisional blocks;
+- 94 surprise-bearing provisional blocks;
+- family provisional blocks: EMPLOYMENT 16, CPI 17, PPI 19, RETAIL 15, GDP_PCE 22;
+- every recurring numeric family exceeded the frozen >=8 minimum;
+- all pages HTTP 200;
+- no protected-period or market-outcome use.
+
+Record inspection found two parser-scope defects before official reconciliation:
+
+1. Forex Factory's `Non-Farm Employment Change` label was not included, so the primary NFP component was omitted.
+2. FOMC matching included speeches/minutes/press conferences, inflating FOMC to hundreds of non-policy rows.
+3. FF displayed time is often blank/repeated, so it should not determine provisional independent-event counting before official timing reconciliation.
+
+These are zero-outcome data-cleaning corrections, not scientific tuning.
+
+Frozen corrected v0.2:
+
+- spec commit: `3489490742d4a5d7bae9cca3d6585d1451aba8a4`;
+- runner commit: `977ac996086ef3686177bb11f1426c0ab8c324da`;
+- workflow commit: `3e30ce61e387af3e3588c3fb01c2a6e5e966cce4`.
+
+v0.2 adds NFP aliases, restricts FOMC to Statement/Federal Funds Rate/Economic Projections, and groups provisional event blocks by date+family only.
+
+**Exact next action:** run one corrected full consensus v0.2 acquisition. Only v0.2 may feed official BLS/Census/BEA/Fed reconciliation.
