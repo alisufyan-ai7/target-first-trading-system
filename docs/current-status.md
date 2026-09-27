@@ -2866,3 +2866,35 @@ Primary rungs: T40eq/T50eq.
 Promotion gate retains pooled log-loss/Brier/fold/ECE/market criteria and adds paired day-level log-loss wins >=55% to reduce false confidence from correlated intraday rows.
 
 **Exact next action:** trigger exactly one EXP-043 information-content run and resume from its durable result.
+
+
+## 2026-09-27 — EXP-043 v0.1 INTEGRITY FAIL; SOURCE-ONLY COVERAGE DIAGNOSTIC FROZEN
+
+Durable information-content result: `2550e5a9f4263dd5be7c3daa869387ffe80b017c`.
+
+EXP-043 v0.1 is **not scientifically interpretable** because the prospectively frozen integrity requirement `micro_eligible_coverage_ge_90pct_each_market` failed.
+
+Coverage:
+
+- XAUUSD 96.36%;
+- EURUSD 98.03%;
+- GBPUSD 99.38%;
+- USDJPY 95.47%;
+- EURJPY 100.00%;
+- AUDUSD 81.44%;
+- USDCAD 99.99%;
+- USDCHF 86.64%.
+
+Every other integrity check passed.
+
+Do not interpret the visible model metrics or relax the 90% gate after seeing them.
+
+Frozen source-only diagnostic:
+
+- spec `916feb93aa9e419c883a20b6b1e8118449da00ed`;
+- runner `8cd34801de824fcd56c7ce52002eb213ab0f4e3b`;
+- workflow `dc96a417fa895ddc17eb7b771e6de76077f8b05a`.
+
+The diagnostic loads only the immutable microstructure snapshot and tests the theoretical 06:05-17:55 decision grid under the already-frozen 4/24/48 minute-availability rule.
+
+**Exact next action:** trigger one source-only microstructure availability diagnostic. EXP-043 v0.1 remains `INTEGRITY_FAIL_DO_NOT_INTERPRET` regardless of diagnostic outcome.
