@@ -2368,3 +2368,22 @@ It reuses EXP-040 structural candidate/target mechanics on immutable Dukascopy v
 Six Gate-A folds are immutable outer holdouts; no event fold is used in its own model/calibration fit.
 
 **Exact next action:** trigger one Gate-B run. Interpret only if integrity passes. Engine R/EXP-015 remain paused.
+
+
+## EXP-041 final closeout
+
+Gate-B integrity corrigendum PASSED at `57a622a1bcd9abf812e3d8baf07f444be7824ff0`.
+
+- 63/65 frozen Gate-A events are geometrically eligible for the unchanged EXP-040 candidate grid;
+- the only ineligible events are 2025-12-10 19:00 UTC FOMC and 2026-01-28 19:00 UTC FOMC;
+- no model/metric/feature/fold/threshold was changed or rerun.
+
+Recovered scientific disposition:
+
+`NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+
+Timing improvements were too small/inconsistent to pass both primary rungs; surprise magnitude was weaker.
+
+EXP-041 is closed. Do not tune macro variants.
+
+**Next research family:** rates/USD market interpretation, then execution-grade order flow. Engine R/EXP-015 remain paused; Jul-Aug/Sep remain sealed.
