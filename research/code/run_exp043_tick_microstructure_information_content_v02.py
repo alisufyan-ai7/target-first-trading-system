@@ -30,11 +30,15 @@ OUT=ROOT/"research/results"
 OUT.mkdir(parents=True,exist_ok=True)
 
 TARGET_AUDIT=ROOT/"research/results/EXP-041-dukas-repeatability-snapshot-recovery-v0.1.json"
-MICRO_AUDIT=ROOT/"research/results/EXP-043-development-microstructure-snapshot-v0.1.json"\nSOURCE_DIAG=ROOT/"research/results/EXP-043-microstructure-availability-coverage-diagnostic-v0.1.json"
+MICRO_AUDIT=ROOT/"research/results/EXP-043-development-microstructure-snapshot-v0.1.json"
+SOURCE_DIAG=ROOT/"research/results/EXP-043-microstructure-availability-coverage-diagnostic-v0.1.json"
 
 EXPECTED_TARGET_ARCHIVE="90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272"
 EXPECTED_MICRO_ARCHIVE="f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5"
-EXPECTED_MICRO_AUDIT_BLOB="f1bc941e88ee809bf9810fe34d780e41e4530fe7"\nEXPECTED_SOURCE_DIAG_BLOB="c0f5a33d5a73495922280b241b037e0f81641f33"\nACTIVE_MARKETS=("XAUUSD","EURUSD","GBPUSD","USDJPY","EURJPY","USDCAD")\nEXCLUDED_SOURCE_MARKETS=("AUDUSD","USDCHF")
+EXPECTED_MICRO_AUDIT_BLOB="f1bc941e88ee809bf9810fe34d780e41e4530fe7"
+EXPECTED_SOURCE_DIAG_BLOB="c0f5a33d5a73495922280b241b037e0f81641f33"
+ACTIVE_MARKETS=("XAUUSD","EURUSD","GBPUSD","USDJPY","EURJPY","USDCAD")
+EXCLUDED_SOURCE_MARKETS=("AUDUSD","USDCHF")
 
 DEV_START=pd.Timestamp("2026-03-23T00:00:00Z")
 DATA_END=pd.Timestamp("2026-06-30T00:00:00Z")
@@ -626,7 +630,10 @@ def main():
         "all_6_active_micro_file_shas_verified":len(micro_file_integrity)==6,
         "micro_minutes_strictly_causal":bool(causal_micro),
         "same_eligible_rows_all_feature_sets":bool(same_rows_check),
-        "source_diagnostic_blob_unchanged":git_blob(SOURCE_DIAG)==EXPECTED_SOURCE_DIAG_BLOB,\n        "source_diagnostic_exact_excluded_markets":tuple(source_diag.get("markets_below_90pct",[]))==EXCLUDED_SOURCE_MARKETS,\n        "active_market_universe_exact":tuple(ACTIVE_MARKETS)==("XAUUSD","EURUSD","GBPUSD","USDJPY","EURJPY","USDCAD"),\n        "micro_eligible_coverage_ge_90pct_each_active_market":all(coverage[s]>=0.90 for s in ACTIVE_MARKETS),
+        "source_diagnostic_blob_unchanged":git_blob(SOURCE_DIAG)==EXPECTED_SOURCE_DIAG_BLOB,
+        "source_diagnostic_exact_excluded_markets":tuple(source_diag.get("markets_below_90pct",[]))==EXCLUDED_SOURCE_MARKETS,
+        "active_market_universe_exact":tuple(ACTIVE_MARKETS)==("XAUUSD","EURUSD","GBPUSD","USDJPY","EURJPY","USDCAD"),
+        "micro_eligible_coverage_ge_90pct_each_active_market":all(coverage[s]>=0.90 for s in ACTIVE_MARKETS),
         "each_market_direction_ge_500":all(v>=500 for v in md_counts.values()),
         "primary_rungs_both_classes_all_folds":bool(class_integrity),
         "all_markets_both_classes_pooled":bool(all_market_classes),
@@ -658,9 +665,13 @@ def main():
             "target_archive_sha256":target_audit["release"]["archive_sha256"],
             "micro_release_tag":micro_audit["release"]["tag"],
             "micro_archive_sha256":micro_audit["release"]["archive_sha256"],
-            "micro_snapshot_result_blob":git_blob(MICRO_AUDIT),\n            "source_availability_diagnostic_blob":git_blob(SOURCE_DIAG),
+            "micro_snapshot_result_blob":git_blob(MICRO_AUDIT),
+            "source_availability_diagnostic_blob":git_blob(SOURCE_DIAG),
         },
-        "self_tests":self_tests(),\n        "active_markets":list(ACTIVE_MARKETS),\n        "excluded_source_markets":list(EXCLUDED_SOURCE_MARKETS),\n        "v01_reinterpreted":False,
+        "self_tests":self_tests(),
+        "active_markets":list(ACTIVE_MARKETS),
+        "excluded_source_markets":list(EXCLUDED_SOURCE_MARKETS),
+        "v01_reinterpreted":False,
         "primary_rungs":list(PRIMARY_RUNGS),
         "feature_sets":{k:list(v) for k,v in FEATURE_SETS_043.items()},
         "micro_windows_minutes":{"recent":5,"medium":30,"baseline":60},
