@@ -1,0 +1,12 @@
+Trigger EXP-041 official release-time reconciliation Phase A v0.1.
+
+Frozen implementation:
+- spec 3ff0aef8c0c36697370dce1253bbcffb1872a5bb
+- runner ad4dc21b80a13076a3f7c3009ca104f6d700eec5
+- workflow 87cf69dcdfe91779d572d971ae294892d4cb6f23
+
+Input is the exact frozen free-consensus v0.3 dataset only.
+Verify all 68 event blocks against first-party BLS/Census/BEA/Federal Reserve sources.
+Assign authoritative America/New_York release time and convert to UTC with zoneinfo.
+No official actual-as-released component parsing yet.
+No market data, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
