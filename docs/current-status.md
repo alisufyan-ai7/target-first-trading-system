@@ -3117,3 +3117,43 @@ Frozen interval:
 The same 100 / 25 rejection / 25 acceptance / 50-day adequacy gate remains unchanged.
 
 **Anti-loop rule:** this is the final Engine-S density attempt. PASS => freeze target/management before any outcome. FAIL => close Engine S with no further density redesign.
+
+
+## 2026-09-28 — EXP-045 ZERO-OUTCOME PASS / STRUCTURAL TARGET DEVELOPMENT FROZEN
+
+Final extended zero-outcome confirmation durable result:
+
+`835af4eb6a1b76026cf0f04c46ce06840d2ff287`.
+
+The unchanged Engine-S v0.2 passed every frozen adequacy gate:
+
+- 160 filled candidates;
+- 126 rejection;
+- 34 acceptance;
+- both long and short in both branches;
+- 151 active signal days;
+- median 1 accepted candidate per active signal day;
+- causality PASS;
+- no target, MFE/MAE, win-rate or P&L outcome exposed.
+
+Structural target / management protocol is now frozen before post-entry outcomes:
+
+- protocol commit `85600a74e2e6dc3f4efaf64d5cde385f89bc4758`;
+- final evaluator `0ced4aad0f08fff45a73757121c17a8139aa648d`;
+- workflow `bca8cbc28666c0ec3db6ee6f39591cbb9aeb6b5c`.
+
+Key frozen mechanics:
+
+- nearest fresh external liquidity = TP1;
+- require TP1 structural room >=1.50R;
+- next fresh liquidity at >=3.00R enables 50% runner;
+- 50% TP1 / 50% runner when eligible;
+- runner breakeven activates on next active M1 after TP1;
+- conservative same-bar stop ordering;
+- 120 active M1 or 20:00 UTC hard exit;
+- USD5 primary / USD10 stress friction at 0.10 lot, scaled linearly;
+- Gold lot <=0.10 and sized down so structural stop + stress friction <=USD40;
+- one-open reference-account simulation;
+- REJECTION and ACCEPTANCE evaluated as separate specialized branches.
+
+**Exact next action:** trigger one EXP-045 structural-target development run. Validation/holdout remain sealed.
