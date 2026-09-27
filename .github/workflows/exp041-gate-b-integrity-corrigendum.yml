@@ -1,0 +1,61 @@
+name: EXP-041 Gate-B Integrity Corrigendum
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-gate-b-integrity-corrigendum.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify runner
+        run: python -m py_compile research/code/run_exp041_gate_b_integrity_corrigendum.py
+      - name: Run integrity-only corrigendum
+        continue-on-error: true
+        run: python research/code/run_exp041_gate_b_integrity_corrigendum.py
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-gate-b-integrity-corrigendum
+          path: research/results/EXP-041-gate-b-integrity-corrigendum-v0.1.json
+          if-no-files-found: warn
+      - name: Commit result
+        if: always()
+        run: |
+          set -euo pipefail
+          P=research/results/EXP-041-gate-b-integrity-corrigendum-v0.1.json
+          test -f "$P"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$P"
+          git commit -m "Checkpoint EXP-041 Gate-B integrity corrigendum"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Enforce scope
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          x=json.loads(pathlib.Path("research/results/EXP-041-gate-b-integrity-corrigendum-v0.1.json").read_text())
+          assert x["corrected_integrity_pass"]
+          assert not x["scientific_metrics_recomputed"]
+          assert not x["scientific_thresholds_changed"]
+          assert not x["feature_sets_changed"]
+          assert not x["folds_changed"]
+          assert not x["candidate_grid_changed"]
+          print("Corrected integrity PASS")
+          print("Recovered disposition:",x["recovered_scientific_disposition"])
+          PY
