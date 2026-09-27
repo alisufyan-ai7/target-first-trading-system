@@ -2125,3 +2125,44 @@ PASS => freeze full Jul2025-Jun29 2026 public-calendar consensus + official-rele
 FAIL => repair only public-source access/parser mechanics or choose another free consensus archive; do not return to paid API by default and do not weaken causality.
 
 **Exact next action:** trigger one free macro source preflight and resume from its durable checkpoint.
+
+
+## 2026-09-27 — FREE MACRO SOURCE PREFLIGHT PASSED / FULL CONSENSUS ACQUISITION FROZEN
+
+Free-source preflight durable result: `bdaaa023879a01e2620a0b9260265a98e7d9e4bd`.
+
+Result:
+
+- disposition = `FREE_MACRO_SOURCE_ARCHITECTURE_PREFLIGHT_PASS`;
+- all four historical Forex Factory Jun-2026 development pages returned HTTP 200;
+- Actual / Forecast / Previous columns present on every tested page;
+- all six target families detected;
+- official BLS Employment/CPI/PPI pages passed date/time markers;
+- Census retail archive reachable;
+- BEA GDP/PCE release pages passed date/time markers;
+- Federal Reserve FOMC statement passed date/time markers;
+- no market data, labels/P&L or protected-period data used.
+
+The paid Trading Economics path is no longer the active blocker.
+
+Full consensus-layer acquisition is prospectively frozen:
+
+- spec: `research/EXP-041-FULL-FREE-MACRO-CONSENSUS-ACQUISITION-v0.1.md`;
+- spec commit: `f51f6cece8ba7703854806e3a952398f75bd375e`;
+- runner commit: `78e388ba705b101a407e9dd61eba5740f3bcdb24`;
+- workflow commit: `cdd373db282345c03b578a0e1dad37595f20e179`.
+
+Scope:
+
+- Forex Factory historical development pages only;
+- retained event dates 2025-07-01..2026-06-29;
+- week pages through 2026-06-22 plus a day-only 2026-06-29 request, so no July page is loaded;
+- normalize only USD target-family rows;
+- freeze Forecast as `PUBLIC_CALENDAR_CONSENSUS_FF`;
+- Actual/time remain diagnostic pending first-party reconciliation;
+- no raw HTML committed;
+- no market data/labels/P&L.
+
+Coverage gate requires >=40 provisional blocks, >=30 surprise-bearing blocks and >=8 blocks in each recurring numeric family. FOMC is reported separately and may remain timing-only.
+
+**Exact next action:** trigger one full free macro consensus acquisition/audit. PASS => freeze official-release reconciliation. FAIL => repair only public parser/access or free-source coverage.
