@@ -2621,3 +2621,20 @@ EXP-043 is closed. Do not tune this family further on development.
 **Next information class:** true signed order flow / order-book depth, with Gold COMEX and representative/centralized FX flow as first-tier targets.
 
 Engine R and EXP-015 remain paused. Jul-Aug/Sep remain sealed.
+
+
+## EXP-044 source-access boundary
+
+EXP-043 is closed negative.
+
+EXP-044 source feasibility gate frozen at:
+
+`cbd510ffdadd03cc62b66d29a477e8ad4448df62`.
+
+Current disposition:
+
+`NO_REPRODUCIBLE_TRUE_FLOW_SOURCE_ATTACHED_YET`.
+
+Preferred next source is COMEX Gold actual trades + depth/order-book events. FX institutional signed flow/book is second.
+
+Do not start EXP-044 modeling until a source-specific zero-outcome provenance/repeatability preflight passes.
