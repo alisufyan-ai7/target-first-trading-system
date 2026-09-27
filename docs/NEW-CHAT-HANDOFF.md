@@ -2717,3 +2717,28 @@ Final zero-outcome extension is frozen with no setup-rule changes:
 Warm-up Dec-2021; development Jan-2022 through Feb-2025. Validation/holdout remain sealed.
 
 **Exact next action:** trigger one final extended zero-outcome confirmation. PASS => freeze target logic. FAIL => close Engine S.
+
+
+## EXP-045 structural-target development ready
+
+Zero-outcome PASS commit:
+
+`835af4eb6a1b76026cf0f04c46ce06840d2ff287`.
+
+Frozen target/management protocol:
+
+`85600a74e2e6dc3f4efaf64d5cde385f89bc4758`.
+
+Evaluator:
+
+`0ced4aad0f08fff45a73757121c17a8139aa648d`.
+
+Workflow:
+
+`bca8cbc28666c0ec3db6ee6f39591cbb9aeb6b5c`.
+
+The development test uses only 2022-01-01 through 2025-02-28 Gold data and the immutable 160-candidate zero-outcome artifact.
+
+TP1 is nearest fresh external liquidity with >=1.50R structural room; an optional 50% runner uses the next fresh level at >=3R. Costs, sizing, same-bar handling, horizon, branch gates and one-open rules are all frozen before outcomes.
+
+**Exact next action:** trigger one development outcome run. Do not load Mar-2025+ unless a branch passes.
