@@ -598,3 +598,7 @@
 - Closed EXP-042 after both DXY and DXY+T-Bond interpretation studies failed frozen information-advantage gates.
 - Frozen EXP-043 Dukascopy tick/quote microstructure source preflight at spec `afd3362`, downloader `aa9c055`, verifier `62ce3de`, workflow `eb3e9b6`.
 - EXP-043 is zero-outcome and requires exact repeatability on 48 symbol/date pairs before any large tick acquisition or predictive model.
+
+
+- EXP-043 Dukascopy tick source preflight passed at `babcfa8`: all 48 pilot pairs reproduced exactly across independent downloads and passed semantic integrity.
+- Decision: build an immutable full-development minute-level microstructure snapshot with per-day raw-source hashes rather than storing a full year of raw tick CSVs.
