@@ -1,0 +1,68 @@
+{
+  "consensus_layer_gate_pass": true,
+  "disposition": "FREE_CONSENSUS_V03_BLS_EMPLOYMENT_SCOPE_PASS_OFFICIAL_RECONCILIATION_REQUIRED",
+  "employment_component_rows": 35,
+  "family_block_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 11,
+    "FOMC": 8,
+    "GDP_PCE": 15,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "fomc_policy_event_dates": 8,
+  "fomc_timing_only_if_lt_6": false,
+  "gate": {
+    "adp_rows_removed_gt_0": true,
+    "each_numeric_family_blocks_ge_8": true,
+    "fomc_policy_events_ge_6_or_timing_only_allowed": true,
+    "input_v02_sha_verified": true,
+    "nfp_component_present": true,
+    "no_adp_rows_remaining": true,
+    "no_market_data_or_outcomes_loaded": true,
+    "protected_periods_sealed": true,
+    "provisional_blocks_ge_40": true,
+    "surprise_bearing_blocks_ge_30": true
+  },
+  "github_run_id": "36308544587",
+  "input_v02": {
+    "expected_sha256": "17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811",
+    "observed_sha256": "17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811",
+    "path": "research/data/EXP-041-free-macro-consensus-v0.2.json"
+  },
+  "market_data_loaded": false,
+  "network_access_used": false,
+  "nfp_component_rows": 12,
+  "normalized_dataset": {
+    "path": "research/data/EXP-041-free-macro-consensus-v0.3.json",
+    "records": 203,
+    "sha256": "911bbc204cdc9a7ed8ecafa7dd166aaaa1141a78675405ac4319d164bd6fb0c3"
+  },
+  "official_reconciliation_complete": false,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "provisional_independent_event_blocks": 68,
+  "removed_adp_dates": [
+    "2025-07-02",
+    "2025-07-30",
+    "2025-09-04",
+    "2025-10-01",
+    "2025-11-05",
+    "2025-12-03",
+    "2026-01-07",
+    "2026-02-04",
+    "2026-03-04",
+    "2026-04-01",
+    "2026-05-06",
+    "2026-06-03"
+  ],
+  "removed_adp_rows": 12,
+  "scientific_outcomes_calculated": false,
+  "stage": "EXP-041 free macro consensus scope audit v0.3",
+  "surprise_bearing_provisional_blocks": 68,
+  "target_labels_calculated": false,
+  "tested_repository_sha": "242d69615694ea10926ad06f1bb1cbc408d210f8"
+}
