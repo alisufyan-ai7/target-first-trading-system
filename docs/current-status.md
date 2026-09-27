@@ -2390,3 +2390,39 @@ Recovery base:
 Each direct BEA page must verify exact date, embargo marker, local time, EST/EDT consistency, release identity and source hash. No BEA full-year 2026 schedule page is fetched in v0.4.
 
 **Exact next action:** trigger exactly one official release-time v0.4 repair. PASS => freeze Phase B official actual-as-released reconciliation.
+
+
+## 2026-09-27 — OFFICIAL RELEASE-TIME v0.4 PASSED / PHASE-B ACTUAL RECONCILIATION FROZEN
+
+Durable v0.4 result: `9a853a0ba2ab32a537e096fff45e57747f85eb8f`.
+
+Result:
+
+- exact v0.2 base-map SHA verified;
+- all 14 direct 2026 BEA pages verified;
+- all 75 official blocks complete;
+- untouched non-repair blocks remained identical to v0.2;
+- no market data/outcomes/protected periods used;
+- official-time map v0.4 SHA: `ced4a536b5c99db9ac9ad3ed29c49b13ba1058770ed3eaa4d65250220d60d28e`;
+- disposition: `OFFICIAL_RELEASE_TIME_RECONCILIATION_V04_PASS_ACTUAL_VALUES_REQUIRED`.
+
+The release-time blocker is CLOSED.
+
+Phase B is now prospectively frozen:
+
+- spec commit: `0040f86ee3bfe4acd59af5852da7209a253d00c3`;
+- runner commit: `5b6247322cc017c9efdd13564f148b82d61749c4`;
+- workflow commit: `0e5d45c4c657f64efa76ff127be1f5da91dbab5c`.
+
+Canonical-component audit before freezing Phase B found:
+
+- exactly 67 numeric official blocks;
+- all 67 have exactly one forecast-bearing canonical component under the frozen hierarchy;
+- no missing or ambiguous selections;
+- 8 FOMC policy blocks remain timing-only.
+
+Phase B does not parse every secondary statistic. It verifies one canonical surprise-bearing component per numeric official block against the first-party release context and retains the frozen Forex Factory historical Forecast.
+
+PASS => one final zero-outcome Gate-A audit.
+
+**Exact next action:** trigger exactly one official actual-as-released reconciliation Phase B.
