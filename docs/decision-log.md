@@ -1659,3 +1659,21 @@ Freeze official reconciliation as:
 - Phase B: reconcile each component's actual-as-released value against the frozen Forex Factory Forecast consensus.
 
 Phase A verifies the exact v0.3 input SHA and computes no market outcomes. Only after all 68 blocks resolve may Phase B begin.
+
+
+## 2026-09-27 — Repair official release-time source mappings; split same-day GDP/PCE by official release identity
+
+Official release-time reconciliation v0.1 `a8bceb6` failed despite complete BLS resolution because the Census/BEA/Fed mapping implementation was incomplete.
+
+**Decision:** supersede v0.1 with a prospectively frozen v0.2 mapping repair, without changing the macro event families, sample thresholds, or consensus values.
+
+v0.2 uses:
+
+- direct Census historical MARTS PDFs for each Retail release;
+- official BEA schedule rows, with GDP and Personal Income & Outlays split when same-date releases have different official times;
+- correct Federal Reserve FOMC statement press-release URLs;
+- existing successful BLS archive mappings.
+
+The official event-block count may exceed the provisional 68 because a same-date GDP_PCE block can legitimately contain two independent official releases. This is source/timestamp correction, not evidence-driven sample expansion.
+
+No market outcomes have been calculated.
