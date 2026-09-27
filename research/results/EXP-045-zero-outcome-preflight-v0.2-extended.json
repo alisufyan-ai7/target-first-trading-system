@@ -1,0 +1,628 @@
+{
+  "experiment": "EXP-045",
+  "engine": "Engine S v0.2",
+  "stage": "zero_outcome_extended_sample_confirmation",
+  "split": {
+    "start": "2022-01-01T00:00:00.000Z",
+    "end_exclusive": "2025-03-01T00:00:00.000Z"
+  },
+  "source_rows": 1707840,
+  "market_active_m1": 1150765,
+  "counts": {
+    "market_active_5m": 224305,
+    "level_attacks_all_hours": 3244,
+    "attacks_consumed_outside_setup_window": 669,
+    "dual_sided_attack_ambiguous": 8,
+    "attack_close_on_level": 13,
+    "setup_attacks_in_window": 2575,
+    "rejection_setups_created": 1178,
+    "acceptance_setups_created": 1279,
+    "pending_pipeline_overlap_events": 189,
+    "max_simultaneous_pending": 3,
+    "mss_close_through_seen": 530,
+    "displacement_pass_seen": 338,
+    "directional_fvg_pass_seen": 295,
+    "qualifying_triggers": 260,
+    "midpoint_fills": 160
+  },
+  "attacks_by_level": {
+    "OPEN_HIGH": 634,
+    "ASIA_LOW": 592,
+    "PDL": 458,
+    "OPEN_LOW": 622,
+    "ASIA_HIGH": 632,
+    "PDH": 526
+  },
+  "attacks_by_side": {
+    "HIGH": 1792,
+    "LOW": 1672
+  },
+  "setup_count": 2554,
+  "terminal_reasons": {
+    "entry_timeout_15": 97,
+    "acceptance_5m_close_back_before_entry": 423,
+    "pullback_timeout_60": 243,
+    "acceptance_failed_next_active5": 399,
+    "mss_timeout_15": 854,
+    "fvg_timeout_displacement_plus_2": 43,
+    "displacement_timeout_mss_plus_2": 191,
+    "no_internal_pivot_at_rejection_anchor": 97,
+    "preentry_invalidation_same_bar": 3,
+    "structural_risk_above_40": 35,
+    "entry_window_closed_1800": 1,
+    "no_internal_pivot_at_pullback_touch": 8
+  },
+  "accepted_filled_candidates": 160,
+  "accepted_by_branch": {
+    "REJECTION": 126,
+    "ACCEPTANCE": 34
+  },
+  "accepted_by_direction": {
+    "SHORT": 90,
+    "LONG": 70
+  },
+  "accepted_by_level": {
+    "ASIA_HIGH": 39,
+    "OPEN_LOW": 31,
+    "ASIA_LOW": 42,
+    "OPEN_HIGH": 34,
+    "PDL": 7,
+    "PDH": 7
+  },
+  "accepted_by_branch_direction": {
+    "REJECTION:SHORT": 68,
+    "REJECTION:LONG": 58,
+    "ACCEPTANCE:LONG": 12,
+    "ACCEPTANCE:SHORT": 22
+  },
+  "accepted_signal_days": 151,
+  "accepted_candidates_per_active_day": {
+    "distribution": {
+      "n": 151,
+      "mean": 1.0596026490066226,
+      "median": 1,
+      "p10": 1,
+      "p90": 1,
+      "min": 1,
+      "max": 3
+    },
+    "by_date": {
+      "2022-01-04": 1,
+      "2022-01-06": 1,
+      "2022-01-14": 1,
+      "2022-01-18": 1,
+      "2022-02-08": 1,
+      "2022-02-10": 1,
+      "2022-02-11": 1,
+      "2022-03-01": 1,
+      "2022-03-22": 1,
+      "2022-04-07": 1,
+      "2022-04-19": 1,
+      "2022-04-22": 1,
+      "2022-04-26": 1,
+      "2022-05-05": 1,
+      "2022-05-18": 1,
+      "2022-05-20": 2,
+      "2022-05-23": 1,
+      "2022-05-30": 1,
+      "2022-06-06": 3,
+      "2022-06-09": 1,
+      "2022-06-13": 1,
+      "2022-06-14": 1,
+      "2022-06-22": 1,
+      "2022-06-28": 1,
+      "2022-07-13": 1,
+      "2022-07-18": 1,
+      "2022-07-28": 1,
+      "2022-08-04": 1,
+      "2022-08-12": 1,
+      "2022-08-19": 1,
+      "2022-09-05": 1,
+      "2022-09-15": 1,
+      "2022-09-20": 1,
+      "2022-09-26": 1,
+      "2022-10-06": 1,
+      "2022-10-07": 1,
+      "2022-10-13": 1,
+      "2022-10-17": 1,
+      "2022-10-21": 1,
+      "2022-10-24": 1,
+      "2022-10-31": 1,
+      "2022-11-07": 1,
+      "2022-11-14": 1,
+      "2022-11-21": 1,
+      "2022-11-29": 1,
+      "2022-12-02": 1,
+      "2022-12-08": 1,
+      "2022-12-12": 1,
+      "2022-12-27": 1,
+      "2022-12-30": 1,
+      "2023-01-31": 2,
+      "2023-02-01": 1,
+      "2023-02-06": 1,
+      "2023-02-09": 1,
+      "2023-02-16": 1,
+      "2023-03-02": 1,
+      "2023-03-06": 1,
+      "2023-03-15": 1,
+      "2023-03-16": 1,
+      "2023-03-28": 1,
+      "2023-04-03": 1,
+      "2023-04-06": 1,
+      "2023-04-11": 1,
+      "2023-04-18": 1,
+      "2023-05-02": 1,
+      "2023-05-04": 1,
+      "2023-05-16": 1,
+      "2023-05-17": 1,
+      "2023-05-22": 1,
+      "2023-05-23": 1,
+      "2023-05-30": 1,
+      "2023-06-08": 1,
+      "2023-06-09": 1,
+      "2023-06-28": 1,
+      "2023-06-29": 1,
+      "2023-07-11": 1,
+      "2023-07-31": 1,
+      "2023-08-01": 1,
+      "2023-08-02": 1,
+      "2023-08-15": 1,
+      "2023-08-16": 1,
+      "2023-08-28": 1,
+      "2023-09-07": 1,
+      "2023-09-19": 1,
+      "2023-09-22": 2,
+      "2023-09-25": 1,
+      "2023-10-05": 2,
+      "2023-10-06": 1,
+      "2023-10-10": 1,
+      "2023-10-20": 1,
+      "2023-10-30": 1,
+      "2023-10-31": 1,
+      "2023-11-10": 1,
+      "2023-11-20": 1,
+      "2023-12-14": 2,
+      "2023-12-20": 1,
+      "2024-01-03": 1,
+      "2024-01-08": 1,
+      "2024-01-10": 1,
+      "2024-01-11": 1,
+      "2024-02-01": 1,
+      "2024-02-02": 1,
+      "2024-02-06": 1,
+      "2024-02-26": 1,
+      "2024-02-27": 1,
+      "2024-02-28": 1,
+      "2024-03-11": 2,
+      "2024-03-25": 1,
+      "2024-04-04": 1,
+      "2024-05-02": 1,
+      "2024-05-03": 1,
+      "2024-05-09": 1,
+      "2024-05-24": 1,
+      "2024-06-18": 1,
+      "2024-06-21": 1,
+      "2024-06-25": 1,
+      "2024-07-03": 1,
+      "2024-07-04": 1,
+      "2024-07-09": 1,
+      "2024-07-12": 1,
+      "2024-07-15": 1,
+      "2024-07-26": 1,
+      "2024-08-06": 1,
+      "2024-08-28": 1,
+      "2024-09-06": 1,
+      "2024-09-09": 1,
+      "2024-09-16": 1,
+      "2024-09-27": 1,
+      "2024-10-03": 1,
+      "2024-10-17": 1,
+      "2024-10-29": 1,
+      "2024-11-05": 1,
+      "2024-11-11": 1,
+      "2024-11-14": 1,
+      "2024-11-15": 1,
+      "2024-11-18": 1,
+      "2024-12-06": 2,
+      "2024-12-11": 1,
+      "2024-12-16": 1,
+      "2024-12-19": 1,
+      "2024-12-23": 1,
+      "2025-01-02": 1,
+      "2025-01-06": 1,
+      "2025-01-07": 1,
+      "2025-01-08": 1,
+      "2025-01-09": 1,
+      "2025-01-10": 1,
+      "2025-01-13": 1,
+      "2025-01-17": 1,
+      "2025-01-21": 1,
+      "2025-02-24": 1
+    }
+  },
+  "stop_distance_ticks": {
+    "n": 160,
+    "mean": 1729.0375,
+    "median": 1505,
+    "p10": 665.7,
+    "p90": 3049.7999999999997,
+    "min": 270,
+    "max": 3981
+  },
+  "gross_stop_usd": {
+    "n": 160,
+    "mean": 17.290375000000004,
+    "median": 15.05,
+    "p10": 6.657,
+    "p90": 30.497999999999998,
+    "min": 2.7,
+    "max": 39.81
+  },
+  "time_to_mss_active_m1_bars": {
+    "n": 160,
+    "mean": 6.25625,
+    "median": 5.5,
+    "p10": 1,
+    "p90": 12,
+    "min": 1,
+    "max": 15
+  },
+  "mss_to_displacement_active_m1_bars": {
+    "n": 160,
+    "mean": 0.10625,
+    "median": 0,
+    "p10": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 2
+  },
+  "displacement_to_fvg_active_m1_bars": {
+    "n": 160,
+    "mean": 0.6125,
+    "median": 1,
+    "p10": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 2
+  },
+  "fvg_to_fill_active_m1_bars": {
+    "n": 160,
+    "mean": 4.41875,
+    "median": 3,
+    "p10": 1,
+    "p90": 10,
+    "min": 1,
+    "max": 15
+  },
+  "acceptance_pullback_wait_active_m1_bars": {
+    "n": 34,
+    "mean": 9.352941176470589,
+    "median": 5,
+    "p10": 1,
+    "p90": 26.799999999999997,
+    "min": 1,
+    "max": 54
+  },
+  "causality_all_candidates_pass": true,
+  "preflight_gates": {
+    "accepted_candidates_ge_100": true,
+    "rejection_candidates_ge_25": true,
+    "acceptance_candidates_ge_25": true,
+    "both_directions_rejection": true,
+    "both_directions_acceptance": true,
+    "active_signal_days_ge_50": true,
+    "median_candidates_per_active_day_le_4": true,
+    "causal_integrity": true,
+    "validation_or_holdout_loaded": false,
+    "target_or_pnl_outcomes_calculated": false
+  },
+  "preflight_pass": true,
+  "disposition": "EXP045_ZERO_OUTCOME_PREFLIGHT_PASS",
+  "validation_or_holdout_loaded": false,
+  "target_labels_calculated": false,
+  "mfe_mae_calculated": false,
+  "pnl_calculated": false,
+  "win_rate_calculated": false,
+  "post_entry_path_evaluated": false,
+  "self_tests": {
+    "ok": true,
+    "tests": [
+      "tick_parse",
+      "off_grid",
+      "displacement_1_50_exact",
+      "midpoint_rounding",
+      "pivot_2l2r"
+    ]
+  },
+  "sample_extension_only": true,
+  "strategy_rules_changed_from_v02": false,
+  "adequacy_gate_changed_from_v02": false,
+  "execution_metadata": {
+    "tested_repository_sha": "e7970c54c1f4310eb0629d870eaa04cf83250ce3",
+    "engine_implementation": "research/code/engine-s-v0.2.js",
+    "engine_sha256": "2d3f57f45a30201772f92c65682ed95d1174694820afd63e237e2aaa9ff7b1bd",
+    "runner": "research/code/run-exp045-engine-s-v02-extended-preflight.js",
+    "runner_sha256": "6af6c6321600449b110b0288f64c6793bc25614b9b91f69bf90f2e7bfe621f4e",
+    "data_source_repo": "kevingtlin/Market-Data-Lab",
+    "data_source_commit": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "source_git_head_verified": "922f83a60cc574e7395fb27397077288055a1ef6",
+    "downloaded_files": [
+      {
+        "name": "xauusd_bid_m1_2021_12.csv",
+        "git_blob_sha": "a7ac13ca4865829bbc29b91eb9598fc8eabac8be",
+        "bytes": 2230044,
+        "expected_rows": 44640,
+        "sha256": "f5fe37477a8792a50a7a1d15b438135a7bb91ff7d431191fb73b56586be234f8"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_01.csv",
+        "git_blob_sha": "4e901747c5b36ba148f30b8540b98e8f47b976d0",
+        "bytes": 2231893,
+        "expected_rows": 44640,
+        "sha256": "48c7145468b08505dd0de252df8abadf65144829fa30cd176fdacc1ba48ce24f"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_02.csv",
+        "git_blob_sha": "b3c56da78533010904a374b5a9841542cdfa9d5e",
+        "bytes": 2015510,
+        "expected_rows": 40320,
+        "sha256": "b091d3714874faf7cb5de4571138bcd473c4c451a4ffa4ad112b6c312b087de5"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_03.csv",
+        "git_blob_sha": "6130db642fd4515f9d146ac18f3b4629eddd5c87",
+        "bytes": 2228962,
+        "expected_rows": 44640,
+        "sha256": "0fb3da0b6e055abc5fbf2539e95e859b1738d9b23c203aae2eedad8dd10da9d2"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_04.csv",
+        "git_blob_sha": "85adf0012aa5e59a586c862674b28d3e4a953f3c",
+        "bytes": 2159074,
+        "expected_rows": 43200,
+        "sha256": "a0ab770823c1df42532124cce97651b0ee5039016cad198bb306bfd4af036507"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_05.csv",
+        "git_blob_sha": "fc19a524272da965efe041366e7bfbd9a77b40ca",
+        "bytes": 2231014,
+        "expected_rows": 44640,
+        "sha256": "5050ff290734f507aa6c97f1f770bc8b73d7868ff8bc987c953c687f8cb05291"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_06.csv",
+        "git_blob_sha": "d3a50c3e0d137d266dd6376e20d0552bd972d036",
+        "bytes": 2159152,
+        "expected_rows": 43200,
+        "sha256": "34e668669dbe6dc58b96c9077481ac062d0fe7d48a43c1a252c03edba72eb693"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_07.csv",
+        "git_blob_sha": "02c00ddb361bd2b3fffe859e6423fc96d1124e99",
+        "bytes": 2230725,
+        "expected_rows": 44640,
+        "sha256": "910c49b054062a5bf0112a4db8d70997df24891db26675415d313ab2751aeb6a"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_08.csv",
+        "git_blob_sha": "57a94e9efb1db40cc3c00d3cbf2d4fe7771f2f82",
+        "bytes": 2229225,
+        "expected_rows": 44640,
+        "sha256": "f7f7f5f4763e414e043307c41fd9dceffafd7d24f7ad38a3ee79fc5db04ece0d"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_09.csv",
+        "git_blob_sha": "f5b4cf81c343f71216e8a022fdc269124f72bf4c",
+        "bytes": 2158235,
+        "expected_rows": 43200,
+        "sha256": "938caf59faca876bb6cd37c6929ac3bc6cb1cad052e54c2f27f9a950e285e29f"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_10.csv",
+        "git_blob_sha": "73939d6960c4e3456ea8a9ec28198d3e5c89a0e6",
+        "bytes": 2231536,
+        "expected_rows": 44640,
+        "sha256": "9d85fe527ae5c80d1d35daf5bc68dca86ac341f4bd00e07366a6f7c7756c7bb5"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_11.csv",
+        "git_blob_sha": "8db8363ed654b88e7eb1d773a7849cdd7429da65",
+        "bytes": 2159711,
+        "expected_rows": 43200,
+        "sha256": "838c4f575ac8769553cca7e295634e49e1cd95ab6cb848de0860e053a27cbe80"
+      },
+      {
+        "name": "xauusd_bid_m1_2022_12.csv",
+        "git_blob_sha": "b654f2e8033584ba3aad37a9c197fae3fe044b08",
+        "bytes": 2231796,
+        "expected_rows": 44640,
+        "sha256": "1e71133e0cd9fb27ec797bd82083900747762f893a10a7543472691dd5be349a"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_01.csv",
+        "git_blob_sha": "ad56ac464c6844640a3f7ae4e5d8b3c7c30a4e33",
+        "bytes": 2231952,
+        "expected_rows": 44640,
+        "sha256": "6e5c929e3088afdce93496722cb862bb0b8691ac1c4ce8d7b5d1a45447036cc7"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_02.csv",
+        "git_blob_sha": "95d40f88c4200f9163144e108aff0b03eb079a3b",
+        "bytes": 2016006,
+        "expected_rows": 40320,
+        "sha256": "7f826795bc7d7521bbe15cf6c2dd9d7e2bf1191d5c2026ebf8ee177eaba8f89a"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_03.csv",
+        "git_blob_sha": "5f2d85e197a9bf19b9aca7db49ec7dfdb6b466c7",
+        "bytes": 2231984,
+        "expected_rows": 44640,
+        "sha256": "1cbc3972c500efa1ed2e08fed13628ab26668a5edb6de56188522b33dac378be"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_04.csv",
+        "git_blob_sha": "9a3a8e99038d555880e7d2da7ad9047ba48850ff",
+        "bytes": 2159920,
+        "expected_rows": 43200,
+        "sha256": "c189ca5b1936230768b2cd84faaae09c9ec4433510a88d29d1c996253853bbb7"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_05.csv",
+        "git_blob_sha": "95eadc1e3b8cb9636935e8d80e46384fa5ab3438",
+        "bytes": 2231972,
+        "expected_rows": 44640,
+        "sha256": "fafe3c7a7bd77b34fcbcf91eb4d00be34485d9905f49fccea6b446962f211e06"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_06.csv",
+        "git_blob_sha": "c603c32760c193c90c54906c2b388172c881616f",
+        "bytes": 2159976,
+        "expected_rows": 43200,
+        "sha256": "2b4c31465a97b42697520508ff4030c92fc77590566b26af055398f281604e71"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_07.csv",
+        "git_blob_sha": "a24667621441f3fa400d1c9bcce4f4a32ee30a09",
+        "bytes": 2231931,
+        "expected_rows": 44640,
+        "sha256": "1122aad583132aea088dafe044de16a099ad2bdbcd7e9c3406b7a5e1383336d5"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_08.csv",
+        "git_blob_sha": "7f2838f0bb6212bea9aec1aca004d22fecaa141d",
+        "bytes": 2231974,
+        "expected_rows": 44640,
+        "sha256": "ea50d3f364039cd6c8eaa46f6800fd089324533d535b0d3c716c911c31f8848d"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_09.csv",
+        "git_blob_sha": "b37bd67b75e3fd59d1e818e0618f26d6929a9042",
+        "bytes": 2159931,
+        "expected_rows": 43200,
+        "sha256": "6c5f7127afd5be0a881c49b6a7aa877704fb5026f24ad8dcdb698994b2df0986"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_10.csv",
+        "git_blob_sha": "93a551f1e7371b7cc3f57ac3c50a2edb1e27c0d3",
+        "bytes": 2231917,
+        "expected_rows": 44640,
+        "sha256": "ea6875e0d903d6ac666838c1d465d65c91b79f68aa549f530ddaa5dfa99183ae"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_11.csv",
+        "git_blob_sha": "e739d6a6cdf868dc83d37406a6a7d068f29d5de4",
+        "bytes": 2159884,
+        "expected_rows": 43200,
+        "sha256": "2d5affe5474357668d4977becae84343367951fc12b4a2056c4ef12276c2354e"
+      },
+      {
+        "name": "xauusd_bid_m1_2023_12.csv",
+        "git_blob_sha": "56dbf8a5316c48f4ec3300126c0decda03f8325f",
+        "bytes": 2231969,
+        "expected_rows": 44640,
+        "sha256": "0773c7fd02c64941517ccd564ec30a746cd933f3e6a67455da9681097e8232ed"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_01.csv",
+        "git_blob_sha": "f439cc6e17e39addc1a464eb0ccf8fe2eb71de99",
+        "bytes": 2231993,
+        "expected_rows": 44640,
+        "sha256": "7414d1cf6a02cf4fff5347e79602e9109549622cb73b152e5462188cc797135d"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_02.csv",
+        "git_blob_sha": "b3ad49d5e784fb8c879f8e12095640f454f8f5fb",
+        "bytes": 2087847,
+        "expected_rows": 41760,
+        "sha256": "45060c59ccfc0ef3d5f78b49d793b7e3f97757a7659c604b887850068346621f"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_03.csv",
+        "git_blob_sha": "cdd53e37cc41773cc0d5c9210daefbf5ef6c3535",
+        "bytes": 2231983,
+        "expected_rows": 44640,
+        "sha256": "28c82e54e1bd7f586f5d22c0c39d9217618f62e8dfdd7eab94602c2c2bb81a14"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_04.csv",
+        "git_blob_sha": "f2e7801f91829e9aeeebbd88f9177350cc6ba043",
+        "bytes": 2159936,
+        "expected_rows": 43200,
+        "sha256": "ce55b0d9acdf20c694c37e3c53233455cc8b772269eb39f60357808abe37b9c9"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_05.csv",
+        "git_blob_sha": "b49cd640075396bf656578c52e7dac0d9e472a22",
+        "bytes": 2232006,
+        "expected_rows": 44640,
+        "sha256": "18084ecf8e9d5cef352cc290a55de29f27f006653b5da24a6520f8a02488f4f6"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_06.csv",
+        "git_blob_sha": "6c4dc31818a7e04d90f165df0930489cdf5e7121",
+        "bytes": 2159852,
+        "expected_rows": 43200,
+        "sha256": "f7cad6452e9666b37f6f7830bb69a61439095919bb1609daa80839fdb3a8fd39"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_07.csv",
+        "git_blob_sha": "1a9877d863a7cadcfb47388a2d7b6657b57873ed",
+        "bytes": 2231718,
+        "expected_rows": 44640,
+        "sha256": "a1c432b64a36118f1934c9c838cee83c1f05181fbfd602452fd3d46acdd4fd52"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_08.csv",
+        "git_blob_sha": "29c3275f68b15d33325a7a989e322565fca4a64e",
+        "bytes": 2231775,
+        "expected_rows": 44640,
+        "sha256": "69a43d059dbdb9bce3bed1be13db378437ed4131cd109d04690fadf2aa17a476"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_09.csv",
+        "git_blob_sha": "075fc0b3c4f01bfebdbdb21af82c66595c2fd6cc",
+        "bytes": 2159940,
+        "expected_rows": 43200,
+        "sha256": "b9548afce3bc91d47831654ff5745b2165241e5729fc40cdb82d2df76b3c0668"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_10.csv",
+        "git_blob_sha": "ab734d9cea86c2441b2592e6aa0537829bd093f5",
+        "bytes": 2231815,
+        "expected_rows": 44640,
+        "sha256": "7eaccb67908ef0ce451a230ee9e723cd2ed3e618f8e1ca9eb8148fc4457cd6d7"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_11.csv",
+        "git_blob_sha": "4fe07a39a96512d4264202d4817fafedb3b97e79",
+        "bytes": 2159626,
+        "expected_rows": 43200,
+        "sha256": "8bdd99624cdebcc843d41420bbced1e57f91d9bebeb42279b85e6c9450232f8f"
+      },
+      {
+        "name": "xauusd_bid_m1_2024_12.csv",
+        "git_blob_sha": "a5a219ccee1e3808593f349a56274d6242fe31dd",
+        "bytes": 2231444,
+        "expected_rows": 44640,
+        "sha256": "c086505bd4ae2f98095bae1c80e6b80ade803ae8f56de6e558e37a0153f967cd"
+      },
+      {
+        "name": "xauusd_bid_m1_2025_01.csv",
+        "git_blob_sha": "f0211e901b6f8b26996ba1a48aeba73f599bd5fe",
+        "bytes": 2231746,
+        "expected_rows": 44640,
+        "sha256": "4596e50b3fb203e12a9eee24942e0d22db8a2e409b71f9546a1e6ee6f80233a0"
+      },
+      {
+        "name": "xauusd_bid_m1_2025_02.csv",
+        "git_blob_sha": "e3beb3def6e2502975046d07f43db777604110b2",
+        "bytes": 2015844,
+        "expected_rows": 40320,
+        "sha256": "59c6380fcccc11883f74d09bbc3fc7cddf093d0e8c00e8d6826cf19fe7350e58"
+      }
+    ],
+    "warmup": "2021-12-01 through 2021-12-31",
+    "development": "2022-01-01 through 2025-02-28",
+    "validation_or_holdout_files_downloaded": false
+  }
+}
