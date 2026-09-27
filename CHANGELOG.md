@@ -525,3 +525,8 @@
 - Identity audit found private ADP releases still included in the primary EMPLOYMENT family.
 - Frozen deterministic v0.3 at spec `7a85aea`, runner `64f35f7`, workflow `59aebbb`.
 - v0.3 consumes the exact frozen v0.2 dataset, removes ADP, keeps BLS Employment Situation components, and reruns coverage without network or market outcomes.
+
+
+- EXP-041 free consensus v0.3 passed at `81e6f6f`: ADP removed, 203 records, 68 independent surprise-bearing blocks, family counts Employment 11 / CPI 11 / PPI 11 / Retail 12 / GDP-PCE 15 / FOMC 8.
+- Frozen official reconciliation Phase A at `3ff0aef` / runner `ad4dc21` / workflow `87cf69d`.
+- Phase A maps every cleaned block to first-party BLS/Census/BEA/Fed provenance and authoritative UTC release time; component actual-as-released reconciliation remains a separately frozen Phase B.
