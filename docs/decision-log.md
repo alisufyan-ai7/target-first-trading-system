@@ -1677,3 +1677,14 @@ v0.2 uses:
 The official event-block count may exceed the provisional 68 because a same-date GDP_PCE block can legitimately contain two independent official releases. This is source/timestamp correction, not evidence-driven sample expansion.
 
 No market outcomes have been calculated.
+
+
+## 2026-09-27 — Repair only BEA 2026 schedule-row parser in official-time reconciliation v0.3
+
+Official-time v0.2 `83b12d3` resolved every BLS, Census Retail and FOMC block and all 2025 BEA mappings. Only the 14 expected 2026 BEA GDP/PCE sub-blocks failed.
+
+**Decision:** preserve all frozen event dates, consensus values, source hierarchy and thresholds. Replace only the brittle BEA 2026 schedule text parser with a row/link-aware parser.
+
+The parser must use the exact displayed schedule date/time, keep GDP and Personal Income & Outlays as separate official blocks, and save the linked first-party BEA release URL when available.
+
+No outcome information is involved.
