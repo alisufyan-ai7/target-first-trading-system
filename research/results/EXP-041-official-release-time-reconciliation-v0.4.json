@@ -1,0 +1,211 @@
+{
+  "base_v02": {
+    "expected_sha256": "691c09da1829695821ead84647bb87b2b1b4c1a4cdc4d727cb33042e991edd1a",
+    "observed_sha256": "691c09da1829695821ead84647bb87b2b1b4c1a4cdc4d727cb33042e991edd1a",
+    "path": "research/data/EXP-041-official-release-time-map-v0.2.json"
+  },
+  "direct_bea_manifest_blocks": 14,
+  "disposition": "OFFICIAL_RELEASE_TIME_RECONCILIATION_V04_PASS_ACTUAL_VALUES_REQUIRED",
+  "errors": [],
+  "gate": {
+    "all_14_direct_bea_pages_verified": true,
+    "all_75_official_blocks_complete_after_repair": true,
+    "base_v02_sha_verified": true,
+    "exactly_14_unresolved_2026_bea_before_repair": true,
+    "no_market_data_or_outcomes_loaded": true,
+    "protected_periods_sealed": true,
+    "untouched_blocks_identical_to_v02": true
+  },
+  "github_run_id": "36311721044",
+  "market_data_loaded": false,
+  "official_actual_reconciliation_complete": false,
+  "official_time_map": {
+    "official_blocks": 75,
+    "path": "research/data/EXP-041-official-release-time-map-v0.4.json",
+    "sha256": "ced4a536b5c99db9ac9ad3ed29c49b13ba1058770ed3eaa4d65250220d60d28e"
+  },
+  "page_meta": {
+    "2026-01-22|GDP_PCE|GDP": {
+      "bytes": 51099,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "d1a0d6b094011d123a6572123f65ffefd19a9f1583187bc788457bff24625ab1",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gross-domestic-product-3rd-quarter-2025-updated-estimate-gdp-industry-and-corporate",
+      "zone_ok": true
+    },
+    "2026-01-22|GDP_PCE|PCE": {
+      "bytes": 51618,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "dee03b897f32e897cd0b54ec50dbe8ee99580331da8f4904c3d8a9702a2ae365",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-and-november-2025",
+      "zone_ok": true
+    },
+    "2026-02-20|GDP_PCE|GDP": {
+      "bytes": 59655,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "58c7b34cec292c81b7809c900c871cc2e909a26a7e3a641abc8dc800c4782e28",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gdp-advance-estimate-4th-quarter-and-year-2025",
+      "zone_ok": true
+    },
+    "2026-02-20|GDP_PCE|PCE": {
+      "bytes": 54028,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "75f236bf13d7620e293c0c98fde18fdf8aec878f5896dabc49b61da7dba280de",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-december-2025",
+      "zone_ok": true
+    },
+    "2026-03-13|GDP_PCE|GDP": {
+      "bytes": 55838,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "073f85cac1fe462281b75bfcf095a708e73a282baf38ef6c3b6155138205096a",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gdp-second-estimate-4th-quarter-and-year-2025",
+      "zone_ok": true
+    },
+    "2026-03-13|GDP_PCE|PCE": {
+      "bytes": 54053,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "1b1ed6ef9f557cb58ae8ecff3cdebbfb5a1ffa4481fcacb133e1fecb30aafea5",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-january-2026",
+      "zone_ok": true
+    },
+    "2026-04-09|GDP_PCE|GDP": {
+      "bytes": 76710,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "3ba933c0831bdff928605f979243609ed8a3493bcd547956d1cebc83e81b2559",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gdp-third-estimate-industries-corporate-profits-state-gdp-and-state-personal-income-4th",
+      "zone_ok": true
+    },
+    "2026-04-09|GDP_PCE|PCE": {
+      "bytes": 53276,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "054090236978098174ab1101e01a47ccf782c1691a4d7e24bfa7d9bcf1df78a2",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-february-2026",
+      "zone_ok": true
+    },
+    "2026-04-30|GDP_PCE|GDP": {
+      "bytes": 53828,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "74fe82513c975b925248d44ce27b7d5f4830ff43b05346310fb4cc378012e2c7",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gdp-advance-estimate-1st-quarter-2026",
+      "zone_ok": true
+    },
+    "2026-04-30|GDP_PCE|PCE": {
+      "bytes": 52310,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "3fe4462044a48ae404e58a4fd58384fe50573dca1d8c8ff710fef07664a89088",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-march-2026",
+      "zone_ok": true
+    },
+    "2026-05-28|GDP_PCE|GDP": {
+      "bytes": 55135,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "07ec650075ccd0a50dcebfe1c2a08319178ee9eac1c5f7022a854d2b23badc44",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gdp-second-estimate-and-corporate-profits-1st-quarter-2026",
+      "zone_ok": true
+    },
+    "2026-05-28|GDP_PCE|PCE": {
+      "bytes": 52299,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "7c99c2aefc52e7dc259fb3dbff8d91bb1e70ff3540242f04cb436c432df50f45",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-april-2026",
+      "zone_ok": true
+    },
+    "2026-06-25|GDP_PCE|GDP": {
+      "bytes": 68235,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "ca27bd041e200d3ec3efcdf1e1b0089ff5a68a20e075fd634bff609bf47f132e",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/gdp-third-estimate-industries-corporate-profits-state-gdp-and-state-personal-income-1st",
+      "zone_ok": true
+    },
+    "2026-06-25|GDP_PCE|PCE": {
+      "bytes": 53420,
+      "date_ok": true,
+      "embargo_marker_ok": true,
+      "identity_ok": true,
+      "sha256": "52faff268682eb207a49c64088483a1177378bbd2a02af5667f3f02c52bbabc5",
+      "time_ok": true,
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-may-2026",
+      "zone_ok": true
+    }
+  },
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "release_time_reconciliation_pass": true,
+  "repaired_blocks": [
+    "2026-01-22|GDP_PCE|GDP",
+    "2026-01-22|GDP_PCE|PCE",
+    "2026-02-20|GDP_PCE|GDP",
+    "2026-02-20|GDP_PCE|PCE",
+    "2026-03-13|GDP_PCE|GDP",
+    "2026-03-13|GDP_PCE|PCE",
+    "2026-04-09|GDP_PCE|GDP",
+    "2026-04-09|GDP_PCE|PCE",
+    "2026-04-30|GDP_PCE|GDP",
+    "2026-04-30|GDP_PCE|PCE",
+    "2026-05-28|GDP_PCE|GDP",
+    "2026-05-28|GDP_PCE|PCE",
+    "2026-06-25|GDP_PCE|GDP",
+    "2026-06-25|GDP_PCE|PCE"
+  ],
+  "scientific_outcomes_calculated": false,
+  "stage": "EXP-041 official release-time reconciliation v0.4",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "30a93428b6a5d324f20b7a46927a780827e63fab",
+  "unresolved_before": [
+    "2026-01-22|GDP_PCE|GDP",
+    "2026-01-22|GDP_PCE|PCE",
+    "2026-02-20|GDP_PCE|GDP",
+    "2026-02-20|GDP_PCE|PCE",
+    "2026-03-13|GDP_PCE|GDP",
+    "2026-03-13|GDP_PCE|PCE",
+    "2026-04-09|GDP_PCE|GDP",
+    "2026-04-09|GDP_PCE|PCE",
+    "2026-04-30|GDP_PCE|GDP",
+    "2026-04-30|GDP_PCE|PCE",
+    "2026-05-28|GDP_PCE|GDP",
+    "2026-05-28|GDP_PCE|PCE",
+    "2026-06-25|GDP_PCE|GDP",
+    "2026-06-25|GDP_PCE|PCE"
+  ]
+}
