@@ -2199,3 +2199,41 @@ Frozen corrected v0.2:
 v0.2 adds NFP aliases, restricts FOMC to Statement/Federal Funds Rate/Economic Projections, and groups provisional event blocks by date+family only.
 
 **Exact next action:** run one corrected full consensus v0.2 acquisition. Only v0.2 may feed official BLS/Census/BEA/Fed reconciliation.
+
+
+## 2026-09-27 — CORRECTED CONSENSUS v0.2 PASSED / ADP REMOVAL v0.3 REQUIRED
+
+Corrected v0.2 durable result: `308ee5c6e1d5f0edb17ab3d6420e97384516f44c`.
+
+Result:
+
+- consensus layer gate = PASS;
+- 215 normalized rows;
+- 80 provisional independent event blocks;
+- 80 surprise-bearing provisional blocks;
+- family block counts:
+  - EMPLOYMENT 23;
+  - CPI 11;
+  - PPI 11;
+  - RETAIL 12;
+  - GDP_PCE 15;
+  - FOMC 8;
+- NFP component present;
+- FOMC reduced to 8 policy-event dates;
+- no market data/outcomes/protected-period use.
+
+Identity inspection found one remaining source-scope issue:
+
+- EMPLOYMENT still includes `ADP Non-Farm Employment Change`, a private ADP release rather than the BLS Employment Situation.
+
+Therefore v0.2 proves coverage but is not the final official-reconciliation input.
+
+Frozen deterministic v0.3:
+
+- spec commit: `7a85aeafba0427b12912d183e3686e07804ddc9e`;
+- runner commit: `64f35f7281c14425d2f0500c6ff79fc0b213a356`;
+- workflow commit: `59aebbb56fe827414a5d37435402bea0e51b4091`.
+
+v0.3 uses no network. It consumes the exact frozen v0.2 dataset SHA `17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811`, removes ADP from the primary EMPLOYMENT family, retains only BLS-style NFP/Unemployment/Average-Hourly-Earnings components, rebuilds date+family blocks, and reruns the same coverage gate.
+
+**Exact next action:** trigger one v0.3 deterministic scope correction. PASS => freeze official BLS/Census/BEA/Fed reconciliation.
