@@ -1,0 +1,50 @@
+{
+  "disposition": "OFFICIAL_ACTUAL_RECONCILIATION_PASS_FINAL_GATE_A_REQUIRED",
+  "errors": [],
+  "gate": {
+    "all_numeric_have_forecast": true,
+    "all_numeric_have_source_hash": true,
+    "all_numeric_official_context_verified": true,
+    "consensus_v03_sha_verified": true,
+    "family_selection_counts_expected": true,
+    "fomc_timing_only_blocks_8": true,
+    "no_market_data_or_outcomes_loaded": true,
+    "no_reconciliation_errors": true,
+    "numeric_official_blocks_67": true,
+    "official_time_map_v04_sha_verified": true,
+    "protected_periods_sealed": true,
+    "reconciled_numeric_records_67": true
+  },
+  "github_run_id": "36312059988",
+  "inputs": {
+    "consensus_v03_sha256": "911bbc204cdc9a7ed8ecafa7dd166aaaa1141a78675405ac4319d164bd6fb0c3",
+    "official_time_map_v04_sha256": "ced4a536b5c99db9ac9ad3ed29c49b13ba1058770ed3eaa4d65250220d60d28e"
+  },
+  "market_data_loaded": false,
+  "official_actual_reconciliation_pass": true,
+  "output": {
+    "fomc_timing_only_records": 8,
+    "numeric_records": 67,
+    "path": "research/data/EXP-041-official-macro-surprise-layer-v0.1.json",
+    "records": 75,
+    "sha256": "ec267643940733db4647d5d1dc5537099e3fc149ee7e0e9257b1b8786017c362"
+  },
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "scientific_market_outcomes_calculated": false,
+  "selected_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 11,
+    "GDP": 11,
+    "PCE": 11,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "source_pages_fetched": 67,
+  "stage": "EXP-041 official actual-as-released reconciliation v0.1",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "24bb0f4fb47507255dbdfa04c5cc132f436d0167"
+}
