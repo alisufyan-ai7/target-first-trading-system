@@ -312,3 +312,16 @@ to:
 > information-first research -> validated context -> strategy construction.
 
 This is the main conceptual correction from the recent brainstorming.
+
+
+## 2026-09-27 — After macro/rates proxy failures: execution microstructure is the next orthogonal layer
+
+**OBSERVED:** EXP-041 did not validate macro timing/surprise as a stable incremental predictive layer. EXP-042 did not validate free DXY reaction or DXY+US-TBond interpretation proxies.
+
+**HYPOTHESIS:** a skilled intraday trader may still possess information at the execution/participation layer that is absent from M1/M5 OHLC: spread state, quote-update intensity, short-horizon bid/ask behavior, and quote-side liquidity imbalance.
+
+**DECISION:** test source feasibility before modeling. Dukascopy tick data exposes bid/ask prices and quote-side volumes at millisecond timestamps, which is materially richer than OHLC.
+
+**SEMANTIC GUARDRAIL:** Dukascopy quote-side volume is not automatically centralized traded volume, aggressor flow, CME depth or consolidated FX order flow. Future research must call this broker quote/tick microstructure unless a source genuinely contains exchange trade/book information.
+
+**ANTI-LOOP RULE:** do not create another generic price-return feature family from ticks. The next study, if source repeatability passes, must focus on execution/participation observables that are unavailable in the existing OHLC layers.
