@@ -513,3 +513,9 @@
 - Frozen full free macro consensus acquisition at `f51f6ce` / runner `78e388b` / workflow `cdd373d`.
 - Full acquisition retains only 2025-07-01..2026-06-29 USD target-family rows, freezes Forex Factory Forecast as the public consensus proxy, commits no raw HTML, and computes no market outcomes.
 - Coverage gate is >=40 provisional independent blocks, >=30 surprise-bearing blocks and >=8 blocks per recurring numeric family; official release reconciliation remains mandatory afterward.
+
+
+- EXP-041 full free consensus v0.1 completed at `48291dc`: 597 rows, 483 provisional blocks, 94 surprise-bearing blocks; all required numeric families exceeded >=8 blocks.
+- Pre-official-reconciliation inspection found a mechanical parser issue: NFP's Forex Factory label `Non-Farm Employment Change` was omitted, while broad FOMC matching included many speeches/minutes/press conferences.
+- Frozen corrected consensus v0.2 at spec `3489490`, runner `977ac99`, workflow `3e30ce6`.
+- v0.2 adds NFP aliases, restricts FOMC to genuine policy rows, and uses date+family provisional block grouping. No market outcomes/protected periods are involved.
