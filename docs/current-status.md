@@ -2610,3 +2610,37 @@ Frozen post-release geometry:
 The coverage audit requires causal pre-event baselines and fresh (<5m) proxy observations at legal structural decision timestamps, >=80% common coverage per eligible event, >=95% pooled common coverage and >=8 covered events per fold.
 
 **Exact next action:** trigger one zero-outcome EXP-042 proxy-event coverage preflight. PASS => freeze EXP-042 rates/USD information-content study.
+
+
+## 2026-09-27 — EXP-042 COVERAGE v0.1 FAILED / SOURCE-DRIVEN AVAILABILITY v0.3 FROZEN
+
+Proxy-event coverage v0.1 durable result: `e9ddeb68c5a4b6fa2da2b1892892bafdb72b0d32`.
+
+v0.1 FAIL was caused by real proxy availability gaps, not snapshot corruption:
+
+- 57 post-release structurally eligible macro events;
+- 51 events with strict common DXY+US-TBond coverage;
+- pooled common decision-time coverage 89.18%;
+- six eligible events fail common coverage because one proxy is inactive around release;
+- no target-market bars, labels, P&L or protected periods were loaded.
+
+v0.1 remains failed; its thresholds are not weakened.
+
+An unexecuted v0.2 draft was superseded before run because it inferred single-proxy coverage from common coverage.
+
+Final source-driven v0.3 is frozen:
+
+- spec `c751ca2d4c27f2eb8ef584d75e1e18ed68eeadba`;
+- runner `c45d17dcf9a77aef5e632bd95a1ae6c2134c2a4d`;
+- workflow `5d3f81e93e5ca3a53fc134f9033ed28ed7857a05`.
+
+v0.3 downloads the immutable proxy release, verifies file hashes, and independently recomputes causal <=5-minute baseline/decision-time freshness for each proxy.
+
+It freezes two outcome-blind event universes:
+
+- DXY_COMPLETE;
+- DXY_TBOND_COMPLETE.
+
+Each must satisfy the original Gate-A adequacy minima before modeling is authorized.
+
+**Exact next action:** trigger one EXP-042 proxy availability v0.3 preflight.
