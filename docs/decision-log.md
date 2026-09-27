@@ -1590,3 +1590,22 @@ This deliberately separates the two information roles. Forex Factory is not auth
 No event-specific vendor shopping is allowed after outcomes. Missing public Forecast means no surprise feature for that component.
 
 A zero-outcome free-source preflight must pass before full-year acquisition.
+
+
+## 2026-09-27 — Advance from free-source preflight to full consensus-layer acquisition
+
+Free public-source preflight `bdaaa02` passed every frozen access/provenance check.
+
+**Decision:** acquire the complete allowed development-only Forex Factory consensus layer before any official-release reconciliation or macro outcome modeling.
+
+Frozen source role:
+
+- Forex Factory `Forecast` = `PUBLIC_CALENDAR_CONSENSUS_FF`;
+- Forex Factory Actual/time = diagnostic only;
+- final actual-as-released + release time must come from BLS/Census/BEA/Fed.
+
+The acquisition counts provisional independent event blocks before outcomes. It cannot authorize Gate B by itself.
+
+FOMC is excluded from the required recurring numeric-family count and will remain timing-only unless later official reconciliation confirms enough distinct policy events.
+
+Protected Jul-Aug/Sep remain sealed.
