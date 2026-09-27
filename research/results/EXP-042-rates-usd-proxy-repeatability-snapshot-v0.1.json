@@ -1,0 +1,136 @@
+{
+  "experiment": "EXP-042",
+  "stage": "rates_usd_proxy_repeatability_snapshot_v0.1",
+  "tested_repository_sha": "9b89afcbdc64e46e653404fbdc64b3a9dae89103",
+  "github_run_id": "36316698485",
+  "source": {
+    "authority": "Dukascopy Bank historical data",
+    "transport_helper": "dukascopy-node",
+    "transport_version": "1.50.0",
+    "download_interval": [
+      "2025-07-01T00:00:00Z",
+      "2026-06-30T00:00:00Z"
+    ],
+    "timeframe": "m1",
+    "instrument_ids": {
+      "DOLLARIDXUSD": "dollaridxusd",
+      "USTBONDTRUSD": "ustbondtrusd"
+    },
+    "scientific_role": {
+      "DOLLARIDXUSD": "USD-index price-reaction proxy",
+      "USTBONDTRUSD": "long-duration US Treasury price-reaction proxy"
+    },
+    "volume_authorized_as_true_centralized_volume": false
+  },
+  "instruments": {
+    "DOLLARIDXUSD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "2f070a99784a60f15e9afe5cb1c906f1ded22aedaa74205cd3a286adefb839d2",
+        "bytes": 16071292,
+        "rows": 273175,
+        "distinct_utc_dates": 223,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-29T20:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_gt_100k": true,
+          "distinct_dates_ge_220": true,
+          "first_by_july2": true,
+          "last_at_least_jun29_18utc": true,
+          "inside_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "2f070a99784a60f15e9afe5cb1c906f1ded22aedaa74205cd3a286adefb839d2",
+        "bytes": 16071292,
+        "rows": 273175,
+        "distinct_utc_dates": 223,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-29T20:59:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_gt_100k": true,
+          "distinct_dates_ge_220": true,
+          "first_by_july2": true,
+          "last_at_least_jun29_18utc": true,
+          "inside_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    },
+    "USTBONDTRUSD": {
+      "copy_a": {
+        "exists": true,
+        "sha256": "e1ff7bea80f40b1529e046a7b0f7b4c6265cc147ee8c6c324ddef05cc7c5acf7",
+        "bytes": 9160382,
+        "rows": 144445,
+        "distinct_utc_dates": 285,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-29T23:48:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_gt_100k": true,
+          "distinct_dates_ge_220": true,
+          "first_by_july2": true,
+          "last_at_least_jun29_18utc": true,
+          "inside_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "copy_b": {
+        "exists": true,
+        "sha256": "e1ff7bea80f40b1529e046a7b0f7b4c6265cc147ee8c6c324ddef05cc7c5acf7",
+        "bytes": 9160382,
+        "rows": 144445,
+        "distinct_utc_dates": 285,
+        "first_timestamp": "2025-07-01T00:00:00+00:00",
+        "last_timestamp": "2026-06-29T23:48:00+00:00",
+        "duplicate_count": 0,
+        "checks": {
+          "rows_gt_100k": true,
+          "distinct_dates_ge_220": true,
+          "first_by_july2": true,
+          "last_at_least_jun29_18utc": true,
+          "inside_interval": true,
+          "strictly_increasing_no_duplicates": true,
+          "positive_prices": true,
+          "valid_ohlc_geometry": true
+        },
+        "integrity_pass": true
+      },
+      "same_sha256": true,
+      "same_rows": true,
+      "repeatability_pass": true
+    }
+  },
+  "repeatability_gate_pass": true,
+  "release": {
+    "tag": "exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1",
+    "archive_asset": "exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1.tar.gz",
+    "archive_sha256": "86cef306c36f08a12510c563e307a3158dc45d3236a424251db4d1c1bbaedcb4",
+    "created_or_verified_existing": true
+  },
+  "scientific_outcomes_calculated": false,
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "disposition": "EXP042_RATES_USD_PROXY_REPEATABLE_SNAPSHOT_FROZEN"
+}
