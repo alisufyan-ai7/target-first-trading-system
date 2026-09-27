@@ -2682,3 +2682,49 @@ All proxy features use the last M1 close strictly before the structural decision
 Primary rungs remain T40eq/T50eq and the original information-advantage thresholds are unchanged.
 
 **Exact next action:** trigger one EXP-042 rates/USD information-content run and resume from its durable result.
+
+
+## 2026-09-27 — EXP-042 CLOSED: NO STABLE DXY / TBOND INTERPRETATION ADVANTAGE
+
+Durable information-content result: `1e4520b65af1de5cf2bccf6ee807700a349c9a40`.
+
+Integrity PASS:
+
+- immutable target and proxy archives verified;
+- all target/proxy file hashes verified;
+- frozen availability universes unchanged;
+- all subset events had structural candidates;
+- all outer/inner primary splits had both classes;
+- all 8 markets had both primary classes;
+- proxy features were strictly causal;
+- Jul-Aug/Sep protected periods remained sealed;
+- Engine R/EXP-015 outcomes were unused.
+
+Scientific dispositions:
+
+- Study A DXY: `NO_STABLE_DXY_REACTION_INFORMATION_ADVANTAGE`;
+- Study B DXY+T-Bond: `NO_STABLE_DXY_TBOND_INTERPRETATION_ADVANTAGE`.
+
+DXY Study A:
+
+- T40eq relative log-loss change: -0.3606%;
+- T50eq relative log-loss change: -0.2793%;
+- Brier worsened on both;
+- fold wins: 0/6 and 1/6;
+- event-block win rates: 32.1% and 35.8%;
+- market non-worse count: 1/8 on both.
+
+DXY+T-Bond Study B versus DXY-only:
+
+- T40eq relative log-loss change: -0.1346%;
+- T50eq relative log-loss change: -0.1446%;
+- Brier worsened on both;
+- fold wins: 1/6 and 1/6;
+- event-block win rates: 33.3% and 43.1%;
+- market non-worse counts: 0/8 and 1/8.
+
+DXY+T-Bond versus control was also negative on both primary rungs.
+
+**Decision:** close EXP-042. Do not tune DXY/T-Bond reaction thresholds or windows on this development sample.
+
+Next governing information family: execution-grade information / order-flow-like observables. Any next step must distinguish true bid/ask/tick participation information from another OHLC transform.
