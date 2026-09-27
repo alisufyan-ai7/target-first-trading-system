@@ -646,3 +646,9 @@
 - Frozen final EXP-045 Engine-S v0.2 extended zero-outcome confirmation: spec `0e6b8d5`, runner `6e7ab5f`, workflow `780f081`.
 - No strategy rules or adequacy thresholds changed; only earlier zero-outcome sample length is extended to Jan-2022 through Feb-2025.
 - This is the final Engine-S density attempt.
+
+
+- EXP-045 unchanged Engine-S v0.2 passed final zero-outcome adequacy at `835af4e`: 160 candidates / 151 signal days.
+- Frozen structural target and management before outcomes at `85600a7`.
+- Added development evaluator `0ced4aa` and workflow `bca8cbc`.
+- Validation and holdout remain sealed until a branch passes its own frozen development gate.
