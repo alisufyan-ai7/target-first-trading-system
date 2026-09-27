@@ -548,3 +548,9 @@
 - Frozen v0.4 direct-page repair at spec `8f2415a`, runner `3c25b1a`, workflow `d4e2ff1`.
 - v0.4 starts from the exact v0.2 official-time map and replaces only the 14 unresolved 2026 BEA blocks using direct first-party BEA release pages/embargo timestamps.
 - No market outcomes, thresholds, consensus values or protected-period data changed.
+
+
+- EXP-041 official release-time v0.4 passed at `9a853a0`: all 75 official blocks complete, 14 direct 2026 BEA repairs verified, official-time map SHA `ced4a536...`.
+- Frozen Phase-B official actual reconciliation at spec `0040f86`, runner `5b62473`, workflow `0e5d45c`.
+- Phase B uses one deterministic canonical forecast-bearing component for each of 67 numeric blocks and keeps 8 FOMC blocks timing-only.
+- A Forex Factory Actual is accepted only after component-specific verification against the first-party BLS/Census/BEA source. No market data/outcomes are loaded.
