@@ -216,3 +216,41 @@ EXP-044 paid true-flow source work is paused under the user's no-paid-data const
 Engine R and EXP-015 remain paused.
 
 No protected Jul-Aug/Sep 2026 data are required for EXP-045.
+
+
+## Pre-outcome mechanical clarifications — 2026-09-27
+
+These rules are frozen before any Engine-S outcome or preflight result exists.
+
+1. **Level consumption:** each concrete daily level instance may create at most one attack event. Its first qualifying completed-5m attack consumes it for the rest of that UTC day, regardless of whether the downstream setup fills.
+
+2. **Dual-sided ambiguity:** if the same completed 5m bar simultaneously attacks eligible high-side and low-side liquidity, the event is classified `dual_sided_attack_ambiguous` and no setup is created.
+
+3. **Priority within one side:** if one completed 5m bar attacks multiple eligible levels on the same side, use only the frozen priority PDH/PDL -> Asia -> opening-range.
+
+4. **Internal pivot selection:** use the most recent causally confirmed 2-left/2-right M1 pivot of the required break type within the prior 15 market-active M1 bars at the branch trigger anchor.
+   - rejection SHORT breaks an internal pivot LOW;
+   - rejection LONG breaks an internal pivot HIGH;
+   - acceptance LONG breaks an internal pivot HIGH after the pullback touch;
+   - acceptance SHORT breaks an internal pivot LOW after the pullback touch.
+   The pivot must already be confirmed before the M1 trigger bar closes.
+
+5. **Trigger bar:** within the frozen 10-active-M1 trigger search, the first bar that closes through the selected pivot is accepted as a trigger only if that same bar:
+   - has directional body;
+   - has body >=1.50x the prior-20 active-M1 mean body using exact integer arithmetic;
+   - creates the same-direction 3-bar M1 FVG.
+   A close-through that does not satisfy all three conditions does not trigger; search continues until the 10-bar window expires.
+
+6. **Non-chasing fill:** the FVG midpoint cannot fill on the trigger/FVG-creation bar. Fill search starts with the next market-active M1 bar and lasts at most 10 active M1 bars.
+
+7. **Acceptance pivot anchor:** the acceptance branch selects its internal pivot at the first pullback-touch bar close, after the pullback has occurred. The pivot center must be later than the initial breakout attack bar start and already confirmed by pullback-touch close.
+
+8. **Acceptance pullback extreme:** structural stop uses the most adverse M1 extreme from the first level-touch pullback bar through the trigger/FVG bar, plus one source tick.
+
+9. **Economic admission:** accepted filled candidates must have valid stop geometry and gross structural risk <= USD40 under the XAUUSD 0.10-lot / 10-oz convention, i.e. stop distance <=4.000 XAU / 4,000 source ticks.
+
+10. **Zero-outcome one-open handling:** because no post-entry exit/target path may be computed in preflight, the preflight does not impose a synthetic one-open-trade duration. It reports overlapping pending setup pipelines as a diagnostic only. A true one-open rule is frozen later together with target/horizon management if the preflight passes.
+
+11. **Active-bar convention:** market-active M1 follows the already audited Engine-G/H convention: an M1 row identical OHLC to the previous close is carry-forward/inactive. A 5m bar is active if at least one constituent M1 row is active.
+
+No target, MFE/MAE, trade P&L or post-entry path is inspected by these clarifications.
