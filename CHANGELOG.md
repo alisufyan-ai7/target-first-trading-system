@@ -560,3 +560,9 @@
 - Frozen final Gate-A audit at spec `d9b6dce`, runner `02200aa`, workflow `1520b41`.
 - Final Gate-A collapses exact same-time releases to one independent block and freezes six contiguous chronological evaluation folds before any market outcome modeling.
 - Original data-adequacy thresholds remain unchanged.
+
+
+- EXP-041 final Gate-A audit passed at `4208af0`: 65 independent macro timestamps, 57 surprise-bearing, all family/fold/provenance/history/protection gates passed.
+- Frozen Gate-B macro information-content study at spec `5980e34`, runner `015eb7b`, workflow `55ebbed`.
+- Gate B consumes immutable Dukascopy v2, reuses EXP-040 structural candidate/target mechanics, and compares LOCAL_M5 vs timing vs surprise magnitude on the six frozen event folds.
+- Engine R/EXP-015 remain paused; no protected-period data or production P&L rules are involved.
