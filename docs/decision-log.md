@@ -1954,3 +1954,14 @@ Freeze EXP-045 / Engine S as a selective liquidity decision tree:
 - structural target path frozen only after zero-outcome preflight.
 
 This is a decision-process change, not another OHLC feature tweak.
+
+
+## 2026-09-27 — Authorize one zero-outcome Engine-S development preflight
+
+Engine-S implementation is frozen before outcomes.
+
+**Decision:** run only the candidate-density/causality preflight on Dec-2023 warm-up plus Jan-2024 through Feb-2025 development data.
+
+Do not compute target/path/P&L outcomes.
+
+The preflight must pass the already frozen adequacy gate naturally; rules may not be loosened after seeing density.
