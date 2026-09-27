@@ -2168,3 +2168,24 @@ Frozen next stage:
 It acquires the full allowed Forex Factory development history, normalizes USD target events, freezes historical Forecast consensus, and audits independent-event coverage. It does not yet trust FF actual/time as final; official BLS/Census/BEA/Fed reconciliation is the next separately frozen stage after a pass.
 
 **Exact next action:** trigger exactly one full free macro consensus acquisition/audit and resume from its durable result.
+
+
+## EXP-041 free consensus v0.2 correction checkpoint
+
+v0.1 durable acquisition result: `48291dc19916616ade0852faa067194ebfb6172e`.
+
+It proved free historical consensus coverage is ample, but its normalized dataset is **not final** because record inspection found zero-outcome scope issues:
+
+- NFP was omitted because Forex Factory labels it `Non-Farm Employment Change`;
+- FOMC was overbroad, capturing speeches/minutes/press conferences;
+- FF displayed time is not reliable enough for provisional block splitting.
+
+Frozen v0.2:
+
+- spec `3489490742d4a5d7bae9cca3d6585d1451aba8a4`;
+- runner `977ac996086ef3686177bb11f1426c0ab8c324da`;
+- workflow `3e30ce61e387af3e3588c3fb01c2a6e5e966cce4`.
+
+v0.2 adds NFP aliases, permits only FOMC Statement/Federal Funds Rate/Economic Projections, and groups provisional blocks by date+family.
+
+**Exact next action:** trigger exactly one v0.2 corrected consensus acquisition. PASS => freeze official BLS/Census/BEA/Fed reconciliation.
