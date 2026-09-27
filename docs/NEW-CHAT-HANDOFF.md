@@ -2451,3 +2451,19 @@ Study B: control -> DXY -> DXY+T-Bond on the 51-event universe. The T-Bond layer
 Proxy features are strictly causal: baseline strictly before release and current close strictly before decision.
 
 **Exact next action:** trigger one EXP-042 information-content run. Interpret only if integrity passes.
+
+
+## EXP-042 final closeout
+
+EXP-042 information-content result PASSED integrity at `1e4520b65af1de5cf2bccf6ee807700a349c9a40`.
+
+Scientific result:
+
+- DXY reaction: `NO_STABLE_DXY_REACTION_INFORMATION_ADVANTAGE`;
+- DXY+T-Bond interpretation: `NO_STABLE_DXY_TBOND_INTERPRETATION_ADVANTAGE`.
+
+Both enriched layers worsened pooled log loss/Brier and failed fold/event/market stability gates on T40eq and T50eq.
+
+EXP-042 is closed. Do not tune proxy variants.
+
+**Next family:** execution-grade bid/ask/tick/quote information, and true order flow only if a source genuinely provides it. Engine R/EXP-015 remain paused; Jul-Aug/Sep remain sealed.
