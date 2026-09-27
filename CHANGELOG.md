@@ -606,3 +606,8 @@
 
 - Frozen EXP-043 full development quote-microstructure snapshot: spec `8b0d5e5`, acquisition `3910048`, verifier `372607f`, workflow `fe9111c`.
 - Snapshot retains per-day canonical raw tick provenance but stores compact minute-level spread/activity/freshness/quote-imbalance fields rather than raw-year tick CSVs or generic mid-price OHLC.
+
+
+- Frozen final EXP-043 information-content study before outcomes: spec `a88f089`, runner `a56df2e`, workflow `38a3270`.
+- Pre-run correction aligns EXP-043 model history to EXP-040's 2026-03-23 start while retaining immutable full-year source snapshots.
+- Nested layers test execution cost, participation, then quote imbalance with a prospectively added day-level robustness gate.
