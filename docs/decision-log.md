@@ -1609,3 +1609,21 @@ The acquisition counts provisional independent event blocks before outcomes. It 
 FOMC is excluded from the required recurring numeric-family count and will remain timing-only unless later official reconciliation confirms enough distinct policy events.
 
 Protected Jul-Aug/Sep remain sealed.
+
+
+## 2026-09-27 — Correct macro consensus parser scope before official reconciliation
+
+v0.1 free consensus coverage passed, but normalized-record inspection exposed two clear plumbing errors before any outcomes:
+
+- missing `Non-Farm Employment Change` alias omitted NFP;
+- broad `FOMC` text matching included speeches/minutes/press conferences.
+
+**Decision:** preserve v0.1 as acquisition/coverage evidence but do not use its normalized dataset downstream.
+
+Prospectively freeze v0.2 with:
+
+- explicit NFP/Non-Farm Employment Change aliases;
+- FOMC limited to policy decision rows only;
+- provisional event block = date + family, independent of unreliable blank/repeated FF display time.
+
+No thresholds were changed based on market outcomes; no market outcomes exist yet. Protected periods remain sealed.
