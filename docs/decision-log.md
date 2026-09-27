@@ -1996,3 +1996,32 @@ Engine-S v0.2 passed the final zero-outcome sample-adequacy gate without strateg
 The same liquidity map now serves both setup location and target path. Branches are evaluated independently; one branch cannot rescue another.
 
 No validation/holdout data may be loaded unless a branch passes its frozen development gate.
+
+## 2026-09-28 — Close Engine S before validation
+
+EXP-045 / Engine S completed its prospectively frozen development evaluation with protected periods sealed.
+
+Result: `ENGINE_S_FAIL_CLOSE_BEFORE_VALIDATION` at durable checkpoint `855a75bd72818a11e0fc50cd2ec376ed362acae1`.
+
+**Decision:** close Engine S.
+
+Do not reinterpret the 17-trade acceptance branch as a validated edge. Its primary-cost metrics were positive, but stress expectancy/PF were negative and the branch failed all frozen sample/stability requirements.
+
+Do not make an acceptance-only v0.3, widen target rules, alter costs, whitelist hours/levels, or expose validation to rescue the lineage.
+
+The next family must differ at the decision-process level.
+
+## 2026-09-28 — Freeze EXP-046 Engine T failed-auction trap as a new process
+
+Post-result hypothesis, frozen prospectively before any Engine-T target/path/P&L outcome:
+
+`established acceptance -> failed auction -> non-chasing boundary retest -> reversal`.
+
+Reasoning:
+
+- Engine-S first-touch rejection was decisively negative;
+- broad continuation/opening-drive/trend/compression families are already closed elsewhere in the repository;
+- the untested process is not immediate rejection or successful acceptance, but a **later failure after acceptance was first established**;
+- this represents a trapped-breakout / failed-auction decision process rather than a threshold variant of prior engines.
+
+The first run is zero-outcome only. If density/causality fails, close v0.1 without widening the frozen windows or thresholds.
