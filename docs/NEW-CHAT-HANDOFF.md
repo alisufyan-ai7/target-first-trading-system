@@ -2298,3 +2298,24 @@ Frozen v0.3:
 v0.3 parses actual BEA schedule rows/links and keeps displayed official times. All other source mappings remain unchanged.
 
 **Exact next action:** trigger one official release-time v0.3 reconciliation. PASS => Phase B official actual-as-released reconciliation.
+
+
+## EXP-041 Phase-B official-actual checkpoint
+
+Official release-time v0.4 PASSED at `9a853a0ba2ab32a537e096fff45e57747f85eb8f`.
+
+- all 75 official blocks now have verified first-party date/time/source/hash;
+- official-time map SHA: `ced4a536b5c99db9ac9ad3ed29c49b13ba1058770ed3eaa4d65250220d60d28e`;
+- no protected-period or market-outcome use.
+
+Phase B frozen:
+
+- spec `0040f86ee3bfe4acd59af5852da7209a253d00c3`;
+- runner `5b6247322cc017c9efdd13564f148b82d61749c4`;
+- workflow `0e5d45c4c657f64efa76ff127be1f5da91dbab5c`.
+
+It reconciles one canonical forecast-bearing component for each of 67 numeric official blocks against first-party release context. FOMC's 8 blocks remain timing-only.
+
+PASS => run the final Gate-A adequacy/provenance audit. Only after final Gate-A PASS may EXP-041 load the canonical Dukascopy snapshot and begin macro information-content modeling.
+
+**Exact next action:** trigger one Phase-B official actual reconciliation and resume from its durable result.
