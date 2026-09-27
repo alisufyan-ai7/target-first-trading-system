@@ -602,3 +602,7 @@
 
 - EXP-043 Dukascopy tick source preflight passed at `babcfa8`: all 48 pilot pairs reproduced exactly across independent downloads and passed semantic integrity.
 - Decision: build an immutable full-development minute-level microstructure snapshot with per-day raw-source hashes rather than storing a full year of raw tick CSVs.
+
+
+- Frozen EXP-043 full development quote-microstructure snapshot: spec `8b0d5e5`, acquisition `3910048`, verifier `372607f`, workflow `fe9111c`.
+- Snapshot retains per-day canonical raw tick provenance but stores compact minute-level spread/activity/freshness/quote-imbalance fields rather than raw-year tick CSVs or generic mid-price OHLC.
