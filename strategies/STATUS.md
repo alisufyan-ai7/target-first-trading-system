@@ -693,3 +693,40 @@ As of 2026-09-25, no new strategy family is to be advanced to target/P&L develop
 Engine R v0.1 / EXP-039 remains a prospectively frozen artifact but is **paused before development** while `research/ROOT-CAUSE-EDGE-SOURCE-AUDIT-v0.1.md` is executed.
 
 Next strategy selection must be supported by incremental-information evidence beyond the existing OHLC-derived price state. Protected Jul-Aug and Sep remain sealed.
+
+## Engine S / EXP-045 — closed
+
+Engine S v0.2 passed its final zero-outcome adequacy gate but failed the prospectively frozen structural-target development gate at `855a75bd72818a11e0fc50cd2ec376ed362acae1`.
+
+Disposition:
+
+`ENGINE_S_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+- REJECTION: 116 signals, primary -0.581R, stress -0.989R.
+- ACCEPTANCE: 17 signals, primary +0.152R but stress -0.443R and insufficient sample/stability.
+- No branch passed.
+- Validation / fresh holdout remained sealed.
+
+Do not tune or rescue Engine S.
+
+## Engine T v0.1 / EXP-046 — current primary path
+
+Genuinely different human-style failed-auction family:
+
+`established breakout acceptance -> later failure back inside -> exact-boundary retest -> reversal`.
+
+Engine T does not trade immediate rejection and does not trade successful acceptance continuation.
+
+**Status:** prospectively frozen, zero outcomes.
+
+First-stage gate tests only:
+
+- >=100 fills;
+- >=25 per direction;
+- >=50 signal days;
+- median <=4/day;
+- causality;
+- structural-risk feasibility;
+- no protected data / no target-P&L outcomes.
+
+**Next:** one EXP-046 zero-outcome preflight only.
