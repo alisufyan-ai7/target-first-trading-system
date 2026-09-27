@@ -1,0 +1,78 @@
+name: EXP-041 Free Macro Consensus v0.3 Scope Correction
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-041-free-macro-consensus-v03.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  correct-scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      RESULT: research/results/EXP-041-free-macro-consensus-scope-audit-v0.3.json
+      DATASET: research/data/EXP-041-free-macro-consensus-v0.3.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify deterministic transform
+        run: python -m py_compile research/code/run_exp041_free_macro_consensus_scope_v03.py
+
+      - name: Apply v0.3 Employment-source correction
+        continue-on-error: true
+        run: python research/code/run_exp041_free_macro_consensus_scope_v03.py
+
+      - name: Upload v0.3 artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp041-free-macro-consensus-v03
+          path: |
+            research/results/EXP-041-free-macro-consensus-scope-audit-v0.3.json
+            research/data/EXP-041-free-macro-consensus-v0.3.json
+          if-no-files-found: warn
+
+      - name: Commit v0.3 normalized consensus layer
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          test -f "$DATASET"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT" "$DATASET"
+          git commit -m "Checkpoint EXP-041 free macro consensus v0.3"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce v0.3 scope gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/results/EXP-041-free-macro-consensus-scope-audit-v0.3.json")
+          if not p.exists():
+              raise SystemExit("v0.3 scope audit missing")
+          x=json.loads(p.read_text())
+          if x["network_access_used"]:
+              raise SystemExit("v0.3 must be deterministic from frozen v0.2")
+          if x["market_data_loaded"] or x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_outcomes_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["consensus_layer_gate_pass"]:
+              raise SystemExit("v0.3 corrected consensus gate failed")
+          print("EXP-041 free macro consensus v0.3 PASS; official reconciliation required next")
+          PY
