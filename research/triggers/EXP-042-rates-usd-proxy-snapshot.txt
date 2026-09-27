@@ -1,0 +1,12 @@
+Trigger EXP-042 rates/USD interpretation proxy repeatability snapshot v0.1.
+
+Frozen:
+- spec 8f2f63fcb40d3a84f18c48d87c5cbd183702baa6
+- downloader 82bc00a8244826fa9aaca5703a3c45c75bbb148c
+- verifier 10533a17bf7c4f35b318ce406edf09db40684c37
+- workflow ffb80922dcd65a201ab420020e7b2d00aa0a7c3c
+
+Acquire only 2025-07-01 <= t < 2026-06-30 M1 for dollaridxusd and ustbondtrusd.
+Perform two independent identical downloads and require byte-for-byte repeatability.
+Freeze an immutable release only on pass.
+No target labels, model outcomes, P&L or protected Jul-Aug/Sep 2026 data.
