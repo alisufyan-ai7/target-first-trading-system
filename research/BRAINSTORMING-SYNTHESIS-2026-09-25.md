@@ -325,3 +325,16 @@ This is the main conceptual correction from the recent brainstorming.
 **SEMANTIC GUARDRAIL:** Dukascopy quote-side volume is not automatically centralized traded volume, aggressor flow, CME depth or consolidated FX order flow. Future research must call this broker quote/tick microstructure unless a source genuinely contains exchange trade/book information.
 
 **ANTI-LOOP RULE:** do not create another generic price-return feature family from ticks. The next study, if source repeatability passes, must focus on execution/participation observables that are unavailable in the existing OHLC layers.
+
+
+## 2026-09-27 — Broker quote/tick microstructure was new information but still insufficient
+
+**OBSERVED:** EXP-043 v0.2 passed integrity on an outcome-blind six-market universe, yet execution-cost, participation and quote-imbalance features failed the frozen information-content gates on both T40eq and T50eq.
+
+**OBSERVED:** the quote-imbalance layer became progressively worse as it was added; on T50eq it was non-worse in 0/6 markets.
+
+**INTERPRETATION:** broker quote updates, spread, quote-side size and tick activity are materially richer than OHLC, but they are still not the same thing as actual signed transactions or reconstructed order-book state.
+
+**DECISION:** do not tune quote/tick windows or signs. Move to a genuinely richer information source: signed aggressor flow, depth imbalance, additions/cancellations, depletion/replenishment and absorption where source semantics support them.
+
+**HUMAN-EDGE HYPOTHESIS UPDATE:** the missing participation layer is increasingly specific. What may matter is not simply quote activity, but whether real aggressive buying/selling is being absorbed or confirmed at a meaningful structural location.
