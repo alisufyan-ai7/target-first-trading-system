@@ -621,3 +621,8 @@
 - EXP-043 v0.2 passed integrity at `d8ac5bf` but returned `NO_STABLE_TICK_MICROSTRUCTURE_INFORMATION_ADVANTAGE`.
 - Closed Dukascopy quote/tick microstructure family; no v0.3 tuning authorized.
 - Next first-tier information source is true signed trade/order-flow or order-book/depth data.
+
+
+- Frozen EXP-044 true-order-flow source feasibility gate at `cbd510f`.
+- Current EXP-044 disposition: no reproducible true trade/depth source attached yet.
+- Gold-first priority is COMEX trades + depth/order-book state; predictive modeling remains blocked until source preflight PASS.
