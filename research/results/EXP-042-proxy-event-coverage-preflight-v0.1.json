@@ -1,0 +1,913 @@
+{
+  "experiment": "EXP-042",
+  "stage": "proxy_event_coverage_preflight_v0.1",
+  "tested_repository_sha": "571dc3890072f02c662f2983beffd7952e632100",
+  "proxy_snapshot_tag": "exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1",
+  "proxy_archive_sha256": "86cef306c36f08a12510c563e307a3158dc45d3236a424251db4d1c1bbaedcb4",
+  "gate_a_event_count": 65,
+  "eligible_event_count": 57,
+  "ineligible_events": [
+    "2025-07-30T18:00:00+00:00",
+    "2025-09-17T18:00:00+00:00",
+    "2025-10-29T18:00:00+00:00",
+    "2025-12-10T19:00:00+00:00",
+    "2026-01-28T19:00:00+00:00",
+    "2026-03-18T18:00:00+00:00",
+    "2026-04-29T18:00:00+00:00",
+    "2026-06-17T18:00:00+00:00"
+  ],
+  "covered_events_by_fold": {
+    "1": 8,
+    "2": 9,
+    "3": 10,
+    "4": 9,
+    "5": 6,
+    "6": 9
+  },
+  "pooled_legal_decision_times": 2107,
+  "pooled_common_proxy_decision_times": 1879,
+  "pooled_common_coverage_ratio": 0.8917892738490745,
+  "event_details": [
+    {
+      "event_ts": "2025-07-03T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-07-15T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-07-16T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-07-17T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-07-30T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-07-31T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-08-01T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 0,
+      "coverage_ratio": 0.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 931.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": false
+    },
+    {
+      "event_ts": "2025-08-12T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-08-14T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 0,
+      "coverage_ratio": 0.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2196.0
+      },
+      "event_pass": false
+    },
+    {
+      "event_ts": "2025-08-15T12:30:00+00:00",
+      "fold": 1,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-08-28T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 36,
+      "coverage_ratio": 0.972972972972973,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-08-29T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-09-05T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-09-10T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-09-11T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-09-16T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-09-25T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-09-26T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-10-24T12:30:00+00:00",
+      "fold": 2,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-11-20T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-11-25T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "PPI",
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-12-05T15:00:00+00:00",
+      "fold": 3,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 36,
+      "common_proxy_decision_times": 36,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-12-16T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "EMPLOYMENT",
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-12-18T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2025-12-23T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-01-09T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-01-13T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-01-14T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "PPI",
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 36,
+      "coverage_ratio": 0.972972972972973,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-01-22T13:30:00+00:00",
+      "fold": 3,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 36,
+      "coverage_ratio": 0.972972972972973,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-01-22T15:00:00+00:00",
+      "fold": 4,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 36,
+      "common_proxy_decision_times": 35,
+      "coverage_ratio": 0.9722222222222222,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-01-30T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 3.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-02-10T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-02-11T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-02-13T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-02-20T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 0,
+      "coverage_ratio": 0.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 931.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": false
+    },
+    {
+      "event_ts": "2026-02-27T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-03-06T13:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "EMPLOYMENT",
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-03-11T12:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-03-13T12:30:00+00:00",
+      "fold": 4,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-03-18T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-04-01T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-04-03T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 0,
+      "coverage_ratio": 0.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 943.0
+      },
+      "event_pass": false
+    },
+    {
+      "event_ts": "2026-04-09T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 0,
+      "coverage_ratio": 0.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 931.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": false
+    },
+    {
+      "event_ts": "2026-04-10T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 0,
+      "coverage_ratio": 0.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 2371.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": false
+    },
+    {
+      "event_ts": "2026-04-14T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-04-21T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-04-30T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-05-08T12:30:00+00:00",
+      "fold": 5,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-05-12T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-05-13T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 36,
+      "coverage_ratio": 0.972972972972973,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-05-14T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-05-28T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-06-05T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "EMPLOYMENT"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 36,
+      "coverage_ratio": 0.972972972972973,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-06-10T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "CPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-06-11T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "PPI"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 2.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-06-17T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "RETAIL"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    },
+    {
+      "event_ts": "2026-06-25T12:30:00+00:00",
+      "fold": 6,
+      "families": [
+        "GDP_PCE"
+      ],
+      "legal_decision_times": 37,
+      "common_proxy_decision_times": 37,
+      "coverage_ratio": 1.0,
+      "baseline_staleness_minutes": {
+        "DOLLARIDXUSD": 1.0,
+        "USTBONDTRUSD": 1.0
+      },
+      "event_pass": true
+    }
+  ],
+  "gate": {
+    "snapshot_archive_sha_exact": true,
+    "gate_a_events_65_exact": true,
+    "eligible_events_57_exact": true,
+    "ineligible_events_8_exact": true,
+    "ineligible_set_exact": true,
+    "all_ineligible_are_fomc": true,
+    "all_eligible_event_coverage_pass": false,
+    "pooled_common_coverage_ge_95pct": false,
+    "every_fold_ge_8_covered_events": false,
+    "no_target_market_data_or_outcomes_loaded": true,
+    "protected_periods_sealed": true
+  },
+  "coverage_preflight_pass": false,
+  "target_market_data_loaded": false,
+  "target_labels_calculated": false,
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "disposition": "EXP042_PROXY_EVENT_COVERAGE_FAIL_DO_NOT_MODEL"
+}
