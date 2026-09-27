@@ -1925,3 +1925,12 @@ EXP-043 v0.2 passed all integrity gates but no execution-cost, participation or 
 Do not create a v0.3 by tuning windows, thresholds, signs, hours or markets from these outcomes.
 
 The next source family must contain information absent from broker quotes: actual signed trades, order-book/depth changes, additions/cancellations, aggressive flow and liquidity depletion where available.
+
+
+## 2026-09-27 — Freeze EXP-044 at true-flow source-access boundary
+
+After EXP-043 failed scientifically, do not create another proxy-flow model from quote/tick fields.
+
+**Decision:** Gold-first EXP-044 requires actual COMEX trade/depth or equivalent true book/transaction semantics. FX follows with representative institutional signed flow/book data.
+
+Until such a source is attached reproducibly, stop before modeling rather than weaken the source definition.
