@@ -3061,3 +3061,30 @@ The first run is strictly zero-outcome:
 Preflight tests only selective opportunity density, branch balance, causality, level freshness, non-chasing fill geometry and structural-stop feasibility.
 
 **Exact next action:** trigger one EXP-045 zero-outcome preflight and resume from the durable result.
+
+
+## 2026-09-27 — EXP-045 v0.1 DENSITY FAIL / v0.2 ZERO-OUTCOME SEQUENCE FROZEN
+
+v0.1 durable result: `5d7005938547eb7f023d0b36a0ff484188f3cdf4`.
+
+v0.1 integrity passed, but opportunity density failed: 22 filled candidates / 21 signal days, with only 4 acceptance candidates. No target labels, MFE/MAE, win rate, P&L or post-entry path were calculated.
+
+Zero-outcome diagnosis showed abundant location interactions (944 setups) but an over-compressed lower-timeframe trigger. The main rejection bottleneck was requiring MSS + 1.50x displacement + directional FVG on the same M1 bar.
+
+Frozen Engine-S v0.2 changes only the temporal sequence:
+
+`MSS -> displacement within +2 active M1 -> FVG within +2 -> later midpoint retracement`.
+
+Acceptance retest window becomes 60 active M1 bars. MSS and midpoint windows become 15 active M1 bars. All price/structure criteria remain unchanged.
+
+Frozen v0.2 implementation:
+
+- final spec `a83afb25c543c1772a3ded5fb00ad281a6a3d6db`;
+- engine `262e3ca7b1322adce2a35b7bcba14d0369d31e51`;
+- runner `b109793b390538e5051f2e2058d936f85d9139f3`;
+- workflow `47fd28a697b25f08781e267cb22321afa1bf584c`;
+- experiment checkpoint `6d5ff4b96fc8a1aad3c7bdac48c0cfb4c68591ca`.
+
+The same zero-outcome adequacy gate remains unchanged.
+
+**Exact next action:** trigger one EXP-045 Engine-S v0.2 zero-outcome preflight and resume from its durable result.
