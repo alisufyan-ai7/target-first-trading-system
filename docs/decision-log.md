@@ -1757,3 +1757,14 @@ Freeze Gate B to:
 - original T40eq/T50eq information-advantage thresholds.
 
 This authorization does not promote a strategy or resume Engine R/EXP-015.
+
+
+## 2026-09-27 — Repair impossible Gate-B event-coverage assertion without rerunning model
+
+Gate-B v0.1 produced a complete model result, but integrity failed solely because 2 winter FOMC events occur at 19:00 UTC while the frozen EXP-040 candidate grid ends at 17:55 UTC and the event window starts at -60 minutes.
+
+**Decision:** do not change the candidate grid, event window, folds, learner, features, thresholds, metrics or model outputs.
+
+Run a deterministic integrity-only corrigendum against the frozen original result blob. Correct coverage criterion: every geometrically eligible Gate-A timestamp must be covered. Expected eligible count = 63; expected ineligible set = the two 19:00 UTC FOMC events only.
+
+Scientific disposition may be recovered only from the unchanged original information-advantage gates after corrected integrity passes.
