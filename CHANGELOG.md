@@ -582,3 +582,8 @@
 - EXP-042 DXY/US-TBond proxy snapshot passed at `16766eb`; immutable archive SHA `86cef306...`.
 - Frozen zero-outcome event-coverage preflight at spec `9ea69bd`, runner `9eb3c32`, workflow `0376301`.
 - Post-release geometry is frozen before outcomes: 57 eligible Gate-A events and 8 ineligible late FOMC events.
+
+
+- EXP-042 availability v0.3 passed at `2b32215`: DXY_COMPLETE 53 events and DXY_TBOND_COMPLETE 51 events, both satisfying original family/fold adequacy minima.
+- Frozen EXP-042 rates/USD information-content study at spec `0ade215`, runner `6efb690`, workflow `5769360`.
+- Study A tests DXY reaction; Study B tests incremental T-Bond interpretation and requires the full layer to beat both DXY-only and control.
