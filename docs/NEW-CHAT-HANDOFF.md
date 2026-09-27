@@ -2387,3 +2387,21 @@ Timing improvements were too small/inconsistent to pass both primary rungs; surp
 EXP-041 is closed. Do not tune macro variants.
 
 **Next research family:** rates/USD market interpretation, then execution-grade order flow. Engine R/EXP-015 remain paused; Jul-Aug/Sep remain sealed.
+
+
+## EXP-042 rates/USD interpretation proxy preflight
+
+EXP-041 is closed: `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+
+Frozen next step:
+
+- spec `8f2f63fcb40d3a84f18c48d87c5cbd183702baa6`;
+- downloader `82bc00a8244826fa9aaca5703a3c45c75bbb148c`;
+- verifier `10533a17bf7c4f35b318ce406edf09db40684c37`;
+- workflow `ffb80922dcd65a201ab420020e7b2d00aa0a7c3c`.
+
+It downloads `dollaridxusd` and `ustbondtrusd` M1 twice for 2025-07-01 <= t < 2026-06-30 and freezes an immutable release only if both copies match exactly and pass integrity.
+
+No scientific outcomes or protected periods are touched.
+
+**Exact next action:** trigger one EXP-042 rates/USD proxy snapshot workflow and resume from its durable result.
