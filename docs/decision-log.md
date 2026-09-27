@@ -1808,3 +1808,15 @@ First freeze a causal event-coverage audit using only proxy data plus frozen mac
 Post-release structural geometry yields exactly 57 eligible Gate-A events and 8 ineligible FOMC events. Proxy features may use only M1 closes strictly before the structural decision timestamp.
 
 PASS requires both proxies to have fresh pre-event baselines and dense common decision-time coverage before an information-content model is authorized.
+
+
+## 2026-09-27 — Authorize paired EXP-042 DXY and DXY+T-Bond information tests
+
+Availability v0.3 passed both outcome-blind event universes: 53 DXY-complete events and 51 DXY+T-Bond-complete events.
+
+**Decision:** freeze two paired causal studies before target outcomes:
+
+1. on the 53-event DXY universe, test DXY reaction versus local structure + event-time/family controls;
+2. on the 51-event common universe, test DXY+T-Bond interpretation and require the full layer to beat both DXY-only and control.
+
+No macro surprise feature is reused from failed EXP-041. No proxy volume is treated as centralized volume. No threshold or hyperparameter search is authorized.
