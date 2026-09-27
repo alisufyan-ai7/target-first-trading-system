@@ -2996,3 +2996,42 @@ Current disposition:
 `NO_REPRODUCIBLE_TRUE_FLOW_SOURCE_ATTACHED_YET`.
 
 No predictive EXP-044 model is authorized until a source-specific zero-outcome provenance/reproducibility preflight passes.
+
+
+## 2026-09-27 — NO-PAID-DATA REASSESSMENT / EXP-045 ENGINE-S FROZEN
+
+User constraint: do not purchase market data while the system has not yet demonstrated robust profitability.
+
+EXP-044 true-order-flow source gate remains documented but is PAUSED under the no-paid-data constraint.
+
+Reassessment commit:
+
+`a6df6d89a98df9e214526cb1af51c706db6cbbd4`.
+
+Core correction:
+
+- recent research asked broad information layers to improve large generic candidate universes;
+- profitable human-style trading is more plausibly selective and setup-specific;
+- the project returns to the intended architecture: validated specialized engine -> meaningful candidate -> later probability/EV ranker.
+
+Frozen next experiment:
+
+`EXP-045 — Engine S Human-Style Liquidity Decision Tree v0.1`
+
+commit:
+
+`a9cd26a260377c5e4e001b41290616aeefc97497`.
+
+Engine-S logic:
+
+`meaningful liquidity -> attack -> rejection OR acceptance -> lower-timeframe trigger -> non-chasing FVG retracement entry -> structural stop`.
+
+Branch A: rejection/reclaim reversal.
+
+Branch B: acceptance/hold continuation.
+
+Free Gold data only. Development preflight uses 2024-01-01 through 2025-02-28. Validation Mar-Aug 2025 and fresh holdout Sep-2025 through Feb-2026 remain sealed.
+
+First stage is zero-outcome only: opportunity density, causality, branch balance, entry/stop geometry. No target labels, MFE/MAE, P&L or win rate.
+
+**Exact next action:** implement Engine-S preflight and run zero-outcome development candidate-density only.
