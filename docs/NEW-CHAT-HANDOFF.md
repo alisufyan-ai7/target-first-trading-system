@@ -2742,3 +2742,45 @@ The development test uses only 2022-01-01 through 2025-02-28 Gold data and the i
 TP1 is nearest fresh external liquidity with >=1.50R structural room; an optional 50% runner uses the next fresh level at >=3R. Costs, sizing, same-bar handling, horizon, branch gates and one-open rules are all frozen before outcomes.
 
 **Exact next action:** trigger one development outcome run. Do not load Mar-2025+ unless a branch passes.
+
+## Latest checkpoint — 2026-09-28
+
+EXP-045 / Engine S is now CLOSED before validation.
+
+Durable development result:
+
+`855a75bd72818a11e0fc50cd2ec376ed362acae1`
+
+Disposition:
+
+`ENGINE_S_FAIL_CLOSE_BEFORE_VALIDATION`
+
+No validation or holdout data was loaded.
+
+Key result:
+
+- rejection branch failed decisively after costs;
+- acceptance branch had only 17 reference trades and failed stress-cost/sample/stability gates;
+- no Engine-S branch passed.
+
+Do not create another Engine-S rescue version.
+
+Active next experiment:
+
+`EXP-046 / Engine T v0.1 — Failed-Auction Trap Reversal`
+
+Process:
+
+`established breakout acceptance -> later failure back inside -> exact-boundary retest -> reversal`
+
+Frozen zero-outcome artifacts:
+
+- spec `abb44dde8dfc8c7f04aa0843ae83a5c9e64995d6`;
+- engine `1547a6985bfbd2e7489520458ebe6dd287aad530`;
+- self-test correction `decc5aa992796d3f23ebcec1782eb7e7f3050bcf`;
+- runner `2a19c1e02a82d454692a8145e531958bff09b337`;
+- workflow `4ce75a81dcebec563c6a7fb08dc85be94801f48e`.
+
+Protected data remains sealed.
+
+**Exact next action:** trigger one EXP-046 zero-outcome preflight. Do not poll repeatedly; resume from the durable bot checkpoint.
