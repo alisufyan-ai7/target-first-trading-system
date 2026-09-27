@@ -1,0 +1,59 @@
+name: EXP-042 Proxy Availability Stratified Preflight v0.2
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-042-proxy-availability-v02.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  stratify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RESULT: research/results/EXP-042-proxy-availability-stratified-preflight-v0.2.json
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Verify runner
+        run: python -m py_compile research/code/run_exp042_proxy_availability_stratified_v02.py
+      - name: Run zero-outcome availability stratification
+        continue-on-error: true
+        run: python research/code/run_exp042_proxy_availability_stratified_v02.py
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp042-proxy-availability-v02
+          path: research/results/EXP-042-proxy-availability-stratified-preflight-v0.2.json
+          if-no-files-found: warn
+      - name: Commit result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-042 proxy availability v0.2"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Enforce zero-outcome scope
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          x=json.loads(pathlib.Path("research/results/EXP-042-proxy-availability-stratified-preflight-v0.2.json").read_text())
+          if x["target_market_data_loaded"] or x["target_labels_calculated"] or x["pnl_calculated"]:
+              raise SystemExit("unexpected target outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected leak")
+          if x["disposition"]!="EXP042_AVAILABILITY_SUBSETS_FROZEN_AUTHORIZE_NESTED_STUDIES":
+              raise SystemExit("availability subsets inadequate")
+          print("EXP-042 availability subsets PASS")
+          PY
