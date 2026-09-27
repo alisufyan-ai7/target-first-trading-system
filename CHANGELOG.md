@@ -631,3 +631,8 @@
 - User no-paid-data constraint made governing; EXP-044 paid true-flow path paused.
 - Added free-data human-trader reassessment at `a6df6d8`.
 - Frozen EXP-045 / Engine S human-style liquidity decision-tree preflight at `a9cd26a`: rejection/reclaim and acceptance/hold branches with non-chasing execution; zero outcomes first.
+
+
+- Implemented EXP-045 / Engine S zero-outcome preflight before outcomes: spec `f23b0d8`, engine `0bcac83`, runner `7e01b47`, workflow `1f32904`.
+- Source manifest exactly matches the previously verified Engine-H development manifest.
+- Preflight intentionally contains no target/MFE/MAE/P&L/post-entry-path computation.
