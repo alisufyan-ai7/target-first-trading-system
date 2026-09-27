@@ -2499,3 +2499,31 @@ Gate B:
 Engine R and EXP-015 remain paused.
 
 **Exact next action:** trigger exactly one EXP-041 Gate-B macro information-content run and resume from its durable result.
+
+
+## 2026-09-27 — EXP-041 Gate-B run completed; integrity-only corrigendum required
+
+Gate-B durable result commit: `13dc8bb2d93010ab30cc967e66df534a06a02f7c`.
+
+The scientific model run completed, but v0.1 disposition is `INTEGRITY_FAIL_DO_NOT_INTERPRET` because one frozen integrity assertion required all 65 Gate-A events to have candidates.
+
+Exact diagnosis:
+
+- 63/65 Gate-A timestamps have structural candidates;
+- missing timestamps are exactly 2025-12-10 19:00 UTC and 2026-01-28 19:00 UTC;
+- both are FOMC;
+- frozen decision grid ends 17:55 UTC;
+- frozen pre-event window begins only 60 minutes before release, so a 19:00 FOMC cannot have any legal candidate without changing the frozen candidate grid;
+- every other integrity condition passed.
+
+This is a mechanical design contradiction, not a scientific model failure.
+
+Frozen integrity-only corrigendum:
+
+- spec checkpoint `2a583ac243ff649f069c320030dff2610182d5d9`;
+- runner `8c22f18128f1738eb1cc2a54bb43215e549f7562`;
+- workflow `996be120f13f538d05f20dcb945f93739871b639`.
+
+The corrigendum does not rerun or alter Gate-B metrics. It only replaces the impossible 65/65 coverage assertion with coverage of every geometrically eligible frozen event, while requiring the two ineligible FOMC timestamps to match exactly.
+
+**Exact next action:** trigger one Gate-B integrity corrigendum and resume from its durable result.
