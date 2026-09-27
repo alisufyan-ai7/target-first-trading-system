@@ -1705,3 +1705,24 @@ Freeze v0.4 as a targeted repair of the exact v0.2 official-time map:
 - do not fetch later 2026 schedule pages.
 
 This is a data-provenance implementation repair made before any market outcome modeling.
+
+
+## 2026-09-27 — Close official timing layer; reconcile one canonical actual per numeric block
+
+Official release-time v0.4 `9a853a0` passed all 75 blocks.
+
+**Decision:** Phase B will not parse every statistic in every release. Freeze one deterministic forecast-bearing canonical component per numeric official block:
+
+- Employment: NFP -> unemployment -> earnings;
+- CPI: headline m/m -> core m/m -> headline y/y -> core y/y;
+- PPI: headline m/m -> core m/m;
+- Retail: headline -> core;
+- GDP: Advance/Prelim/Final GDP q/q;
+- PCE: Core PCE m/m -> personal income -> personal spending;
+- FOMC remains timing-only.
+
+There are exactly 67 numeric blocks and every block has one unique forecast-bearing selection under this hierarchy before any market outcomes are loaded.
+
+The frozen Forex Factory Actual is only a candidate value. It is accepted as official actual-as-released only when the exact first-party release source verifies that value in component-specific context.
+
+This is the final macro provenance stage before the final Gate-A audit.
