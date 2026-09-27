@@ -1855,3 +1855,14 @@ The Dukascopy tick/quote source passed exact two-download repeatability on all 4
 For reproducibility, each requested source day must retain canonical raw tick SHA-256, row count and first/last timestamp in a manifest.
 
 Stored aggregate fields must focus on information absent from OHLC: spread, tick/update intensity, inter-arrival time, quote freshness and quote-side volume imbalance. Mid-price OHLC/return features are deliberately excluded from the snapshot.
+
+
+## 2026-09-27 — Freeze full-development quote-microstructure snapshot before modeling
+
+After EXP-043 source preflight passed exact repeatability, authorize one full development acquisition.
+
+**Decision:** acquire only 05:00-18:00 UTC weekdays and immediately reduce raw ticks into deterministic minute-level execution/participation aggregates, retaining per-day canonical raw-source hashes.
+
+Do not store generic mid-price OHLC/returns in this layer. The scientific value being tested later must come from spread, activity, freshness, update intensity and quote-side imbalance—not another price transform.
+
+No predictive EXP-043 model is authorized until this immutable snapshot itself passes integrity and is frozen.
