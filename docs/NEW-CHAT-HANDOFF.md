@@ -2784,3 +2784,33 @@ Frozen zero-outcome artifacts:
 Protected data remains sealed.
 
 **Exact next action:** trigger one EXP-046 zero-outcome preflight. Do not poll repeatedly; resume from the durable bot checkpoint.
+
+## EXP-046 zero-outcome PASS — development ready
+
+Engine T v0.1 zero-outcome checkpoint:
+
+`3f257487ac32b73bcf605e9cc442678bce9ef662`.
+
+PASS evidence:
+
+- 185 filled candidates;
+- 103 short / 82 long;
+- 167 signal days;
+- median 1 candidate/day;
+- causality PASS;
+- no outcome computation;
+- protected data sealed.
+
+Frozen development protocol:
+
+`2f2aca9b1a67799f315de286da1f3913493ff865`.
+
+Evaluator:
+
+`17b3bc55e8b267b7c4bf70630863e66b493523f7`.
+
+Workflow:
+
+`4201b50ca1147014e1adff6034e90a37d9d22cdb`.
+
+**Exact next action:** trigger one EXP-046 structural-target development run. Interpret the durable JSON result, not the Actions color. Do not load Mar-2025+ unless the frozen development gate passes.
