@@ -2144,3 +2144,27 @@ The preflight queries only Jun 2026 development weeks and official pages. No mar
 PASS => freeze full allowed-history free macro acquisition/audit.
 
 **Exact next action:** trigger one free macro source preflight and inspect its durable JSON result.
+
+
+## EXP-041 full free consensus acquisition checkpoint
+
+The free-source architecture preflight PASSED at `bdaaa023879a01e2620a0b9260265a98e7d9e4bd`.
+
+Verified on Jun-2026 development samples:
+
+- Forex Factory historical pages: HTTP 200, Actual/Forecast/Previous present, all six target families detected;
+- BLS Employment/CPI/PPI official date/time markers: PASS;
+- Census retail archive: reachable;
+- BEA GDP/PCE official date/time markers: PASS;
+- Fed FOMC official statement/date-time markers: PASS;
+- no protected-period or market-outcome use.
+
+Frozen next stage:
+
+- spec `f51f6cece8ba7703854806e3a952398f75bd375e`;
+- runner `78e388ba705b101a407e9dd61eba5740f3bcdb24`;
+- workflow `cdd373db282345c03b578a0e1dad37595f20e179`.
+
+It acquires the full allowed Forex Factory development history, normalizes USD target events, freezes historical Forecast consensus, and audits independent-event coverage. It does not yet trust FF actual/time as final; official BLS/Census/BEA/Fed reconciliation is the next separately frozen stage after a pass.
+
+**Exact next action:** trigger exactly one full free macro consensus acquisition/audit and resume from its durable result.
