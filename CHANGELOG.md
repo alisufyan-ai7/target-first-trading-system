@@ -658,3 +658,8 @@
 - Frozen EXP-046 / Engine T v0.1 failed-auction trap reversal as a genuinely different human-style process: established acceptance -> later failed auction -> boundary retest -> reversal.
 - Added Engine-T zero-outcome spec `abb44dd`, implementation `1547a69`, self-test correction `decc5aa`, runner `2a19c1e`, and workflow `4ce75a8`.
 - EXP-046 first stage is density/causality/risk-geometry only; no target/P&L/post-entry outcomes and no protected-period loading.
+
+- EXP-046 Engine T v0.1 zero-outcome preflight passed at `3f25748`: 185 fills, 103 SHORT / 82 LONG, 167 signal days, median 1/day, causal integrity PASS, no outcomes/protected data.
+- Frozen Engine-T structural target/management development protocol at `2f2aca9`, deliberately reusing existing Gold target/cost/sizing mechanics to isolate failed-auction selection.
+- Added development evaluator `17b3bc5` and workflow `4201b50`.
+- Mar-2025 onward remains sealed until the frozen Engine-T development gate passes.
