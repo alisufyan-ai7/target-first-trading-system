@@ -188,3 +188,10 @@ Do not report any post-entry market path.
 Only if v0.2 passes naturally may the project freeze Engine-S structural target and trade-management rules before inspecting any target/path result.
 
 No validation/holdout data are authorized by preflight PASS alone.
+
+
+## Pre-run same-timestamp acceptance ordering clarification
+
+If an active M1 bar closes at the exact timestamp of a completed active 5m bar, and that 5m bar closes back through the acceptance level, the 5m cancellation is applied **before** using that M1 close for acceptance pullback/MSS/displacement/FVG/entry processing.
+
+This conservative rule prevents same-timestamp intrabar ordering from creating an acceptance candidate.
