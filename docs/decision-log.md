@@ -1844,3 +1844,14 @@ After EXP-042 failed, the next information family must be materially different f
 These fields may support execution/microstructure features such as spread, update intensity and quote-side imbalance. They are not to be described as centralized traded order flow.
 
 Before any model, require exact two-download repeatability across a prospectively frozen six-date x eight-market pilot. No tolerance-based reconciliation is allowed.
+
+
+## 2026-09-27 — EXP-043 tick source passes; freeze compact microstructure snapshot rather than raw-year archive
+
+The Dukascopy tick/quote source passed exact two-download repeatability on all 48 frozen pilot pairs.
+
+**Decision:** proceed with full development acquisition, but store deterministic minute-level microstructure aggregates rather than multi-gigabyte raw tick CSVs.
+
+For reproducibility, each requested source day must retain canonical raw tick SHA-256, row count and first/last timestamp in a manifest.
+
+Stored aggregate fields must focus on information absent from OHLC: spread, tick/update intensity, inter-arrival time, quote freshness and quote-side volume imbalance. Mid-price OHLC/return features are deliberately excluded from the snapshot.
