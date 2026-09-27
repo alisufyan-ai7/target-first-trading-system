@@ -1866,3 +1866,18 @@ After EXP-043 source preflight passed exact repeatability, authorize one full de
 Do not store generic mid-price OHLC/returns in this layer. The scientific value being tested later must come from spread, activity, freshness, update intensity and quote-side imbalance—not another price transform.
 
 No predictive EXP-043 model is authorized until this immutable snapshot itself passes integrity and is frozen.
+
+
+## 2026-09-27 — Authorize EXP-043 information-content design after immutable microstructure snapshot PASS
+
+The full development quote/tick microstructure snapshot passed integrity and was frozen immutably.
+
+**Decision:** permit one prospectively frozen information-content study using only fully completed microstructure minutes before each structural decision.
+
+The study must remain nested and minimal:
+
+`LOCAL_M5 -> +EXECUTION_COST_STATE -> +PARTICIPATION_STATE -> +QUOTE_IMBALANCE_STATE`.
+
+Do not add mid-price returns, generic OHLC features, threshold searches, or market-specific hand tuning.
+
+Primary promotion rungs remain T40eq/T50eq under the existing information-advantage gates.
