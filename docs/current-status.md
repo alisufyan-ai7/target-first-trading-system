@@ -2644,3 +2644,41 @@ It freezes two outcome-blind event universes:
 Each must satisfy the original Gate-A adequacy minima before modeling is authorized.
 
 **Exact next action:** trigger one EXP-042 proxy availability v0.3 preflight.
+
+
+## 2026-09-27 — EXP-042 AVAILABILITY v0.3 PASSED / INFORMATION-CONTENT STUDY FROZEN
+
+Durable availability result: `2b322158e75d4c1d4722a3ac48f52e8ce5cddd20`.
+
+Outcome-blind subsets passed the original adequacy minima:
+
+- DXY_COMPLETE: 53 events;
+  - CPI 10, Employment 10, GDP/PCE 14, PPI 11, Retail 12;
+  - fold counts 9/9/10/9/7/9.
+- DXY_TBOND_COMPLETE: 51 events;
+  - CPI 10, Employment 9, GDP/PCE 14, PPI 10, Retail 12;
+  - fold counts 8/9/10/9/6/9.
+
+No target-market bars or labels were loaded by the availability audit.
+
+EXP-042 information-content study is now frozen before outcomes:
+
+- spec commit: `0ade215c8d373b4735d1d22c9400e3d50b98206f`;
+- final runner commit: `6efb6902400cbaf058d0b0b12bc04a9d218e6692`;
+- workflow commit: `5769360701745312b546ddb90e60ec45848719d0`.
+
+Study A on DXY_COMPLETE:
+
+`LOCAL_M5 + EVENT_TIME_CONTROL -> +DXY_REACTION`.
+
+Study B on DXY_TBOND_COMPLETE:
+
+`CONTROL -> +DXY -> +DXY+TBOND`.
+
+A T-Bond layer passes only if the full DXY+T-Bond model passes the frozen information gate versus both DXY-only and control.
+
+All proxy features use the last M1 close strictly before the structural decision timestamp. Focal event is the most recent prior frozen macro release within +180 minutes.
+
+Primary rungs remain T40eq/T50eq and the original information-advantage thresholds are unchanged.
+
+**Exact next action:** trigger one EXP-042 rates/USD information-content run and resume from its durable result.
