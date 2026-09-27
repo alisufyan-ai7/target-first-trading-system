@@ -1,0 +1,12 @@
+Trigger EXP-041 final Gate-A adequacy/provenance audit v0.1.
+
+Frozen implementation:
+- spec d9b6dce6366a200fd92f942e1319a44f708fe503
+- runner 02200aa0a1b472055208ab3022d44cfff682f99a
+- workflow 1520b4120312a134be7425ef6a58c2a3387742c0
+
+Use metadata/provenance only.
+Collapse exact same official UTC timestamps to one independent event block.
+Freeze six contiguous chronological evaluation folds before any market outcomes.
+Apply the original Gate-A thresholds unchanged.
+Do not load price bars, target labels, P&L, Jul-Aug 2026 or Sep 2026 data.
