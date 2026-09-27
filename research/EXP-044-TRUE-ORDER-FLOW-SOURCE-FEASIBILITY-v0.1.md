@@ -69,3 +69,22 @@ No target labels, probabilities, strategy rules or P&L may be computed during pr
 Exact next action: obtain or attach a provenance-preserving true trade/depth source, preferably COMEX Gold first, then freeze and run its zero-outcome source preflight.
 
 Do not weaken this requirement by relabeling another free quote/tick proxy as true order flow.
+
+
+## 2026-09-27 — User no-paid-data constraint
+
+The user explicitly does not authorize purchasing market data while the system has not yet demonstrated robust profitability.
+
+Therefore EXP-044 remains a documented future source gate but is **PAUSED**.
+
+Do not purchase, subscribe to, or require paid COMEX/EBS/institutional data for the active research path.
+
+The active path returns to the existing free-data architecture and asks a different question:
+
+> can a selective, specialized, human-style setup engine create robust edge from meaningful location + post-location behavior + non-chasing execution + structural target path, rather than trying to improve every generic candidate with one universal information layer?
+
+Paid true-flow data may be reconsidered only after:
+1. a reproducible free-data engine demonstrates robust positive post-cost edge on independent validation; and
+2. the user explicitly authorizes a purchase.
+
+This pause does not weaken the semantic definition of true order flow.
