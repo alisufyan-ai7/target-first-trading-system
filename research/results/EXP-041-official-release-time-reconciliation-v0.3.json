@@ -1,0 +1,187 @@
+{
+  "bea_schedule_parse_counts": {
+    "2025": 42,
+    "2026": 0
+  },
+  "disposition": "OFFICIAL_RELEASE_TIME_RECONCILIATION_V03_FAILED_REPAIR_SOURCE_MAPPING",
+  "errors": [
+    {
+      "detail": "BEA GDP schedule match count=2",
+      "official_block_id": "2025-07-30|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=2",
+      "official_block_id": "2025-07-31|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=2",
+      "official_block_id": "2025-08-28|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=2",
+      "official_block_id": "2025-08-29|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=2",
+      "official_block_id": "2025-09-25|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=2",
+      "official_block_id": "2025-09-26|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=2",
+      "official_block_id": "2025-12-05|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=2",
+      "official_block_id": "2025-12-23|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-01-22|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-01-22|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-02-20|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-02-20|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-03-13|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-03-13|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-04-09|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-04-09|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-04-30|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-04-30|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-05-28|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-05-28|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA GDP schedule match count=0",
+      "official_block_id": "2026-06-25|GDP_PCE|GDP",
+      "reason": "RuntimeError"
+    },
+    {
+      "detail": "BEA PCE schedule match count=0",
+      "official_block_id": "2026-06-25|GDP_PCE|PCE",
+      "reason": "RuntimeError"
+    }
+  ],
+  "family_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 11,
+    "FOMC": 8,
+    "GDP_PCE": 22,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "gate": {
+    "all_2026_bea_blocks_have_release_links_if_exposed": false,
+    "all_dates_verified": false,
+    "all_official_blocks_have_source_hash": false,
+    "all_official_blocks_have_source_url": false,
+    "all_official_blocks_have_utc_timestamp": false,
+    "all_source_records_assigned_exactly_once": true,
+    "all_times_verified": false,
+    "bea_gdp_blocks_11": true,
+    "bea_pce_blocks_11": true,
+    "cpi_blocks_11": true,
+    "employment_blocks_11": true,
+    "fomc_blocks_8": true,
+    "input_v03_sha_verified": true,
+    "no_market_data_or_outcomes_loaded": true,
+    "no_reconciliation_errors": false,
+    "ppi_blocks_11": true,
+    "protected_periods_sealed": true,
+    "retail_blocks_12": true
+  },
+  "github_run_id": "36311374313",
+  "input_v03": {
+    "expected_sha256": "911bbc204cdc9a7ed8ecafa7dd166aaaa1141a78675405ac4319d164bd6fb0c3",
+    "observed_sha256": "911bbc204cdc9a7ed8ecafa7dd166aaaa1141a78675405ac4319d164bd6fb0c3",
+    "path": "research/data/EXP-041-free-macro-consensus-v0.3.json"
+  },
+  "market_data_loaded": false,
+  "official_actual_reconciliation_complete": false,
+  "official_time_map": {
+    "official_blocks": 75,
+    "path": "research/data/EXP-041-official-release-time-map-v0.3.json",
+    "sha256": "02f4cc9bada1a53c63e3df6445c1057ef54c3de04da502a0059ff82a72f88157"
+  },
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "release_kind_counts": {
+    "CPI:CPI": 11,
+    "EMPLOYMENT:EMPLOYMENT": 11,
+    "FOMC:FOMC": 8,
+    "GDP_PCE:GDP": 11,
+    "GDP_PCE:PCE": 11,
+    "PPI:PPI": 11,
+    "RETAIL:RETAIL": 12
+  },
+  "release_time_reconciliation_pass": false,
+  "resolved_family_counts": {
+    "CPI": 11,
+    "EMPLOYMENT": 11,
+    "FOMC": 8,
+    "PPI": 11,
+    "RETAIL": 12
+  },
+  "scientific_outcomes_calculated": false,
+  "stage": "EXP-041 official release-time reconciliation v0.3",
+  "supersedes_result_commit": "83b12d3673fb770854f12e93b3c479d7a3f79743",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "c5efb14170467d20ca6a64eb44ece900ba085b7e"
+}
