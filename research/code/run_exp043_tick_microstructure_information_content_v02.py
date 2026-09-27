@@ -466,12 +466,15 @@ def self_tests():
     assert FEATURE_SETS_043["PLUS_PARTICIPATION_STATE"][:len(FEATURE_SETS_043["PLUS_EXECUTION_COST_STATE"])]==FEATURE_SETS_043["PLUS_EXECUTION_COST_STATE"]
     assert FEATURE_SETS_043["PLUS_QUOTE_IMBALANCE_STATE"][:len(FEATURE_SETS_043["PLUS_PARTICIPATION_STATE"])]==FEATURE_SETS_043["PLUS_PARTICIPATION_STATE"]
     assert len(FOLDS)==6
-    return ["nested_feature_sets_exact","six_original_exp040_folds","primary_rungs_t40_t50"]
+    assert ACTIVE_MARKETS==("XAUUSD","EURUSD","GBPUSD","USDJPY","EURJPY","USDCAD")
+    assert EXCLUDED_SOURCE_MARKETS==("AUDUSD","USDCHF")
+    return ["nested_feature_sets_exact","six_original_exp040_folds","primary_rungs_t40_t50","availability_defined_six_market_universe_exact"]
 
 
 def main():
     target_audit=json.loads(TARGET_AUDIT.read_text())
     micro_audit=json.loads(MICRO_AUDIT.read_text())
+    source_diag=json.loads(SOURCE_DIAG.read_text())
 
     if target_audit["release"]["archive_sha256"]!=EXPECTED_TARGET_ARCHIVE:
         raise RuntimeError("target archive SHA mismatch")
@@ -481,6 +484,12 @@ def main():
         raise RuntimeError("micro snapshot not frozen")
     if git_blob(MICRO_AUDIT)!=EXPECTED_MICRO_AUDIT_BLOB:
         raise RuntimeError("micro snapshot result blob changed")
+    if git_blob(SOURCE_DIAG)!=EXPECTED_SOURCE_DIAG_BLOB:
+        raise RuntimeError("source diagnostic blob changed")
+    if source_diag.get("disposition")!="SOURCE_AVAILABILITY_EXPLAINS_EXP043_COVERAGE_FAILURE":
+        raise RuntimeError("source diagnostic did not explain v0.1 coverage failure")
+    if tuple(source_diag.get("markets_below_90pct",[]))!=EXCLUDED_SOURCE_MARKETS:
+        raise RuntimeError("source diagnostic excluded-market set changed")
 
     broad_rows=[]
     micro_by_market={}
