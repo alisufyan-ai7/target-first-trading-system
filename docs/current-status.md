@@ -3088,3 +3088,32 @@ Frozen v0.2 implementation:
 The same zero-outcome adequacy gate remains unchanged.
 
 **Exact next action:** trigger one EXP-045 Engine-S v0.2 zero-outcome preflight and resume from its durable result.
+
+
+## 2026-09-28 — EXP-045 v0.2 FINAL EXTENDED ZERO-OUTCOME CONFIRMATION READY
+
+The original v0.2 zero-outcome result at `fa21229d80ba5ae0b4b57dbfa3f392722cacb040` improved density materially but still failed the unchanged adequacy gate:
+
+- 57 filled candidates;
+- 45 rejection;
+- 12 acceptance;
+- 55 signal days;
+- causality/integrity PASS;
+- no target/P&L outcomes exposed.
+
+A final sample-size confirmation is now frozen with **no strategy-rule change**:
+
+- sample-extension spec checkpoint: `0e6b8d50a5e94e7c8103ee7d0aee628a239d12c3`;
+- unchanged Engine-S v0.2 engine: `262e3ca7b1322adce2a35b7bcba14d0369d31e51`;
+- extended source-verifying runner: `6e7ab5f3d1887a23fa74a71d07fe2987a873285f`;
+- extended workflow: `780f081c480dbe0bc06f9e5a2e9990b627407cb8`.
+
+Frozen interval:
+
+- warm-up: Dec-2021;
+- zero-outcome development: Jan-2022 through Feb-2025;
+- validation from Mar-2025 remains sealed.
+
+The same 100 / 25 rejection / 25 acceptance / 50-day adequacy gate remains unchanged.
+
+**Anti-loop rule:** this is the final Engine-S density attempt. PASS => freeze target/management before any outcome. FAIL => close Engine S with no further density redesign.
