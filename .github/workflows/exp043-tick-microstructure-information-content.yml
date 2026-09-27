@@ -1,0 +1,106 @@
+name: EXP-043 Tick Microstructure Information Content
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-043-tick-microstructure-information-content.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      TARGET_TAG: exp041-data-dukas-m1-2025-07-01_2026-06-30-v2
+      TARGET_ASSET: exp041-dukas-m1-2025-07-01_2026-06-30-v2.tar.gz
+      TARGET_SHA: 90bc7301e459062e8e35cd89a1a9aac23332ca3472014dd2cc5045ba34794272
+      MICRO_TAG: exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1
+      MICRO_ASSET: exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1.tar.gz
+      MICRO_SHA: f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5
+      EXP041_DUKA_DIR: /tmp/exp041-dukas-v2
+      EXP043_MICRO_DIR: /tmp/exp043-microstructure
+      RESULT: research/results/EXP-043-tick-microstructure-information-content-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install frozen research dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scikit-learn==1.5.2
+
+      - name: Verify frozen study code
+        run: |
+          python -m py_compile research/code/mtf_information_v0_1.py
+          python -m py_compile research/code/run_exp043_tick_microstructure_information_content.py
+
+      - name: Download immutable target-market snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/exp041-release "$EXP041_DUKA_DIR"
+          gh release download "$TARGET_TAG" --pattern "$TARGET_ASSET" --dir /tmp/exp041-release
+          test "$(sha256sum "/tmp/exp041-release/$TARGET_ASSET" | awk '{print $1}')" = "$TARGET_SHA"
+          tar -xzf "/tmp/exp041-release/$TARGET_ASSET" -C "$EXP041_DUKA_DIR"
+
+      - name: Download immutable microstructure snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/exp043-release "$EXP043_MICRO_DIR"
+          gh release download "$MICRO_TAG" --pattern "$MICRO_ASSET" --dir /tmp/exp043-release
+          test "$(sha256sum "/tmp/exp043-release/$MICRO_ASSET" | awk '{print $1}')" = "$MICRO_SHA"
+          tar -xzf "/tmp/exp043-release/$MICRO_ASSET" -C "$EXP043_MICRO_DIR"
+
+      - name: Run EXP-043 information-content study
+        run: PYTHONPATH=research/code python research/code/run_exp043_tick_microstructure_information_content.py
+
+      - name: Upload durable result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp043-tick-microstructure-information-content
+          path: research/results/EXP-043-tick-microstructure-information-content-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-043 tick microstructure information-content study"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce study integrity only
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("research/results/EXP-043-tick-microstructure-information-content-v0.1.json")
+          if not p.exists():
+              raise SystemExit("EXP-043 result missing")
+          x=json.loads(p.read_text())
+          if not x["integrity"]["integrity_pass"]:
+              raise SystemExit("EXP-043 information-content integrity failed")
+          if x["scope"]["secondary_test_loaded_or_labeled"] or x["scope"]["final_holdout_loaded_or_labeled"]:
+              raise SystemExit("protected-period leak")
+          if x["scope"]["engine_r_or_exp015_outcomes_used"]:
+              raise SystemExit("paused-engine outcome leak")
+          print("EXP-043 information-content integrity PASS")
+          print("Scientific disposition:",x["disposition"])
+          PY
