@@ -2427,3 +2427,27 @@ Zero-outcome event-coverage preflight frozen:
 Exact geometry before outcomes: 57 post-release eligible events, 8 ineligible events, all eight FOMC.
 
 **Exact next action:** trigger one proxy coverage audit. PASS => freeze EXP-042 information-content design.
+
+
+## EXP-042 rates/USD information-content checkpoint
+
+Availability v0.3 PASSED at `2b322158e75d4c1d4722a3ac48f52e8ce5cddd20`.
+
+Frozen universes:
+
+- DXY_COMPLETE = 53 events;
+- DXY_TBOND_COMPLETE = 51 events.
+
+Information-content implementation frozen before target outcomes:
+
+- spec `0ade215c8d373b4735d1d22c9400e3d50b98206f`;
+- runner `6efb6902400cbaf058d0b0b12bc04a9d218e6692`;
+- workflow `5769360701745312b546ddb90e60ec45848719d0`.
+
+Study A: control -> DXY reaction on the 53-event universe.
+
+Study B: control -> DXY -> DXY+T-Bond on the 51-event universe. The T-Bond layer must beat both DXY-only and control.
+
+Proxy features are strictly causal: baseline strictly before release and current close strictly before decision.
+
+**Exact next action:** trigger one EXP-042 information-content run. Interpret only if integrity passes.
