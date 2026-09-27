@@ -652,3 +652,9 @@
 - Frozen structural target and management before outcomes at `85600a7`.
 - Added development evaluator `0ced4aa` and workflow `bca8cbc`.
 - Validation and holdout remain sealed until a branch passes its own frozen development gate.
+
+- EXP-045 Engine S structural-target development checkpointed at `855a75b` with disposition `ENGINE_S_FAIL_CLOSE_BEFORE_VALIDATION`; no branch passed its frozen development gate and protected validation/holdout remained sealed.
+- Closed Engine S with no rescue/tuning iteration authorized.
+- Frozen EXP-046 / Engine T v0.1 failed-auction trap reversal as a genuinely different human-style process: established acceptance -> later failed auction -> boundary retest -> reversal.
+- Added Engine-T zero-outcome spec `abb44dd`, implementation `1547a69`, self-test correction `decc5aa`, runner `2a19c1e`, and workflow `4ce75a8`.
+- EXP-046 first stage is density/causality/risk-geometry only; no target/P&L/post-entry outcomes and no protected-period loading.
