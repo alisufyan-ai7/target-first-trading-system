@@ -2214,3 +2214,31 @@ Frozen v0.3:
 It uses no network and verifies frozen v0.2 SHA `17e93b760a7511688db110ca6e02f2892d485fad7321f6a9a21ef76d02d42811` before removing ADP and recalculating the gate.
 
 **Exact next action:** trigger one v0.3 scope correction. PASS => official BLS/Census/BEA/Fed reconciliation.
+
+
+## EXP-041 official reconciliation Phase-A checkpoint
+
+Free consensus v0.3 PASSED at `81e6f6f44a6acf906e46af056c58362b03bf0709`.
+
+Cleaned evidence:
+
+- 203 consensus records;
+- 68 provisional independent blocks;
+- 68 surprise-bearing blocks;
+- Employment 11, CPI 11, PPI 11, Retail 12, GDP/PCE 15, FOMC 8;
+- ADP fully removed;
+- no protected-period/outcome use.
+
+Official reconciliation is split into two phases.
+
+Phase A frozen now:
+
+- spec `3ff0aef8c0c36697370dce1253bbcffb1872a5bb`;
+- runner `ad4dc21b80a13076a3f7c3009ca104f6d700eec5`;
+- workflow `87cf69dcdfe91779d572d971ae294892d4cb6f23`.
+
+It verifies all 68 event dates/times against BLS/Census/BEA/Fed official sources and produces authoritative UTC timestamps.
+
+PASS => freeze Phase B component-level official actual-as-released reconciliation against the exact v0.3 Forecast consensus.
+
+**Exact next action:** trigger one official release-time reconciliation and resume from the durable JSON checkpoint.
