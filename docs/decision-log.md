@@ -1795,3 +1795,16 @@ After EXP-041 closed negative, the next test must use genuinely new market-inter
 Both must pass two-download byte-for-byte repeatability before any EXP-042 outcome model is permitted.
 
 The T-Bond proxy is explicitly not a substitute for short-rate futures/order flow; a negative proxy result will not reject richer institutional rates information.
+
+
+## 2026-09-27 — Add zero-outcome proxy coverage gate before EXP-042 model
+
+EXP-042 DXY/US-TBond snapshot passed repeatability.
+
+**Decision:** do not load target-market outcomes yet.
+
+First freeze a causal event-coverage audit using only proxy data plus frozen macro timestamps.
+
+Post-release structural geometry yields exactly 57 eligible Gate-A events and 8 ineligible FOMC events. Proxy features may use only M1 closes strictly before the structural decision timestamp.
+
+PASS requires both proxies to have fresh pre-event baselines and dense common decision-time coverage before an information-content model is authorized.
