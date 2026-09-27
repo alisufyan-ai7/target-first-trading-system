@@ -1,0 +1,53 @@
+{
+  "candidate_grid_changed": false,
+  "corrected_integrity_pass": true,
+  "covered_event_count_original_result": 63,
+  "experiment": "EXP-041",
+  "feature_sets_changed": false,
+  "folds_changed": false,
+  "frozen_event_window_minutes": [
+    -60,
+    180
+  ],
+  "frozen_grid": "weekdays 06:05-17:55 UTC every 5m",
+  "gate_a_event_count": 65,
+  "geometrically_eligible_event_count": 63,
+  "geometrically_ineligible_events": [
+    "2025-12-10T19:00:00+00:00",
+    "2026-01-28T19:00:00+00:00"
+  ],
+  "geometry_gate": {
+    "all_eligible_events_covered": true,
+    "eligible_event_count_63": true,
+    "gate_a_event_count_65": true,
+    "ineligible_event_count_2": true,
+    "ineligible_events_both_fomc": true,
+    "ineligible_set_exact": true,
+    "no_ineligible_event_has_candidates": true
+  },
+  "original_other_integrity_checks": {
+    "all_8_market_files_verified": true,
+    "all_markets_both_primary_classes": true,
+    "candidate_rows_before_2026_06_30": true,
+    "dukas_archive_sha_verified": true,
+    "engine_r_or_exp015_outcomes_used": true,
+    "final_gate_a_pass": true,
+    "frozen_65_events_exact": true,
+    "frozen_six_fold_assignments_exact": true,
+    "macro_surprise_layer_sha_verified": true,
+    "primary_outer_and_inner_both_classes": true,
+    "protected_periods_sealed": true
+  },
+  "original_result_blob_sha": "d5789f32f7c0e239d7efd4e45dc14e205763b5fd",
+  "original_scientific_feature_set_pass": {
+    "PLUS_CATALYST_TIMING": false,
+    "PLUS_SURPRISE_MAGNITUDE": false
+  },
+  "original_tested_repository_sha": "815de2639e650bfb3d7ee846860a20a8582b8202",
+  "protected_periods_loaded": false,
+  "recovered_scientific_disposition": "NO_STABLE_MACRO_INFORMATION_ADVANTAGE",
+  "repair_scope": "coverage geometry only; no model or metric rerun",
+  "scientific_metrics_recomputed": false,
+  "scientific_thresholds_changed": false,
+  "stage": "gate_b_integrity_corrigendum_v0.1"
+}
