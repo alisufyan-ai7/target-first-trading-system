@@ -1,0 +1,119 @@
+name: EXP-045 Engine S v0.2 Extended Zero-Outcome Confirmation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-045-engine-s-v0.2-extended-preflight.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      SOURCE_COMMIT: 922f83a60cc574e7395fb27397077288055a1ef6
+      SOURCE_REPO: /tmp/market-data-lab
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify frozen Engine-S extended code
+        run: |
+          node --check research/code/engine-s-v0.2.js
+          node --check research/code/run-exp045-engine-s-v02-extended-preflight.js
+
+      - name: Sparse-checkout pinned free XAUUSD source history
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$SOURCE_REPO"
+          git clone --filter=blob:none --no-checkout https://github.com/kevingtlin/Market-Data-Lab.git "$SOURCE_REPO"
+          git -C "$SOURCE_REPO" sparse-checkout init --no-cone
+
+          : > /tmp/exp045-sparse.txt
+          D="2021-12-01"
+          while [[ "$D" < "2025-03-01" ]]; do
+            Y="$(date -u -d "$D" +%Y)"
+            M="$(date -u -d "$D" +%m)"
+            echo "/xauusd/bid/m1/xauusd_bid_m1_${Y}_${M}.csv" >> /tmp/exp045-sparse.txt
+            D="$(date -u -d "$D +1 month" +%Y-%m-01)"
+          done
+
+          git -C "$SOURCE_REPO" sparse-checkout set --no-cone --stdin < /tmp/exp045-sparse.txt
+          git -C "$SOURCE_REPO" checkout "$SOURCE_COMMIT"
+          test "$(git -C "$SOURCE_REPO" rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test -z "$(git -C "$SOURCE_REPO" status --porcelain)"
+
+      - name: Run unchanged Engine-S v0.2 on extended zero-outcome sample
+        env:
+          EXP045_SOURCE_REPO: /tmp/market-data-lab
+        run: node research/code/run-exp045-engine-s-v02-extended-preflight.js
+
+      - name: Upload extended zero-outcome artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp045-engine-s-v02-extended-zero-outcome
+          path: |
+            research/results/EXP-045-zero-outcome-preflight-v0.2-extended.json
+            research/results/EXP-045-zero-outcome-candidates-v0.2-extended.jsonl
+            research/results/EXP-045-zero-outcome-setups-v0.2-extended.jsonl
+          if-no-files-found: warn
+
+      - name: Commit durable extended checkpoint
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f research/results/EXP-045-zero-outcome-preflight-v0.2-extended.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-045-zero-outcome-preflight-v0.2-extended.json \
+                  research/results/EXP-045-zero-outcome-candidates-v0.2-extended.jsonl \
+                  research/results/EXP-045-zero-outcome-setups-v0.2-extended.jsonl
+          git commit -m "Checkpoint EXP-045 Engine S v0.2 extended zero-outcome confirmation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce unchanged adequacy gate
+        if: always()
+        run: |
+          node - <<'NODE'
+          const fs=require("fs");
+          const p="research/results/EXP-045-zero-outcome-preflight-v0.2-extended.json";
+          if(!fs.existsSync(p))throw new Error("extended result missing");
+          const x=JSON.parse(fs.readFileSync(p,"utf8"));
+
+          if(!x.sample_extension_only)throw new Error("not marked as sample extension");
+          if(x.strategy_rules_changed_from_v02)throw new Error("strategy rules changed");
+          if(x.adequacy_gate_changed_from_v02)throw new Error("adequacy gate changed");
+          if(x.validation_or_holdout_loaded)throw new Error("validation/holdout leak");
+          if(x.execution_metadata.validation_or_holdout_files_downloaded)throw new Error("validation/holdout files downloaded");
+          if(x.target_labels_calculated||x.mfe_mae_calculated||x.pnl_calculated||x.win_rate_calculated||x.post_entry_path_evaluated)
+            throw new Error("unexpected outcome computation");
+          if(!x.causality_all_candidates_pass)throw new Error("causality failure");
+
+          if(!x.preflight_pass){
+            console.error("EXP-045 v0.2 EXTENDED ZERO-OUTCOME FAIL");
+            console.error(JSON.stringify(x.preflight_gates,null,2));
+            process.exit(1);
+          }
+
+          console.log("EXP-045 v0.2 EXTENDED ZERO-OUTCOME PASS");
+          console.log(JSON.stringify({
+            accepted:x.accepted_filled_candidates,
+            branches:x.accepted_by_branch,
+            branch_direction:x.accepted_by_branch_direction,
+            signal_days:x.accepted_signal_days,
+            median_per_active_day:x.accepted_candidates_per_active_day.distribution.median
+          },null,2));
+          NODE
