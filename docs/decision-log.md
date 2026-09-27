@@ -1627,3 +1627,21 @@ Prospectively freeze v0.2 with:
 - provisional event block = date + family, independent of unreliable blank/repeated FF display time.
 
 No thresholds were changed based on market outcomes; no market outcomes exist yet. Protected periods remain sealed.
+
+
+## 2026-09-27 — Exclude ADP from primary Employment family before official reconciliation
+
+Corrected free-consensus v0.2 passed coverage, but identity inspection showed EMPLOYMENT still mixed BLS Employment Situation components with private `ADP Non-Farm Employment Change` releases.
+
+**Decision:** do not send v0.2 directly into official BLS reconciliation.
+
+Freeze a deterministic v0.3 transform of the already-frozen v0.2 bytes:
+
+- remove ADP rows from EMPLOYMENT;
+- retain `Non-Farm Employment Change`, `Unemployment Rate`, and `Average Hourly Earnings m/m`;
+- preserve all Forecast/Actual/Previous text unchanged;
+- use no network;
+- verify the v0.2 source SHA before transformation;
+- rebuild provisional blocks and reapply the existing sample-size gate.
+
+This is a source-identity correction made before outcomes, not post-hoc feature tuning.
