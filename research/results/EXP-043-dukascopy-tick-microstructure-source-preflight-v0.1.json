@@ -1,0 +1,3465 @@
+{
+  "disposition": "EXP043_DUKASCOPY_TICK_MICROSTRUCTURE_SOURCE_REPEATABLE",
+  "experiment": "EXP-043",
+  "github_run_id": "36322880179",
+  "markets": [
+    "XAUUSD",
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY",
+    "EURJPY",
+    "AUDUSD",
+    "USDCAD",
+    "USDCHF"
+  ],
+  "pair_count": 48,
+  "pairs": {
+    "AUDUSD": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 1669538,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 161,
+            "median_abs_quote_side_imbalance": 0.04761904761904766,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.999999999998899e-05,
+            "median_tick_interval_ms": 408,
+            "p95_spread": 0.00012999999999996348,
+            "positive_spread_observations": 43948,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 43948,
+          "exists": true,
+          "first_timestamp_ms": 1752019200042,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105598441,
+          "rows": 43948,
+          "sha256": "c31b64039ff6b7c7670f5dd26a4b15a2034299742002e60ef3a7cc4e9a9be82d"
+        },
+        "copy_b": {
+          "bytes": 1669538,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 161,
+            "median_abs_quote_side_imbalance": 0.04761904761904766,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.999999999998899e-05,
+            "median_tick_interval_ms": 408,
+            "p95_spread": 0.00012999999999996348,
+            "positive_spread_observations": 43948,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 43948,
+          "exists": true,
+          "first_timestamp_ms": 1752019200042,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105598441,
+          "rows": 43948,
+          "sha256": "c31b64039ff6b7c7670f5dd26a4b15a2034299742002e60ef3a7cc4e9a9be82d"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 1233956,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 122,
+            "median_abs_quote_side_imbalance": 0.14285714285714282,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.00000000000345e-05,
+            "median_tick_interval_ms": 410.0,
+            "p95_spread": 0.00012999999999996348,
+            "positive_spread_observations": 32457,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 32457,
+          "exists": true,
+          "first_timestamp_ms": 1757462400127,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548791628,
+          "rows": 32457,
+          "sha256": "925878817bf3c7f9f8fb62126e72a359de90572ef40cd17e05137bc55999e2fa"
+        },
+        "copy_b": {
+          "bytes": 1233956,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 122,
+            "median_abs_quote_side_imbalance": 0.14285714285714282,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.00000000000345e-05,
+            "median_tick_interval_ms": 410.0,
+            "p95_spread": 0.00012999999999996348,
+            "positive_spread_observations": 32457,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 32457,
+          "exists": true,
+          "first_timestamp_ms": 1757462400127,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548791628,
+          "rows": 32457,
+          "sha256": "925878817bf3c7f9f8fb62126e72a359de90572ef40cd17e05137bc55999e2fa"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 1388327,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 81,
+            "median_abs_quote_side_imbalance": 0.19463087248322147,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 8.999999999992347e-05,
+            "median_tick_interval_ms": 612,
+            "p95_spread": 0.00012000000000000899,
+            "positive_spread_observations": 36434,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 36434,
+          "exists": true,
+          "first_timestamp_ms": 1762905600322,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991992613,
+          "rows": 36434,
+          "sha256": "86b53b6c60166fb1a778636ae5c7befef6f6ceab3663b5f8ef97a2d946a4e1b3"
+        },
+        "copy_b": {
+          "bytes": 1388327,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 81,
+            "median_abs_quote_side_imbalance": 0.19463087248322147,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 8.999999999992347e-05,
+            "median_tick_interval_ms": 612,
+            "p95_spread": 0.00012000000000000899,
+            "positive_spread_observations": 36434,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 36434,
+          "exists": true,
+          "first_timestamp_ms": 1762905600322,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991992613,
+          "rows": 36434,
+          "sha256": "86b53b6c60166fb1a778636ae5c7befef6f6ceab3663b5f8ef97a2d946a4e1b3"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 1742063,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 127,
+            "median_abs_quote_side_imbalance": 0.19999999999999996,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 8.999999999992347e-05,
+            "median_tick_interval_ms": 461.0,
+            "p95_spread": 0.00012000000000000899,
+            "positive_spread_observations": 45767,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 45767,
+          "exists": true,
+          "first_timestamp_ms": 1768348800085,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435198328,
+          "rows": 45767,
+          "sha256": "a382efede77979215723fde98ddd5a5596dae9f5a8b35f4e2d654b9196c46ae0"
+        },
+        "copy_b": {
+          "bytes": 1742063,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 127,
+            "median_abs_quote_side_imbalance": 0.19999999999999996,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 8.999999999992347e-05,
+            "median_tick_interval_ms": 461.0,
+            "p95_spread": 0.00012000000000000899,
+            "positive_spread_observations": 45767,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 45767,
+          "exists": true,
+          "first_timestamp_ms": 1768348800085,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435198328,
+          "rows": 45767,
+          "sha256": "a382efede77979215723fde98ddd5a5596dae9f5a8b35f4e2d654b9196c46ae0"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 4132144,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 116,
+            "median_abs_quote_side_imbalance": 0.034482758620689585,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.00000000000345e-05,
+            "median_tick_interval_ms": 205,
+            "p95_spread": 0.00012000000000000899,
+            "positive_spread_observations": 108902,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 108902,
+          "exists": true,
+          "first_timestamp_ms": 1773187200073,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599502,
+          "rows": 108902,
+          "sha256": "467709ecc6d9468effdb1a992abcbf90bbe5dc668fdf97500fbd5687da8a357f"
+        },
+        "copy_b": {
+          "bytes": 4132144,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 116,
+            "median_abs_quote_side_imbalance": 0.034482758620689585,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.00000000000345e-05,
+            "median_tick_interval_ms": 205,
+            "p95_spread": 0.00012000000000000899,
+            "positive_spread_observations": 108902,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 108902,
+          "exists": true,
+          "first_timestamp_ms": 1773187200073,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599502,
+          "rows": 108902,
+          "sha256": "467709ecc6d9468effdb1a992abcbf90bbe5dc668fdf97500fbd5687da8a357f"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 2015893,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 106,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.00000000000345e-05,
+            "median_tick_interval_ms": 356.0,
+            "p95_spread": 0.0001100000000000545,
+            "positive_spread_observations": 52987,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 52987,
+          "exists": true,
+          "first_timestamp_ms": 1778630400017,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716798169,
+          "rows": 52987,
+          "sha256": "f10f38af27a4b0b112c8d308d3ae23374a9cf8e111097da6b14071de6f52b5cc"
+        },
+        "copy_b": {
+          "bytes": 2015893,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 106,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 9.00000000000345e-05,
+            "median_tick_interval_ms": 356.0,
+            "p95_spread": 0.0001100000000000545,
+            "positive_spread_observations": 52987,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 52987,
+          "exists": true,
+          "first_timestamp_ms": 1778630400017,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716798169,
+          "rows": 52987,
+          "sha256": "f10f38af27a4b0b112c8d308d3ae23374a9cf8e111097da6b14071de6f52b5cc"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "EURJPY": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 4492186,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 256,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.007999999999981355,
+            "median_tick_interval_ms": 205.0,
+            "p95_spread": 0.014000000000010004,
+            "positive_spread_observations": 118453,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 118453,
+          "exists": true,
+          "first_timestamp_ms": 1752019200042,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599903,
+          "rows": 118453,
+          "sha256": "d3deb2a7ac000777c7dca7e87b1b6f071b1e38e20d0b52b349bf7f4b2aa92154"
+        },
+        "copy_b": {
+          "bytes": 4492186,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 256,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.007999999999981355,
+            "median_tick_interval_ms": 205.0,
+            "p95_spread": 0.014000000000010004,
+            "positive_spread_observations": 118453,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 118453,
+          "exists": true,
+          "first_timestamp_ms": 1752019200042,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599903,
+          "rows": 118453,
+          "sha256": "d3deb2a7ac000777c7dca7e87b1b6f071b1e38e20d0b52b349bf7f4b2aa92154"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 5232494,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 276,
+            "median_abs_quote_side_imbalance": 0.11439114391143913,
+            "median_ask_volume": 1.5,
+            "median_bid_volume": 1.35,
+            "median_spread": 0.008000000000009777,
+            "median_tick_interval_ms": 154,
+            "p95_spread": 0.013999999999981583,
+            "positive_spread_observations": 135922,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 135922,
+          "exists": true,
+          "first_timestamp_ms": 1757462400147,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799610,
+          "rows": 135922,
+          "sha256": "e2524b9e149621bb16470b0260b2605705bf93a3f06177dafddc3b5fbce88f5d"
+        },
+        "copy_b": {
+          "bytes": 5232494,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 276,
+            "median_abs_quote_side_imbalance": 0.11439114391143913,
+            "median_ask_volume": 1.5,
+            "median_bid_volume": 1.35,
+            "median_spread": 0.008000000000009777,
+            "median_tick_interval_ms": 154,
+            "p95_spread": 0.013999999999981583,
+            "positive_spread_observations": 135922,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 135922,
+          "exists": true,
+          "first_timestamp_ms": 1757462400147,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799610,
+          "rows": 135922,
+          "sha256": "e2524b9e149621bb16470b0260b2605705bf93a3f06177dafddc3b5fbce88f5d"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 4262123,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 187,
+            "median_abs_quote_side_imbalance": 0.1588785046728972,
+            "median_ask_volume": 1.41,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.00899999999998613,
+            "median_tick_interval_ms": 254,
+            "p95_spread": 0.014999999999986358,
+            "positive_spread_observations": 110126,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 110126,
+          "exists": true,
+          "first_timestamp_ms": 1762905600145,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991993423,
+          "rows": 110126,
+          "sha256": "df839d7d8d999386f985a7f55699418a703b69e9fb9b785433760bf9d0e53970"
+        },
+        "copy_b": {
+          "bytes": 4262123,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 187,
+            "median_abs_quote_side_imbalance": 0.1588785046728972,
+            "median_ask_volume": 1.41,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.00899999999998613,
+            "median_tick_interval_ms": 254,
+            "p95_spread": 0.014999999999986358,
+            "positive_spread_observations": 110126,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 110126,
+          "exists": true,
+          "first_timestamp_ms": 1762905600145,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991993423,
+          "rows": 110126,
+          "sha256": "df839d7d8d999386f985a7f55699418a703b69e9fb9b785433760bf9d0e53970"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 5047773,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 254,
+            "median_abs_quote_side_imbalance": 0.1459074733096086,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.32,
+            "median_spread": 0.008000000000009777,
+            "median_tick_interval_ms": 205.0,
+            "p95_spread": 0.014000000000010004,
+            "positive_spread_observations": 130481,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 130481,
+          "exists": true,
+          "first_timestamp_ms": 1768348800018,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197412,
+          "rows": 130481,
+          "sha256": "a901ab7162e661153311d83c0dd87d5144595c7f8f38a5d30b54f40b719c6a53"
+        },
+        "copy_b": {
+          "bytes": 5047773,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 254,
+            "median_abs_quote_side_imbalance": 0.1459074733096086,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.32,
+            "median_spread": 0.008000000000009777,
+            "median_tick_interval_ms": 205.0,
+            "p95_spread": 0.014000000000010004,
+            "positive_spread_observations": 130481,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 130481,
+          "exists": true,
+          "first_timestamp_ms": 1768348800018,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197412,
+          "rows": 130481,
+          "sha256": "a901ab7162e661153311d83c0dd87d5144595c7f8f38a5d30b54f40b719c6a53"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 8087350,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 215,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.01099999999999568,
+            "median_tick_interval_ms": 106,
+            "p95_spread": 0.015999999999991132,
+            "positive_spread_observations": 213690,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 213690,
+          "exists": true,
+          "first_timestamp_ms": 1773187200049,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599645,
+          "rows": 213690,
+          "sha256": "79e67bfe322e9310f12c41dfa0556d66d65cff776d9c77c72acddd0a3cf37749"
+        },
+        "copy_b": {
+          "bytes": 8087350,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 215,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.01099999999999568,
+            "median_tick_interval_ms": 106,
+            "p95_spread": 0.015999999999991132,
+            "positive_spread_observations": 213690,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 213690,
+          "exists": true,
+          "first_timestamp_ms": 1773187200049,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599645,
+          "rows": 213690,
+          "sha256": "79e67bfe322e9310f12c41dfa0556d66d65cff776d9c77c72acddd0a3cf37749"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 4279764,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 283,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.00899999999998613,
+            "median_tick_interval_ms": 204,
+            "p95_spread": 0.01300000000000523,
+            "positive_spread_observations": 112996,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 112996,
+          "exists": true,
+          "first_timestamp_ms": 1778630400115,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716797225,
+          "rows": 112996,
+          "sha256": "abf013336cee0d11a2aaa4ac9c4de30ce7c279720530d9a65f9c159fb403ce36"
+        },
+        "copy_b": {
+          "bytes": 4279764,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 283,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.00899999999998613,
+            "median_tick_interval_ms": 204,
+            "p95_spread": 0.01300000000000523,
+            "positive_spread_observations": 112996,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 112996,
+          "exists": true,
+          "first_timestamp_ms": 1778630400115,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716797225,
+          "rows": 112996,
+          "sha256": "abf013336cee0d11a2aaa4ac9c4de30ce7c279720530d9a65f9c159fb403ce36"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "EURUSD": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 2406532,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 109,
+            "median_abs_quote_side_imbalance": 0.3103448275862069,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 4.0000000000040004e-05,
+            "median_tick_interval_ms": 308,
+            "p95_spread": 8.000000000008001e-05,
+            "positive_spread_observations": 62818,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 62818,
+          "exists": true,
+          "first_timestamp_ms": 1752019200011,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105598011,
+          "rows": 62818,
+          "sha256": "6d1ef9b147536d54aa6eaccc822744c5d9d73cf52fd615bc3ded011a52c5a7f4"
+        },
+        "copy_b": {
+          "bytes": 2406532,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 109,
+            "median_abs_quote_side_imbalance": 0.3103448275862069,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 4.0000000000040004e-05,
+            "median_tick_interval_ms": 308,
+            "p95_spread": 8.000000000008001e-05,
+            "positive_spread_observations": 62818,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 62818,
+          "exists": true,
+          "first_timestamp_ms": 1752019200011,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105598011,
+          "rows": 62818,
+          "sha256": "6d1ef9b147536d54aa6eaccc822744c5d9d73cf52fd615bc3ded011a52c5a7f4"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 2167326,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 59,
+            "median_abs_quote_side_imbalance": 0.27125506072874495,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 4.0000000000040004e-05,
+            "median_tick_interval_ms": 209,
+            "p95_spread": 7.00000000000145e-05,
+            "positive_spread_observations": 56176,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 56176,
+          "exists": true,
+          "first_timestamp_ms": 1757462400181,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548798625,
+          "rows": 56176,
+          "sha256": "2ce41695b26be935333fece86c0c4042656576a4ba7e6c48cf686faa70f32129"
+        },
+        "copy_b": {
+          "bytes": 2167326,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 59,
+            "median_abs_quote_side_imbalance": 0.27125506072874495,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 4.0000000000040004e-05,
+            "median_tick_interval_ms": 209,
+            "p95_spread": 7.00000000000145e-05,
+            "positive_spread_observations": 56176,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 56176,
+          "exists": true,
+          "first_timestamp_ms": 1757462400181,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548798625,
+          "rows": 56176,
+          "sha256": "2ce41695b26be935333fece86c0c4042656576a4ba7e6c48cf686faa70f32129"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 1863861,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 72,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 3.999999999981796e-05,
+            "median_tick_interval_ms": 408,
+            "p95_spread": 7.999999999985796e-05,
+            "positive_spread_observations": 48560,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 48560,
+          "exists": true,
+          "first_timestamp_ms": 1762905600318,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991993371,
+          "rows": 48560,
+          "sha256": "07c1a37f330b3cd59de35e0b26d3442c97807f9b5d7d6e7f5324f9c92bbc67f6"
+        },
+        "copy_b": {
+          "bytes": 1863861,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 72,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 3.999999999981796e-05,
+            "median_tick_interval_ms": 408,
+            "p95_spread": 7.999999999985796e-05,
+            "positive_spread_observations": 48560,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 48560,
+          "exists": true,
+          "first_timestamp_ms": 1762905600318,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991993371,
+          "rows": 48560,
+          "sha256": "07c1a37f330b3cd59de35e0b26d3442c97807f9b5d7d6e7f5324f9c92bbc67f6"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 2003153,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 79,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 2.999999999997449e-05,
+            "median_tick_interval_ms": 318,
+            "p95_spread": 6.000000000017103e-05,
+            "positive_spread_observations": 52450,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 52450,
+          "exists": true,
+          "first_timestamp_ms": 1768348803397,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197207,
+          "rows": 52450,
+          "sha256": "b0b0b93f092c26ed358495ac68120f909301a66eaa5ee8bba63ed394ef3510bb"
+        },
+        "copy_b": {
+          "bytes": 2003153,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 79,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 2.999999999997449e-05,
+            "median_tick_interval_ms": 318,
+            "p95_spread": 6.000000000017103e-05,
+            "positive_spread_observations": 52450,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 52450,
+          "exists": true,
+          "first_timestamp_ms": 1768348803397,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197207,
+          "rows": 52450,
+          "sha256": "b0b0b93f092c26ed358495ac68120f909301a66eaa5ee8bba63ed394ef3510bb"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 4056450,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 83,
+            "median_abs_quote_side_imbalance": 0.23728813559322032,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 2.999999999997449e-05,
+            "median_tick_interval_ms": 204,
+            "p95_spread": 5.999999999994898e-05,
+            "positive_spread_observations": 106820,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 106820,
+          "exists": true,
+          "first_timestamp_ms": 1773187200226,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599433,
+          "rows": 106820,
+          "sha256": "9d6ad0fc57fc1c07e2ed1b6720d90d2134cd8d327548c9e77921dc1ad9ef1158"
+        },
+        "copy_b": {
+          "bytes": 4056450,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 83,
+            "median_abs_quote_side_imbalance": 0.23728813559322032,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 2.999999999997449e-05,
+            "median_tick_interval_ms": 204,
+            "p95_spread": 5.999999999994898e-05,
+            "positive_spread_observations": 106820,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 106820,
+          "exists": true,
+          "first_timestamp_ms": 1773187200226,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599433,
+          "rows": 106820,
+          "sha256": "9d6ad0fc57fc1c07e2ed1b6720d90d2134cd8d327548c9e77921dc1ad9ef1158"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 1875134,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 98,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 2.999999999997449e-05,
+            "median_tick_interval_ms": 408.0,
+            "p95_spread": 5.0000000000105516e-05,
+            "positive_spread_observations": 49359,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 49359,
+          "exists": true,
+          "first_timestamp_ms": 1778630400136,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716760376,
+          "rows": 49359,
+          "sha256": "a8fd9ed12a409e2bab58d06c7f26e0e9c51abab855b64a52f1208d9412f6f509"
+        },
+        "copy_b": {
+          "bytes": 1875134,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 98,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 2.999999999997449e-05,
+            "median_tick_interval_ms": 408.0,
+            "p95_spread": 5.0000000000105516e-05,
+            "positive_spread_observations": 49359,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 49359,
+          "exists": true,
+          "first_timestamp_ms": 1778630400136,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716760376,
+          "rows": 49359,
+          "sha256": "a8fd9ed12a409e2bab58d06c7f26e0e9c51abab855b64a52f1208d9412f6f509"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "GBPUSD": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 2738903,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 240,
+            "median_abs_quote_side_imbalance": 0.21951219512195125,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 8.000000000008001e-05,
+            "median_tick_interval_ms": 278,
+            "p95_spread": 0.00012999999999996348,
+            "positive_spread_observations": 70890,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 70890,
+          "exists": true,
+          "first_timestamp_ms": 1752019200349,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599821,
+          "rows": 70890,
+          "sha256": "58b7a5ab5069090a5bec5d29ca5ea5dc0f29a7082b8c0664651084818fe1870e"
+        },
+        "copy_b": {
+          "bytes": 2738903,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 240,
+            "median_abs_quote_side_imbalance": 0.21951219512195125,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 8.000000000008001e-05,
+            "median_tick_interval_ms": 278,
+            "p95_spread": 0.00012999999999996348,
+            "positive_spread_observations": 70890,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 70890,
+          "exists": true,
+          "first_timestamp_ms": 1752019200349,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599821,
+          "rows": 70890,
+          "sha256": "58b7a5ab5069090a5bec5d29ca5ea5dc0f29a7082b8c0664651084818fe1870e"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 2861700,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 225,
+            "median_abs_quote_side_imbalance": 0.2627264883520276,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 208,
+            "p95_spread": 0.00011999999999989797,
+            "positive_spread_observations": 74210,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 74210,
+          "exists": true,
+          "first_timestamp_ms": 1757462400084,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799522,
+          "rows": 74210,
+          "sha256": "57c45367abbb07f2e5c9581fc3df2aba57f8ac61d103779bdfe58d36cdc5d645"
+        },
+        "copy_b": {
+          "bytes": 2861700,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 225,
+            "median_abs_quote_side_imbalance": 0.2627264883520276,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 208,
+            "p95_spread": 0.00011999999999989797,
+            "positive_spread_observations": 74210,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 74210,
+          "exists": true,
+          "first_timestamp_ms": 1757462400084,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799522,
+          "rows": 74210,
+          "sha256": "57c45367abbb07f2e5c9581fc3df2aba57f8ac61d103779bdfe58d36cdc5d645"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 2370777,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 184,
+            "median_abs_quote_side_imbalance": 0.2592592592592592,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 6.000000000017103e-05,
+            "median_tick_interval_ms": 304.0,
+            "p95_spread": 0.0001100000000000545,
+            "positive_spread_observations": 61491,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 61491,
+          "exists": true,
+          "first_timestamp_ms": 1762905600075,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991998410,
+          "rows": 61491,
+          "sha256": "f3cf9f836583445e33c3a2b04f061ef2fe4ba2d345712da26f7fa9ff78e0324e"
+        },
+        "copy_b": {
+          "bytes": 2370777,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 184,
+            "median_abs_quote_side_imbalance": 0.2592592592592592,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 6.000000000017103e-05,
+            "median_tick_interval_ms": 304.0,
+            "p95_spread": 0.0001100000000000545,
+            "positive_spread_observations": 61491,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 61491,
+          "exists": true,
+          "first_timestamp_ms": 1762905600075,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991998410,
+          "rows": 61491,
+          "sha256": "f3cf9f836583445e33c3a2b04f061ef2fe4ba2d345712da26f7fa9ff78e0324e"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 2673941,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 189,
+            "median_abs_quote_side_imbalance": 0.276595744680851,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 256.0,
+            "p95_spread": 0.00015999999999993797,
+            "positive_spread_observations": 69403,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 69403,
+          "exists": true,
+          "first_timestamp_ms": 1768348802067,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197201,
+          "rows": 69403,
+          "sha256": "06131acf81efa4187435a5050ec0ce5f92c5c36b9c1eb3741a2495bbf049bba8"
+        },
+        "copy_b": {
+          "bytes": 2673941,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 189,
+            "median_abs_quote_side_imbalance": 0.276595744680851,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 256.0,
+            "p95_spread": 0.00015999999999993797,
+            "positive_spread_observations": 69403,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 69403,
+          "exists": true,
+          "first_timestamp_ms": 1768348802067,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197201,
+          "rows": 69403,
+          "sha256": "06131acf81efa4187435a5050ec0ce5f92c5c36b9c1eb3741a2495bbf049bba8"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 4654058,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 151,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 155,
+            "p95_spread": 0.0001100000000000545,
+            "positive_spread_observations": 121786,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 121786,
+          "exists": true,
+          "first_timestamp_ms": 1773187200098,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599180,
+          "rows": 121786,
+          "sha256": "f0903cea830678b78cf16e0bfad138a1097bf729a61e43197467ab6de45069f2"
+        },
+        "copy_b": {
+          "bytes": 4654058,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 151,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 155,
+            "p95_spread": 0.0001100000000000545,
+            "positive_spread_observations": 121786,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 121786,
+          "exists": true,
+          "first_timestamp_ms": 1773187200098,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599180,
+          "rows": 121786,
+          "sha256": "f0903cea830678b78cf16e0bfad138a1097bf729a61e43197467ab6de45069f2"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 3184958,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 178,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 205.0,
+            "p95_spread": 9.999999999998899e-05,
+            "positive_spread_observations": 82965,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 82965,
+          "exists": true,
+          "first_timestamp_ms": 1778630400120,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716799647,
+          "rows": 82965,
+          "sha256": "20be0f986a847fd9459bd80fc2a9117250938b038d8c71cf166ae4c2d93610bc"
+        },
+        "copy_b": {
+          "bytes": 3184958,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 178,
+            "median_abs_quote_side_imbalance": 0.3333333333333333,
+            "median_ask_volume": 0.9,
+            "median_bid_volume": 0.9,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 205.0,
+            "p95_spread": 9.999999999998899e-05,
+            "positive_spread_observations": 82965,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 82965,
+          "exists": true,
+          "first_timestamp_ms": 1778630400120,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716799647,
+          "rows": 82965,
+          "sha256": "20be0f986a847fd9459bd80fc2a9117250938b038d8c71cf166ae4c2d93610bc"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "USDCAD": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 2355142,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 179,
+            "median_abs_quote_side_imbalance": 0.17431192660550454,
+            "median_ask_volume": 1.35,
+            "median_bid_volume": 1.32,
+            "median_spread": 0.00012999999999996348,
+            "median_tick_interval_ms": 353,
+            "p95_spread": 0.00017000000000000348,
+            "positive_spread_observations": 61158,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 61158,
+          "exists": true,
+          "first_timestamp_ms": 1752019200102,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105597945,
+          "rows": 61158,
+          "sha256": "ce128e3bb2b81121fecb92a4fbf731ec654f8e4509fdd3eb8bc8b8ff8ddff2b5"
+        },
+        "copy_b": {
+          "bytes": 2355142,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 179,
+            "median_abs_quote_side_imbalance": 0.17431192660550454,
+            "median_ask_volume": 1.35,
+            "median_bid_volume": 1.32,
+            "median_spread": 0.00012999999999996348,
+            "median_tick_interval_ms": 353,
+            "p95_spread": 0.00017000000000000348,
+            "positive_spread_observations": 61158,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 61158,
+          "exists": true,
+          "first_timestamp_ms": 1752019200102,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105597945,
+          "rows": 61158,
+          "sha256": "ce128e3bb2b81121fecb92a4fbf731ec654f8e4509fdd3eb8bc8b8ff8ddff2b5"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 2708176,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 153,
+            "median_abs_quote_side_imbalance": 0.19161676646706585,
+            "median_ask_volume": 1.35,
+            "median_bid_volume": 1.48,
+            "median_spread": 0.00012999999999996348,
+            "median_tick_interval_ms": 303,
+            "p95_spread": 0.00015999999999993797,
+            "positive_spread_observations": 69856,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 69856,
+          "exists": true,
+          "first_timestamp_ms": 1757462400086,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799446,
+          "rows": 69856,
+          "sha256": "1786eccd02a86daca395fb8e3e1bd3640b60adf15b319c0bfc679596b4fc590e"
+        },
+        "copy_b": {
+          "bytes": 2708176,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 153,
+            "median_abs_quote_side_imbalance": 0.19161676646706585,
+            "median_ask_volume": 1.35,
+            "median_bid_volume": 1.48,
+            "median_spread": 0.00012999999999996348,
+            "median_tick_interval_ms": 303,
+            "p95_spread": 0.00015999999999993797,
+            "positive_spread_observations": 69856,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 69856,
+          "exists": true,
+          "first_timestamp_ms": 1757462400086,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799446,
+          "rows": 69856,
+          "sha256": "1786eccd02a86daca395fb8e3e1bd3640b60adf15b319c0bfc679596b4fc590e"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 2795952,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 95,
+            "median_abs_quote_side_imbalance": 0.19191919191919196,
+            "median_ask_volume": 1.35,
+            "median_bid_volume": 1.35,
+            "median_spread": 0.00012999999999996348,
+            "median_tick_interval_ms": 256.0,
+            "p95_spread": 0.0001500000000000945,
+            "positive_spread_observations": 71931,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 71931,
+          "exists": true,
+          "first_timestamp_ms": 1762905600250,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991998185,
+          "rows": 71931,
+          "sha256": "95f205340af4ba1988b975342de01f71e2742b70359cd2dc1ee60fcdfa5b76d7"
+        },
+        "copy_b": {
+          "bytes": 2795952,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 95,
+            "median_abs_quote_side_imbalance": 0.19191919191919196,
+            "median_ask_volume": 1.35,
+            "median_bid_volume": 1.35,
+            "median_spread": 0.00012999999999996348,
+            "median_tick_interval_ms": 256.0,
+            "p95_spread": 0.0001500000000000945,
+            "positive_spread_observations": 71931,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 71931,
+          "exists": true,
+          "first_timestamp_ms": 1762905600250,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991998185,
+          "rows": 71931,
+          "sha256": "95f205340af4ba1988b975342de01f71e2742b70359cd2dc1ee60fcdfa5b76d7"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 3028258,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 116,
+            "median_abs_quote_side_imbalance": 0.14285714285714282,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.35,
+            "median_spread": 0.00012000000000012001,
+            "median_tick_interval_ms": 259,
+            "p95_spread": 0.00016000000000016001,
+            "positive_spread_observations": 78068,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 78068,
+          "exists": true,
+          "first_timestamp_ms": 1768348800185,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435199043,
+          "rows": 78068,
+          "sha256": "16f82eb0fe4d24602ac0cf4ab34e02c6427f621ac42873e5a0645f4cd80740de"
+        },
+        "copy_b": {
+          "bytes": 3028258,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 116,
+            "median_abs_quote_side_imbalance": 0.14285714285714282,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.35,
+            "median_spread": 0.00012000000000012001,
+            "median_tick_interval_ms": 259,
+            "p95_spread": 0.00016000000000016001,
+            "positive_spread_observations": 78068,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 78068,
+          "exists": true,
+          "first_timestamp_ms": 1768348800185,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435199043,
+          "rows": 78068,
+          "sha256": "16f82eb0fe4d24602ac0cf4ab34e02c6427f621ac42873e5a0645f4cd80740de"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 3215123,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 183,
+            "median_abs_quote_side_imbalance": 0.05882352941176476,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0001100000000000545,
+            "median_tick_interval_ms": 206,
+            "p95_spread": 0.0001500000000000945,
+            "positive_spread_observations": 84546,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 84546,
+          "exists": true,
+          "first_timestamp_ms": 1773187200133,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599528,
+          "rows": 84546,
+          "sha256": "2b4db0a1b6bd196fbaba8b586b1bbe4d9d6928c0235f1b0ee9b271f575a407ef"
+        },
+        "copy_b": {
+          "bytes": 3215123,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 183,
+            "median_abs_quote_side_imbalance": 0.05882352941176476,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0001100000000000545,
+            "median_tick_interval_ms": 206,
+            "p95_spread": 0.0001500000000000945,
+            "positive_spread_observations": 84546,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 84546,
+          "exists": true,
+          "first_timestamp_ms": 1773187200133,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599528,
+          "rows": 84546,
+          "sha256": "2b4db0a1b6bd196fbaba8b586b1bbe4d9d6928c0235f1b0ee9b271f575a407ef"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 3056764,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 174,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0001100000000000545,
+            "median_tick_interval_ms": 205,
+            "p95_spread": 0.00014999999999987246,
+            "positive_spread_observations": 80060,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 80060,
+          "exists": true,
+          "first_timestamp_ms": 1778630400128,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716791947,
+          "rows": 80060,
+          "sha256": "2298900285277eb8a6bc184c39fc189d937a41444d760561bca32d0fb17135b1"
+        },
+        "copy_b": {
+          "bytes": 3056764,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 174,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0001100000000000545,
+            "median_tick_interval_ms": 205,
+            "p95_spread": 0.00014999999999987246,
+            "positive_spread_observations": 80060,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 80060,
+          "exists": true,
+          "first_timestamp_ms": 1778630400128,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716791947,
+          "rows": 80060,
+          "sha256": "2298900285277eb8a6bc184c39fc189d937a41444d760561bca32d0fb17135b1"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "USDCHF": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 1532654,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 335,
+            "median_abs_quote_side_imbalance": 0.12727272727272732,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.31,
+            "median_spread": 8.000000000008001e-05,
+            "median_tick_interval_ms": 510.0,
+            "p95_spread": 0.000140000000000029,
+            "positive_spread_observations": 39999,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 39999,
+          "exists": true,
+          "first_timestamp_ms": 1752022806124,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752101978760,
+          "rows": 39999,
+          "sha256": "685dd543b4bc82e792c50e0c1ed6cfb14238791cdfb75285f2a2b7f61d82f9d3"
+        },
+        "copy_b": {
+          "bytes": 1532654,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 335,
+            "median_abs_quote_side_imbalance": 0.12727272727272732,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.31,
+            "median_spread": 8.000000000008001e-05,
+            "median_tick_interval_ms": 510.0,
+            "p95_spread": 0.000140000000000029,
+            "positive_spread_observations": 39999,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 39999,
+          "exists": true,
+          "first_timestamp_ms": 1752022806124,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752101978760,
+          "rows": 39999,
+          "sha256": "685dd543b4bc82e792c50e0c1ed6cfb14238791cdfb75285f2a2b7f61d82f9d3"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 1356049,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 183,
+            "median_abs_quote_side_imbalance": 0.14285714285714282,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 8.000000000008001e-05,
+            "median_tick_interval_ms": 508.0,
+            "p95_spread": 0.000140000000000029,
+            "positive_spread_observations": 35399,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 35399,
+          "exists": true,
+          "first_timestamp_ms": 1757462405187,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548796277,
+          "rows": 35399,
+          "sha256": "44801afe164e3dc1eefcde2128595ab680dd14c5c775a469ab90aae95af8defb"
+        },
+        "copy_b": {
+          "bytes": 1356049,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 183,
+            "median_abs_quote_side_imbalance": 0.14285714285714282,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 8.000000000008001e-05,
+            "median_tick_interval_ms": 508.0,
+            "p95_spread": 0.000140000000000029,
+            "positive_spread_observations": 35399,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 35399,
+          "exists": true,
+          "first_timestamp_ms": 1757462405187,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548796277,
+          "rows": 35399,
+          "sha256": "44801afe164e3dc1eefcde2128595ab680dd14c5c775a469ab90aae95af8defb"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 1238642,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 174,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.57,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 564.0,
+            "p95_spread": 0.00019000000000002348,
+            "positive_spread_observations": 32321,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 32321,
+          "exists": true,
+          "first_timestamp_ms": 1762905600173,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991992777,
+          "rows": 32321,
+          "sha256": "1ce3b1c78675c62be64ddef3190a9058162e3e9dd51a563b5e27ed8e5f81b5ff"
+        },
+        "copy_b": {
+          "bytes": 1238642,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 174,
+            "median_abs_quote_side_imbalance": 0.20000000000000004,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.57,
+            "median_spread": 7.00000000000145e-05,
+            "median_tick_interval_ms": 564.0,
+            "p95_spread": 0.00019000000000002348,
+            "positive_spread_observations": 32321,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 32321,
+          "exists": true,
+          "first_timestamp_ms": 1762905600173,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991992777,
+          "rows": 32321,
+          "sha256": "1ce3b1c78675c62be64ddef3190a9058162e3e9dd51a563b5e27ed8e5f81b5ff"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 1177052,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 165,
+            "median_abs_quote_side_imbalance": 0.14489311163895488,
+            "median_ask_volume": 1.32,
+            "median_bid_volume": 1.2,
+            "median_spread": 7.999999999996898e-05,
+            "median_tick_interval_ms": 577,
+            "p95_spread": 0.0001300000000000745,
+            "positive_spread_observations": 30652,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 30652,
+          "exists": true,
+          "first_timestamp_ms": 1768348800460,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197310,
+          "rows": 30652,
+          "sha256": "42fdc1378a785bb574fb97b49138f4028ce0206eff7d6addff2815598ab44078"
+        },
+        "copy_b": {
+          "bytes": 1177052,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 165,
+            "median_abs_quote_side_imbalance": 0.14489311163895488,
+            "median_ask_volume": 1.32,
+            "median_bid_volume": 1.2,
+            "median_spread": 7.999999999996898e-05,
+            "median_tick_interval_ms": 577,
+            "p95_spread": 0.0001300000000000745,
+            "positive_spread_observations": 30652,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 30652,
+          "exists": true,
+          "first_timestamp_ms": 1768348800460,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435197310,
+          "rows": 30652,
+          "sha256": "42fdc1378a785bb574fb97b49138f4028ce0206eff7d6addff2815598ab44078"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 2067908,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 212,
+            "median_abs_quote_side_imbalance": 0.1111111111111111,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 7.999999999996898e-05,
+            "median_tick_interval_ms": 366.0,
+            "p95_spread": 0.00013999999999991797,
+            "positive_spread_observations": 54377,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 54377,
+          "exists": true,
+          "first_timestamp_ms": 1773187200231,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773269999730,
+          "rows": 54377,
+          "sha256": "16240daa4caee408aa7febb75320607570b61e0743917e4ce1fe63431adcdc01"
+        },
+        "copy_b": {
+          "bytes": 2067908,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 212,
+            "median_abs_quote_side_imbalance": 0.1111111111111111,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 7.999999999996898e-05,
+            "median_tick_interval_ms": 366.0,
+            "p95_spread": 0.00013999999999991797,
+            "positive_spread_observations": 54377,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 54377,
+          "exists": true,
+          "first_timestamp_ms": 1773187200231,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773269999730,
+          "rows": 54377,
+          "sha256": "16240daa4caee408aa7febb75320607570b61e0743917e4ce1fe63431adcdc01"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 1479093,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 202,
+            "median_abs_quote_side_imbalance": 0.16666666666666663,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 7.999999999996898e-05,
+            "median_tick_interval_ms": 558,
+            "p95_spread": 0.00030999999999992145,
+            "positive_spread_observations": 38910,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 38910,
+          "exists": true,
+          "first_timestamp_ms": 1778630400274,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716790872,
+          "rows": 38910,
+          "sha256": "6f2b0cffe2889d66101ab7920915edd764968350f9c56373418801029270f45b"
+        },
+        "copy_b": {
+          "bytes": 1479093,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 202,
+            "median_abs_quote_side_imbalance": 0.16666666666666663,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 7.999999999996898e-05,
+            "median_tick_interval_ms": 558,
+            "p95_spread": 0.00030999999999992145,
+            "positive_spread_observations": 38910,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 38910,
+          "exists": true,
+          "first_timestamp_ms": 1778630400274,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716790872,
+          "rows": 38910,
+          "sha256": "6f2b0cffe2889d66101ab7920915edd764968350f9c56373418801029270f45b"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "USDJPY": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 3268310,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 159,
+            "median_abs_quote_side_imbalance": 0.04761904761904766,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0049999999999954525,
+            "median_tick_interval_ms": 257,
+            "p95_spread": 0.008000000000009777,
+            "positive_spread_observations": 85798,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 85798,
+          "exists": true,
+          "first_timestamp_ms": 1752019200352,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599962,
+          "rows": 85798,
+          "sha256": "e6b6f29e689ef03d140c7b4cc05e1920ac430520fce20a403c35138b94616382"
+        },
+        "copy_b": {
+          "bytes": 3268310,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 159,
+            "median_abs_quote_side_imbalance": 0.04761904761904766,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0049999999999954525,
+            "median_tick_interval_ms": 257,
+            "p95_spread": 0.008000000000009777,
+            "positive_spread_observations": 85798,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 85798,
+          "exists": true,
+          "first_timestamp_ms": 1752019200352,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599962,
+          "rows": 85798,
+          "sha256": "e6b6f29e689ef03d140c7b4cc05e1920ac430520fce20a403c35138b94616382"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 3224131,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 197,
+            "median_abs_quote_side_imbalance": 0.11764705882352945,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.003999999999990678,
+            "median_tick_interval_ms": 252,
+            "p95_spread": 0.008000000000009777,
+            "positive_spread_observations": 83948,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 83948,
+          "exists": true,
+          "first_timestamp_ms": 1757462400486,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799264,
+          "rows": 83948,
+          "sha256": "eb90db9e78883fa392c5a3acbd378a2191984cf62cdd4c69046444bcb50d53e9"
+        },
+        "copy_b": {
+          "bytes": 3224131,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 197,
+            "median_abs_quote_side_imbalance": 0.11764705882352945,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.003999999999990678,
+            "median_tick_interval_ms": 252,
+            "p95_spread": 0.008000000000009777,
+            "positive_spread_observations": 83948,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 83948,
+          "exists": true,
+          "first_timestamp_ms": 1757462400486,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799264,
+          "rows": 83948,
+          "sha256": "eb90db9e78883fa392c5a3acbd378a2191984cf62cdd4c69046444bcb50d53e9"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 2782400,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 94,
+            "median_abs_quote_side_imbalance": 0.1042944785276074,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0030000000000143245,
+            "median_tick_interval_ms": 257,
+            "p95_spread": 0.007999999999981355,
+            "positive_spread_observations": 72410,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 72410,
+          "exists": true,
+          "first_timestamp_ms": 1762905600108,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991984073,
+          "rows": 72410,
+          "sha256": "02bfb3d9361c85e7f1f39a0ab0d265b80a10728d2e3e03d8f01373154186719d"
+        },
+        "copy_b": {
+          "bytes": 2782400,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 94,
+            "median_abs_quote_side_imbalance": 0.1042944785276074,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0030000000000143245,
+            "median_tick_interval_ms": 257,
+            "p95_spread": 0.007999999999981355,
+            "positive_spread_observations": 72410,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 72410,
+          "exists": true,
+          "first_timestamp_ms": 1762905600108,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991984073,
+          "rows": 72410,
+          "sha256": "02bfb3d9361c85e7f1f39a0ab0d265b80a10728d2e3e03d8f01373154186719d"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 3338067,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 231,
+            "median_abs_quote_side_imbalance": 0.07623318385650221,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0030000000000143245,
+            "median_tick_interval_ms": 209.0,
+            "p95_spread": 0.009000000000014552,
+            "positive_spread_observations": 86855,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 86855,
+          "exists": true,
+          "first_timestamp_ms": 1768348800453,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435196773,
+          "rows": 86855,
+          "sha256": "88a07f89cf902bd2aa38bc67f2eb540c2458aa63b044e2737f7864d4b374f132"
+        },
+        "copy_b": {
+          "bytes": 3338067,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 231,
+            "median_abs_quote_side_imbalance": 0.07623318385650221,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0030000000000143245,
+            "median_tick_interval_ms": 209.0,
+            "p95_spread": 0.009000000000014552,
+            "positive_spread_observations": 86855,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 86855,
+          "exists": true,
+          "first_timestamp_ms": 1768348800453,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435196773,
+          "rows": 86855,
+          "sha256": "88a07f89cf902bd2aa38bc67f2eb540c2458aa63b044e2737f7864d4b374f132"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 3754475,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 157,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.006000000000000227,
+            "median_tick_interval_ms": 205,
+            "p95_spread": 0.00899999999998613,
+            "positive_spread_observations": 98982,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 98982,
+          "exists": true,
+          "first_timestamp_ms": 1773187200013,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273598493,
+          "rows": 98982,
+          "sha256": "f259ff33c47e8bd5be5f3f72f207f13768c4aadd631439d24fdc62b0480b1335"
+        },
+        "copy_b": {
+          "bytes": 3754475,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 157,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.006000000000000227,
+            "median_tick_interval_ms": 205,
+            "p95_spread": 0.00899999999998613,
+            "positive_spread_observations": 98982,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 98982,
+          "exists": true,
+          "first_timestamp_ms": 1773187200013,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273598493,
+          "rows": 98982,
+          "sha256": "f259ff33c47e8bd5be5f3f72f207f13768c4aadd631439d24fdc62b0480b1335"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 1872890,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 255,
+            "median_abs_quote_side_imbalance": 0.13978494623655918,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0049999999999954525,
+            "median_tick_interval_ms": 358.0,
+            "p95_spread": 0.00899999999998613,
+            "positive_spread_observations": 49277,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 49277,
+          "exists": true,
+          "first_timestamp_ms": 1778630400113,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716793876,
+          "rows": 49277,
+          "sha256": "cea49ad2e1aff403240a2601486392d6e80dc195efb7acff304c20ac8189171b"
+        },
+        "copy_b": {
+          "bytes": 1872890,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 255,
+            "median_abs_quote_side_imbalance": 0.13978494623655918,
+            "median_ask_volume": 1.2,
+            "median_bid_volume": 1.2,
+            "median_spread": 0.0049999999999954525,
+            "median_tick_interval_ms": 358.0,
+            "p95_spread": 0.00899999999998613,
+            "positive_spread_observations": 49277,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 49277,
+          "exists": true,
+          "first_timestamp_ms": 1778630400113,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716793876,
+          "rows": 49277,
+          "sha256": "cea49ad2e1aff403240a2601486392d6e80dc195efb7acff304c20ac8189171b"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    },
+    "XAUUSD": {
+      "2025-07-09": {
+        "copy_a": {
+          "bytes": 7851038,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 711,
+            "median_abs_quote_side_imbalance": 0.2,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.5500000000001819,
+            "median_tick_interval_ms": 152,
+            "p95_spread": 0.6669999999999163,
+            "positive_spread_observations": 163564,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 163564,
+          "exists": true,
+          "first_timestamp_ms": 1752019200104,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599954,
+          "rows": 163564,
+          "sha256": "dcfcaa9b4640098b535ac643f23eed54751366f994889830b25f85973dbbd5b8"
+        },
+        "copy_b": {
+          "bytes": 7851038,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 711,
+            "median_abs_quote_side_imbalance": 0.2,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.5500000000001819,
+            "median_tick_interval_ms": 152,
+            "p95_spread": 0.6669999999999163,
+            "positive_spread_observations": 163564,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 163564,
+          "exists": true,
+          "first_timestamp_ms": 1752019200104,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1752105599954,
+          "rows": 163564,
+          "sha256": "dcfcaa9b4640098b535ac643f23eed54751366f994889830b25f85973dbbd5b8"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-09-10": {
+        "copy_a": {
+          "bytes": 10594425,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1038,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.5670000000000073,
+            "median_tick_interval_ms": 103.0,
+            "p95_spread": 0.7999999999997272,
+            "positive_spread_observations": 220717,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 220717,
+          "exists": true,
+          "first_timestamp_ms": 1757462400070,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799563,
+          "rows": 220717,
+          "sha256": "be80f481388ced646bf326b200696c486e18ed946daef01ef00646fc2790fe0c"
+        },
+        "copy_b": {
+          "bytes": 10594425,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1038,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.5670000000000073,
+            "median_tick_interval_ms": 103.0,
+            "p95_spread": 0.7999999999997272,
+            "positive_spread_observations": 220717,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 220717,
+          "exists": true,
+          "first_timestamp_ms": 1757462400070,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1757548799563,
+          "rows": 220717,
+          "sha256": "be80f481388ced646bf326b200696c486e18ed946daef01ef00646fc2790fe0c"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2025-11-12": {
+        "copy_a": {
+          "bytes": 18405319,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1122,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.6000000000003638,
+            "median_tick_interval_ms": 101,
+            "p95_spread": 0.75,
+            "positive_spread_observations": 383460,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 383460,
+          "exists": true,
+          "first_timestamp_ms": 1762905600045,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991999909,
+          "rows": 383460,
+          "sha256": "dfab9e906b8fa8c588f0efb75b8f6d08208621bab335eff46d5a8165eedb2b01"
+        },
+        "copy_b": {
+          "bytes": 18405319,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1122,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.6000000000003638,
+            "median_tick_interval_ms": 101,
+            "p95_spread": 0.75,
+            "positive_spread_observations": 383460,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 383460,
+          "exists": true,
+          "first_timestamp_ms": 1762905600045,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1762991999909,
+          "rows": 383460,
+          "sha256": "dfab9e906b8fa8c588f0efb75b8f6d08208621bab335eff46d5a8165eedb2b01"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-01-14": {
+        "copy_a": {
+          "bytes": 19234723,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1562,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.6099999999996726,
+            "median_tick_interval_ms": 101,
+            "p95_spread": 0.7630500000007825,
+            "positive_spread_observations": 400740,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 400740,
+          "exists": true,
+          "first_timestamp_ms": 1768348800073,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435199600,
+          "rows": 400740,
+          "sha256": "63b35dc501b92e6b894ea20ca5c841ee0e88a0ee1c790d1ee7e961097fba62b9"
+        },
+        "copy_b": {
+          "bytes": 19234723,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1562,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.6099999999996726,
+            "median_tick_interval_ms": 101,
+            "p95_spread": 0.7630500000007825,
+            "positive_spread_observations": 400740,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 400740,
+          "exists": true,
+          "first_timestamp_ms": 1768348800073,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1768435199600,
+          "rows": 400740,
+          "sha256": "63b35dc501b92e6b894ea20ca5c841ee0e88a0ee1c790d1ee7e961097fba62b9"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-03-11": {
+        "copy_a": {
+          "bytes": 14239467,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1174,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.7300000000004729,
+            "median_tick_interval_ms": 101.0,
+            "p95_spread": 0.7899999999999636,
+            "positive_spread_observations": 296659,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 296659,
+          "exists": true,
+          "first_timestamp_ms": 1773187200096,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599989,
+          "rows": 296659,
+          "sha256": "389ea5692b0441125c4ec1a3d6393b78213ab15d5bacb4f10a9c5a2b4f19fa0c"
+        },
+        "copy_b": {
+          "bytes": 14239467,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1174,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.7300000000004729,
+            "median_tick_interval_ms": 101.0,
+            "p95_spread": 0.7899999999999636,
+            "positive_spread_observations": 296659,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 296659,
+          "exists": true,
+          "first_timestamp_ms": 1773187200096,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1773273599989,
+          "rows": 296659,
+          "sha256": "389ea5692b0441125c4ec1a3d6393b78213ab15d5bacb4f10a9c5a2b4f19fa0c"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      },
+      "2026-05-13": {
+        "copy_a": {
+          "bytes": 17585222,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1006,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.5500000000001819,
+            "median_tick_interval_ms": 101,
+            "p95_spread": 0.6999999999998181,
+            "positive_spread_observations": 366366,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 366366,
+          "exists": true,
+          "first_timestamp_ms": 1778630400078,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716799617,
+          "rows": 366366,
+          "sha256": "fb4e7101701dddafda6a609a00fdb94019b5051f8537cef33f3e20cb8fe3a666"
+        },
+        "copy_b": {
+          "bytes": 17585222,
+          "checks": {
+            "ask_ge_bid_every_row": true,
+            "distinct_millisecond_timestamps_ge_50": true,
+            "inside_requested_day": true,
+            "positive_ask_volume_exists": true,
+            "positive_bid_volume_exists": true,
+            "positive_prices": true,
+            "spread_variation_or_positive_observations": true,
+            "ticks_ge_500": true,
+            "timestamps_nondecreasing": true,
+            "volumes_nonnegative": true
+          },
+          "diagnostics": {
+            "distinct_positive_spreads": 1006,
+            "median_abs_quote_side_imbalance": 0.0,
+            "median_ask_volume": 0.00012,
+            "median_bid_volume": 0.00012,
+            "median_spread": 0.5500000000001819,
+            "median_tick_interval_ms": 101,
+            "p95_spread": 0.6999999999998181,
+            "positive_spread_observations": 366366,
+            "zero_spread_fraction": 0.0
+          },
+          "distinct_timestamps": 366366,
+          "exists": true,
+          "first_timestamp_ms": 1778630400078,
+          "integrity_pass": true,
+          "last_timestamp_ms": 1778716799617,
+          "rows": 366366,
+          "sha256": "fb4e7101701dddafda6a609a00fdb94019b5051f8537cef33f3e20cb8fe3a666"
+        },
+        "repeatability_pass": true,
+        "same_rows": true,
+        "same_sha256": true
+      }
+    }
+  },
+  "pilot_dates": [
+    "2025-07-09",
+    "2025-09-10",
+    "2025-11-12",
+    "2026-01-14",
+    "2026-03-11",
+    "2026-05-13"
+  ],
+  "pnl_calculated": false,
+  "protected_periods": {
+    "jul_aug_2026_loaded": false,
+    "sep_2026_loaded": false
+  },
+  "repeatability_gate_pass": true,
+  "scientific_outcomes_calculated": false,
+  "stage": "dukascopy_tick_microstructure_source_preflight_v0.1",
+  "target_labels_calculated": false,
+  "tested_repository_sha": "5a16527646ed0f40d2762fda60c0c1096b82449f",
+  "transport": {
+    "package": "dukascopy-node",
+    "timeframe": "tick",
+    "version": "1.50.0"
+  }
+}
