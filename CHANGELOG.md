@@ -587,3 +587,9 @@
 - EXP-042 availability v0.3 passed at `2b32215`: DXY_COMPLETE 53 events and DXY_TBOND_COMPLETE 51 events, both satisfying original family/fold adequacy minima.
 - Frozen EXP-042 rates/USD information-content study at spec `0ade215`, runner `6efb690`, workflow `5769360`.
 - Study A tests DXY reaction; Study B tests incremental T-Bond interpretation and requires the full layer to beat both DXY-only and control.
+
+
+- EXP-042 rates/USD information-content study passed integrity at `1e4520b`.
+- Study A DXY reaction failed both T40eq/T50eq and generally worsened log loss/Brier.
+- Study B DXY+T-Bond also failed versus both DXY-only and control.
+- EXP-042 closed; next information family is execution-grade bid/ask/tick/quote data, with true order flow only if genuinely sourced.
