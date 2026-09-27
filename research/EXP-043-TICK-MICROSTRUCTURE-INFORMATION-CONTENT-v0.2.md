@@ -132,3 +132,85 @@ No other design change is permitted.
 A v0.2 PASS remains development evidence and does not itself authorize strategy deployment or protected-period use.
 
 A v0.2 FAIL closes the free Dukascopy quote-microstructure information layer. Do not tune microstructure windows/features on this development sample; move to a genuinely richer source class such as true broker/exchange order book or aggressor-flow data.
+
+
+## Final result — 2026-09-27
+
+Durable result commit:
+
+`d8ac5bf493ac8a6a6311c29e56275d745eb17b48`
+
+Integrity: **PASS**.
+
+Scientific disposition:
+
+`NO_STABLE_TICK_MICROSTRUCTURE_INFORMATION_ADVANTAGE`.
+
+Active six-market universe:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- USDCAD.
+
+AUDUSD/USDCHF remained excluded only by the outcome-blind source-availability diagnostic.
+
+### Execution-cost state vs LOCAL_M5
+
+T40eq:
+- relative log-loss improvement: +0.0043%;
+- Brier worsened slightly;
+- fold wins: 4/6;
+- market non-worse: 3/6;
+- paired-day win fraction: 55.36%.
+
+T50eq:
+- relative log-loss improvement: -0.0306%;
+- Brier worsened;
+- fold wins: 2/6;
+- market non-worse: 2/6;
+- paired-day win fraction: 41.07%.
+
+The layer therefore fails the frozen >=1% information-content requirement and cross-market stability gate.
+
+### Participation state vs LOCAL_M5
+
+T40eq:
+- relative log-loss improvement: -0.0126%;
+- Brier worsened;
+- fold wins: 3/6;
+- market non-worse: 3/6;
+- paired-day win fraction: 46.43%.
+
+T50eq:
+- relative log-loss improvement: -0.0449%;
+- Brier worsened;
+- fold wins: 2/6;
+- market non-worse: 2/6;
+- paired-day win fraction: 39.29%.
+
+### Quote-imbalance state vs LOCAL_M5
+
+T40eq:
+- relative log-loss improvement: -0.0737%;
+- Brier worsened;
+- fold wins: 1/6;
+- market non-worse: 2/6;
+- paired-day win fraction: 42.86%.
+
+T50eq:
+- relative log-loss improvement: -0.1280%;
+- Brier worsened;
+- fold wins: 1/6;
+- market non-worse: 0/6;
+- paired-day win fraction: 39.29%.
+
+No enriched set passes both primary rungs.
+
+**Decision:** close the free Dukascopy broker quote/tick microstructure information family on this development sample.
+
+Do not retune windows, feature signs, availability thresholds, markets, hours or model parameters using these outcomes.
+
+The next materially richer information class is true signed trade/order-flow or order-book/depth data, especially COMEX Gold and representative/centralized FX flow, as already prioritized in the repository's edge-source matrix.
