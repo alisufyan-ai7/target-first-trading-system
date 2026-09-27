@@ -2579,3 +2579,34 @@ The workflow performs two independent full-development M1 downloads, requires by
 No target labels, model outcomes, P&L or protected Jul-Aug/Sep 2026 data are used.
 
 **Exact next action:** trigger one EXP-042 rates/USD proxy repeatability snapshot. PASS => freeze the information-content study using the immutable proxy snapshot.
+
+
+## 2026-09-27 — EXP-042 PROXY SNAPSHOT PASSED / EVENT-COVERAGE PREFLIGHT FROZEN
+
+Durable proxy snapshot result: `16766ebbff9b9636a87f0236c209fb4028233773`.
+
+Snapshot PASS:
+
+- DOLLARIDXUSD: 273,175 rows, two copies byte-for-byte identical;
+- USTBONDTRUSD: 144,445 rows, two copies byte-for-byte identical;
+- both passed schema/coverage/monotonicity/OHLC integrity;
+- immutable archive SHA-256: `86cef306c36f08a12510c563e307a3158dc45d3236a424251db4d1c1bbaedcb4`;
+- release tag: `exp042-rates-usd-proxy-m1-2025-07-01_2026-06-30-v1`;
+- no target labels/P&L/protected-period use.
+
+Before outcome modeling, a zero-outcome proxy-event coverage audit is frozen:
+
+- spec `9ea69bdd6f2cfd90cb7403ee70b098c3be69cc0b`;
+- runner `9eb3c32fe81d8e77851642c6e9c63b0579262cd3`;
+- workflow `03763015b3d45cd85df1670e5298dcee97681bb9`.
+
+Frozen post-release geometry:
+
+- Gate-A events: 65;
+- post-release structurally eligible: 57;
+- ineligible: exactly eight FOMC timestamps at 18:00/19:00 UTC outside the unchanged 06:05-17:55 decision grid;
+- eligible counts by frozen fold: 10, 9, 10, 10, 9, 9.
+
+The coverage audit requires causal pre-event baselines and fresh (<5m) proxy observations at legal structural decision timestamps, >=80% common coverage per eligible event, >=95% pooled common coverage and >=8 covered events per fold.
+
+**Exact next action:** trigger one zero-outcome EXP-042 proxy-event coverage preflight. PASS => freeze EXP-042 rates/USD information-content study.
