@@ -2836,3 +2836,33 @@ Snapshot PASS:
 The stored minute layer contains only execution/participation observables: spread, tick/update intensity, inter-arrival timing, quote freshness and quote-side imbalance. No mid-price OHLC/return fields were stored.
 
 The project is now authorized to freeze one development-only EXP-043 information-content study on the immutable microstructure snapshot.
+
+
+## 2026-09-27 — EXP-043 INFORMATION-CONTENT STUDY FROZEN BEFORE OUTCOMES
+
+Final prospectively frozen implementation:
+
+- information-content spec: `a88f089dc3275c8909942f192eae2b4ae9c0fb46`;
+- runner: `a56df2ede62667dc829d1226de07fc7349ccfd17`;
+- workflow: `38a32707761d8367ef6de808b38f55c560985062`.
+
+Pre-run comparability correction:
+
+- immutable snapshots remain full-year provenance artifacts;
+- predictive model scope begins 2026-03-23, matching EXP-040 exactly;
+- original EXP-040 calibration/evaluation fold boundaries and 120-minute purge are reused;
+- no EXP-043 target outcome had been produced before this correction.
+
+Frozen nested information sets:
+
+`LOCAL_M5 -> PLUS_EXECUTION_COST_STATE -> PLUS_PARTICIPATION_STATE -> PLUS_QUOTE_IMBALANCE_STATE`.
+
+New features use only fully completed microstructure minutes before the decision and exclude generic mid-price OHLC/returns.
+
+Microstructure windows are frozen at 5m / 30m / 60m with minimum observed-minute coverage 4 / 24 / 48. A candidate must be eligible for the entire nested family or it is excluded from every paired comparison.
+
+Primary rungs: T40eq/T50eq.
+
+Promotion gate retains pooled log-loss/Brier/fold/ECE/market criteria and adds paired day-level log-loss wins >=55% to reduce false confidence from correlated intraday rows.
+
+**Exact next action:** trigger exactly one EXP-043 information-content run and resume from its durable result.
