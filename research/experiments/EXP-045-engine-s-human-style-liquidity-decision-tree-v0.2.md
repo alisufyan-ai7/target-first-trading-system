@@ -195,3 +195,24 @@ No validation/holdout data are authorized by preflight PASS alone.
 If an active M1 bar closes at the exact timestamp of a completed active 5m bar, and that 5m bar closes back through the acceptance level, the 5m cancellation is applied **before** using that M1 close for acceptance pullback/MSS/displacement/FVG/entry processing.
 
 This conservative rule prevents same-timestamp intrabar ordering from creating an acceptance candidate.
+
+
+## Zero-outcome implementation checkpoint
+
+Frozen before any v0.2 target/path/P&L outcome:
+
+- final spec including conservative same-timestamp ordering: `a83afb25c543c1772a3ded5fb00ad281a6a3d6db`;
+- final Engine-S v0.2 state machine: `262e3ca7b1322adce2a35b7bcba14d0369d31e51`;
+- source-verifying runner: `b109793b390538e5051f2e2058d936f85d9139f3`;
+- workflow: `47fd28a697b25f08781e267cb22321afa1bf584c`.
+
+Static pre-run audit confirmed:
+
+- source manifest exactly matches the already verified 15-file Engine-H manifest;
+- v0.2 runner uses EngineSv02 and v0.2 result paths;
+- no target-before-stop labels exist in engine code;
+- no MFE/MAE logic exists;
+- no P&L/profit-factor/win-rate logic exists;
+- validation/holdout files are not downloaded.
+
+**Exact next action:** trigger one EXP-045 Engine-S v0.2 zero-outcome preflight.
