@@ -2569,3 +2569,36 @@ Frozen zero-outcome source diagnostic:
 - workflow `dc96a417fa895ddc17eb7b771e6de76077f8b05a`.
 
 **Exact next action:** trigger one source-only availability diagnostic. Do not reinterpret v0.1.
+
+
+## EXP-043 v0.2 ready to run
+
+Source-only diagnostic PASS/explanation:
+
+- durable commit `2005a6187a3dec895d68e066d19a018ac25cd290`;
+- blob `c0f5a33d5a73495922280b241b037e0f81641f33`;
+- disposition `SOURCE_AVAILABILITY_EXPLAINS_EXP043_COVERAGE_FAILURE`.
+
+Outcome-blind excluded markets:
+
+- AUDUSD;
+- USDCHF.
+
+Active v0.2 markets:
+
+- XAUUSD;
+- EURUSD;
+- GBPUSD;
+- USDJPY;
+- EURJPY;
+- USDCAD.
+
+Frozen implementation:
+
+- spec `c09d1da2a8e2864dfe5f945b30ef6ed3fcb0c470`;
+- runner `bcb8308f1cad4d74c556b69d87cd55db7e29de36`;
+- workflow `a79831fc92a3825cb7772a2a733ddec7236e50b0`.
+
+Everything else is unchanged from v0.1. v0.1 remains non-interpretable.
+
+**Exact next action:** trigger one EXP-043 v0.2 run.
