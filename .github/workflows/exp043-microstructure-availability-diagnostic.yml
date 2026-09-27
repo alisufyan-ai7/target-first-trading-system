@@ -1,0 +1,85 @@
+name: EXP-043 Microstructure Availability Coverage Diagnostic
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-043-microstructure-availability-diagnostic.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MICRO_TAG: exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1
+      MICRO_ASSET: exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1.tar.gz
+      MICRO_SHA: f95edf1f7762271941a1d24b3204c4640485d9e7b9b01440fbef86f521f52ca5
+      EXP043_MICRO_DIR: /tmp/exp043-microstructure
+      RESULT: research/results/EXP-043-microstructure-availability-coverage-diagnostic-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependency
+        run: pip install pandas
+
+      - name: Verify runner
+        run: python -m py_compile research/code/run_exp043_microstructure_availability_coverage_diagnostic.py
+
+      - name: Download immutable microstructure snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/exp043-release "$EXP043_MICRO_DIR"
+          gh release download "$MICRO_TAG" --pattern "$MICRO_ASSET" --dir /tmp/exp043-release
+          test "$(sha256sum "/tmp/exp043-release/$MICRO_ASSET" | awk '{print $1}')" = "$MICRO_SHA"
+          tar -xzf "/tmp/exp043-release/$MICRO_ASSET" -C "$EXP043_MICRO_DIR"
+
+      - name: Run zero-outcome source-coverage diagnostic
+        run: python research/code/run_exp043_microstructure_availability_coverage_diagnostic.py
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp043-microstructure-availability-diagnostic
+          path: research/results/EXP-043-microstructure-availability-coverage-diagnostic-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-043 microstructure availability diagnostic"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce zero-outcome scope
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          x=json.loads(pathlib.Path("research/results/EXP-043-microstructure-availability-coverage-diagnostic-v0.1.json").read_text())
+          if x["target_market_ohlc_loaded"] or x["target_labels_loaded"] or x["model_predictions_loaded"] or x["pnl_loaded"]:
+              raise SystemExit("unexpected outcome/model data loaded")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if x["exp043_v01_reinterpreted"]:
+              raise SystemExit("v0.1 was improperly reinterpreted")
+          print("EXP-043 source-coverage diagnostic complete")
+          print(x["disposition"])
+          PY
