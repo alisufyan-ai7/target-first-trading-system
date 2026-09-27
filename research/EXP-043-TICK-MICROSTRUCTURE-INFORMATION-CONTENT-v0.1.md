@@ -83,7 +83,7 @@ Reuse the original EXP-040 fold boundaries:
 For each fold:
 
 - calibration = seven calendar days immediately before evaluation;
-- fit = all eligible development rows from 2025-07-01 before calibration;
+- fit = all eligible development rows from 2026-03-23 before calibration;
 - apply the same 120-minute purge before calibration start and evaluation start.
 
 Protected Jul-Aug/Sep 2026 remain sealed.
@@ -288,3 +288,16 @@ A PASS validates an information layer only. It does not itself authorize a strat
 - FAIL: do not tune tick windows/thresholds on the same development sample. The next materially richer source class is true exchange/broker order-book or aggressor-flow data, which likely requires broker/institutional access.
 
 Engine R and EXP-015 remain paused.
+
+
+## Pre-run comparability correction — 2026-09-27
+
+Before any EXP-043 information-content run was triggered, the fit-history start was corrected from 2025-07-01 to **2026-03-23**.
+
+Reason: EXP-043 must differ from EXP-040 by the information layer, not by a longer model-training history. The original EXP-040 development model began 2026-03-23, so EXP-043 now reuses that exact model start together with the same calibration/evaluation fold boundaries.
+
+The immutable target and microstructure snapshots remain full-year provenance artifacts; the predictive study scopes them to:
+
+`2026-03-23 <= decision_ts < 2026-06-30`.
+
+No EXP-043 target outcome had been produced or inspected before this correction.
