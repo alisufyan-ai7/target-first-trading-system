@@ -216,3 +216,70 @@ Static pre-run audit confirmed:
 - validation/holdout files are not downloaded.
 
 **Exact next action:** trigger one EXP-045 Engine-S v0.2 zero-outcome preflight.
+
+
+## v0.2 zero-outcome result and final sample-adequacy confirmation — 2026-09-27
+
+Durable v0.2 result commit:
+
+`fa21229d80ba5ae0b4b57dbfa3f392722cacb040`
+
+v0.2 remained fully zero-outcome and causally valid.
+
+Observed:
+
+- 57 accepted filled candidates;
+- 45 rejection;
+- 12 acceptance;
+- 55 distinct active signal days;
+- median 1 candidate per active signal day;
+- both directions present in both branches.
+
+The unchanged adequacy gate still failed only on:
+
+- total >=100;
+- acceptance >=25.
+
+The sequential process materially improved v0.1 density (22 -> 57 fills; 21 -> 55 signal days) without exposing profitability.
+
+### Final zero-outcome sample extension
+
+No Engine-S target/P&L outcome has yet been exposed.
+
+Therefore one final **sample-size** confirmation is authorized with the exact same Engine-S v0.2 rules and the exact same adequacy gate.
+
+Frozen source:
+
+- same `kevingtlin/Market-Data-Lab` repository;
+- same pinned source commit `922f83a60cc574e7395fb27397077288055a1ef6`;
+- same XAUUSD BID M1 schema.
+
+Frozen interval:
+
+- warm-up: 2021-12-01 through 2021-12-31;
+- zero-outcome development: 2022-01-01 through 2025-02-28;
+- validation remains sealed from 2025-03-01;
+- fresh holdout remains sealed from 2025-09-01.
+
+No setup rule, level, timebox, pivot, displacement threshold, FVG rule, entry rule, stop rule or USD40 risk cap changes.
+
+The preflight adequacy gate remains exactly:
+
+- >=100 accepted filled candidates total;
+- >=25 rejection;
+- >=25 acceptance;
+- both long and short in each branch;
+- >=50 active signal days;
+- median <=4 accepted candidates per active signal day;
+- causality pass;
+- no validation/holdout;
+- zero target/P&L outcomes.
+
+This extension is for statistical sample adequacy only. It does **not** claim or manufacture higher daily opportunity frequency.
+
+### Anti-loop stop
+
+This is the final zero-outcome density attempt for Engine S v0.2.
+
+- PASS => freeze target/path and management rules before any Engine-S outcome is calculated.
+- FAIL => close Engine S; do not alter density rules again.
