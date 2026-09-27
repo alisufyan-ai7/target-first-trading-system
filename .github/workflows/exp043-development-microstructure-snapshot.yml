@@ -1,0 +1,142 @@
+name: EXP-043 Development Microstructure Snapshot
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-043-development-microstructure-snapshot.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      EXP043_OUTDIR: /tmp/exp043-microstructure
+      TAG: exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1
+      ASSET: exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1.tar.gz
+      ARCHIVE: /tmp/exp043-quote-microstructure-1m-2025-07-01_2026-06-30-v1.tar.gz
+      RESULT: research/results/EXP-043-development-microstructure-snapshot-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned transport
+        run: npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+
+      - name: Verify frozen snapshot code
+        run: |
+          node --check research/code/acquire_exp043_development_microstructure_snapshot.js
+          python -m py_compile research/code/run_exp043_development_microstructure_snapshot.py
+
+      - name: Acquire and aggregate full development tick microstructure
+        run: node research/code/acquire_exp043_development_microstructure_snapshot.js
+
+      - name: Evaluate snapshot integrity
+        id: gate
+        run: |
+          set +e
+          python research/code/run_exp043_development_microstructure_snapshot.py
+          CODE=$?
+          set -e
+          test -f "$RESULT"
+          PASS="$(python - <<'PY'
+          import json
+          x=json.load(open("research/results/EXP-043-development-microstructure-snapshot-v0.1.json"))
+          print("true" if x["snapshot_integrity_pass"] else "false")
+          PY
+          )"
+          echo "pass=$PASS" >> "$GITHUB_OUTPUT"
+          echo "verifier_exit=$CODE" >> "$GITHUB_OUTPUT"
+
+      - name: Build deterministic immutable snapshot archive
+        if: steps.gate.outputs.pass == 'true'
+        run: |
+          set -euo pipefail
+          cp "$RESULT" "$EXP043_OUTDIR/ACQUISITION-RESULT.json"
+          tar --sort=name --mtime='UTC 2026-06-30' --owner=0 --group=0 --numeric-owner             -C "$EXP043_OUTDIR" -cf - . | gzip -n > "$ARCHIVE"
+          SHA="$(sha256sum "$ARCHIVE" | awk '{print $1}')"
+          python - "$SHA" <<'PY'
+          import json,pathlib,sys
+          p=pathlib.Path("research/results/EXP-043-development-microstructure-snapshot-v0.1.json")
+          x=json.loads(p.read_text())
+          x["release"]["archive_sha256"]=sys.argv[1]
+          p.write_text(json.dumps(x,indent=2,sort_keys=True)+"\n")
+          PY
+
+      - name: Create or verify immutable GitHub Release
+        if: steps.gate.outputs.pass == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            rm -rf /tmp/exp043-existing && mkdir -p /tmp/exp043-existing
+            gh release download "$TAG" --pattern "$ASSET" --dir /tmp/exp043-existing
+            test "$(sha256sum "$ARCHIVE" | awk '{print $1}')" = "$(sha256sum "/tmp/exp043-existing/$ASSET" | awk '{print $1}')"
+          else
+            gh release create "$TAG" "$ARCHIVE" "$RESULT"               --target "$GITHUB_SHA"               --title "EXP-043 frozen development quote microstructure snapshot v1"               --notes "Development-only Dukascopy broker quote/tick microstructure aggregated deterministically to UTC minutes. Raw daily canonical hashes retained in manifest. No target labels/P&L/protected Jul-Aug/Sep 2026 data."
+          fi
+
+      - name: Mark snapshot frozen
+        if: steps.gate.outputs.pass == 'true' && success()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("research/results/EXP-043-development-microstructure-snapshot-v0.1.json")
+          x=json.loads(p.read_text())
+          x["release"]["created_or_verified_existing"]=True
+          x["disposition"]="EXP043_DEVELOPMENT_MICROSTRUCTURE_SNAPSHOT_FROZEN"
+          p.write_text(json.dumps(x,indent=2,sort_keys=True)+"\n")
+          PY
+
+      - name: Upload durable result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp043-development-microstructure-snapshot-result
+          path: research/results/EXP-043-development-microstructure-snapshot-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable snapshot result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-043 development microstructure snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce zero-outcome snapshot gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("research/results/EXP-043-development-microstructure-snapshot-v0.1.json")
+          if not p.exists(): raise SystemExit("EXP-043 snapshot result missing")
+          x=json.loads(p.read_text())
+          if x["target_labels_calculated"] or x["scientific_outcomes_calculated"] or x["pnl_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["snapshot_integrity_pass"]:
+              raise SystemExit("EXP-043 snapshot integrity failed")
+          if not x["release"]["created_or_verified_existing"] or not x["release"]["archive_sha256"]:
+              raise SystemExit("EXP-043 immutable release not frozen")
+          print("EXP-043 development microstructure snapshot PASS")
+          PY
