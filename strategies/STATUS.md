@@ -730,3 +730,23 @@ First-stage gate tests only:
 - no protected data / no target-P&L outcomes.
 
 **Next:** one EXP-046 zero-outcome preflight only.
+
+## Engine T v0.1 / EXP-046 — zero-outcome PASS, development protocol frozen
+
+Zero-outcome PASS checkpoint: `3f257487ac32b73bcf605e9cc442678bce9ef662`.
+
+- 185 filled candidates;
+- 103 SHORT / 82 LONG;
+- 167 signal days;
+- median 1/day;
+- causal integrity PASS;
+- zero target/P&L outcomes;
+- protected periods sealed.
+
+Frozen development protocol: `2f2aca9b1a67799f315de286da1f3913493ff865`.
+
+Development evaluator: `17b3bc55e8b267b7c4bf70630863e66b493523f7`.
+
+Workflow: `4201b50ca1147014e1adff6034e90a37d9d22cdb`.
+
+**Next:** one structural-target development run only.
