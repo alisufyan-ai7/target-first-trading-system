@@ -554,3 +554,9 @@
 - Frozen Phase-B official actual reconciliation at spec `0040f86`, runner `5b62473`, workflow `0e5d45c`.
 - Phase B uses one deterministic canonical forecast-bearing component for each of 67 numeric blocks and keeps 8 FOMC blocks timing-only.
 - A Forex Factory Actual is accepted only after component-specific verification against the first-party BLS/Census/BEA source. No market data/outcomes are loaded.
+
+
+- EXP-041 Phase-B official actual reconciliation passed at `fe8e180`: 67/67 numeric blocks verified against first-party sources, 8 FOMC timing-only, zero errors, surprise-layer SHA `ec267643...`.
+- Frozen final Gate-A audit at spec `d9b6dce`, runner `02200aa`, workflow `1520b41`.
+- Final Gate-A collapses exact same-time releases to one independent block and freezes six contiguous chronological evaluation folds before any market outcome modeling.
+- Original data-adequacy thresholds remain unchanged.
