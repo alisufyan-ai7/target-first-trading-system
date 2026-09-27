@@ -1934,3 +1934,23 @@ After EXP-043 failed scientifically, do not create another proxy-flow model from
 **Decision:** Gold-first EXP-044 requires actual COMEX trade/depth or equivalent true book/transaction semantics. FX follows with representative institutional signed flow/book data.
 
 Until such a source is attached reproducibly, stop before modeling rather than weaken the source definition.
+
+
+## 2026-09-27 — Pivot from paid-data boundary back to selective human-style engine research
+
+The user does not authorize paid data before robust profitability exists.
+
+**Decision:** pause EXP-044 paid-source work and return to free-data engine-first research.
+
+The project will no longer assume that another universal information layer must create edge across every broad candidate.
+
+Freeze EXP-045 / Engine S as a selective liquidity decision tree:
+
+- meaningful external location;
+- branch on rejection/reclaim versus acceptance/hold;
+- causal lower-timeframe trigger;
+- non-chasing retracement entry;
+- structural invalidation;
+- structural target path frozen only after zero-outcome preflight.
+
+This is a decision-process change, not another OHLC feature tweak.
