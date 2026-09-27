@@ -2602,3 +2602,22 @@ Frozen implementation:
 Everything else is unchanged from v0.1. v0.1 remains non-interpretable.
 
 **Exact next action:** trigger one EXP-043 v0.2 run.
+
+
+## EXP-043 final closeout
+
+EXP-043 v0.2 durable result: `d8ac5bf493ac8a6a6311c29e56275d745eb17b48`.
+
+Integrity: PASS.
+
+Disposition:
+
+`NO_STABLE_TICK_MICROSTRUCTURE_INFORMATION_ADVANTAGE`.
+
+Execution-cost, participation and quote-imbalance layers all failed the frozen T40/T50 information-advantage gates. Quote imbalance was negative across all six active markets on T50.
+
+EXP-043 is closed. Do not tune this family further on development.
+
+**Next information class:** true signed order flow / order-book depth, with Gold COMEX and representative/centralized FX flow as first-tier targets.
+
+Engine R and EXP-015 remain paused. Jul-Aug/Sep remain sealed.
