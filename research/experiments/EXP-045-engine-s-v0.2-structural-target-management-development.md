@@ -349,3 +349,25 @@ Do not change:
 after development outcomes are produced.
 
 A development PASS authorizes **validation design/execution only**, not live trading.
+
+
+## Pre-run target-map clarifications
+
+These are frozen before any Engine-S post-entry outcome is calculated.
+
+1. **Same-timestamp freshness:** a target level is fresh only if its first completed-active-5m attack close is strictly **after** the candidate fill-signal timestamp. Therefore a level attacked by a 5m bar closing exactly at the fill-signal timestamp is not fresh.
+
+2. **Exact-price duplicates:** if multiple causally known fresh level classes have the exact same source-tick price, keep one target instance using priority:
+   - prior-day high/low;
+   - Asia high/low;
+   - opening-range high/low.
+   The same price cannot serve as both TP1 and TP2.
+
+3. **Outcome path start:** post-entry outcome scanning begins with the first market-active M1 bar strictly after the accepted fill bar. No favorable excursion from the fill M1 bar is credited.
+
+Pinned zero-outcome artifacts:
+
+- extended preflight result Git blob: `717b3f99edd58d47d3e7088b845ddb8a4d0a4583`;
+- immutable accepted-candidate JSONL Git blob: `e49f13b7b558ccd4b35130596ec103eedc800b55`.
+
+The development evaluator must abort if either blob changes.
