@@ -2270,3 +2270,31 @@ Key corrections:
 - unchanged frozen consensus v0.3 input.
 
 **Exact next action:** trigger one official release-time v0.2 reconciliation. PASS => Phase B official actual-as-released reconciliation.
+
+
+## EXP-041 official release-time v0.3 checkpoint
+
+v0.2 durable result: `83b12d3673fb770854f12e93b3c479d7a3f79743`.
+
+Resolved:
+
+- Employment/CPI/PPI all 11/11;
+- Retail 12/12;
+- FOMC 8/8;
+- 2025 BEA blocks.
+
+Unresolved only:
+
+- 14 BEA 2026 GDP/PCE sub-blocks on Jan22, Feb20, Mar13, Apr9, Apr30, May28, Jun25.
+
+This is a BEA schedule parser failure, not missing official data.
+
+Frozen v0.3:
+
+- spec `cc7efa0fdbd6ec75fd6d9b84c3ef64ebf3b95c0a`;
+- runner `232ee1f809c4a2002f2a830c645d8fff11abd9ce`;
+- workflow `8a002c2dc82dc9786932511cf921c90150a5cd21`.
+
+v0.3 parses actual BEA schedule rows/links and keeps displayed official times. All other source mappings remain unchanged.
+
+**Exact next action:** trigger one official release-time v0.3 reconciliation. PASS => Phase B official actual-as-released reconciliation.
