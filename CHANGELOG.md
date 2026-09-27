@@ -636,3 +636,8 @@
 - Implemented EXP-045 / Engine S zero-outcome preflight before outcomes: spec `f23b0d8`, engine `0bcac83`, runner `7e01b47`, workflow `1f32904`.
 - Source manifest exactly matches the previously verified Engine-H development manifest.
 - Preflight intentionally contains no target/MFE/MAE/P&L/post-entry-path computation.
+
+
+- EXP-045 Engine-S v0.1 zero-outcome preflight failed density at `5d70059`: 22 filled candidates from 944 setups; no target/P&L outcomes computed.
+- Frozen Engine-S v0.2 sequential confirmation at spec `a83afb2`, engine `262e3ca`, runner `b109793`, workflow `47fd28a`.
+- v0.2 preserves the same structural criteria and unchanged adequacy gate while separating MSS, displacement, FVG and midpoint-fill timing.
