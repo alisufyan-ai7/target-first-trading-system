@@ -2665,3 +2665,19 @@ Both require causal lower-timeframe confirmation and non-chasing FVG retracement
 The first run is zero-outcome development preflight only. Validation/holdout remain sealed.
 
 **Exact next action:** implement and run Engine-S opportunity-density/causality preflight only.
+
+
+## EXP-045 Engine-S preflight ready
+
+Frozen implementation:
+
+- spec/clarifications `f23b0d83dcc7b74797a606676f9ad9f1b04770a7`;
+- engine `0bcac83dbc4e7d23abe3bd9daab9bb85f5a631b1`;
+- runner `7e01b47d727ac9e2922c4c7484cbb26f860ef1d8`;
+- workflow `1f329041c52106a125b0a6c91d85a3465e50defe`.
+
+No Engine-S profitability outcome exists yet.
+
+The run downloads only Dec-2023 warm-up and Jan-2024 through Feb-2025 development XAUUSD files and measures zero-outcome setup density/causality.
+
+**Exact next action:** trigger one EXP-045 preflight; do not poll; resume from the durable bot checkpoint.
