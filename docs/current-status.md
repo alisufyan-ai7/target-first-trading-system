@@ -2552,3 +2552,30 @@ EXP-041 is CLOSED. No macro-threshold tuning is authorized.
 The governing next information family is **rates/USD market interpretation**, followed by execution-grade order flow.
 
 A free source-feasibility path is now allowed for a prospectively frozen next experiment using new cross-asset instruments only; protected target-market periods remain sealed and Engine R/EXP-015 remain paused.
+
+
+## 2026-09-27 — EXP-042 RATES/USD INTERPRETATION PROXY PREFLIGHT FROZEN
+
+EXP-041 is closed with `NO_STABLE_MACRO_INFORMATION_ADVANTAGE`.
+
+The next orthogonal information family is rates/USD market interpretation.
+
+A zero-outcome EXP-042 data preflight is frozen before any model:
+
+- spec commit: `8f2f63fcb40d3a84f18c48d87c5cbd183702baa6`;
+- downloader commit: `82bc00a8244826fa9aaca5703a3c45c75bbb148c`;
+- verifier commit: `10533a17bf7c4f35b318ce406edf09db40684c37`;
+- workflow commit: `ffb80922dcd65a201ab420020e7b2d00aa0a7c3c`.
+
+Frozen instruments:
+
+- Dukascopy US Dollar Index CFD `dollaridxusd`;
+- Dukascopy US T-Bond instrument `ustbondtrusd`.
+
+These are proxies only. The T-Bond proxy is not treated as equivalent to 2Y/5Y Treasury futures, Fed-funds/SOFR expectations or order flow.
+
+The workflow performs two independent full-development M1 downloads, requires byte-for-byte repeatability and integrity, then freezes an immutable GitHub Release only if both pass.
+
+No target labels, model outcomes, P&L or protected Jul-Aug/Sep 2026 data are used.
+
+**Exact next action:** trigger one EXP-042 rates/USD proxy repeatability snapshot. PASS => freeze the information-content study using the immutable proxy snapshot.
