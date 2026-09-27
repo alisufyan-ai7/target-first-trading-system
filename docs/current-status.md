@@ -3229,3 +3229,45 @@ Frozen adequacy gate:
 - zero outcome computation.
 
 **Exact next action:** trigger exactly one EXP-046 zero-outcome preflight and resume only from its durable GitHub checkpoint.
+
+## 2026-09-28 — EXP-046 ZERO-OUTCOME PASS / STRUCTURAL TARGET DEVELOPMENT FROZEN
+
+Durable zero-outcome checkpoint:
+
+`3f257487ac32b73bcf605e9cc442678bce9ef662`.
+
+Result:
+
+`EXP046_ZERO_OUTCOME_PREFLIGHT_PASS`.
+
+Observed zero-outcome evidence:
+
+- 1,279 breakout setups after fresh external-liquidity attacks;
+- 880 established-acceptance confirmations;
+- 286 qualifying failed auctions within the frozen six-active-M5 failure window;
+- 185 later exact-boundary retest fills;
+- 103 SHORT / 82 LONG;
+- 167 active signal days;
+- median 1 accepted candidate per active signal day, max 2;
+- causality PASS;
+- median structural stop about USD19.01 gross at 0.10 lot;
+- validation / holdout not loaded;
+- no target labels, MFE/MAE, win rate, P&L or post-entry path exposed.
+
+Frozen structural-target / management protocol:
+
+`2f2aca9b1a67799f315de286da1f3913493ff865`.
+
+Evaluator:
+
+`17b3bc55e8b267b7c4bf70630863e66b493523f7`.
+
+Workflow:
+
+`4201b50ca1147014e1adff6034e90a37d9d22cdb`.
+
+The development test deliberately reuses the existing Gold target/cost/sizing/ordering/horizon conventions so the changed variable is failed-auction selection, not outcome economics.
+
+Development gate requires adequate sample plus positive gross/primary/stress R expectancy, primary/stress PF, stress-positive stability in at least 2/3 eras, positive reference-account post-cost expectancy/PF, stress MDD <=USD150, and protected periods sealed.
+
+**Exact next action:** trigger exactly one EXP-046 structural-target development run and resume from its durable checkpoint.
