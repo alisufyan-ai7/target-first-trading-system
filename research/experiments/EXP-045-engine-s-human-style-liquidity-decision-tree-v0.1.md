@@ -265,3 +265,34 @@ No target, MFE/MAE, trade P&L or post-entry path is inspected by these clarifica
 
 
 15. **Pending-entry same-bar ambiguity:** during midpoint-entry search, structural invalidation is evaluated before midpoint fill on the same M1 bar. If one bar touches both the frozen stop and the entry midpoint, the setup is cancelled as `preentry_invalidation_same_bar` and is not counted as an accepted candidate.
+
+
+## Zero-outcome implementation checkpoint — 2026-09-27
+
+No Engine-S target/path/P&L outcome has been calculated.
+
+Frozen implementation:
+
+- final pre-run specification/clarifications: `f23b0d83dcc7b74797a606676f9ad9f1b04770a7`;
+- Engine-S state machine: `0bcac83dbc4e7d23abe3bd9daab9bb85f5a631b1`;
+- source-verifying preflight runner after manifest correction: `7e01b47d727ac9e2922c4c7484cbb26f860ef1d8`;
+- GitHub Actions workflow: `1f329041c52106a125b0a6c91d85a3465e50defe`.
+
+Source manifest was cross-checked exactly against the already-verified EXP-017 Engine-H 15-file Dec-2023 through Feb-2025 manifest.
+
+Static code audit before trigger confirmed:
+
+- rejection and acceptance branches present;
+- daily liquidity consumption present;
+- ambiguous dual-side attacks skipped;
+- non-chasing post-trigger midpoint fill present;
+- conservative pre-entry invalidation ordering present;
+- USD40 structural-risk cap present;
+- no target-before-stop labels;
+- no MFE/MAE engine logic;
+- no P&L/profit-factor/win-rate engine logic;
+- no post-entry path evaluation.
+
+The workflow downloads no validation or holdout file.
+
+**Exact next action:** trigger exactly one EXP-045 zero-outcome preflight and resume from its durable checkpoint.
