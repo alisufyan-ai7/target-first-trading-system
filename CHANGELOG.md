@@ -519,3 +519,9 @@
 - Pre-official-reconciliation inspection found a mechanical parser issue: NFP's Forex Factory label `Non-Farm Employment Change` was omitted, while broad FOMC matching included many speeches/minutes/press conferences.
 - Frozen corrected consensus v0.2 at spec `3489490`, runner `977ac99`, workflow `3e30ce6`.
 - v0.2 adds NFP aliases, restricts FOMC to genuine policy rows, and uses date+family provisional block grouping. No market outcomes/protected periods are involved.
+
+
+- EXP-041 corrected free-consensus v0.2 passed at `308ee5c`: 215 rows, 80 provisional blocks, all required numeric families above the frozen minimum, and FOMC reduced to 8 policy dates.
+- Identity audit found private ADP releases still included in the primary EMPLOYMENT family.
+- Frozen deterministic v0.3 at spec `7a85aea`, runner `64f35f7`, workflow `59aebbb`.
+- v0.3 consumes the exact frozen v0.2 dataset, removes ADP, keeps BLS Employment Situation components, and reruns coverage without network or market outcomes.
