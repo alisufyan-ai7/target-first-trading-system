@@ -1,0 +1,89 @@
+name: EXP-043 Dukascopy Tick Microstructure Preflight
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'research/triggers/EXP-043-tick-microstructure-preflight.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      EXP043_TICK_A: /tmp/exp043-ticks-a
+      EXP043_TICK_B: /tmp/exp043-ticks-b
+      RESULT: research/results/EXP-043-dukascopy-tick-microstructure-source-preflight-v0.1.json
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned Dukascopy transport
+        run: npm install --no-save --ignore-scripts dukascopy-node@1.50.0
+
+      - name: Verify frozen preflight code
+        run: |
+          node --check research/code/download_exp043_tick_microstructure_pilot.js
+          python -m py_compile research/code/run_exp043_tick_microstructure_preflight.py
+
+      - name: Independent tick download A
+        env:
+          EXP043_TICK_DIR: /tmp/exp043-ticks-a
+        run: node research/code/download_exp043_tick_microstructure_pilot.js
+
+      - name: Independent tick download B
+        env:
+          EXP043_TICK_DIR: /tmp/exp043-ticks-b
+        run: node research/code/download_exp043_tick_microstructure_pilot.js
+
+      - name: Evaluate tick semantics and repeatability
+        continue-on-error: true
+        run: python research/code/run_exp043_tick_microstructure_preflight.py
+
+      - name: Upload durable result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp043-tick-microstructure-preflight
+          path: research/results/EXP-043-dukascopy-tick-microstructure-source-preflight-v0.1.json
+          if-no-files-found: warn
+
+      - name: Commit durable result
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f "$RESULT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT"
+          git commit -m "Checkpoint EXP-043 tick microstructure source preflight"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Enforce zero-outcome repeatability gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          x=json.loads(pathlib.Path("research/results/EXP-043-dukascopy-tick-microstructure-source-preflight-v0.1.json").read_text())
+          if x["target_labels_calculated"] or x["pnl_calculated"] or x["scientific_outcomes_calculated"]:
+              raise SystemExit("unexpected outcome computation")
+          if x["protected_periods"]["jul_aug_2026_loaded"] or x["protected_periods"]["sep_2026_loaded"]:
+              raise SystemExit("protected-period leak")
+          if not x["repeatability_gate_pass"]:
+              raise SystemExit("EXP-043 tick source repeatability failed")
+          print("EXP-043 tick microstructure source PASS")
+          PY
