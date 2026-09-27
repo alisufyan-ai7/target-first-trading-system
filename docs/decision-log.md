@@ -1737,3 +1737,23 @@ Phase B `fe8e180` passed all 67 numeric blocks plus 8 FOMC timing-only blocks.
 The final audit freezes six contiguous chronological event folds before any market labels/outcomes are loaded. These folds will be reused by Gate B and cannot be reselected after results.
 
 No original Gate-A threshold is changed.
+
+
+## 2026-09-27 — Gate A passes; authorize frozen macro information-content Gate B
+
+Final EXP-041 Gate A `4208af0` passed every pre-existing adequacy/provenance requirement without protected-period use.
+
+**Decision:** authorize Gate B information-content research only.
+
+Freeze Gate B to:
+
+- immutable Dukascopy v2;
+- exact EXP-040 structural candidate/label mechanics;
+- exact Gate-A 65 event timestamps and six folds;
+- LOCAL_M5 baseline;
+- nested timing then surprise-magnitude information;
+- grouped six-fold outer OOF evaluation;
+- fixed logistic learner and inner OOF Platt calibration;
+- original T40eq/T50eq information-advantage thresholds.
+
+This authorization does not promote a strategy or resume Engine R/EXP-015.
