@@ -3469,3 +3469,57 @@ Workflow:
 The development evaluator deliberately retains EXP-047 execution, cost, sizing, horizon and promotion gates. The intended changed variable is visual chart representation.
 
 **Exact next action:** trigger one EXP-048 development outcome run. Do not open Mar-2025+ unless the complete frozen visual-selection gate passes.
+
+## 2026-09-28 — EXP-048 VISUAL BLINDED SELECTION FAIL / CLOSE BEFORE VALIDATION
+
+Durable development checkpoint:
+
+`12f5d8aa2ed2d8e5f058a9e2394c5935fd7a4fc5`.
+
+Disposition:
+
+`EXP048_VISUAL_BLINDED_SELECTION_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+The visual-representation replication materially improved the frozen signal stream versus EXP-047, but it still failed the prospectively frozen complete development gate.
+
+Observed development-only result:
+
+- 37 filled signals;
+- 21 LONG / 16 SHORT;
+- 6 confidence A / 31 confidence B;
+- outcomes: 22 STOP / 11 TIMEOUT / 4 TP1;
+- gross expectancy +0.8319R;
+- primary expectancy +0.4602R;
+- stress expectancy +0.0886R;
+- primary/stress R PF 1.526 / 1.078;
+- ERA1 stress -1.150R;
+- ERA2 stress +2.070R;
+- ERA3 stress -0.102R;
+- LONG stress +0.765R;
+- SHORT stress -0.799R;
+- reference-account primary expectancy +USD3.38/trade;
+- reference-account stress expectancy -USD1.15/trade;
+- reference primary/stress PF 1.274 / 0.926;
+- primary/stress total P&L +USD124.95 / -USD42.56;
+- stress maximum drawdown ~USD277.72;
+- validation / holdout remained sealed.
+
+Frozen gate failures:
+
+- stress-positive eras >=2/3: FAIL;
+- SHORT stress expectancy >0: FAIL;
+- reference stress expectancy >0: FAIL;
+- reference stress PF >=1.05: FAIL;
+- stress MDD <=USD150: FAIL.
+
+**Decision:** close EXP-048 before validation. Do not rescue by keeping LONG only, ERA2 only, confidence A/B subsets, changing costs, widening stops, changing target rules, or creating another replay-interface variant.
+
+### What EXP-048 did teach us
+
+Actual visual chart representation mattered: compared with EXP-047's compressed numeric/text review, the blinded visual stream moved from negative post-cost normalized expectancy to positive primary and slightly positive stress normalized expectancy.
+
+However, the edge was not stable across eras or directions and did not survive the frozen reference-account stress test.
+
+This means the project should not conclude that visual context is useless. It should conclude that **ChatGPT-generated visual discretion on the same OHLC information is not yet stable enough to promote**.
+
+**Next direction:** stop synthetic reviewer/interface iterations. The next high-value evidence source should be external to the model's own OHLC interpretation: either (a) actual blinded decisions from a proven human trader on frozen replay packets, or (b) genuinely new market information such as true transaction/order-flow data. Under the no-paid-data policy, prioritize human decision-trace acquisition first.
