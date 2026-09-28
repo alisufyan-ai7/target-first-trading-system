@@ -2916,3 +2916,32 @@ Evaluator: `c6240ff1a1237ad5baf8489d755aba48d05f0760`.
 Workflow: `985824ca76f5522d954e3481e86b773b52ccbfb1`.
 
 **Exact next action:** run exactly one EXP-048 development outcome evaluation and interpret the durable result.
+
+## Latest checkpoint — EXP-048 closed negative
+
+EXP-048 visual blinded-selection development checkpoint:
+
+`12f5d8aa2ed2d8e5f058a9e2394c5935fd7a4fc5`.
+
+Disposition:
+
+`EXP048_VISUAL_BLINDED_SELECTION_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+Key result:
+
+- 37 fills;
+- gross +0.832R;
+- primary +0.460R;
+- stress +0.089R;
+- primary/stress R PF 1.526 / 1.078;
+- only ERA2 was stress-positive;
+- LONG stress +0.765R;
+- SHORT stress -0.799R;
+- reference primary +USD3.38/trade;
+- reference stress -USD1.15/trade;
+- stress MDD ~USD277.72;
+- protected validation/holdout untouched.
+
+Do not rescue via LONG-only, ERA2-only, confidence filtering, cost changes, target/stop changes, or another visual replay variant.
+
+**Current research direction:** the next evidence source must be external to ChatGPT's own interpretation of the same OHLC data. Under the no-paid-data policy, prioritize blinded human trader decision traces. If a credible human decision source cannot be obtained, return to the true transaction/order-flow data boundary rather than creating another OHLC-derived engine.
