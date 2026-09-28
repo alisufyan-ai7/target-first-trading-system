@@ -3271,3 +3271,38 @@ The development test deliberately reuses the existing Gold target/cost/sizing/or
 Development gate requires adequate sample plus positive gross/primary/stress R expectancy, primary/stress PF, stress-positive stability in at least 2/3 eras, positive reference-account post-cost expectancy/PF, stress MDD <=USD150, and protected periods sealed.
 
 **Exact next action:** trigger exactly one EXP-046 structural-target development run and resume from its durable checkpoint.
+
+## 2026-09-28 — EXP-046 ENGINE-T DEVELOPMENT FAIL / ENGINE T CLOSED
+
+Durable development checkpoint:
+
+`7bc24e720ddfb119f8d0c2c128f811760ffc7410`.
+
+Disposition:
+
+`ENGINE_T_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+The GitHub Actions run is intentionally red because the final frozen scientific-gate enforcement exits non-zero when `engine_pass=false`. All prior engineering/data/artifact/checkpoint steps succeeded.
+
+Development-only evidence:
+
+- 185 pre-target candidates;
+- 167 target-admitted;
+- 18 rejected for no fresh structural target;
+- 167 signal trades / 153 distinct reference weekdays;
+- TP1 hit rate 7.19%;
+- gross expectancy -0.1377R;
+- primary expectancy -0.4804R;
+- stress expectancy -0.8231R;
+- primary/stress R PF 0.506 / 0.344;
+- all three eras negative under stress;
+- reference primary/stress expectancy -USD5.55 / -USD10.42 per trade;
+- reference primary/stress PF 0.644 / 0.460;
+- stress MDD about USD1,776.46;
+- validation / holdout loaded: false.
+
+**Decision:** close Engine T before validation. Do not rerun, retune failure windows, body thresholds, level classes, hours, target room, costs, or management to rescue it.
+
+The repeated mechanical-engine failures now justify a research-process change rather than another immediate pattern variant.
+
+**Next research direction:** outcome-blinded human-style chart replay on free Gold development data, with causal multi-timeframe context packets and frozen trade/no-trade labels before any future path is revealed. This is intended to test whether discretionary context selection contains information that the deterministic motif engines are losing.
