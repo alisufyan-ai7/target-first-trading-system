@@ -3407,3 +3407,65 @@ That is materially different from how a discretionary visual trader perceives st
 The next experiment may test this representation question only on a **disjoint, outcome-blind replay set**. It must not relabel or reuse the 126 EXP-047 cases.
 
 **Exact next direction:** freeze a disjoint visual-chart replay replication before any new case is reviewed. Protected Mar-2025+ data remains sealed.
+
+## 2026-09-28 — EXP-048 COMPLETE VISUAL REVIEW FROZEN / OUTCOME PROTOCOL READY
+
+Disjoint packet checkpoint:
+
+`30a7866e1806700df02ba88e2e914cc051719659`.
+
+Visual reviewer rubric:
+
+`b667bb565abfed562044b42fd3e779a4c7a6af18`.
+
+All 126 EXP-048 packets were reviewed as rendered H1/M15/M5/M1 candlestick geometry using only the frozen packet bars. No post-decision candle or EXP-048 outcome was opened.
+
+Complete label checkpoint:
+
+`8ad19cccdf061afa02c878c0a88dde4700ad95ad`.
+
+Label summary checkpoint:
+
+`d825cd053bbed99b4f7630f1863b13611eee1e4c`.
+
+Frozen label blob:
+
+`c40a4bb56298d4206ce08ddab2ba9199a45a5732`.
+
+Frozen decisions:
+
+- 126 total;
+- 75 NO_TRADE;
+- 26 LONG;
+- 25 SHORT;
+- 51 trade labels;
+- 14 confidence A;
+- 37 confidence B;
+- all trades use non-chasing LEVEL_RETEST;
+- every trade has a causal entry, structural stop and TP1 intent;
+- feasibility gate PASS naturally;
+- EXP-047 overlap remains zero;
+- protected periods remain sealed.
+
+Trade-plan convention was frozen from the visual packet only:
+
+- entry at the attacked boundary on a later retest;
+- stop one source tick beyond the complete attack-to-decision excursion already visible in the packet;
+- TP1 = nearest fresh directional external liquidity when it has >=1.25R room;
+- otherwise explicit FIXED_2R.
+
+Frozen outcome protocol:
+
+`dd9d1a4a7ad68845c7feea757ec4b505d27cbe48`.
+
+Evaluator:
+
+`c6240ff1a1237ad5baf8489d755aba48d05f0760`.
+
+Workflow:
+
+`985824ca76f5522d954e3481e86b773b52ccbfb1`.
+
+The development evaluator deliberately retains EXP-047 execution, cost, sizing, horizon and promotion gates. The intended changed variable is visual chart representation.
+
+**Exact next action:** trigger one EXP-048 development outcome run. Do not open Mar-2025+ unless the complete frozen visual-selection gate passes.
