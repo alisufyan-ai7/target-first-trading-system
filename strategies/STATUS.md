@@ -750,3 +750,27 @@ Development evaluator: `17b3bc55e8b267b7c4bf70630863e66b493523f7`.
 Workflow: `4201b50ca1147014e1adff6034e90a37d9d22cdb`.
 
 **Next:** one structural-target development run only.
+
+## Engine T v0.1 / EXP-046 — closed before validation
+
+Durable development result: `7bc24e720ddfb119f8d0c2c128f811760ffc7410`.
+
+Disposition: `ENGINE_T_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+- 167 target-admitted trades;
+- gross -0.1377R;
+- primary -0.4804R;
+- stress -0.8231R;
+- primary/stress PF 0.506 / 0.344;
+- all three eras stress-negative;
+- reference primary/stress -USD5.55 / -USD10.42 per trade;
+- stress MDD ~USD1,776;
+- protected validation/holdout untouched.
+
+Do not tune or rerun Engine T.
+
+## Research process change — blinded human replay
+
+Before freezing another mechanical engine, the current primary path is a causal, outcome-blinded human-style Gold replay study. The purpose is to determine whether discretionary context selection can identify a coherent A-grade subset before future candles are visible.
+
+No Engine U is frozen yet.
