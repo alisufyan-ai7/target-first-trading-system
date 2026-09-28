@@ -2047,3 +2047,39 @@ To avoid changing multiple variables at once, Engine T reuses the established Go
 This isolates the scientific test to the new failed-auction selection process.
 
 No protected data is authorized unless the frozen development gate passes.
+
+## 2026-09-28 — Close Engine T; do not treat red CI as an engineering defect
+
+EXP-046 development completed and checkpointed at `7bc24e720ddfb119f8d0c2c128f811760ffc7410`.
+
+The run's final check failed by design because the frozen development gate did not pass; evaluator execution, artifact upload, and durable checkpointing all succeeded.
+
+**Decision:** Engine T closes before validation. No rerun is authorized.
+
+Observed failure is economic, not a sample-size problem:
+
+- sample floors passed;
+- gross, primary and stress expectancy failed;
+- primary/stress profit factors failed;
+- zero stress-positive eras;
+- reference-account post-cost expectancy/PF failed;
+- stress drawdown limit failed.
+
+The next step must change the research process, not merely the pattern threshold.
+
+## 2026-09-28 — Move to blinded human-style replay discovery before another mechanized engine
+
+After Engines S and T both failed despite deliberately human-inspired mechanics, do not immediately encode Engine U from another verbal motif.
+
+**Decision:** first test whether outcome-blinded human-style contextual selection can consistently identify a smaller A-grade subset using only causal multi-timeframe Gold information.
+
+The replay study must:
+
+- preselect events without target/P&L information;
+- show only data available up to a frozen decision timestamp;
+- hide all later candles;
+- freeze LONG / SHORT / NO_TRADE plus entry/stop/target intent before outcomes;
+- checkpoint every label;
+- reveal outcomes only after the complete label set is frozen.
+
+If this process cannot produce a coherent, sufficiently dense candidate set without seeing outcomes, stop rather than invent another mechanical pattern.
