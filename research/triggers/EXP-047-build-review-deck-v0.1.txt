@@ -1,0 +1,7 @@
+EXP-047 blinded review-deck trigger
+Reviewer rubric: 688f90e8d81eed9dd6098b11f377e4f88e423564
+Packet checkpoint: 58ed6163c925b9081b35e53fd46dfa1043653bf6
+Packet SHA-256: 1b436900a9b2cd3193763d6076d5d75f670294da96c92791b76a4d372558c1f1
+Builder: c93ed9843021453bf4574669e4242df31f5e28a8
+Workflow: 903bbe9214038e25a6609993bd5d74680539a26d
+No labels, future paths, or outcomes in this run.
