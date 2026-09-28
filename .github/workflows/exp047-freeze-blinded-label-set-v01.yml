@@ -1,0 +1,62 @@
+name: EXP-047 Freeze Blinded Label Set
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-047-freeze-blinded-label-set-v0.1.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  freeze_labels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verify frozen label validator
+        run: node --check research/code/run-exp047-freeze-blinded-label-set-v01.js
+      - name: Freeze and validate all blinded labels
+        run: node research/code/run-exp047-freeze-blinded-label-set-v01.js
+      - name: Enforce pre-outcome seal
+        run: |
+          node - <<'NODE'
+          const fs=require("fs");
+          const p="research/results/EXP-047-blinded-replay-label-summary-v0.1.json";
+          const s=JSON.parse(fs.readFileSync(p,"utf8"));
+          if(!s.feasibility_gate.pass) throw new Error("blinded label feasibility gate failed");
+          if(s.label_count!==126) throw new Error("label count");
+          if(s.validation_or_holdout_loaded||s.post_decision_path_loaded||s.target_outcomes_evaluated) throw new Error("outcome/protected leak");
+          if(s.disposition!=="EXP047_BLINDED_LABEL_SET_FROZEN_READY_FOR_OUTCOME_EVALUATION") throw new Error("bad disposition");
+          console.log(JSON.stringify({
+            decisions:s.decision_counts,
+            trades:s.trade_labels,
+            confidence:s.confidence_counts,
+            label_sha256:s.label_jsonl_sha256
+          },null,2));
+          NODE
+      - name: Upload frozen label set
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp047-blinded-label-set-v01
+          path: |
+            research/results/EXP-047-blinded-replay-labels-v0.1.jsonl
+            research/results/EXP-047-blinded-replay-label-summary-v0.1.json
+          if-no-files-found: error
+      - name: Commit durable blinded label checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-047-blinded-replay-labels-v0.1.jsonl \
+                  research/results/EXP-047-blinded-replay-label-summary-v0.1.json
+          git commit -m "Checkpoint EXP-047 complete blinded label set v0.1"
+          git pull --rebase origin main
+          git push origin HEAD:main
