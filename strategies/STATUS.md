@@ -774,3 +774,30 @@ Do not tune or rerun Engine T.
 Before freezing another mechanical engine, the current primary path is a causal, outcome-blinded human-style Gold replay study. The purpose is to determine whether discretionary context selection can identify a coherent A-grade subset before future candles are visible.
 
 No Engine U is frozen yet.
+
+## EXP-047 outcome-blinded human-style replay — closed before validation
+
+Durable result: `eaf83fdc987aa03ab202d6b6531e0f50a9797b21`.
+
+The complete label set had been frozen prospectively at `92837503784151a0596618e36700cdc593068233`.
+
+Result:
+
+- 49 trade labels / 33 fills;
+- gross +0.20165R;
+- primary -0.36045R;
+- stress -0.92256R;
+- primary/stress PF 0.711 / 0.460;
+- only ERA1 stress-positive;
+- LONG and SHORT both stress-negative;
+- reference primary/stress -USD7.84 / -USD12.76 per trade;
+- stress MDD USD421.23;
+- protected validation/holdout untouched.
+
+Do not formalize Engine U from favorable EXP-047 subsets.
+
+## Current research-method lead
+
+A single **disjoint visual-chart replay replication** is permitted to test whether spatial chart perception contains useful context lost by the compact numeric/text reviewer cards.
+
+It must use unused event identities only and remain outcome-blind until all labels are frozen.
