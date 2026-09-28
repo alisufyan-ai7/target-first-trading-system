@@ -1,0 +1,5 @@
+EXP-047 blinded human replay packet-build trigger
+Protocol: e5792f4d5980d288d339a82dc1271981534b7867
+Generator: 599b8b3a74738885fefd23005b06612528956a0a
+Workflow: e619e96432bb22204cd3a8d4a3a6f1d6bebaac37
+Zero-outcome packet stage only. Protected periods sealed.
