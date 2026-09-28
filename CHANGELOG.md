@@ -668,3 +668,8 @@
 - The Actions run is red only because the final frozen scientific gate intentionally fails when `engine_pass=false`; evaluator, artifacts and durable checkpoint all succeeded.
 - Engine T closed before validation; protected periods remain sealed.
 - Research process pivots from another immediate mechanized pattern variant to outcome-blinded human-style Gold chart replay / contextual selection discovery.
+
+- Frozen EXP-047 outcome-blinded human-style Gold replay protocol at `e5792f4`.
+- Added deterministic 126-event causal replay packet generator `599b8b3` and workflow `e619e96`.
+- Replay packet stage includes only causal H1/M15/M5/M1 context through frozen decision timestamps and explicitly excludes future candles, outcome labels, P&L and protected data.
+- Complete LONG/SHORT/NO_TRADE labels must later be frozen before any outcome reveal.
