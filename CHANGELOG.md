@@ -690,3 +690,9 @@
 - Visual review materially improved normalized signal economics versus EXP-047, but only 1/3 eras was stress-positive; SHORT and reference-account stress economics failed and stress MDD exceeded the frozen threshold.
 - Closed EXP-048 before validation; protected periods remain sealed.
 - Prohibited another model-self-generated visual replay/interface variant. Next preferred evidence source is blinded decisions from a credible profitable human trader; otherwise return to true-flow data rather than more OHLC pattern mining.
+
+- Created `research/human-strategy-library/` for primary human-trader evidence.
+- Added standard source-analysis template and dedicated Badar workspace.
+- Added cross-source synthesis workspace.
+- Frozen evidence workflow: source evidence first, human logic model second, testable hypothesis only afterward.
+- Full third-party media will not be committed by default; use provenance, timestamped notes and necessary research frames.
