@@ -1,0 +1,10 @@
+{
+  "experiment": "EXP-047",
+  "stage": "compact_blinded_review",
+  "input_review_cards_sha256": "965c9ff4ef2a3eab32df6dafa05f8d0b5d61c43aa210f923d0c255a8ae915879",
+  "count": 126,
+  "compact_sha256": "1c28c675c164ef1dd86cfdb53aaf3753d2b9385d404e08680db2e69c4a64127e",
+  "all_unlabeled": true,
+  "outcome_fields_included": false,
+  "disposition": "EXP047_COMPACT_REVIEW_READY"
+}
