@@ -673,3 +673,9 @@
 - Added deterministic 126-event causal replay packet generator `599b8b3` and workflow `e619e96`.
 - Replay packet stage includes only causal H1/M15/M5/M1 context through frozen decision timestamps and explicitly excludes future candles, outcome labels, P&L and protected data.
 - Complete LONG/SHORT/NO_TRADE labels must later be frozen before any outcome reveal.
+
+- Completed and froze all 126 EXP-047 blinded replay labels at `9283750`: 77 NO_TRADE / 20 LONG / 29 SHORT, 49 trade labels, no outcomes exposed before checkpoint.
+- Froze blinded outcome evaluator at `0306b2f`, then ran one development evaluation.
+- EXP-047 durable result `eaf83fd`: 33 fills, gross +0.20165R but primary -0.36045R / stress -0.92256R, post-cost PF 0.711 / 0.460, 1/3 stress-positive eras, reference primary/stress -USD7.84 / -USD12.76 per trade.
+- Closed EXP-047 before validation; protected periods remain sealed.
+- Authorized only a disjoint outcome-blind visual-chart replay methodology replication; no relabeling or reuse of EXP-047 cases.
