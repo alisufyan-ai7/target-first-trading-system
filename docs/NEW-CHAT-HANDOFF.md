@@ -2855,3 +2855,35 @@ EXP-047 is now frozen as the research-process pivot:
 The first run generates 126 deterministic, outcome-blinded XAUUSD replay packets only. No labels or outcomes are calculated in that run.
 
 **Exact next action:** trigger one packet build and resume from the durable bot checkpoint.
+
+## Latest checkpoint — EXP-047 closed negative
+
+Complete blind-label checkpoint:
+
+`92837503784151a0596618e36700cdc593068233`.
+
+Development outcome checkpoint:
+
+`eaf83fdc987aa03ab202d6b6531e0f50a9797b21`.
+
+Disposition:
+
+`EXP047_BLINDED_HUMAN_SELECTION_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+Key result:
+
+- 49 pre-frozen trade labels;
+- 33 filled;
+- gross +0.202R;
+- primary -0.360R;
+- stress -0.923R;
+- 1/3 stress-positive eras;
+- LONG and SHORT both stress-negative;
+- reference primary/stress -USD7.84 / -USD12.76 per trade;
+- validation/holdout untouched.
+
+Do not rescue EXP-047 via confidence/direction/era filtering or execution retuning.
+
+Methodology lesson: v0.1 used compressed numerical/text review cards rather than rendered charts.
+
+**Next direction:** a separately frozen, disjoint outcome-blind visual-chart replay replication. No EXP-047 event may be reused and Mar-2025+ remains sealed.
