@@ -663,3 +663,8 @@
 - Frozen Engine-T structural target/management development protocol at `2f2aca9`, deliberately reusing existing Gold target/cost/sizing mechanics to isolate failed-auction selection.
 - Added development evaluator `17b3bc5` and workflow `4201b50`.
 - Mar-2025 onward remains sealed until the frozen Engine-T development gate passes.
+
+- EXP-046 Engine T development checkpointed at `7bc24e7` with disposition `ENGINE_T_FAIL_CLOSE_BEFORE_VALIDATION`.
+- The Actions run is red only because the final frozen scientific gate intentionally fails when `engine_pass=false`; evaluator, artifacts and durable checkpoint all succeeded.
+- Engine T closed before validation; protected periods remain sealed.
+- Research process pivots from another immediate mechanized pattern variant to outcome-blinded human-style Gold chart replay / contextual selection discovery.
