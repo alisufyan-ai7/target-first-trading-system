@@ -2887,3 +2887,32 @@ Do not rescue EXP-047 via confidence/direction/era filtering or execution retuni
 Methodology lesson: v0.1 used compressed numerical/text review cards rather than rendered charts.
 
 **Next direction:** a separately frozen, disjoint outcome-blind visual-chart replay replication. No EXP-047 event may be reused and Mar-2025+ remains sealed.
+
+## Active checkpoint — EXP-048 visual labels sealed, outcome run ready
+
+EXP-047 is closed negative.
+
+EXP-048 is the one allowed disjoint visual-representation replication.
+
+Packet checkpoint: `30a7866e1806700df02ba88e2e914cc051719659`.
+
+Complete visual labels: `8ad19cccdf061afa02c878c0a88dde4700ad95ad`.
+
+Counts:
+
+- 126 decisions;
+- 75 NO_TRADE;
+- 26 LONG;
+- 25 SHORT;
+- 51 trades;
+- 14 A / 37 B.
+
+No EXP-048 future path has been opened. Protected Mar-2025+ remains sealed.
+
+Frozen outcome protocol: `dd9d1a4a7ad68845c7feea757ec4b505d27cbe48`.
+
+Evaluator: `c6240ff1a1237ad5baf8489d755aba48d05f0760`.
+
+Workflow: `985824ca76f5522d954e3481e86b773b52ccbfb1`.
+
+**Exact next action:** run exactly one EXP-048 development outcome evaluation and interpret the durable result.
