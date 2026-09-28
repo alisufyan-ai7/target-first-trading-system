@@ -2814,3 +2814,30 @@ Workflow:
 `4201b50ca1147014e1adff6034e90a37d9d22cdb`.
 
 **Exact next action:** trigger one EXP-046 structural-target development run. Interpret the durable JSON result, not the Actions color. Do not load Mar-2025+ unless the frozen development gate passes.
+
+## Latest checkpoint — Engine T closed
+
+EXP-046 / Engine T development durable result:
+
+`7bc24e720ddfb119f8d0c2c128f811760ffc7410`.
+
+Disposition:
+
+`ENGINE_T_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+The red GitHub Actions check is expected scientific-gate behavior, not an execution failure. The durable result exists and protected data remained sealed.
+
+Key economics:
+
+- 167 admitted trades;
+- gross -0.138R;
+- primary -0.480R;
+- stress -0.823R;
+- primary/stress PF 0.506 / 0.344;
+- all three stress eras negative;
+- reference primary/stress -USD5.55 / -USD10.42 per trade;
+- stress MDD ~USD1,776.
+
+Do not rerun or tune Engine T.
+
+**Next path:** outcome-blinded human-style chart replay discovery on free Gold development data before encoding another deterministic engine.
