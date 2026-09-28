@@ -3338,3 +3338,72 @@ The eventual label contract is frozen before review: NO_TRADE / LONG / SHORT, wi
 All 126 labels must be frozen before any post-decision path is revealed.
 
 **Exact next action:** trigger one EXP-047 packet-build workflow.
+
+## 2026-09-28 — EXP-047 COMPLETE BLINDED REVIEW FAIL / CLOSE BEFORE VALIDATION
+
+Complete blinded-label checkpoint:
+
+`92837503784151a0596618e36700cdc593068233`.
+
+The label set was frozen before any post-decision path was opened:
+
+- 126 decisions;
+- 77 NO_TRADE;
+- 20 LONG;
+- 29 SHORT;
+- 49 trade labels;
+- 9 confidence A / 40 confidence B;
+- feasibility gate PASS;
+- label SHA-256 `1bc3ef6cc2491d9a1afcd57512ae6aac78b99f74355948c64ba2808bcd0c9298`.
+
+Frozen outcome protocol:
+
+`0306b2fa2f2cfee1ede9e886f0aa210ce5228f53`.
+
+Durable development result:
+
+`eaf83fdc987aa03ab202d6b6531e0f50a9797b21`.
+
+Disposition:
+
+`EXP047_BLINDED_HUMAN_SELECTION_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+Observed result:
+
+- 49 frozen trade orders;
+- 33 filled signals;
+- 12 retest orders expired;
+- 4 were invalidated before retest fill;
+- outcomes: 25 STOP / 6 TIMEOUT / 2 TP1;
+- gross R expectancy +0.20165R, narrowly passing the prospectively frozen raw-R threshold;
+- primary R expectancy -0.36045R;
+- stress R expectancy -0.92256R;
+- primary / stress R PF 0.711 / 0.460;
+- ERA1 stress +0.358R, ERA2 -1.703R, ERA3 -1.590R;
+- LONG stress -0.626R / SHORT stress -1.115R;
+- confidence A was not better: stress -2.290R on 5 filled A trades;
+- reference account: 33 trades across 32 weekdays;
+- primary / stress expectancy -USD7.84 / -USD12.76 per trade;
+- primary / stress PF 0.460 / 0.312;
+- primary / stress total P&L -USD258.73 / -USD421.23;
+- stress max drawdown USD421.23;
+- validation / holdout remained sealed.
+
+Derived economic diagnostic from the frozen result:
+
+- mean lot was ~0.09848, so average primary friction was ~USD4.92/trade;
+- gross reference-account expectancy before research friction was still about **-USD2.92/trade**.
+
+Therefore the failure is not explained by the conservative friction assumption alone.
+
+**Decision:** close EXP-047 v0.1. Do not rescue it by keeping only LONG, SHORT, confidence A/B, a different retest life, or different stop/target rules.
+
+### Methodology lesson
+
+EXP-047 did test genuine outcome-blinded selection, but the reviewer consumed a compact numerical/text representation of causal H1/M15/M5/M1 state rather than actual rendered charts.
+
+That is materially different from how a discretionary visual trader perceives structure.
+
+The next experiment may test this representation question only on a **disjoint, outcome-blind replay set**. It must not relabel or reuse the 126 EXP-047 cases.
+
+**Exact next direction:** freeze a disjoint visual-chart replay replication before any new case is reviewed. Protected Mar-2025+ data remains sealed.
