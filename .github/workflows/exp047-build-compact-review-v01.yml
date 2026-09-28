@@ -1,0 +1,36 @@
+name: EXP-047 Build Compact Blinded Review
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-047-build-compact-review-v0.1.txt"
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node --check research/code/run-exp047-build-compact-review-v01.js
+      - run: node research/code/run-exp047-build-compact-review-v01.js
+      - name: Integrity
+        run: |
+          node - <<'NODE'
+          const fs=require("fs");
+          const s=JSON.parse(fs.readFileSync("research/results/EXP-047-blinded-replay-compact-review-summary-v0.1.json","utf8"));
+          if(s.count!==126||!s.all_unlabeled||s.outcome_fields_included) throw new Error("integrity");
+          if(s.input_review_cards_sha256!=="965c9ff4ef2a3eab32df6dafa05f8d0b5d61c43aa210f923d0c255a8ae915879") throw new Error("source changed");
+          NODE
+      - name: Commit checkpoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-047-blinded-replay-compact-review-v0.1.jsonl research/results/EXP-047-blinded-replay-compact-review-summary-v0.1.json
+          git commit -m "Checkpoint EXP-047 compact blinded review v0.1"
+          git pull --rebase origin main
+          git push origin HEAD:main
