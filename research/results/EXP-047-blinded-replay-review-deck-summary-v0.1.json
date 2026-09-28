@@ -1,0 +1,11 @@
+{
+  "experiment": "EXP-047",
+  "stage": "blinded_review_deck_generation",
+  "input_packet_sha256": "1b436900a9b2cd3193763d6076d5d75f670294da96c92791b76a4d372558c1f1",
+  "packet_count": 126,
+  "review_cards_sha256": "965c9ff4ef2a3eab32df6dafa05f8d0b5d61c43aa210f923d0c255a8ae915879",
+  "review_deck_sha256": "7684e97e81ebad308fa2bff81e2f63396163213b8720f279e3f7df072d68218d",
+  "all_unlabeled": true,
+  "outcome_fields_included": false,
+  "disposition": "EXP047_REVIEW_DECK_READY"
+}
