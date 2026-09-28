@@ -3306,3 +3306,35 @@ Development-only evidence:
 The repeated mechanical-engine failures now justify a research-process change rather than another immediate pattern variant.
 
 **Next research direction:** outcome-blinded human-style chart replay on free Gold development data, with causal multi-timeframe context packets and frozen trade/no-trade labels before any future path is revealed. This is intended to test whether discretionary context selection contains information that the deterministic motif engines are losing.
+
+## 2026-09-28 — EXP-047 OUTCOME-BLINDED HUMAN REPLAY PACKET STAGE FROZEN
+
+After Engine T closed, the next step changes the research process rather than immediately encoding another mechanized entry pattern.
+
+Frozen EXP-047 protocol:
+
+`e5792f4d5980d288d339a82dc1271981534b7867`.
+
+Packet generator:
+
+`599b8b3a74738885fefd23005b06612528956a0a`.
+
+Workflow:
+
+`e619e96432bb22204cd3a8d4a3a6f1d6bebaac37`.
+
+Purpose:
+
+- construct 126 deterministic Gold replay packets;
+- 7 events per each of 6 meaningful-liquidity classes in each of 3 eras;
+- include causal H1/M15/M5/M1 context only through a frozen decision timestamp 15 active M1 bars after the first level attack;
+- hide every later candle;
+- include no target label, MFE/MAE, win/loss, P&L or protected-period source.
+
+Replay labels are not produced in the packet-build run.
+
+The eventual label contract is frozen before review: NO_TRADE / LONG / SHORT, with entry style, causal entry, structural stop, TP1 intent and A/B/C confidence.
+
+All 126 labels must be frozen before any post-decision path is revealed.
+
+**Exact next action:** trigger one EXP-047 packet-build workflow.
