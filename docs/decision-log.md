@@ -2144,3 +2144,41 @@ This isolates the representation question as far as practical:
 `compressed numeric/text review -> rendered chart review`.
 
 If the pooled visual stream fails its frozen gate, do not create another visual-interface/replay variant.
+
+## 2026-09-28 — Close EXP-048 after valid visual-representation replication
+
+EXP-048 completed the permitted one-time visual-representation replication on a disjoint, outcome-blind set.
+
+Durable result: `12f5d8aa2ed2d8e5f058a9e2394c5935fd7a4fc5`.
+
+**Decision:** close EXP-048 before validation.
+
+The visual representation materially improved the signal-level economics versus EXP-047, but the complete frozen gate still failed because robustness was not broad enough:
+
+- only 1/3 eras stress-positive;
+- SHORT stress expectancy negative;
+- reference-account stress expectancy negative;
+- reference stress PF below threshold;
+- stress drawdown above the frozen limit.
+
+Do not post-hoc promote LONG-only, ERA2-only, confidence subsets or altered execution economics.
+
+The representation hypothesis is therefore informative but not sufficient for promotion.
+
+## 2026-09-28 — Stop model-self-generated discretionary replay variants
+
+EXP-047 and EXP-048 together now answer the methodology question sufficiently for this development pool:
+
+- compressed numeric/text blinded selection: failed;
+- rendered visual blinded selection: materially better, but still unstable and failed the complete economic gate.
+
+**Decision:** no EXP-049 as another ChatGPT visual/interface/rubric replay variant.
+
+The next evidence source must be external to the model's own interpretation of the same OHLC stream.
+
+Priority under the no-paid-data policy:
+
+1. obtain actual blinded replay decisions from a demonstrably profitable human trader / the original strategy practitioner if available;
+2. freeze those decisions before outcomes;
+3. compare human labels with EXP-048 visual labels and evaluate only under a prospectively frozen protocol;
+4. if no credible human-label source is available, return to the true-flow data boundary rather than invent another OHLC pattern.
