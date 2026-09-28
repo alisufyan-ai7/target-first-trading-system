@@ -1,0 +1,8 @@
+EXP-047 complete blinded-label freeze trigger
+Parent protocol: e5792f4d5980d288d339a82dc1271981534b7867
+Reviewer rubric: 688f90e8d81eed9dd6098b11f377e4f88e423564
+Packet checkpoint: 58ed6163c925b9081b35e53fd46dfa1043653bf6
+Compact review checkpoint: 5b6ee178bf9f51e8c8415909574e7ee0c9366aab
+Parts: 91f58907b70cdc1e2c16aaab3c599a76f665ba5e / f0284e28d1d413e242299482108ed08040dc8e08 / 345d1d76a5c3374a0016f79695d21dff339a5c3c
+Validator: a03c1eddd8044e2f3bf77647e19abf20efdc21a7
+No outcome reveal is authorized before this checkpoint passes.
