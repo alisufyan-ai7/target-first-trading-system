@@ -679,3 +679,9 @@
 - EXP-047 durable result `eaf83fd`: 33 fills, gross +0.20165R but primary -0.36045R / stress -0.92256R, post-cost PF 0.711 / 0.460, 1/3 stress-positive eras, reference primary/stress -USD7.84 / -USD12.76 per trade.
 - Closed EXP-047 before validation; protected periods remain sealed.
 - Authorized only a disjoint outcome-blind visual-chart replay methodology replication; no relabeling or reuse of EXP-047 cases.
+
+- Completed outcome-blind visual review of all 126 disjoint EXP-048 packets and froze labels at `8ad19cc`.
+- Frozen stream: 75 NO_TRADE, 26 LONG, 25 SHORT, 51 trades, 14 A / 37 B; feasibility gate PASS.
+- Label blob `c40a4bb56298d4206ce08ddab2ba9199a45a5732`; no post-decision path or protected data opened before the freeze.
+- Frozen EXP-048 outcome protocol `dd9d1a4`, evaluator `c6240ff`, workflow `985824c`.
+- Outcome economics/gates intentionally match EXP-047 to isolate rendered-chart representation.
