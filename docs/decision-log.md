@@ -2182,3 +2182,17 @@ Priority under the no-paid-data policy:
 2. freeze those decisions before outcomes;
 3. compare human labels with EXP-048 visual labels and evaluate only under a prospectively frozen protocol;
 4. if no credible human-label source is available, return to the true-flow data boundary rather than invent another OHLC pattern.
+
+## 2026-09-28 — Create an in-repository human-source evidence library
+
+Rather than opening a separate repository immediately, keep primary human-trader source analysis in the existing Target-First Trading System repository so source evidence, formalization and later experiments remain linked.
+
+**Decision:** use `research/human-strategy-library/` as the canonical workspace.
+
+Badar material will be stored under `traders/badar/` with sequential source IDs. Other traders will receive separate source directories when material is supplied.
+
+Separate raw source evidence from researcher interpretation and from later testable-rule formalization.
+
+Do not treat social-media profitability claims as verified performance merely because the source presents winning trades.
+
+A separate repository may be considered later if media volume, licensing boundaries or collaboration needs make separation useful; no migration is needed now.
