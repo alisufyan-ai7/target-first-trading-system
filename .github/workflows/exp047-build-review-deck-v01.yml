@@ -1,0 +1,72 @@
+name: EXP-047 Build Blinded Review Deck
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/triggers/EXP-047-build-review-deck-v0.1.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  build_review_deck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify frozen review-deck builder
+        run: node --check research/code/run-exp047-build-review-deck-v01.js
+
+      - name: Verify reviewer rubric and packet checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f research/experiments/EXP-047-blinded-human-replay-reviewer-rubric-v0.1.md
+          test -f research/results/EXP-047-blinded-replay-packets-v0.1.jsonl
+
+      - name: Build outcome-blind review deck
+        run: node research/code/run-exp047-build-review-deck-v01.js
+
+      - name: Enforce review-deck integrity
+        run: |
+          node - <<'NODE'
+          const fs=require("fs");
+          const s=JSON.parse(fs.readFileSync("research/results/EXP-047-blinded-replay-review-deck-summary-v0.1.json","utf8"));
+          if(s.input_packet_sha256!=="1b436900a9b2cd3193763d6076d5d75f670294da96c92791b76a4d372558c1f1") throw new Error("packet changed");
+          if(s.packet_count!==126) throw new Error("card count");
+          if(!s.all_unlabeled) throw new Error("premature label");
+          if(s.outcome_fields_included) throw new Error("outcome leak");
+          if(s.disposition!=="EXP047_REVIEW_DECK_READY") throw new Error("bad disposition");
+          NODE
+
+      - name: Upload review deck
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp047-blinded-review-deck-v01
+          path: |
+            research/results/EXP-047-blinded-replay-review-deck-summary-v0.1.json
+            research/results/EXP-047-blinded-replay-review-cards-v0.1.jsonl
+            research/results/EXP-047-blinded-replay-review-deck-v0.1.md
+          if-no-files-found: error
+
+      - name: Commit durable review-deck checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/results/EXP-047-blinded-replay-review-deck-summary-v0.1.json \
+                  research/results/EXP-047-blinded-replay-review-cards-v0.1.jsonl \
+                  research/results/EXP-047-blinded-replay-review-deck-v0.1.md
+          git commit -m "Checkpoint EXP-047 blinded review deck v0.1"
+          git pull --rebase origin main
+          git push origin HEAD:main
