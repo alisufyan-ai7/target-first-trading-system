@@ -2083,3 +2083,34 @@ The replay study must:
 - reveal outcomes only after the complete label set is frozen.
 
 If this process cannot produce a coherent, sufficiently dense candidate set without seeing outcomes, stop rather than invent another mechanical pattern.
+
+## 2026-09-28 — Close EXP-047 after a valid blinded-selection failure
+
+EXP-047 completed the full anti-hindsight sequence:
+
+1. deterministic zero-outcome packets;
+2. reviewer rubric frozen;
+3. all 126 labels frozen;
+4. execution/outcome protocol frozen;
+5. only then were post-decision paths loaded.
+
+Durable result: `eaf83fdc987aa03ab202d6b6531e0f50a9797b21`.
+
+**Decision:** close EXP-047 v0.1 before validation.
+
+The pooled blinded selections narrowly exceeded the +0.20R gross normalized threshold but failed every post-cost/stability/economic gate. Both directions were stress-negative, only 1/3 eras was stress-positive, and capped-lot gross dollar expectancy was negative even before research friction.
+
+Do not post-hoc retain the favorable ERA1, one direction, one confidence level, filled-only execution variant, or different cost/target/stop settings.
+
+## 2026-09-28 — Permit one disjoint visual-replay methodology replication
+
+A methodological limitation was identified without changing any EXP-047 label:
+
+- the reviewer judged compressed numeric/text cards;
+- profitable discretionary traders normally consume spatial chart geometry visually.
+
+**Decision:** one new experiment may test actual rendered multi-timeframe chart perception, but only on an outcome-blind event set disjoint from all EXP-047 packets.
+
+The new set must be selected prospectively from unused event identities, frozen before chart review, and must keep Mar-2025+ protected periods sealed.
+
+This is a representation-method replication, not an EXP-047 outcome rescue.
