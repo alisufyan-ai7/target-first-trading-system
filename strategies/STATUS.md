@@ -801,3 +801,24 @@ Do not formalize Engine U from favorable EXP-047 subsets.
 A single **disjoint visual-chart replay replication** is permitted to test whether spatial chart perception contains useful context lost by the compact numeric/text reviewer cards.
 
 It must use unused event identities only and remain outcome-blind until all labels are frozen.
+
+## EXP-048 disjoint visual replay — labels frozen, outcome development ready
+
+This is a representation-method replication, not a deployable engine.
+
+Frozen visual review:
+
+- 126 disjoint packets;
+- 75 NO_TRADE;
+- 26 LONG;
+- 25 SHORT;
+- 51 trade labels;
+- 14 A / 37 B;
+- feasibility PASS;
+- no outcomes exposed before freeze.
+
+Complete label commit: `8ad19cccdf061afa02c878c0a88dde4700ad95ad`.
+
+Outcome protocol: `dd9d1a4a7ad68845c7feea757ec4b505d27cbe48`.
+
+**Next:** one development outcome run. If pooled visual selection fails, no further replay-interface rescue is permitted.
