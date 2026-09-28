@@ -1,0 +1,6 @@
+EXP-047 blinded human selection development trigger
+Complete labels checkpoint: 92837503784151a0596618e36700cdc593068233
+Labels SHA-256: 1bc3ef6cc2491d9a1afcd57512ae6aac78b99f74355948c64ba2808bcd0c9298
+Frozen outcome protocol: 0306b2fa2f2cfee1ede9e886f0aa210ce5228f53
+Evaluator: 9e4045859f8e366d1b8e1ddcaddef5a17ce8bf13
+Development only through 2025-02-28. Validation and holdout sealed.
