@@ -685,3 +685,8 @@
 - Label blob `c40a4bb56298d4206ce08ddab2ba9199a45a5732`; no post-decision path or protected data opened before the freeze.
 - Frozen EXP-048 outcome protocol `dd9d1a4`, evaluator `c6240ff`, workflow `985824c`.
 - Outcome economics/gates intentionally match EXP-047 to isolate rendered-chart representation.
+
+- EXP-048 visual blinded-selection development checkpointed at `12f5d8a` with disposition `EXP048_VISUAL_BLINDED_SELECTION_FAIL_CLOSE_BEFORE_VALIDATION`.
+- Visual review materially improved normalized signal economics versus EXP-047, but only 1/3 eras was stress-positive; SHORT and reference-account stress economics failed and stress MDD exceeded the frozen threshold.
+- Closed EXP-048 before validation; protected periods remain sealed.
+- Prohibited another model-self-generated visual replay/interface variant. Next preferred evidence source is blinded decisions from a credible profitable human trader; otherwise return to true-flow data rather than more OHLC pattern mining.
