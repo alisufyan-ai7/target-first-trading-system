@@ -2841,3 +2841,17 @@ Key economics:
 Do not rerun or tune Engine T.
 
 **Next path:** outcome-blinded human-style chart replay discovery on free Gold development data before encoding another deterministic engine.
+
+## Active research path — EXP-047 blinded human replay
+
+Engine T is closed negative. Do not rerun it.
+
+EXP-047 is now frozen as the research-process pivot:
+
+- protocol `e5792f4d5980d288d339a82dc1271981534b7867`;
+- packet generator `599b8b3a74738885fefd23005b06612528956a0a`;
+- workflow `e619e96432bb22204cd3a8d4a3a6f1d6bebaac37`.
+
+The first run generates 126 deterministic, outcome-blinded XAUUSD replay packets only. No labels or outcomes are calculated in that run.
+
+**Exact next action:** trigger one packet build and resume from the durable bot checkpoint.
