@@ -2114,3 +2114,33 @@ A methodological limitation was identified without changing any EXP-047 label:
 The new set must be selected prospectively from unused event identities, frozen before chart review, and must keep Mar-2025+ protected periods sealed.
 
 This is a representation-method replication, not an EXP-047 outcome rescue.
+
+## 2026-09-28 — Freeze complete EXP-048 visual labels before outcomes
+
+The disjoint EXP-048 packet set was reviewed visually using rendered H1/M15/M5/M1 candlestick charts only.
+
+**Decision:** freeze all 126 decisions before opening any future path.
+
+Frozen stream:
+
+- 75 NO_TRADE;
+- 26 LONG;
+- 25 SHORT;
+- 51 trades;
+- 14 A / 37 B;
+- all entries are non-chasing boundary retests;
+- all entries/stops/targets derive only from causal packet information.
+
+The feasibility gate passes without changing labels to manufacture density.
+
+## 2026-09-28 — Hold outcome economics constant for visual representation replication
+
+EXP-048 is a methodology replication of EXP-047, not a new strategy family.
+
+**Decision:** use the same 60-active-M1 retest lifetime, conservative ordering, 120-active-M1/20:00 horizon, Gold costs, USD500 reference sizing, one-open rule, daily state and promotion gate as EXP-047.
+
+This isolates the representation question as far as practical:
+
+`compressed numeric/text review -> rendered chart review`.
+
+If the pooled visual stream fails its frozen gate, do not create another visual-interface/replay variant.
