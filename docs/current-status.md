@@ -3523,3 +3523,28 @@ However, the edge was not stable across eras or directions and did not survive t
 This means the project should not conclude that visual context is useless. It should conclude that **ChatGPT-generated visual discretion on the same OHLC information is not yet stable enough to promote**.
 
 **Next direction:** stop synthetic reviewer/interface iterations. The next high-value evidence source should be external to the model's own OHLC interpretation: either (a) actual blinded decisions from a proven human trader on frozen replay packets, or (b) genuinely new market information such as true transaction/order-flow data. Under the no-paid-data policy, prioritize human decision-trace acquisition first.
+
+## 2026-09-28 — HUMAN STRATEGY EVIDENCE LIBRARY CREATED
+
+The project will now ingest primary-source human-trader material one source at a time before translating it into new engines.
+
+Canonical workspace:
+
+`research/human-strategy-library/`
+
+Initial structure:
+
+- `README.md` — evidence hierarchy and governance;
+- `templates/source-analysis-template.md` — standard source unpacking format;
+- `traders/badar/` — Badar-specific source evidence;
+- `cross-source/` — concepts supported by multiple independent sources.
+
+Evidence order is frozen conceptually as:
+
+`SOURCE EVIDENCE -> HUMAN LOGIC MODEL -> FROZEN HYPOTHESIS -> DEVELOPMENT TEST -> SEALED VALIDATION`
+
+For each uploaded video/post, preserve source metadata, timestamps, direct claims, visible chart evidence, discretionary cues, no-trade conditions, ambiguity, and researcher inference separately.
+
+Do not commit full third-party videos by default. Prefer metadata, source references, timestamped notes and only necessary research frames.
+
+**Exact next action:** ingest the first user-supplied Badar video/post as a new sequential source ID and unpack it without using future project backtest outcomes to rewrite the source logic.
