@@ -2945,3 +2945,29 @@ Key result:
 Do not rescue via LONG-only, ERA2-only, confidence filtering, cost changes, target/stop changes, or another visual replay variant.
 
 **Current research direction:** the next evidence source must be external to ChatGPT's own interpretation of the same OHLC data. Under the no-paid-data policy, prioritize blinded human trader decision traces. If a credible human decision source cannot be obtained, return to the true transaction/order-flow data boundary rather than creating another OHLC-derived engine.
+
+## Human-source strategy ingestion now active
+
+A canonical evidence library has been created at:
+
+`research/human-strategy-library/`.
+
+Badar workspace:
+
+`research/human-strategy-library/traders/badar/`.
+
+For each newly uploaded Badar video/post:
+
+1. assign sequential source ID;
+2. record source metadata/provenance;
+3. extract timestamped explicit statements and visible chart evidence;
+4. preserve only necessary screenshots/frames;
+5. separate SOURCE_EXPLICIT / SOURCE_VISUAL / RESEARCHER_INFERENCE;
+6. document context, setup, entry, invalidation, target, management and no-trade logic;
+7. capture unresolved ambiguity;
+8. only after multiple sources support recurring logic, formalize a strategy model;
+9. freeze a testable hypothesis before any development outcome evaluation.
+
+Do not store full third-party videos in Git by default.
+
+**Exact next action:** analyze the next user-uploaded Badar source as `BADAR-VID-001` unless its media type requires another source prefix.
