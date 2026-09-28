@@ -822,3 +822,31 @@ Complete label commit: `8ad19cccdf061afa02c878c0a88dde4700ad95ad`.
 Outcome protocol: `dd9d1a4a7ad68845c7feea757ec4b505d27cbe48`.
 
 **Next:** one development outcome run. If pooled visual selection fails, no further replay-interface rescue is permitted.
+
+## EXP-048 visual blinded selection — closed before validation
+
+Durable result: `12f5d8aa2ed2d8e5f058a9e2394c5935fd7a4fc5`.
+
+Disposition: `EXP048_VISUAL_BLINDED_SELECTION_FAIL_CLOSE_BEFORE_VALIDATION`.
+
+- 37 filled signals;
+- gross +0.8319R;
+- primary +0.4602R;
+- stress +0.0886R;
+- primary/stress R PF 1.526 / 1.078;
+- ERA stress: -1.150 / +2.070 / -0.102R;
+- LONG stress +0.765R;
+- SHORT stress -0.799R;
+- reference primary/stress +USD3.38 / -USD1.15 per trade;
+- stress MDD ~USD277.72;
+- validation / holdout untouched.
+
+Visual representation improved the stream materially, but robustness failed. Do not promote or rescue favorable cohorts.
+
+## Current research state
+
+No strategy engine is promoted.
+
+No further ChatGPT-only replay/interface variant is authorized on the same development pool.
+
+Preferred next evidence source: actual blinded human-trader decisions under the same anti-hindsight framework. If unavailable, new market information is required rather than another OHLC-derived motif.
