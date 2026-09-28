@@ -2196,3 +2196,18 @@ Separate raw source evidence from researcher interpretation and from later testa
 Do not treat social-media profitability claims as verified performance merely because the source presents winning trades.
 
 A separate repository may be considered later if media volume, licensing boundaries or collaboration needs make separation useful; no migration is needed now.
+
+
+## 2026-09-28 — BADAR-VID-001: preserve confirmation hierarchy, do not formalize after one source
+
+The first Badar primary-source video has been ingested as `BADAR-VID-001`.
+
+**Decision:** record the five confirmation concepts faithfully but do **not** create a new engine or declare them recurring Badar rules.
+
+The source repeatedly demonstrates confirmations at highlighted zones and explicitly teaches that two strong confirmations at the same level increase the importance of that zone. This makes “location -> confirmation -> possible confluence” a high-value research hypothesis.
+
+However, the source does not define zone construction, exact entry execution, stop, target, management, session/news filter, HTF hierarchy or general no-trade logic.
+
+The visible handwritten `sweep` / possible `sweep LS` annotations are retained as source evidence only. They are not sufficient to retrofit the source into prior liquidity-sweep engines.
+
+Cross-source synthesis remains unchanged because only one Badar source has been analyzed.

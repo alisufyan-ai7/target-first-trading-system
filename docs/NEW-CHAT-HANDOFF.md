@@ -2971,3 +2971,34 @@ For each newly uploaded Badar video/post:
 Do not store full third-party videos in Git by default.
 
 **Exact next action:** analyze the next user-uploaded Badar source as `BADAR-VID-001` unless its media type requires another source prefix.
+
+
+## Latest primary-human checkpoint — BADAR-VID-001 analyzed
+
+First Badar source:
+
+`research/human-strategy-library/traders/badar/BADAR-VID-001/`
+
+Source SHA-256:
+
+`da45fbfd095a82a84037951b8df7a59f69d5a3fd5be78ef7e606cb224fb5be33`.
+
+Source-visible confirmation set:
+
+1. bullish/bearish engulfing;
+2. two-candles rejection;
+3. momentum shift;
+4. inverse closing;
+5. two confirmations at the same zone.
+
+Provisional source lesson:
+
+`location / zone -> confirmation -> optional same-zone confirmation stacking`.
+
+Do not overstate this. Only one source exists and the zone-selection layer is still undefined.
+
+Unresolved: HTF hierarchy, exact zone construction, sweep definition, entry order, stop/invalidation, target, management, session/news and skip/no-trade rules.
+
+No new engine is authorized.
+
+**Next:** ingest the next user-supplied Badar source. Use `BADAR-VID-002` if it is the next video.

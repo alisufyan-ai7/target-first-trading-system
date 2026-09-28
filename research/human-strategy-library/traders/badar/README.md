@@ -47,3 +47,12 @@ Recommended contents:
 Do not assume that an idea is part of Badar's strategy because it resembles ICT/SMC/liquidity terminology or because our previous engines used it.
 
 It counts as Badar-source evidence only when the uploaded material supports it.
+
+
+## Source index
+
+| Source ID | Type | Short description | Status |
+|---|---|---|---|
+| `BADAR-VID-001` | Video | Top 5 entry confirmations: engulfing, two-candles rejection, momentum shift, inverse closing, same-zone confluence | Analyzed; single-source evidence only |
+
+Cumulative synthesis: `CUMULATIVE-SYNTHESIS.md`.

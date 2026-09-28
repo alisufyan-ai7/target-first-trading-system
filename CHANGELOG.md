@@ -696,3 +696,10 @@
 - Added cross-source synthesis workspace.
 - Frozen evidence workflow: source evidence first, human logic model second, testable hypothesis only afterward.
 - Full third-party media will not be committed by default; use provenance, timestamped notes and necessary research frames.
+
+
+- Ingested first primary Badar source as `BADAR-VID-001`.
+- Added exact source provenance/hash, timestamped evidence analysis, strategy notes, frame-reference policy and cumulative Badar synthesis.
+- Source teaches five entry confirmations and explicitly emphasizes multiple confirmations at the same zone.
+- Kept visible `sweep` annotations as evidence only; no liquidity rule inferred.
+- No strategy formalization/backtest authorized after one source; next action is BADAR source #2.

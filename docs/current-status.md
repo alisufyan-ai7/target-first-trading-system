@@ -3548,3 +3548,36 @@ For each uploaded video/post, preserve source metadata, timestamps, direct claim
 Do not commit full third-party videos by default. Prefer metadata, source references, timestamped notes and only necessary research frames.
 
 **Exact next action:** ingest the first user-supplied Badar video/post as a new sequential source ID and unpack it without using future project backtest outcomes to rewrite the source logic.
+
+
+## 2026-09-28 — BADAR-VID-001 PRIMARY SOURCE INGESTED
+
+First Badar primary-source video is now durably analyzed under:
+
+`research/human-strategy-library/traders/badar/BADAR-VID-001/`.
+
+Source fingerprint:
+
+`da45fbfd095a82a84037951b8df7a59f69d5a3fd5be78ef7e606cb224fb5be33`.
+
+The source teaches five entry confirmations:
+
+- bullish/bearish engulfing;
+- two-candles rejection;
+- momentum shift;
+- inverse closing;
+- two confirmations at the same zone.
+
+Strongest source-backed methodological clue:
+
+**confirmation is repeatedly demonstrated at a pre-existing zone, and the final section explicitly values two confirmations at the same level.**
+
+This is not yet a complete Badar strategy. Zone construction, exact entry timing, stop/invalidation, target, management, session/news rules, HTF hierarchy and broad no-trade logic remain unresolved.
+
+No engine, backtest or frozen hypothesis is authorized from this one source.
+
+Cumulative Badar synthesis created at:
+
+`research/human-strategy-library/traders/badar/CUMULATIVE-SYNTHESIS.md`.
+
+**Exact next action:** ingest the next user-supplied Badar source. If it is a video, use `BADAR-VID-002`; use the appropriate independent sequential prefix for a post/image.
