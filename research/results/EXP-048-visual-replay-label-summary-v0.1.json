@@ -1,0 +1,41 @@
+{
+  "experiment": "EXP-048",
+  "stage": "complete_visual_blinded_label_freeze",
+  "parent_protocol_commit": "59d426bd56c82a7d48a6081bc695a7a8eaa657e7",
+  "reviewer_rubric_commit": "b667bb565abfed562044b42fd3e779a4c7a6af18",
+  "packet_checkpoint_commit": "30a7866e1806700df02ba88e2e914cc051719659",
+  "packet_blob": "7ad151791071f86737c31315ae55e8fdfc4800c8",
+  "label_checkpoint_commit": "8ad19cccdf061afa02c878c0a88dde4700ad95ad",
+  "label_blob": "c40a4bb56298d4206ce08ddab2ba9199a45a5732",
+  "review_representation": "rendered H1/M15/M5/M1 candlestick contact sheets generated only from frozen packet bars",
+  "labels_total": 126,
+  "no_trade": 75,
+  "long": 26,
+  "short": 25,
+  "trade_labels": 51,
+  "confidence": {
+    "A": 14,
+    "B": 37,
+    "C": 0
+  },
+  "entry_style": {
+    "LEVEL_RETEST": 51
+  },
+  "feasibility_gate": {
+    "all_126_labeled": true,
+    "trades_ge_30": true,
+    "long_ge_10": true,
+    "short_ge_10": true,
+    "confidence_ab_ge_20": true,
+    "causal_entry_stop_tp1_all_trades": true,
+    "disjoint_from_exp047": true,
+    "protected_periods_sealed": true
+  },
+  "feasibility_pass": true,
+  "validation_or_holdout_loaded": false,
+  "post_decision_path_loaded": false,
+  "target_outcomes_evaluated": false,
+  "pnl_calculated": false,
+  "labels_immutable_before_outcomes": true,
+  "disposition": "EXP048_VISUAL_BLINDED_LABELS_READY_FOR_FROZEN_OUTCOME_PROTOCOL"
+}
