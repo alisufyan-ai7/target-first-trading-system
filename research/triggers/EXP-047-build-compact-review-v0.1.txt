@@ -1,0 +1,6 @@
+EXP-047 compact blinded review trigger
+Review deck checkpoint: 71c9fbb6cf2a57524378566d2ae5c35aec68178f
+Review cards SHA-256: 965c9ff4ef2a3eab32df6dafa05f8d0b5d61c43aa210f923d0c255a8ae915879
+Builder: 23ea6ab316a12b9f8b418daaacfc2525d8285d44
+Workflow: c8fd9ee9c8f196a052766db84613e1bc452d521a
+No labels or outcomes.
