@@ -1,0 +1,5 @@
+EXP-048 disjoint visual replay packet trigger
+Protocol: 59d426bd56c82a7d48a6081bc695a7a8eaa657e7
+Generator: 08f30b68bb0c7e50683dc1e91d96c7295382ef78
+Prior EXP-047 packet blob: e6eeeed45a0e0181b23d0d3ba3497b5521677c41
+Zero-outcome only. Ranks 8-14 per era/level cell. Protected periods sealed.
