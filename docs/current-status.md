@@ -3624,3 +3624,43 @@ No P&L, expectancy, PF, win-rate or drawdown study was run.
 No new engine is authorized yet.
 
 **Next exact action:** build the outcome-blind Current-Era Decision Trace Corpus from the pinned 42 live streams, starting with the newest 10 streams, and include both executed and rejected/waited setups.
+
+
+## 2026-10-01 — BADAR DECISION TRACE CORPUS v0.1 COMPLETE
+
+Outcome-blind decision extraction is complete across all 42 live streams pinned in external Badar evidence commit:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+Canonical corpus:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/decision-trace-corpus/`
+
+Final size:
+
+- 347 pre-entry decisions;
+- 61 TRADE_SHORT;
+- 46 TRADE_LONG;
+- 131 WAIT;
+- 109 NO_TRADE;
+- 136 linked management decisions.
+
+No P&L/result-R/MFE/MAE/future-outcome join was performed.
+
+Key refinement:
+
+Explicit lower-timeframe confirmation is common but **not universal**. 20/107 trade decisions have no separately coded confirmation family. Direct/aggressive entries still rely on meaningful location, structural invalidation geometry and usually risk downgrading.
+
+The strongest stable hierarchy is now:
+
+`environment -> HTF direction -> location -> interaction -> decision evidence -> execution feasibility -> risk class -> TRADE/WAIT/NO_TRADE -> premise-based management`.
+
+The corpus supports location, no-middle/no-chase behavior, definable invalidation, HTF-close context, WAIT/NO_TRADE, quality-based risk classification and active management as stronger recurring features than any single sweep/MSS/FVG/candlestick pattern.
+
+Scientific disposition:
+
+`DECISION_TRACE_CORPUS_V0_1_COMPLETE — READY_FOR_OUTCOME_BLIND_RULE_FORMALIZATION`
+
+**No engine or P&L test is authorized yet.**
+
+Next exact action: create Badar Current-Era Formal Decision Policy v0.1 without outcome access.
