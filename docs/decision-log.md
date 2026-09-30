@@ -2211,3 +2211,32 @@ However, the source does not define zone construction, exact entry execution, st
 The visible handwritten `sweep` / possible `sweep LS` annotations are retained as source evidence only. They are not sufficient to retrofit the source into prior liquidity-sweep engines.
 
 Cross-source synthesis remains unchanged because only one Badar source has been analyzed.
+
+
+## 2026-10-01 — Freeze Badar Current-Era Decision Model v0.1 before any new P&L test
+
+The project now uses `alisufyan-ai7/unpack-human-trading-strategies-claude` as the canonical external Badar extraction repository.
+
+For Badar-only evidence, Target-First uses the external repository's **source layer only** and excludes `derived/**`.
+
+Decision-model v0.1 is pinned to external commit:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+which includes the 2026-09-30 live session `EOBnMz2Y_9k`.
+
+**Decision:** do not create another pattern engine from the source catalog.
+
+The current evidence supports a hierarchical model:
+
+`context -> location -> interaction -> close/confirmation -> execution feasibility -> risk class -> trade/wait/no-trade -> active management`.
+
+The project's earlier pattern engines often started too low in this hierarchy.
+
+Stable current-era elements include meaningful location, no-trade-in-the-middle, HTF/H1 context, close-based evidence, no chasing, logical stop feasibility, setup-quality-based risk reduction, and active post-entry premise reassessment.
+
+Exact session preference, MSS timeframe, BOS thresholds, ICC percentage, risk %, RR, stop width, news rule and stop-widening behavior remain contradictory/variable and must not be frozen from v0.1.
+
+No outcomes were used to choose these rules.
+
+Next research object is an outcome-blind decision-event corpus containing TRADE, WAIT and NO_TRADE events from the live streams.
