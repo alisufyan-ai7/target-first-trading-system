@@ -719,3 +719,12 @@
 - Refined confirmation from universal-looking stage to common-but-non-universal branch: 20/107 trades have no separately coded confirmation family.
 - Preserved meaningful location, definable invalidation, HTF context, no-middle/no-chase, quality-based risk and premise-based management as stronger recurring gates.
 - No P&L/outcome join or backtest performed. Next stage is outcome-blind formal decision-policy specification.
+
+
+- Frozen Badar Current-Era Formal Decision Policy v0.1 from the complete 42-stream outcome-blind decision corpus.
+- Added ordered TRADE/WAIT/NO_TRADE hard gates, risk classification and post-entry premise-management rules.
+- Added a narrow direct/aggressive execution branch instead of falsely making confirmation universal.
+- Added an outcome-blind annotation contract and explicit mechanization boundary.
+- Updated the earlier decision-model text so it no longer states that explicit confirmation is universally required.
+- No P&L, result-R, MFE/MAE or future-outcome information was used.
+- Next stage is mechanization/reproducibility of the remaining qualitative chart-state classifiers; backtesting remains unauthorized.
