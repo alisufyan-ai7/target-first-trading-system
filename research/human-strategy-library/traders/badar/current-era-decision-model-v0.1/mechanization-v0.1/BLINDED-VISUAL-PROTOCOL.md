@@ -211,3 +211,21 @@ but **no persistent chart image/frame assets**.
 Therefore Phase 2 cannot be executed faithfully from the current repositories alone.
 
 The required next evidence artifact is a timestamped chart-snapshot pack built from the source streams or independently reconstructed market data.
+
+
+## Protected-market-data safeguard
+
+The Badar source streams occur in July–September 2026.
+
+Target-First has existing governance that keeps Jul–Aug and Sep 2026 market-history periods sealed/protected for other research tracks.
+
+Therefore this Phase-2 snapshot pack must **not** be reconstructed by loading independent raw Jul–Sep 2026 OHLC into Target-First merely for convenience.
+
+Allowed source for Phase 2:
+
+- contemporaneous chart frames/screenshots from the Badar source stream itself;
+- cropped so no future chart state beyond the decision timestamp is visible.
+
+A future governance decision could explicitly retire/reassign those protected periods, but v0.1 does not do that.
+
+This keeps human-source mechanization separate from protected market-data validation.
