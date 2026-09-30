@@ -3037,3 +3037,38 @@ Variable/unresolved: exact session, MSS/2CR timeframe, BOS threshold, ICC %, new
 No P&L test has been run.
 
 **Next:** build an outcome-blind Current-Era Decision Trace Corpus from all 42 pinned live streams, beginning with the newest 10, and explicitly capture skipped/waited setups.
+
+
+## Latest checkpoint — full Badar decision trace corpus complete
+
+External Badar evidence remains pinned for v0.1 to:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+The outcome-blind decision-trace corpus is complete across all 42 pinned live streams:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/decision-trace-corpus/`
+
+Canonical merged files:
+
+- `full-pre-entry-events.csv` — 347 decisions;
+- `full-management-events.csv` — 136 management decisions;
+- `FULL-CORPUS-SUMMARY.md`;
+- `MODEL-REFINEMENT-AFTER-CORPUS.md`.
+
+Pre-entry composition:
+
+- 61 TRADE_SHORT;
+- 46 TRADE_LONG;
+- 131 WAIT;
+- 109 NO_TRADE.
+
+No future-outcome/P&L/MFE/MAE join has occurred.
+
+Key refinement: explicit confirmation is not mandatory in every current-era entry; 20/107 trade decisions are direct/aggressive entries. Those cases still depend on location/HTF/stop geometry and often reduced risk.
+
+Next exact action:
+
+**Create Badar Current-Era Formal Decision Policy v0.1 outcome-blind.**
+
+Do not backtest yet.
