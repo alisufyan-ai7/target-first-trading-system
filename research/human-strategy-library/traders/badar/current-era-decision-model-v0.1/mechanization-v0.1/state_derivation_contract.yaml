@@ -1,0 +1,160 @@
+version: "0.1"
+status: "PHASE1_FROZEN_VISUAL_REPRODUCIBILITY_PENDING"
+source_evidence_commit: "d19a43da80ae0e3ab4207a73a35f317120d37c84"
+formal_policy_status: "FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND"
+outcomes_allowed: false
+
+hard_gates:
+  location_not_reached:
+    rule: "location_state in [ABSENT]"
+    action: "NO_TRADE"
+  location_approaching:
+    rule: "location_state in [APPROACHING, UNRESOLVED]"
+    action: "WAIT"
+  middle:
+    rule: "location_state == MIDDLE"
+    action: "NO_TRADE"
+  wrong_extreme:
+    rule: "location_state == WRONG_EXTREME"
+    action: "NO_TRADE"
+  chasing:
+    rule: "late_state == CHASING"
+    action_if_retrace_exists: "WAIT"
+    action_otherwise: "NO_TRADE"
+  no_structural_stop:
+    rule: "structural_stop_state == UNDEFINED"
+    action: "NO_TRADE"
+  confirmation_failed:
+    rule: "confirmation_state == FAILED"
+    action: "NO_TRADE"
+  required_close_pending:
+    rule: "htf_close_state == REQUIRED_PENDING"
+    action: "WAIT"
+  htf_invalidates:
+    rule: "htf_close_state == INVALIDATES"
+    action: "NO_TRADE"
+  htf_flips_bias:
+    rule: "htf_close_state == FLIPS_BIAS"
+    action: "WAIT_REBUILD"
+
+primitives:
+  pdh_pdl:
+    status: "MACHINE_READY"
+    definition: "previous completed trading-day high/low"
+  session_extreme:
+    status: "MACHINE_READY"
+    definition: "high/low of frozen session window visible at candidate time"
+  fvg:
+    status: "MACHINE_READY"
+    bullish: "candle1.high < candle3.low after candle3 closes, with candle3 wick not re-entering candle1 range"
+    bearish: "candle1.low > candle3.high after candle3 closes, with candle3 wick not re-entering candle1 range"
+    invalidation: "completed candle closes through FVG"
+  premium_discount:
+    status: "MACHINE_READY_AFTER_BOS_LEG_FREEZE"
+    midpoint: 0.5
+  liquidity_sweep:
+    status: "MACHINE_READY_GIVEN_LEVEL"
+    definition: "price exceeds frozen liquidity level then next completed candle closes back inside"
+    weak_variant: "same-candle wick beyond and close back; requires next lower-TF candle for upgrade"
+  bos_mss:
+    status: "PARTIAL"
+    high_confidence: "at least 2 closes beyond frozen swing/base on analysis TF or one lower"
+    single_close: "SINGLE_CLOSE_BREAK; not automatically confirmed"
+  order_block:
+    status: "PARTIAL"
+    classes: ["OB_CLASSIC","OB_TWO_CANDLE","OB_HIDDEN","OB_UNRESOLVED"]
+    minimum_validity:
+      - "source-supported base/last opposite candle or hidden junction"
+      - "impulse produces structural break"
+      - "zone not closed through/invalidated"
+  equal_high_low:
+    status: "UNRESOLVED_TOLERANCE"
+  swing_selection:
+    status: "UNRESOLVED_FRACTAL_WIDTH"
+
+location_state:
+  valid:
+    requirements:
+      - "price touches/is inside preidentified eligible POI or liquidity extreme"
+      - "candidate direction coherent with structural side OR valid continuation retest"
+  approaching: "valid POI preidentified but not yet touched"
+  middle: "between active upper/lower boundaries and touching no eligible POI"
+  wrong_extreme:
+    long: "upper/range-high/premium extreme without continuation-breakout/retest context"
+    short: "lower/range-low/discount extreme without continuation-breakdown/retest context"
+  absent: "no eligible POI preidentified"
+  unresolved: "competing POIs prevent unique classification"
+
+confirmation_state:
+  not_yet: "required candle or second confirmation still open/not closed"
+  failed: "completed close invalidates candidate or fails family in opposing direction"
+  strong:
+    any:
+      - "confirmed BOS/MSS with >=2 closes"
+      - "two independent confirmations at same zone"
+      - "valid confirmation plus independent HTF close same direction"
+  adequate: "one completed valid confirmation family at valid location with no HTF invalidation"
+  weak: "directional evidence exists but strong/adequate criteria not met"
+  none: "direct/aggressive branch"
+  family_rules:
+    icc_min_closeback_fraction: 0.30
+    engulf_min_beyond_prior_extreme_fraction: 0.20
+    two_candle_rejection: "two consecutive rejection candles at same zone"
+
+stop_state:
+  structural_layer:
+    defined_bases: ["SWEEP_EXTREME","OUTER_SWING","ZONE","CONFIRMATION_CANDLE","RANGE_BOUNDARY"]
+    undefined_action: "NO_TRADE"
+  risk_layer:
+    inputs_required:
+      - "stop_distance"
+      - "instrument_contract_value"
+      - "broker_minimum_size"
+      - "broker_size_increment"
+      - "Target_First_risk_budget"
+    outputs:
+      - "DEFINED_ACCEPTABLE"
+      - "DEFINED_LARGE_BUT_SIZABLE"
+      - "TOO_LARGE_FOR_THIS_SETUP"
+    note: "no universal Gold pip threshold frozen"
+
+target_path_state:
+  procedure:
+    - "identify nearest valid opposing-liquidity objective"
+    - "list all preexisting opposing POIs between entry and objective"
+    - "no blocker -> FEASIBLE"
+    - "blocker usable as first objective -> FEASIBLE_WITH_EARLY_OBJECTIVE"
+    - "blocker before any plausible objective -> INFEASIBLE"
+    - "ambiguous ordering -> UNRESOLVED"
+  rr_floor: null
+
+htf_close_state:
+  direct_branch_default: "NOT_RELEVANT"
+  direct_branch_exceptions:
+    - "countertrend against active H1"
+    - "active H1/H4 boundary being broken/reclaimed"
+    - "bias-flip plan"
+  confirmation_mapping:
+    D1: ["H4","H1"]
+    H1: ["M30","M15"]
+    M15: ["M5"]
+  states: ["CONFIRMS","NEUTRAL","REQUIRED_PENDING","INVALIDATES","FLIPS_BIAS","NOT_RELEVANT"]
+
+phase1_internal_audit:
+  total_events: 347
+  trade_events: 107
+  wait_no_trade_events: 240
+  hard_gate_union_nontrade_hits: 148
+  trade_contradictions: 0
+  note: "internal consistency only; annotations were source-informed"
+
+unresolved_before_backtest:
+  - "blinded visual reproducibility"
+  - "major/minor swing selection"
+  - "hidden OB reproducibility"
+  - "equal-high/low tolerance"
+  - "overlapping POI location adjudication"
+  - "ambiguous confirmation strength"
+  - "target-path annotation"
+  - "required HTF timeframe when source plan does not explicitly name it"
+  - "broker/instrument sizeability inputs"
