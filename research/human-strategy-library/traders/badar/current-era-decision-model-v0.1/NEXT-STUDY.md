@@ -150,3 +150,40 @@ The formal policy must:
 7. remain outcome blind.
 
 Only after that policy is frozen may a development-test protocol be proposed.
+
+
+## Formal-policy freeze update — 2026-10-01
+
+Badar Current-Era Formal Decision Policy v0.1 has been created and frozen outcome-blind.
+
+Path:
+
+`formal-policy-v0.1/`
+
+Disposition:
+
+`FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND`
+
+### Next exact study
+
+**Mechanization / reproducibility study — still outcome blind.**
+
+The study must operationalize only the remaining human-classified state inputs:
+
+1. VALID vs MIDDLE vs WRONG_EXTREME location;
+2. STRONG / ADEQUATE / WEAK confirmation;
+3. DEFINED_ACCEPTABLE vs DEFINED_LARGE_BUT_SIZABLE vs TOO_LARGE stop;
+4. FEASIBLE vs INFEASIBLE target path;
+5. which M15/M30/H1/H4 close is required for a candidate.
+
+Required outputs:
+
+- prospective chart-label definitions;
+- explicit tie/conflict handling;
+- blinded annotation protocol;
+- inter-annotator or deterministic-rule reproducibility report;
+- a frozen machine-readable state derivation contract.
+
+Do not use P&L, result R, MFE/MAE, or future candles to choose thresholds.
+
+**No development backtest is authorized until the mechanization contract is frozen.**
