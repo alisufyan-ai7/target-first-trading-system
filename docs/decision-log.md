@@ -2240,3 +2240,32 @@ Exact session preference, MSS timeframe, BOS thresholds, ICC percentage, risk %,
 No outcomes were used to choose these rules.
 
 Next research object is an outcome-blind decision-event corpus containing TRADE, WAIT and NO_TRADE events from the live streams.
+
+
+## 2026-10-01 — Complete 42-stream Badar decision trace before formal rules
+
+Completed the outcome-blind Badar current-era decision corpus across all 42 live streams pinned at external source commit `d19a43d...`.
+
+Corpus contains:
+
+- 347 pre-entry decision events;
+- 107 trades;
+- 131 waits;
+- 109 no-trades;
+- 136 linked post-entry management events.
+
+Integrity checks pass and no future-outcome/P&L fields are present in the pre-entry corpus.
+
+**Decision:** the evidence is sufficient to advance from human-logic reconstruction to outcome-blind rule formalization, but not to P&L testing yet.
+
+Important model refinement:
+
+- sweep is an important branch, not a universal requirement;
+- explicit confirmation is common, not universal;
+- direct/aggressive trades must remain a separate controlled branch;
+- meaningful location and definable invalidation are more stable than any one trigger family;
+- risk class and post-entry premise management are part of the strategy model itself.
+
+Do not use the direct/aggressive branch as a loophole for unconstrained discretionary entries.
+
+Next stage must freeze a deterministic Formal Decision Policy before any development outcomes are loaded.
