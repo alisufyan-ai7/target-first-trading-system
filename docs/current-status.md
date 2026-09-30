@@ -3706,3 +3706,51 @@ The formal policy is deterministic over normalized chart-state annotations but i
 Next authorized stage: outcome-blind mechanization/reproducibility of location quality, confirmation strength, stop-size class, target-path feasibility and required-HTF-close classification.
 
 **Backtesting remains unauthorized.**
+
+
+## 2026-10-01 — BADAR MECHANIZATION v0.1 PHASE 1 FROZEN
+
+The outcome-blind mechanization/reproducibility stage has begun and Phase 1 is complete.
+
+Canonical path:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/`
+
+Added:
+
+- `STATE-DERIVATION-CONTRACT.md`
+- `state_derivation_contract.yaml`
+- `REPRODUCIBILITY-AUDIT.md`
+- `BLINDED-VISUAL-PROTOCOL.md`
+- `phase1-hard-gate-audit.csv`
+- `FREEZE.md`
+
+Disposition:
+
+`MECHANIZATION_V0_1_PHASE1_FROZEN — VISUAL_REPRODUCIBILITY_PENDING`
+
+Phase-1 internal-consistency result:
+
+Six structured hard/pending gates — location not reached, middle, chasing, no logical stop, failed confirmation, and required close pending — cover **148 of 240 WAIT/NO_TRADE decisions** with **0 contradictions across all 107 TRADE decisions**.
+
+This is not independent validation because the source-informed annotations contain Badar's decision context.
+
+Architectural refinement:
+
+- structural stop existence belongs to strategy logic;
+- stop sizeability belongs to the independent account/broker risk layer;
+- no universal Gold-pip stop cutoff is frozen.
+
+Target-path feasibility remains completely unannotated in the current corpus (`UNCLEAR` on 347/347 events), so it must be added in the blinded visual pass.
+
+A full repo audit found no persistent chart-image assets in the Claude evidence repo.
+
+Although Target-First has free market-data acquisition infrastructure, July–August and September 2026 remain protected/sealed periods. Mechanization v0.1 therefore does **not** open raw Jul–Sep 2026 OHLC to recreate the Badar charts.
+
+Phase 2 must use contemporaneous chart frames from the source streams themselves, cropped at/before each frozen decision timestamp.
+
+Tracking issue:
+
+`#1 — Build blinded Badar chart snapshot pack for 347 decision events`
+
+No P&L/backtest is authorized.
