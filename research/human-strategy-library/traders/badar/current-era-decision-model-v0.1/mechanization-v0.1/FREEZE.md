@@ -71,3 +71,12 @@ Build the **blinded timestamped chart-snapshot pack** for the 347 decision event
 The snapshot pack must hide future bars and Badar's eventual decision.
 
 Only after Phase 2 passes may a development P&L experiment be specified.
+
+
+## Protected-data safeguard
+
+A full repo-tree audit confirms Target-First has market-data acquisition infrastructure, but July–August and September 2026 are protected/sealed periods in existing data governance.
+
+Mechanization v0.1 does **not** authorize opening those raw periods to recreate Badar charts.
+
+Phase-2 visual evidence must therefore come from contemporaneous source-stream chart frames/screenshots, not an independent raw-OHLC reconstruction, unless a later explicit governance decision retires those protected periods.
