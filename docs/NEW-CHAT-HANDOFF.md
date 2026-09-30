@@ -3102,3 +3102,52 @@ The next exact action is:
 **Outcome-blind mechanization / reproducibility study for the remaining human-classified state inputs.**
 
 Do not jump directly to a backtest or optimize thresholds from historical profitability.
+
+
+## Latest checkpoint — Badar mechanization v0.1 Phase 1 frozen
+
+Formal policy remains:
+
+`FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND`
+
+Mechanization path:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/`
+
+Current mechanization disposition:
+
+`MECHANIZATION_V0_1_PHASE1_FROZEN — VISUAL_REPRODUCIBILITY_PENDING`
+
+Key Phase-1 result:
+
+- six hard/pending gates cover 148/240 WAIT/NO_TRADE decisions;
+- zero contradictions across 107 recorded TRADE decisions;
+- this is internal consistency only, not independent validation.
+
+State derivation is now explicitly defined for:
+
+- location state;
+- source-supported confirmation families;
+- structural stop existence;
+- target-path ordering;
+- HTF-close state.
+
+Important unresolved items:
+
+- major/minor swing selection;
+- hidden OB reproducibility;
+- equal-high/low tolerance;
+- overlapping POI adjudication;
+- ambiguous confirmation strength;
+- target-path labels for the 347 existing events;
+- broker/instrument sizeability inputs.
+
+Do not reconstruct Jul–Sep 2026 charts from independent raw OHLC: those periods remain protected/sealed.
+
+Next exact dependency:
+
+**Target-First issue #1 — build blinded source-stream chart frames for all 347 decision events.**
+
+After the frame pack exists, run two independent blinded annotations, freeze agreement results, then reveal only Badar's decision labels for behavioral-fidelity scoring.
+
+Still do not reveal P&L.
