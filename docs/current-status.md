@@ -3664,3 +3664,45 @@ Scientific disposition:
 **No engine or P&L test is authorized yet.**
 
 Next exact action: create Badar Current-Era Formal Decision Policy v0.1 without outcome access.
+
+
+## 2026-10-01 — BADAR FORMAL DECISION POLICY v0.1 FROZEN
+
+The exact next step after the completed 42-stream outcome-blind corpus has been executed.
+
+New frozen artifact:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/formal-policy-v0.1/`
+
+Files:
+
+- `README.md`
+- `FORMAL-DECISION-POLICY.md`
+- `ANNOTATION-CONTRACT.md`
+- `FREEZE.md`
+
+Disposition:
+
+`FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND`
+
+Key formal rules:
+
+- location is evaluated before trigger;
+- absent/middle/wrong-extreme location cannot be rescued by an LTF signal;
+- WAIT is an explicit policy output;
+- chasing is disallowed;
+- required HTF closes can force WAIT or invalidate a candidate;
+- every trade requires pre-entry structural invalidation;
+- sweep is optional, not universal;
+- confirmation is common, not universal;
+- the direct/aggressive branch is narrowly restricted to valid structural location + sweep/retrace-to-POI + defined stop + no chase + no HTF invalidation;
+- weak/no-confirmation branches are normally risk-downgraded unless strict normal-risk conditions are satisfied;
+- management responds to premise changes, opposing closes, target liquidity and new structure.
+
+No P&L/outcome/MFE/MAE data were used.
+
+The formal policy is deterministic over normalized chart-state annotations but is **not yet a raw-OHLC engine**.
+
+Next authorized stage: outcome-blind mechanization/reproducibility of location quality, confirmation strength, stop-size class, target-path feasibility and required-HTF-close classification.
+
+**Backtesting remains unauthorized.**
