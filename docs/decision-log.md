@@ -2269,3 +2269,30 @@ Important model refinement:
 Do not use the direct/aggressive branch as a loophole for unconstrained discretionary entries.
 
 Next stage must freeze a deterministic Formal Decision Policy before any development outcomes are loaded.
+
+
+## 2026-10-01 — Freeze Badar Formal Decision Policy v0.1 before mechanization or P&L
+
+Created and froze the first deterministic policy derived from the 42-stream Badar outcome-blind decision corpus.
+
+Decision-policy outputs:
+
+- TRADE_LONG_NORMAL
+- TRADE_LONG_REDUCED
+- TRADE_SHORT_NORMAL
+- TRADE_SHORT_REDUCED
+- WAIT
+- NO_TRADE
+
+The policy uses ordered hard gates for location, chasing, HTF-close state and structural invalidation, then separates:
+
+1. confirmation-based execution; and
+2. direct/aggressive execution.
+
+The direct branch is restricted to valid structural location plus sweep/retrace-to-POI, defined invalidation, no chase and no HTF contradiction.
+
+**Decision:** do not invent numerical raw-price thresholds to make this backtestable yet.
+
+Reason: the Badar source material does not mechanically define location quality, strong-vs-weak close, stop-size ceiling, target-path adequacy or required HTF-close selection.
+
+Next stage must mechanize those inputs outcome-blind and freeze the derivation contract before development P&L is opened.
