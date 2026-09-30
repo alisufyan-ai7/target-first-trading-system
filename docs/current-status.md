@@ -3581,3 +3581,46 @@ Cumulative Badar synthesis created at:
 `research/human-strategy-library/traders/badar/CUMULATIVE-SYNTHESIS.md`.
 
 **Exact next action:** ingest the next user-supplied Badar source. If it is a video, use `BADAR-VID-002`; use the appropriate independent sequential prefix for a post/image.
+
+
+## 2026-10-01 — BADAR CURRENT-ERA DECISION MODEL v0.1 CREATED
+
+Routine Badar source unpacking has moved to the separate repository:
+
+`alisufyan-ai7/unpack-human-trading-strategies-claude`.
+
+Target-First now consumes that repository as an external evidence feed rather than duplicating every video/stream.
+
+Frozen evidence boundary for v0.1:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+This snapshot includes source-layer coverage through the 2026-09-30 live Gold session `EOBnMz2Y_9k`, with 42 live streams and 113 live-trade rows recorded by the external project.
+
+Created:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/`
+
+Core reconstructed hierarchy:
+
+```text
+environment/event risk
+-> HTF directional context
+-> meaningful location
+-> liquidity/trap/retracement event
+-> close/structure confirmation
+-> execution feasibility
+-> risk classification
+-> TRADE / WAIT / NO_TRADE
+-> active premise management
+```
+
+Strongest finding: Badar's recurring edge hypothesis is **selection at location**, not any isolated engulfing/MSS/FVG/sweep pattern.
+
+v0.1 explicitly treats `WAIT` and `NO_TRADE` as first-class decisions.
+
+No P&L, expectancy, PF, win-rate or drawdown study was run.
+
+No new engine is authorized yet.
+
+**Next exact action:** build the outcome-blind Current-Era Decision Trace Corpus from the pinned 42 live streams, starting with the newest 10 streams, and include both executed and rejected/waited setups.
