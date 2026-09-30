@@ -56,3 +56,38 @@ It counts as Badar-source evidence only when the uploaded material supports it.
 | `BADAR-VID-001` | Video | Top 5 entry confirmations: engulfing, two-candles rejection, momentum shift, inverse closing, same-zone confluence | Analyzed; single-source evidence only |
 
 Cumulative synthesis: `CUMULATIVE-SYNTHESIS.md`.
+
+
+## 2026-10-01 workflow change — external extraction repository
+
+Routine Badar YouTube/video/stream extraction is no longer duplicated in Target-First.
+
+Canonical extraction repository:
+
+`alisufyan-ai7/unpack-human-trading-strategies-claude`
+
+That repository separates Badar-source material from `derived/**` AI interpretation and is updated with new live sessions.
+
+Target-First now consumes the **source layer only** and owns:
+
+- independent synthesis;
+- decision-model reconstruction;
+- outcome-blind formalization;
+- frozen experiments;
+- validation.
+
+Historical `BADAR-VID-001/` remains preserved, but future source IDs do not need to be duplicated here unless an independent audit is specifically required.
+
+### Current model
+
+`current-era-decision-model-v0.1/`
+
+Frozen external evidence commit:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+Latest included live session:
+
+`EOBnMz2Y_9k` — 2026-09-30.
+
+No P&L test has been run from this decision model.
