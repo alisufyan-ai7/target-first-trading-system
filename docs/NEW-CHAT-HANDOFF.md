@@ -3072,3 +3072,33 @@ Next exact action:
 **Create Badar Current-Era Formal Decision Policy v0.1 outcome-blind.**
 
 Do not backtest yet.
+
+
+## Latest checkpoint — Badar Formal Decision Policy v0.1 frozen
+
+The 42-stream outcome-blind decision corpus has now been converted into a frozen formal policy.
+
+Canonical path:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/formal-policy-v0.1/`
+
+Status:
+
+`FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND`
+
+Important architecture:
+
+`environment -> direction -> location -> interaction -> decision evidence -> feasibility -> risk -> TRADE/WAIT/NO_TRADE -> premise management`
+
+Decision evidence has two legal branches:
+
+- confirmation branch;
+- narrowly controlled direct/aggressive branch.
+
+No P&L/backtest has been run.
+
+The next exact action is:
+
+**Outcome-blind mechanization / reproducibility study for the remaining human-classified state inputs.**
+
+Do not jump directly to a backtest or optimize thresholds from historical profitability.
