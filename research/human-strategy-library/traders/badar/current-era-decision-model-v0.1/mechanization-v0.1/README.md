@@ -67,3 +67,14 @@ The first is chart-mechanizable. The second belongs to the risk engine and canno
 `MECHANIZATION_V0_1_PHASE1_FROZEN — VISUAL_REPRODUCIBILITY_PENDING`
 
 No development P&L test is authorized yet.
+
+
+## Tracking
+
+Target-First issue #1:
+
+`Build blinded Badar chart snapshot pack for 347 decision events`
+
+The issue is the active dependency for Phase 2.
+
+Do not substitute protected Jul–Sep 2026 raw-OHLC reconstruction for the source-frame pack.
