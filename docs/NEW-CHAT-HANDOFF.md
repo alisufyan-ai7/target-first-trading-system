@@ -3002,3 +3002,38 @@ Unresolved: HTF hierarchy, exact zone construction, sweep definition, entry orde
 No new engine is authorized.
 
 **Next:** ingest the next user-supplied Badar source. Use `BADAR-VID-002` if it is the next video.
+
+
+## Latest human-strategy checkpoint — Badar Current-Era Decision Model v0.1
+
+Routine Badar source extraction now lives in:
+
+`alisufyan-ai7/unpack-human-trading-strategies-claude`
+
+Use its **source layer only**; ignore `derived/**` when reconstructing Badar.
+
+Current frozen evidence snapshot:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+Latest included live stream:
+
+`EOBnMz2Y_9k` — 2026-09-30.
+
+Target-First model:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/`
+
+Key hierarchy:
+
+`environment -> HTF context -> location -> interaction -> confirmation -> feasibility -> risk -> TRADE/WAIT/NO_TRADE -> management`.
+
+Do not reduce this to sweep/MSS/FVG/engulfing alone.
+
+Stable evidence: no middle, location first, H1/HTF context, closes matter, do not chase, logical stop required, reduced risk for weaker/conflicting cases, active early invalidation.
+
+Variable/unresolved: exact session, MSS/2CR timeframe, BOS threshold, ICC %, news policy, risk %, RR, SL width/widening, max trades/day, exact BE rule.
+
+No P&L test has been run.
+
+**Next:** build an outcome-blind Current-Era Decision Trace Corpus from all 42 pinned live streams, beginning with the newest 10, and explicitly capture skipped/waited setups.
