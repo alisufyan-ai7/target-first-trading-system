@@ -124,3 +124,22 @@ Human-source material is evidence, not proof of profitability.
 A trader's claimed profitability, screenshots, or social-media presentation must not automatically be treated as verified performance.
 
 The purpose of this library is to reconstruct decision logic faithfully and then test that logic prospectively.
+
+
+## External Badar evidence repository
+
+Per-video Badar extraction is now maintained outside this repository in:
+
+`alisufyan-ai7/unpack-human-trading-strategies-claude`
+
+Target-First uses that repository as an external evidence source and keeps **strategy synthesis, formalization, experiments and validation** here.
+
+The first frozen external evidence snapshot is:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+See:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/`
+
+Future daily source updates must not silently mutate a frozen model version.
