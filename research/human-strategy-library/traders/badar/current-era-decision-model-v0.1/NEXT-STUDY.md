@@ -111,3 +111,42 @@ Before future hypothesis freeze:
 
 After hypothesis freeze:
 - new sessions are prospective evidence for the next version and cannot rewrite tested rules.
+
+
+## Completion update — 2026-10-01
+
+The decision-trace study described above is complete.
+
+Final corpus:
+
+- 42/42 pinned live streams represented;
+- 347 pre-entry decision events;
+- 107 TRADE decisions;
+- 131 WAIT decisions;
+- 109 NO_TRADE decisions;
+- 136 linked post-entry management decisions;
+- no future-outcome/P&L join.
+
+See:
+
+`decision-trace-corpus/FULL-CORPUS-SUMMARY.md`
+
+Disposition:
+
+`DECISION_TRACE_CORPUS_V0_1_COMPLETE — READY_FOR_OUTCOME_BLIND_RULE_FORMALIZATION`
+
+### Next exact study
+
+Create **Badar Current-Era Formal Decision Policy v0.1** with no P&L access.
+
+The formal policy must:
+
+1. preserve the hierarchy `environment -> direction -> location -> interaction -> decision evidence -> feasibility -> risk -> decision -> management`;
+2. keep `TRADE / WAIT / NO_TRADE` as explicit outputs;
+3. include separate confirmation-based and direct/aggressive branches;
+4. define only source-supported hard gates;
+5. leave unresolved human judgments explicitly unresolved rather than inventing thresholds;
+6. define a deterministic annotation/execution contract suitable for a later frozen development experiment;
+7. remain outcome blind.
+
+Only after that policy is frozen may a development-test protocol be proposed.
