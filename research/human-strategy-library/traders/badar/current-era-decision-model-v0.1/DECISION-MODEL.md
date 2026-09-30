@@ -120,17 +120,21 @@ Recurring families:
 - FVG/OB retracement after confirming move;
 - second confirmation at same zone.
 
-**Status: CORE that confirmation matters; VARIABLE which confirmation/timeframe is used.**
+**Status: STRONG that explicit confirmation is common; NOT universal. Decision evidence is CORE, but 20/107 captured trades have no separately coded confirmation family.**
 
 A practical current-era live hierarchy often looks like:
 
 ```text
 H1 context / area
-    -> M15/M30 close as gate
-        -> M1/M3/M5 execution confirmation
+    -> optional M15/M30 close gate
+        -> either:
+             M1/M3/M5 execution confirmation
+             OR a narrow direct/aggressive structural-location branch
 ```
 
 M1 is used frequently in recent live execution even though older course material sometimes calls M1 MSS unreliable.
+
+The direct/aggressive branch is legal only when the location is structurally meaningful, the interaction is a sweep or retrace-to-POI, invalidation is defined, the entry is not chasing and no relevant HTF close invalidates the case.
 
 Confirmation quality states:
 
@@ -205,11 +209,16 @@ Target-First will ultimately impose its own independent account-risk constraints
 
 ### TRADE_NORMAL_RISK
 
-Requires meaningful context, location, interaction, sufficient confirmation, feasible entry/stop and no major unresolved contradiction.
+Requires meaningful context, location, feasible structural invalidation and no major unresolved contradiction.
+
+Execution can come from either:
+
+- a strong/adequate confirmation branch; or
+- the narrow direct/aggressive branch with aligned context, acceptable stop geometry and no downgrade modifier.
 
 ### TRADE_REDUCED_RISK
 
-Still logically valid but with negative modifiers such as countertrend, news, larger stop or lower confidence.
+Still logically valid but with negative modifiers such as countertrend, news, larger stop, weak confirmation, direct/aggressive execution, re-entry/test status or lower confidence.
 
 ### WAIT
 
@@ -279,13 +288,14 @@ Remaining size may target next session extreme, equal highs/lows, HTF swing, imb
 3. No trade in the middle.
 4. HTF/H1 context matters.
 5. Higher-timeframe closes matter.
-6. Confirmation is evaluated by candle-close behavior, not wick alone.
-7. Do not chase.
-8. A logical structural stop must exist.
-9. Reduce risk when quality/confidence is lower.
-10. `WAIT` and `NO_TRADE` are first-class decisions.
-11. Re-evaluate the premise after entry.
-12. Cut/reduce when new price behavior shows the premise is wrong.
+6. Decision evidence matters; explicit confirmation is common but not universal.
+7. When confirmation is used, candle-close behavior matters more than wick alone.
+8. Do not chase.
+9. A logical structural stop must exist.
+10. Reduce risk when quality/confidence is lower.
+11. `WAIT` and `NO_TRADE` are first-class decisions.
+12. Re-evaluate the premise after entry.
+13. Cut/reduce when new price behavior shows the premise is wrong.
 
 ## STRONG but not universal
 
@@ -329,4 +339,19 @@ Do **not** build:
 
 A faithful formalization must preserve:
 
-`context -> location -> event -> confirmation -> feasibility -> risk -> decision -> management`.
+`context -> location -> event -> decision evidence (confirmation OR controlled direct branch) -> feasibility -> risk -> decision -> management`.
+
+
+# Post-corpus formalization
+
+The completed 42-stream decision corpus supersedes any earlier implication that explicit confirmation is universal.
+
+Canonical frozen formal policy:
+
+`formal-policy-v0.1/FORMAL-DECISION-POLICY.md`
+
+Scientific status:
+
+`FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND`
+
+No P&L test is authorized until the remaining human-classified inputs are mechanized prospectively.
