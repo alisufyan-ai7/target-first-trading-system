@@ -2296,3 +2296,43 @@ The direct branch is restricted to valid structural location plus sweep/retrace-
 Reason: the Badar source material does not mechanically define location quality, strong-vs-weak close, stop-size ceiling, target-path adequacy or required HTF-close selection.
 
 Next stage must mechanize those inputs outcome-blind and freeze the derivation contract before development P&L is opened.
+
+
+## 2026-10-01 — Freeze mechanization Phase 1 and preserve protected market data
+
+Completed the first outcome-blind mechanization audit for Badar Formal Decision Policy v0.1.
+
+**Observed internal consistency:**
+
+- 347 total pre-entry decisions;
+- 107 trades;
+- 240 WAIT/NO_TRADE;
+- six structured gates cover 148 non-trades;
+- zero recorded trades violate those six gates.
+
+The six gates are:
+
+1. location absent/not reached;
+2. middle;
+3. chasing;
+4. no logical stop;
+5. failed confirmation;
+6. required close pending.
+
+**Decision:** freeze these as mechanization-v0.1 Phase-1 hard/pending gates, while explicitly withholding any claim of independent reproducibility.
+
+Further decisions:
+
+- split structural stop existence from account/broker sizeability;
+- do not invent a universal pip stop threshold;
+- derive target path from pre-existing opposing POIs/liquidity ordering, not from eventual TP success;
+- preserve source-explicit FVG/sweep/BOS/confirmation rules where sufficiently deterministic;
+- keep swing selection, hidden OB, equal-high tolerance and ambiguous confirmation quality unresolved.
+
+The Badar source period overlaps protected Jul–Sep 2026 market-history periods.
+
+**Decision:** do not open independent raw OHLC for those protected dates merely to reconstruct charts.
+
+Phase-2 visual replay must use contemporaneous frames from the human source streams unless a future explicit governance decision retires/reassigns the protected periods.
+
+Tracking issue #1 records the required 347-event source-frame pack.
