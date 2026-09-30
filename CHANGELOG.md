@@ -703,3 +703,10 @@
 - Source teaches five entry confirmations and explicitly emphasizes multiple confirmations at the same zone.
 - Kept visible `sweep` annotations as evidence only; no liquidity rule inferred.
 - No strategy formalization/backtest authorized after one source; next action is BADAR source #2.
+
+
+- Switched Badar research workflow to consume the separate source-extraction repository `alisufyan-ai7/unpack-human-trading-strategies-claude` rather than duplicating routine video unpacking.
+- Pinned Badar Current-Era Decision Model v0.1 to external evidence commit `d19a43da80ae0e3ab4207a73a35f317120d37c84`, including the 2026-09-30 live stream.
+- Added source boundary, hierarchical decision model, evidence/contradiction matrix, outcome-blind decision-event schema and next-study protocol.
+- Model elevates TRADE / WAIT / NO_TRADE selection and active management above isolated sweep/MSS/FVG/candlestick patterns.
+- No P&L or outcome test was run; no engine was authorized.
