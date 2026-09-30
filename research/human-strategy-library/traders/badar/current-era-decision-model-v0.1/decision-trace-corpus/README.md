@@ -61,3 +61,37 @@ The objective is to reconstruct the human decision hierarchy before formalizatio
 Pass B extends the same schema to the remaining 32 live streams pinned in the source snapshot.
 
 No outcome join is authorized until the decision corpus and subsequent rule formalization are frozen.
+
+
+## Full-corpus completion
+
+Pass B is complete across the remaining 32 pinned live streams.
+
+Canonical merged files:
+
+- `full-pre-entry-events.csv` — **347** outcome-blind pre-entry decisions across all **42** pinned streams.
+- `full-management-events.csv` — **136** linked management decisions.
+- `FULL-CORPUS-SUMMARY.md` — descriptive outcome-free analysis.
+- `MODEL-REFINEMENT-AFTER-CORPUS.md` — changes to the decision model supported by the complete corpus.
+
+Full pre-entry decisions:
+
+- 61 TRADE_SHORT
+- 46 TRADE_LONG
+- 131 WAIT
+- 109 NO_TRADE
+
+Integrity checks passed:
+
+- all decision IDs unique;
+- all management IDs unique;
+- every management record points to an existing TRADE event;
+- zero management rows point to WAIT/NO_TRADE;
+- no P&L/result-R/MFE/MAE/future-outcome columns exist in the pre-entry corpus;
+- all rows use the pinned external source commit `d19a43d...`.
+
+Scientific status:
+
+`DECISION_TRACE_CORPUS_V0_1_COMPLETE — READY_FOR_OUTCOME_BLIND_RULE_FORMALIZATION`
+
+No P&L test is authorized yet.
