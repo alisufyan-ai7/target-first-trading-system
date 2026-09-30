@@ -1,3 +1,23 @@
+# Supersession notice — 2026-10-01
+
+This file records the earlier one-source local synthesis from BADAR-VID-001.
+
+It is **not the governing Badar synthesis anymore**.
+
+Routine source extraction is now maintained in the external evidence repository `alisufyan-ai7/unpack-human-trading-strategies-claude`.
+
+The governing Target-First evidence synthesis is:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/`
+
+v0.1 is pinned to external source commit:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+No P&L test has been run.
+
+---
+
 # Badar Cumulative Strategy Synthesis
 
 **Last updated:** 2026-09-28  
