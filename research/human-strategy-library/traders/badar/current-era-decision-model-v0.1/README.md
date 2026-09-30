@@ -145,3 +145,27 @@ The model can advance toward formalization only after an outcome-blind decision-
 - comparable `WAIT` / `NO_TRADE` decisions.
 
 Only then may the stable decision gates be translated into a frozen development hypothesis.
+
+
+## Formal-policy completion
+
+The 42-stream outcome-blind decision corpus is complete and the next stage has been executed.
+
+Frozen policy:
+
+`formal-policy-v0.1/FORMAL-DECISION-POLICY.md`
+
+Status:
+
+`FORMAL_DECISION_POLICY_V0_1_FROZEN_OUTCOME_BLIND`
+
+Important post-corpus refinement:
+
+- explicit confirmation is common but not universal;
+- the policy contains a narrow direct/aggressive branch;
+- location + structural invalidation are more stable than any single trigger family;
+- reduced-risk classification and active premise management are first-class parts of the model.
+
+The policy is deterministic over normalized chart-state annotations, but is not yet a raw-OHLC algorithm.
+
+Next authorized research stage: outcome-blind mechanization/reproducibility of the remaining human-classified state inputs.
