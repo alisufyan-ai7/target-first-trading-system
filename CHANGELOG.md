@@ -710,3 +710,12 @@
 - Added source boundary, hierarchical decision model, evidence/contradiction matrix, outcome-blind decision-event schema and next-study protocol.
 - Model elevates TRADE / WAIT / NO_TRADE selection and active management above isolated sweep/MSS/FVG/candlestick patterns.
 - No P&L or outcome test was run; no engine was authorized.
+
+
+- Completed outcome-blind Badar decision trace corpus across all 42 live streams pinned to external evidence commit `d19a43da80ae0e3ab4207a73a35f317120d37c84`.
+- Added 347 pre-entry TRADE/WAIT/NO_TRADE events and 136 linked post-entry management events.
+- Added canonical merged CSVs, full-corpus summary and post-corpus model refinement.
+- Corpus shows 240 WAIT/NO_TRADE versus 107 TRADE decisions in salient source annotations.
+- Refined confirmation from universal-looking stage to common-but-non-universal branch: 20/107 trades have no separately coded confirmation family.
+- Preserved meaningful location, definable invalidation, HTF context, no-middle/no-chase, quality-based risk and premise-based management as stronger recurring gates.
+- No P&L/outcome join or backtest performed. Next stage is outcome-blind formal decision-policy specification.
