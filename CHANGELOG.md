@@ -728,3 +728,14 @@
 - Updated the earlier decision-model text so it no longer states that explicit confirmation is universally required.
 - No P&L, result-R, MFE/MAE or future-outcome information was used.
 - Next stage is mechanization/reproducibility of the remaining qualitative chart-state classifiers; backtesting remains unauthorized.
+
+
+- Added Badar mechanization/reproducibility v0.1 Phase 1.
+- Added source-derived state-derivation contract in Markdown and YAML.
+- Added a 347-event hard-gate audit: six structured gates explain/defer 148 WAIT/NO_TRADE events with zero TRADE contradictions.
+- Split structural stop existence from account/broker risk sizeability; no universal Gold-pip stop cutoff was invented.
+- Added target-path structural derivation rules and documented that the current corpus has zero target-barrier coverage (347/347 UNCLEAR).
+- Added blinded visual reproducibility protocol with inter-annotator agreement gates and behavior-fidelity reveal before P&L.
+- Preserved protected Jul–Sep 2026 market-data seals; visual replay must use human-source stream frames rather than independent raw-OHLC reconstruction.
+- Opened issue #1 to track the 347-event blinded chart snapshot pack.
+- Backtesting remains unauthorized.
