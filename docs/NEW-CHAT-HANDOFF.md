@@ -3151,3 +3151,36 @@ Next exact dependency:
 After the frame pack exists, run two independent blinded annotations, freeze agreement results, then reveal only Badar's decision labels for behavioral-fidelity scoring.
 
 Still do not reveal P&L.
+
+
+## Latest checkpoint — Phase-2 frame acquisition is fully specified
+
+Mechanization Phase 1 remains frozen.
+
+The next physical evidence dependency is now exact:
+
+Claude's own runbook stores source video files in:
+
+`badartrader-research/media/<stream_id>.*`
+
+and generated contact sheets in:
+
+`badartrader-research/sheets/<stream_id>_NN.jpg`.
+
+Target-First now includes:
+
+- `mechanization-v0.1/source-frame-request.csv`
+- `mechanization-v0.1/tools/extract_source_frames.py`
+- `mechanization-v0.1/SOURCE-FRAME-EXPORT.md`
+
+Manifest:
+
+- 347 total decision events;
+- 345 READY exact in-stream events;
+- 2 MANUAL_PRESTREAM events.
+
+Do not re-download Badar videos in Target-First unless the existing Claude cache is irrecoverable.
+
+Do not open protected Jul–Sep 2026 OHLC to recreate these source frames.
+
+When the existing Claude media cache or exported frame archive becomes available to this Project, run the blinded visual reproducibility protocol immediately.
