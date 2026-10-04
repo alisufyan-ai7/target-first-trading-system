@@ -3850,3 +3850,60 @@ Added:
 The pilot uses only sheets whose final panel is not later than the event and is explicitly non-scoring because this analyst has prior source-corpus exposure.
 
 Formal Phase 2 still requires individually split panels plus an independent second annotation pass.
+
+
+## 2026-10-05 — BADAR PHASE-2 BLIND CORE PACK READY
+
+The exact panel-splitting step has been completed.
+
+Claude visual source commit used:
+
+`1072f7d5dc477f662436167c25a71566d7e44314`
+
+A one-shot source-repo workflow exported:
+
+- 328 stream contact sheets;
+- 1,312 individual quadrant panels;
+- 44 stream IDs total.
+
+Frozen v0.1 coverage remains 42/42 streams.
+
+Two visual streams are post-freeze and excluded from v0.1:
+
+- `PYPzCJV-YXE`
+- `PxDGTxs-Cvc`
+
+Panel export workflow run:
+
+`37230903035`
+
+Artifact:
+
+`11314210584 — badar-phase2-stream-panels`
+
+A safe event join was then created for the frozen 347 decision events.
+
+Result:
+
+- 345 in-stream events have pre-decision visual packets;
+- 2 genuine pre-stream events remain manual;
+- 254 events form the first formal independent-annotation core tranche;
+- 93 events are held in a residual timing/manual-review tranche.
+
+Core eligibility requires a high/pipeline-guaranteed latest timestamp, a 20-second pre-event safety margin and latest visual gap <=180 seconds.
+
+Canonical files:
+
+- `phase2-event-packet-manifest.csv`
+- `phase2-core-254-annotation-template.csv`
+- `phase2-residual-93-review.csv`
+- `PHASE2-PANEL-SPLIT-AND-PACKET-REPORT.md`
+- `INDEPENDENT-ANNOTATOR-INSTRUCTIONS.md`
+
+This chat cannot count as a fresh independent annotator because it previously saw the source-derived decisions.
+
+Disposition:
+
+`PHASE2_BLIND_CORE_PACKET_READY — INDEPENDENT_ANNOTATION_PENDING`
+
+P&L remains sealed.
