@@ -3816,3 +3816,37 @@ It is not appended to the frozen 42-stream corpus.
 Source-only behavior in the new stream is broadly consistent with v0.1: direct M15-close execution after sweep/location context, explicit differentiated risk, no-chase behavior, and active management.
 
 Potential v0.2 items are recorded but not promoted into frozen v0.1.
+
+
+## 2026-10-05 — BADAR PHASE-2 VISUAL ASSETS VERIFIED
+
+The newly pushed Claude visual evidence has been audited.
+
+External visual-asset commit:
+
+`be4c0463a0dbdf759a3b352ce462c4ed1664fca9`
+
+Coverage:
+
+- 319 stream contact-sheet JPEGs;
+- 43 stream IDs;
+- all 42/42 frozen v0.1 decision-corpus streams covered;
+- one extra post-freeze stream `PYPzCJV-YXE` kept outside v0.1.
+
+No raw stream-video files are present in the pushed evidence tree.
+
+The sheets are 2×2 contemporaneous source-frame contact sheets with embedded yellow stream timestamps.
+
+Important blinding rule:
+
+A full contact sheet is formally safe only when every panel is at or before the frozen event timestamp. If a later panel shares the same JPEG, the image cannot count toward formal blinded reproducibility without splitting.
+
+Added:
+
+- `mechanization-v0.1/PHASE2-VISUAL-ASSET-AUDIT.md`;
+- `mechanization-v0.1/tools/split_contact_sheets.py`;
+- `mechanization-v0.1/phase2-annotator-a-pilot.csv`.
+
+The pilot uses only sheets whose final panel is not later than the event and is explicitly non-scoring because this analyst has prior source-corpus exposure.
+
+Formal Phase 2 still requires individually split panels plus an independent second annotation pass.
