@@ -2361,3 +2361,25 @@ Added a no-download ffmpeg extractor requesting only pre-decision frames at T−
 This is preferable to reconstructing charts from protected Jul–Sep 2026 raw market data and preferable to duplicating Claude's video-analysis pipeline.
 
 Next operation requires transfer/access to the existing Claude local media cache or an archive generated from it.
+
+
+## 2026-10-05 — Accept pushed contact sheets as Phase-2 visual evidence with panel-split requirement
+
+Verified Claude commit `be4c046...` contains visual stream contact sheets for every frozen v0.1 stream.
+
+**Decision:** accept these sheets as legitimate contemporaneous human-source visual evidence.
+
+However, because each JPEG can contain four timestamps, a sheet may expose chart state later than a frozen decision event.
+
+**Decision:** do not count such mixed-time sheets as formally blinded evidence.
+
+Use either:
+
+1. a full sheet whose final panel timestamp is <= event timestamp; or
+2. a deterministically split individual panel whose timestamp is <= event timestamp.
+
+Added a source-faithful splitter that crops 2×2 quadrants only. No OCR, generation, chart reconstruction or outcome logic is used.
+
+A small Annotator-A feasibility pilot was recorded, but it is explicitly non-scoring because the same analyst has already seen parts of the source-derived corpus.
+
+Formal reproducibility still requires an independent second annotator.
