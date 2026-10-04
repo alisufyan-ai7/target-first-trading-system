@@ -3184,3 +3184,39 @@ Do not re-download Badar videos in Target-First unless the existing Claude cache
 Do not open protected Jul–Sep 2026 OHLC to recreate these source frames.
 
 When the existing Claude media cache or exported frame archive becomes available to this Project, run the blinded visual reproducibility protocol immediately.
+
+
+## Latest checkpoint — pushed Badar visual evidence covers 42/42 streams
+
+Claude visual asset commit:
+
+`be4c0463a0dbdf759a3b352ce462c4ed1664fca9`
+
+contains:
+
+- 319 stream contact sheets;
+- all 42 frozen v0.1 streams;
+- extra post-freeze Oct-1 stream kept outside v0.1.
+
+Target-First Phase-2 files now include:
+
+- `PHASE2-VISUAL-ASSET-AUDIT.md`
+- `tools/split_contact_sheets.py`
+- `phase2-annotator-a-pilot.csv`
+
+Contact sheets are 2×2 and may contain future panels relative to an event, so formal blinding requires individual panel crops.
+
+The current pilot is NON-SCORING / SAME-ANALYST.
+
+Next exact dependency:
+
+split the pushed contact sheets into timestamp-preserving individual panels and expose those panels to the blinded annotation pass.
+
+After that:
+
+- independent Annotator A/B;
+- agreement/kappa;
+- label freeze;
+- formal-policy replay;
+- reveal Badar decision labels only for behavioral fidelity;
+- keep P&L sealed.
