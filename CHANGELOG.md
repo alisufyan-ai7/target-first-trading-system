@@ -748,3 +748,8 @@
 - Updated issue #1 with the exact acquisition route.
 - Confirmed no matching frame assets are already staged in this ChatGPT Project/Library.
 - Preserved protected Jul–Sep 2026 market-data seals and avoided duplicate YouTube research.
+
+
+- Queued post-freeze Badar evidence after the external repo advanced from `d19a43d...` to `e77a73c...`.
+- Added the 2026-10-01 live stream `PYPzCJV-YXE` to a separate v0.2 evidence-refresh queue rather than contaminating the frozen 42-stream v0.1 corpus.
+- Recorded possible future distinctions for HTF-close-direct entries and early-sweep vs post-MSS risk classes, without changing v0.1.
