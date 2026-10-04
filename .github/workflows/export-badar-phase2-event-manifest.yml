@@ -1,0 +1,24 @@
+name: Export Badar Phase 2 event manifest
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/export-badar-phase2-event-manifest.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: badar-phase2-event-manifest
+          path: research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/source-frame-request.csv
+          retention-days: 7
+          if-no-files-found: error
