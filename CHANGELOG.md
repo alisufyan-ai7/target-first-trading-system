@@ -761,3 +761,12 @@
 - Added deterministic 2×2 contact-sheet splitter preserving embedded timestamps.
 - Added a non-scoring same-analyst visual feasibility pilot.
 - Formal blinded agreement remains pending individual panel exposure and an independent second annotator.
+
+
+- Built Badar Phase-2 timestamp-preserving panel export: 328 source contact sheets -> 1,312 individual panels.
+- Joined panels to the frozen 347 decision events without outcome access.
+- Produced 345 in-stream pre-decision packets and retained 2 genuine pre-stream cases as manual.
+- Frozen a conservative 254-event first independent-annotation tranche and a separate 93-event residual review set.
+- Added blank annotation template, packet manifest, residual register, panel-split report and fresh-annotator instructions.
+- Added the Oct-2 stream `PxDGTxs-Cvc` to the post-freeze v0.2 evidence queue.
+- Formal kappa/agreement remains pending truly independent annotators; P&L remains sealed.
