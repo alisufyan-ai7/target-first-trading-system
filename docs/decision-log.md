@@ -2383,3 +2383,34 @@ Added a source-faithful splitter that crops 2×2 quadrants only. No OCR, generat
 A small Annotator-A feasibility pilot was recorded, but it is explicitly non-scoring because the same analyst has already seen parts of the source-derived corpus.
 
 Formal reproducibility still requires an independent second annotator.
+
+
+## 2026-10-05 — Freeze 254-event Badar independent annotation tranche
+
+Split the newly pushed source contact sheets into timestamp-preserving panels using a deterministic quadrant crop only.
+
+No image generation, chart reconstruction, trade decision field or outcome field was used in the split.
+
+Because timestamps exist only as embedded pixels, a batch numeric timestamp read was used only as a last-resort indexing operation. Malformed/non-monotonic readings were excluded and event packets use a 20-second pre-decision safety margin.
+
+Frozen event result:
+
+- 347 total decisions;
+- 345 in-stream packets;
+- 2 pre-stream manual cases.
+
+**Decision:** use a conservative first agreement tranche of 254 events.
+
+Core inclusion:
+
+- latest timestamp quality HIGH or PIPELINE_GUARANTEED;
+- latest safe panel <= event minus 20 seconds;
+- latest panel no more than 180 seconds before event.
+
+Residual 93 cases remain separate and cannot contaminate the first kappa calculation.
+
+**Independence decision:** this existing chat's annotations are non-scoring because the chat previously read Badar's decision corpus.
+
+Formal next action is a fresh independent Annotator A and independently isolated Annotator B on the 254-event blind packet.
+
+No Badar decision reveal and no P&L reveal before annotation outputs are frozen.
