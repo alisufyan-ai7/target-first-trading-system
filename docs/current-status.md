@@ -3754,3 +3754,42 @@ Tracking issue:
 `#1 — Build blinded Badar chart snapshot pack for 347 decision events`
 
 No P&L/backtest is authorized.
+
+
+## 2026-10-05 — BADAR PHASE-2 SOURCE-FRAME ACQUISITION PREPARED
+
+The next mechanization dependency has been narrowed from “need chart images” to an exact existing source location.
+
+Claude's committed runbook shows that its research workflow stores:
+
+- source media under `badartrader-research/media/<stream_id>.*`;
+- contact sheets under `badartrader-research/sheets/<stream_id>_NN.jpg`.
+
+These binary assets were intentionally not synced into the evidence GitHub repo.
+
+Target-First now has a frozen frame request manifest and no-download extractor:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/source-frame-request.csv`
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/tools/extract_source_frames.py`
+
+Coverage:
+
+- 347 total decision events;
+- 345 exact in-stream events ready for pre-decision extraction;
+- 2 pre-stream trades intentionally left manual rather than assigning a synthetic timestamp.
+
+Each READY event requests source-video frames at:
+
+- T−120 s
+- T−60 s
+- T−30 s
+- T−5 s
+
+The extractor performs no downloads, exports no Badar decision labels, exports no P&L/outcome fields, and writes SHA-256 hashes.
+
+This reuses Claude's existing video work rather than duplicating extraction in Target-First.
+
+Phase 2 is now blocked only by file transfer/access to the existing local Claude media cache.
+
+Protected Jul–Sep 2026 raw market-history data remains sealed.
