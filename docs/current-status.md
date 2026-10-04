@@ -3793,3 +3793,26 @@ This reuses Claude's existing video work rather than duplicating extraction in T
 Phase 2 is now blocked only by file transfer/access to the existing local Claude media cache.
 
 Protected Jul–Sep 2026 raw market-history data remains sealed.
+
+
+## 2026-10-05 — POST-FREEZE BADAR EVIDENCE QUEUED
+
+The external Badar evidence repo has advanced to:
+
+`e77a73c739927d41e90e42b05a522a80b8fcabaf`
+
+The frozen v0.1 boundary remains:
+
+`d19a43da80ae0e3ab4207a73a35f317120d37c84`
+
+Delta: one new daily-update commit adding live stream `PYPzCJV-YXE` from 2026-10-01.
+
+This new stream is queued in:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/EVIDENCE-REFRESH-QUEUE.md`
+
+It is not appended to the frozen 42-stream corpus.
+
+Source-only behavior in the new stream is broadly consistent with v0.1: direct M15-close execution after sweep/location context, explicit differentiated risk, no-chase behavior, and active management.
+
+Potential v0.2 items are recorded but not promoted into frozen v0.1.
