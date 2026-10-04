@@ -79,3 +79,22 @@ After v0.1 Phase-2 reproducibility is complete:
 6. only then create Decision Model / Formal Policy v0.2 if justified.
 
 No P&L may be used to decide whether a new source behavior is admitted.
+
+
+### New stream queued — PxDGTxs-Cvc — 2026-10-02
+
+External evidence commit:
+
+`1072f7d5dc477f662436167c25a71566d7e44314`
+
+This daily catch-up commit adds the October 2 NFP live stream plus later forecast/video material.
+
+For v0.1 governance:
+
+- `PxDGTxs-Cvc` is **post-freeze**;
+- its contact sheets may exist in the Phase-2 visual export artifact;
+- it is excluded from the 42-stream v0.1 decision corpus;
+- it is excluded from the 254-event v0.1 blind annotation tranche;
+- it must be evaluated only in the future v0.2 evidence refresh.
+
+Do not use its behavior to amend v0.1 mechanization before Phase-2 reproducibility is complete.
