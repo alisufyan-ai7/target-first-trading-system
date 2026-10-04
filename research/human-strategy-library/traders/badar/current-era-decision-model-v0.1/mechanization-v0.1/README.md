@@ -78,3 +78,22 @@ Target-First issue #1:
 The issue is the active dependency for Phase 2.
 
 Do not substitute protected Jul–Sep 2026 raw-OHLC reconstruction for the source-frame pack.
+
+
+## Phase-2 acquisition prepared
+
+Claude's own source-research runbook confirms that the binary media/frame assets live outside Git in the local `badartrader-research/` workspace.
+
+Target-First now contains:
+
+- `source-frame-request.csv` — 347 frozen event requests;
+- 345 events marked `READY` for exact in-stream extraction;
+- 2 events marked `MANUAL_PRESTREAM`;
+- `tools/extract_source_frames.py` — no-download extractor using the existing Claude media cache;
+- `SOURCE-FRAME-EXPORT.md` — transfer instructions.
+
+The extractor requests T−120, T−60, T−30 and T−5 seconds only, exports no decision labels or outcomes, and hashes every frame.
+
+Tracking issue #1 has been updated with this acquisition path.
+
+Current dependency is now physical/file access to Claude's existing local `badartrader-research/media/` cache or an archive exported from it.
