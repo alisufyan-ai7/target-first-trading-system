@@ -739,3 +739,12 @@
 - Preserved protected Jul–Sep 2026 market-data seals; visual replay must use human-source stream frames rather than independent raw-OHLC reconstruction.
 - Opened issue #1 to track the 347-event blinded chart snapshot pack.
 - Backtesting remains unauthorized.
+
+
+- Prepared Badar Phase-2 source-frame acquisition from Claude's existing local media cache.
+- Added a 347-event blinded frame-request manifest: 345 exact in-stream events and 2 pre-stream manual cases.
+- Added a no-download ffmpeg extractor requesting T−120/T−60/T−30/T−5 source frames and hashing every output.
+- Documented the existing Claude local paths `badartrader-research/media/` and `badartrader-research/sheets/`.
+- Updated issue #1 with the exact acquisition route.
+- Confirmed no matching frame assets are already staged in this ChatGPT Project/Library.
+- Preserved protected Jul–Sep 2026 market-data seals and avoided duplicate YouTube research.
