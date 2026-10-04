@@ -3220,3 +3220,42 @@ After that:
 - formal-policy replay;
 - reveal Badar decision labels only for behavioral fidelity;
 - keep P&L sealed.
+
+
+## Latest checkpoint — Badar Phase-2 core blind packet ready
+
+Panel splitting and event-packet construction are complete.
+
+Visual source commit:
+
+`1072f7d5dc477f662436167c25a71566d7e44314`
+
+Panel artifact:
+
+- workflow run `37230903035`
+- artifact `11314210584`
+- 1,312 individual panels from 328 contact sheets.
+
+Frozen v0.1 decision packet:
+
+- 347 events total;
+- 345 in-stream visual packets;
+- 2 pre-stream manual cases;
+- 254-event first formal blind tranche;
+- 93-event residual review tranche.
+
+Canonical files under `mechanization-v0.1/`:
+
+- `phase2-event-packet-manifest.csv`
+- `phase2-core-254-annotation-template.csv`
+- `phase2-residual-93-review.csv`
+- `PHASE2-PANEL-SPLIT-AND-PACKET-REPORT.md`
+- `INDEPENDENT-ANNOTATOR-INSTRUCTIONS.md`
+
+Do not count this chat as an independent annotator; it has prior source-decision exposure.
+
+Next exact action:
+
+**Run fresh independent Annotator A and B on the core 254 blind packet, then calculate agreement/kappa before revealing Badar's decision labels.**
+
+P&L remains sealed.
