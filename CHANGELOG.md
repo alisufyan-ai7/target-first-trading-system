@@ -753,3 +753,11 @@
 - Queued post-freeze Badar evidence after the external repo advanced from `d19a43d...` to `e77a73c...`.
 - Added the 2026-10-01 live stream `PYPzCJV-YXE` to a separate v0.2 evidence-refresh queue rather than contaminating the frozen 42-stream v0.1 corpus.
 - Recorded possible future distinctions for HTF-close-direct entries and early-sweep vs post-MSS risk classes, without changing v0.1.
+
+
+- Verified pushed Badar visual evidence covers all 42 frozen v0.1 streams at external asset commit `be4c0463...`.
+- Audited 319 stream contact-sheet JPEGs across 43 stream IDs, with the Oct-1 post-freeze stream kept separate.
+- Added a Phase-2 visual asset audit.
+- Added deterministic 2×2 contact-sheet splitter preserving embedded timestamps.
+- Added a non-scoring same-analyst visual feasibility pilot.
+- Formal blinded agreement remains pending individual panel exposure and an independent second annotator.
