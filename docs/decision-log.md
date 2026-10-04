@@ -2336,3 +2336,28 @@ The Badar source period overlaps protected Jul–Sep 2026 market-history periods
 Phase-2 visual replay must use contemporaneous frames from the human source streams unless a future explicit governance decision retires/reassigns the protected periods.
 
 Tracking issue #1 records the required 347-event source-frame pack.
+
+
+## 2026-10-05 — Reuse Claude source-media cache for Phase-2 frames
+
+Investigation of the external Badar repo's own tooling revealed that frame sheets are not missing evidence: they are generated locally and deliberately excluded from Git.
+
+Claude workflow paths:
+
+- `badartrader-research/media/`
+- `badartrader-research/sheets/`
+
+**Decision:** reuse those existing source-media assets rather than re-download/research the videos in Target-First.
+
+Added a 347-event request manifest.
+
+Result:
+
+- 345 in-stream events have parseable frozen stream timestamps;
+- 2 trades are explicitly pre-stream and remain manual evidence cases.
+
+Added a no-download ffmpeg extractor requesting only pre-decision frames at T−120/T−60/T−30/T−5.
+
+This is preferable to reconstructing charts from protected Jul–Sep 2026 raw market data and preferable to duplicating Claude's video-analysis pipeline.
+
+Next operation requires transfer/access to the existing Claude local media cache or an archive generated from it.
