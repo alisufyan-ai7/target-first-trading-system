@@ -3259,3 +3259,35 @@ Next exact action:
 **Run fresh independent Annotator A and B on the core 254 blind packet, then calculate agreement/kappa before revealing Badar's decision labels.**
 
 P&L remains sealed.
+
+
+## Latest checkpoint — independent Badar A/B annotation packs frozen
+
+Formal Phase-2 annotation set is ready.
+
+254 underlying events are split into 4 paired folds:
+
+- 64
+- 64
+- 63
+- 63
+
+Annotator A and B receive independently anonymized versions of the same folds.
+
+Do not use the older identifier-exposed `core-254.zip` for formal kappa.
+
+Canonical pack hash register:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-pack-manifest.csv`
+
+Crosswalk commitment:
+
+`4752dbd7cee71e4185da38da762778bc7bb4c913a9b0d6a516ec2b1062d1f990`
+
+The mapping itself remains sealed outside GitHub.
+
+Next exact action:
+
+Run fresh isolated Annotator A and fresh isolated Annotator B across all four batches, then bring the eight completed CSVs back to this research thread for agreement/kappa scoring.
+
+No Badar decision reveal and no P&L reveal before annotation freeze.
