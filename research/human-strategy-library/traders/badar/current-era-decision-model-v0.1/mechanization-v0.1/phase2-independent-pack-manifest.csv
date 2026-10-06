@@ -1,0 +1,9 @@
+annotator,batch,events,sha256,file,mapping_exposed,decision_labels_exposed,outcomes_exposed
+A,1,64,0f2534ec300c865754d111ca4ce20a29287cd3bfdabaaca8e801ebd4edc0bfbb,annotator-A-batch-1.zip,NO,NO,NO
+A,2,64,9cd25735d617be18f40b2c03662e260fb2d361e82306107ec19ac235305f6886,annotator-A-batch-2.zip,NO,NO,NO
+A,3,63,ec38c4c0fffe1e9596c879dac8749154b43a85a06a08524001eaa8328ab3a46c,annotator-A-batch-3.zip,NO,NO,NO
+A,4,63,7881f032a1941b12714515d364894fe40d8f27f71193e7dda817d3beb151a77e,annotator-A-batch-4.zip,NO,NO,NO
+B,1,64,485f300b1dee2351346c963761667c8afdab714b08239bdd352ab837bfe98691,annotator-B-batch-1.zip,NO,NO,NO
+B,2,64,61b2d98c745d2a89048371d1b6b00f158717513dacb6f11c1cf2e9a052dc0207,annotator-B-batch-2.zip,NO,NO,NO
+B,3,63,18e722401d50f9430cd02b0441a05b75f6459b652dc7ee5bcf8749f5c3cf49a4,annotator-B-batch-3.zip,NO,NO,NO
+B,4,63,8c23b7745c6242cd6afc4f714acb1114642d5427a93a173c2b978b77c97a35f2,annotator-B-batch-4.zip,NO,NO,NO
