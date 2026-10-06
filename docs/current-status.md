@@ -3907,3 +3907,44 @@ Disposition:
 `PHASE2_BLIND_CORE_PACKET_READY — INDEPENDENT_ANNOTATION_PENDING`
 
 P&L remains sealed.
+
+
+## 2026-10-06 — BADAR PHASE-2 INDEPENDENT ANNOTATOR PACKS FROZEN
+
+The 254-event core visual tranche has been converted into two independently anonymized annotation sets.
+
+Structure:
+
+- Annotator A: 4 batches = 64 + 64 + 63 + 63 events
+- Annotator B: 4 batches = same underlying folds, separately randomized and separately blind-ID mapped
+
+Independence hardening:
+
+- original stream IDs removed from filenames/text metadata;
+- original event IDs removed;
+- A/B case IDs differ;
+- A/B order differs;
+- source notes/transcripts absent;
+- decision labels absent;
+- outcomes/P&L/MFE/MAE absent.
+
+The actual blind-ID crosswalk is not committed.
+
+Only its pre-annotation SHA-256 commitment is frozen:
+
+`4752dbd7cee71e4185da38da762778bc7bb4c913a9b0d6a516ec2b1062d1f990`
+
+Canonical files:
+
+- `mechanization-v0.1/phase2-independent-pack-manifest.csv`
+- `mechanization-v0.1/PHASE2-INDEPENDENT-ANNOTATOR-PACKS.md`
+
+Disposition:
+
+`INDEPENDENT_ANNOTATOR_PACKS_FROZEN — FRESH_CONTEXT_EXECUTION_REQUIRED`
+
+The current chat is scientifically ineligible to score as Annotator A or B because it has prior source-decision exposure.
+
+Next formal action: run the eight blind annotation batches in genuinely fresh isolated contexts, freeze all returned CSVs, then compute agreement/kappa before revealing Badar decision labels.
+
+P&L remains sealed.
