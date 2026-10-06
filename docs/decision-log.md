@@ -2414,3 +2414,26 @@ Residual 93 cases remain separate and cannot contaminate the first kappa calcula
 Formal next action is a fresh independent Annotator A and independently isolated Annotator B on the 254-event blind packet.
 
 No Badar decision reveal and no P&L reveal before annotation outputs are frozen.
+
+
+## 2026-10-06 — Anonymize A/B annotation packs before formal agreement study
+
+The first 254-event core pack still exposed source stream/event identifiers in its folder names and template.
+
+**Decision:** do not use that identifier-exposed version for the formal independent agreement study.
+
+Created separate Annotator-A and Annotator-B packs that:
+
+- strip original stream IDs;
+- strip original decision-event IDs;
+- assign random blind case IDs;
+- use independent case ordering;
+- retain only safe pre-decision images and minimal timing metadata.
+
+The same 254 underlying cases are split into four paired folds for practical annotation.
+
+The crosswalk was created before annotation and is withheld from GitHub. Its SHA-256 commitment is frozen so later scoring can prove mapping integrity.
+
+This is now the only authorized Phase-2 A/B scoring set.
+
+The current research chat may perform later scoring/adjudication, but must not count as an independent annotator.
