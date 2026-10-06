@@ -770,3 +770,12 @@
 - Added blank annotation template, packet manifest, residual register, panel-split report and fresh-annotator instructions.
 - Added the Oct-2 stream `PxDGTxs-Cvc` to the post-freeze v0.2 evidence queue.
 - Formal kappa/agreement remains pending truly independent annotators; P&L remains sealed.
+
+
+- Frozen independently anonymized Badar Phase-2 A/B annotation packs for the 254-event core tranche.
+- Split each annotator workload into four paired batches (64/64/63/63).
+- Removed source stream IDs and original event IDs from all formal annotation-pack paths/text metadata.
+- Assigned separate random blind IDs and independent order for A vs B.
+- Withheld the A/B crosswalk from GitHub and frozen only its SHA-256 commitment.
+- Added public pack checksums and formal independent-annotation protocol.
+- Current research chat remains ineligible as an independent annotator because of prior source-decision exposure.
