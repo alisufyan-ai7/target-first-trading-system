@@ -4016,3 +4016,72 @@ When Chat #09 approaches its conversation limit, update GitHub first and give th
 `docs/NEXT-CHAT-PROMPT.md`
 
 The next chat must recover from GitHub, not from assumed chat memory.
+
+
+## 2026-11-27 — BADAR PHASE-2 INDEPENDENT REPRODUCIBILITY FAIL
+
+All 8 independent annotator CSVs have returned and passed submission integrity.
+
+A/B coverage:
+
+- Annotator A: 64 / 64 / 63 / 63 = 254
+- Annotator B: 64 / 64 / 63 / 63 = 254
+- duplicate blind IDs: 0
+- unexpected blind IDs: 0
+- prior exposure YES: 0 for both annotators
+
+The rebuilt sealed crosswalk used for pairing verified exactly against the frozen commitment:
+
+`474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
+
+Canonical results:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-results-v2/`
+
+Frozen result:
+
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+### Reproducibility gates
+
+All seven predeclared fields failed.
+
+Core fields:
+
+- location_state: 45.3% raw agreement, kappa 0.285 — FAIL
+- structural_stop_state: 78.0%, kappa 0.448 — FAIL
+- htf_close_state: 18.5%, kappa -0.002 — FAIL
+- late_state: 59.1%, kappa 0.315 — FAIL
+
+Quality fields:
+
+- confirmation_state: 41.3%, kappa 0.265 — FAIL
+- target_path_state: 68.5%, kappa 0.310 — FAIL
+- direct_branch_eligible: 52.4%, kappa 0.278 — FAIL
+
+No Badar TRADE/WAIT/NO_TRADE labels were revealed.
+
+No P&L/result-R/MFE/MAE was revealed.
+
+### Diagnostic nuance
+
+Some fields appear conceptually stable when both annotators can resolve them, but the v0.1 representation is insufficiently reproducible:
+
+- structural stop: 99.4% agreement on 163 resolved pairs, but high unresolved rate;
+- target path: 85.8% agreement on 162 resolved pairs, but high unresolved rate.
+
+The largest systemic contract failure is HTF-close state, especially `UNRESOLVED / NOT_RELEVANT / CONFIRMS` versus `NEUTRAL`.
+
+Location, confirmation and chasing also show material semantic disagreement.
+
+### Scientific decision
+
+Do not use subjective post-hoc adjudication to rescue v0.1 into an automated policy.
+
+Do not reveal Badar decisions merely to diagnose the failed annotation contract.
+
+Do not run policy behavior-fidelity or P&L.
+
+The next authorized research object is a new outcome-blind **Mechanization v0.2** representation/annotation contract that fixes the observed ambiguity and is tested prospectively on a separate evidence tranche.
+
+Backtesting remains unauthorized.
