@@ -22,98 +22,150 @@ Before doing new research, use the GitHub connector to fetch the **current main 
 4. `docs/NEW-CHAT-HANDOFF.md`
 5. `docs/CHAT-LEDGER.md`
 6. `CHANGELOG.md`
-7. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/PHASE2-PANEL-SPLIT-AND-PACKET-REPORT.md`
-8. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/INDEPENDENT-ANNOTATOR-INSTRUCTIONS.md`
-9. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-pack-manifest-v2.csv`
-10. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/PHASE2-REBUILT-PACK-HASHES-2026-11-27.md`
+7. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-results-v2/PHASE2-INDEPENDENT-REPRODUCIBILITY-RESULT.md`
+8. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-results-v2/AGREEMENT-METRICS.csv`
+9. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/README.md`
 
 Also inspect any newer commits/docs added after this prompt was written.
 
-## Critical frozen boundaries
+## Critical frozen boundary
 
-Badar Current-Era Decision Model v0.1 is pinned to external source-evidence commit:
+Badar Current-Era Decision Model v0.1 remains pinned to external source-evidence commit:
 
 `d19a43da80ae0e3ab4207a73a35f317120d37c84`
 
-Do not silently move that evidence boundary even if the external evidence repo has newer sessions.
+Do not silently move that boundary.
 
-Post-freeze sessions belong to the evidence-refresh queue / future v0.2 unless explicitly admitted prospectively.
+Post-freeze evidence belongs to the evidence-refresh queue / future version unless explicitly admitted prospectively.
 
-Protected P&L/outcomes remain sealed.
+## Completed v0.1 Phase-2 result
 
-No development backtest is currently authorized.
+The two independent fresh annotators completed all four batches each.
 
-## Current Phase-2 state
+Submission integrity:
 
-The study has:
+- Annotator A: 254/254
+- Annotator B: 254/254
+- duplicate blind IDs: 0
+- unexpected blind IDs: 0
+- prior exposure YES: 0
 
-- 347 frozen pre-entry decision events;
-- 254-event conservative independent-annotation core tranche;
-- 93-event residual review tranche;
-- Formal Decision Policy v0.1 frozen outcome-blind;
-- Phase-1 hard-gate mechanization frozen;
-- source visual panels already constructed.
+The rebuilt sealed A/B crosswalk commitment verified:
 
-The original October A/B attachment bytes expired.
+`474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
 
-**Use only the active rebuilt v2 packs**, not the historical v1 pack hashes.
+Final v0.1 disposition:
 
-Active v2 pack hashes:
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
 
-- Annotator A:
-  `e972eea554b77636021f1a37b9662e47867089bff00960ba33604a52ee883e95`
-- Annotator B:
-  `285caff6000667a01758bedf5904bfa01f5862054d4908c9cd7179586063a45d`
-- rebuilt sealed crosswalk SHA-256 commitment:
-  `474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
+All seven frozen fields failed their gate.
 
-The user is currently running two separate fresh isolated chats as Independent Annotator A and Independent Annotator B.
+Core fields:
 
-Each annotator covers four paired folds:
+- location_state: 45.3% raw agreement, kappa 0.285
+- structural_stop_state: 78.0%, kappa 0.448
+- htf_close_state: 18.5%, kappa -0.002
+- late_state: 59.1%, kappa 0.315
 
-`64 / 64 / 63 / 63`
+Quality fields:
 
-A and B use different blind IDs/order.
+- confirmation_state: 41.3%, kappa 0.265
+- target_path_state: 68.5%, kappa 0.310
+- direct_branch_eligible: 52.4%, kappa 0.278
 
-They must not see:
+Important diagnostic nuance:
 
-- original stream IDs/event IDs;
-- Badar's TRADE/WAIT/NO_TRADE labels;
-- source notes/transcripts;
-- later management;
-- P&L;
-- outcome R;
-- MFE/MAE;
-- the sealed A/B crosswalk;
-- the other annotator's labels.
+- structural-stop agreement is 99.4% among the 163 pairs where both annotators made a resolved call;
+- target-path agreement is 85.8% among 162 resolved pairs;
+- the largest systemic contract failure is HTF-close semantics;
+- location, confirmation and chasing remain materially ambiguous.
 
-## Next formal action
+## What must remain sealed
 
-If the user returns the 8 completed annotation CSVs, do not ask unnecessary questions.
+Do **not** reveal Badar's actual TRADE/WAIT/NO_TRADE labels merely to diagnose the v0.1 reproducibility failure.
 
-Proceed directly to:
+Do **not** open:
 
-1. inspect all 8 files;
-2. verify expected batch/event counts;
-3. verify the active v2 pack provenance/hashes where possible;
-4. load the sealed rebuilt crosswalk from the current Project attachment/file surface if available;
-5. verify its SHA-256 equals:
-   `474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`;
-6. map Annotator A and B blind IDs to the same frozen original events;
-7. exclude `PRIOR_EXPOSURE` cases;
-8. compute raw percent agreement for each categorical field;
-9. compute Cohen's kappa where class support permits;
-10. compute confusion matrices;
-11. compute UNRESOLVED rates;
-12. compare results to the frozen reproducibility gates;
-13. preserve all disagreements;
-14. adjudicate disagreements **outcome-blind** using only the frozen derivation contract and pre-decision visual evidence;
-15. freeze final state labels;
-16. replay Formal Decision Policy v0.1;
-17. only after that reveal Badar's actual TRADE/WAIT/NO_TRADE labels for behavioral-fidelity analysis;
-18. still do not open P&L unless a later explicit gate authorizes it.
+- P&L
+- result R
+- MFE/MAE
+- skipped-trade outcome
 
-If only some annotator CSVs have returned, verify and checkpoint them but do not compute final A/B kappa prematurely.
+Do not perform a behavior-fidelity reveal for v0.1 unless a later explicit governance decision justifies a descriptive-only analysis.
+
+Do not adjudicate v0.1 disagreements merely to manufacture a passing automated set.
+
+## Current authorized research object
+
+Mechanization v0.1 is closed.
+
+Current next object:
+
+**Badar Mechanization v0.2 — prospective outcome-blind representation/annotation redesign.**
+
+Canonical brief:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/README.md`
+
+Tracking:
+
+GitHub issue #2.
+
+v0.2 may use only:
+
+- aggregate v0.1 A/B disagreement structure;
+- source-derived definitions already available before outcomes;
+- representation/contract deficiencies exposed by the blind study.
+
+It may not use:
+
+- v0.1 Badar actual decisions;
+- any P&L/outcome information;
+- outcome-conditioned threshold selection.
+
+## v0.2 priorities
+
+1. prospectively identifiable candidate direction;
+2. frozen intended POI / entry-area anchor;
+3. active timeframe + candle open/closed metadata;
+4. precise HTF-close semantics:
+   - NOT_RELEVANT
+   - REQUIRED_PENDING
+   - NEUTRAL
+   - CONFIRMS
+   - INVALIDATES
+   - FLIPS_BIAS
+   - UNRESOLVED
+5. structural-stop visible vs inferable distinction;
+6. explicit first-objective / blocker target-path contract;
+7. frozen confirmation reference boundary/family;
+8. explicit chasing anchor.
+
+## Fresh-test rule
+
+Do not redesign on the 254 v0.1 cases and then rescore those same cases as if they were fresh validation.
+
+The next reproducibility test must use a prospectively separate evidence tranche.
+
+Preferred source:
+
+post-freeze Badar live sessions after `d19a43d...`.
+
+## Next exact action
+
+Proceed directly with:
+
+1. fetch the latest external Badar evidence repo HEAD;
+2. identify all source-layer live streams after the v0.1 cutoff;
+3. audit enough post-freeze streams to define a fresh v0.2 evidence boundary;
+4. freeze that boundary before any blind labels;
+5. design the enriched v0.2 packet/annotation contract;
+6. predeclare reproducibility gates;
+7. build fresh blinded packets;
+8. run new independent annotators;
+9. score reproducibility;
+10. only if v0.2 reproducibility passes may behavior-fidelity reveal be considered;
+11. P&L remains sealed until a later explicit promotion gate.
 
 ## Mandatory documentation behavior
 
@@ -127,16 +179,15 @@ At minimum evaluate/update:
 - `docs/CHAT-LEDGER.md`
 - `docs/NEXT-CHAT-PROMPT.md`
 - `CHANGELOG.md`
-- any affected research README/freeze/manifest
+- affected research README/freeze/manifest
+- relevant GitHub issue(s)
 
 Always leave the repository with:
 
-- exact current disposition;
+- exact disposition;
 - exact next action;
 - current hashes/commits;
-- enough context for another fresh chat to resume without reading old chat history.
-
-Do not let important project knowledge exist only in the conversation.
+- enough context for another fresh chat to resume from GitHub alone.
 
 ## Working style
 
@@ -144,10 +195,10 @@ Act rather than repeatedly asking for confirmation.
 
 Do not create another ChatGPT-only OHLC strategy/replay variant.
 
-Do not use favorable post-hoc subsets to rescue failed experiments.
+Do not rescue failed experiments with favorable subsets.
 
 Do not open protected validation periods or P&L early.
 
-Use the external Claude repo as source evidence, and Target-First as the governing strategy/research repository.
+Use the external Claude repo as source evidence and Target-First as the governing strategy/research repository.
 
-When finished with a substantial step, report the new Target-First HEAD and the exact next formal action.
+At the end of a substantial step, report the new Target-First HEAD and the exact next formal action.
