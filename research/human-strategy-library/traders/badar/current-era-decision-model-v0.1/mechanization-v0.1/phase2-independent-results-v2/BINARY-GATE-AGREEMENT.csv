@@ -1,0 +1,6 @@
+binary_gate,resolved_pairs,tp,tn,fp,fn,raw_agreement,positive_agreement,negative_agreement
+location_hard_veto,201,43,86,51,21,0.641791,0.544304,0.704918
+chasing,191,27,98,51,15,0.654450,0.450000,0.748092
+structural_stop_defined,163,162,0,1,0,0.993865,0.996923,0.000000
+confirmation_failed,207,6,189,5,7,0.942029,0.500000,0.969231
+htf_required_pending,116,0,116,0,0,1.000000,,1.000000
