@@ -790,3 +790,14 @@
 - Updated the Phase-2 independent-pack protocol with the v2 supersession.
 - Removed a temporary failed ChatGPT export workflow from the external Claude evidence repository main branch to keep the evidence repo clean.
 - Current formal dependency remains the return of four Annotator-A CSVs and four Annotator-B CSVs; P&L remains sealed.
+
+
+- Completed independent Badar Phase-2 A/B reproducibility scoring on the frozen 254-event core.
+- Frozen all 8 returned annotator CSVs in GitHub under blind IDs.
+- Verified the rebuilt sealed A/B crosswalk commitment before pairing.
+- Confirmed 254/254 cases for each annotator and zero prior-exposure cases.
+- All seven predeclared reproducibility gates failed.
+- Closed mechanization v0.1 before behavioral-fidelity reveal; Badar decision labels remain sealed.
+- P&L/result-R/MFE/MAE remain sealed.
+- Preserved disagreement diagnostics showing structural-stop and target-path concepts become much more consistent when both annotators can resolve them, while HTF-close semantics are the clearest representation/contract failure.
+- Next authorized object is Mechanization v0.2, outcome-blind, using a prospectively separate reproducibility tranche rather than post-hoc rescue of the same 254 cases.
