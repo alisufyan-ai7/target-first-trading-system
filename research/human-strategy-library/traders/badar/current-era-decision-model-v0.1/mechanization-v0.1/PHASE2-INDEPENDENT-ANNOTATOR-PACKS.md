@@ -94,3 +94,37 @@ After all outputs are received:
 9. only then reveal Badar decision labels for behavioral fidelity.
 
 P&L remains sealed.
+
+
+## 2026-11-27 replacement-pack supersession
+
+The original October conversation-generated aggregate ZIP attachment bytes expired and became unavailable for download.
+
+The scientific core composition remains unchanged:
+
+- 254 events;
+- four paired folds: 64 / 64 / 63 / 63;
+- A/B independent blind IDs/order;
+- no Badar decision labels;
+- no P&L/outcomes.
+
+Fresh replacement A/B packs were rebuilt from the frozen core mapping and preserved Phase-2 panel artifact.
+
+**Active manifest:**
+
+`phase2-independent-pack-manifest-v2.csv`
+
+Active aggregate hashes:
+
+- Annotator A:
+  `e972eea554b77636021f1a37b9662e47867089bff00960ba33604a52ee883e95`
+- Annotator B:
+  `285caff6000667a01758bedf5904bfa01f5862054d4908c9cd7179586063a45d`
+
+Active sealed rebuilt crosswalk commitment:
+
+`474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
+
+The older October pack manifest/hashes are retained as historical provenance only.
+
+**Do not use the v1 pack hashes for the current annotator handoff.**
