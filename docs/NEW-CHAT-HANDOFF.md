@@ -3346,3 +3346,54 @@ Do not open P&L.
 The full Chat #10 bootstrap is maintained at:
 
 `docs/NEXT-CHAT-PROMPT.md`
+
+
+## Latest checkpoint — Phase-2 independent A/B reproducibility failed
+
+Current working conversation remains:
+
+`Chat #09`
+
+All eight independent annotation CSVs have returned.
+
+Canonical result directory:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-results-v2/`
+
+Disposition:
+
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Crosswalk verification:
+
+`474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1` — PASS.
+
+All 254 A and 254 B cases are present; prior exposure = 0.
+
+All seven frozen reproducibility fields failed.
+
+Do **not**:
+
+- reveal Badar's actual TRADE/WAIT/NO_TRADE labels yet;
+- run policy behavior-fidelity;
+- open P&L;
+- adjudicate the failed labels merely to manufacture a passing automated set;
+- rescore the same 254 after tuning and call it fresh validation.
+
+Next exact research object:
+
+**Mechanization v0.2 — outcome-blind annotation/representation redesign using only v0.1 disagreement diagnostics, followed by a prospectively separate reproducibility test.**
+
+High-priority v0.2 fixes:
+
+- candidate direction and intended POI metadata;
+- current candle open/closed metadata;
+- HTF NEUTRAL vs NOT_RELEVANT vs UNRESOLVED;
+- structural-stop visibility/inferability;
+- target first-objective/blocker definition;
+- frozen confirmation reference/candle;
+- explicit chasing anchor.
+
+P&L remains sealed.
+
+Chat #10 bootstrap must reflect this new disposition.
