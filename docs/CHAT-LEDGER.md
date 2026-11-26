@@ -86,3 +86,39 @@ Chats #01–#08 are historical working contexts.
 They do not need to be reconstructed from chat history for continuity because durable project decisions/results are expected to be represented in GitHub.
 
 If any discrepancy exists between remembered chat history and GitHub, GitHub governance/status/freeze artifacts take precedence unless the user explicitly corrects them.
+
+
+## Chat #09 — 2026-11-27 Phase-2 A/B result update
+
+The two fresh independent annotator chats have completed.
+
+Returned:
+
+- 4 Annotator-A CSVs
+- 4 Annotator-B CSVs
+
+Integrity:
+
+- 254 A cases
+- 254 B cases
+- no duplicate or unexpected IDs
+- prior exposure = 0
+- rebuilt sealed crosswalk hash PASS
+
+Result:
+
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+All seven frozen reproducibility gates fail.
+
+Badar decisions remain sealed.
+
+P&L remains sealed.
+
+The next research object is no longer A/B scoring.
+
+It is:
+
+`Mechanization v0.2 — outcome-blind representation/annotation redesign + prospective separate reproducibility test`
+
+When transitioning to Chat #10, use the updated `docs/NEXT-CHAT-PROMPT.md`.
