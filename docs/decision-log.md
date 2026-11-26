@@ -2437,3 +2437,56 @@ The crosswalk was created before annotation and is withheld from GitHub. Its SHA
 This is now the only authorized Phase-2 A/B scoring set.
 
 The current research chat may perform later scoring/adjudication, but must not count as an independent annotator.
+
+
+## 2026-11-27 — Make GitHub continuity mandatory across numbered chats
+
+The project is now explicitly operating with numbered long-running ChatGPT working conversations.
+
+Current conversation:
+
+`Chat #09`
+
+Next conversation:
+
+`Chat #10`
+
+**Decision:** GitHub remains the canonical durable project state; chat history is not a source of truth.
+
+After every meaningful execution, the assistant must evaluate and update the relevant:
+
+- research artifact / manifest / freeze;
+- `docs/current-status.md`;
+- `docs/decision-log.md`;
+- `docs/NEW-CHAT-HANDOFF.md`;
+- `docs/CHAT-LEDGER.md`;
+- `docs/NEXT-CHAT-PROMPT.md`;
+- `CHANGELOG.md`.
+
+A ready next-chat prompt must always exist before the current conversation reaches its context limit.
+
+New continuity artifacts:
+
+- `docs/PROJECT-GOVERNANCE.md`
+- `docs/CHAT-LEDGER.md`
+- `docs/NEXT-CHAT-PROMPT.md`
+
+**Decision:** future chats must fetch current repository HEADs and re-read GitHub status/governance before executing new research.
+
+### Annotator-pack supersession
+
+The October conversation attachment bytes expired.
+
+**Decision:** preserve the historical v1 pack manifest but use the rebuilt November v2 manifest as the only active handoff:
+
+`mechanization-v0.1/phase2-independent-pack-manifest-v2.csv`
+
+New active pack hashes:
+
+- A: `e972eea554b77636021f1a37b9662e47867089bff00960ba33604a52ee883e95`
+- B: `285caff6000667a01758bedf5904bfa01f5862054d4908c9cd7179586063a45d`
+- sealed crosswalk commitment: `474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
+
+The underlying 254-event frozen core composition did not change.
+
+No scientific conclusion was altered by the attachment rebuild.
