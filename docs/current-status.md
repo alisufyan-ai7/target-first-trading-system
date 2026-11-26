@@ -3948,3 +3948,71 @@ The current chat is scientifically ineligible to score as Annotator A or B becau
 Next formal action: run the eight blind annotation batches in genuinely fresh isolated contexts, freeze all returned CSVs, then compute agreement/kappa before revealing Badar decision labels.
 
 P&L remains sealed.
+
+
+## 2026-11-27 — CHAT #09 GOVERNANCE + ANNOTATOR PACK v2 CHECKPOINT
+
+GitHub is now explicitly governed as the canonical project source of truth.
+
+Current working conversation:
+
+`Chat #09`
+
+Next conversation:
+
+`Chat #10`
+
+Added permanent continuity/governance files:
+
+- `docs/PROJECT-GOVERNANCE.md`
+- `docs/CHAT-LEDGER.md`
+- `docs/NEXT-CHAT-PROMPT.md`
+
+Mandatory process is now explicit:
+
+after every meaningful execution, checkpoint the relevant research artifact plus current status, decision log, handoff, changelog, chat ledger and next-chat prompt before considering the work complete.
+
+### Active Phase-2 independent annotation handoff
+
+The original October A/B conversation-generated ZIP attachment bytes expired.
+
+Fresh replacement packs were rebuilt from the same frozen 254-event core composition.
+
+Active v2 manifest:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-pack-manifest-v2.csv`
+
+Active hashes:
+
+- Annotator A:
+  `e972eea554b77636021f1a37b9662e47867089bff00960ba33604a52ee883e95`
+- Annotator B:
+  `285caff6000667a01758bedf5904bfa01f5862054d4908c9cd7179586063a45d`
+- rebuilt sealed crosswalk commitment:
+  `474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
+
+The older October pack hashes are historical only.
+
+The user is proceeding with two fresh isolated chats:
+
+- Independent Annotator A;
+- Independent Annotator B.
+
+Expected return:
+
+- 4 completed A CSVs;
+- 4 completed B CSVs.
+
+Next exact formal action after all 8 return:
+
+verify -> map blind IDs -> exclude PRIOR_EXPOSURE -> raw agreement -> Cohen's kappa -> confusion matrices -> unresolved rates -> outcome-blind adjudication -> freeze final states -> replay Formal Decision Policy v0.1 -> reveal only Badar TRADE/WAIT/NO_TRADE labels for behavioral fidelity.
+
+P&L remains sealed.
+
+### Continuity rule
+
+When Chat #09 approaches its conversation limit, update GitHub first and give the user the ready prompt in:
+
+`docs/NEXT-CHAT-PROMPT.md`
+
+The next chat must recover from GitHub, not from assumed chat memory.
