@@ -187,3 +187,34 @@ Required outputs:
 Do not use P&L, result R, MFE/MAE, or future candles to choose thresholds.
 
 **No development backtest is authorized until the mechanization contract is frozen.**
+
+
+## 2026-11-27 — v0.1 reproducibility closure and v0.2 handoff
+
+Independent Phase-2 A/B annotation is complete.
+
+Disposition:
+
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+All seven frozen reproducibility fields failed.
+
+Badar decisions remain sealed.
+
+P&L remains sealed.
+
+Do not continue the old v0.1 sequence into behavior-fidelity reveal merely to obtain another result.
+
+The next authorized study is now:
+
+**Badar Mechanization v0.2 — prospective outcome-blind representation/annotation redesign.**
+
+Canonical design brief:
+
+`mechanization-v0.2/README.md`
+
+Tracking issue:
+
+`#2 — Badar Mechanization v0.2 — outcome-blind representation redesign and fresh reproducibility test`
+
+v0.2 must use a prospectively separate evidence tranche; the same 254 v0.1 cases cannot be tuned and rescored as fresh validation.
