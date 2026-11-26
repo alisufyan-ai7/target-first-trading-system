@@ -779,3 +779,14 @@
 - Withheld the A/B crosswalk from GitHub and frozen only its SHA-256 commitment.
 - Added public pack checksums and formal independent-annotation protocol.
 - Current research chat remains ineligible as an independent annotator because of prior source-decision exposure.
+
+
+- Formalized GitHub-first chat continuity for current Chat #09 and next Chat #10.
+- Added `docs/PROJECT-GOVERNANCE.md` with mandatory post-execution checkpoint rules.
+- Added `docs/CHAT-LEDGER.md` to track numbered conversation continuity.
+- Added `docs/NEXT-CHAT-PROMPT.md` with a ready-to-paste Chat #10 bootstrap that recovers state from GitHub.
+- Added active rebuilt Phase-2 independent annotator pack manifest v2 after the October conversation attachment bytes expired.
+- Marked the v1 pack hashes historical only; active rebuilt A/B hashes and crosswalk commitment are now explicit in GitHub.
+- Updated the Phase-2 independent-pack protocol with the v2 supersession.
+- Removed a temporary failed ChatGPT export workflow from the external Claude evidence repository main branch to keep the evidence repo clean.
+- Current formal dependency remains the return of four Annotator-A CSVs and four Annotator-B CSVs; P&L remains sealed.
