@@ -2490,3 +2490,58 @@ New active pack hashes:
 The underlying 254-event frozen core composition did not change.
 
 No scientific conclusion was altered by the attachment rebuild.
+
+
+## 2026-11-27 — Close Badar mechanization v0.1 after independent reproducibility failure
+
+Received all four completed Annotator-A batches and all four completed Annotator-B batches.
+
+The rebuilt A/B crosswalk commitment verified before pairing labels.
+
+All 254 cases are present for both annotators; no prior-exposure cases exist.
+
+The frozen Phase-2 reproducibility gates were applied exactly as declared.
+
+**Decision:** close mechanization v0.1 before behavioral-fidelity reveal.
+
+Reason:
+
+all four core fields and all three quality fields fail their predeclared agreement/kappa/unresolved gate.
+
+Important examples:
+
+- location_state: 45.3% / kappa 0.285;
+- confirmation_state: 41.3% / kappa 0.265;
+- htf_close_state: 18.5% / kappa -0.002;
+- late_state: 59.1% / kappa 0.315.
+
+Structural-stop state has 99.4% agreement when both annotators resolve the field, but its unresolved-rate gate fails.
+
+Target-path state similarly has 85.8% agreement among resolved pairs, but unresolved rates and overall kappa fail.
+
+**Decision:** do not use adjudication as a statistical rescue mechanism.
+
+The current research chat also has prior exposure to the source-derived Badar corpus and is not an appropriate subjective tie-break adjudicator for a failed mechanization version.
+
+Badar's actual decisions remain sealed.
+
+P&L remains sealed.
+
+### Next-version rule
+
+If research continues, create **Mechanization v0.2** as a prospectively new contract.
+
+v0.2 may use only the A/B disagreement structure—not Badar decisions or outcomes—to improve:
+
+- candidate-side metadata;
+- active POI/entry-area definition;
+- current candle open/closed state;
+- HTF close semantics;
+- structural-stop visibility semantics;
+- target-path first-objective/blocker logic;
+- confirmation reference/candle definition;
+- chasing definition.
+
+Do not tune v0.2 and rescore the same 254 cases as though they were fresh validation.
+
+Use a prospectively separate evidence tranche for the next reproducibility test.
