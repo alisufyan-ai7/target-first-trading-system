@@ -1,0 +1,3 @@
+version,status,annotator,events,folds,aggregate_sha256,crosswalk_commitment,decision_labels_exposed,outcomes_exposed,notes
+2,ACTIVE_REBUILT_2026_11_27,A,254,"64/64/63/63",e972eea554b77636021f1a37b9662e47867089bff00960ba33604a52ee883e95,474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1,NO,NO,"Replacement for expired October attachment bytes; same frozen core composition, fresh blind IDs."
+2,ACTIVE_REBUILT_2026_11_27,B,254,"64/64/63/63",285caff6000667a01758bedf5904bfa01f5862054d4908c9cd7179586063a45d,474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1,NO,NO,"Replacement for expired October attachment bytes; same frozen core composition, fresh blind IDs."
