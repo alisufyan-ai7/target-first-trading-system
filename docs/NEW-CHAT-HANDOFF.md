@@ -3291,3 +3291,58 @@ Next exact action:
 Run fresh isolated Annotator A and fresh isolated Annotator B across all four batches, then bring the eight completed CSVs back to this research thread for agreement/kappa scoring.
 
 No Badar decision reveal and no P&L reveal before annotation freeze.
+
+
+## Latest checkpoint — Chat #09 / active rebuilt A-B annotator packs
+
+Current conversation:
+
+`Chat #09`
+
+Next conversation:
+
+`Chat #10`
+
+GitHub is mandatory source of truth.
+
+Read first in a new chat:
+
+- `docs/PROJECT-GOVERNANCE.md`
+- `docs/current-status.md`
+- `docs/decision-log.md`
+- `docs/CHAT-LEDGER.md`
+- `docs/NEXT-CHAT-PROMPT.md`
+- `CHANGELOG.md`
+
+Current Badar Phase-2 state:
+
+- 347 frozen pre-entry events;
+- 254-event independent-annotation core;
+- 93-event residual review set;
+- Formal Decision Policy v0.1 frozen outcome-blind;
+- P&L sealed.
+
+The original October A/B download attachments expired.
+
+Use only active rebuilt v2 packs:
+
+- A SHA-256:
+  `e972eea554b77636021f1a37b9662e47867089bff00960ba33604a52ee883e95`
+- B SHA-256:
+  `285caff6000667a01758bedf5904bfa01f5862054d4908c9cd7179586063a45d`
+- rebuilt sealed crosswalk commitment:
+  `474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
+
+Active manifest:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-pack-manifest-v2.csv`
+
+The user is running A and B in two separate fresh chats.
+
+When the eight completed annotation CSVs return, proceed directly with agreement/kappa analysis before revealing Badar's decision labels.
+
+Do not open P&L.
+
+The full Chat #10 bootstrap is maintained at:
+
+`docs/NEXT-CHAT-PROMPT.md`
