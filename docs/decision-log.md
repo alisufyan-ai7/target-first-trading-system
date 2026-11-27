@@ -2545,3 +2545,52 @@ v0.2 may use only the A/B disagreement structure—not Badar decisions or outcom
 Do not tune v0.2 and rescore the same 254 cases as though they were fresh validation.
 
 Use a prospectively separate evidence tranche for the next reproducibility test.
+
+
+## 2026-11-27 — Freeze Badar mechanization v0.2 before fresh independent annotation
+
+Following the v0.1 reproducibility failure, v0.2 was created without opening Badar decision labels or P&L.
+
+**Decision:** use only post-v0.1 live sessions for the next reproducibility test.
+
+Frozen source commit:
+
+`bd0037e06a881a066e0cd8070b635cace59240d1`
+
+Fresh tranche:
+
+- 8 live sessions;
+- 43 candidate events;
+- 0 v0.1 cases reused.
+
+**Decision:** remove unnecessary annotator discretion by supplying candidate-side/setup metadata prospectively.
+
+The new packet supplies the candidate direction, POI/entry anchor, timeframe, confirmation reference, candle status, required HTF-close applicability, stop anchor and first objective.
+
+**Decision:** do not ask annotators to independently label direct-branch eligibility. Derive it after their other labels are frozen.
+
+**Decision:** freeze reproducibility gates before annotation.
+
+**Decision:** use full-resolution single source frames rather than v0.1 contact-sheet panel reconstruction.
+
+The frozen frame selection contains 102 unique frames and all 43 cases pass the <=240-second latest-frame rule.
+
+**Decision:** freeze the generated A/B packs before handoff.
+
+A hash:
+
+`8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+
+B hash:
+
+`1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+
+Crosswalk commitment:
+
+`8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+The crosswalk itself remains outside GitHub and outside annotator packs.
+
+No behavior label or P&L was exposed.
+
+The next formal decision point occurs only after two fresh independent annotators return their completed CSVs.
