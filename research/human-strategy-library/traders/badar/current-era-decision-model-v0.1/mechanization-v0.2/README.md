@@ -1,6 +1,6 @@
 # Badar Mechanization v0.2 — Prospective Outcome-Blind Redesign
 
-**Status:** DESIGN AUTHORIZED — TEST NOT YET RUN  
+**Status:** BLIND PACKS FROZEN — INDEPENDENT ANNOTATION PENDING  
 **Parent failure:** `PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`  
 **Badar decision labels available to design process:** NO  
 **P&L/outcomes available:** NO
@@ -145,3 +145,75 @@ No development P&L study is authorized unless the new reproducibility gate passe
 7. score reproducibility;
 8. only if reproducibility passes, proceed to behavior-fidelity reveal;
 9. keep P&L sealed until the later explicit promotion gate.
+
+
+## Execution checkpoint — 2026-11-27
+
+The prospective v0.2 redesign has now advanced through pack freeze.
+
+Completed:
+
+- audited all 8 live streams after the v0.1 cutoff;
+- froze external evidence commit `bd0037e06a881a066e0cd8070b635cace59240d1`;
+- froze 43 fresh candidate events;
+- reused 0 v0.1 cases;
+- froze the richer annotation contract before labeling;
+- froze the new agreement/kappa gates before labeling;
+- froze 102 full-resolution pre-decision source frames;
+- all 43 events pass the visual-gap requirement;
+- built independently randomized A/B blind packs;
+- verified no source/event ID leakage in filenames/text metadata;
+- verified no Badar decision labels or outcomes are exposed.
+
+Active pack freeze:
+
+`PACK-FREEZE.md`
+
+Active pack manifest:
+
+`active-pack-manifest-v0.2.csv`
+
+Annotator handoff:
+
+`ANNOTATOR-HANDOFF.md`
+
+### Pack statistics
+
+- candidate events: 43
+- eligible: 43
+- excluded: 0
+- total packet images per annotator: 164
+- unique source frames: 102
+- max latest-frame gap: 182 sec
+- median latest-frame gap: 67 sec
+- confirmation cases requiring human judgment: 17
+- confirmation automatic NOT_YET: 24
+- confirmation automatic NONE: 2
+- HTF automatic NOT_RELEVANT: 41
+- HTF automatic REQUIRED_PENDING: 2
+
+### Active hashes
+
+Annotator A:
+
+`8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+
+Annotator B:
+
+`1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+
+Sealed crosswalk commitment:
+
+`8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+### Current disposition
+
+`BADAR_MECHANIZATION_V0_2_BLIND_PACKS_FROZEN — INDEPENDENT_ANNOTATION_PENDING`
+
+The current Chat #09 may not annotate these packs.
+
+The next formal operation requires two fresh isolated annotator chats.
+
+Badar behavioral labels remain sealed.
+
+P&L remains sealed.
