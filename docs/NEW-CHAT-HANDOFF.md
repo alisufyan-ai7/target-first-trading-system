@@ -3397,3 +3397,65 @@ High-priority v0.2 fixes:
 P&L remains sealed.
 
 Chat #10 bootstrap must reflect this new disposition.
+
+
+## Latest checkpoint — Badar mechanization v0.2 packs frozen
+
+Current conversation:
+
+`Chat #09`
+
+Current formal study:
+
+`Badar Mechanization v0.2 — fresh prospective independent reproducibility`
+
+Frozen evidence boundary:
+
+`bd0037e06a881a066e0cd8070b635cace59240d1`
+
+Fresh tranche:
+
+- 8 post-v0.1 streams;
+- 43 fresh candidate events;
+- 0 reused v0.1 cases;
+- 102 unique full-resolution pre-decision frames;
+- 43/43 visual packets eligible.
+
+Frozen contract/gates:
+
+- `mechanization-v0.2/ANNOTATION-CONTRACT.md`
+- `mechanization-v0.2/REPRODUCIBILITY-GATES.md`
+- `mechanization-v0.2/BLIND-PACKET-SCHEMA.md`
+
+Pack freeze:
+
+`mechanization-v0.2/PACK-FREEZE.md`
+
+Active hashes:
+
+- A: `8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+- B: `1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+- sealed crosswalk commitment: `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+Current disposition:
+
+`BADAR_MECHANIZATION_V0_2_BLIND_PACKS_FROZEN — INDEPENDENT_ANNOTATION_PENDING`
+
+Next exact dependency is user execution of two fresh isolated chats:
+
+- Annotator A receives only A pack.
+- Annotator B receives only B pack.
+
+When both completed CSVs return:
+
+- verify hashes and schema;
+- recover/verify sealed crosswalk;
+- compute frozen v0.2 agreement/kappa/unresolved gates;
+- derive direct-branch eligibility per annotator;
+- close before behavior reveal if any required gate fails;
+- only on full reproducibility pass reveal Badar's actual decision labels for behavioral fidelity;
+- P&L remains sealed.
+
+The complete fresh-chat annotation instructions are in:
+
+`mechanization-v0.2/ANNOTATOR-HANDOFF.md`
