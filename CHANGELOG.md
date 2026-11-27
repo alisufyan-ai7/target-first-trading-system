@@ -825,3 +825,20 @@
 - Formal v0.2 agreement/kappa scoring remains pending the completed row-level A/B CSVs and sealed crosswalk verification.
 - Badar behavior labels remain sealed.
 - P&L/result-R/MFE/MAE remain sealed.
+
+
+## 2026-11-27 — Badar Mechanization v0.2 independent reproducibility result
+
+- Recovered the two completed 43-row v0.2 independent annotation returns from the persistent Library.
+- Verified both frozen pack SHA-256 hashes and the sealed crosswalk commitment.
+- Verified no duplicate/missing/unexpected blind IDs and prior exposure YES = 0.
+- Verified all prefilled automatic confirmation/HTF states were preserved.
+- Applied the predeclared v0.2 reproducibility gates without adjudication.
+- location_state: 51.2%, kappa 0.260 — FAIL.
+- structural_stop_visibility: 74.4%, kappa 0.532 — FAIL.
+- late_state applicable N=26: 73.1%, kappa 0.450 — FAIL.
+- confirmation_state human N=17: 76.5%, kappa 0.595 — FAIL.
+- target_path_state: 95.3%, kappa 0.482 — FAIL.
+- HTF automatic applicability: 100% consistency — PASS.
+- Closed v0.2 with `V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`.
+- Badar behavior labels and all P&L/outcome fields remain sealed.

@@ -116,39 +116,31 @@ Historical v0.1 disposition:
 
 `PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
 
-Active v0.2 evidence boundary:
+v0.2 evidence boundary:
 
 `bd0037e06a881a066e0cd8070b635cace59240d1`
 
-Active v0.2 study:
+v0.2 independent reproducibility completed on 43 genuinely fresh events with zero v0.1 reuse.
 
-- 8 fresh post-v0.1 live streams;
-- 43 fresh candidate events;
-- 0 reused v0.1 cases;
-- frozen annotation contract and reproducibility gates;
-- frozen A/B blind packs and sealed crosswalk commitment.
+Formal v0.2 disposition:
 
-User-reported independent-annotation intake on 2026-11-27:
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
 
-- Annotator A reports 43/43 rows complete and prior exposure YES = 0;
-- Annotator B reports 43/43 rows complete and prior exposure YES = 0;
-- only aggregate unresolved counts have been provided to the governing Chat #10 so far;
-- completed row-level CSVs have not yet been ingested in Chat #10.
+Required human fields failed the frozen gate:
 
-Current formal stage:
+- location_state
+- structural_stop_visibility
+- late_state
+- confirmation_state
+- target_path_state
 
-`BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
+HTF packet applicability passed at 100%, but there were no completed required-close human cases.
 
-No raw agreement, Cohen's kappa, confusion matrix, or promotion decision may be inferred from the marginal unresolved-count summaries alone.
+Badar TRADE/WAIT/NO_TRADE labels remain sealed.
 
-Exact next formal action:
+P&L/result-R/MFE/MAE/skipped-trade outcomes remain sealed.
 
-1. ingest the completed Annotator A and Annotator B CSV files;
-2. verify schema/provenance and frozen pack identities;
-3. recover and verify the sealed crosswalk against commitment `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`;
-4. pair A/B labels and apply the predeclared v0.2 reproducibility gates;
-5. reveal Badar TRADE/WAIT/NO_TRADE only if every required gate passes;
-6. keep P&L/result-R/MFE/MAE sealed in either case.
+The failed A/B labels may not be adjudicated or repaired to manufacture a pass. These 43 cases may not be reused as fresh validation for a tuned successor.
 
 Current working conversation:
 
@@ -158,4 +150,4 @@ Next conversation:
 
 `Chat #11`
 
-The ready bootstrap prompt for the next conversation is maintained in `docs/NEXT-CHAT-PROMPT.md`.
+If mechanization research continues, the next authorized object must be a prospectively new version/tranche using only disagreement diagnostics from v0.2, with new rules/gates frozen before new labels.

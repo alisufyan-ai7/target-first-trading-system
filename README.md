@@ -33,14 +33,17 @@ These are design objectives, not guaranteed returns.
 
 ## Current gate
 
-**EXP-014 is complete.**
+No strategy engine is currently promoted as a validated execution lead.
 
-- Part A systematically tested recovery variants A1–A9 under a frozen multi-dimensional acceptance protocol.
-- The original EXP-002 implementation could not be honestly reproduced from the surviving evidence and is now classified as a **historical exploratory positive result, not a validated/reproducible engine**.
-- Part B froze the forward non-Gold P&L-equivalent sizing method in `docs/PNL-EQUIVALENT-SIZING.md`.
-- EXP-015 remains **PAUSED** because the ranker still needs at least one prospectively specified, reproducible, validated strategy engine that emits the common candidate contract.
+The latest Badar human-decision mechanization study used a prospectively fresh 43-case v0.2 tranche and failed its predeclared independent reproducibility gates before behavioral-fidelity reveal:
 
-The next build gate is therefore to define and validate a new **causal, reproducible strategy engine** prospectively. Do not continue post-hoc fitting to the lost EXP-002 implementation and do not resume the broad-pivot ranker.
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Badar's actual TRADE/WAIT/NO_TRADE decisions and all P&L/outcome fields remain sealed.
+
+The project must not rescue the failed v0.2 tranche by adjudication, post-hoc threshold changes, or reuse as fresh validation. If this research path continues, it requires a prospectively new version and fresh evidence.
+
+See `docs/current-status.md` and the v0.2 reproducibility result for the latest checkpoint.
 
 ## Start here
 

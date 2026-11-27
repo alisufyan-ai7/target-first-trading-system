@@ -194,3 +194,38 @@ Next formal action:
 Next conversation after Chat #10:
 
 `Chat #11`
+
+
+## Chat #10 — 2026-11-27 Badar Mechanization v0.2 reproducibility result
+
+The persistent Library contained both completed 43-row v0.2 annotation CSVs, the original frozen A/B packs and the private sealed crosswalk artifact.
+
+Formal provenance verification passed:
+
+- A/B pack hashes match;
+- crosswalk CSV hash matches the frozen commitment;
+- A/B row identities complete and unique;
+- prior exposure YES = 0;
+- all packet-derived automatic states preserved.
+
+Frozen reproducibility scoring was completed without opening Badar behavior labels.
+
+Result:
+
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Human gates:
+
+- location FAIL
+- structural stop visibility FAIL
+- late state FAIL
+- confirmation FAIL
+- target path FAIL
+
+HTF automatic applicability PASS.
+
+Badar decisions remain sealed.
+
+P&L remains sealed.
+
+Chat #10 remains current. Chat #11 bootstrap has been updated to recover this closed v0.2 state.

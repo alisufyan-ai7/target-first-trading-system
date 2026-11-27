@@ -1,6 +1,6 @@
 # Badar Mechanization v0.2 — Prospective Outcome-Blind Redesign
 
-**Status:** BLIND PACKS FROZEN — INDEPENDENT ANNOTATION PENDING  
+**Status:** INDEPENDENT REPRODUCIBILITY FAIL — CLOSED BEFORE BEHAVIORAL FIDELITY  
 **Parent failure:** `PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`  
 **Badar decision labels available to design process:** NO  
 **P&L/outcomes available:** NO
@@ -243,3 +243,31 @@ Current disposition:
 `BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
 
 Behavior labels and P&L remain sealed.
+
+
+## Independent reproducibility result — 2026-11-27
+
+The frozen A/B study is complete.
+
+Disposition:
+
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Required field results:
+
+- location_state: 51.2%, kappa 0.260 — FAIL
+- structural_stop_visibility: 74.4%, kappa 0.532 — FAIL
+- late_state, applicable N=26: 73.1%, kappa 0.450 — FAIL
+- confirmation_state, human N=17: 76.5%, kappa 0.595 — FAIL
+- target_path_state: 95.3%, kappa 0.482 — FAIL
+- HTF packet applicability: 100% — PASS
+
+Canonical report:
+
+`independent-results/REPRODUCIBILITY-RESULT.md`
+
+Badar behavior labels were not revealed.
+
+P&L remains sealed.
+
+The 43 v0.2 cases are now spent validation cases and may not be reused as fresh validation for a tuned successor.

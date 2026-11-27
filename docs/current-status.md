@@ -1,7 +1,7 @@
 # Current Status
 
 **Date:** 2026-11-27  
-**Phase:** Badar Mechanization v0.2 — independent annotation returns reported; formal CSV ingestion/scoring pending
+**Phase:** Badar Mechanization v0.2 independent reproducibility FAIL — closed before behavioral fidelity
 
 ## Authorized context
 
@@ -4239,3 +4239,44 @@ Exact next formal action:
 5. stop before behavioral-fidelity reveal if any required gate fails;
 6. reveal Badar decisions only after a full reproducibility pass;
 7. keep P&L sealed.
+
+
+## 2026-11-27 — Badar Mechanization v0.2 independent reproducibility result
+
+Formal disposition:
+
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Provenance checks passed:
+
+- A pack hash matches frozen manifest;
+- B pack hash matches frozen manifest;
+- sealed crosswalk hash matches commitment;
+- 43 A rows + 43 B rows;
+- no duplicate/missing/unexpected blind IDs;
+- prior exposure YES = 0 for both;
+- 26/26 automatic confirmation states preserved per annotator;
+- 43/43 automatic HTF states preserved per annotator.
+
+Frozen gate result:
+
+| Field | Raw | Kappa | A unresolved | B unresolved | Result |
+|---|---:|---:|---:|---:|---|
+| location_state | 51.2% | 0.260 | 0.0% | 2.3% | FAIL |
+| structural_stop_visibility | 74.4% | 0.532 | 9.3% | 2.3% | FAIL |
+| late_state, applicable N=26 | 73.1% | 0.450 | 3.8% | 3.8% | FAIL |
+| confirmation_state, human N=17 | 76.5% | 0.595 | 0.0% | 5.9% | FAIL |
+| target_path_state | 95.3% | 0.482 | 2.3% | 4.7% | FAIL |
+| HTF automatic applicability | 100% | n/a | 0% | 0% | PASS |
+
+The formal result and confusion matrices are in:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/independent-results/`
+
+Badar behavior labels were not opened.
+
+P&L remains sealed.
+
+No behavioral-fidelity test is authorized for v0.2.
+
+If this line of research continues, it requires a prospectively new version and a fresh evidence tranche; the 43 v0.2 cases cannot serve as independent validation again.

@@ -3508,3 +3508,40 @@ Exact next action:
 - derive direct-branch agreement;
 - reveal behavior labels only on full v0.2 reproducibility PASS;
 - keep P&L sealed.
+
+
+## Latest checkpoint — Badar Mechanization v0.2 closed on reproducibility failure
+
+This section supersedes the earlier v0.2 annotation-pending/intake text.
+
+Current conversation:
+
+`Chat #10`
+
+Formal v0.2 disposition:
+
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Verified frozen inputs:
+
+- evidence boundary `bd0037e06a881a066e0cd8070b635cace59240d1`
+- 43 fresh cases; 0 v0.1 reuse
+- A pack `8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+- B pack `1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+- crosswalk commitment `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+All required human reproducibility fields fail at least one predeclared gate. HTF automatic applicability passes.
+
+Do not reveal Badar behavior labels for v0.2.
+
+Do not open P&L/outcomes.
+
+Do not adjudicate or repair these labels into a pass.
+
+Do not tune a successor and reuse these 43 cases as fresh validation.
+
+Canonical result:
+
+`mechanization-v0.2/independent-results/REPRODUCIBILITY-RESULT.md`
+
+If research continues, the next object must be prospectively new and must freeze its contract/gates before a genuinely fresh validation tranche.

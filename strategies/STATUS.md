@@ -850,3 +850,23 @@ No strategy engine is promoted.
 No further ChatGPT-only replay/interface variant is authorized on the same development pool.
 
 Preferred next evidence source: actual blinded human-trader decisions under the same anti-hindsight framework. If unavailable, new market information is required rather than another OHLC-derived motif.
+
+
+## Badar human-decision mechanization update — 2026-11-27
+
+The preferred actual-human evidence path has now produced two prospective mechanization attempts.
+
+- v0.1 independent reproducibility: FAIL before behavior reveal.
+- v0.2 fresh 43-case independent reproducibility: FAIL before behavior reveal.
+
+v0.2 improved several representation mechanics, including 100% HTF applicability consistency and lower unresolved rates, but the frozen agreement/kappa promotion gates still failed for location, structural-stop visibility, late state, confirmation, and target path.
+
+Disposition:
+
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+No Badar behavior labels or P&L were opened.
+
+**No strategy engine is promoted.**
+
+A further attempt, if authorized, must be a prospectively new mechanization version on genuinely fresh evidence; the v0.2 43-case tranche is spent for independent validation.

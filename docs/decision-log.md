@@ -2613,3 +2613,39 @@ Formal scoring remains blocked until the two completed annotation CSVs are inges
 Badar TRADE/WAIT/NO_TRADE remains sealed.
 
 P&L/result-R/MFE/MAE remain sealed.
+
+
+## 2026-11-27 — Close Badar Mechanization v0.2 after fresh independent reproducibility failure
+
+The two v0.2 independent annotator returns were recovered and verified against the frozen A/B packs and sealed crosswalk commitment.
+
+Integrity:
+
+- 43/43 rows for A and B;
+- no duplicate, missing or unexpected blind IDs;
+- prior exposure YES = 0;
+- automatic packet-derived confirmation and HTF states preserved;
+- sealed crosswalk hash verified exactly.
+
+Frozen gate result:
+
+- location_state: 51.2%, kappa 0.260 — FAIL;
+- structural_stop_visibility: 74.4%, kappa 0.532 — FAIL;
+- late_state on the frozen applicable subset: 73.1%, kappa 0.450 — FAIL;
+- confirmation_state on 17 human CLOSED cases: 76.5%, kappa 0.595 — FAIL;
+- target_path_state: 95.3%, kappa 0.482 — FAIL;
+- HTF applicability: 100% automatic consistency — PASS.
+
+**Decision:** close v0.2 before behavioral-fidelity reveal.
+
+Disposition:
+
+`V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+**Decision:** do not round confirmation kappa 0.595 into a pass, waive the target-path kappa gate because of prevalence, adjudicate failed A/B labels into a passing set, or reuse the 43 cases as fresh validation after tuning.
+
+Badar's actual TRADE/WAIT/NO_TRADE labels remain sealed.
+
+P&L/result-R/MFE/MAE remain sealed.
+
+Any successor must be a prospectively new mechanization version/tranche and may use only v0.2 disagreement diagnostics for redesign.
