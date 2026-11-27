@@ -4,17 +4,17 @@ You are continuing the **Badar Tanveer Strategies / Target-First Trading System*
 
 ## Source of truth
 
-GitHub is the canonical source of truth. Do not rely on assumed memory from prior chats.
+GitHub is canonical. Do not rely on assumed memory from prior chats.
 
-Main project repository:
+Main governing repository:
 
 `alisufyan-ai7/target-first-trading-system`
 
-External Badar source-evidence repository:
+External Badar evidence repository:
 
 `alisufyan-ai7/unpack-human-trading-strategies-claude`
 
-Before doing new research, use the GitHub connector to fetch the **current main HEADs** and read the latest versions of:
+Before any new research, fetch the **current main HEADs** and read the current versions of:
 
 1. `docs/PROJECT-GOVERNANCE.md`
 2. `docs/current-status.md`
@@ -23,155 +23,198 @@ Before doing new research, use the GitHub connector to fetch the **current main 
 5. `docs/CHAT-LEDGER.md`
 6. `CHANGELOG.md`
 7. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-results-v2/PHASE2-INDEPENDENT-REPRODUCIBILITY-RESULT.md`
-8. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-results-v2/AGREEMENT-METRICS.csv`
-9. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/README.md`
+8. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/README.md`
+9. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/SOURCE-BOUNDARY.md`
+10. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/ANNOTATION-CONTRACT.md`
+11. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/REPRODUCIBILITY-GATES.md`
+12. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/PACK-FREEZE.md`
+13. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/active-pack-manifest-v0.2.csv`
+14. `research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/ANNOTATOR-HANDOFF.md`
 
-Also inspect any newer commits/docs added after this prompt was written.
+Also inspect newer commits/docs added after this prompt was written.
 
-## Critical frozen boundary
+## Historical v0.1 result
 
-Badar Current-Era Decision Model v0.1 remains pinned to external source-evidence commit:
+v0.1 decision-model evidence boundary remains:
 
 `d19a43da80ae0e3ab4207a73a35f317120d37c84`
 
-Do not silently move that boundary.
-
-Post-freeze evidence belongs to the evidence-refresh queue / future version unless explicitly admitted prospectively.
-
-## Completed v0.1 Phase-2 result
-
-The two independent fresh annotators completed all four batches each.
-
-Submission integrity:
-
-- Annotator A: 254/254
-- Annotator B: 254/254
-- duplicate blind IDs: 0
-- unexpected blind IDs: 0
-- prior exposure YES: 0
-
-The rebuilt sealed A/B crosswalk commitment verified:
-
-`474572c2e21d6d8f5a770f27ce0b9d5d837bd2c147691bb15b652334672ddbc1`
-
-Final v0.1 disposition:
+The v0.1 independent visual mechanization study failed reproducibility before behavioral-fidelity reveal:
 
 `PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
 
-All seven frozen fields failed their gate.
+Do not reopen v0.1 behavior labels or P&L to rescue it.
 
-Core fields:
+## Current authorized study — Mechanization v0.2
 
-- location_state: 45.3% raw agreement, kappa 0.285
-- structural_stop_state: 78.0%, kappa 0.448
-- htf_close_state: 18.5%, kappa -0.002
-- late_state: 59.1%, kappa 0.315
+v0.2 uses a genuinely fresh prospective evidence tranche.
 
-Quality fields:
+Frozen external evidence commit:
 
-- confirmation_state: 41.3%, kappa 0.265
-- target_path_state: 68.5%, kappa 0.310
-- direct_branch_eligible: 52.4%, kappa 0.278
+`bd0037e06a881a066e0cd8070b635cace59240d1`
 
-Important diagnostic nuance:
+Fresh live streams:
 
-- structural-stop agreement is 99.4% among the 163 pairs where both annotators made a resolved call;
-- target-path agreement is 85.8% among 162 resolved pairs;
-- the largest systemic contract failure is HTF-close semantics;
-- location, confirmation and chasing remain materially ambiguous.
+- PYPzCJV-YXE — 2026-10-01
+- PxDGTxs-Cvc — 2026-10-02
+- EsAa5_T_kbQ — 2026-10-06
+- D85FC79tI6w — 2026-10-08
+- 6wwmBYPvmPQ — 2026-10-14
+- _9vCesQpBtM — 2026-10-15
+- of0Pv8JP4eE — 2026-10-23
+- wXbKuO5lVGg — 2026-10-26
 
-## What must remain sealed
+Fresh candidate events:
 
-Do **not** reveal Badar's actual TRADE/WAIT/NO_TRADE labels merely to diagnose the v0.1 reproducibility failure.
+**43**
 
-Do **not** open:
+v0.1 cases reused:
 
-- P&L
-- result R
-- MFE/MAE
-- skipped-trade outcome
+**0**
 
-Do not perform a behavior-fidelity reveal for v0.1 unless a later explicit governance decision justifies a descriptive-only analysis.
+## v0.2 representation changes
 
-Do not adjudicate v0.1 disagreements merely to manufacture a passing automated set.
+The blind packet supplies prospectively frozen:
 
-## Current authorized research object
+- candidate direction
+- directional context
+- intended POI
+- entry-area anchor
+- relevant context timeframe
+- confirmation timeframe/reference
+- confirmation-candle status
+- required HTF-close applicability
+- structural-stop anchor
+- first objective
+- blocker anchor when prospectively known
 
-Mechanization v0.1 is closed.
+Annotators judge those supplied candidates rather than independently inventing the setup.
 
-Current next object:
+`direct_branch_eligible` is derived later rather than manually labeled.
 
-**Badar Mechanization v0.2 — prospective outcome-blind representation/annotation redesign.**
+## v0.2 visual packet
 
-Canonical brief:
+Frozen frame-selection manifest:
 
-`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/README.md`
+`mechanization-v0.2/frame-selection-v0.2.csv`
 
-Tracking:
+Statistics:
 
-GitHub issue #2.
+- 43/43 eligible
+- 102 unique full-resolution source frames
+- 164 image uses per annotator
+- max latest-frame gap 182 sec
+- median latest-frame gap 67 sec
+- frozen max allowed 240 sec
 
-v0.2 may use only:
+## Frozen annotation gates
 
-- aggregate v0.1 A/B disagreement structure;
-- source-derived definitions already available before outcomes;
-- representation/contract deficiencies exposed by the blind study.
+Read:
 
-It may not use:
+`mechanization-v0.2/REPRODUCIBILITY-GATES.md`
 
-- v0.1 Badar actual decisions;
-- any P&L/outcome information;
-- outcome-conditioned threshold selection.
+Key human-label gates include:
 
-## v0.2 priorities
+- location_state: raw >=85%, kappa >=0.70, unresolved <=10% each
+- structural_stop_visibility: same
+- late_state applicable cases: same
+- confirmation_state human cases: raw >=80%, kappa >=0.60, unresolved <=15%, minimum 15
+- target_path_state: raw >=80%, kappa >=0.60, unresolved <=15%
 
-1. prospectively identifiable candidate direction;
-2. frozen intended POI / entry-area anchor;
-3. active timeframe + candle open/closed metadata;
-4. precise HTF-close semantics:
-   - NOT_RELEVANT
-   - REQUIRED_PENDING
-   - NEUTRAL
-   - CONFIRMS
-   - INVALIDATES
-   - FLIPS_BIAS
-   - UNRESOLVED
-5. structural-stop visible vs inferable distinction;
-6. explicit first-objective / blocker target-path contract;
-7. frozen confirmation reference boundary/family;
-8. explicit chasing anchor.
+Confirmation sample composition:
 
-## Fresh-test rule
+- 24 automatic NOT_YET
+- 2 automatic NONE
+- 17 human CLOSED-confirmation cases
 
-Do not redesign on the 254 v0.1 cases and then rescore those same cases as if they were fresh validation.
+HTF applicability:
 
-The next reproducibility test must use a prospectively separate evidence tranche.
+- 41 automatic NOT_RELEVANT
+- 2 automatic REQUIRED_PENDING
+- no human completed-required-close cases in this tranche
 
-Preferred source:
+## Active v0.2 independent packs
 
-post-freeze Badar live sessions after `d19a43d...`.
+Current disposition:
 
-## Next exact action
+`BADAR_MECHANIZATION_V0_2_BLIND_PACKS_FROZEN — INDEPENDENT_ANNOTATION_PENDING`
 
-Proceed directly with:
+Annotator A SHA-256:
 
-1. fetch the latest external Badar evidence repo HEAD;
-2. identify all source-layer live streams after the v0.1 cutoff;
-3. audit enough post-freeze streams to define a fresh v0.2 evidence boundary;
-4. freeze that boundary before any blind labels;
-5. design the enriched v0.2 packet/annotation contract;
-6. predeclare reproducibility gates;
-7. build fresh blinded packets;
-8. run new independent annotators;
-9. score reproducibility;
-10. only if v0.2 reproducibility passes may behavior-fidelity reveal be considered;
-11. P&L remains sealed until a later explicit promotion gate.
+`8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
 
-## Mandatory documentation behavior
+Annotator B SHA-256:
+
+`1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+
+Sealed crosswalk commitment:
+
+`8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+Successful pack build:
+
+`45954672567`
+
+The crosswalk itself is deliberately not in GitHub and must never be shown to either annotator.
+
+## Immediate next action
+
+The user must run two fresh isolated chats:
+
+### Annotator A
+
+Give only the A v0.2 ZIP.
+
+### Annotator B
+
+Give only the B v0.2 ZIP.
+
+Use the exact handoff instructions in:
+
+`mechanization-v0.2/ANNOTATOR-HANDOFF.md`
+
+Do not give annotators:
+
+- project/GitHub context
+- source notes/transcripts
+- stream IDs/event IDs
+- crosswalk
+- Badar eventual decisions
+- other annotator labels
+- P&L/outcomes
+
+## When completed A/B CSVs return
+
+Proceed directly:
+
+1. verify submission rows/schema and pack provenance;
+2. retrieve the sealed v0.2 crosswalk from the project/private file surface;
+3. verify its SHA-256 equals:
+   `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`;
+4. pair A/B labels to the 43 frozen events;
+5. exclude `prior_exposure=YES`;
+6. apply exactly the predeclared v0.2 reproducibility gates;
+7. compute raw agreement, Cohen's kappa, confusion matrices and unresolved rates;
+8. derive direct-branch eligibility separately from A/B frozen labels;
+9. if any required gate fails:
+   `V0_2_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`;
+10. if and only if all required gates pass, reveal Badar's TRADE/WAIT/NO_TRADE labels for behavioral-fidelity analysis;
+11. still keep P&L, result R, MFE/MAE and skipped-trade outcomes sealed.
+
+## Do not
+
+- annotate these packs from this governing chat;
+- tune the v0.2 contract after seeing A/B disagreement and rescore the same cases as fresh validation;
+- reveal Badar decisions early;
+- open P&L;
+- create another ChatGPT-only OHLC engine;
+- use favorable subsets to rescue failed research.
+
+## Mandatory documentation
 
 After every meaningful execution, update GitHub before considering the task complete.
 
-At minimum evaluate/update:
+Evaluate/update:
 
 - `docs/current-status.md`
 - `docs/decision-log.md`
@@ -182,23 +225,11 @@ At minimum evaluate/update:
 - affected research README/freeze/manifest
 - relevant GitHub issue(s)
 
-Always leave the repository with:
+Always leave:
 
-- exact disposition;
+- exact current disposition;
 - exact next action;
-- current hashes/commits;
+- relevant hashes/commit boundaries;
 - enough context for another fresh chat to resume from GitHub alone.
 
-## Working style
-
-Act rather than repeatedly asking for confirmation.
-
-Do not create another ChatGPT-only OHLC strategy/replay variant.
-
-Do not rescue failed experiments with favorable subsets.
-
-Do not open protected validation periods or P&L early.
-
-Use the external Claude repo as source evidence and Target-First as the governing strategy/research repository.
-
-At the end of a substantial step, report the new Target-First HEAD and the exact next formal action.
+At the end of a substantial step, report the current Target-First HEAD and the exact next formal action.
