@@ -801,3 +801,16 @@
 - P&L/result-R/MFE/MAE remain sealed.
 - Preserved disagreement diagnostics showing structural-stop and target-path concepts become much more consistent when both annotators can resolve them, while HTF-close semantics are the clearest representation/contract failure.
 - Next authorized object is Mechanization v0.2, outcome-blind, using a prospectively separate reproducibility tranche rather than post-hoc rescue of the same 254 cases.
+
+
+- Audited all 8 post-v0.1 Badar live streams available at external evidence commit `bd0037e06a881a066e0cd8070b635cace59240d1`.
+- Frozen a fresh 43-event v0.2 candidate set with zero reused v0.1 cases and no behavior labels/outcomes.
+- Redesigned the annotation representation to supply candidate direction, POI/entry anchor, confirmation reference/candle state, required HTF-close applicability, stop anchor and first objective prospectively.
+- Removed manually scored direct-branch eligibility; it will be derived from frozen A/B labels.
+- Predeclared v0.2 raw-agreement/kappa/unresolved gates before annotation.
+- Frozen 102 unique full-resolution source frames; all 43 events satisfy the <=240-second visual-gap rule.
+- Built and integrity-checked independently randomized v0.2 A/B packs with 43 cases and 164 images each.
+- Frozen A/B hashes and the sealed crosswalk commitment in `PACK-FREEZE.md` and `active-pack-manifest-v0.2.csv`.
+- Successful pack build run: `45954672567`.
+- Removed temporary one-shot build/export workflows after pack generation.
+- Current gate is independent v0.2 A/B annotation; Badar decision labels and P&L remain sealed.
