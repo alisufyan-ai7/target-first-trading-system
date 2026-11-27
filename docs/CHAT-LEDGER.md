@@ -122,3 +122,35 @@ It is:
 `Mechanization v0.2 — outcome-blind representation/annotation redesign + prospective separate reproducibility test`
 
 When transitioning to Chat #10, use the updated `docs/NEXT-CHAT-PROMPT.md`.
+
+
+## Chat #09 — 2026-11-27 Mechanization v0.2 pack-freeze update
+
+v0.2 prospective preparation is complete.
+
+Fresh evidence:
+
+- frozen external commit `bd0037e06a881a066e0cd8070b635cace59240d1`
+- 8 post-v0.1 live streams
+- 43 fresh candidate events
+- 0 reused v0.1 cases
+
+The richer annotation contract and new reproducibility gates were frozen before labels.
+
+43/43 cases pass packet eligibility.
+
+Active v0.2 packs:
+
+- A: `8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+- B: `1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+- crosswalk commitment: `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+Current status:
+
+`BADAR_MECHANIZATION_V0_2_BLIND_PACKS_FROZEN — INDEPENDENT_ANNOTATION_PENDING`
+
+Chat #09 cannot annotate.
+
+The next user action is to run two fresh isolated A/B chats and return the completed CSVs.
+
+Chat #10 bootstrap must recover this pack-freeze state from GitHub.
