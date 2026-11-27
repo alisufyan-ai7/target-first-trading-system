@@ -4,7 +4,7 @@ from __future__ import annotations
 import csv, hashlib, io, json, random, secrets, urllib.request, zipfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[6]
+ROOT = Path(__file__).resolve().parents[7]
 V02 = ROOT / "research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2"
 EVENTS = V02 / "candidate-events-v0.2.csv"
 INSTRUCTIONS = V02 / "INDEPENDENT-ANNOTATOR-INSTRUCTIONS-v0.2.md"
