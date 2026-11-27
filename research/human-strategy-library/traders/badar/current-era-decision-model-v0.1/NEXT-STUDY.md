@@ -218,3 +218,33 @@ Tracking issue:
 `#2 — Badar Mechanization v0.2 — outcome-blind representation redesign and fresh reproducibility test`
 
 v0.2 must use a prospectively separate evidence tranche; the same 254 v0.1 cases cannot be tuned and rescored as fresh validation.
+
+
+## 2026-11-27 — Mechanization v0.2 blind packs ready
+
+The prospective v0.2 redesign and packet construction are complete.
+
+Frozen external evidence cutoff:
+
+`bd0037e06a881a066e0cd8070b635cace59240d1`
+
+Fresh test:
+
+- 8 post-v0.1 streams;
+- 43 events;
+- 0 v0.1 reuse;
+- 43/43 eligible.
+
+Disposition:
+
+`BADAR_MECHANIZATION_V0_2_BLIND_PACKS_FROZEN — INDEPENDENT_ANNOTATION_PENDING`
+
+Next study action:
+
+two fresh isolated annotators complete the v0.2 A/B packs.
+
+Then apply the already frozen v0.2 reproducibility gates.
+
+Behavior-fidelity reveal remains conditional on reproducibility PASS.
+
+P&L remains sealed.
