@@ -1,0 +1,52 @@
+version: "0.2"
+status: "FROZEN_BEFORE_ANNOTATION"
+source_commit: "bd0037e06a881a066e0cd8070b635cace59240d1"
+fresh_streams: 8
+candidate_events: 43
+reused_v01_events: 0
+outcomes_allowed: false
+badar_decision_labels_allowed: false
+human_fields:
+  location_state:
+    labels: [VALID, APPROACHING, MIDDLE, WRONG_EXTREME, ABSENT, UNRESOLVED]
+    raw_agreement_min: 0.85
+    kappa_min: 0.70
+    unresolved_max_each: 0.10
+  late_state:
+    labels: [ON_TIME, CHASING, NOT_APPLICABLE, UNRESOLVED]
+    raw_agreement_min_applicable: 0.85
+    kappa_min_applicable: 0.70
+    unresolved_max_each_applicable: 0.10
+  structural_stop_visibility:
+    labels: [VISIBLE, INFERABLE, UNDEFINED, UNRESOLVED]
+    raw_agreement_min: 0.85
+    kappa_min: 0.70
+    unresolved_max_each: 0.10
+  confirmation_state:
+    labels: [NONE, NOT_YET, FAILED, WEAK, ADEQUATE, STRONG, UNRESOLVED]
+    auto_from_packet: [NONE, NOT_YET]
+    human_raw_agreement_min: 0.80
+    human_kappa_min: 0.60
+    human_unresolved_max_each: 0.15
+    minimum_human_cases: 15
+  target_path_state:
+    labels: [FEASIBLE, INFEASIBLE, UNRESOLVED]
+    raw_agreement_min: 0.80
+    kappa_min: 0.60
+    unresolved_max_each: 0.15
+htf_close_state:
+  labels: [NOT_RELEVANT, REQUIRED_PENDING, NEUTRAL, CONFIRMS, INVALIDATES, FLIPS_BIAS, UNRESOLVED]
+  automatic:
+    required_tf_NONE: NOT_RELEVANT
+    required_status_PENDING: REQUIRED_PENDING
+  completed_human_gate:
+    minimum_cases: 15
+    raw_agreement_min: 0.85
+    kappa_min: 0.70
+    unresolved_max_each: 0.10
+derived_fields:
+  direct_branch_eligible: true
+packet:
+  latest_frame_gap_max_seconds: 240
+  metadata_completeness_required: 1.0
+  max_prior_exposure_or_corrupt_fraction: 0.10
