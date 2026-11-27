@@ -2594,3 +2594,22 @@ The crosswalk itself remains outside GitHub and outside annotator packs.
 No behavior label or P&L was exposed.
 
 The next formal decision point occurs only after two fresh independent annotators return their completed CSVs.
+
+
+## 2026-11-27 — Chat #10 intake: do not score v0.2 from aggregate annotator summaries
+
+Chat #09 reached its conversation limit after the v0.2 packs were frozen. Chat #10 is now the governing research conversation.
+
+The user reports both fresh isolated annotators completed all 43 v0.2 rows with prior exposure YES = 0 and supplied aggregate unresolved counts.
+
+**Decision:** treat these numbers only as an intake checkpoint.
+
+**Decision:** do not compute or infer raw agreement, Cohen's kappa, confusion matrices, derived direct-branch agreement, or the overall promotion disposition from marginal unresolved counts.
+
+**Reason:** the frozen v0.2 gates require event-paired row-level A/B labels, applicable-case filtering, automatic-state checks, and crosswalk-verified pairing.
+
+Formal scoring remains blocked until the two completed annotation CSVs are ingested and the sealed crosswalk commitment is verified.
+
+Badar TRADE/WAIT/NO_TRADE remains sealed.
+
+P&L/result-R/MFE/MAE remain sealed.

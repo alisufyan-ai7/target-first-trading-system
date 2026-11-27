@@ -1,7 +1,7 @@
 # Current Status
 
-**Date:** 2026-09-23  
-**Phase:** Phase 2 — Engine K v0.1 failed training/June-calibration gate; July-August and September preserved; prospective scanner revision required
+**Date:** 2026-11-27  
+**Phase:** Badar Mechanization v0.2 — independent annotation returns reported; formal CSV ingestion/scoring pending
 
 ## Authorized context
 
@@ -4203,3 +4203,39 @@ The temporary binary staging/build plumbing has been cleaned:
 - temporary v0.2 export/build workflows were removed from both repository main branches.
 
 The frozen A/B artifacts, hashes, builder code, source/frame manifests and regeneration instructions remain sufficient to audit/regenerate the study without keeping duplicated source images in Target-First.
+
+
+## 2026-11-27 — Chat #10 v0.2 independent-annotation intake
+
+Chat #09 has ended due to conversation-length limits. Chat #10 is now the governing working conversation.
+
+The user reports that both isolated v0.2 annotators completed all 43 cases with no prior exposure.
+
+Reported summary only:
+
+| Field | A unresolved | B unresolved |
+|---|---:|---:|
+| location_state | 0 | 1 |
+| late_state | 1 | 1 |
+| structural_stop_visibility | 4 | 1 |
+| confirmation_state | 0 | 1 |
+| htf_close_state | 0 | 0 |
+| target_path_state | 1 | 2 |
+
+These are intake summaries, not formal scoring inputs.
+
+The completed row-level annotation CSVs are not yet present in Chat #10. Therefore raw agreement, Cohen's kappa, confusion matrices, applicable-case filtering, and derived direct-branch agreement have **not** been calculated.
+
+Current disposition:
+
+`BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
+
+Exact next formal action:
+
+1. ingest the completed A and B CSVs;
+2. verify row count/schema, prior-exposure flags, and pack provenance;
+3. recover and verify the sealed crosswalk commitment;
+4. pair labels and score exactly against `mechanization-v0.2/REPRODUCIBILITY-GATES.md`;
+5. stop before behavioral-fidelity reveal if any required gate fails;
+6. reveal Badar decisions only after a full reproducibility pass;
+7. keep P&L sealed.

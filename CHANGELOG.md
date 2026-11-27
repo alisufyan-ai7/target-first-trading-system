@@ -814,3 +814,14 @@
 - Successful pack build run: `45954672567`.
 - Removed temporary one-shot build/export workflows after pack generation.
 - Current gate is independent v0.2 A/B annotation; Badar decision labels and P&L remain sealed.
+
+
+## 2026-11-27 — Chat #10 continuity / v0.2 annotator-return intake
+
+- Chat #09 reached the conversation-length limit; Chat #10 rebuilt context from current GitHub state.
+- Corrected stale governance/chat-continuity text so Chat #10 is current and Chat #11 is next.
+- Recorded user-reported completion of both v0.2 annotators: 43 rows each, prior exposure YES = 0.
+- Recorded aggregate unresolved counts as intake metadata only.
+- Formal v0.2 agreement/kappa scoring remains pending the completed row-level A/B CSVs and sealed crosswalk verification.
+- Badar behavior labels remain sealed.
+- P&L/result-R/MFE/MAE remain sealed.

@@ -1,6 +1,6 @@
 # Chat Continuity Ledger
 
-## Chat #09 — CURRENT
+## Chat #09 — CLOSED / HANDOFF COMPLETE
 
 **Date checkpoint:** 2026-11-27
 
@@ -154,3 +154,43 @@ Chat #09 cannot annotate.
 The next user action is to run two fresh isolated A/B chats and return the completed CSVs.
 
 Chat #10 bootstrap must recover this pack-freeze state from GitHub.
+
+
+## Chat #10 — CURRENT
+
+**Date checkpoint:** 2026-11-27
+
+Chat #09 reached the conversation-length limit after freezing the Badar Mechanization v0.2 A/B packs.
+
+GitHub was re-read as the canonical source of truth before new execution.
+
+Current v0.2 frozen study:
+
+- source boundary: `bd0037e06a881a066e0cd8070b635cace59240d1`
+- 8 fresh streams
+- 43 fresh events
+- 0 reused v0.1 cases
+- A pack: `8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+- B pack: `1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+- crosswalk commitment: `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+The user reports both fresh annotators completed 43/43 rows with prior exposure YES = 0.
+
+Only aggregate unresolved summaries have been supplied in Chat #10 so far. The completed row-level CSVs are still required before formal scoring.
+
+Current status:
+
+`BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
+
+Next formal action:
+
+1. ingest completed A/B CSVs;
+2. verify provenance and sealed crosswalk;
+3. score frozen v0.2 reproducibility gates;
+4. stop before behavior reveal on any failure;
+5. reveal Badar decisions only on full pass;
+6. keep P&L sealed.
+
+Next conversation after Chat #10:
+
+`Chat #11`

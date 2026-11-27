@@ -217,3 +217,29 @@ The next formal operation requires two fresh isolated annotator chats.
 Badar behavioral labels remain sealed.
 
 P&L remains sealed.
+
+
+## Chat #10 annotation-return intake checkpoint — 2026-11-27
+
+The user reports both independent v0.2 annotators completed all 43 cases with prior exposure YES = 0.
+
+Aggregate unresolved counts reported:
+
+| Field | Annotator A | Annotator B |
+|---|---:|---:|
+| location_state | 0 | 1 |
+| late_state | 1 | 1 |
+| structural_stop_visibility | 4 | 1 |
+| confirmation_state | 0 | 1 |
+| htf_close_state | 0 | 0 |
+| target_path_state | 1 | 2 |
+
+These marginal counts are **not** a reproducibility result.
+
+The governing Chat #10 has not yet ingested the completed row-level CSVs, so no A/B pairing, agreement, kappa, confusion matrix, applicable-case filtering, or direct-branch derivation has been performed.
+
+Current disposition:
+
+`BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
+
+Behavior labels and P&L remain sealed.

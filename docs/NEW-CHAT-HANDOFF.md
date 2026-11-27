@@ -1,6 +1,6 @@
 # New Chat Handoff — Target-First Trading System
 
-_Last updated: 2026-09-24 after Engine K v0.2 / EXP-023 freeze and pipeline-policy checkpoint_
+_Last updated: 2026-11-27 — Chat #10 v0.2 annotator-return intake checkpoint_
 
 Use this file as the **first document to read whenever a new ChatGPT conversation is started for this project**.
 
@@ -3459,3 +3459,52 @@ When both completed CSVs return:
 The complete fresh-chat annotation instructions are in:
 
 `mechanization-v0.2/ANNOTATOR-HANDOFF.md`
+
+
+## Latest checkpoint — Chat #10 v0.2 annotator returns reported
+
+This section supersedes earlier chat-numbering/status text above.
+
+Current conversation:
+
+`Chat #10`
+
+Historical v0.1 result:
+
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Active v0.2 evidence boundary:
+
+`bd0037e06a881a066e0cd8070b635cace59240d1`
+
+Active frozen packs:
+
+- A SHA-256: `8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+- B SHA-256: `1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+- sealed crosswalk commitment: `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+User-reported annotator completion:
+
+- A: 43 rows, prior exposure YES = 0
+- B: 43 rows, prior exposure YES = 0
+
+Reported unresolved counts:
+
+- A — location 0, late 1, structural stop 4, confirmation 0, HTF close 0, target path 1
+- B — location 1, late 1, structural stop 1, confirmation 1, HTF close 0, target path 2
+
+These summaries are **not** sufficient for reproducibility scoring.
+
+Current disposition:
+
+`BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
+
+Exact next action:
+
+- obtain/ingest both completed row-level CSVs;
+- verify schema, provenance and sealed crosswalk;
+- pair A/B blind IDs;
+- compute the frozen agreement/kappa/unresolved/confusion metrics;
+- derive direct-branch agreement;
+- reveal behavior labels only on full v0.2 reproducibility PASS;
+- keep P&L sealed.

@@ -108,20 +108,54 @@ Do not expose P&L/outcomes before the currently authorized blind-study stage per
 
 ## Current Badar study guardrails
 
-Badar Current-Era Decision Model v0.1 remains pinned to source evidence commit:
+Historical v0.1 decision-model evidence boundary:
 
 `d19a43da80ae0e3ab4207a73a35f317120d37c84`
 
-The external repository may advance, but new evidence belongs to the evidence-refresh queue / future v0.2 unless explicitly admitted prospectively.
+Historical v0.1 disposition:
+
+`PHASE2_V0_1_INDEPENDENT_REPRODUCIBILITY_FAIL_CLOSE_BEFORE_BEHAVIORAL_FIDELITY`
+
+Active v0.2 evidence boundary:
+
+`bd0037e06a881a066e0cd8070b635cace59240d1`
+
+Active v0.2 study:
+
+- 8 fresh post-v0.1 live streams;
+- 43 fresh candidate events;
+- 0 reused v0.1 cases;
+- frozen annotation contract and reproducibility gates;
+- frozen A/B blind packs and sealed crosswalk commitment.
+
+User-reported independent-annotation intake on 2026-11-27:
+
+- Annotator A reports 43/43 rows complete and prior exposure YES = 0;
+- Annotator B reports 43/43 rows complete and prior exposure YES = 0;
+- only aggregate unresolved counts have been provided to the governing Chat #10 so far;
+- completed row-level CSVs have not yet been ingested in Chat #10.
 
 Current formal stage:
 
-`PHASE2 INDEPENDENT A/B ANNOTATION`
+`BADAR_MECHANIZATION_V0_2_ANNOTATION_RETURNS_REPORTED — FORMAL_CSV_INGESTION_AND_SCORING_PENDING`
 
-No P&L/backtest is authorized yet.
+No raw agreement, Cohen's kappa, confusion matrix, or promotion decision may be inferred from the marginal unresolved-count summaries alone.
 
-The active rebuilt annotator-pack manifest is:
+Exact next formal action:
 
-`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.1/phase2-independent-pack-manifest-v2.csv`
+1. ingest the completed Annotator A and Annotator B CSV files;
+2. verify schema/provenance and frozen pack identities;
+3. recover and verify the sealed crosswalk against commitment `8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`;
+4. pair A/B labels and apply the predeclared v0.2 reproducibility gates;
+5. reveal Badar TRADE/WAIT/NO_TRADE only if every required gate passes;
+6. keep P&L/result-R/MFE/MAE sealed in either case.
 
-The original October pack manifest is historical only and must not be used for the active handoff.
+Current working conversation:
+
+`Chat #10`
+
+Next conversation:
+
+`Chat #11`
+
+The ready bootstrap prompt for the next conversation is maintained in `docs/NEXT-CHAT-PROMPT.md`.
