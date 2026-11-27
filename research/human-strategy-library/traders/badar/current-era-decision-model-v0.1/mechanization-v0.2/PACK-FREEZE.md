@@ -181,3 +181,16 @@ After both completed annotation CSVs return:
 ## Freeze declaration
 
 `BADAR_MECHANIZATION_V0_2_PACK_FREEZE_COMPLETE`
+
+
+## Post-build repository hygiene
+
+After the successful pack build:
+
+- the temporary Target-First pack workflow was removed from `main`;
+- the temporary external-evidence export workflow was removed;
+- the disposable `tmp-badar-v02-pack-staging` ref was force-moved off the binary staging commits and back onto Target-First `main`;
+- Target-First `main` contains **0** files under `_badar_v02_source_frames/`;
+- neither repository `main` contains a temporary ChatGPT/Badar-v0.2 workflow.
+
+Thus the source-image binaries were used only as transient staging input and are not duplicated in the governing repository history reachable from active branches.
