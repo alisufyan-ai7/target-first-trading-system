@@ -1,28 +1,20 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import csv, hashlib, io, json, random, secrets, urllib.request, zipfile
+import csv, hashlib, io, json, os, random, secrets, zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[7]
 V02 = ROOT / "research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2"
 EVENTS = V02 / "candidate-events-v0.2.csv"
+FRAME_SELECTION = V02 / "frame-selection-v0.2.csv"
 INSTRUCTIONS = V02 / "INDEPENDENT-ANNOTATOR-INSTRUCTIONS-v0.2.md"
 OUT = ROOT / "_badar_v02_blind_build"
+SOURCE_ROOT = Path(os.environ.get("BADAR_V02_SOURCE_ROOT", ROOT / "_badar_v02_source_frames"))
 
-SOURCE_REPO = "alisufyan-ai7/unpack-human-trading-strategies-claude"
 SOURCE_COMMIT = "bd0037e06a881a066e0cd8070b635cace59240d1"
-SOURCE_BASE = "traders/badar-tanveer/evidence/stream_frames"
 SAFETY_SECONDS = 10
 MAX_GAP_SECONDS = 240
-MAX_FRAMES = 5
-
-def get(url: str) -> bytes:
-    with urllib.request.urlopen(url, timeout=60) as r:
-        return r.read()
-
-def raw(path: str) -> bytes:
-    return get(f"https://raw.githubusercontent.com/{SOURCE_REPO}/{SOURCE_COMMIT}/{path}")
 
 def sha256_bytes(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
@@ -65,27 +57,6 @@ def automatic_htf(required_status):
     if required_status=="PENDING": return "REQUIRED_PENDING"
     return ""
 
-def load_stream_index(stream_id):
-    path=f"{SOURCE_BASE}/{stream_id}/index.csv"
-    rows=list(csv.DictReader(io.StringIO(raw(path).decode("utf-8-sig"))))
-    for r in rows: r["stream_time_s"]=int(float(r["stream_time_s"]))
-    return rows
-
-def select_frames(index_rows, event_s):
-    cutoff=event_s-SAFETY_SECONDS
-    safe=[r for r in index_rows if r["stream_time_s"]<=cutoff]
-    if not safe: return []
-    tail=safe[-4:]
-    context=[r for r in safe if r["stream_time_s"]<=event_s-300]
-    if context:
-        tail=[context[-1]]+tail
-    seen=set(); out=[]
-    for r in tail:
-        if r["frame_file"] not in seen:
-            seen.add(r["frame_file"]); out.append(r)
-    out=sorted(out,key=lambda r:r["stream_time_s"])
-    return out[-MAX_FRAMES:]
-
 def blind_id(prefix):
     return prefix + "-" + secrets.token_hex(6).upper()
 
@@ -126,35 +97,54 @@ Do not infer what the trader eventually did.
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
     events=read_csv(EVENTS)
+    selection=read_csv(FRAME_SELECTION)
+    selection_by_event={r["event_id"]:r for r in selection}
     instructions=INSTRUCTIONS.read_bytes()
-    idx_cache={}
-    cases=[]
-    excluded=[]
+    cases=[]; excluded=[]
+
+    if not SOURCE_ROOT.exists():
+        raise SystemExit(f"source frame root missing: {SOURCE_ROOT}")
+
     for row in events:
-        sid=row["stream_id"]; evs=int(row["event_seconds"])
-        idx_cache.setdefault(sid,load_stream_index(sid))
-        frames=select_frames(idx_cache[sid],evs)
-        if not frames:
-            excluded.append({"event_id":row["event_id"],"reason":"NO_SAFE_FRAME"}); continue
-        latest_gap=evs-frames[-1]["stream_time_s"]
+        event_id=row["event_id"]; sid=row["stream_id"]; evs=int(row["event_seconds"])
+        sel=selection_by_event.get(event_id)
+        if not sel:
+            excluded.append({"event_id":event_id,"reason":"NO_FROZEN_SELECTION"}); continue
+        if sel.get("eligible")!="YES":
+            excluded.append({"event_id":event_id,"reason":"FROZEN_SELECTION_INELIGIBLE"}); continue
+        latest_gap=int(float(sel["latest_gap_seconds"]))
         if latest_gap>MAX_GAP_SECONDS:
-            excluded.append({"event_id":row["event_id"],"reason":f"LATEST_GAP_{latest_gap}"}); continue
+            excluded.append({"event_id":event_id,"reason":f"LATEST_GAP_{latest_gap}"}); continue
+
+        paths=[p for p in sel["source_frame_paths"].split("|") if p]
+        times=[int(float(x)) for x in sel["source_frame_times"].split("|") if x]
+        if len(paths)!=len(times) or not paths:
+            excluded.append({"event_id":event_id,"reason":"FRAME_SELECTION_MALFORMED"}); continue
+
+        frames=[]
+        for source_path,t in zip(paths,times):
+            a=source_path.split("/")
+            source_sid=a[-2]; fn=a[-1]
+            if source_sid!=sid:
+                raise SystemExit(f"stream mismatch {event_id}: {source_sid} != {sid}")
+            local=SOURCE_ROOT/sid/fn
+            if not local.exists():
+                raise SystemExit(f"missing staged frame: {local}")
+            if t>evs-SAFETY_SECONDS:
+                raise SystemExit(f"unsafe frame for {event_id}: {t} > {evs-SAFETY_SECONDS}")
+            frames.append(({"frame_file":fn,"stream_time_s":t},local.read_bytes()))
+
         conf=norm_confirmation_status(row)
         req=norm_required_close_status(row)
-        downloaded=[]
-        for fr in frames:
-            p=f"{SOURCE_BASE}/{sid}/{fr['frame_file']}"
-            b=raw(p)
-            downloaded.append((fr,b))
         cases.append({
-            "row":row,"frames":downloaded,"latest_gap":latest_gap,
+            "row":row,"frames":frames,"latest_gap":latest_gap,
             "confirmation_candle_status":conf,"required_htf_close_status":req
         })
 
-    if len(cases)<35:
-        raise SystemExit(f"too few eligible cases: {len(cases)}")
+    if len(cases)!=len(events):
+        raise SystemExit(f"eligible case mismatch: {len(cases)} of {len(events)}; excluded={excluded}")
 
-    # mappings are random and created before annotation.
+    # Random blind mappings are created before annotation.
     map_rows=[]
     for c in cases:
         map_rows.append({
@@ -166,7 +156,6 @@ def main():
             "latest_frame_gap_seconds":c["latest_gap"],
         })
 
-    # independent order
     orderA=map_rows[:]; orderB=map_rows[:]
     random.SystemRandom().shuffle(orderA); random.SystemRandom().shuffle(orderB)
     by_event={c["row"]["event_id"]:c for c in cases}
@@ -201,27 +190,30 @@ def main():
             z.writestr("PACK.json",json.dumps({
                 "version":"0.2","annotator":ann,"cases":len(ordered),
                 "source_commit":SOURCE_COMMIT,"safety_seconds":SAFETY_SECONDS,
-                "max_gap_seconds":MAX_GAP_SECONDS,"badar_decision_labels_exposed":False,
-                "outcomes_exposed":False
+                "max_gap_seconds":MAX_GAP_SECONDS,
+                "candidate_event_ids_exposed":False,"source_stream_ids_exposed":False,
+                "badar_decision_labels_exposed":False,"outcomes_exposed":False
             },indent=2).encode())
         zip_paths[ann]=zpath
 
     cross_fields=["event_id","stream_id","event_seconds","annotator_A_id","annotator_B_id","latest_frame_gap_seconds"]
     cross=csv_bytes(map_rows,cross_fields)
     (OUT/"SEALED-v0.2-crosswalk.csv").write_bytes(cross)
-    excluded_fields=["event_id","reason"]
-    (OUT/"excluded-events.csv").write_bytes(csv_bytes(excluded,excluded_fields) if excluded else b"event_id,reason\n")
+    (OUT/"excluded-events.csv").write_bytes(b"event_id,reason\n")
 
     summary={
         "source_commit":SOURCE_COMMIT,
-        "candidate_events":len(events),"eligible_cases":len(cases),"excluded":excluded,
+        "candidate_events":len(events),"eligible_cases":len(cases),"excluded":[],
         "A_sha256":sha256_file(zip_paths["A"]),
         "B_sha256":sha256_file(zip_paths["B"]),
         "crosswalk_sha256":sha256_bytes(cross),
         "A_file":zip_paths["A"].name,"B_file":zip_paths["B"].name,
         "frames_total":sum(len(c["frames"]) for c in cases),
+        "unique_source_frames":len({fr["frame_file"] for c in cases for fr,_ in c["frames"]}),
         "latest_gap_max":max(c["latest_gap"] for c in cases),
         "latest_gap_median":sorted(c["latest_gap"] for c in cases)[len(cases)//2],
+        "packet_metadata_complete":True,
+        "decision_labels_exposed":False,"outcomes_exposed":False
     }
     (OUT/"BUILD-SUMMARY.json").write_text(json.dumps(summary,indent=2)+"\n")
     print(json.dumps(summary,indent=2))
