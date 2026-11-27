@@ -4085,3 +4085,110 @@ Do not run policy behavior-fidelity or P&L.
 The next authorized research object is a new outcome-blind **Mechanization v0.2** representation/annotation contract that fixes the observed ambiguity and is tested prospectively on a separate evidence tranche.
 
 Backtesting remains unauthorized.
+
+
+## 2026-11-27 — BADAR MECHANIZATION v0.2 BLIND PACKS FROZEN
+
+Mechanization v0.2 has completed the full prospective preparation sequence through independent pack freeze.
+
+### Fresh evidence
+
+Frozen external source commit:
+
+`bd0037e06a881a066e0cd8070b635cace59240d1`
+
+Eight post-v0.1 live streams are included, spanning 2026-10-01 through 2026-10-26.
+
+Fresh candidate events:
+
+**43**
+
+v0.1 cases reused:
+
+**0**
+
+### v0.2 representation redesign
+
+The packet now supplies prospectively frozen:
+
+- candidate direction;
+- directional context;
+- intended POI / entry area;
+- relevant context timeframe;
+- confirmation timeframe/reference;
+- confirmation candle status;
+- required HTF-close applicability;
+- structural-stop anchor;
+- first objective;
+- known blocker anchor.
+
+Annotators no longer independently guess the candidate/setup itself.
+
+`direct_branch_eligible` is derived after annotation rather than manually labeled.
+
+### Frozen gates
+
+The v0.2 annotation contract and reproducibility gates were committed before annotation.
+
+No Badar behavior label or outcome was used to construct them.
+
+### Visual packet
+
+- 43/43 events eligible;
+- 102 unique full-resolution source frames;
+- 164 image uses per annotator;
+- latest visual gap max 182 sec;
+- median 67 sec;
+- frozen max 240 sec;
+- packet metadata completeness PASS.
+
+Confirmation-state composition per pack:
+
+- 24 automatic NOT_YET;
+- 2 automatic NONE;
+- 17 human-judged CLOSED-confirmation cases.
+
+The predeclared minimum of 15 human confirmation cases is satisfied.
+
+HTF-close applicability:
+
+- 41 automatic NOT_RELEVANT;
+- 2 automatic REQUIRED_PENDING;
+- no human completed-required-close interpretation cases.
+
+### Active blind packs
+
+Annotator A:
+
+`8a3673345c3f35ffbfb8acc7ed7b6ede9e83210d48c563eb238dccdcac026a67`
+
+Annotator B:
+
+`1561b0a9ea61b22b7968247ae39e4c18420a402479adc93513ba754dade2bca8`
+
+Sealed A/B crosswalk commitment:
+
+`8c8fd102539a2099b271a22d93733f9838c46a4cb73965d784abbf93b5dd3096`
+
+Successful build run:
+
+`45954672567`
+
+Canonical freeze:
+
+`research/human-strategy-library/traders/badar/current-era-decision-model-v0.1/mechanization-v0.2/PACK-FREEZE.md`
+
+### Current disposition
+
+`BADAR_MECHANIZATION_V0_2_BLIND_PACKS_FROZEN — INDEPENDENT_ANNOTATION_PENDING`
+
+The current Chat #09 is not eligible to act as an annotator.
+
+Next formal action:
+
+1. run A in a fresh isolated chat;
+2. run B in a different fresh isolated chat;
+3. return both completed CSVs;
+4. score the frozen v0.2 reproducibility gates;
+5. reveal Badar TRADE/WAIT/NO_TRADE only if all required reproducibility gates pass;
+6. keep P&L sealed.
