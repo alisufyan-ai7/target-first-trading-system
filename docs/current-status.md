@@ -4192,3 +4192,14 @@ Next formal action:
 4. score the frozen v0.2 reproducibility gates;
 5. reveal Badar TRADE/WAIT/NO_TRADE only if all required reproducibility gates pass;
 6. keep P&L sealed.
+
+
+### v0.2 build hygiene
+
+The temporary binary staging/build plumbing has been cleaned:
+
+- Target-First main contains no staged source-frame binaries;
+- the disposable staging branch was rewound off the binary staging chain;
+- temporary v0.2 export/build workflows were removed from both repository main branches.
+
+The frozen A/B artifacts, hashes, builder code, source/frame manifests and regeneration instructions remain sufficient to audit/regenerate the study without keeping duplicated source images in Target-First.
